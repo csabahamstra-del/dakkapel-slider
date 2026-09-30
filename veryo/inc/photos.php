@@ -2,7 +2,7 @@
 /**
  * Foto's: een kleine bibliotheek met (rechtenvrije) stockfoto's in het thema.
  * Bij activatie worden ze eenmalig in de mediabibliotheek gezet, zodat WordPress
- * er formaten en srcset voor maakt. Ontbreekt een foto, dan blijft de [FOTO]-plek staan.
+ * er formaten en srcset voor maakt. Ontbreekt een foto, dan komt er op die plek niets.
  *
  * Bestanden: assets/images/photos/{sleutel}.webp (of .jpg). Bronvermelding: assets/images/photos/CREDITS.md.
  *

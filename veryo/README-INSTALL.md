@@ -59,13 +59,13 @@ Zorg dat het e-mailadres in de bedrijfsgegevens een echt adres op je eigen domei
 
 ## 5. Wat nog open staat
 
-Bezoekers zien nergens een `[VUL IN]`- of `[FOTO]`-plek: de site is zo klaar voor publicatie. Wat er nog kan worden aangevuld (overzicht onder **Extra > Veryo-inhoud**):
+Op de site staat nergens een `[VUL IN]`- of `[FOTO]`-plek of iets dat op "under construction" lijkt, ook niet als je ingelogd bent. De site is klaar voor publicatie. Wat je later nog kunt toevoegen (overzicht onder **Extra > Veryo-inhoud**):
 
 - **Cases en reviews** (homepage en Over Veryo): het blok is verborgen tot je onder **Instellingen > Veryo** "Toon cases en reviews" aanzet. Vul het eerst met een echte klantcase en review, met toestemming.
-- **Foto's**: op de dienst-, regio- en branchepagina's en de homepage staan fotoplekken. Die zie je alleen als ingelogde beheerder. Twee manieren om ze te vullen:
-  - in de editor het blok vervangen door een afbeelding (gebruik de voorgestelde alt-tekst);
-  - of foto's als `assets/images/photos/{sleutel}.webp` in het thema zetten (sleutels en bronvermelding in `assets/images/photos/CREDITS.md`). Bij een nieuwe installatie komen ze dan automatisch op alle pagina's.
-  Voor het portret op Over Veryo hoort een echte foto van de oprichter.
+- **Foto's**: de pagina's hebben nu geen foto's. Je kunt er twee manieren voor gebruiken:
+  - in de editor een afbeeldingsblok toevoegen waar je wilt (geef het een alt-tekst met het zoekwoord van de pagina);
+  - of foto's als `assets/images/photos/{sleutel}.webp` in het thema zetten (sleutels en bronvermelding in `assets/images/photos/CREDITS.md`). Bij een nieuwe installatie komen ze dan automatisch op de juiste plekken.
+  Een echte foto van jezelf op Over Veryo werkt goed voor vertrouwen.
 - **Blogconcepten** (14, status concept): per kop staat de opzet. Schrijf ze uit en controleer actuele voorwaarden, prijzen en regelingen (SLIM, WBSO) voor je publiceert.
 - **LinkedIn en Instagram**: vul de URL's in onder **Instellingen > Veryo** zodra ze er zijn.
 
@@ -94,7 +94,7 @@ Veryo staat op de site als **onafhankelijke AI-partner** die geen eigen software
 
 De privacyverklaring, cookieverklaring en algemene voorwaarden zijn volledig ingevuld met jouw gegevens (Veryo, handelsnaam van Merklenz, KvK 73435996, hosting en mail via mijn.host, offertes 14 dagen geldig, betaaltermijn 14 dagen, maandelijkse facturatie, abonnementen maandelijks opzegbaar met één maand opzegtermijn) en gangbare standaardformuleringen, onder andere voor de aansprakelijkheidsbeperking en de doorgifte van gegevens aan Anthropic. Versiedatum: 30 september 2026.
 
-Het blijven **concepten**: beheerders zien bovenaan elke pagina "Concepttekst, laat dit juridisch controleren." (bezoekers zien dat niet). Laat de teksten door een jurist controleren, zeker de aansprakelijkheidsbeperking en de opzegtermijn. Haal daarna het vinkje "Juridisch concept" weg in de box **Veryo SEO** onder de pagina en pas zo nodig de versiedatum aan.
+Het blijven **concepten**: in de editor van deze pagina's staat de melding "Concepttekst, laat dit juridisch controleren." Op de website zelf is die melding niet te zien. Laat de teksten door een jurist controleren, zeker de aansprakelijkheidsbeperking en de opzegtermijn. Haal daarna het vinkje "Juridisch concept" weg in de box **Veryo SEO** onder de pagina en pas zo nodig de versiedatum aan.
 
 ## 7. Google Search Console, Bing en Google Bedrijfsprofiel
 

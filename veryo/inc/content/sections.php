@@ -59,24 +59,18 @@ function veryo_sec_answer( $text ) {
 }
 
 /**
- * Foto uit de fotobibliotheek, of anders een plek voor een echte foto.
+ * Foto uit de fotobibliotheek. Staat de foto niet in het thema, dan komt er niets:
+ * geen lege plek of placeholder op de site.
  *
- * @param string $desc Omschrijving van de gewenste foto.
+ * @param string $desc Omschrijving van de gewenste foto (ter referentie voor wie later foto's toevoegt).
  * @param string $alt  Alt-tekst (met het hoofdzoekwoord van de pagina).
- * @param string $key  Sleutel uit veryo_photo_library(); leeg = altijd placeholder.
+ * @param string $key  Sleutel uit veryo_photo_library().
  * @return string
  */
 function veryo_sec_photo( $desc, $alt, $key = '' ) {
+	unset( $desc );
 	$id = $key ? veryo_photo_id( $key ) : 0;
-	if ( $id ) {
-		return veryo_b_image( $id, $alt );
-	}
-	/* translators: 1: omschrijving foto, 2: alt-tekst. */
-	$text = sprintf( __( '[FOTO: %1$s. Alt-tekst: %2$s]', 'veryo' ), $desc, $alt );
-	return veryo_b_group(
-		veryo_b_p( $text ),
-		array( 'className' => 'veryo-photo' )
-	);
+	return $id ? veryo_b_image( $id, $alt ) : '';
 }
 
 /**

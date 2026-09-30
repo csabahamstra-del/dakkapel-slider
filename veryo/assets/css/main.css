@@ -181,12 +181,6 @@ strong { font-weight: 700; }
 .landing-crumbs { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gutter); }
 .landing-crumbs .breadcrumbs { margin: 0 0 16px; }
 
-.admin-warning {
-	max-width: var(--content); margin: 0 auto 24px; padding: 16px 24px; border-radius: var(--r-m);
-	background: var(--paper); color: var(--error); border-left: 4px solid var(--error);
-}
-.admin-warning strong { display: block; }
-
 /* ---------------------------------------------------------------- Inhoud en layout */
 
 .entry-content { padding: 0 var(--gutter) var(--s6); }
@@ -288,13 +282,6 @@ strong { font-weight: 700; }
 .veryo-cta .wp-block-buttons { margin-top: var(--s3); }
 .entry-content > .veryo-cta { margin-top: var(--s6); }
 .entry-content > .veryo-cta:last-child { margin-bottom: calc(-1 * var(--s6)); }
-
-/* Foto-placeholder */
-.veryo-photo {
-	display: flex; align-items: center; justify-content: center; text-align: center;
-	aspect-ratio: 16 / 7; border-radius: var(--r-l); background: var(--petrol-soft);
-	padding: var(--s3); color: var(--ink-muted); font-style: italic; font-size: .9375rem;
-}
 
 /* ---------------------------------------------------------------- Lijsten */
 

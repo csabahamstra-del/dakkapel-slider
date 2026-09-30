@@ -229,7 +229,7 @@ function veryo_hide_cases_block( $content, $block ) {
 add_filter( 'render_block', 'veryo_hide_cases_block', 10, 2 );
 
 /**
- * Fotoplekken ([FOTO: …]) alleen tonen aan wie kan bewerken; bezoekers zien ze niet.
+ * Oude fotoplekken ([FOTO: …]) uit eerdere versies nooit tonen, ook niet aan beheerders.
  *
  * @param string               $content Blok-HTML.
  * @param array<string, mixed> $block   Blok.
@@ -239,7 +239,7 @@ function veryo_hide_photo_placeholders( $content, $block ) {
 	if ( 'core/group' !== $block['blockName'] || empty( $block['attrs']['className'] ) ) {
 		return $content;
 	}
-	if ( false !== strpos( (string) $block['attrs']['className'], 'veryo-photo' ) && ! current_user_can( 'edit_posts' ) ) {
+	if ( false !== strpos( (string) $block['attrs']['className'], 'veryo-photo' ) ) {
 		return '';
 	}
 	return $content;

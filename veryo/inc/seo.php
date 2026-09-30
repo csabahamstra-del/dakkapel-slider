@@ -130,7 +130,7 @@ function veryo_seo_metabox( $post ) {
 		</p>
 		<p>
 			<label><input type="checkbox" name="veryo_hide_title" value="1" <?php checked( (bool) $m( '_veryo_hide_title' ) ); ?>> <?php esc_html_e( 'Paginakop verbergen (de H1 staat in de inhoud)', 'veryo' ); ?></label>
-			&nbsp; <label><input type="checkbox" name="veryo_legal_draft" value="1" <?php checked( (bool) $m( '_veryo_legal_draft' ) ); ?>> <?php esc_html_e( 'Juridisch concept (toont waarschuwing aan beheerders)', 'veryo' ); ?></label>
+			&nbsp; <label><input type="checkbox" name="veryo_legal_draft" value="1" <?php checked( (bool) $m( '_veryo_legal_draft' ) ); ?>> <?php esc_html_e( 'Juridisch concept (toont een melding in de editor)', 'veryo' ); ?></label>
 		</p>
 	<?php endif; ?>
 	<script>
@@ -970,3 +970,18 @@ function veryo_llms_txt() {
 	$out[] = '- ' . __( 'Gratis AI-scan', 'veryo' ) . ': ' . veryo_url( 'waar-begin-ik-met-ai' );
 	return implode( "\n", $out ) . "\n";
 }
+
+/**
+ * Melding in de editor bij juridische concepten (op de website zelf is niets te zien).
+ */
+function veryo_legal_draft_notice() {
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( ! $screen || 'page' !== $screen->id || empty( $_GET['post'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- alleen lezen.
+		return;
+	}
+	if ( ! get_post_meta( absint( $_GET['post'] ), '_veryo_legal_draft', true ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- alleen lezen.
+		return;
+	}
+	echo '<div class="notice notice-warning"><p><strong>' . esc_html__( 'Concepttekst, laat dit juridisch controleren.', 'veryo' ) . '</strong> ' . esc_html__( 'Haal daarna het vinkje "Juridisch concept" weg in de box Veryo SEO.', 'veryo' ) . '</p></div>';
+}
+add_action( 'admin_notices', 'veryo_legal_draft_notice' );

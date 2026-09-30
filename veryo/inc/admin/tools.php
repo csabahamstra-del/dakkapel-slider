@@ -75,7 +75,6 @@ function veryo_tools_page() {
 				</tbody>
 			</table>
 		<?php endif; ?>
-		<p class="description"><?php esc_html_e( 'Let ook op de [FOTO: …]-blokken: vervang ze door echte foto’s met de voorgestelde alt-tekst.', 'veryo' ); ?></p>
 	</div>
 	<?php
 }
