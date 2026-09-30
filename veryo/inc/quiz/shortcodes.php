@@ -15,6 +15,7 @@ add_shortcode( 'veryo_report_preview', 'veryo_sc_report_preview' );
 add_shortcode( 'veryo_contact_details', 'veryo_sc_contact_details' );
 add_shortcode( 'veryo_calendly_button', 'veryo_sc_calendly_button' );
 add_shortcode( 'veryo_bewaartermijn', 'veryo_sc_retention' );
+add_shortcode( 'veryo_kennismaking', 'veryo_sc_kennismaking' );
 
 /**
  * Script-configuratie één keer meegeven.
@@ -258,17 +259,30 @@ function veryo_sc_form( $atts ) {
 		'',
 		$p
 	);
-	if ( 'contact' === $type ) {
+	$out .= veryo_field(
+		'text',
+		'bedrijf',
+		__( 'Bedrijf', 'veryo' ),
+		false,
+		array(
+			'autocomplete' => 'organization',
+			'maxlength'    => '120',
+		),
+		'',
+		$p
+	);
+	if ( 'academy' === $type ) {
 		$out .= veryo_field(
-			'text',
-			'bedrijf',
-			__( 'Bedrijf', 'veryo' ),
+			'number',
+			'medewerkers',
+			__( 'Aantal medewerkers dat wil deelnemen', 'veryo' ),
 			false,
 			array(
-				'autocomplete' => 'organization',
-				'maxlength'    => '120',
+				'min'       => '1',
+				'max'       => '1000',
+				'inputmode' => 'numeric',
 			),
-			'',
+			__( 'Staffelkorting vanaf 10 personen. Laat leeg als je alleen voor jezelf inschrijft.', 'veryo' ),
 			$p
 		);
 	}
@@ -312,7 +326,7 @@ function veryo_sc_form( $atts ) {
 	}
 	$consent = 'academy' === $type
 		/* translators: %s: link naar privacyverklaring. */
-		? __( 'Ik ga akkoord dat Veryo mijn naam en e-mailadres bewaart om mij te laten weten wanneer de cursus beschikbaar is, zoals beschreven in de %s.', 'veryo' )
+		? __( 'Ik ga akkoord dat Veryo mijn gegevens bewaart om mij te laten weten wanneer de cursus beschikbaar is, zoals beschreven in de %s.', 'veryo' )
 		/* translators: %s: link naar privacyverklaring. */
 		: __( 'Ik ga akkoord dat Veryo mijn gegevens gebruikt om contact met mij op te nemen, zoals beschreven in de %s.', 'veryo' );
 	$out .= '<div class="field field--check"><input type="checkbox" id="' . esc_attr( $p ) . '-toestemming" name="toestemming" value="1" required aria-describedby="' . esc_attr( $p ) . '-toestemming-error"><label for="' . esc_attr( $p ) . '-toestemming">' . sprintf( esc_html( $consent ), $privacy ) . '</label><p class="field-error" id="' . esc_attr( $p ) . '-toestemming-error" hidden></p></div>';
@@ -356,6 +370,17 @@ function veryo_sc_calendly_button() {
 		return '';
 	}
 	return '<p><a class="btn btn--petrol" href="' . esc_url( $url ) . '">' . esc_html__( 'Plan direct een gesprek', 'veryo' ) . '</a></p>';
+}
+
+/**
+ * Knoppen "Plan een kennismaking" (Calendly, anders contactpagina) en "Doe eerst de gratis AI-scan".
+ *
+ * @return string
+ */
+function veryo_sc_kennismaking() {
+	$url = (string) veryo_setting( 'calendly_url', '' );
+	$url = '' !== $url ? $url : veryo_url( 'contact' );
+	return '<div class="veryo-cta-buttons"><a class="btn btn--amber" href="' . esc_url( $url ) . '">' . esc_html__( 'Plan een kennismaking', 'veryo' ) . '</a> <a class="btn btn--link" href="' . esc_url( veryo_url( 'waar-begin-ik-met-ai' ) ) . '">' . esc_html__( 'Doe eerst de gratis AI-scan', 'veryo' ) . '</a></div>';
 }
 
 /**
@@ -460,6 +485,11 @@ function veryo_sc_rapport() {
 	$out .= '</ol>';
 	$out .= '<h2>' . esc_html__( 'Hier kun je zelf mee beginnen', 'veryo' ) . '</h2><p>' . esc_html( $r['zelf_beginnen'] ) . '</p>';
 	$out .= '<p>' . esc_html( $r['afsluiting'] ) . '</p>';
+	$team = isset( $lead['answers']['team'] ) ? (string) $lead['answers']['team'] : '';
+	$out .= '<div class="report__next"><h2>' . esc_html__( 'Je volgende stap: het AI-Startpakket', 'veryo' ) . '</h2>';
+	$out .= '<p>' . esc_html__( 'Kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg.', 'veryo' ) . '</p>';
+	/* translators: %s: prijsindicatie voor de teamgrootte. */
+	$out .= '<p>' . esc_html( sprintf( __( 'Voor jullie teamgrootte: %s, exclusief btw.', 'veryo' ), veryo_startpakket_price_for_team( $team ) ) ) . ' <a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p></div>';
 	if ( $calendly ) {
 		$out .= '<p><a class="btn btn--amber" href="' . esc_url( $calendly ) . '">' . esc_html__( 'Plan een gesprek', 'veryo' ) . '</a></p>';
 	}

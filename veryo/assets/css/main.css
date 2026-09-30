@@ -338,14 +338,16 @@ strong { font-weight: 700; }
 .is-style-prices li:last-child { border-bottom: 0; }
 
 /* Prijsladder */
-.is-style-ladder { list-style: none; padding-left: 0 !important; counter-reset: ladder -1; position: relative; }
+.is-style-ladder { list-style: none; padding-left: 0 !important; counter-reset: ladder; position: relative; }
 .is-style-ladder::before { content: ""; position: absolute; left: 19px; top: 24px; bottom: 24px; width: 2px; background: var(--line); }
 .is-style-ladder li { counter-increment: ladder; position: relative; padding: 16px 20px 16px 64px; margin: 12px 0 0 !important; background: var(--paper); border-radius: var(--r-m); max-width: none; }
 .is-style-ladder li::before {
 	content: counter(ladder); position: absolute; left: 4px; top: 16px; width: 32px; height: 32px; border-radius: 50%;
 	background: var(--petrol); color: var(--paper); font: 700 .9375rem/32px var(--sans); text-align: center;
 }
-.is-style-ladder li:first-child::before { background: var(--amber); color: var(--ink); }
+.is-style-ladder li.is-featured { box-shadow: inset 0 0 0 2px var(--amber); padding-top: 20px; padding-bottom: 20px; }
+.is-style-ladder li.is-featured::before { background: var(--amber); color: var(--ink); }
+.veryo-flag { display: inline-block; background: var(--amber); color: var(--ink); font-size: .8125rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: var(--r-s); }
 .veryo-price-tag { display: inline-block; margin-left: 4px; color: var(--petrol); font-weight: 700; }
 
 /* Plaatsen */
@@ -409,7 +411,7 @@ strong { font-weight: 700; }
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 600; }
 .field .req { color: var(--error); }
-.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field textarea {
+.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field input[type="number"], .field textarea {
 	width: 100%; font: 400 1rem/1.5 var(--sans); color: var(--ink); background: var(--paper);
 	border: 1px solid var(--ink-muted); border-radius: var(--r-s); padding: 12px 14px; min-height: 48px;
 }
@@ -574,3 +576,20 @@ strong { font-weight: 700; }
 .entry-content > .veryo-img { max-width: var(--wide); }
 @media (min-width: 1024px) { .entry-content > .veryo-img { max-width: 880px; } }
 .wp-block-image figcaption { margin-top: 8px; font-size: .875rem; color: var(--ink-muted); }
+
+/* ---------------------------------------------------------------- Startpakket, partner, onafhankelijk */
+
+.veryo-featured { padding: var(--s3); }
+@media (min-width: 768px) { .veryo-featured { padding: var(--s5) var(--s4); } }
+.veryo-featured .wp-block-columns { gap: var(--s4); align-items: flex-start; }
+.veryo-featured .is-style-steps li { padding-left: 52px; }
+.veryo-featured .is-style-steps li::before { font-size: 2rem; }
+.veryo-featured__side { background: var(--petrol-soft); border-radius: var(--r-m); padding: var(--s3); }
+.veryo-featured__side .wp-block-buttons { margin-top: var(--s3); }
+.veryo-partner-row { margin-top: var(--s3) !important; padding: var(--s3) 0 0; border-top: 1px solid var(--line); gap: var(--s3) !important; }
+.veryo-partner-row h3 { font-family: var(--serif) !important; font-weight: 500 !important; font-size: var(--fs-display-m) !important; }
+.veryo-cta-buttons { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; margin-top: var(--s3); }
+.is-style-petrol .btn--link { color: var(--paper); }
+.report__next { background: var(--petrol-soft); border-radius: var(--r-l); padding: var(--s3); margin-top: var(--s4); }
+.report__next h2 { margin-top: 0 !important; }
+.report__next p + p { margin-top: 8px; }

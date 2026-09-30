@@ -114,6 +114,7 @@ function veryo_seo_metabox( $post ) {
 			<select id="veryo_schema_type" name="veryo_schema_type">
 				<option value=""><?php esc_html_e( 'Alleen webpagina', 'veryo' ); ?></option>
 				<option value="service" <?php selected( $m( '_veryo_schema_type' ), 'service' ); ?>><?php esc_html_e( 'Dienst (Service)', 'veryo' ); ?></option>
+				<option value="startpakket" <?php selected( $m( '_veryo_schema_type' ), 'startpakket' ); ?>><?php esc_html_e( 'AI-Startpakket (drie vaste prijzen)', 'veryo' ); ?></option>
 			</select>
 			<label for="veryo_price_min"><?php esc_html_e( 'Prijs vanaf (€)', 'veryo' ); ?></label>
 			<input type="number" min="0" step="1" id="veryo_price_min" name="veryo_price_min" value="<?php echo esc_attr( (string) $m( '_veryo_price_min' ) ); ?>" style="width:100px">
@@ -180,7 +181,7 @@ function veryo_save_seo_metabox( $post_id ) {
 	}
 	if ( isset( $_POST['veryo_schema_type'] ) ) {
 		$type = sanitize_key( wp_unslash( $_POST['veryo_schema_type'] ) );
-		update_post_meta( $post_id, '_veryo_schema_type', 'service' === $type ? 'service' : '' );
+		update_post_meta( $post_id, '_veryo_schema_type', in_array( $type, array( 'service', 'startpakket' ), true ) ? $type : '' );
 	}
 	foreach ( array(
 		'veryo_price_min' => '_veryo_price_min',
@@ -671,7 +672,8 @@ function veryo_schema_graph() {
 	$graph[] = $page;
 
 	// Dienst.
-	if ( is_page() && 'service' === get_post_meta( $id, '_veryo_schema_type', true ) ) {
+	$schema_type = (string) get_post_meta( $id, '_veryo_schema_type', true );
+	if ( is_page() && in_array( $schema_type, array( 'service', 'startpakket' ), true ) ) {
 		$area    = (string) get_post_meta( $id, '_veryo_area', true );
 		$areas   = $area ? array( $area ) : array( 'Friesland', 'Groningen', 'Drenthe' );
 		$service = array(
@@ -693,7 +695,24 @@ function veryo_schema_graph() {
 		);
 		$min     = get_post_meta( $id, '_veryo_price_min', true );
 		$max     = get_post_meta( $id, '_veryo_price_max', true );
-		if ( '' !== (string) $min ) {
+		if ( 'startpakket' === $schema_type ) {
+			$offers = array();
+			foreach ( veryo_startpakket_prices() as $row ) {
+				$offers[] = array(
+					'@type'              => 'Offer',
+					'name'               => $row['label'],
+					'price'              => $row['price'],
+					'priceCurrency'      => 'EUR',
+					'priceSpecification' => array(
+						'@type'                 => 'PriceSpecification',
+						'price'                 => $row['price'],
+						'priceCurrency'         => 'EUR',
+						'valueAddedTaxIncluded' => false,
+					),
+				);
+			}
+			$service['offers'] = $offers;
+		} elseif ( '' !== (string) $min ) {
 			$spec = array(
 				'@type'                 => 'PriceSpecification',
 				'minPrice'              => (int) $min,
@@ -906,7 +925,7 @@ function veryo_llms_txt() {
 	$out[] = $clean(
 		sprintf(
 			/* translators: %s: plaats. */
-			__( 'Veryo is een AI-bureau voor het MKB (teams tot ongeveer 50 mensen), gevestigd in %s. Veryo bouwt AI-automatiseringen, geeft AI-trainingen en maakt AI op maat, met vaste pakketprijzen en resultaten die je in uren en euro’s kunt meten. Werkgebied: Friesland, Groningen en Drenthe (op locatie); trainingen en online diensten ook landelijk. Sterk in bouw, installatie, agri en techniek.', 'veryo' ),
+			__( 'Veryo is de onafhankelijke AI-partner voor het MKB (teams tot ongeveer 50 mensen), gevestigd in %s. Veryo adviseert welke AI past, voert die in en traint het team, en bouwt koppelingen of maatwerk waar bestaande software tekortschiet. Veryo verkoopt geen eigen software. Hoofdproduct is het Veryo AI-Startpakket. Vaste pakketprijzen en resultaten die je in uren en euro’s kunt meten. Werkgebied: Friesland, Groningen en Drenthe (op locatie); trainingen en online diensten ook landelijk. Sterk in bouw, installatie, agri en techniek.', 'veryo' ),
 			$c['city'] ? $c['city'] : 'Leeuwarden'
 		)
 	);

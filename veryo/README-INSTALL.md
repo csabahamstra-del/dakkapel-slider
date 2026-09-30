@@ -11,10 +11,12 @@ Dit thema zet bij activatie de complete Veryo-site klaar: alle pagina's, menu's,
    - de homepage wordt de statische voorpagina en `/blog/` de berichtenpagina (alleen als er nog geen geldige keuze was);
    - het hoofdmenu en het footermenu worden aangemaakt en gekoppeld;
    - de permalinks worden op `/%postname%/` gezet, maar **alleen** als ze op "Standaard" stonden;
-   - 12 blogconcepten worden aangemaakt (status: concept);
+   - 14 blogconcepten worden aangemaakt (status: concept);
    - de tagline wordt "AI die echt werkt." en het site-icoon wordt het Veryo-beeldmerk.
    - de standaardinhoud van WordPress ("Hello world!" en "Sample Page") gaat naar de prullenbak, maar alleen als je die nog niet hebt aangepast.
 4. Bovenaan wp-admin verschijnt een melding met een link naar de instellingen en een lijst met alle `[VUL IN]`-placeholders.
+
+**Had je een eerdere versie van het thema al actief?** Dan worden alleen de ontbrekende pagina's aangemaakt (zoals `/ai-startpakket/` en `/ai-partner/`). Een bestaande homepage, prijzenpagina en bestaande menu's blijven zoals ze waren. Wil je de nieuwe versie daarvan: verwijder die pagina's of menu's (of zet ze in de prullenbak) en klik daarna op de knop hieronder.
 
 Pagina per ongeluk verwijderd? Ga naar **Extra > Veryo-inhoud** en klik op **Veryo-inhoud opnieuw aanmaken (ontbrekende pagina's)**. Alleen ontbrekende pagina's, menu's en concepten worden aangemaakt.
 
@@ -40,7 +42,7 @@ Gebruikt je hosting nginx en geeft `/llms.txt` een 404? Dan serveert nginx `.txt
 - **Model.** Standaard `claude-sonnet-5-5`. Gebruik een geldige model-ID van Anthropic.
 - **Kostprijs per uur** (standaard €45) en **werkweken per jaar** (standaard 46) bepalen de berekening in euro's.
 - **E-mail voor interne leadmeldingen.** Hier komt "[HEET] Nieuwe AI-scan: Bedrijf (X u/wk)" binnen.
-- **Calendly- of afspraaklink.** Is dit veld leeg, dan wordt de knop "Plan een gesprek" niet getoond.
+- **Calendly- of afspraaklink.** Is dit veld leeg, dan wordt de knop "Plan een gesprek" niet getoond. De knop "Plan een kennismaking" (shortcode `[veryo_kennismaking]`, onder andere op de Startpakket-pagina) gaat dan naar `/contact/`.
 - **Make-webhook-URL** (optioneel, moet met `https://` beginnen). Elke nieuwe lead gaat als JSON naar deze URL, bijvoorbeeld om een taak in ClickUp of Notion te maken. Velden: `lead_id`, `bron`, `datum`, `temperatuur`, `cijfers`, `antwoorden`, `leesbaar`, `contact`, `admin_url`.
 - **Bewaartermijn** (standaard 24 maanden). Oudere leads worden dagelijks automatisch verwijderd.
 - **Afzendernaam** van e-mails (standaard "Veryo").
@@ -64,8 +66,19 @@ Bezoekers zien nergens een `[VUL IN]`- of `[FOTO]`-plek: de site is zo klaar voo
   - in de editor het blok vervangen door een afbeelding (gebruik de voorgestelde alt-tekst);
   - of foto's als `assets/images/photos/{sleutel}.webp` in het thema zetten (sleutels en bronvermelding in `assets/images/photos/CREDITS.md`). Bij een nieuwe installatie komen ze dan automatisch op alle pagina's.
   Voor het portret op Over Veryo hoort een echte foto van de oprichter.
-- **Blogconcepten** (12, status concept): per kop staat de opzet. Schrijf ze uit en controleer actuele voorwaarden, prijzen en regelingen (SLIM, WBSO) voor je publiceert.
+- **Blogconcepten** (14, status concept): per kop staat de opzet. Schrijf ze uit en controleer actuele voorwaarden, prijzen en regelingen (SLIM, WBSO) voor je publiceert.
 - **LinkedIn en Instagram**: vul de URL's in onder **Instellingen > Veryo** zodra ze er zijn.
+
+## Aanbod, prijzen en menu
+
+Veryo staat op de site als **onafhankelijke AI-partner** die geen eigen software verkoopt. Het aanbod en alle prijzen staan op één plek: `inc/quiz/catalog.php` (`veryo_price_ladder()`, `veryo_startpakket_prices()` en `veryo_startpakket_parts()`). Pas je daar een prijs aan, dan verandert die in de prijsladder, het Startpakket-blok, de rapportmail en de AI-scan. Prijzen in de lopende tekst van pagina's pas je in de editor aan.
+
+- **AI-Startpakket** (`/ai-startpakket/`, hoofdproduct): tot 10 medewerkers €1.995, 11–25 €2.995, 26–50 €4.495, excl. btw. Vijf onderdelen: AI-scan en kansensessie, training voor het hele team, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg. De pagina heeft Service-schema met drie Offers (box **Veryo SEO** > schema "AI-Startpakket"). Het blok staat ook als patroon **AI-Startpakket (uitgelicht)** in de editor. Alleen het prijsblok van het Startpakket krijgt het amberkleurige accent.
+- **AI-partner** (`/ai-partner/`): €495–995 per maand excl. btw, per maand opzegbaar. **Let op:** de opzegtermijn van één maand is een aanname, gelijk aan de algemene voorwaarden. Klopt die niet, pas dan de pagina én de voorwaarden aan.
+- **Veryo Academy** (`/academy/`): €49–79 per persoon, staffelkorting vanaf 10 deelnemers. Het wachtlijstformulier vraagt naam, bedrijf, aantal medewerkers, e-mail en toestemming. Het aantal staat bij de lead en in de CSV-export (`aantal_medewerkers`).
+- **Prijzenpagina** (`/prijzen/`): instap (gratis scan), hoofdproduct (Startpakket), losse onderdelen en doorlopend (partner, onderhoud).
+- **Hoofdmenu > Diensten**: AI-Startpakket, AI-training, AI-implementatie MKB, AI-automatisering en koppelingen, AI op maat, AI-partner.
+- **Rapportmail van de AI-scan**: onderaan staat het blok "Je volgende stap: het AI-Startpakket" met de prijs voor de teamgrootte uit de scan. Het rapport adviseert eerst te kijken wat bestaande software al kan, en noemt geen softwaremerken.
 
 ## Publicatie-checklist
 
@@ -137,6 +150,6 @@ Verzoeken om inzage of verwijdering handel je af via **Extra > Persoonsgegevens 
 
 ## 10. Bewerken
 
-Alle pagina's bestaan uit gewone Gutenberg-blokken en zijn in de editor aan te passen. Terugkerende secties staan als blokpatronen in de categorie **Veryo** (hero, CTA-blok AI-scan, dienstenoverzicht, prijsladder, FAQ, stappenplan, branche-grid, regioblok, direct antwoord). Een FAQ-blok levert automatisch FAQPage-schema op, met exact de zichtbare vragen en antwoorden. Per pagina stel je in de box **Veryo SEO** de SEO-title (max. 60 tekens), meta description (140–155 tekens), canonical, noindex en het dienstschema met prijsrange in.
+Alle pagina's bestaan uit gewone Gutenberg-blokken en zijn in de editor aan te passen. Terugkerende secties staan als blokpatronen in de categorie **Veryo** (hero, CTA-blok AI-scan, AI-Startpakket, dienstenoverzicht, prijsladder, FAQ, stappenplan, branche-grid, regioblok, direct antwoord). Een FAQ-blok levert automatisch FAQPage-schema op, met exact de zichtbare vragen en antwoorden. Per pagina stel je in de box **Veryo SEO** de SEO-title (max. 60 tekens), meta description (140–155 tekens), canonical, noindex en het dienstschema met prijsrange in.
 
 Het thema laadt geen externe lettertypes, scripts of trackers. Fonts, logo en afbeeldingen komen allemaal uit het thema zelf.

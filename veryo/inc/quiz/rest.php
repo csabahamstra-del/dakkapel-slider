@@ -296,8 +296,15 @@ function veryo_rest_form( $request ) {
 	if ( ! is_email( $contact['email'] ) ) {
 		$errors['email'] = __( 'Vul een geldig e-mailadres in.', 'veryo' );
 	}
+	$contact['bedrijf'] = veryo_clean_text( isset( $p['bedrijf'] ) ? $p['bedrijf'] : '', 120 );
+	if ( 'academy' === $type ) {
+		$raw_count = isset( $p['medewerkers'] ) && is_scalar( $p['medewerkers'] ) ? trim( (string) $p['medewerkers'] ) : '';
+		if ( '' !== $raw_count && ( ! ctype_digit( $raw_count ) || (int) $raw_count < 1 || (int) $raw_count > 1000 ) ) {
+			$errors['medewerkers'] = __( 'Vul een aantal tussen 1 en 1000 in.', 'veryo' );
+		}
+		$contact['medewerkers'] = '' === $raw_count ? '' : (string) (int) $raw_count;
+	}
 	if ( 'contact' === $type ) {
-		$contact['bedrijf']  = veryo_clean_text( isset( $p['bedrijf'] ) ? $p['bedrijf'] : '', 120 );
 		$contact['telefoon'] = veryo_clean_text( isset( $p['telefoon'] ) ? $p['telefoon'] : '', 20 );
 		$contact['bericht']  = veryo_clean_text( isset( $p['bericht'] ) ? $p['bericht'] : '', 2000, true );
 		if ( '' !== $contact['telefoon'] && ! veryo_valid_phone( $contact['telefoon'] ) ) {

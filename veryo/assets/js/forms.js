@@ -82,10 +82,13 @@
 					errors.bericht = 'Schrijf een kort bericht.';
 				}
 			}
+			if ( value( 'medewerkers' ) && ! /^\d{1,4}$/.test( value( 'medewerkers' ) ) ) {
+				errors.medewerkers = 'Vul een aantal tussen 1 en 1000 in.';
+			}
 			if ( ! value( 'toestemming' ) ) {
 				errors.toestemming = 'Geef toestemming om je gegevens te gebruiken.';
 			}
-			[ 'naam', 'email', 'telefoon', 'bericht', 'toestemming' ].forEach( function ( name ) {
+			[ 'naam', 'email', 'telefoon', 'bericht', 'medewerkers', 'toestemming' ].forEach( function ( name ) {
 				setError( name, errors[ name ] );
 			} );
 			var names = Object.keys( errors );
@@ -101,6 +104,7 @@
 				email: value( 'email' ),
 				telefoon: value( 'telefoon' ),
 				bericht: value( 'bericht' ),
+				medewerkers: value( 'medewerkers' ),
 				toestemming: value( 'toestemming' ),
 				website: value( 'website' )
 			};

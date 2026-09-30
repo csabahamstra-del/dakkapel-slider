@@ -56,7 +56,7 @@ return array(
 						'p' => array( __( 'Een chatbot doet geen toezeggingen die niet in de bronnen staan, geeft geen prijzen die niet zijn vastgelegd en neemt geen beslissingen over klachten of garanties. Dat blijft mensenwerk. Hij is er om de eenvoudige vragen snel en goed te beantwoorden, zodat je team tijd heeft voor de rest.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 5, 6, 7 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'project', 'maatwerk', 'onderhoud' ) ),
 				'faq'      => array(
 					array( __( 'Wat kost een chatbot laten maken?', 'veryo' ), __( 'Een AI-chatbot voor je website kost meestal €2.500 tot €7.500. Met koppelingen naar agenda, CRM of WhatsApp wordt het maatwerk vanaf €5.000. Daarnaast zijn er verbruikskosten van meestal tientallen euro’s per maand. Alles exclusief btw.', 'veryo' ) ),
 					array( __( 'Hoe lang duurt het om een chatbot te laten maken?', 'veryo' ), __( 'Een eerste versie staat meestal binnen vier tot zes weken, inclusief een testperiode met je eigen team.', 'veryo' ) ),
@@ -121,7 +121,7 @@ return array(
 					'h'   => __( 'Gerelateerd uit de catalogus', 'veryo' ),
 					'ids' => array( 'whatsapp-assistent', 'statusberichten', 'whatsapp-sollicitatie', 'bonnetjes' ),
 				),
-				'price'    => array( 'steps' => array( 5, 6, 7 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'project', 'maatwerk', 'onderhoud' ) ),
 				'faq'      => array(
 					array( __( 'Heb ik een WhatsApp Business-account nodig?', 'veryo' ), __( 'Ja, een account op de WhatsApp Business API. Wij regelen de aanvraag en de koppeling. Je kunt je bestaande nummer vaak meenemen.', 'veryo' ) ),
 					array( __( 'Zijn er kosten per bericht?', 'veryo' ), __( 'WhatsApp rekent kosten voor bepaalde soorten gesprekken, afhankelijk van wie het gesprek begint. Voor de meeste MKB-bedrijven zijn die beperkt. We geven vooraf een inschatting.', 'veryo' ) ),
@@ -185,7 +185,7 @@ return array(
 						'p' => array( __( 'We beginnen met een kansensessie om het proces uit te tekenen en te bepalen welke stappen de agent mag doen. Daarna bouwen we een eerste versie die alleen voorstellen doet, zonder zelf iets te versturen. Pas als die voorstellen een paar weken kloppen, geven we de agent meer ruimte. Zo houd je grip.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 3, 6, 7 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'maatwerk', 'onderhoud' ) ),
 				'faq'      => array(
 					array( __( 'Is een AI-agent niet te riskant voor een klein bedrijf?', 'veryo' ), __( 'Niet als je hem goed begrenst. Een agent die alleen voorstellen doet en niets zonder goedkeuring verstuurt, is net zo veilig als een collega die een concept klaarzet.', 'veryo' ) ),
 					array( __( 'Wat kost een AI-agent laten bouwen?', 'veryo' ), __( 'Maatwerk van €5.000 tot €25.000 of meer, afhankelijk van het aantal stappen en koppelingen. Na de kansensessie krijg je een vaste prijs. Alles exclusief btw.', 'veryo' ) ),
@@ -248,7 +248,7 @@ return array(
 					'h'   => __( 'Past goed bij', 'veryo' ),
 					'ids' => array( 'interne-assistent', 'technische-documentatie', 'werkinstructies', 'documenten-samenvatten' ),
 				),
-				'price'    => array( 'steps' => array( 3, 6, 7 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'maatwerk', 'onderhoud' ) ),
 				'faq'      => array(
 					array( __( 'Is een interne kennisbank met AI veilig?', 'veryo' ), __( 'We regelen toegang per medewerker, gebruiken zakelijke API’s en sluiten een verwerkersovereenkomst als er persoonsgegevens in de documenten staan. Echt gevoelige documenten laten we eruit of zetten we achter aparte rechten.', 'veryo' ) ),
 					array( __( 'Werkt het met SharePoint of Google Drive?', 'veryo' ), __( 'Ja, dat zijn de meest gebruikte bronnen. Andere systemen met een koppeling kunnen ook.', 'veryo' ) ),
@@ -311,7 +311,7 @@ return array(
 					'h'   => __( 'Past goed bij', 'veryo' ),
 					'ids' => array( 'voicebot', 'reviews', 'social-captions', 'website-chatbot' ),
 				),
-				'price'    => array( 'steps' => array( 6, 7 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'maatwerk', 'onderhoud' ) ),
 				'faq'      => array(
 					array( __( 'Klinkt een AI-receptionist als een robot?', 'veryo' ), __( 'De stemmen zijn tegenwoordig goed verstaanbaar en natuurlijk. Toch merkt een beller dat het een assistent is, en dat vertellen we ook aan het begin van het gesprek.', 'veryo' ) ),
 					array( __( 'Werkt het met mijn reserveringssysteem?', 'veryo' ), __( 'Als je reserveringssysteem een koppeling heeft, kan de assistent reserveringen direct inboeken. Zo niet, dan noteert hij ze en krijg je een overzicht.', 'veryo' ) ),

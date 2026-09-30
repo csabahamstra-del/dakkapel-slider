@@ -34,7 +34,7 @@ $veryo_draft = static function ( $sections, $faq ) {
 
 return array(
 
-	'waar-begin-je-met-ai-in-je-bedrijf' => array(
+	'waar-begin-je-met-ai-in-je-bedrijf'  => array(
 		'title'     => __( 'Waar begin je met AI in je bedrijf? Een nuchter stappenplan', 'veryo' ),
 		'seo_title' => __( 'Waar begin je met AI in je bedrijf? Stappenplan | Veryo', 'veryo' ),
 		'desc'      => __( 'AI toepassen in het MKB zonder hype: een nuchter stappenplan in vijf stappen, van tijdvreters in kaart brengen tot je eerste automatisering.', 'veryo' ),
@@ -63,7 +63,7 @@ return array(
 		),
 	),
 
-	'wat-kan-ai-voor-mijn-bedrijf-doen'  => array(
+	'wat-kan-ai-voor-mijn-bedrijf-doen'   => array(
 		'title'     => __( 'Wat kan AI voor jouw bedrijf doen? Voorbeelden per afdeling', 'veryo' ),
 		'seo_title' => __( 'Wat kan AI voor mijn bedrijf doen? Voorbeelden | Veryo', 'veryo' ),
 		'desc'      => __( 'Wat kan AI voor mijn bedrijf doen? Concrete voorbeelden per afdeling: klantcontact, offertes, administratie, planning, marketing, HR en rapportages.', 'veryo' ),
@@ -94,7 +94,7 @@ return array(
 		),
 	),
 
-	'wat-kost-een-ai-chatbot'            => array(
+	'wat-kost-een-ai-chatbot'             => array(
 		'title'     => __( 'Wat kost een AI-chatbot? Prijzen en wat je ervoor krijgt', 'veryo' ),
 		'seo_title' => __( 'Wat kost een AI-chatbot? Prijzen uitgelegd | Veryo', 'veryo' ),
 		'desc'      => __( 'Wat kost een AI-chatbot voor je bedrijf? Een eerlijk overzicht van bouwkosten, verbruikskosten en onderhoud, en wat je voor dat bedrag wel en niet krijgt.', 'veryo' ),
@@ -122,7 +122,7 @@ return array(
 		),
 	),
 
-	'wat-kost-ai-automatisering'         => array(
+	'wat-kost-ai-automatisering'          => array(
 		'title'     => __( 'Wat kost AI-automatisering voor het MKB?', 'veryo' ),
 		'seo_title' => __( 'Wat kost AI-automatisering voor het MKB? | Veryo', 'veryo' ),
 		'desc'      => __( 'Wat kost AI-automatisering? Van quick win (€750–1.500) tot maatwerk (vanaf €5.000), plus verbruik en onderhoud. Met een rekenvoorbeeld erbij.', 'veryo' ),
@@ -149,7 +149,7 @@ return array(
 		),
 	),
 
-	'ai-geletterdheid-ai-act-mkb'        => array(
+	'ai-geletterdheid-ai-act-mkb'         => array(
 		'title'     => __( 'AI-geletterdheid en de AI Act: wat moet je als MKB’er doen?', 'veryo' ),
 		'seo_title' => __( 'AI-geletterdheid en de AI Act voor het MKB | Veryo', 'veryo' ),
 		'desc'      => __( 'AI Act en AI-geletterdheid: sinds 2 februari 2025 moet je zorgen dat medewerkers voldoende AI-geletterd zijn. Wat betekent dat voor het MKB? Met checklist.', 'veryo' ),
@@ -177,7 +177,7 @@ return array(
 		),
 	),
 
-	'ai-beleid-bedrijf-template'         => array(
+	'ai-beleid-bedrijf-template'          => array(
 		'title'     => __( 'Template: AI-beleid voor je bedrijf', 'veryo' ),
 		'seo_title' => __( 'AI-beleid voor je bedrijf: gratis template | Veryo', 'veryo' ),
 		'desc'      => __( 'Een AI-beleid voor je bedrijf opstellen? Gebruik deze template met wat in een beleid hoort: tools, gegevens, controle, verantwoordelijkheid en training.', 'veryo' ),
@@ -206,7 +206,7 @@ return array(
 		),
 	),
 
-	'chatgpt-claude-copilot-zakelijk'    => array(
+	'chatgpt-claude-copilot-zakelijk'     => array(
 		'title'     => __( 'ChatGPT, Claude of Copilot: wat past bij jouw bedrijf?', 'veryo' ),
 		'seo_title' => __( 'ChatGPT, Claude of Copilot zakelijk vergeleken | Veryo', 'veryo' ),
 		'desc'      => __( 'ChatGPT vs Claude vs Copilot zakelijk: een nuchtere vergelijking voor het MKB op gebruik, Microsoft 365, privacy-instellingen en kosten per gebruiker.', 'veryo' ),
@@ -234,7 +234,7 @@ return array(
 		),
 	),
 
-	'is-chatgpt-veilig-ai-en-avg'        => array(
+	'is-chatgpt-veilig-ai-en-avg'         => array(
 		'title'     => __( 'Is ChatGPT veilig voor bedrijfsgegevens? AI en de AVG', 'veryo' ),
 		'seo_title' => __( 'Is ChatGPT veilig? AI en de AVG voor bedrijven | Veryo', 'veryo' ),
 		'desc'      => __( 'AI en de AVG: is ChatGPT veilig voor bedrijfsgegevens? Wat mag je invoeren, wat verschilt tussen gratis en zakelijk, en wanneer heb je een verwerker nodig?', 'veryo' ),
@@ -261,7 +261,7 @@ return array(
 		),
 	),
 
-	'ai-prompts-voor-installateurs'      => array(
+	'ai-prompts-voor-installateurs'       => array(
 		'title'     => __( 'Handige AI-prompts voor installateurs (en andere vakmensen)', 'veryo' ),
 		'seo_title' => __( 'Handige ChatGPT-prompts voor installateurs | Veryo', 'veryo' ),
 		'desc'      => __( 'ChatGPT-prompts voor installateurs en andere vakmensen: kant-en-klare opdrachten voor offertes, klantmails, werkinstructies en vacatureteksten.', 'veryo' ),
@@ -289,7 +289,7 @@ return array(
 		),
 	),
 
-	'slim-subsidie-ai-training'          => array(
+	'slim-subsidie-ai-training'           => array(
 		'title'     => __( 'SLIM-subsidie voor AI-training: zo werkt het', 'veryo' ),
 		'seo_title' => __( 'SLIM-subsidie voor AI-training: zo werkt het | Veryo', 'veryo' ),
 		'desc'      => __( 'SLIM-subsidie voor AI-training: wat de regeling is, voor wie ze mogelijk geschikt is en waar je op let. Periodes en voorwaarden wisselen, dus check altijd.', 'veryo' ),
@@ -316,7 +316,7 @@ return array(
 		),
 	),
 
-	'welke-processen-automatiseren'      => array(
+	'welke-processen-automatiseren'       => array(
 		'title'     => __( 'Welke processen kun je het beste automatiseren?', 'veryo' ),
 		'seo_title' => __( 'Welke processen kun je het beste automatiseren? | Veryo', 'veryo' ),
 		'desc'      => __( 'Welke processen automatiseren? Vier criteria om te kiezen, voorbeelden uit het MKB en de processen die je beter niet automatiseert. Nuchter uitgelegd.', 'veryo' ),
@@ -344,7 +344,7 @@ return array(
 		),
 	),
 
-	'wbso-voor-ai-projecten'             => array(
+	'wbso-voor-ai-projecten'              => array(
 		'title'     => __( 'WBSO voor AI-projecten: zo werkt het', 'veryo' ),
 		'seo_title' => __( 'WBSO voor AI-projecten: zo werkt het | Veryo', 'veryo' ),
 		'desc'      => __( 'WBSO en AI: wanneer een AI-project mogelijk in aanmerking komt, wat de regeling vraagt en waarom je een subsidiespecialist inschakelt. Geen advies.', 'veryo' ),
@@ -367,6 +367,64 @@ return array(
 				array( __( 'Valt een AI-chatbot onder de WBSO?', 'veryo' ), __( 'Meestal niet als het om het inrichten van bestaande technologie gaat. Laat het beoordelen. [VUL IN: laten checken]', 'veryo' ) ),
 				array( __( 'Helpt Veryo met de aanvraag?', 'veryo' ), __( 'Nee, schakel een subsidiespecialist in. [VUL IN: aanvullen]', 'veryo' ) ),
 				array( __( 'Waar vind ik de actuele voorwaarden?', 'veryo' ), __( '[VUL IN: link naar de officiële bron]', 'veryo' ) ),
+			)
+		),
+	),
+
+	'ai-beleid-medewerkers'               => array(
+		'title'     => __( 'Weet jij wat je medewerkers in ChatGPT invoeren? Zo maak je afspraken', 'veryo' ),
+		'seo_title' => __( 'AI-beleid voor medewerkers: afspraken over ChatGPT | Veryo', 'veryo' ),
+		'desc'      => __( 'AI-beleid voor medewerkers: medewerkers gebruiken ChatGPT vaak al op eigen houtje. Zo breng je in beeld wat er gebeurt en maak je werkbare afspraken.', 'veryo' ),
+		'kw'        => 'ai beleid medewerkers',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'AI wordt al gebruikt, alleen weet je niet hoe', 'veryo' ), __( 'Beschrijf de herkenbare situatie: collega’s gebruiken gratis AI-tools voor mail en offertes, soms met klantgegevens. Geen verwijt, wel een risico.', 'veryo' ) ),
+				array(
+					__( 'Stap voor stap naar afspraken', 'veryo' ),
+					__( 'Een praktische route in vier stappen.', 'veryo' ),
+					array(
+						array( __( 'In kaart brengen', 'veryo' ), __( 'Vraag zonder oordeel welke tools mensen gebruiken en waarvoor.', 'veryo' ) ),
+						array( __( 'Kiezen', 'veryo' ), __( 'Kies één of twee zakelijke tools en zet de juiste instellingen aan.', 'veryo' ) ),
+						array( __( 'Vastleggen', 'veryo' ), __( 'Leg in één à twee pagina’s vast wat wel en niet mag, met voorbeelden.', 'veryo' ) ),
+						array( __( 'Uitleggen en herhalen', 'veryo' ), __( 'Bespreek het beleid in een korte training en neem het mee bij nieuwe medewerkers.', 'veryo' ) ),
+					),
+				),
+				array( __( 'Wat er zeker in hoort', 'veryo' ), __( 'Welke gegevens nooit in een AI-tool gaan, dat uitvoer altijd gecontroleerd wordt, en wie aanspreekpunt is.', 'veryo' ) ),
+				array( __( 'En de AI Act?', 'veryo' ), __( 'Feitelijk: sinds 2 februari 2025 vraagt artikel 4 om voldoende AI-geletterdheid. Afspraken en uitleg zijn daar een logisch onderdeel van. Verwijs naar het AI-Startpakket als manier om dit in één keer te regelen.', 'veryo' ) ),
+			),
+			array(
+				array( __( 'Mag ik ChatGPT verbieden?', 'veryo' ), __( 'Dat kan, maar dan gebruiken mensen het vaak alsnog ongezien. Afspraken werken meestal beter. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Hoe lang moet een AI-beleid zijn?', 'veryo' ), __( 'Kort: één tot twee pagina’s die iedereen leest. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Moet een jurist het beleid controleren?', 'veryo' ), __( 'Dat is verstandig, zeker als er persoonsgegevens in het spel zijn. [VUL IN: aanvullen]', 'veryo' ) ),
+			)
+		),
+	),
+
+	'welke-ai-tool-past-bij-jouw-bedrijf' => array(
+		'title'     => __( 'Welke AI-tool past bij jouw bedrijf? Zo kies je zonder te verdwalen', 'veryo' ),
+		'seo_title' => __( 'Welke AI-tool past bij mijn bedrijf? Zo kies je | Veryo', 'veryo' ),
+		'desc'      => __( 'Welke AI-tool voor mijn bedrijf? Begin bij je werk en de software die je al hebt. Een nuchtere keuzehulp in vier vragen, zonder verkooppraatje.', 'veryo' ),
+		'kw'        => 'welke ai tool voor mijn bedrijf',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'Er zijn duizenden AI-tools. Je hebt er twee of drie nodig.', 'veryo' ), __( 'Leg uit waarom de lijst met tools niet het beginpunt is, maar je eigen werk.', 'veryo' ) ),
+				array( __( 'Kijk eerst wat je al hebt', 'veryo' ), __( 'Steeds meer pakketten die je al gebruikt, krijgen AI ingebouwd: mail, boekhouding, CRM. Vaak zit daar al veel in. Noem geen merken als aanbeveling.', 'veryo' ) ),
+				array(
+					__( 'Vier vragen om te kiezen', 'veryo' ),
+					__( 'Een eenvoudige keuzehulp.', 'veryo' ),
+					array(
+						array( __( 'Welk werk wil je lichter maken?', 'veryo' ), __( 'Begin bij de taak met de meeste uren.', 'veryo' ) ),
+						array( __( 'Past het bij je bestaande software?', 'veryo' ), __( 'Koppelingen en dubbel werk voorkomen.', 'veryo' ) ),
+						array( __( 'Wat gebeurt er met je gegevens?', 'veryo' ), __( 'Zakelijke versie, verwerkersovereenkomst, instellingen.', 'veryo' ) ),
+						array( __( 'Gaat het team het gebruiken?', 'veryo' ), __( 'Zonder uitleg en afspraken blijft de beste tool liggen.', 'veryo' ) ),
+					),
+				),
+				array( __( 'Onafhankelijk advies', 'veryo' ), __( 'Leg uit dat Veryo geen software verkoopt en een eventuele partnervergoeding altijd vermeldt.', 'veryo' ) ),
+			),
+			array(
+				array( __( 'Is de duurste tool de beste?', 'veryo' ), __( 'Nee. De beste tool is de tool die past bij je werk en die het team echt gebruikt. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Moet ik voor elke taak een aparte tool nemen?', 'veryo' ), __( 'Liever niet. Minder tools betekent minder kosten en duidelijkere afspraken. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Kan Veryo helpen kiezen?', 'veryo' ), __( 'Ja, dat is het eerste onderdeel van het AI-Startpakket. [VUL IN: aanvullen]', 'veryo' ) ),
 			)
 		),
 	),

@@ -16,7 +16,7 @@ $veryo_place   = trim( $veryo_c['postcode'] . ' ' . $veryo_c['city'] );
 		<li><?php echo wp_kses( veryo_icon( 'pin' ), veryo_svg_kses() ); ?><span><?php echo esc_html( $veryo_c['name'] ); ?><br><?php echo $veryo_address ? esc_html( $veryo_address ) . '<br>' : ''; ?><?php echo esc_html( $veryo_place ); ?></span></li>
 	<?php endif; ?>
 	<?php if ( $veryo_c['phone'] ) : ?>
-		<li><?php echo wp_kses( veryo_icon( 'phone' ), veryo_svg_kses() ); ?><a href="<?php echo esc_attr( veryo_tel_href( $veryo_c['phone'] ) ); ?>"><?php echo esc_html( $veryo_c['phone'] ); ?></a></li>
+		<li><?php echo wp_kses( veryo_icon( 'phone' ), veryo_svg_kses() ); ?><a href="<?php echo esc_attr( veryo_tel_href( $veryo_c['phone'] ) ); ?>"><?php echo str_replace( ' ', '&nbsp;', esc_html( $veryo_c['phone'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- al ge-escaped. ?></a></li>
 	<?php endif; ?>
 	<?php if ( $veryo_c['email'] ) : ?>
 		<li><?php echo wp_kses( veryo_icon( 'mail' ), veryo_svg_kses() ); ?><a href="mailto:<?php echo esc_attr( antispambot( $veryo_c['email'] ) ); ?>"><?php echo esc_html( antispambot( $veryo_c['email'] ) ); ?></a></li>

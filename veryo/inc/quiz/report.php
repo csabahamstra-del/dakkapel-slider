@@ -111,6 +111,8 @@ Inhoud:
 - Kies items die passen bij de taken met de meeste uren en bij de branche. Kies drie verschillende items.
 - Verzin geen cijfers, percentages, klantnamen of resultaten. Gebruik alleen de meegegeven getallen uit "berekening". Noem geen prijzen; die voegt Veryo zelf toe.
 - Koppel "waarom" aan de antwoorden van de lezer (taken, uren, tools, frustratie).
+- Beschrijf in "hoe" dat de eerste stap is om te kijken of hun bestaande software dit al kan, of dat het met een passende tool op te lossen is, en dat pas daarna een eigen koppeling aan de orde is. Veryo verkoopt geen eigen software en adviseert onafhankelijk.
+- Noem geen softwaremerken of productnamen.
 - "eerste_stap" is één concrete stap om met die aanbeveling te beginnen.
 - "zelf_beginnen" is één concrete stap die de lezer deze week zelf kan zetten, zonder Veryo.
 
@@ -315,7 +317,7 @@ function veryo_scan_fallback_recommendation( $id, $task, $answers, $repeat = fal
 		'catalogus_id' => $id,
 		'titel'        => $item['naam'],
 		'waarom'       => $waarom,
-		'hoe'          => isset( $texts[ $id ] ) ? $texts[ $id ][0] : $item['wat'] . ' ' . __( 'We bouwen het in de software die je al gebruikt, en een mens controleert de uitkomst.', 'veryo' ),
+		'hoe'          => __( 'Eerst kijken we of je huidige software dit al kan, of dat een passende tool het oplost; pas daarna denken we aan een eigen koppeling.', 'veryo' ) . ' ' . ( isset( $texts[ $id ] ) ? $texts[ $id ][0] : $item['wat'] . ' ' . __( 'Een mens controleert de uitkomst.', 'veryo' ) ),
 		'eerste_stap'  => isset( $texts[ $id ] ) ? $texts[ $id ][1] : __( 'Noteer een week lang hoe vaak dit werk voorkomt en hoeveel tijd het kost.', 'veryo' ),
 	);
 }
@@ -380,7 +382,7 @@ function veryo_scan_fallback_summary( $answers, $calc ) {
  */
 function veryo_scan_fallback_self_start( $answers ) {
 	if ( in_array( $answers['ai_gebruik'], array( 'nee', 'geprobeerd' ), true ) ) {
-		return __( 'Kies deze week één mail die je vaak beantwoordt en laat ChatGPT of Claude een conceptantwoord schrijven. Laat namen en klantgegevens weg, en vergelijk het met wat je zelf zou schrijven.', 'veryo' );
+		return __( 'Kies deze week één mail die je vaak beantwoordt en laat een zakelijke AI-assistent een conceptantwoord schrijven. Laat namen en klantgegevens weg, en vergelijk het met wat je zelf zou schrijven.', 'veryo' );
 	}
 	return __( 'Houd deze week met het team bij hoeveel tijd de taak met de meeste uren echt kost, en noteer welke stappen elke keer hetzelfde zijn. Dat is de basis voor een goede automatisering.', 'veryo' );
 }

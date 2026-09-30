@@ -38,7 +38,7 @@ function veryo_catalog_levels() {
 			'min'    => 750,
 			'max'    => 1500,
 			'price'  => __( '€750–1.500', 'veryo' ),
-			'uitleg' => __( 'één afgebakende flow', 'veryo' ),
+			'uitleg' => __( 'invoering of koppeling van één afgebakende flow', 'veryo' ),
 		),
 		'project'   => array(
 			'label'  => __( 'Project', 'veryo' ),
@@ -186,14 +186,100 @@ function veryo_catalog_item( $id ) {
 }
 
 /**
- * Prijsladder (§7). Alle bedragen exclusief btw, als indicatie.
+ * Prijzen van het Veryo AI-Startpakket per teamgrootte (exclusief btw, vaste prijs).
  *
- * @return array<int,array<string,mixed>>
+ * @return array<string,array<string,mixed>>
+ */
+function veryo_startpakket_prices() {
+	return array(
+		'tot-10' => array(
+			'label' => __( 'Tot 10 medewerkers', 'veryo' ),
+			'price' => 1995,
+		),
+		'11-25'  => array(
+			'label' => __( '11–25 medewerkers', 'veryo' ),
+			'price' => 2995,
+		),
+		'26-50'  => array(
+			'label' => __( '26–50 medewerkers', 'veryo' ),
+			'price' => 4495,
+		),
+	);
+}
+
+/**
+ * De vijf onderdelen van het AI-Startpakket.
+ *
+ * @return array<int,array<int,string>> Lijst van array( titel, uitleg ).
+ */
+function veryo_startpakket_parts() {
+	return array(
+		array( __( 'AI-scan en kansensessie', 'veryo' ), __( 'Een halve dag samen je processen doorlopen, inclusief advies welke bestaande tools het best bij jullie passen.', 'veryo' ) ),
+		array( __( 'AI-training voor het hele team', 'veryo' ), __( 'Een halve dag praktisch aan de slag met ChatGPT, Claude of Copilot, en helder wat wel en niet mag.', 'veryo' ) ),
+		array( __( 'AI-beleid op maat', 'veryo' ), __( 'Een beleid van één à twee pagina’s: welke tools jullie gebruiken, welke gegevens er nooit in gaan en wie verantwoordelijk is.', 'veryo' ) ),
+		array( __( 'Eén quick win ingericht', 'veryo' ), __( 'We richten één afgebakende toepassing daadwerkelijk in, zodat je team direct iets heeft dat werkt.', 'veryo' ) ),
+		array( __( '30 dagen nazorg', 'veryo' ), __( 'Een maand lang een vast aanspreekpunt voor vragen, afgesloten met een evaluatie en een plan voor de volgende stappen.', 'veryo' ) ),
+	);
+}
+
+/**
+ * De onderdelen van het Startpakket als lopende opsomming ("a, b en c").
+ * Een hoofdletter aan het begin wordt klein, behalve bij afkortingen als "AI".
+ *
+ * @return string
+ */
+function veryo_startpakket_parts_sentence() {
+	$items = array();
+	foreach ( veryo_startpakket_parts() as $part ) {
+		$title = $part[0];
+		$first = mb_substr( $title, 0, 1 );
+		$next  = mb_substr( $title, 1, 1 );
+		if ( 0 === strpos( $title, 'Eén' ) ) {
+			$title = 'één' . substr( $title, strlen( 'Eén' ) );
+		} elseif ( mb_strtolower( $next ) === $next ) {
+			$title = mb_strtolower( $first ) . mb_substr( $title, 1 );
+		}
+		$items[] = $title;
+	}
+	$last = array_pop( $items );
+	return $items ? implode( ', ', $items ) . ' ' . __( 'en', 'veryo' ) . ' ' . $last : (string) $last;
+}
+
+/**
+ * Prijsindicatie van het Startpakket bij een teamgrootte uit de AI-scan.
+ *
+ * @param string $team Teamgrootte-sleutel uit de scan.
+ * @return string
+ */
+function veryo_startpakket_price_for_team( $team ) {
+	$p = veryo_startpakket_prices();
+	switch ( $team ) {
+		case '1':
+		case '2-5':
+			/* translators: %s: prijs. */
+			return sprintf( __( '%s voor teams tot 10 medewerkers', 'veryo' ), veryo_euro( $p['tot-10']['price'] ) );
+		case '6-20':
+			/* translators: 1: prijs tot 10, 2: prijs 11–25. */
+			return sprintf( __( '%1$s tot 10 medewerkers, %2$s bij 11–25 medewerkers', 'veryo' ), veryo_euro( $p['tot-10']['price'] ), veryo_euro( $p['11-25']['price'] ) );
+		case '21-50':
+			/* translators: 1: prijs 11–25, 2: prijs 26–50. */
+			return sprintf( __( '%1$s bij 11–25 medewerkers, %2$s bij 26–50 medewerkers', 'veryo' ), veryo_euro( $p['11-25']['price'] ), veryo_euro( $p['26-50']['price'] ) );
+		default:
+			/* translators: %s: prijs. */
+			return sprintf( __( 'vanaf %s; voor teams boven de 50 medewerkers maken we een voorstel op maat', 'veryo' ), veryo_euro( $p['26-50']['price'] ) );
+	}
+}
+
+/**
+ * Prijsonderdelen (§7). Alle bedragen exclusief btw, als indicatie. Sleutel => onderdeel.
+ * Groep: instap, hoofdproduct, los, doorlopend.
+ *
+ * @return array<string,array<string,mixed>>
  */
 function veryo_price_ladder() {
 	return array(
-		array(
-			'stap'   => 0,
+		'scan'         => array(
+			'groep'  => 'instap',
 			'dienst' => __( 'Gratis AI-scan', 'veryo' ),
 			'wat'    => __( 'Online vragenlijst, persoonlijk rapport en optioneel een belletje van 15 minuten.', 'veryo' ),
 			'voor'   => __( 'Voor iedereen die wil weten waar AI in het eigen bedrijf tijd bespaart.', 'veryo' ),
@@ -202,84 +288,94 @@ function veryo_price_ladder() {
 			'max'    => 0,
 			'path'   => 'waar-begin-ik-met-ai',
 		),
-		array(
-			'stap'   => 1,
-			'dienst' => __( 'Online AI-basiscursus (Veryo Academy, binnenkort)', 'veryo' ),
-			'wat'    => __( 'Korte modules van 10 tot 15 minuten met oefeningen, in je eigen tempo.', 'veryo' ),
-			'voor'   => __( 'Voor ondernemers en medewerkers die zelf de basis willen leren.', 'veryo' ),
-			'prijs'  => __( '€79–129 eenmalig (introductieprijs €49–59)', 'veryo' ),
+		'academy'      => array(
+			'groep'  => 'instap',
+			'dienst' => __( 'Online AI-training, Veryo Academy (binnenkort)', 'veryo' ),
+			'wat'    => __( 'Korte modules van 10 tot 15 minuten met oefeningen, per medewerker, met staffelkorting vanaf 10 personen.', 'veryo' ),
+			'voor'   => __( 'Voor teams die zelfstandig willen leren, en voor losse deelnemers.', 'veryo' ),
+			'prijs'  => __( '€49–79 per persoon', 'veryo' ),
 			'min'    => 49,
-			'max'    => 129,
+			'max'    => 79,
 			'path'   => 'academy',
 		),
-		array(
-			'stap'   => 2,
+		'startpakket'  => array(
+			'groep'  => 'hoofdproduct',
+			'dienst' => __( 'Veryo AI-Startpakket', 'veryo' ),
+			'wat'    => __( 'AI-scan en kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg.', 'veryo' ),
+			'voor'   => __( 'Voor bedrijven die AI goed en veilig willen invoeren, met het hele team.', 'veryo' ),
+			'prijs'  => __( 'vanaf €1.995', 'veryo' ),
+			'min'    => 1995,
+			'max'    => 4495,
+			'path'   => 'ai-startpakket',
+		),
+		'kansensessie' => array(
+			'groep'  => 'los',
+			'dienst' => __( 'AI-kansensessie en roadmap', 'veryo' ),
+			'wat'    => __( 'Een workshop en een rapport met prioriteiten en de verwachte opbrengst per kans.', 'veryo' ),
+			'voor'   => __( 'Voor wie eerst alleen een plan wil.', 'veryo' ),
+			'prijs'  => __( '€750–1.500', 'veryo' ),
+			'min'    => 750,
+			'max'    => 1500,
+			'path'   => 'ai-implementatie-mkb',
+		),
+		'training'     => array(
+			'groep'  => 'los',
 			'dienst' => __( 'In-company AI-training tot 20 personen', 'veryo' ),
-			'wat'    => __( 'Een halve of hele dag met je eigen team, met oefeningen uit jullie eigen werk. Pakketten voor meerdere sessies en een jaarlijkse update-sessie op aanvraag.', 'veryo' ),
+			'wat'    => __( 'Een halve of hele dag met je eigen team, met oefeningen uit jullie eigen werk.', 'veryo' ),
 			'voor'   => __( 'Voor teams die AI veilig en slim willen gebruiken, en voor de AI-geletterdheidsplicht.', 'veryo' ),
 			'prijs'  => __( '€1.200 (halve dag) – €2.800 (hele dag)', 'veryo' ),
 			'min'    => 1200,
 			'max'    => 2800,
 			'path'   => 'ai-training',
 		),
-		array(
-			'stap'   => 3,
-			'dienst' => __( 'AI-kansensessie en roadmap', 'veryo' ),
-			'wat'    => __( 'Een workshop en een rapport met prioriteiten en de verwachte opbrengst per kans.', 'veryo' ),
-			'voor'   => __( 'Voor bedrijven die eerst een plan willen voordat er iets gebouwd wordt.', 'veryo' ),
-			'prijs'  => __( '€750–1.500', 'veryo' ),
-			'min'    => 750,
-			'max'    => 1500,
-			'path'   => 'ai-implementatie-mkb',
-		),
-		array(
-			'stap'   => 4,
-			'dienst' => __( 'Quick-win-automatisering', 'veryo' ),
-			'wat'    => __( 'Eén afgebakende flow, bijvoorbeeld inkoopfacturen verwerken of offertes opvolgen.', 'veryo' ),
+		'quickwin'     => array(
+			'groep'  => 'invoering',
+			'dienst' => __( 'Invoering en koppelingen: quick win', 'veryo' ),
+			'wat'    => __( 'Eén afgebakende toepassing ingericht of gekoppeld, bijvoorbeeld inkoopfacturen verwerken of offertes opvolgen.', 'veryo' ),
 			'voor'   => __( 'Voor wie snel resultaat wil zien op één concreet knelpunt.', 'veryo' ),
 			'prijs'  => __( '€750–1.500', 'veryo' ),
 			'min'    => 750,
 			'max'    => 1500,
 			'path'   => 'ai-automatisering',
 		),
-		array(
-			'stap'   => 5,
-			'dienst' => __( 'Automatiseringsproject', 'veryo' ),
-			'wat'    => __( 'Meerdere flows of koppelingen tussen de systemen die je al gebruikt.', 'veryo' ),
+		'project'      => array(
+			'groep'  => 'invoering',
+			'dienst' => __( 'Invoering en koppelingen: project', 'veryo' ),
+			'wat'    => __( 'Meerdere toepassingen of koppelingen tussen de systemen die je al gebruikt.', 'veryo' ),
 			'voor'   => __( 'Voor bedrijven waar een heel proces, van aanvraag tot factuur, soepeler moet.', 'veryo' ),
 			'prijs'  => __( '€2.500–7.500', 'veryo' ),
 			'min'    => 2500,
 			'max'    => 7500,
 			'path'   => 'ai-automatisering',
 		),
-		array(
-			'stap'   => 6,
-			'dienst' => __( 'AI op maat', 'veryo' ),
-			'wat'    => __( 'Een chatbot, AI-agent, WhatsApp-assistent of interne tool, gebouwd op jullie eigen kennis.', 'veryo' ),
-			'voor'   => __( 'Voor bedrijven met een vraag die niet met een standaardflow op te lossen is.', 'veryo' ),
-			'prijs'  => __( '€5.000–25.000+', 'veryo' ),
+		'maatwerk'     => array(
+			'groep'  => 'invoering',
+			'dienst' => __( 'Maatwerk', 'veryo' ),
+			'wat'    => __( 'Een eigen assistent, agent of tool, alleen als bestaande software tekortschiet.', 'veryo' ),
+			'voor'   => __( 'Voor een vraag die geen bestaand pakket goed oplost.', 'veryo' ),
+			'prijs'  => __( 'vanaf €5.000', 'veryo' ),
 			'min'    => 5000,
 			'max'    => 25000,
 			'path'   => 'ai-op-maat',
 		),
-		array(
-			'stap'   => 7,
-			'dienst' => __( 'Onderhoud en hosting van automatiseringen', 'veryo' ),
+		'partner'      => array(
+			'groep'  => 'doorlopend',
+			'dienst' => __( 'AI-partner-abonnement', 'veryo' ),
+			'wat'    => __( 'Een vaste vraagbaak, maandelijks overleg, nieuwe medewerkers bijscholen, kleine verbeteringen en koppelingen.', 'veryo' ),
+			'voor'   => __( 'Voor bedrijven die AI structureel willen blijven verbeteren, zonder eigen specialist.', 'veryo' ),
+			'prijs'  => __( '€495–995 per maand', 'veryo' ),
+			'min'    => 495,
+			'max'    => 995,
+			'path'   => 'ai-partner',
+		),
+		'onderhoud'    => array(
+			'groep'  => 'doorlopend',
+			'dienst' => __( 'Onderhoud van gebouwde koppelingen', 'veryo' ),
 			'wat'    => __( 'Monitoring, updates en kleine aanpassingen, zodat alles blijft werken.', 'veryo' ),
-			'voor'   => __( 'Voor iedereen met automatiseringen die elke dag moeten draaien.', 'veryo' ),
+			'voor'   => __( 'Voor iedereen met koppelingen die elke dag moeten draaien.', 'veryo' ),
 			'prijs'  => __( '€150–500 per maand', 'veryo' ),
 			'min'    => 150,
 			'max'    => 500,
-			'path'   => 'prijzen',
-		),
-		array(
-			'stap'   => 8,
-			'dienst' => __( 'AI-partner-abonnement', 'veryo' ),
-			'wat'    => __( 'Een vaste vraagbaak, maandelijks overleg en uren voor doorontwikkeling.', 'veryo' ),
-			'voor'   => __( 'Voor bedrijven die AI structureel willen blijven verbeteren, zonder eigen specialist.', 'veryo' ),
-			'prijs'  => __( '€750–2.000 per maand', 'veryo' ),
-			'min'    => 750,
-			'max'    => 2000,
 			'path'   => 'prijzen',
 		),
 	);

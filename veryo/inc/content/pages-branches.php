@@ -49,7 +49,7 @@ return array(
 						'p' => array( __( 'Bij verduurzaming vragen klanten vaak naar subsidies en terugverdientijd. We kunnen per project laten nagaan welke regelingen mogelijk van toepassing zijn en een terugverdienberekening aan de offerte toevoegen. Regelingen veranderen regelmatig, dus de installateur controleert altijd de actuele voorwaarden.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 2, 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'training', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Werkt dit met ons installatiesoftwarepakket?', 'veryo' ), __( 'Veel pakketten voor installateurs hebben een koppeling. Zo niet, dan werken we met exports of een eenvoudige tussenlaag. Dat checken we in de kansensessie.', 'veryo' ) ),
 					array( __( 'Maakt de AI zelf de prijs?', 'veryo' ), __( 'Nee. Prijzen, uurtarieven en marges staan in de calculatietool met vaste rekenregels. AI leest de aanvraag en vult in; de calculator controleert.', 'veryo' ) ),
@@ -108,7 +108,7 @@ return array(
 						'p' => array( __( 'Een materiaalstaat uit een tekening is een concept, geen eindproduct. Tekeningen zijn soms onduidelijk en AI mist dan dingen of telt dubbel. Daarom blijft de calculator verantwoordelijk. De winst zit in het starten met een goede eerste versie in plaats van een leeg rekenblad.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 3, 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Kan AI een bestek lezen?', 'veryo' ), __( 'AI kan bestekken en tekeningen lezen en er een concept-materiaalstaat of samenvatting van maken. De kwaliteit hangt af van de stukken; een calculator controleert altijd.', 'veryo' ) ),
 					array( __( 'Werkt dit met ons calculatiepakket?', 'veryo' ), __( 'Vaak via een export of koppeling. We kijken in de kansensessie wat er met jouw pakket kan.', 'veryo' ) ),
@@ -167,7 +167,7 @@ return array(
 						'p' => array( __( 'Er wordt veel geschreven over AI in precisielandbouw, drones en sensoren. Dat is een ander vak. Wij richten ons op het kantoor- en werkplaatswerk van agrarische bedrijven en mechanisatiebedrijven, waar met bestaande tools direct tijd te winnen is.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 3, 4, 5 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project' ) ),
 				'faq'      => array(
 					array( __( 'Werkt dit ook voor een klein loonbedrijf?', 'veryo' ), __( 'Ja. Juist bij een klein bedrijf, waar de eigenaar ook de planning en administratie doet, kan één goede automatisering veel schelen.', 'veryo' ) ),
 					array( __( 'Kan het koppelen met ons dealersysteem?', 'veryo' ), __( 'Als het systeem een koppeling of export heeft, meestal wel. Anders beginnen we met een gedeelde lijst die later kan worden gekoppeld.', 'veryo' ) ),
@@ -231,7 +231,7 @@ return array(
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Werkt het met ons makelaarspakket?', 'veryo' ), __( 'Veel makelaarspakketten hebben een koppeling. In de kansensessie kijken we wat er met jouw pakket kan.', 'veryo' ) ),
 					array( __( 'Kan AI woningteksten schrijven?', 'veryo' ), __( 'AI schrijft goede concepten op basis van jouw notities en foto’s. De makelaar controleert, want een fout in de tekst kan gevolgen hebben.', 'veryo' ) ),
@@ -294,7 +294,7 @@ return array(
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 2, 4, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'training', 'quickwin', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Mag je klantgesprekken door AI laten samenvatten?', 'veryo' ), __( 'Met toestemming van de klant en goede afspraken over de verwerking wel. We helpen je dat zorgvuldig in te richten; laat de juridische kant controleren binnen je eigen beroepsregels.', 'veryo' ) ),
 					array( __( 'Vervangt AI het oordeel van de accountant?', 'veryo' ), __( 'Nee. AI vat samen, markeert en zet klaar. Het oordeel en de verantwoordelijkheid blijven bij de professional.', 'veryo' ) ),
@@ -353,7 +353,7 @@ return array(
 						'p' => array( __( 'We helpen je om meer echte reviews te krijgen en er goed op te reageren. We schrijven geen nepreviews en filteren geen negatieve reviews weg. Een nette reactie op kritiek doet vaak meer voor je naam dan een extra vijf sterren.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Worden reacties op reviews automatisch geplaatst?', 'veryo' ), __( 'Alleen na jouw akkoord. De reactie staat klaar, jij keurt goed. Bij kritische reviews raden we altijd aan om zelf even mee te lezen.', 'veryo' ) ),
 					array( __( 'Werkt het met ons reserveringssysteem?', 'veryo' ), __( 'Veel reserveringssystemen hebben een koppeling. Dat checken we vooraf.', 'veryo' ) ),
@@ -411,7 +411,7 @@ return array(
 						'p' => array( __( 'Een planningsassistent is maatwerk en werkt alleen met goede basisgegevens: actuele beschikbaarheid, vaste regels en een systeem met een koppeling. Rijtijden en veiligheid blijven de verantwoordelijkheid van de planner. De assistent stelt voor, de planner beslist.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 3, 4, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Werkt dit met ons TMS?', 'veryo' ), __( 'Als je transportmanagementsysteem een koppeling heeft, meestal wel. Dat checken we eerst.', 'veryo' ) ),
 					array( __( 'Kan AI rekening houden met rij- en rusttijden?', 'veryo' ), __( 'De regels kunnen worden meegenomen in de voorstellen, maar de planner blijft verantwoordelijk en controleert.', 'veryo' ) ),
@@ -475,7 +475,7 @@ return array(
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project' ) ),
 				'faq'      => array(
 					array( __( 'Is WhatsApp-werving AVG-proof?', 'veryo' ), __( 'Met de officiële WhatsApp Business API, een verwerkersovereenkomst en een duidelijke privacyverklaring kun je het zorgvuldig inrichten. We helpen je daarbij; laat de juridische teksten controleren.', 'veryo' ) ),
 					array( __( 'Werkt dit voor recruitmentbureaus én werkgevers?', 'veryo' ), __( 'Ja. Voor een bureau met veel vacatures levert het meer op, maar ook een werkgever met een paar vacatures per jaar bespaart tijd en haalt meer reacties binnen.', 'veryo' ) ),

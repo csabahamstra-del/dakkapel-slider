@@ -134,7 +134,7 @@ function veryo_sec_catalog( $ids, $title, $intro = '', $level = 2 ) {
 }
 
 /**
- * De vier echte stappen: AI-scan, kansensessie, bouwen, onderhoud.
+ * De vier echte stappen: AI-scan, kansensessie, invoeren en bouwen, onderhoud.
  *
  * @param string $title Kop.
  * @param string $intro Optionele inleiding.
@@ -148,9 +148,9 @@ function veryo_sec_steps( $title = '', $intro = '' ) {
 			__( 'Je beantwoordt negen vragen over je bedrijf en krijgt een rapport met je drie grootste tijdwinsten. Duurt ongeveer drie minuten. <a href="%s">Start de AI-scan</a>.', 'veryo' ),
 			esc_url( veryo_link( 'waar-begin-ik-met-ai' ) )
 		),
-		'<strong>' . __( 'Kansensessie', 'veryo' ) . '</strong><br>' . __( 'Samen lopen we je processen door en zetten we de kansen op volgorde: wat levert het meest op, wat is snel te doen, wat laten we liggen. Je krijgt een roadmap met prioriteiten.', 'veryo' ),
-		'<strong>' . __( 'Bouwen', 'veryo' ) . '</strong><br>' . __( 'We bouwen in je eigen accounts en koppelen aan de software die je al gebruikt. Eerst een proefperiode met echte gegevens, dan pas live.', 'veryo' ),
-		'<strong>' . __( 'Onderhoud', 'veryo' ) . '</strong><br>' . __( 'We houden de automatiseringen in de gaten, passen aan als er iets verandert en elke automatisering heeft een logboek en een vaste eigenaar.', 'veryo' ),
+		'<strong>' . __( 'Kansensessie', 'veryo' ) . '</strong><br>' . __( 'Samen lopen we je processen door en zetten we de kansen op volgorde: wat levert het meest op, wat is snel te doen, wat laten we liggen. We kijken ook welke software je al hebt en wat die kan. De kansensessie is onderdeel van het AI-Startpakket.', 'veryo' ),
+		'<strong>' . __( 'Invoeren en bouwen', 'veryo' ) . '</strong><br>' . __( 'Eerst richten we software in die je al hebt of kunt nemen, en leren we je team ermee werken. Alleen waar dat tekortschiet, bouwen we een eigen koppeling, in je eigen accounts. Eerst een proefperiode met echte gegevens, dan pas live.', 'veryo' ),
+		'<strong>' . __( 'Onderhoud', 'veryo' ) . '</strong><br>' . __( 'We houden alles in de gaten en passen aan als er iets verandert. Elke koppeling heeft een logboek en een vaste eigenaar. Wil je doorlopend een vraagbaak, dan is er het AI-partner-abonnement.', 'veryo' ),
 	);
 	$out   = veryo_b_h( $title );
 	if ( $intro ) {
@@ -169,9 +169,9 @@ function veryo_sec_steps( $title = '', $intro = '' ) {
 /**
  * Prijsindicatie met enkele treden van de ladder en link naar /prijzen/.
  *
- * @param int[]  $steps Stapnummers uit de prijsladder.
- * @param string $title Kop.
- * @param string $intro Inleiding.
+ * @param string[] $steps Sleutels uit veryo_price_ladder().
+ * @param string   $title Kop.
+ * @param string   $intro Inleiding.
  * @return string
  */
 function veryo_sec_price( $steps, $title = '', $intro = '' ) {
@@ -201,21 +201,134 @@ function veryo_sec_price( $steps, $title = '', $intro = '' ) {
 }
 
 /**
- * De volledige prijsladder (§7) als opeenvolging.
+ * De volledige prijsladder (§7): scan, startpakket, invoering, partner. Plus losse onderdelen.
+ * Het AI-Startpakket is de enige trede met een amber accent.
  *
  * @return string
  */
 function veryo_sec_ladder() {
-	$items = array();
-	foreach ( veryo_price_ladder() as $row ) {
-		$items[] = '<strong>' . esc_html( $row['dienst'] ) . '</strong> <span class="veryo-price-tag">' . esc_html( $row['prijs'] ) . '</span><br>' . esc_html( $row['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $row['voor'] ) . '</span>';
+	$l   = veryo_price_ladder();
+	$tag = static function ( $row ) {
+		return '<strong>' . esc_html( $row['dienst'] ) . '</strong> <span class="veryo-price-tag">' . esc_html( $row['prijs'] ) . '</span>';
+	};
+	$sp  = array();
+	foreach ( veryo_startpakket_prices() as $p ) {
+		$sp[] = esc_html( $p['label'] ) . ': <strong>' . esc_html( veryo_euro( $p['price'] ) ) . '</strong>';
 	}
-	return veryo_b_list(
+	$items = array(
+		$tag( $l['scan'] ) . '<br>' . esc_html( $l['scan']['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $l['scan']['voor'] ) . '</span>',
+		array(
+			'class' => 'is-featured',
+			'text'  => '<span class="veryo-flag">' . esc_html__( 'Hoofdproduct', 'veryo' ) . '</span><br><strong>' . esc_html( $l['startpakket']['dienst'] ) . '</strong><br>' . esc_html( $l['startpakket']['wat'] ) . '<br>' . implode( ' · ', $sp ) . '<br><span class="veryo-meta">' . esc_html( $l['startpakket']['voor'] ) . ' <a href="' . esc_url( veryo_link( 'ai-startpakket' ) ) . '">' . esc_html__( 'Alles over het AI-Startpakket', 'veryo' ) . '</a></span>',
+		),
+		'<strong>' . esc_html__( 'Invoering en koppelingen', 'veryo' ) . '</strong><br>' . esc_html__( 'De beste kansen uit de kansensessie invoeren: eerst met software die je al hebt of kunt nemen, alleen waar nodig met een eigen koppeling of maatwerk.', 'veryo' ) . '<br>'
+			. esc_html__( 'Quick win', 'veryo' ) . ': <strong>' . esc_html( $l['quickwin']['prijs'] ) . '</strong> · ' . esc_html__( 'Project', 'veryo' ) . ': <strong>' . esc_html( $l['project']['prijs'] ) . '</strong> · ' . esc_html__( 'Maatwerk', 'veryo' ) . ': <strong>' . esc_html( $l['maatwerk']['prijs'] ) . '</strong>',
+		$tag( $l['partner'] ) . '<br>' . esc_html( $l['partner']['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $l['partner']['voor'] ) . ' ' . esc_html__( 'Onderhoud van gebouwde koppelingen:', 'veryo' ) . ' ' . esc_html( $l['onderhoud']['prijs'] ) . '.</span>',
+	);
+	$out   = veryo_b_list(
 		$items,
 		array(
 			'ordered'   => true,
 			'className' => 'is-style-ladder',
 		)
+	);
+	$out  .= veryo_b_h( __( 'Losse onderdelen', 'veryo' ), 3 );
+	$loose = array();
+	foreach ( array( 'kansensessie', 'training', 'academy' ) as $key ) {
+		$loose[] = $tag( $l[ $key ] ) . '<br><span class="veryo-meta">' . esc_html( $l[ $key ]['wat'] ) . '</span>';
+	}
+	$out .= veryo_b_list( $loose, array( 'className' => 'is-style-prices' ) );
+	return $out;
+}
+
+/**
+ * Het AI-Startpakket als uitgelicht product (homepage en elders).
+ *
+ * @param string $title Kop.
+ * @param string $intro Inleiding.
+ * @return string
+ */
+function veryo_sec_startpakket( $title = '', $intro = '' ) {
+	$title = $title ? $title : __( 'Het Veryo AI-Startpakket', 'veryo' );
+	$intro = $intro ? $intro : __( 'Alles wat je nodig hebt om AI goed en veilig in je bedrijf te laten landen, in één pakket met een vaste prijs.', 'veryo' );
+	$parts = array();
+	foreach ( veryo_startpakket_parts() as $part ) {
+		$parts[] = '<strong>' . esc_html( $part[0] ) . '</strong><br>' . esc_html( $part[1] );
+	}
+	$prices = array();
+	foreach ( veryo_startpakket_prices() as $p ) {
+		$prices[] = esc_html( $p['label'] ) . ': <strong>' . esc_html( veryo_euro( $p['price'] ) ) . '</strong>';
+	}
+	$left   = veryo_b_h( $title, 2, array( 'fontSize' => 'display-l' ) ) . veryo_b_p( $intro, array( 'className' => 'veryo-lead' ) );
+	$left  .= veryo_b_list(
+		$parts,
+		array(
+			'ordered'   => true,
+			'className' => 'is-style-steps',
+		)
+	);
+	$right  = veryo_b_h( __( 'Vaste prijs per teamgrootte', 'veryo' ), 3 );
+	$right .= veryo_b_list( $prices, array( 'className' => 'is-style-prices' ) );
+	$right .= veryo_b_p( __( 'Exclusief btw. Geen software, geen abonnement: je betaalt één keer.', 'veryo' ), array( 'className' => 'veryo-small' ) );
+	$right .= veryo_b_buttons( array( array( __( 'Bekijk het AI-Startpakket', 'veryo' ), veryo_link( 'ai-startpakket' ) ) ) );
+	return veryo_b_group(
+		veryo_b_columns(
+			array(
+				array(
+					'width' => '60%',
+					'inner' => $left,
+				),
+				array(
+					'width' => '40%',
+					'class' => 'veryo-featured__side',
+					'inner' => $right,
+				),
+			)
+		),
+		array(
+			'align'     => 'wide',
+			'className' => 'is-style-paper veryo-featured',
+			'layout'    => false,
+		)
+	);
+}
+
+/**
+ * "Onafhankelijk advies": Veryo verkoopt geen eigen software.
+ *
+ * @param string $title Kop.
+ * @return string
+ */
+function veryo_sec_independent( $title = '' ) {
+	$title = $title ? $title : __( 'Onafhankelijk advies', 'veryo' );
+	$inner = veryo_b_h( $title )
+		. veryo_b_p( __( 'We verkopen geen eigen software. Steeds meer pakketten die je al gebruikt, krijgen AI ingebouwd: je mailprogramma, je boekhouding, je CRM. Daar zit vaak meer in dan je denkt. Wij zorgen dat je de juiste tool kiest, dat hij goed is ingericht en dat je team hem ook echt gebruikt.', 'veryo' ) )
+		. veryo_b_p( __( 'Pas als bestaande software tekortschiet, bouwen we een koppeling of iets op maat. En worden we ooit partner van een softwareleverancier waar we een vergoeding voor krijgen, dan zeggen we dat erbij als we die software adviseren.', 'veryo' ) );
+	return veryo_b_group( $inner, array( 'className' => 'is-style-soft veryo-independent' ) );
+}
+
+/**
+ * Aanpak per proces: eerst wat je al hebt, dan pas bouwen.
+ *
+ * @param string $title Kop.
+ * @return string
+ */
+function veryo_sec_approach( $title = '' ) {
+	$title = $title ? $title : __( 'Onze aanpak: eerst wat je al hebt', 'veryo' );
+	$items = array(
+		'<strong>' . __( 'Kijken wat er al is.', 'veryo' ) . '</strong> ' . __( 'Veel software die je al gebruikt, heeft inmiddels AI-functies. Vaak lost dat een groot deel op.', 'veryo' ),
+		'<strong>' . __( 'Inrichten en trainen.', 'veryo' ) . '</strong> ' . __( 'We zetten de juiste functies aan, of kiezen samen een passende tool, en leren je team ermee werken.', 'veryo' ),
+		'<strong>' . __( 'Alleen bouwen waar nodig.', 'veryo' ) . '</strong> ' . __( 'Blijft er een gat, bijvoorbeeld tussen twee systemen die niet met elkaar praten, dan bouwen we een koppeling of automatisering.', 'veryo' ),
+	);
+	return veryo_b_group(
+		veryo_b_h( $title ) . veryo_b_list(
+			$items,
+			array(
+				'ordered'   => true,
+				'className' => 'is-style-steps',
+			)
+		),
+		array( 'className' => 'veryo-approach' )
 	);
 }
 
@@ -348,46 +461,62 @@ function veryo_sec_cases() {
 }
 
 /**
- * Diensten op de homepage: bewust drie verschillende vormen, geen identieke kaarten.
+ * Wat we doen, in vier delen, bewust in verschillende vormen (geen identieke kaarten).
  *
  * @return string
  */
 function veryo_sec_services() {
-	$main  = veryo_b_h( __( 'AI-automatisering', 'veryo' ), 3, array( 'fontSize' => 'display-m' ) );
-	$main .= veryo_b_p( __( 'Terugkerend werk dat elke week uren kost, laten we door AI en slimme koppelingen doen: mail, offertes, facturen, werkbonnen en planning. We bouwen in je eigen software en accounts.', 'veryo' ) );
-	$main .= veryo_b_list(
+	$advies  = veryo_b_h( __( 'Advies', 'veryo' ), 3, array( 'fontSize' => 'display-m' ) );
+	$advies .= veryo_b_p( __( 'We zoeken uit waar AI in jouw bedrijf het meeste oplevert en welke tools daarbij passen. Vaak is dat software die je al hebt. Je krijgt een plan met prioriteiten, niet een stapel mogelijkheden.', 'veryo' ) );
+	$advies .= veryo_b_list(
 		array(
-			__( 'Offertes van aanvraag tot concept', 'veryo' ),
-			__( 'Inkoopfacturen automatisch in je boekhouding', 'veryo' ),
-			__( 'WhatsApp-vragen 24/7 beantwoord', 'veryo' ),
+			__( 'Kansensessie met roadmap', 'veryo' ),
+			__( 'Onafhankelijk advies over tools', 'veryo' ),
+			__( 'AI-beleid op maat', 'veryo' ),
 		),
 		array( 'className' => 'is-style-checks' )
 	);
-	$main .= veryo_b_buttons( array( array( __( 'Bekijk AI-automatisering', 'veryo' ), veryo_link( 'ai-automatisering' ), 'link' ) ) );
+	$advies .= veryo_b_buttons( array( array( __( 'Over AI-implementatie', 'veryo' ), veryo_link( 'ai-implementatie-mkb' ), 'link' ) ) );
 
-	$training  = veryo_b_h( __( 'AI-training', 'veryo' ), 3 );
-	$training .= veryo_b_p( __( 'Een halve of hele dag met je eigen team. Praktisch, met voorbeelden uit jullie werk, en je voldoet meteen aan de AI-geletterdheidsplicht uit de AI Act.', 'veryo' ) );
+	$training  = veryo_b_h( __( 'Training', 'veryo' ), 3 );
+	$training .= veryo_b_p( __( 'Een halve of hele dag met je eigen team. Praktisch, met voorbeelden uit jullie werk, en je werkt meteen aan de AI-geletterdheid die de AI Act vraagt.', 'veryo' ) );
 	$training .= veryo_b_buttons( array( array( __( 'Over de training', 'veryo' ), veryo_link( 'ai-training' ), 'link' ) ) );
 
-	$maat  = veryo_b_h( __( 'AI op maat', 'veryo' ), 3 );
-	$maat .= veryo_b_p( __( 'Een chatbot op je eigen kennis, een WhatsApp-assistent of een AI-agent die een heel proces oppakt. Voor vragen die een standaardflow niet oplost.', 'veryo' ) );
-	$maat .= veryo_b_buttons( array( array( __( 'Over AI op maat', 'veryo' ), veryo_link( 'ai-op-maat' ), 'link' ) ) );
+	$invoering  = veryo_b_h( __( 'Invoering en koppelingen', 'veryo' ), 3 );
+	$invoering .= veryo_b_p( __( 'We richten de gekozen tools in en koppelen systemen die niet met elkaar praten. Alleen waar bestaande software tekortschiet, bouwen we iets op maat.', 'veryo' ) );
+	$invoering .= veryo_b_buttons( array( array( __( 'Wat er mogelijk is', 'veryo' ), veryo_link( 'ai-automatisering' ), 'link' ) ) );
 
-	$inner  = veryo_b_h( __( 'Drie manieren waarop we helpen', 'veryo' ) );
+	$partner = veryo_b_columns(
+		array(
+			array(
+				'width' => '30%',
+				'inner' => veryo_b_h( __( 'Partner', 'veryo' ), 3 ),
+			),
+			array(
+				'width' => '70%',
+				'inner' => veryo_b_p( __( 'Een vaste vraagbaak voor alles rond AI: maandelijks overleg, nieuwe medewerkers bijscholen en kleine verbeteringen. Zodat het niet stilvalt na de eerste maand.', 'veryo' ) )
+					. veryo_b_buttons( array( array( __( 'Over het AI-partner-abonnement', 'veryo' ), veryo_link( 'ai-partner' ), 'link' ) ) ),
+			),
+		),
+		array( 'className' => 'veryo-partner-row' )
+	);
+
+	$inner  = veryo_b_h( __( 'Wat we doen', 'veryo' ) );
 	$inner .= veryo_b_columns(
 		array(
 			array(
 				'width' => '58%',
 				'class' => 'veryo-service-main',
-				'inner' => $main,
+				'inner' => $advies,
 			),
 			array(
 				'width' => '42%',
 				'class' => 'veryo-service-side',
-				'inner' => veryo_b_group( $training, array( 'className' => 'is-style-soft' ) ) . veryo_b_group( $maat, array( 'className' => 'veryo-service-plain' ) ),
+				'inner' => veryo_b_group( $training, array( 'className' => 'is-style-soft' ) ) . veryo_b_group( $invoering, array( 'className' => 'veryo-service-plain' ) ),
 			),
 		)
 	);
+	$inner .= $partner;
 	return veryo_b_group(
 		$inner,
 		array(
@@ -396,6 +525,32 @@ function veryo_sec_services() {
 			'anchor'    => 'wat-we-doen',
 			'layout'    => false,
 		)
+	);
+}
+
+/**
+ * Stappen op de homepage: AI-scan, AI-Startpakket, invoering, AI-partner.
+ *
+ * @return string
+ */
+function veryo_sec_steps_home() {
+	$steps = array(
+		'<strong>' . __( 'Gratis AI-scan', 'veryo' ) . '</strong><br>' . __( 'Negen vragen, drie minuten, en je weet waar de tijdwinst zit.', 'veryo' ),
+		'<strong>' . __( 'AI-Startpakket', 'veryo' ) . '</strong><br>' . __( 'Kansensessie, teamtraining, AI-beleid, één quick win ingericht en 30 dagen nazorg.', 'veryo' ),
+		'<strong>' . __( 'Invoering van de beste kansen', 'veryo' ) . '</strong><br>' . __( 'Eerst met software die je al hebt, alleen waar nodig met een eigen koppeling.', 'veryo' ),
+		'<strong>' . __( 'AI-partner', 'veryo' ) . '</strong><br>' . __( 'Een vaste vraagbaak die zorgt dat het blijft werken en beter wordt.', 'veryo' ),
+	);
+	return veryo_b_group(
+		veryo_b_h( __( 'Zo werken we', 'veryo' ) )
+		. veryo_b_p( __( 'Vier stappen, van eerste vraag tot een team dat er elke dag mee werkt. Je kunt na elke stap stoppen.', 'veryo' ) )
+		. veryo_b_list(
+			$steps,
+			array(
+				'ordered'   => true,
+				'className' => 'is-style-steps',
+			)
+		),
+		array( 'className' => 'veryo-steps' )
 	);
 }
 
@@ -414,6 +569,9 @@ function veryo_page_standard( $d ) {
 	if ( ! empty( $d['photo'] ) ) {
 		$out .= veryo_sec_photo( $d['photo'][0], $d['photo'][1], isset( $d['photo'][2] ) ? $d['photo'][2] : '' );
 	}
+	if ( ! empty( $d['approach'] ) ) {
+		$out .= veryo_sec_approach();
+	}
 	if ( ! empty( $d['catalog'] ) ) {
 		$out .= veryo_sec_catalog( $d['catalog']['ids'], $d['catalog']['h'], isset( $d['catalog']['intro'] ) ? $d['catalog']['intro'] : '' );
 	}
@@ -430,7 +588,9 @@ function veryo_page_standard( $d ) {
 	if ( ! empty( $d['extra'] ) ) {
 		$out .= veryo_sec_text( $d['extra'][0], $d['extra'][1] );
 	}
-	$out .= veryo_sec_steps( isset( $d['steps_title'] ) ? $d['steps_title'] : '', isset( $d['steps_intro'] ) ? $d['steps_intro'] : '' );
+	if ( empty( $d['no_steps'] ) ) {
+		$out .= veryo_sec_steps( isset( $d['steps_title'] ) ? $d['steps_title'] : '', isset( $d['steps_intro'] ) ? $d['steps_intro'] : '' );
+	}
 	if ( ! empty( $d['price'] ) ) {
 		$out .= veryo_sec_price( $d['price']['steps'], isset( $d['price']['h'] ) ? $d['price']['h'] : '', isset( $d['price']['p'] ) ? $d['price']['p'] : '' );
 	}

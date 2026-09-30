@@ -428,12 +428,13 @@ function veryo_lead_box_details( $post ) {
 		__( 'Toestemming', 'veryo' ) => $lead['consent_at'] ? wp_date( 'j F Y H:i', (int) strtotime( $lead['consent_at'] ) ) : '',
 	);
 	$labels  = array(
-		'voornaam' => __( 'Voornaam', 'veryo' ),
-		'naam'     => __( 'Naam', 'veryo' ),
-		'bedrijf'  => __( 'Bedrijf', 'veryo' ),
-		'email'    => __( 'E-mail', 'veryo' ),
-		'telefoon' => __( 'Telefoon', 'veryo' ),
-		'bericht'  => __( 'Bericht', 'veryo' ),
+		'voornaam'    => __( 'Voornaam', 'veryo' ),
+		'naam'        => __( 'Naam', 'veryo' ),
+		'bedrijf'     => __( 'Bedrijf', 'veryo' ),
+		'medewerkers' => __( 'Aantal medewerkers', 'veryo' ),
+		'email'       => __( 'E-mail', 'veryo' ),
+		'telefoon'    => __( 'Telefoon', 'veryo' ),
+		'bericht'     => __( 'Bericht', 'veryo' ),
 	);
 	foreach ( $labels as $key => $label ) {
 		if ( isset( $lead['contact'][ $key ] ) && '' !== $lead['contact'][ $key ] ) {
@@ -653,7 +654,7 @@ function veryo_export_leads() {
 	check_admin_referer( 'veryo_export_leads' );
 	$tasks  = array_keys( veryo_scan_tasks() );
 	$header = array_merge(
-		array( 'id', 'datum', 'bron', 'status', 'temperatuur', 'voornaam_of_naam', 'bedrijf', 'email', 'telefoon', 'bericht', 'branche', 'branche_overig', 'team', 'taken' ),
+		array( 'id', 'datum', 'bron', 'status', 'temperatuur', 'voornaam_of_naam', 'bedrijf', 'email', 'telefoon', 'bericht', 'aantal_medewerkers', 'branche', 'branche_overig', 'team', 'taken' ),
 		array_map(
 			static function ( $t ) {
 				return 'uren_' . $t;
@@ -678,6 +679,7 @@ function veryo_export_leads() {
 			isset( $c['email'] ) ? $c['email'] : '',
 			isset( $c['telefoon'] ) ? $c['telefoon'] : '',
 			isset( $c['bericht'] ) ? $c['bericht'] : '',
+			isset( $c['medewerkers'] ) ? $c['medewerkers'] : '',
 			isset( $a['branche'] ) ? $a['branche'] : '',
 			isset( $a['branche_overig'] ) ? $a['branche_overig'] : '',
 			isset( $a['team'] ) ? $a['team'] : '',

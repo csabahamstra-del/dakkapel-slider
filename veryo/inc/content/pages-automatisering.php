@@ -23,6 +23,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo helpt MKB-bedrijven klantvragen automatiseren met AI: inkomende mail wordt gesorteerd, er staan conceptantwoorden klaar in jullie toon, en een WhatsApp-assistent beantwoordt vragen buiten kantoortijd. Een quick win zoals mailsortering kost €750 tot €1.500, exclusief btw.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Te veel vragen, te weinig handen', 'veryo' ),
@@ -33,7 +34,7 @@ return array(
 				),
 				'photo'    => array( __( 'medewerker aan de telefoon met een mailbox open op het scherm', 'veryo' ), __( 'Klantvragen automatiseren met AI op kantoor', 'veryo' ), 'telefoon' ),
 				'catalog'  => array(
-					'h'     => __( 'Wat we automatiseren in klantcontact', 'veryo' ),
+					'h'     => __( 'Wat er mogelijk is in klantcontact', 'veryo' ),
 					'intro' => __( 'Uit onze catalogus. De tijdwinst is een indicatie voor een team van 5 tot 20 mensen.', 'veryo' ),
 					'ids'   => array( 'mail-sortering', 'mail-concepten', 'whatsapp-assistent', 'website-chatbot', 'voicebot', 'gespreksverslagen', 'statusberichten', 'klachten', 'vertalen' ),
 				),
@@ -56,7 +57,7 @@ return array(
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Worden mails automatisch verstuurd?', 'veryo' ), __( 'Dat bepaal je zelf. Meestal beginnen we met concepten die een collega controleert. Voor eenvoudige vragen, zoals openingstijden of de status van een afspraak, kan het later automatisch.', 'veryo' ) ),
 					array( __( 'Werkt dit met Outlook en Gmail?', 'veryo' ), __( 'Ja. We koppelen aan Outlook, Gmail en de meeste zakelijke mailomgevingen. Je blijft werken in je eigen mailbox.', 'veryo' ) ),
@@ -86,6 +87,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo helpt je offertes automatiseren: een aanvraag, notities of foto worden een conceptofferte met jullie prijzen, openstaande offertes worden vanzelf opgevolgd en calculaties komen in één eigen tool. Offerte-opvolging kost €750 tot €1.500, een offerte-generator €2.500 tot €7.500, exclusief btw.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Offertes die blijven liggen', 'veryo' ),
@@ -96,7 +98,7 @@ return array(
 				),
 				'photo'    => array( __( 'calculator aan een bureau met een tekening en een laptop met een conceptofferte', 'veryo' ), __( 'Offertes automatiseren met een AI-offerte-generator', 'veryo' ), 'kantoor' ),
 				'catalog'  => array(
-					'h'     => __( 'Wat we automatiseren bij verkoop, offertes en calculaties', 'veryo' ),
+					'h'     => __( 'Wat er mogelijk is bij verkoop, offertes en calculaties', 'veryo' ),
 					'intro' => __( 'Bij calculaties leggen we de rekenregels vast in formules of code. AI gebruiken we voor het lezen, invullen en uitleggen, niet voor het rekenen zelf.', 'veryo' ),
 					'ids'   => array( 'offerte-generator', 'offerte-opvolging', 'calculatietool', 'offerte-uit-calculatie', 'materiaalstaat', 'nacalculatie', 'meerwerk', 'lead-invoer', 'leadkwalificatie', 'prijsindicator', 'contracten', 'terugverdien' ),
 				),
@@ -113,7 +115,7 @@ return array(
 						'p' => array( __( 'AI-taalmodellen zijn goed in lezen en schrijven, maar niet betrouwbaar in rekenen. Daarom zetten we prijzen, marges en rekenregels vast in de calculatietool, en laat AI alleen de aanvraag lezen, velden invullen en de offerte formuleren. Zo krijg je snelheid zonder verrassingen in de bedragen.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Verstuurt de AI offertes zelf?', 'veryo' ), __( 'Nee. De AI maakt een concept, een mens controleert en verstuurt. Een offerte is een toezegging; die laten we niet aan AI over.', 'veryo' ) ),
 					array( __( 'Werkt het met ons offerteprogramma?', 'veryo' ), __( 'Vaak wel. Veel offerte- en boekhoudpakketten hebben een koppeling. Zo niet, dan maken we de offerte in je huisstijl als document en zetten we de gegevens klaar voor je pakket.', 'veryo' ) ),
@@ -143,6 +145,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo helpt MKB-bedrijven hun administratie automatiseren: inkoopfacturen en bonnetjes worden automatisch verwerkt, afgeronde werkbonnen worden facturen en debiteuren krijgen vanzelf een herinnering. We koppelen aan je bestaande boekhoudpakket. Een quick win kost €750 tot €1.500, exclusief btw.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'De administratie die ’s avonds wordt gedaan', 'veryo' ),
@@ -153,7 +156,7 @@ return array(
 				),
 				'photo'    => array( __( 'ondernemer aan de keukentafel met een stapel bonnetjes en een laptop', 'veryo' ), __( 'Administratie automatiseren voor het MKB', 'veryo' ), 'laptop' ),
 				'catalog'  => array(
-					'h'     => __( 'Wat we automatiseren in de administratie', 'veryo' ),
+					'h'     => __( 'Wat er mogelijk is in de administratie', 'veryo' ),
 					'intro' => __( 'We koppelen aan het boekhoudpakket dat je al hebt, zoals Exact, Moneybird of SnelStart. We vervangen het niet.', 'veryo' ),
 					'ids'   => array( 'inkoopfacturen', 'bonnetjes', 'werkbon-factuur', 'debiteuren', 'bankmutaties', 'urenregistratie', 'archiveren', 'formulieren' ),
 				),
@@ -175,7 +178,7 @@ return array(
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 7 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'onderhoud' ) ),
 				'faq'      => array(
 					array( __( 'Welke boekhoudpakketten ondersteunen jullie?', 'veryo' ), __( 'We werken veel met Exact, Moneybird en SnelStart. Andere pakketten met een koppeling (API) kunnen ook. In de kennismaking checken we wat er bij jou mogelijk is.', 'veryo' ) ),
 					array( __( 'Vervangt dit mijn boekhouder?', 'veryo' ), __( 'Nee. Het haalt het invoerwerk weg, zodat je boekhouder zich kan richten op controle en advies.', 'veryo' ) ),
@@ -204,6 +207,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo helpt technische MKB-bedrijven werkprocessen automatiseren: een weekplanning als voorstel, een werkbon die je inspreekt, opleverrapporten uit foto’s, bestellingen uit een materiaallijst en onderhoud dat vanzelf wordt ingepland. Een quick win kost €750 tot €1.500, een project €2.500 tot €7.500, exclusief btw.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Het werk loopt, de papierwinkel eromheen niet', 'veryo' ),
@@ -214,7 +218,7 @@ return array(
 				),
 				'photo'    => array( __( 'monteur in een bedrijfsbus die een werkbon inspreekt op zijn telefoon', 'veryo' ), __( 'Werkprocessen automatiseren: digitale werkbon inspreken', 'veryo' ), 'installateur' ),
 				'catalog'  => array(
-					'h'     => __( 'Welke werkprocessen we automatiseren', 'veryo' ),
+					'h'     => __( 'Welke werkprocessen je kunt automatiseren', 'veryo' ),
 					'intro' => __( 'Tijdwinst is een indicatie voor een team van 5 tot 20 mensen.', 'veryo' ),
 					'ids'   => array( 'planningsassistent', 'digitale-werkbon', 'opleverrapport', 'inkoop-bestellingen', 'voorraad', 'onderhoudsplanning', 'checklists', 'overdracht', 'storingen', 'koppelingen' ),
 				),
@@ -235,7 +239,7 @@ return array(
 						),
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Moeten de monteurs een nieuwe app leren?', 'veryo' ), __( 'Liefst niet. Als jullie al een werkbon- of planningsapp gebruiken, koppelen we daaraan. Anders gebruiken we WhatsApp of een eenvoudig formulier dat iedereen snapt.', 'veryo' ) ),
 					array( __( 'Werkt het met onze planningstool?', 'veryo' ), __( 'Als de planningstool een koppeling heeft, meestal wel. Dat checken we in de kansensessie.', 'veryo' ) ),
@@ -265,6 +269,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo zet AI-marketing voor het MKB in: van zoekwoordenplanning en SEO-blogs tot social posts, reviews en e-mailflows. AI maakt de concepten, een mens controleert alles voordat het online gaat. Een quick win zoals social captions of reviewverzoeken kost €750 tot €1.500, exclusief btw.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Marketing die er altijd bij moet', 'veryo' ),
@@ -275,7 +280,7 @@ return array(
 				),
 				'photo'    => array( __( 'projectfoto van een afgeronde klus naast een telefoon met een conceptpost', 'veryo' ), __( 'AI-marketing voor het MKB: projectfoto naar social post', 'veryo' ), 'bouw' ),
 				'catalog'  => array(
-					'h'     => __( 'Wat we automatiseren in marketing', 'veryo' ),
+					'h'     => __( 'Wat er mogelijk is in marketing', 'veryo' ),
 					'intro' => __( 'Alle content gaat langs een menselijke check voordat het online komt.', 'veryo' ),
 					'ids'   => array( 'zoekwoordenplanning', 'blogs', 'lokale-paginas', 'seo-check', 'geo', 'bedrijfsprofiel', 'contenthergebruik', 'social-captions', 'projectfotos', 'shorts', 'advertentieteksten', 'advertentierapportage', 'nieuwsbrief', 'emailflows', 'reviews', 'concurrentiemonitor' ),
 				),
@@ -292,7 +297,7 @@ return array(
 						'p' => array( __( 'Steeds meer mensen stellen hun vraag aan ChatGPT of een andere AI-zoekmachine in plaats van aan Google. Die citeren vooral pagina’s met een helder, direct antwoord en consistente bedrijfsgegevens. We helpen je website daarop in te richten, naast de gewone SEO-basis. Garanties op posities geven we niet; niemand kan die eerlijk geven.', 'veryo' ) ),
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 8 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'partner' ) ),
 				'faq'      => array(
 					array( __( 'Gaat AI zelf posts plaatsen?', 'veryo' ), __( 'Alleen na jouw akkoord. Concepten worden klaargezet; jij of een collega keurt goed. Klantgerichte content gaat altijd langs een mens.', 'veryo' ) ),
 					array( __( 'Straft Google AI-teksten af?', 'veryo' ), __( 'Google kijkt naar kwaliteit en nut voor de lezer, niet naar hoe een tekst is gemaakt. Een AI-concept dat door een vakman is aangevuld en gecontroleerd, kan dus prima werken. Massaal ongecontroleerde teksten plaatsen raden we af.', 'veryo' ) ),
@@ -321,6 +326,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo helpt MKB-bedrijven werving automatiseren: vacatures in de taal van vakmensen, solliciteren via WhatsApp zonder cv, een shortlist op harde eisen en automatische opvolging van kandidaten. De mens beslist. Een quick win zoals kandidaatopvolging kost €750 tot €1.500, exclusief btw.', 'veryo' ),
 				'extra'    => array( __( 'Wat je vooraf regelt', 'veryo' ), array( __( 'Werving automatiseren begint niet bij de techniek maar bij drie afspraken. Welke eisen zijn echt hard, zoals een rijbewijs of een VCA-diploma? Wie voert de gesprekken en wanneer is die persoon beschikbaar? En hoe snel krijgt een kandidaat antwoord? Als die drie dingen vastliggen, is de automatisering een kwestie van inrichten.', 'veryo' ), __( 'Ook HR na de werving levert tijd op. Verlof en verzuim melden via WhatsApp of een formulier, certificaten die op tijd een herinnering geven en een onboarding die vanzelf klaarstaat: het zijn kleine flows die samen elke maand uren schelen.', 'veryo' ) ) ),
 				'problem'  => array(
@@ -332,7 +338,7 @@ return array(
 				),
 				'photo'    => array( __( 'vakman die op zijn telefoon via WhatsApp op een vacature reageert', 'veryo' ), __( 'Werving automatiseren via WhatsApp', 'veryo' ), 'telefoon' ),
 				'catalog'  => array(
-					'h'   => __( 'Wat we automatiseren in HR en werving', 'veryo' ),
+					'h'   => __( 'Wat er mogelijk is in HR en werving', 'veryo' ),
 					'ids' => array( 'vacatureteksten', 'whatsapp-sollicitatie', 'voorselectie', 'kandidaatopvolging', 'onboarding', 'verlof', 'certificaten' ),
 				),
 				'sections' => array(
@@ -354,7 +360,7 @@ return array(
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project' ) ),
 				'faq'      => array(
 					array( __( 'Is solliciteren zonder cv wel serieus?', 'veryo' ), __( 'Voor veel vakfuncties wel. Een monteur met tien jaar ervaring heeft vaak geen actueel cv, maar kan in vijf vragen laten zien of hij past. Het cv kan later nog.', 'veryo' ) ),
 					array( __( 'Mag AI kandidaten afwijzen?', 'veryo' ), __( 'Beslissingen met grote gevolgen laten we niet zonder mens over aan AI. Automatisch afwijzen doen we alleen op harde, objectieve eisen die jij vooraf vastlegt. Bij twijfel beslist een mens.', 'veryo' ) ),
@@ -382,6 +388,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo bouwt een interne kennisbank met AI: een assistent die vragen van collega’s beantwoordt uit jullie eigen documenten, handleidingen en procedures, met verwijzing naar de bron. Ook maken we werkinstructies uit video en vatten we documenten samen. Een interne assistent is maatwerk vanaf €5.000; losse flows vanaf €750, exclusief btw.', 'veryo' ),
 				'extra'    => array( __( 'Waar een kennisbank het meest oplevert', 'veryo' ), array( __( 'De winst zit vooral bij vragen die vaak terugkomen en waarvan het antwoord ergens op papier staat: hoe werkt dit toestel, welke procedure geldt hier, wat hebben we met deze klant afgesproken. Hoe meer collega’s dezelfde vragen stellen, hoe meer tijd een interne assistent bespaart.', 'veryo' ), __( 'Een voorbeeld: een installatiebedrijf met drie nieuwe monteurs per jaar kan de inwerkperiode verkorten door werkinstructies uit korte video’s te laten maken en ze doorzoekbaar te zetten. De ervaren collega’s worden minder vaak gebeld en de nieuwe mensen durven eerder zelf aan de slag.', 'veryo' ) ) ),
 				'problem'  => array(
@@ -393,7 +400,7 @@ return array(
 				),
 				'photo'    => array( __( 'nieuwe medewerker die op een laptop een vraag stelt aan de interne assistent', 'veryo' ), __( 'Interne kennisbank met AI voor medewerkers', 'veryo' ), 'laptop' ),
 				'catalog'  => array(
-					'h'   => __( 'Wat we automatiseren rond kennis en documenten', 'veryo' ),
+					'h'   => __( 'Wat er mogelijk is rond kennis en documenten', 'veryo' ),
 					'ids' => array( 'interne-assistent', 'werkinstructies', 'documenten-samenvatten', 'technische-documentatie', 'beleid', 'presentaties' ),
 				),
 				'sections' => array(
@@ -415,7 +422,7 @@ return array(
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 6, 7 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'maatwerk', 'onderhoud' ) ),
 				'faq'      => array(
 					array( __( 'Welke documenten kunnen erin?', 'veryo' ), __( 'Pdf’s, Word-bestanden, webpagina’s en de meeste gangbare formaten. Scans van slechte kwaliteit werken minder goed; die zetten we eerst om.', 'veryo' ) ),
 					array( __( 'Kan de assistent fouten maken?', 'veryo' ), __( 'Ja, daarom geeft hij altijd de bron, zodat je kunt nakijken. We testen vooraf met echte vragen en verbeteren de bronnen als hij iets mist.', 'veryo' ) ),
@@ -443,6 +450,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
+				'approach' => true,
 				'answer'   => __( 'Veryo helpt MKB-bedrijven rapportages automatiseren: omzet, offertes, debiteuren, planning en leads in één dashboard, en elke maandag een kort bericht met je belangrijkste cijfers in gewone taal. Een maandagbericht kost €750 tot €1.500, een dashboard €2.500 tot €7.500, exclusief btw.', 'veryo' ),
 				'extra'    => array( __( 'Welke cijfers het meest opleveren', 'veryo' ), array( __( 'De meeste ondernemers hebben genoeg aan drie tot vijf cijfers: openstaande offertes en hun waarde, facturen die te lang openstaan, de bezetting van de planning voor de komende weken en het aantal nieuwe aanvragen. Wie die elke week ziet, stuurt eerder bij.', 'veryo' ), __( 'Een voorbeeld: een technisch bedrijf met vijftien mensen kan elke maandagochtend een bericht in Teams krijgen met die vier cijfers en twee zinnen uitleg. Het kost niemand tijd om te maken en het gesprek in het weekoverleg gaat meteen over wat er moet gebeuren.', 'veryo' ), __( 'Voor wie dieper wil kijken, is rendement per project of klanttype de volgende stap. Dan zie je welke klussen goed verdienen en welke structureel tegenvallen.', 'veryo' ) ) ),
 				'problem'  => array(
@@ -454,7 +462,7 @@ return array(
 				),
 				'photo'    => array( __( 'ondernemer die op maandagochtend op zijn telefoon het weekoverzicht leest', 'veryo' ), __( 'Rapportages automatiseren: maandagbericht met cijfers', 'veryo' ), 'kantoor' ),
 				'catalog'  => array(
-					'h'   => __( 'Welke rapportages we automatiseren', 'veryo' ),
+					'h'   => __( 'Welke rapportages je kunt automatiseren', 'veryo' ),
 					'ids' => array( 'dashboard', 'weekupdate', 'excel', 'projectrendement', 'klanttevredenheid', 'voorspellingen' ),
 				),
 				'sections' => array(
@@ -474,7 +482,7 @@ return array(
 						),
 					),
 				),
-				'price'    => array( 'steps' => array( 4, 5, 6 ) ),
+				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Moeten we een BI-pakket aanschaffen?', 'veryo' ), __( 'Meestal niet. Voor een MKB-bedrijf is een eenvoudig dashboard of een wekelijks bericht vaak genoeg. Als een BI-pakket echt nodig is, zeggen we dat.', 'veryo' ) ),
 					array( __( 'Kan AI voorspellingen doen?', 'veryo' ), __( 'Met genoeg historische gegevens kun je werkaanbod, pieken en cashflow voorspellen. Dat is maatwerk en de betrouwbaarheid hangt sterk af van je data. We zijn daar vooraf eerlijk over.', 'veryo' ) ),
