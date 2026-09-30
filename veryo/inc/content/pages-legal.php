@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$veryo_privacy  = veryo_b_p( __( 'In deze privacyverklaring leest u welke persoonsgegevens Veryo verwerkt, waarom, hoe lang we ze bewaren en welke rechten u heeft. Versie: [VUL IN: datum].', 'veryo' ), array( 'fontSize' => 'body-l' ) );
+$veryo_privacy  = veryo_b_p( __( 'In deze privacyverklaring leest u welke persoonsgegevens Veryo verwerkt, waarom, hoe lang we ze bewaren en welke rechten u heeft. Versie: 30 september 2026.', 'veryo' ), array( 'fontSize' => 'body-l' ) );
 $veryo_privacy .= veryo_sec_text(
 	__( '1. Wie is verantwoordelijk?', 'veryo' ),
 	array( __( 'Verantwoordelijk voor de verwerking van uw persoonsgegevens is Veryo, een handelsnaam van Merklenz (eenmanszaak), Lange Marktstraat 1, Leeuwarden. KvK-nummer: 73435996. U kunt ons bereiken via de contactgegevens hieronder.', 'veryo' ) )
@@ -76,7 +76,7 @@ $veryo_privacy .= veryo_sec_text(
 	array( __( 'De website gebruikt een beveiligde verbinding (https). Toegang tot de gegevens is beperkt tot beheerders. Formulieren zijn beschermd tegen misbruik. [VUL IN: aanvullende maatregelen, zoals tweestapsverificatie voor beheerders en back-ups]', 'veryo' ) )
 );
 
-$veryo_cookies  = veryo_b_p( __( 'Deze cookieverklaring legt uit welke cookies en vergelijkbare technieken deze website gebruikt. Versie: [VUL IN: datum].', 'veryo' ), array( 'fontSize' => 'body-l' ) );
+$veryo_cookies  = veryo_b_p( __( 'Deze cookieverklaring legt uit welke cookies en vergelijkbare technieken deze website gebruikt. Versie: 30 september 2026.', 'veryo' ), array( 'fontSize' => 'body-l' ) );
 $veryo_cookies .= veryo_sec_text(
 	__( 'Geen tracking- of advertentiecookies', 'veryo' ),
 	array( __( 'Deze website plaatst standaard geen analytische, tracking- of advertentiecookies en laadt geen scripts, lettertypes of afbeeldingen van externe partijen. Daardoor is er geen cookiebanner nodig.', 'veryo' ) )
@@ -98,7 +98,7 @@ $veryo_cookies .= veryo_sec_text(
 	array( __( 'Als we later analytische of andere cookies gaan gebruiken, passen we deze verklaring aan en vragen we waar nodig eerst uw toestemming. [VUL IN: aanvullen als er analytics of embeds worden toegevoegd]', 'veryo' ) )
 );
 
-$veryo_terms  = veryo_b_p( __( 'Deze algemene voorwaarden zijn van toepassing op alle offertes, opdrachten en diensten van Veryo. Versie: [VUL IN: datum].', 'veryo' ), array( 'fontSize' => 'body-l' ) );
+$veryo_terms  = veryo_b_p( __( 'Deze algemene voorwaarden zijn van toepassing op alle offertes, opdrachten en diensten van Veryo. Versie: 30 september 2026.', 'veryo' ), array( 'fontSize' => 'body-l' ) );
 $veryo_terms .= veryo_sec_text(
 	__( '1. Definities', 'veryo' ),
 	array(),
@@ -123,7 +123,7 @@ $veryo_terms .= veryo_sec_text(
 );
 $veryo_terms .= veryo_sec_text(
 	__( '5. Betaling', 'veryo' ),
-	array( __( 'Facturen worden betaald binnen 14 dagen na factuurdatum. Abonnementen worden [VUL IN: maandelijks/per kwartaal] vooraf gefactureerd. Bij te late betaling is opdrachtgever na een herinnering de wettelijke (handels)rente verschuldigd.', 'veryo' ) )
+	array( __( 'Facturen worden betaald binnen 14 dagen na factuurdatum. Abonnementen worden maandelijks vooraf gefactureerd. Bij te late betaling is opdrachtgever na een herinnering de wettelijke (handels)rente verschuldigd.', 'veryo' ) )
 );
 $veryo_terms .= veryo_sec_text(
 	__( '6. Eigendom en gegevens', 'veryo' ),
