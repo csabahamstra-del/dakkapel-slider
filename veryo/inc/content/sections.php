@@ -59,13 +59,18 @@ function veryo_sec_answer( $text ) {
 }
 
 /**
- * Plek voor een echte foto.
+ * Foto uit de fotobibliotheek, of anders een plek voor een echte foto.
  *
  * @param string $desc Omschrijving van de gewenste foto.
- * @param string $alt  Voorgestelde alt-tekst.
+ * @param string $alt  Alt-tekst (met het hoofdzoekwoord van de pagina).
+ * @param string $key  Sleutel uit veryo_photo_library(); leeg = altijd placeholder.
  * @return string
  */
-function veryo_sec_photo( $desc, $alt ) {
+function veryo_sec_photo( $desc, $alt, $key = '' ) {
+	$id = $key ? veryo_photo_id( $key ) : 0;
+	if ( $id ) {
+		return veryo_b_image( $id, $alt );
+	}
 	/* translators: 1: omschrijving foto, 2: alt-tekst. */
 	$text = sprintf( __( '[FOTO: %1$s. Alt-tekst: %2$s]', 'veryo' ), $desc, $alt );
 	return veryo_b_group(
@@ -407,7 +412,7 @@ function veryo_page_standard( $d ) {
 		$out .= veryo_sec_text( $d['problem']['h'], $d['problem']['p'], isset( $d['problem']['list'] ) ? $d['problem']['list'] : array() );
 	}
 	if ( ! empty( $d['photo'] ) ) {
-		$out .= veryo_sec_photo( $d['photo'][0], $d['photo'][1] );
+		$out .= veryo_sec_photo( $d['photo'][0], $d['photo'][1], isset( $d['photo'][2] ) ? $d['photo'][2] : '' );
 	}
 	if ( ! empty( $d['catalog'] ) ) {
 		$out .= veryo_sec_catalog( $d['catalog']['ids'], $d['catalog']['h'], isset( $d['catalog']['intro'] ) ? $d['catalog']['intro'] : '' );

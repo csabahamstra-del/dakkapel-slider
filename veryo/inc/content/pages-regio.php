@@ -47,7 +47,7 @@ return array(
 						__( 'Als AI-bureau in Friesland beginnen we daarom bij je werk. Waar gaat de tijd heen? Welke software gebruik je? Wat ergert je team het meest? Pas daarna kijken we wat AI kan doen, en wat het oplevert in uren en euro’s.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'bedrijfspand op een Fries bedrijventerrein met een busje van een installateur ervoor', 'veryo' ), __( 'AI-adviseur in Friesland op bezoek bij een MKB-bedrijf', 'veryo' ) ),
+				'photo'    => array( __( 'bedrijfspand op een Fries bedrijventerrein met een busje van een installateur ervoor', 'veryo' ), __( 'AI-adviseur in Friesland op bezoek bij een MKB-bedrijf', 'veryo' ), 'landschap' ),
 				'sections' => array(
 					array(
 						'h'    => __( 'Sectoren die we in Friesland veel zien', 'veryo' ),
@@ -112,7 +112,7 @@ return array(
 						__( 'Als AI-bureau voor Groningen richten we ons op dat laatste: praktische toepassingen die in je eigen software draaien, met een vaste prijs en iemand die ze onderhoudt.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'logistiek bedrijf in de Eemshaven-regio met vrachtwagens aan het dock', 'veryo' ), __( 'AI-adviseur in Groningen bij een logistiek bedrijf', 'veryo' ) ),
+				'photo'    => array( __( 'logistiek bedrijf in de Eemshaven-regio met vrachtwagens aan het dock', 'veryo' ), __( 'AI-adviseur in Groningen bij een logistiek bedrijf', 'veryo' ), 'logistiek' ),
 				'sections' => array(
 					array(
 						'h'    => __( 'Waar we Groningse bedrijven mee helpen', 'veryo' ),
@@ -180,7 +180,7 @@ return array(
 						__( 'Juist daar kan AI-automatisering in Drenthe veel schelen. Niet door de werkplaats te veranderen, maar door het werk eromheen lichter te maken: de offertes, de onderhoudsplanning, de bestellingen en de administratie.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'werkplaats van een Drents metaalbedrijf met een medewerker aan een tablet', 'veryo' ), __( 'AI-adviseur in Drenthe bij een maakbedrijf', 'veryo' ) ),
+				'photo'    => array( __( 'werkplaats van een Drents metaalbedrijf met een medewerker aan een tablet', 'veryo' ), __( 'AI-adviseur in Drenthe bij een maakbedrijf', 'veryo' ), 'werkplaats' ),
 				'sections' => array(
 					array(
 						'h'    => __( 'AI-automatisering in Drenthe: waar het meestal zit', 'veryo' ),
@@ -242,7 +242,7 @@ return array(
 						__( 'We zien in de stad een mix van zakelijke dienstverleners, winkels en horeca in de binnenstad en technische bedrijven op de bedrijventerreinen aan de rand. Allemaal met dezelfde vraag: hoe zet ik AI in zonder dat het een project van een jaar wordt?', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'trainingsruimte in Leeuwarden met een groep deelnemers en een scherm', 'veryo' ), __( 'AI-training in Leeuwarden voor een MKB-team', 'veryo' ) ),
+				'photo'    => array( __( 'trainingsruimte in Leeuwarden met een groep deelnemers en een scherm', 'veryo' ), __( 'AI-training in Leeuwarden voor een MKB-team', 'veryo' ), 'training' ),
 				'sections' => array(
 					array(
 						'h' => __( 'AI-training in Leeuwarden: op locatie of bij jou', 'veryo' ),

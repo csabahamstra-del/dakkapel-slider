@@ -87,6 +87,9 @@ function veryo_run_setup() {
 	// Eigen, vertrouwde block markup: niet door kses laten filteren.
 	kses_remove_filters();
 
+	// 0. Foto's in de mediabibliotheek (voor de pagina's ze gebruiken).
+	veryo_import_photos();
+
 	// 1. Pagina's.
 	$ids   = array();
 	$order = 0;

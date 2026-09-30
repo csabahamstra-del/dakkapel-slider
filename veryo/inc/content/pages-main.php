@@ -31,6 +31,7 @@ $veryo_home .= veryo_b_group(
 	. veryo_b_buttons( array( array( __( 'Zo werkt de AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ) ) ) ),
 	array( 'className' => 'veryo-intro' )
 );
+$veryo_home .= veryo_sec_photo( __( 'team van een MKB-bedrijf aan het werk op kantoor', 'veryo' ), __( 'AI-bureau voor het MKB: team aan het werk', 'veryo' ), 'team' );
 $veryo_home .= veryo_sec_services();
 $veryo_home .= veryo_sec_steps( __( 'Zo werken we', 'veryo' ), __( 'Vier stappen, van eerste vraag tot automatisering die elke dag draait. Je kunt na elke stap stoppen.', 'veryo' ) );
 $veryo_home .= veryo_b_group(
@@ -154,7 +155,7 @@ $veryo_auto = veryo_page_standard(
 				__( 'Dat werk is niet moeilijk, maar het kost uren en het blijft liggen op drukke dagen. Juist daar is AI-automatisering voor het MKB sterk in: het leest, sorteert, vult in en zet klaar. Een mens controleert en beslist.', 'veryo' ),
 			),
 		),
-		'photo'    => array( __( 'medewerker op kantoor die een conceptofferte controleert op een laptop', 'veryo' ), __( 'AI-automatisering in het MKB: offerte controleren', 'veryo' ) ),
+		'photo'    => array( __( 'medewerker op kantoor die een conceptofferte controleert op een laptop', 'veryo' ), __( 'AI-automatisering in het MKB: offerte controleren', 'veryo' ), 'kantoor' ),
 		'sections' => array(
 			array(
 				'h'     => __( 'Wat we automatiseren, per onderdeel van je bedrijf', 'veryo' ),
@@ -224,7 +225,7 @@ $veryo_impl = veryo_page_standard(
 				__( 'Daardoor blijft het vaak bij losse experimenten. Iedereen gebruikt het een beetje, niemand weet precies wat het oplevert, en de echte tijdvreters blijven liggen. Een AI-consultant die alleen een rapport schrijft, lost dat niet op. Je hebt iemand nodig die het ook bouwt en bijhoudt.', 'veryo' ),
 			),
 		),
-		'photo'    => array( __( 'ondernemer en adviseur aan tafel met een procesoverzicht op papier', 'veryo' ), __( 'AI-implementatie MKB: kansensessie aan tafel', 'veryo' ) ),
+		'photo'    => array( __( 'ondernemer en adviseur aan tafel met een procesoverzicht op papier', 'veryo' ), __( 'AI-implementatie MKB: kansensessie aan tafel', 'veryo' ), 'overleg' ),
 		'sections' => array(
 			array(
 				'h'    => __( 'Wat een AI-adviseur van Veryo concreet doet', 'veryo' ),
@@ -279,7 +280,7 @@ $veryo_training = veryo_page_standard(
 				__( 'Een goede AI-training haalt iedereen op hetzelfde niveau. Niet met theorie over neurale netwerken, maar met de vraag: hoe gebruik je dit morgen in je eigen werk, veilig en met resultaat. Daarnaast verplicht de Europese AI Act (artikel 4) sinds 2 februari 2025 organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers.', 'veryo' ),
 			),
 		),
-		'photo'    => array( __( 'team van een MKB-bedrijf rond een tafel met laptops tijdens een workshop', 'veryo' ), __( 'AI-training voor bedrijven: incompany workshop', 'veryo' ) ),
+		'photo'    => array( __( 'team van een MKB-bedrijf rond een tafel met laptops tijdens een workshop', 'veryo' ), __( 'AI-training voor bedrijven: incompany workshop', 'veryo' ), 'training' ),
 		'sections' => array(
 			array(
 				'h'     => __( 'Wat je team leert in de incompany AI-training', 'veryo' ),
@@ -338,7 +339,7 @@ $veryo_literacy = veryo_page_standard(
 				__( 'De wet schrijft geen vast lesprogramma voor. Wat voldoende is, hangt af van hoe je AI gebruikt, wie ermee werkt en welke risico’s daarbij horen. Een medewerker die AI gebruikt om klantmails te beantwoorden, moet andere dingen weten dan iemand die er een marketingtekst mee schrijft.', 'veryo' ),
 			),
 		),
-		'photo'    => array( __( 'trainer legt aan een kleine groep uit hoe je AI-antwoorden controleert', 'veryo' ), __( 'AI-geletterdheid training voor medewerkers', 'veryo' ) ),
+		'photo'    => array( __( 'trainer legt aan een kleine groep uit hoe je AI-antwoorden controleert', 'veryo' ), __( 'AI-geletterdheid training voor medewerkers', 'veryo' ), 'training' ),
 		'sections' => array(
 			array(
 				'h'     => __( 'Wat de AI-geletterdheid training behandelt', 'veryo' ),
@@ -411,7 +412,7 @@ $veryo_academy .= veryo_sec_text(
 	),
 	'checks'
 );
-$veryo_academy .= veryo_sec_photo( __( 'laptop op een keukentafel met een module van de online cursus in beeld', 'veryo' ), __( 'Online AI-cursus van de Veryo Academy', 'veryo' ) );
+$veryo_academy .= veryo_sec_photo( __( 'laptop op een keukentafel met een module van de online cursus in beeld', 'veryo' ), __( 'Online AI-cursus van de Veryo Academy', 'veryo' ), 'laptop' );
 $veryo_academy .= veryo_b_group(
 	veryo_b_h( __( 'Zet je op de wachtlijst', 'veryo' ) )
 	. veryo_b_p( __( 'Je krijgt één bericht zodra de cursus beschikbaar is, met de introductieprijs. Geen nieuwsbrief, geen verplichting.', 'veryo' ) )
@@ -446,7 +447,7 @@ $veryo_opmaat = veryo_page_standard(
 				__( 'Dan bouwen we AI op maat: een assistent, chatbot of agent die werkt met jullie gegevens, in jullie toon, en die weet wanneer hij een mens moet inschakelen.', 'veryo' ),
 			),
 		),
-		'photo'    => array( __( 'medewerker aan de balie die op een tablet een antwoord van de interne assistent bekijkt', 'veryo' ), __( 'Maatwerk AI-oplossing: AI-assistent voor bedrijf', 'veryo' ) ),
+		'photo'    => array( __( 'medewerker aan de balie die op een tablet een antwoord van de interne assistent bekijkt', 'veryo' ), __( 'Maatwerk AI-oplossing: AI-assistent voor bedrijf', 'veryo' ), 'laptop' ),
 		'sections' => array(
 			array(
 				'h'     => __( 'Wat we op maat bouwen', 'veryo' ),

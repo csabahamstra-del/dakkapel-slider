@@ -101,17 +101,17 @@ function veryo_company() {
 	$s       = veryo_settings();
 	$founder = trim( $s['founder_first'] . ' ' . $s['founder_last'] );
 	$data    = array(
-		'name'      => $s['company_name'] ? $s['company_name'] : 'Veryo',
-		'street'    => $s['street'],
-		'postcode'  => $s['postcode'],
-		'city'      => $s['city'],
-		'phone'     => $s['phone'],
-		'email'     => $s['email'],
-		'kvk'       => $s['kvk'],
-		'btw'       => $s['btw'],
-		'linkedin'  => $s['linkedin'],
-		'instagram' => $s['instagram'],
-		'founder'   => $founder,
+		'name'       => $s['company_name'] ? $s['company_name'] : 'Veryo',
+		'street'     => $s['street'],
+		'postcode'   => $s['postcode'],
+		'city'       => $s['city'],
+		'phone'      => $s['phone'],
+		'email'      => $s['email'],
+		'kvk'        => $s['kvk'],
+		'btw'        => $s['btw'],
+		'linkedin'   => $s['linkedin'],
+		'instagram'  => $s['instagram'],
+		'founder'    => $founder,
 		'legal_name' => (string) $s['legal_name'],
 	);
 	return array_map( 'strval', $data );

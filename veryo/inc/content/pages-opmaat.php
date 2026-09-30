@@ -30,7 +30,7 @@ return array(
 						__( 'De oude chatbots met vaste knoppen en keuzemenu’s werken daar slecht voor. Een AI-chatbot begrijpt vragen in gewone taal en zoekt het antwoord in jullie eigen teksten, prijzen en voorwaarden.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'telefoon met een chatgesprek op de website van een installatiebedrijf', 'veryo' ), __( 'AI-chatbot laten maken voor je website', 'veryo' ) ),
+				'photo'    => array( __( 'telefoon met een chatgesprek op de website van een installatiebedrijf', 'veryo' ), __( 'AI-chatbot laten maken voor je website', 'veryo' ), 'telefoon' ),
 				'sections' => array(
 					array(
 						'h'     => __( 'Wat je krijgt als je een AI-chatbot laat maken', 'veryo' ),
@@ -96,7 +96,7 @@ return array(
 						__( 'Berichten blijven liggen, collega’s weten niet wat er is afgesproken en de klant moet drie keer hetzelfde vertellen. WhatsApp automatisering brengt daar orde in.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'klant die een foto van een storing via WhatsApp naar een installatiebedrijf stuurt', 'veryo' ), __( 'WhatsApp-chatbot voor je bedrijf', 'veryo' ) ),
+				'photo'    => array( __( 'klant die een foto van een storing via WhatsApp naar een installatiebedrijf stuurt', 'veryo' ), __( 'WhatsApp-chatbot voor je bedrijf', 'veryo' ), 'telefoon' ),
 				'sections' => array(
 					array(
 						'h'     => __( 'Wat een WhatsApp-assistent doet', 'veryo' ),
@@ -159,7 +159,7 @@ return array(
 						__( 'Dat is krachtig, maar ook iets om voorzichtig mee te zijn. Daarom bouwen we agents alleen waar een vaste flow tekortschiet, en altijd met grenzen.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'werkvoorbereider die een door de agent klaargezette taak controleert en goedkeurt', 'veryo' ), __( 'AI-agent laten bouwen voor het MKB', 'veryo' ) ),
+				'photo'    => array( __( 'werkvoorbereider die een door de agent klaargezette taak controleert en goedkeurt', 'veryo' ), __( 'AI-agent laten bouwen voor het MKB', 'veryo' ), 'overleg' ),
 				'sections' => array(
 					array(
 						'h'    => __( 'Voorbeelden van AI-agents voor bedrijven', 'veryo' ),
@@ -223,7 +223,7 @@ return array(
 						__( 'Vooral nieuwe medewerkers en monteurs op locatie lopen daar tegenaan. En de ervaren collega die het wel weet, wordt tien keer per dag gestoord.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'monteur op locatie die op zijn telefoon een vraag stelt aan de interne assistent', 'veryo' ), __( 'Chatbot op eigen documenten voor monteurs', 'veryo' ) ),
+				'photo'    => array( __( 'monteur op locatie die op zijn telefoon een vraag stelt aan de interne assistent', 'veryo' ), __( 'Chatbot op eigen documenten voor monteurs', 'veryo' ), 'werkplaats' ),
 				'sections' => array(
 					array(
 						'h' => __( 'Hoe een chatbot op eigen documenten werkt', 'veryo' ),
@@ -286,7 +286,7 @@ return array(
 						__( 'Buiten openingstijden is het nog lastiger. Een voicemail wordt zelden ingesproken en nog minder vaak teruggebeld.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'drukke restaurantbar met een telefoon op de toonbank', 'veryo' ), __( 'AI-receptionist voor restaurants neemt de telefoon op', 'veryo' ) ),
+				'photo'    => array( __( 'drukke restaurantbar met een telefoon op de toonbank', 'veryo' ), __( 'AI-receptionist voor restaurants neemt de telefoon op', 'veryo' ), 'horeca' ),
 				'sections' => array(
 					array(
 						'h'     => __( 'Wat een AI-telefoonassistent doet', 'veryo' ),

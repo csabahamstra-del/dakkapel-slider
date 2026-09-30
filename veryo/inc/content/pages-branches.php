@@ -30,7 +30,7 @@ return array(
 						__( 'Het vakwerk loopt meestal prima. Het werk eromheen, van aanvraag tot factuur, kost de meeste uren. Daar zit ook de meeste winst voor AI voor installateurs.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'installateur met tablet bij een warmtepomp op locatie', 'veryo' ), __( 'AI voor installateurs: werkbon op de tablet', 'veryo' ) ),
+				'photo'    => array( __( 'installateur met tablet bij een warmtepomp op locatie', 'veryo' ), __( 'AI voor installateurs: werkbon op de tablet', 'veryo' ), 'installateur' ),
 				'catalog'  => array(
 					'h'     => __( 'De drie automatiseringen die installateurs het meest opleveren', 'veryo' ),
 					'intro' => __( 'Plus een paar die er goed bij passen. Tijdwinst is een indicatie voor een team van 5 tot 20 mensen.', 'veryo' ),
@@ -89,7 +89,7 @@ return array(
 						__( 'Tegelijk is de uitvoerder druk op de bouwplaats en heeft hij geen zin om ’s avonds formulieren in te vullen. Alles wat niet direct wordt vastgelegd, raakt kwijt.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'uitvoerder op een bouwplaats die meerwerk fotografeert met zijn telefoon', 'veryo' ), __( 'AI in de bouw: meerwerk vastleggen op de bouwplaats', 'veryo' ) ),
+				'photo'    => array( __( 'uitvoerder op een bouwplaats die meerwerk fotografeert met zijn telefoon', 'veryo' ), __( 'AI in de bouw: meerwerk vastleggen op de bouwplaats', 'veryo' ), 'bouw' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de bouw concreet doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen voor aannemers, plus wat er goed bij past.', 'veryo' ),
@@ -148,7 +148,7 @@ return array(
 						__( 'Buiten het seizoen komt de administratie. Maar dan is het vaak te laat: een gemiste keuring, een onderdeel dat net niet op tijd binnen is, een klant die naar een ander is gegaan.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'monteur in de werkplaats van een mechanisatiebedrijf bij een trekker', 'veryo' ), __( 'AI in de landbouw: onderhoud in de werkplaats plannen', 'veryo' ) ),
+				'photo'    => array( __( 'monteur in de werkplaats van een mechanisatiebedrijf bij een trekker', 'veryo' ), __( 'AI in de landbouw: onderhoud in de werkplaats plannen', 'veryo' ), 'agri' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de landbouw en mechanisatie oplevert', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
@@ -199,6 +199,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet AI in voor makelaars: één AI-inbox waarin berichten uit WhatsApp, telefoon en webformulieren samenkomen met een conceptantwoord, bezichtigingen die automatisch worden ingepland, en woningteksten in de toon van je kantoor. Een quick win kost €750 tot €1.500, een project €2.500 tot €7.500, exclusief btw.', 'veryo' ),
+				'extra'    => array( __( 'Waar een makelaarskantoor begint', 'veryo' ), array( __( 'De meeste kantoren beginnen met de AI-inbox, omdat daar direct zichtbaar wordt hoeveel reacties er binnenkomen en hoe snel ze worden beantwoord. Daarna volgen de woningteksten en het inplannen van bezichtigingen. Een kantoor met twee of drie makelaars merkt vooral rust in de week na een nieuwe woning: de reacties zijn beantwoord, de bezichtigingen staan en niemand heeft ’s avonds nog zitten plannen.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Vijf kanalen, één makelaar', 'veryo' ),
 					'p' => array(
@@ -206,7 +207,7 @@ return array(
 						__( 'Het gevolg: reacties blijven liggen, geïnteresseerden haken af en de makelaar is ’s avonds bezig met het plannen van bezichtigingen in plaats van met zijn klanten.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'makelaar bij een woning met een tablet en de agenda voor bezichtigingen', 'veryo' ), __( 'AI voor makelaars: bezichtigingen plannen', 'veryo' ) ),
+				'photo'    => array( __( 'makelaar bij een woning met een tablet en de agenda voor bezichtigingen', 'veryo' ), __( 'AI voor makelaars: bezichtigingen plannen', 'veryo' ), 'woning' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor makelaars concreet doet', 'veryo' ),
 					'intro' => __( 'Samen vormen deze bouwstenen de AI-inbox voor je kantoor.', 'veryo' ),
@@ -268,7 +269,7 @@ return array(
 						__( 'Tegelijk is de druk op tarieven en capaciteit hoog. Elk uur dat niet declarabel is, kost geld.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'adviseur in gesprek met een klant aan tafel, met een laptop die meeluistert', 'veryo' ), __( 'AI voor accountants: gespreksverslag automatisch', 'veryo' ) ),
+				'photo'    => array( __( 'adviseur in gesprek met een klant aan tafel, met een laptop die meeluistert', 'veryo' ), __( 'AI voor accountants: gespreksverslag automatisch', 'veryo' ), 'overleg' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor accountants en adviesbureaus doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen voor kennisbedrijven, plus wat er goed bij past.', 'veryo' ),
@@ -333,7 +334,7 @@ return array(
 						__( 'Dat werk schiet er als eerste bij in. Een negatieve review blijft onbeantwoord, de laatste post is van drie maanden geleden en een gast die wilde reserveren, belt het restaurant verderop.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'eigenaar van een lunchroom die achter de bar op haar telefoon reviews bekijkt', 'veryo' ), __( 'AI voor horeca: reviews beantwoorden', 'veryo' ) ),
+				'photo'    => array( __( 'eigenaar van een lunchroom die achter de bar op haar telefoon reviews bekijkt', 'veryo' ), __( 'AI voor horeca: reviews beantwoorden', 'veryo' ), 'horeca' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor horeca en retail doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
@@ -391,7 +392,7 @@ return array(
 						__( 'Ondertussen bellen klanten om te vragen waar hun zending is, en stapelen de vrachtbrieven, CMR’s en afleverbonnen zich op. Allemaal werk dat nodig is, maar niet het werk waar je het verschil mee maakt.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'planner op een transportkantoor met een planbord en twee schermen', 'veryo' ), __( 'AI in de logistiek: planningsassistent voor de planner', 'veryo' ) ),
+				'photo'    => array( __( 'planner op een transportkantoor met een planbord en twee schermen', 'veryo' ), __( 'AI in de logistiek: planningsassistent voor de planner', 'veryo' ), 'logistiek' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de logistiek concreet doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
@@ -449,7 +450,7 @@ return array(
 						__( 'Voor recruiters en werkgevers betekent dat: snel reageren, eerlijk communiceren en niemand in het ongewisse laten. Met een volle agenda is dat lastig, zeker als er tientallen reacties per week binnenkomen.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'chauffeur in de cabine die via WhatsApp reageert op een vacature', 'veryo' ), __( 'WhatsApp-werving: solliciteren zonder cv', 'veryo' ) ),
+				'photo'    => array( __( 'chauffeur in de cabine die via WhatsApp reageert op een vacature', 'veryo' ), __( 'WhatsApp-werving: solliciteren zonder cv', 'veryo' ), 'telefoon' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat we automatiseren in werving', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),

@@ -565,3 +565,12 @@ strong { font-weight: 700; }
 
 .editor-styles-wrapper { background: var(--sand); }
 .editor-styles-wrapper .veryo-cases::before { content: "Verborgen tot 'Toon cases' aan staat"; display: block; font: 600 .8125rem var(--sans); color: var(--ink-muted); }
+
+/* ---------------------------------------------------------------- Foto's */
+
+.wp-block-image { margin-left: auto; margin-right: auto; }
+.wp-block-image img { display: block; width: 100%; height: auto; border-radius: var(--r-l); }
+.veryo-img img { aspect-ratio: 16 / 9; object-fit: cover; }
+.entry-content > .veryo-img { max-width: var(--wide); }
+@media (min-width: 1024px) { .entry-content > .veryo-img { max-width: 880px; } }
+.wp-block-image figcaption { margin-top: 8px; font-size: .875rem; color: var(--ink-muted); }

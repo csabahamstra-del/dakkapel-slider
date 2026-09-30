@@ -17,6 +17,7 @@ $veryo_includes = array(
 	'inc/class-veryo-primary-walker.php',
 	'inc/class-veryo-footer-walker.php',
 	'inc/content/blocks.php',
+	'inc/photos.php',
 	'inc/content/sections.php',
 	'inc/content/registry.php',
 	'inc/quiz/catalog.php',

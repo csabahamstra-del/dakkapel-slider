@@ -31,7 +31,7 @@ return array(
 						__( 'Wie de vragen beantwoordt, wisselt per dag. Daardoor krijgt de ene klant binnen tien minuten antwoord en de andere pas na drie dagen. En als de collega die alles weet ziek is, blijft er van alles liggen.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'medewerker aan de telefoon met een mailbox open op het scherm', 'veryo' ), __( 'Klantvragen automatiseren met AI op kantoor', 'veryo' ) ),
+				'photo'    => array( __( 'medewerker aan de telefoon met een mailbox open op het scherm', 'veryo' ), __( 'Klantvragen automatiseren met AI op kantoor', 'veryo' ), 'telefoon' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat we automatiseren in klantcontact', 'veryo' ),
 					'intro' => __( 'Uit onze catalogus. De tijdwinst is een indicatie voor een team van 5 tot 20 mensen.', 'veryo' ),
@@ -94,7 +94,7 @@ return array(
 						__( 'En de offertes die wél verstuurd zijn, worden vaak niet opgevolgd. Niemand heeft tijd om na een week te bellen, dus blijven ze in het luchtledige hangen. Ondertussen zitten de prijzen, uurtarieven en marges verspreid over Excel-bestanden en het hoofd van één collega.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'calculator aan een bureau met een tekening en een laptop met een conceptofferte', 'veryo' ), __( 'Offertes automatiseren met een AI-offerte-generator', 'veryo' ) ),
+				'photo'    => array( __( 'calculator aan een bureau met een tekening en een laptop met een conceptofferte', 'veryo' ), __( 'Offertes automatiseren met een AI-offerte-generator', 'veryo' ), 'kantoor' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat we automatiseren bij verkoop, offertes en calculaties', 'veryo' ),
 					'intro' => __( 'Bij calculaties leggen we de rekenregels vast in formules of code. AI gebruiken we voor het lezen, invullen en uitleggen, niet voor het rekenen zelf.', 'veryo' ),
@@ -151,7 +151,7 @@ return array(
 						__( 'Het is werk dat moet gebeuren, maar geen werk waar je bedrijf beter van wordt. Bovendien sluipen er fouten in als je moe bent: een verkeerd bedrag, een factuur die twee keer wordt geboekt, een werkbon die nooit gefactureerd wordt.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'ondernemer aan de keukentafel met een stapel bonnetjes en een laptop', 'veryo' ), __( 'Administratie automatiseren voor het MKB', 'veryo' ) ),
+				'photo'    => array( __( 'ondernemer aan de keukentafel met een stapel bonnetjes en een laptop', 'veryo' ), __( 'Administratie automatiseren voor het MKB', 'veryo' ), 'laptop' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat we automatiseren in de administratie', 'veryo' ),
 					'intro' => __( 'We koppelen aan het boekhoudpakket dat je al hebt, zoals Exact, Moneybird of SnelStart. We vervangen het niet.', 'veryo' ),
@@ -212,7 +212,7 @@ return array(
 						__( 'Daardoor gaat er tijd verloren aan bellen, zoeken en herstellen. Klussen worden te laat gefactureerd en meerwerk raakt kwijt.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'monteur in een bedrijfsbus die een werkbon inspreekt op zijn telefoon', 'veryo' ), __( 'Werkprocessen automatiseren: digitale werkbon inspreken', 'veryo' ) ),
+				'photo'    => array( __( 'monteur in een bedrijfsbus die een werkbon inspreekt op zijn telefoon', 'veryo' ), __( 'Werkprocessen automatiseren: digitale werkbon inspreken', 'veryo' ), 'installateur' ),
 				'catalog'  => array(
 					'h'     => __( 'Welke werkprocessen we automatiseren', 'veryo' ),
 					'intro' => __( 'Tijdwinst is een indicatie voor een team van 5 tot 20 mensen.', 'veryo' ),
@@ -273,7 +273,7 @@ return array(
 						__( 'Het resultaat: een Instagram die maanden stilstaat, een Google Bedrijfsprofiel met drie reviews en een website die op de verkeerde woorden wordt gevonden.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'projectfoto van een afgeronde klus naast een telefoon met een conceptpost', 'veryo' ), __( 'AI-marketing voor het MKB: projectfoto naar social post', 'veryo' ) ),
+				'photo'    => array( __( 'projectfoto van een afgeronde klus naast een telefoon met een conceptpost', 'veryo' ), __( 'AI-marketing voor het MKB: projectfoto naar social post', 'veryo' ), 'bouw' ),
 				'catalog'  => array(
 					'h'     => __( 'Wat we automatiseren in marketing', 'veryo' ),
 					'intro' => __( 'Alle content gaat langs een menselijke check voordat het online komt.', 'veryo' ),
@@ -330,7 +330,7 @@ return array(
 						__( 'Ondertussen heeft de eigenaar of de planner geen tijd om elke reactie te bekijken, elke kandidaat te bellen en iedereen netjes af te wijzen. Het gevolg: kandidaten die afhaken en een slechte naam als werkgever.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'vakman die op zijn telefoon via WhatsApp op een vacature reageert', 'veryo' ), __( 'Werving automatiseren via WhatsApp', 'veryo' ) ),
+				'photo'    => array( __( 'vakman die op zijn telefoon via WhatsApp op een vacature reageert', 'veryo' ), __( 'Werving automatiseren via WhatsApp', 'veryo' ), 'telefoon' ),
 				'catalog'  => array(
 					'h'   => __( 'Wat we automatiseren in HR en werving', 'veryo' ),
 					'ids' => array( 'vacatureteksten', 'whatsapp-sollicitatie', 'voorselectie', 'kandidaatopvolging', 'onboarding', 'verlof', 'certificaten' ),
@@ -391,7 +391,7 @@ return array(
 						__( 'De documenten zijn er wel, maar verspreid over mappen, mailtjes en een intranet dat niemand gebruikt. Nieuwe medewerkers stellen dezelfde vragen die vorig jaar ook al gesteld werden.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'nieuwe medewerker die op een laptop een vraag stelt aan de interne assistent', 'veryo' ), __( 'Interne kennisbank met AI voor medewerkers', 'veryo' ) ),
+				'photo'    => array( __( 'nieuwe medewerker die op een laptop een vraag stelt aan de interne assistent', 'veryo' ), __( 'Interne kennisbank met AI voor medewerkers', 'veryo' ), 'laptop' ),
 				'catalog'  => array(
 					'h'   => __( 'Wat we automatiseren rond kennis en documenten', 'veryo' ),
 					'ids' => array( 'interne-assistent', 'werkinstructies', 'documenten-samenvatten', 'technische-documentatie', 'beleid', 'presentaties' ),
@@ -452,7 +452,7 @@ return array(
 						__( 'Ondertussen stuur je op gevoel. Je merkt pas laat dat de offertes teruglopen, dat een grote klant niet betaalt of dat een bepaald type klus structureel geld kost.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'ondernemer die op maandagochtend op zijn telefoon het weekoverzicht leest', 'veryo' ), __( 'Rapportages automatiseren: maandagbericht met cijfers', 'veryo' ) ),
+				'photo'    => array( __( 'ondernemer die op maandagochtend op zijn telefoon het weekoverzicht leest', 'veryo' ), __( 'Rapportages automatiseren: maandagbericht met cijfers', 'veryo' ), 'kantoor' ),
 				'catalog'  => array(
 					'h'   => __( 'Welke rapportages we automatiseren', 'veryo' ),
 					'ids' => array( 'dashboard', 'weekupdate', 'excel', 'projectrendement', 'klanttevredenheid', 'voorspellingen' ),
