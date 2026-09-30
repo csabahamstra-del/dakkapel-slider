@@ -191,6 +191,14 @@ function veryo_run_setup() {
 
 	kses_init();
 
+	// 5b. Standaardinhoud van WordPress opruimen, alleen als die nog onaangepast is.
+	foreach ( array( array( 'hello-world', 'post' ), array( 'sample-page', 'page' ) ) as $default ) {
+		$item = get_page_by_path( $default[0], OBJECT, $default[1] );
+		if ( $item instanceof WP_Post && 'publish' === $item->post_status && $item->post_modified_gmt === $item->post_date_gmt ) {
+			wp_trash_post( $item->ID );
+		}
+	}
+
 	// 6. Tagline en site-icoon.
 	$tagline = (string) get_option( 'blogdescription' );
 	if ( '' === $tagline || in_array( $tagline, array( 'Just another WordPress site', 'Nog een WordPress website', 'Zomaar een WordPress website' ), true ) ) {

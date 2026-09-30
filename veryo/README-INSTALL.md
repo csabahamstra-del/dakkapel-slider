@@ -13,6 +13,7 @@ Dit thema zet bij activatie de complete Veryo-site klaar: alle pagina's, menu's,
    - de permalinks worden op `/%postname%/` gezet, maar **alleen** als ze op "Standaard" stonden;
    - 12 blogconcepten worden aangemaakt (status: concept);
    - de tagline wordt "AI die echt werkt." en het site-icoon wordt het Veryo-beeldmerk.
+   - de standaardinhoud van WordPress ("Hello world!" en "Sample Page") gaat naar de prullenbak, maar alleen als je die nog niet hebt aangepast.
 4. Bovenaan wp-admin verschijnt een melding met een link naar de instellingen en een lijst met alle `[VUL IN]`-placeholders.
 
 Pagina per ongeluk verwijderd? Ga naar **Extra > Veryo-inhoud** en klik op **Veryo-inhoud opnieuw aanmaken (ontbrekende pagina's)**. Alleen ontbrekende pagina's, menu's en concepten worden aangemaakt.
@@ -54,27 +55,33 @@ WordPress verstuurt mail standaard via de server. Die mails komen vaak in de map
 
 Zorg dat het e-mailadres in de bedrijfsgegevens een echt adres op je eigen domein is. Dat adres wordt als antwoordadres (Reply-To) van de rapportmails gebruikt.
 
-## 5. Placeholders invullen
+## 5. Wat nog open staat
 
-Alle plekken waar nog iets moet worden ingevuld, staan als `[VUL IN: …]` in de tekst. Een actuele lijst vind je altijd onder **Extra > Veryo-inhoud**. Bij levering ging het om:
+Bezoekers zien nergens een `[VUL IN]`- of `[FOTO]`-plek: de site is zo klaar voor publicatie. Wat er nog kan worden aangevuld (overzicht onder **Extra > Veryo-inhoud**):
 
-**Pagina's**
+- **Cases en reviews** (homepage en Over Veryo): het blok is verborgen tot je onder **Instellingen > Veryo** "Toon cases en reviews" aanzet. Vul het eerst met een echte klantcase en review, met toestemming.
+- **Foto's**: op de dienst-, regio- en branchepagina's en de homepage staan fotoplekken. Die zie je alleen als ingelogde beheerder. Twee manieren om ze te vullen:
+  - in de editor het blok vervangen door een afbeelding (gebruik de voorgestelde alt-tekst);
+  - of foto's als `assets/images/photos/{sleutel}.webp` in het thema zetten (sleutels en bronvermelding in `assets/images/photos/CREDITS.md`). Bij een nieuwe installatie komen ze dan automatisch op alle pagina's.
+  Voor het portret op Over Veryo hoort een echte foto van de oprichter.
+- **Blogconcepten** (12, status concept): per kop staat de opzet. Schrijf ze uit en controleer actuele voorwaarden, prijzen en regelingen (SLIM, WBSO) voor je publiceert.
+- **LinkedIn en Instagram**: vul de URL's in onder **Instellingen > Veryo** zodra ze er zijn.
 
-- **Homepage** (`/`): echte klantcase en echte review. Het blok is verborgen tot "Toon cases" aan staat.
-- **Over Veryo** (`/over-veryo/`): echte klantcase en review (verborgen). De introductie van de oprichter is ingevuld; vul eventueel aan met je achtergrond en ervaring.
-- **Privacyverklaring** (`/privacyverklaring/`): grondslag laten controleren; doorgiftemechanisme en bewaartermijn bij Anthropic; Make en de gekoppelde tool (als je de webhook gebruikt); controle van de bewaartermijn; aanvullende beveiligingsmaatregelen. (Handelsnaam, KvK, hosting en maildienst mijn.host staan erin.)
-- **Cookieverklaring** (`/cookieverklaring/`): aanvullen als er analytics of embeds bijkomen.
-- **Algemene voorwaarden** (`/algemene-voorwaarden/`): aansprakelijkheidsbeperking; looptijd en opzegtermijn van abonnementen. (Handelsnaam, KvK, offertes 14 dagen geldig, betaaltermijn 14 dagen en maandelijkse facturatie staan erin.)
+## Publicatie-checklist
 
-De juridische teksten hebben versiedatum 30 september 2026. Pas die aan als de teksten na de juridische controle definitief zijn.
-
-**Blogconcepten** (alle 12, status concept): per artikel `[VUL IN: aanvullen]` bij de FAQ-antwoorden, plus bij de artikelen over ChatGPT/Claude/Copilot, AVG, SLIM en WBSO de actuele voorwaarden, prijzen en officiële bronnen. De concepten bevatten per kop de opzet in 2–4 zinnen; schrijf en controleer ze voor publicatie.
-
-**Foto's.** Op elke dienst-, regio- en branchepagina staat een blok `[FOTO: omschrijving. Alt-tekst: …]`. Vervang het door een echte foto (geen stockfoto's met robots of blauwe breinen) en gebruik de voorgestelde alt-tekst.
+1. Thema geïnstalleerd en geactiveerd; permalinks op **Berichtnaam** (§2).
+2. **Instellingen > Lezen**: het vinkje "Zoekmachines ontmoedigen deze site te indexeren" staat **uit**.
+3. SMTP-plugin ingesteld en testmail ontvangen (§4).
+4. API-sleutel in `wp-config.php`, "Test API-verbinding" gelukt; Calendly-link en e-mail voor leadmeldingen ingevuld (§3).
+5. Zelf één keer de AI-scan en het contactformulier ingevuld; rapportmail en interne melding ontvangen.
+6. Juridische teksten laten controleren (§6).
+7. https actief (slotje in de browser), daarna sitemap indienen bij Google en Bing (§7).
 
 ## 6. Juridische teksten laten controleren
 
-De privacyverklaring, cookieverklaring en algemene voorwaarden zijn **gestructureerde concepten**. Beheerders zien bovenaan elke pagina de melding "Concepttekst, laat dit juridisch controleren." (bezoekers zien die niet). Laat de teksten door een jurist controleren. Haal daarna het vinkje "Juridisch concept" weg in de box **Veryo SEO** onder de pagina.
+De privacyverklaring, cookieverklaring en algemene voorwaarden zijn volledig ingevuld met jouw gegevens (Veryo, handelsnaam van Merklenz, KvK 73435996, hosting en mail via mijn.host, offertes 14 dagen geldig, betaaltermijn 14 dagen, maandelijkse facturatie, abonnementen maandelijks opzegbaar met één maand opzegtermijn) en gangbare standaardformuleringen, onder andere voor de aansprakelijkheidsbeperking en de doorgifte van gegevens aan Anthropic. Versiedatum: 30 september 2026.
+
+Het blijven **concepten**: beheerders zien bovenaan elke pagina "Concepttekst, laat dit juridisch controleren." (bezoekers zien dat niet). Laat de teksten door een jurist controleren, zeker de aansprakelijkheidsbeperking en de opzegtermijn. Haal daarna het vinkje "Juridisch concept" weg in de box **Veryo SEO** onder de pagina en pas zo nodig de versiedatum aan.
 
 ## 7. Google Search Console, Bing en Google Bedrijfsprofiel
 

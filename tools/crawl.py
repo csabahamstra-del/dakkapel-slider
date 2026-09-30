@@ -59,6 +59,7 @@ for u in urls + extra:
         except Exception as e:
             msgs.append('JSON-LD ongeldig: %s' % e)
     if re.search(r'(Warning|Notice|Deprecated|Fatal error)</b>:', html): msgs.append('PHP-melding in HTML')
+    if '[VUL IN' in html or '[FOTO' in html: msgs.append('placeholder zichtbaar voor bezoekers')
     if msgs: problems += 1
     print(('FOUT ' if msgs else 'ok   ') + u.replace(BASE, '') + '  [' + p.robots + '] ' + p.title.strip()[:60] + ('  ' + '; '.join(msgs) if msgs else ''))
 print('schema-types:', types)

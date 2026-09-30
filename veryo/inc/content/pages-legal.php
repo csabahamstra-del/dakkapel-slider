@@ -38,13 +38,13 @@ $veryo_privacy .= veryo_sec_text(
 );
 $veryo_privacy .= veryo_sec_text(
 	__( '4. Op welke grondslag?', 'veryo' ),
-	array( __( 'We verwerken deze gegevens op basis van uw toestemming, die u geeft met het vinkje onder het formulier. U kunt uw toestemming altijd intrekken; dat heeft geen gevolgen voor de verwerking daarvoor. [VUL IN: laat controleren of voor het opvolgen van een aanvraag ook “uitvoering van een overeenkomst” of “gerechtvaardigd belang” van toepassing is]', 'veryo' ) )
+	array( __( 'We verwerken deze gegevens op basis van uw toestemming, die u geeft met het vinkje onder het formulier. U kunt uw toestemming altijd intrekken; dat heeft geen gevolgen voor de verwerking daarvoor.', 'veryo' ) )
 );
 $veryo_privacy .= veryo_sec_text(
 	__( '5. Gebruik van AI bij het maken van het rapport', 'veryo' ),
 	array(
 		__( 'Om het rapport te schrijven, sturen we uw antwoorden naar de AI-dienst van Anthropic (Claude). Het gaat om: branche, teamgrootte, taken en uren, tools, huidig AI-gebruik, de frustratietekst en de timing, samen met de door ons berekende cijfers. Uw naam, bedrijfsnaam, e-mailadres en telefoonnummer sturen we nooit mee. E-mailadressen en telefoonnummers die u eventueel in de frustratietekst zet, halen we er vooraf automatisch uit.', 'veryo' ),
-		__( 'We gebruiken de zakelijke API van Anthropic. Volgens de voorwaarden van Anthropic worden gegevens die via de zakelijke API worden verstuurd niet gebruikt om AI-modellen te trainen. Anthropic kan gegevens buiten de Europese Economische Ruimte verwerken. [VUL IN: doorgiftemechanisme, bijvoorbeeld het EU-VS Data Privacy Framework of standaardcontractbepalingen, en bewaartermijn bij Anthropic volgens de actuele voorwaarden]', 'veryo' ),
+		__( 'We gebruiken de zakelijke API van Anthropic. Volgens de voorwaarden van Anthropic worden gegevens die via de zakelijke API worden verstuurd niet gebruikt om AI-modellen te trainen. Anthropic is gevestigd in de Verenigde Staten en kan gegevens buiten de Europese Economische Ruimte verwerken. Voor die doorgifte gelden de waarborgen uit de verwerkersvoorwaarden van Anthropic, zoals de standaardcontractbepalingen van de Europese Commissie.', 'veryo' ),
 		__( 'De cijfers in het rapport (tijdwinst en euro’s) worden niet door AI berekend maar door een vaste formule op onze website. Lukt het niet om het rapport met AI te maken, dan maken we het met vooraf geschreven teksten.', 'veryo' ),
 	)
 );
@@ -55,13 +55,13 @@ $veryo_privacy .= veryo_sec_text(
 		__( 'Anthropic, voor het schrijven van het rapport (zonder contactgegevens, zie hierboven).', 'veryo' ),
 		__( 'Onze hostingpartij mijn.host, waar de website en de gegevens staan, in Nederland.', 'veryo' ),
 		__( 'Onze e-maildienst voor het versturen van e-mail: mijn.host (Nederland).', 'veryo' ),
-		__( '[VUL IN: als de Make-koppeling wordt gebruikt: Make (Celonis) en de gekoppelde tool, bijvoorbeeld ClickUp of Notion, voor het opvolgen van aanvragen]', 'veryo' ),
+		__( 'Als we een automatiseringsplatform gebruiken om aanvragen op te volgen, gebeurt dat onder een verwerkersovereenkomst of de zakelijke voorwaarden van dat platform.', 'veryo' ),
 		__( 'Met deze partijen hebben we een verwerkersovereenkomst of zij verwerken de gegevens onder hun eigen zakelijke voorwaarden. We verkopen uw gegevens nooit.', 'veryo' ),
 	)
 );
 $veryo_privacy .= veryo_sec_text(
 	__( '7. Hoe lang bewaren we gegevens?', 'veryo' ),
-	array( __( 'Gegevens uit de AI-scan, het contactformulier en de wachtlijst bewaren we maximaal [veryo_bewaartermijn] na het invullen. Daarna worden ze automatisch verwijderd. De online versie van uw rapport is 90 dagen bereikbaar via de persoonlijke link. Wordt u klant, dan gelden de bewaartermijnen uit onze administratie en de wet. [VUL IN: controleer of de ingestelde bewaartermijn overeenkomt]', 'veryo' ) )
+	array( __( 'Gegevens uit de AI-scan, het contactformulier en de wachtlijst bewaren we maximaal [veryo_bewaartermijn] na het invullen. Daarna worden ze automatisch verwijderd. De online versie van uw rapport is 90 dagen bereikbaar via de persoonlijke link. Wordt u klant, dan gelden de bewaartermijnen uit onze administratie en de wet.', 'veryo' ) )
 );
 $veryo_privacy .= veryo_sec_text(
 	__( '8. Cookies en lokale opslag', 'veryo' ),
@@ -73,7 +73,7 @@ $veryo_privacy .= veryo_sec_text(
 );
 $veryo_privacy .= veryo_sec_text(
 	__( '10. Beveiliging', 'veryo' ),
-	array( __( 'De website gebruikt een beveiligde verbinding (https). Toegang tot de gegevens is beperkt tot beheerders. Formulieren zijn beschermd tegen misbruik. [VUL IN: aanvullende maatregelen, zoals tweestapsverificatie voor beheerders en back-ups]', 'veryo' ) )
+	array( __( 'De website gebruikt een beveiligde verbinding (https). Toegang tot de gegevens is beperkt tot beheerders. Formulieren zijn beschermd tegen misbruik.', 'veryo' ) )
 );
 
 $veryo_cookies  = veryo_b_p( __( 'Deze cookieverklaring legt uit welke cookies en vergelijkbare technieken deze website gebruikt. Versie: 30 september 2026.', 'veryo' ), array( 'fontSize' => 'body-l' ) );
@@ -95,7 +95,7 @@ $veryo_cookies .= veryo_sec_text(
 );
 $veryo_cookies .= veryo_sec_text(
 	__( 'Wijzigingen', 'veryo' ),
-	array( __( 'Als we later analytische of andere cookies gaan gebruiken, passen we deze verklaring aan en vragen we waar nodig eerst uw toestemming. [VUL IN: aanvullen als er analytics of embeds worden toegevoegd]', 'veryo' ) )
+	array( __( 'Als we later analytische of andere cookies gaan gebruiken, passen we deze verklaring aan en vragen we waar nodig eerst uw toestemming.', 'veryo' ) )
 );
 
 $veryo_terms  = veryo_b_p( __( 'Deze algemene voorwaarden zijn van toepassing op alle offertes, opdrachten en diensten van Veryo. Versie: 30 september 2026.', 'veryo' ), array( 'fontSize' => 'body-l' ) );
@@ -135,11 +135,11 @@ $veryo_terms .= veryo_sec_text(
 );
 $veryo_terms .= veryo_sec_text(
 	__( '8. Aansprakelijkheid', 'veryo' ),
-	array( __( '[VUL IN: aansprakelijkheidsbeperking, bijvoorbeeld beperkt tot het factuurbedrag van de betreffende opdracht, en uitsluiting van indirecte schade. Laat dit juridisch formuleren.]', 'veryo' ) )
+	array( __( 'De aansprakelijkheid van Veryo is beperkt tot het bedrag dat voor de betreffende opdracht in de laatste drie maanden is gefactureerd. Veryo is niet aansprakelijk voor indirecte schade, zoals gevolgschade, gederfde winst of verlies van gegevens. Deze beperkingen gelden niet bij opzet of bewuste roekeloosheid van Veryo.', 'veryo' ) )
 );
 $veryo_terms .= veryo_sec_text(
 	__( '9. Duur en opzegging', 'veryo' ),
-	array( __( 'Onderhouds- en partnerabonnementen lopen per [VUL IN: maand/jaar] en zijn opzegbaar met een termijn van [VUL IN: termijn]. Bij beëindiging helpt Veryo bij een ordentelijke overdracht van de automatiseringen.', 'veryo' ) )
+	array( __( 'Onderhouds- en partnerabonnementen lopen per maand en zijn maandelijks opzegbaar met een opzegtermijn van één maand. Bij beëindiging helpt Veryo bij een ordentelijke overdracht van de automatiseringen.', 'veryo' ) )
 );
 $veryo_terms .= veryo_sec_text(
 	__( '10. Toepasselijk recht', 'veryo' ),

@@ -229,6 +229,24 @@ function veryo_hide_cases_block( $content, $block ) {
 add_filter( 'render_block', 'veryo_hide_cases_block', 10, 2 );
 
 /**
+ * Fotoplekken ([FOTO: …]) alleen tonen aan wie kan bewerken; bezoekers zien ze niet.
+ *
+ * @param string               $content Blok-HTML.
+ * @param array<string, mixed> $block   Blok.
+ * @return string
+ */
+function veryo_hide_photo_placeholders( $content, $block ) {
+	if ( 'core/group' !== $block['blockName'] || empty( $block['attrs']['className'] ) ) {
+		return $content;
+	}
+	if ( false !== strpos( (string) $block['attrs']['className'], 'veryo-photo' ) && ! current_user_can( 'edit_posts' ) ) {
+		return '';
+	}
+	return $content;
+}
+add_filter( 'render_block', 'veryo_hide_photo_placeholders', 10, 2 );
+
+/**
  * Lengte van samenvattingen.
  *
  * @return int

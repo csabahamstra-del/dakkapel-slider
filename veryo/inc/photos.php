@@ -109,21 +109,21 @@ function veryo_photo_id( $key ) {
  *
  * @param int    $id    Attachment-ID.
  * @param string $alt   Alt-tekst (per pagina, met het zoekwoord).
- * @param string $class Extra class.
+ * @param string $css_class Extra class.
  * @return string
  */
-function veryo_b_image( $id, $alt, $class = 'veryo-img' ) {
+function veryo_b_image( $id, $alt, $css_class = 'veryo-img' ) {
 	$src   = wp_get_attachment_image_src( $id, 'large' );
 	$url   = $src ? $src[0] : (string) wp_get_attachment_url( $id );
 	$attrs = array(
 		'id'              => $id,
 		'sizeSlug'        => 'large',
 		'linkDestination' => 'none',
-		'className'       => $class,
+		'className'       => $css_class,
 	);
 	return veryo_b(
 		'image',
 		$attrs,
-		'<figure class="wp-block-image size-large ' . esc_attr( $class ) . '"><img src="' . esc_url( $url ) . '" alt="' . esc_attr( $alt ) . '" class="wp-image-' . (int) $id . '"/></figure>'
+		'<figure class="wp-block-image size-large ' . esc_attr( $css_class ) . '"><img src="' . esc_url( $url ) . '" alt="' . esc_attr( $alt ) . '" class="wp-image-' . (int) $id . '"/></figure>'
 	);
 }
