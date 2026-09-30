@@ -39,7 +39,7 @@ $veryo_company = veryo_company();
 	</div>
 	<div class="site-footer__legal">
 		<p>
-			&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( $veryo_company['name'] ); ?>
+			&copy; <?php echo esc_html( wp_date( 'Y' ) . ' ' . $veryo_company['name'] . ( $veryo_company['legal_name'] ? sprintf( /* translators: %s: juridische naam. */ __( ', een handelsnaam van %s', 'veryo' ), $veryo_company['legal_name'] ) : '' ) ); ?>
 			<?php if ( $veryo_company['kvk'] ) : ?>
 				<span class="sep" aria-hidden="true">·</span> <?php echo esc_html( sprintf( /* translators: %s: KvK-nummer. */ __( 'KvK %s', 'veryo' ), $veryo_company['kvk'] ) ); ?>
 			<?php endif; ?>

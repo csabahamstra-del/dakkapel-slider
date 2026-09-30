@@ -44,6 +44,7 @@ function veryo_settings_fields() {
 				'phone'         => array( 'text', __( 'Telefoon', 'veryo' ), __( 'Zoals je hem wilt tonen, bv. 06 12 34 56 78.', 'veryo' ) ),
 				'email'         => array( 'email', __( 'E-mailadres', 'veryo' ), __( 'Het openbare adres, bv. hallo@jouwdomein.nl. Wordt ook als antwoordadres voor rapportmails gebruikt.', 'veryo' ) ),
 				'kvk'           => array( 'text', __( 'KvK-nummer', 'veryo' ), '' ),
+				'legal_name'    => array( 'text', __( 'Juridische naam (eenmanszaak)', 'veryo' ), __( 'Veryo is een handelsnaam van deze onderneming. Wordt in de footer en in schema.org getoond.', 'veryo' ) ),
 				'btw'           => array( 'text', __( 'Btw-nummer', 'veryo' ), '' ),
 				'linkedin'      => array( 'url', __( 'LinkedIn-URL', 'veryo' ), '' ),
 				'instagram'     => array( 'url', __( 'Instagram-URL', 'veryo' ), '' ),

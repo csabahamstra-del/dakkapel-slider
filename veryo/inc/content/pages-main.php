@@ -542,7 +542,8 @@ $veryo_about .= veryo_sec_photo( __( 'portret van de oprichter in de werkplaats 
 $veryo_about .= veryo_sec_text(
 	__( 'Wie er achter Veryo zit', 'veryo' ),
 	array(
-		__( '[VUL IN: korte introductie van de oprichter (Csaba): achtergrond, ervaring en waarom je Veryo bent begonnen, in 3–4 zinnen]', 'veryo' ),
+		__( 'Veryo is opgericht door Csaba. Hij begon Veryo omdat hij gelooft in wat AI voor het MKB kan betekenen, mits je het nuchter en goed inzet. Veel processen in een bedrijf kunnen een stuk makkelijker, en dat levert elke week tijd op die je aan je eigenlijke werk kunt besteden.', 'veryo' ),
+		__( 'Daar draait Veryo om: niet om de techniek, maar om het werk dat daarna lichter wordt. Csaba kijkt met je mee, bouwt de oplossing en blijft aanspreekpunt als het eenmaal draait.', 'veryo' ),
 	)
 );
 $veryo_about .= veryo_sec_text(

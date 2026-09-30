@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 $veryo_privacy  = veryo_b_p( __( 'In deze privacyverklaring leest u welke persoonsgegevens Veryo verwerkt, waarom, hoe lang we ze bewaren en welke rechten u heeft. Versie: [VUL IN: datum].', 'veryo' ), array( 'fontSize' => 'body-l' ) );
 $veryo_privacy .= veryo_sec_text(
 	__( '1. Wie is verantwoordelijk?', 'veryo' ),
-	array( __( 'Verantwoordelijk voor de verwerking van uw persoonsgegevens is Veryo, gevestigd in Leeuwarden. KvK-nummer: [VUL IN: KvK-nummer]. U kunt ons bereiken via de contactgegevens hieronder.', 'veryo' ) )
+	array( __( 'Verantwoordelijk voor de verwerking van uw persoonsgegevens is Veryo, een handelsnaam van Merklenz (eenmanszaak), Lange Marktstraat 1, Leeuwarden. KvK-nummer: 73435996. U kunt ons bereiken via de contactgegevens hieronder.', 'veryo' ) )
 );
 $veryo_privacy .= veryo_b_shortcode( '[veryo_contact_details]' );
 $veryo_privacy .= veryo_sec_text(
@@ -53,8 +53,8 @@ $veryo_privacy .= veryo_sec_text(
 	array(),
 	array(
 		__( 'Anthropic, voor het schrijven van het rapport (zonder contactgegevens, zie hierboven).', 'veryo' ),
-		__( 'Onze hostingpartij, waar de website en de gegevens staan: [VUL IN: naam hostingpartij en land].', 'veryo' ),
-		__( 'Onze e-maildienst voor het versturen van e-mail: [VUL IN: naam SMTP-/maildienst].', 'veryo' ),
+		__( 'Onze hostingpartij mijn.host, waar de website en de gegevens staan, in Nederland.', 'veryo' ),
+		__( 'Onze e-maildienst voor het versturen van e-mail: mijn.host (Nederland).', 'veryo' ),
 		__( '[VUL IN: als de Make-koppeling wordt gebruikt: Make (Celonis) en de gekoppelde tool, bijvoorbeeld ClickUp of Notion, voor het opvolgen van aanvragen]', 'veryo' ),
 		__( 'Met deze partijen hebben we een verwerkersovereenkomst of zij verwerken de gegevens onder hun eigen zakelijke voorwaarden. We verkopen uw gegevens nooit.', 'veryo' ),
 	)
@@ -103,7 +103,7 @@ $veryo_terms .= veryo_sec_text(
 	__( '1. Definities', 'veryo' ),
 	array(),
 	array(
-		__( '<strong>Veryo</strong>: [VUL IN: rechtsvorm en volledige naam], gevestigd in Leeuwarden, KvK [VUL IN: KvK-nummer].', 'veryo' ),
+		__( '<strong>Veryo</strong>: handelsnaam van Merklenz, eenmanszaak, Lange Marktstraat 1, Leeuwarden, KvK 73435996.', 'veryo' ),
 		__( '<strong>Opdrachtgever</strong>: de organisatie die Veryo een opdracht geeft.', 'veryo' ),
 		__( '<strong>Diensten</strong>: trainingen, kansensessies, automatiseringen, AI op maat, onderhoud en abonnementen.', 'veryo' ),
 		__( '<strong>Automatisering</strong>: een door Veryo ingerichte workflow, koppeling, assistent of agent.', 'veryo' ),
@@ -111,7 +111,7 @@ $veryo_terms .= veryo_sec_text(
 );
 $veryo_terms .= veryo_sec_text(
 	__( '2. Offertes en prijzen', 'veryo' ),
-	array( __( 'Offertes zijn vrijblijvend en [VUL IN: aantal] dagen geldig. Alle prijzen zijn exclusief btw. Een vaste prijs geldt voor de omschrijving in de offerte; wijzigingen of uitbreidingen op verzoek van opdrachtgever worden vooraf besproken en apart geoffreerd. Verbruikskosten van software van derden (zoals AI-diensten en automatiseringsplatforms) zijn voor rekening van opdrachtgever, tenzij anders afgesproken.', 'veryo' ) )
+	array( __( 'Offertes zijn vrijblijvend en 14 dagen geldig. Alle prijzen zijn exclusief btw. Een vaste prijs geldt voor de omschrijving in de offerte; wijzigingen of uitbreidingen op verzoek van opdrachtgever worden vooraf besproken en apart geoffreerd. Verbruikskosten van software van derden (zoals AI-diensten en automatiseringsplatforms) zijn voor rekening van opdrachtgever, tenzij anders afgesproken.', 'veryo' ) )
 );
 $veryo_terms .= veryo_sec_text(
 	__( '3. Uitvoering', 'veryo' ),
@@ -123,7 +123,7 @@ $veryo_terms .= veryo_sec_text(
 );
 $veryo_terms .= veryo_sec_text(
 	__( '5. Betaling', 'veryo' ),
-	array( __( 'Facturen worden betaald binnen [VUL IN: aantal] dagen na factuurdatum. Abonnementen worden [VUL IN: maandelijks/per kwartaal] vooraf gefactureerd. Bij te late betaling is opdrachtgever na een herinnering de wettelijke (handels)rente verschuldigd.', 'veryo' ) )
+	array( __( 'Facturen worden betaald binnen 14 dagen na factuurdatum. Abonnementen worden [VUL IN: maandelijks/per kwartaal] vooraf gefactureerd. Bij te late betaling is opdrachtgever na een herinnering de wettelijke (handels)rente verschuldigd.', 'veryo' ) )
 );
 $veryo_terms .= veryo_sec_text(
 	__( '6. Eigendom en gegevens', 'veryo' ),

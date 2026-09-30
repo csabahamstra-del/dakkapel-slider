@@ -25,7 +25,7 @@ Gebruikt je hosting nginx en geeft `/llms.txt` een 404? Dan serveert nginx `.txt
 
 ## 3. Instellingen invullen (Instellingen > Veryo)
 
-**Bedrijfsgegevens.** Vul bedrijfsnaam, adres, postcode, plaats, telefoon, e-mailadres, KvK, btw, LinkedIn, Instagram en de naam van de oprichter in. Deze gegevens verschijnen in de footer, op de contactpagina, in schema.org en in e-mails. Lege velden worden nergens getoond.
+**Bedrijfsgegevens.** Deze staan al ingevuld: Veryo (handelsnaam van Merklenz, eenmanszaak), Lange Marktstraat 1, Leeuwarden, 085 060 5752, info@veryo.nl, KvK 73435996, oprichter Csaba. Vul nog aan: **postcode**, eventueel **btw-nummer**, **LinkedIn** en **Instagram**. Deze gegevens verschijnen in de footer, op de contactpagina, in schema.org en in e-mails. Lege velden worden nergens getoond.
 
 **AI-scan.**
 
@@ -61,11 +61,10 @@ Alle plekken waar nog iets moet worden ingevuld, staan als `[VUL IN: …]` in de
 **Pagina's**
 
 - **Homepage** (`/`): echte klantcase en echte review. Het blok is verborgen tot "Toon cases" aan staat.
-- **Over Veryo** (`/over-veryo/`): korte introductie van de oprichter (achtergrond, ervaring, waarom Veryo); echte klantcase en review (verborgen).
-- **Leeuwarden** (`/leeuwarden/`): vaste trainingslocatie, als die er is.
-- **Privacyverklaring** (`/privacyverklaring/`): datum; KvK-nummer; grondslag laten controleren; doorgiftemechanisme en bewaartermijn bij Anthropic; naam en land van de hostingpartij; naam van de SMTP- of maildienst; Make en de gekoppelde tool (als je de webhook gebruikt); controle van de bewaartermijn; aanvullende beveiligingsmaatregelen.
+- **Over Veryo** (`/over-veryo/`): echte klantcase en review (verborgen). De introductie van de oprichter is ingevuld; vul eventueel aan met je achtergrond en ervaring.
+- **Privacyverklaring** (`/privacyverklaring/`): datum; grondslag laten controleren; doorgiftemechanisme en bewaartermijn bij Anthropic; Make en de gekoppelde tool (als je de webhook gebruikt); controle van de bewaartermijn; aanvullende beveiligingsmaatregelen. (Handelsnaam, KvK, hosting en maildienst mijn.host staan erin.)
 - **Cookieverklaring** (`/cookieverklaring/`): datum; aanvullen als er analytics of embeds bijkomen.
-- **Algemene voorwaarden** (`/algemene-voorwaarden/`): datum; rechtsvorm en volledige naam; KvK-nummer; geldigheid van offertes (aantal dagen); betaaltermijn; factuurfrequentie van abonnementen; aansprakelijkheidsbeperking; looptijd en opzegtermijn.
+- **Algemene voorwaarden** (`/algemene-voorwaarden/`): datum; factuurfrequentie van abonnementen; aansprakelijkheidsbeperking; looptijd en opzegtermijn. (Handelsnaam, KvK, offertegeldigheid 14 dagen en betaaltermijn 14 dagen staan erin.)
 
 **Blogconcepten** (alle 12, status concept): per artikel `[VUL IN: aanvullen]` bij de FAQ-antwoorden, plus bij de artikelen over ChatGPT/Claude/Copilot, AVG, SLIM en WBSO de actuele voorwaarden, prijzen en officiële bronnen. De concepten bevatten per kop de opzet in 2–4 zinnen; schrijf en controleer ze voor publicatie.
 

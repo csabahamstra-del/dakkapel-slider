@@ -16,12 +16,13 @@ function veryo_settings_defaults() {
 	return array(
 		// Bedrijfsgegevens.
 		'company_name'     => 'Veryo',
-		'street'           => '',
+		'street'           => 'Lange Marktstraat 1',
 		'postcode'         => '',
 		'city'             => 'Leeuwarden',
-		'phone'            => '',
-		'email'            => 'hallo@' . veryo_site_domain(),
-		'kvk'              => '',
+		'phone'            => '085 060 5752',
+		'email'            => 'info@veryo.nl',
+		'kvk'              => '73435996',
+		'legal_name'       => 'Merklenz',
 		'btw'              => '',
 		'linkedin'         => '',
 		'instagram'        => '',
@@ -111,6 +112,7 @@ function veryo_company() {
 		'linkedin'  => $s['linkedin'],
 		'instagram' => $s['instagram'],
 		'founder'   => $founder,
+		'legal_name' => (string) $s['legal_name'],
 	);
 	return array_map( 'strval', $data );
 }

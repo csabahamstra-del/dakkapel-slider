@@ -77,7 +77,7 @@ return array(
 					array( __( 'Kunnen jullie een AI-training in Friesland geven?', 'veryo' ), __( 'Ja, bij jou op locatie of in Leeuwarden. Een halve dag voor maximaal twintig mensen kost €1.200 exclusief btw.', 'veryo' ) ),
 					array( __( 'Werken jullie ook met kleine bedrijven?', 'veryo' ), __( 'Ja. Een groot deel van het Friese MKB bestaat uit bedrijven met twee tot twintig mensen. Juist daar kan één goede automatisering veel schelen.', 'veryo' ) ),
 					array( __( 'Kunnen berichten ook in het Duits of Fries?', 'veryo' ), __( 'Vertalen naar Duits en Engels werkt goed, handig voor toerisme en export. Fries is minder vanzelfsprekend voor AI-modellen; dat testen we per toepassing.', 'veryo' ) ),
-					array( __( 'Wat kost een AI-adviseur in Friesland?', 'veryo' ), __( 'De AI-scan is gratis. Een kansensessie met roadmap kost €750 tot €1.500, een eerste automatisering €750 tot €1.500. Eventuele reiskosten staan altijd vooraf in de offerte. Alles exclusief btw.', 'veryo' ) ),
+					array( __( 'Wat kost een AI-adviseur in Friesland?', 'veryo' ), __( 'De AI-scan is gratis. Een kansensessie met roadmap kost €750 tot €1.500, een eerste automatisering €750 tot €1.500. In Noord-Nederland rekenen we geen reiskosten. Alles exclusief btw.', 'veryo' ) ),
 				),
 				'cta'      => array( __( 'Friese ondernemer? Begin met de AI-scan', 'veryo' ), '' ),
 				'links'    => array(
@@ -141,7 +141,7 @@ return array(
 				'price'    => array( 'steps' => array( 0, 2, 3, 5 ) ),
 				'faq'      => array(
 					array( __( 'Komen jullie ook in de stad Groningen?', 'veryo' ), __( 'Ja, in de stad en in de hele provincie. Voor een kansensessie, training of oplevering komen we op locatie.', 'veryo' ) ),
-					array( __( 'Rekenen jullie reiskosten voor Groningen?', 'veryo' ), __( 'Eventuele reiskosten staan altijd vooraf in de offerte, zodat je niet voor verrassingen komt te staan.', 'veryo' ) ),
+					array( __( 'Rekenen jullie reiskosten voor Groningen?', 'veryo' ), __( 'Nee. In Friesland, Groningen en Drenthe rekenen we geen reiskosten. Dat zit in de vaste prijs.', 'veryo' ) ),
 					array( __( 'Werken jullie samen met Groningse onderwijsinstellingen?', 'veryo' ), __( 'Op dit moment niet. We richten ons op praktische toepassingen voor het MKB.', 'veryo' ) ),
 					array( __( 'Kunnen jullie een AI-training in Groningen geven?', 'veryo' ), __( 'Ja, bij jou op locatie of online. Een halve dag voor maximaal twintig personen kost €1.200 exclusief btw.', 'veryo' ) ),
 					array( __( 'Is een AI-adviseur in Groningen niet dichterbij?', 'veryo' ), __( 'Misschien wel. Het verschil zit in de aanpak: wij adviseren, bouwen en onderhouden, met vaste prijzen. Kies wat bij je past.', 'veryo' ) ),
@@ -207,7 +207,7 @@ return array(
 				'faq'      => array(
 					array( __( 'Komen jullie in heel Drenthe?', 'veryo' ), __( 'Ja. We komen in Assen, Emmen, Hoogeveen, Meppel en alles daartussen, voor kansensessies, trainingen en opleveringen.', 'veryo' ) ),
 					array( __( 'Werken jullie ook voor agrarische bedrijven?', 'veryo' ), __( 'Ja. Agri en mechanisatie is een van de sectoren die we het best kennen, van loonwerk tot machinehandel.', 'veryo' ) ),
-					array( __( 'Wat betekent de afstand voor de prijs?', 'veryo' ), __( 'Je krijgt vooraf een vaste prijs. Eventuele reiskosten staan daar gewoon in, zodat je weet waar je aan toe bent.', 'veryo' ) ),
+					array( __( 'Wat betekent de afstand voor de prijs?', 'veryo' ), __( 'Niets. In Friesland, Groningen en Drenthe rekenen we geen reiskosten. Je krijgt vooraf een vaste prijs.', 'veryo' ) ),
 					array( __( 'Kunnen we beginnen met een training?', 'veryo' ), __( 'Ja, dat is vaak een goede eerste stap. Een halve dag incompany training voor maximaal twintig mensen kost €1.200 exclusief btw.', 'veryo' ) ),
 				),
 				'cta'      => array( __( 'Drents bedrijf? Zie wat AI je oplevert', 'veryo' ), '' ),
@@ -248,7 +248,7 @@ return array(
 						'h' => __( 'AI-training in Leeuwarden: op locatie of bij jou', 'veryo' ),
 						'p' => array(
 							__( 'De training is praktisch: je team werkt met ChatGPT, Claude of Copilot aan taken uit jullie eigen werk. Mail, offertes, samenvattingen, teksten. We behandelen wat wel en niet mag met gegevens, en je werkt meteen aan de AI-geletterdheid die de AI Act sinds 2 februari 2025 vraagt.', 'veryo' ),
-							__( 'We geven de training bij jou op kantoor, of op een trainingslocatie in Leeuwarden als je team liever even weg is van de werkplek. Een halve dag voor maximaal twintig personen kost €1.200, een hele dag €2.800, exclusief btw.', 'veryo' ),
+							__( 'We geven de training bij jou op kantoor, of op onze trainingslocatie in Leeuwarden (op aanvraag) als je team liever even weg is van de werkplek. Een halve dag voor maximaal twintig personen kost €1.200, een hele dag €2.800, exclusief btw.', 'veryo' ),
 						),
 					),
 					array(
@@ -266,7 +266,7 @@ return array(
 				),
 				'price'    => array( 'steps' => array( 1, 2, 3, 4 ) ),
 				'faq'      => array(
-					array( __( 'Waar in Leeuwarden geven jullie de training?', 'veryo' ), __( 'Bij jou op kantoor of op een trainingslocatie in Leeuwarden. [VUL IN: vaste trainingslocatie, als die er is]', 'veryo' ) ),
+					array( __( 'Waar in Leeuwarden geven jullie de training?', 'veryo' ), __( 'Bij jou op kantoor, of op onze trainingslocatie in Leeuwarden. Die trainingslocatie is op aanvraag: geef bij je aanvraag aan dat je die wilt gebruiken, dan regelen we de ruimte.', 'veryo' ) ),
 					array( __( 'Kan ik gewoon even langskomen?', 'veryo' ), __( 'Graag, maar maak even een afspraak, want we zijn vaak op locatie bij klanten.', 'veryo' ) ),
 					array( __( 'Wat kost een AI-training in Leeuwarden?', 'veryo' ), __( 'Een halve dag voor maximaal twintig personen kost €1.200, een hele dag €2.800, exclusief btw. Mogelijk is er subsidie via de SLIM-regeling; openstellingsperiodes en voorwaarden wisselen, check de actuele situatie.', 'veryo' ) ),
 					array( __( 'Is er ook een open training voor losse deelnemers?', 'veryo' ), __( 'Op dit moment niet. Voor losse deelnemers komt er de online cursus van de Veryo Academy; zet je op de wachtlijst.', 'veryo' ) ),

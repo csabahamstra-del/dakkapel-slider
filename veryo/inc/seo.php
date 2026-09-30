@@ -596,6 +596,9 @@ function veryo_schema_organization() {
 			'name'  => $c['founder'],
 		);
 	}
+	if ( $c['legal_name'] ) {
+		$org['legalName'] = $c['legal_name'];
+	}
 	if ( $c['kvk'] ) {
 		$org['identifier'] = array(
 			'@type'      => 'PropertyValue',
