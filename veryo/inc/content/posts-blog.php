@@ -428,4 +428,83 @@ return array(
 			)
 		),
 	),
+
+	'copilot-veilig-inrichten'            => array(
+		'title'     => __( 'Copilot in je bedrijf: zo richt je het veilig in', 'veryo' ),
+		'seo_title' => __( 'Copilot inrichten in het MKB: veilig in 5 stappen | Veryo', 'veryo' ),
+		'desc'      => __( 'Copilot inrichten in het MKB zonder verrassingen: eerst de toegangsrechten, dan de licenties, de instellingen en het team. Een nuchter stappenplan.', 'veryo' ),
+		'kw'        => 'copilot inrichten mkb',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'Copilot ziet wat je medewerkers mogen zien', 'veryo' ), __( 'Leg uit dat Copilot alles kan vinden waar een medewerker rechten op heeft, en waarom dat het belangrijkste aandachtspunt is.', 'veryo' ) ),
+				array(
+					__( 'Vijf stappen om Copilot veilig in te richten', 'veryo' ),
+					__( 'Een praktisch stappenplan voor een bedrijf met 5 tot 50 mensen.', 'veryo' ),
+					array(
+						array( __( 'Rechten opschonen', 'veryo' ), __( 'Welke mappen en sites zijn met iedereen gedeeld die dat niet zouden moeten zijn?', 'veryo' ) ),
+						array( __( 'Licenties per rol', 'veryo' ), __( 'Niet iedereen heeft dezelfde licentie nodig. Beschrijf hoe je kiest.', 'veryo' ) ),
+						array( __( 'Instellingen', 'veryo' ), __( 'Welke functies aan, welke uit, en dat bedrijfsgegevens niet voor training worden gebruikt.', 'veryo' ) ),
+						array( __( 'Afspraken', 'veryo' ), __( 'Koppel het aan het AI-beleid: wat mag wel en niet.', 'veryo' ) ),
+						array( __( 'Het team trainen', 'veryo' ), __( 'Zonder uitleg blijft Copilot liggen. Noem voorbeelden uit mail, verslagen en Excel.', 'veryo' ) ),
+					),
+				),
+				array( __( 'En Gemini in Google Workspace?', 'veryo' ), __( 'Dezelfde aanpak geldt. Benoem kort de overeenkomsten zonder merken aan te prijzen.', 'veryo' ) ),
+				array( __( 'Samenwerken met je IT-beheerder', 'veryo' ), __( 'Leg uit dat Veryo geen IT-beheer doet en graag samenwerkt met de vaste beheerder. Verwijs naar de AI-werkplek.', 'veryo' ) ),
+			),
+			array(
+				array( __( 'Wat kost Copilot?', 'veryo' ), __( 'Dat hangt af van je licenties; controleer de actuele prijzen bij Microsoft. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Is Copilot veilig?', 'veryo' ), __( 'Als de toegangsrechten kloppen en de instellingen goed staan, is het risico beperkt. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Hoe lang duurt het inrichten?', 'veryo' ), __( 'Meestal twee tot drie weken, afhankelijk van de rechten. [VUL IN: aanvullen]', 'veryo' ) ),
+			)
+		),
+	),
+
+	'wat-zijn-ai-agents'                  => array(
+		'title'     => __( 'Wat zijn AI-agents, en wat kun je er als MKB’er mee?', 'veryo' ),
+		'seo_title' => __( 'Wat zijn AI-agents? Uitleg voor het MKB | Veryo', 'veryo' ),
+		'desc'      => __( 'AI-agents voor bedrijven uitgelegd: wat een digitale collega wel en niet kan, voorbeelden uit het MKB, wat het kost en waar je op let bij de keuze.', 'veryo' ),
+		'kw'        => 'ai agents voor bedrijven',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'Een agent is meer dan een chatbot', 'veryo' ), __( 'Leg het verschil uit: een chatbot beantwoordt vragen, een agent voert ook stappen uit in je systemen.', 'veryo' ) ),
+				array(
+					__( 'Voorbeelden uit het MKB', 'veryo' ),
+					__( 'Drie voorbeelden, duidelijk als voorbeeld geformuleerd.', 'veryo' ),
+					array(
+						array( __( 'Aanvragen voorbereiden', 'veryo' ), __( 'Een agent die aanvragen compleet maakt en een concept klaarzet.', 'veryo' ) ),
+						array( __( 'Facturen verwerken', 'veryo' ), __( 'Inkoopfacturen herkennen en klaarzetten in het boekhoudpakket.', 'veryo' ) ),
+						array( __( 'Storingen triageren', 'veryo' ), __( 'Meldingen lezen, ontbrekende gegevens opvragen en een werkbon klaarzetten.', 'veryo' ) ),
+					),
+				),
+				array( __( 'Waar een agent niet voor is', 'veryo' ), __( 'Beslissingen met grote gevolgen, taken die zelden voorkomen, en werk waar eerst het proces niet helder is.', 'veryo' ) ),
+				array( __( 'Wat kost een AI-agent?', 'veryo' ), __( 'Noem de bandbreedte uit de prijzen (project €2.500–7.500, maatwerk vanaf €5.000) en het verplichte onderhoud van €150–500 per maand.', 'veryo' ) ),
+			),
+			array(
+				array( __( 'Neemt een agent banen over?', 'veryo' ), __( 'In het MKB gaat het om werk weghalen dat niemand graag doet. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Werkt een agent met mijn software?', 'veryo' ), __( 'Meestal wel, via de koppelingen die pakketten bieden. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Wie is verantwoordelijk als het misgaat?', 'veryo' ), __( 'Elke agent heeft een eigenaar bij de klant en een logboek. [VUL IN: aanvullen]', 'veryo' ) ),
+			)
+		),
+	),
+
+	'ai-voor-hr'                          => array(
+		'title'     => __( 'AI voor HR: werving, onboarding en beleid', 'veryo' ),
+		'seo_title' => __( 'AI voor HR: werving, onboarding en beleid | Veryo', 'veryo' ),
+		'desc'      => __( 'AI en HR in het MKB: vacatureteksten, voorselectie, onboarding en een AI-beleid voor medewerkers. Wat kan, wat niet mag en hoe je je team traint.', 'veryo' ),
+		'kw'        => 'ai en hr training',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'Waar AI HR-werk lichter maakt', 'veryo' ), __( 'Vacatureteksten, kandidaatopvolging, onboarding-documenten en verlofaanvragen.', 'veryo' ) ),
+				array( __( 'Werving: sneller, maar met een mens die beslist', 'veryo' ), __( 'Voorselectie op harde eisen mag helpen; de beslissing blijft bij een mens. Noem de grens uit de catalogus.', 'veryo' ) ),
+				array( __( 'Onboarding van nieuwe medewerkers', 'veryo' ), __( 'Documenten, accounts en een introductie op het AI-beleid klaarzetten.', 'veryo' ) ),
+				array( __( 'HR en de AI Act', 'veryo' ), __( 'Feitelijk: AI-geletterdheid sinds 2 februari 2025. Benoem dat HR vaak de training en het beleid organiseert.', 'veryo' ) ),
+				array( __( 'Een training voor HR', 'veryo' ), __( 'Verwijs naar de AI-training voor bedrijven en het AI-Startpakket.', 'veryo' ) ),
+			),
+			array(
+				array( __( 'Mag AI sollicitanten afwijzen?', 'veryo' ), __( 'Nee, laat die beslissing altijd bij een mens. [VUL IN: laat controleren]', 'veryo' ) ),
+				array( __( 'Mogen personeelsgegevens in ChatGPT?', 'veryo' ), __( 'Niet in een gratis versie zonder afspraken. [VUL IN: laat controleren]', 'veryo' ) ),
+				array( __( 'Wie organiseert de AI-training?', 'veryo' ), __( 'Vaak HR, samen met de directie. [VUL IN: aanvullen]', 'veryo' ) ),
+			)
+		),
+	),
 );

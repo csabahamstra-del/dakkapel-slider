@@ -34,7 +34,7 @@ defined( 'ABSPATH' ) || exit;
 						'theme_location' => 'primary',
 						'container'      => false,
 						'menu_class'     => 'menu',
-						'depth'          => 2,
+						'depth'          => 3,
 						'walker'         => new Veryo_Primary_Walker(),
 						'fallback_cb'    => false,
 					)

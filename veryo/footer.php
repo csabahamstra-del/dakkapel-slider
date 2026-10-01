@@ -37,6 +37,7 @@ $veryo_company = veryo_company();
 		}
 		?>
 	</div>
+	<div class="footer-wordmark" aria-hidden="true"><?php echo veryo_wordmark_svg(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- lokaal themabestand. ?></div>
 	<div class="site-footer__legal">
 		<p>
 			&copy; <?php echo esc_html( wp_date( 'Y' ) . ' ' . $veryo_company['name'] . ( $veryo_company['legal_name'] ? sprintf( /* translators: %s: juridische naam. */ __( ', een handelsnaam van %s', 'veryo' ), $veryo_company['legal_name'] ) : '' ) ); ?>
@@ -50,6 +51,20 @@ $veryo_company = veryo_company();
 		</p>
 	</div>
 </footer>
-<?php wp_footer(); ?>
+<?php
+$veryo_post = get_post();
+if ( ! ( is_singular() && $veryo_post && has_shortcode( (string) $veryo_post->post_content, 'veryo_ai_scan' ) ) ) :
+	?>
+	<a class="veryo-sticky-cta" href="<?php echo esc_url( veryo_url( 'waar-begin-ik-met-ai' ) ); ?>" hidden><?php esc_html_e( 'Doe de gratis AI-scan', 'veryo' ); ?></a>
+	<?php
+endif;
+$veryo_wa = preg_replace( '/\D/', '', (string) veryo_setting( 'whatsapp_number' ) );
+if ( veryo_setting( 'whatsapp' ) && $veryo_wa ) :
+	?>
+	<a class="veryo-whatsapp" href="<?php echo esc_url( 'https://wa.me/' . $veryo_wa ); ?>" target="_blank" rel="noopener" aria-label="<?php esc_attr_e( 'Stuur Veryo een WhatsApp-bericht', 'veryo' ); ?>"><?php echo wp_kses( veryo_icon( 'whatsapp' ), veryo_svg_kses() ); ?></a>
+	<?php
+endif;
+wp_footer();
+?>
 </body>
 </html>

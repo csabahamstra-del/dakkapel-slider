@@ -139,7 +139,12 @@ $veryo_terms .= veryo_sec_text(
 );
 $veryo_terms .= veryo_sec_text(
 	__( '9. Duur en opzegging', 'veryo' ),
-	array( __( 'Onderhouds- en partnerabonnementen lopen per maand en zijn maandelijks opzegbaar met een opzegtermijn van één maand. Bij beëindiging helpt Veryo bij een ordentelijke overdracht van de automatiseringen.', 'veryo' ) )
+	array(
+		__( 'Na een afgerond pakket loopt het bijbehorende abonnement de eerste maand kosteloos mee. Opdrachtgever kiest vooraf zelf of het abonnement daarna doorloopt; zonder die keuze wordt het niet verlengd.', 'veryo' ),
+		__( 'Losse abonnementen (zoals Bijblijven, Werkplek-onderhoud, Veilig blijven en Onderhoud) hebben een minimale looptijd van drie maanden en zijn daarna maandelijks opzegbaar met een opzegtermijn van één maand. Onderhoud is verplicht zolang door Veryo gebouwde koppelingen of agents in gebruik zijn.', 'veryo' ),
+		__( 'Het AI-partner-abonnement wordt aangegaan voor een jaar. Na dat jaar loopt het per maand door en is het maandelijks opzegbaar met een opzegtermijn van één maand, tenzij partijen een nieuw jaar afspreken. Uren die binnen een maand niet worden gebruikt, vervallen aan het einde van die maand.', 'veryo' ),
+		__( 'Bij beëindiging helpt Veryo bij een ordentelijke overdracht van de automatiseringen.', 'veryo' ),
+	)
 );
 $veryo_terms .= veryo_sec_text(
 	__( '10. Toepasselijk recht', 'veryo' ),

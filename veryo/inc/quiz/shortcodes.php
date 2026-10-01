@@ -16,6 +16,8 @@ add_shortcode( 'veryo_contact_details', 'veryo_sc_contact_details' );
 add_shortcode( 'veryo_calendly_button', 'veryo_sc_calendly_button' );
 add_shortcode( 'veryo_bewaartermijn', 'veryo_sc_retention' );
 add_shortcode( 'veryo_kennismaking', 'veryo_sc_kennismaking' );
+add_shortcode( 'veryo_portret', 'veryo_sc_portret' );
+add_shortcode( 'veryo_klantlogos', 'veryo_sc_klantlogos' );
 
 /**
  * Script-configuratie één keer meegeven.
@@ -510,3 +512,57 @@ function veryo_rapport_headers() {
 	header( 'Referrer-Policy: no-referrer' );
 }
 add_action( 'template_redirect', 'veryo_rapport_headers' );
+
+/**
+ * Portret van de oprichter. Zonder foto (Instellingen > Veryo) een rustig monogram,
+ * zodat er nooit een lege of "under construction"-plek staat.
+ *
+ * @param array<string,string>|string $atts Attributen: size small|large.
+ * @return string
+ */
+function veryo_sc_portret( $atts ) {
+	$atts  = shortcode_atts( array( 'size' => 'small' ), $atts, 'veryo_portret' );
+	$size  = 'large' === $atts['size'] ? 'large' : 'small';
+	$name  = trim( veryo_setting( 'founder_first' ) . ' ' . veryo_setting( 'founder_last' ) );
+	$photo = absint( veryo_setting( 'founder_photo' ) );
+	$class = 'veryo-portret veryo-portret--' . $size;
+	if ( $photo && wp_attachment_is_image( $photo ) ) {
+		return '<figure class="' . esc_attr( $class ) . '">' . wp_get_attachment_image(
+			$photo,
+			'large' === $size ? 'large' : 'medium',
+			false,
+			array(
+				/* translators: %s: naam oprichter. */
+				'alt'     => sprintf( __( '%s, oprichter van Veryo', 'veryo' ), $name ? $name : 'Veryo' ),
+				'loading' => 'large' === $size ? 'lazy' : 'eager',
+			)
+		) . '</figure>';
+	}
+	if ( 'large' === $size ) {
+		// Zonder foto: een vormgegeven merkvlak met het vinkje, de naam en de plaats.
+		$check = '<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><polyline points="18,23 29,45 47,16" fill="none" stroke="#E0A03A" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+		return '<figure class="' . esc_attr( $class . ' is-monogram' ) . '">' . $check . '<figcaption>' . esc_html( $name ? $name : 'Veryo' ) . '<small>' . esc_html__( 'Oprichter van Veryo, Leeuwarden', 'veryo' ) . '</small></figcaption></figure>';
+	}
+	$initial = $name ? mb_strtoupper( mb_substr( $name, 0, 1 ) ) : 'V';
+	return '<figure class="' . esc_attr( $class . ' is-monogram' ) . '" aria-hidden="true"><span>' . esc_html( $initial ) . '</span></figure>';
+}
+
+/**
+ * Doorlopende band met klantlogo's, alleen als cases aan staan en er logo's zijn.
+ *
+ * @return string
+ */
+function veryo_sc_klantlogos() {
+	if ( ! veryo_setting( 'show_cases' ) ) {
+		return '';
+	}
+	$ids = array_filter( array_map( 'absint', explode( ',', (string) veryo_setting( 'client_logos' ) ) ) );
+	if ( ! $ids ) {
+		return '';
+	}
+	$out = '<div class="veryo-marquee veryo-marquee--logos"><ul class="veryo-marquee__list" aria-label="' . esc_attr__( 'Klanten van Veryo', 'veryo' ) . '">';
+	foreach ( $ids as $id ) {
+		$out .= '<li>' . wp_get_attachment_image( $id, 'medium', false, array( 'loading' => 'lazy' ) ) . '</li>';
+	}
+	return $out . '</ul></div>';
+}

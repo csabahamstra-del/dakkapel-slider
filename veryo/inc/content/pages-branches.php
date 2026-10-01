@@ -420,7 +420,7 @@ return array(
 				),
 				'cta'      => array( __( 'Transportbedrijf? Doe de AI-scan', 'veryo' ), '' ),
 				'links'    => array(
-					array( 'ai-op-maat/ai-agents', __( 'AI-agents laten bouwen', 'veryo' ), __( 'Planningsagent', 'veryo' ) ),
+					array( 'ai-agents', __( 'AI-agents voor bedrijven', 'veryo' ), __( 'Planningsagent', 'veryo' ) ),
 					array( 'branches/recruitment', __( 'Werving via WhatsApp', 'veryo' ), __( 'Chauffeurs werven', 'veryo' ) ),
 					array( 'ai-adviseur-groningen', __( 'AI-adviseur in Groningen', 'veryo' ), __( 'Logistiek in het noorden', 'veryo' ) ),
 				),

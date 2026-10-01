@@ -51,8 +51,32 @@ add_filter( 'should_load_separate_core_block_assets', '__return_true' );
  * Stijlen en scripts op de voorkant.
  */
 function veryo_enqueue_assets() {
-	$ver = VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/css/main.css' );
-	wp_enqueue_style( 'veryo-main', VERYO_URI . '/assets/css/main.css', array(), $ver );
+	// Het ingekorte bestand (tools/build.sh) als dat er is, anders de bron.
+	$min = VERYO_DIR . '/assets/css/main.min.css';
+	$css = ( file_exists( $min ) && filemtime( $min ) >= filemtime( VERYO_DIR . '/assets/css/main.css' ) ) ? 'main.min.css' : 'main.css';
+	$ver = VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/css/' . $css );
+	wp_enqueue_style( 'veryo-main', VERYO_URI . '/assets/css/' . $css, array(), $ver );
+
+	$defer = array(
+		'strategy'  => 'defer',
+		'in_footer' => true,
+	);
+	// Kleine interacties die altijd werken: FAQ, prijsschakelaar, sticky CTA, marquee.
+	wp_enqueue_script( 'veryo-ui', VERYO_URI . '/assets/js/ui.js', array(), VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/js/ui.js' ), $defer );
+
+	// Beweging: GSAP, ScrollTrigger, SplitText en (optioneel) Lenis, allemaal lokaal.
+	if ( veryo_motion_enabled() ) {
+		$vendor = VERYO_URI . '/assets/vendor/';
+		wp_register_script( 'veryo-gsap', $vendor . 'gsap/gsap.min.js', array(), '3.15.0', $defer );
+		wp_register_script( 'veryo-gsap-scrolltrigger', $vendor . 'gsap/ScrollTrigger.min.js', array( 'veryo-gsap' ), '3.15.0', $defer );
+		wp_register_script( 'veryo-gsap-splittext', $vendor . 'gsap/SplitText.min.js', array( 'veryo-gsap' ), '3.15.0', $defer );
+		$deps = array( 'veryo-gsap', 'veryo-gsap-scrolltrigger', 'veryo-gsap-splittext' );
+		if ( veryo_smooth_scroll_enabled() ) {
+			wp_register_script( 'veryo-lenis', $vendor . 'lenis/lenis.min.js', array(), '1.3.26', $defer );
+			$deps[] = 'veryo-lenis';
+		}
+		wp_enqueue_script( 'veryo-motion', VERYO_URI . '/assets/js/motion.js', $deps, VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/js/motion.js' ), $defer );
+	}
 
 	wp_enqueue_script(
 		'veryo-nav',
@@ -274,3 +298,86 @@ function veryo_excerpt_more() {
 	return '…';
 }
 add_filter( 'excerpt_more', 'veryo_excerpt_more' );
+
+/**
+ * Oude adressen doorsturen naar hun nieuwe plek (alleen als de oude pagina niet meer bestaat).
+ */
+function veryo_legacy_redirects() {
+	if ( ! is_404() ) {
+		return;
+	}
+	$path = trim( (string) wp_parse_url( isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '', PHP_URL_PATH ), '/' );
+	$map  = array(
+		'ai-op-maat/ai-agents' => 'ai-agents',
+	);
+	if ( isset( $map[ $path ] ) ) {
+		wp_safe_redirect( veryo_url( $map[ $path ] ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'veryo_legacy_redirects', 1 );
+
+/**
+ * Staan animaties aan (instelling)? Bezoekers met "beweging beperken" krijgen ze sowieso niet.
+ *
+ * @return bool
+ */
+function veryo_motion_enabled() {
+	return (bool) veryo_setting( 'animations', 1 ) && ! is_admin();
+}
+
+/**
+ * Smooth scrolling: alleen met animaties aan en niet op een pagina met de AI-scan.
+ *
+ * @return bool
+ */
+function veryo_smooth_scroll_enabled() {
+	if ( ! veryo_motion_enabled() || ! veryo_setting( 'smooth_scroll', 1 ) ) {
+		return false;
+	}
+	$post = get_post();
+	return ! ( is_singular() && $post && has_shortcode( (string) $post->post_content, 'veryo_ai_scan' ) );
+}
+
+/**
+ * Klasse has-motion op <html>, vóór de eerste weergave. Alleen als animaties aan staan en de
+ * bezoeker geen "beweging beperken" heeft ingesteld. Zonder JavaScript blijft alles statisch.
+ */
+function veryo_motion_flag() {
+	if ( ! veryo_motion_enabled() ) {
+		return;
+	}
+	echo "<script>if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('has-motion');}</script>\n";
+}
+add_action( 'wp_head', 'veryo_motion_flag', 0 );
+
+/**
+ * De grote hero-kop (display-xl) in woorden splitsen, zodat ze met alleen CSS uit een masker
+ * omhoog schuiven. Zo is de kop (het LCP-element) direct zichtbaar, zonder te wachten op JavaScript.
+ *
+ * @param string               $content Blok-HTML.
+ * @param array<string, mixed> $block   Blok.
+ * @return string
+ */
+function veryo_split_hero_heading( $content, $block ) {
+	if ( 'core/heading' !== $block['blockName'] || false === strpos( $content, 'has-display-xl-font-size' ) || false === strpos( $content, '<h1' ) ) {
+		return $content;
+	}
+	return (string) preg_replace_callback(
+		'/(<h1[^>]*>)(.*?)(<\/h1>)/s',
+		static function ( $m ) {
+			if ( false !== strpos( $m[2], '<' ) ) {
+				return $m[0];
+			}
+			$words = preg_split( '/\s+/u', trim( $m[2] ) );
+			$out   = array();
+			foreach ( $words as $i => $word ) {
+				$out[] = '<span class="veryo-w"><span style="--i:' . (int) $i . '">' . $word . '</span></span>';
+			}
+			return $m[1] . implode( ' ', $out ) . $m[3];
+		},
+		$content,
+		1
+	);
+}
+add_filter( 'render_block', 'veryo_split_hero_heading', 10, 2 );

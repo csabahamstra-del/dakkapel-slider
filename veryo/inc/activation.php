@@ -380,12 +380,34 @@ function veryo_setup_menus( $ids, &$report ) {
 					__( 'Diensten', 'veryo' ),
 					'#',
 					array(
-						array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
-						array( __( 'AI-training', 'veryo' ), 'ai-training' ),
-						array( __( 'AI-implementatie MKB', 'veryo' ), 'ai-implementatie-mkb' ),
-						array( __( 'AI-automatisering en koppelingen', 'veryo' ), 'ai-automatisering' ),
-						array( __( 'AI op maat', 'veryo' ), 'ai-op-maat' ),
-						array( __( 'AI-partner', 'veryo' ), 'ai-partner' ),
+						array(
+							__( 'Starten', 'veryo' ),
+							'#',
+							array(
+								array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
+								array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
+								array( __( 'AI-implementatie MKB', 'veryo' ), 'ai-implementatie-mkb' ),
+								array( __( 'AI-training', 'veryo' ), 'ai-training' ),
+							),
+						),
+						array(
+							__( 'Inrichten', 'veryo' ),
+							'#',
+							array(
+								array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
+								array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
+								array( __( 'Automatisering en koppelingen', 'veryo' ), 'ai-automatisering' ),
+								array( __( 'AI op maat', 'veryo' ), 'ai-op-maat' ),
+							),
+						),
+						array(
+							__( 'Veilig en doorlopend', 'veryo' ),
+							'#',
+							array(
+								array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
+								array( __( 'AI-partner', 'veryo' ), 'ai-partner' ),
+							),
+						),
 					),
 				),
 				array( __( 'Branches', 'veryo' ), 'branches', $branches ),
@@ -402,6 +424,9 @@ function veryo_setup_menus( $ids, &$report ) {
 					'#',
 					array(
 						array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
+						array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
+						array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
+						array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
 						array( __( 'AI-automatisering', 'veryo' ), 'ai-automatisering' ),
 						array( __( 'AI-implementatie MKB', 'veryo' ), 'ai-implementatie-mkb' ),
 						array( __( 'AI-training', 'veryo' ), 'ai-training' ),

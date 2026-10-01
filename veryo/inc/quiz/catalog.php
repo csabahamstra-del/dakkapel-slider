@@ -278,7 +278,7 @@ function veryo_startpakket_price_for_team( $team ) {
  */
 function veryo_price_ladder() {
 	return array(
-		'scan'         => array(
+		'scan'             => array(
 			'groep'  => 'instap',
 			'dienst' => __( 'Gratis AI-scan', 'veryo' ),
 			'wat'    => __( 'Online vragenlijst, persoonlijk rapport en optioneel een belletje van 15 minuten.', 'veryo' ),
@@ -288,7 +288,7 @@ function veryo_price_ladder() {
 			'max'    => 0,
 			'path'   => 'waar-begin-ik-met-ai',
 		),
-		'academy'      => array(
+		'academy'          => array(
 			'groep'  => 'instap',
 			'dienst' => __( 'Online AI-training, Veryo Academy (binnenkort)', 'veryo' ),
 			'wat'    => __( 'Korte modules van 10 tot 15 minuten met oefeningen, per medewerker, met staffelkorting vanaf 10 personen.', 'veryo' ),
@@ -298,7 +298,7 @@ function veryo_price_ladder() {
 			'max'    => 79,
 			'path'   => 'academy',
 		),
-		'startpakket'  => array(
+		'startpakket'      => array(
 			'groep'  => 'hoofdproduct',
 			'dienst' => __( 'Veryo AI-Startpakket', 'veryo' ),
 			'wat'    => __( 'AI-scan en kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg.', 'veryo' ),
@@ -308,7 +308,7 @@ function veryo_price_ladder() {
 			'max'    => 4495,
 			'path'   => 'ai-startpakket',
 		),
-		'kansensessie' => array(
+		'kansensessie'     => array(
 			'groep'  => 'los',
 			'dienst' => __( 'AI-kansensessie en roadmap', 'veryo' ),
 			'wat'    => __( 'Een workshop en een rapport met prioriteiten en de verwachte opbrengst per kans.', 'veryo' ),
@@ -318,7 +318,7 @@ function veryo_price_ladder() {
 			'max'    => 1500,
 			'path'   => 'ai-implementatie-mkb',
 		),
-		'training'     => array(
+		'training'         => array(
 			'groep'  => 'los',
 			'dienst' => __( 'In-company AI-training tot 20 personen', 'veryo' ),
 			'wat'    => __( 'Een halve of hele dag met je eigen team, met oefeningen uit jullie eigen werk.', 'veryo' ),
@@ -328,7 +328,27 @@ function veryo_price_ladder() {
 			'max'    => 2800,
 			'path'   => 'ai-training',
 		),
-		'quickwin'     => array(
+		'werkplek'         => array(
+			'groep'  => 'los',
+			'dienst' => __( 'AI-werkplek inrichten', 'veryo' ),
+			'wat'    => __( 'Microsoft 365 met Copilot of Google Workspace met Gemini: licentieadvies, toegangsrechten, instellingen en een korte teamtraining.', 'veryo' ),
+			'voor'   => __( 'Voor teams die de AI in hun kantoorsoftware veilig en echt willen gebruiken.', 'veryo' ),
+			'prijs'  => __( '€1.495 (tot 10 gebruikers) – €2.495 (11–25)', 'veryo' ),
+			'min'    => 1495,
+			'max'    => 2495,
+			'path'   => 'ai-werkplek',
+		),
+		'veiligheidscheck' => array(
+			'groep'  => 'los',
+			'dienst' => __( 'AI-veiligheidscheck', 'veryo' ),
+			'wat'    => __( 'Hoe wordt AI nu gebruikt, wie mag wat zien, staat tweestapsverificatie aan, is er beleid? Met een rapport vol concrete acties.', 'veryo' ),
+			'voor'   => __( 'Voor bedrijven die willen weten of hun AI-gebruik veilig is.', 'veryo' ),
+			'prijs'  => __( '€995', 'veryo' ),
+			'min'    => 995,
+			'max'    => 995,
+			'path'   => 'veilig-ai-gebruik',
+		),
+		'quickwin'         => array(
 			'groep'  => 'invoering',
 			'dienst' => __( 'Invoering en koppelingen: quick win', 'veryo' ),
 			'wat'    => __( 'Eén afgebakende toepassing ingericht of gekoppeld, bijvoorbeeld inkoopfacturen verwerken of offertes opvolgen.', 'veryo' ),
@@ -338,7 +358,7 @@ function veryo_price_ladder() {
 			'max'    => 1500,
 			'path'   => 'ai-automatisering',
 		),
-		'project'      => array(
+		'project'          => array(
 			'groep'  => 'invoering',
 			'dienst' => __( 'Invoering en koppelingen: project', 'veryo' ),
 			'wat'    => __( 'Meerdere toepassingen of koppelingen tussen de systemen die je al gebruikt.', 'veryo' ),
@@ -348,7 +368,17 @@ function veryo_price_ladder() {
 			'max'    => 7500,
 			'path'   => 'ai-automatisering',
 		),
-		'maatwerk'     => array(
+		'agents'           => array(
+			'groep'  => 'invoering',
+			'dienst' => __( 'AI-agents en digitale collega’s', 'veryo' ),
+			'wat'    => __( 'Een AI-assistent of agent die een terugkerende taak overneemt, gekoppeld aan je eigen systemen.', 'veryo' ),
+			'voor'   => __( 'Voor taken die elke week veel tijd kosten en een vast patroon hebben.', 'veryo' ),
+			'prijs'  => __( '€2.500–7.500 als project, maatwerk vanaf €5.000', 'veryo' ),
+			'min'    => 2500,
+			'max'    => 25000,
+			'path'   => 'ai-agents',
+		),
+		'maatwerk'         => array(
 			'groep'  => 'invoering',
 			'dienst' => __( 'Maatwerk', 'veryo' ),
 			'wat'    => __( 'Een eigen assistent, agent of tool, alleen als bestaande software tekortschiet.', 'veryo' ),
@@ -358,7 +388,7 @@ function veryo_price_ladder() {
 			'max'    => 25000,
 			'path'   => 'ai-op-maat',
 		),
-		'partner'      => array(
+		'partner'          => array(
 			'groep'  => 'doorlopend',
 			'dienst' => __( 'AI-partner-abonnement', 'veryo' ),
 			'wat'    => __( 'Een vaste vraagbaak, maandelijks overleg, nieuwe medewerkers bijscholen, kleine verbeteringen en koppelingen.', 'veryo' ),
@@ -368,7 +398,7 @@ function veryo_price_ladder() {
 			'max'    => 995,
 			'path'   => 'ai-partner',
 		),
-		'onderhoud'    => array(
+		'onderhoud'        => array(
 			'groep'  => 'doorlopend',
 			'dienst' => __( 'Onderhoud van gebouwde koppelingen', 'veryo' ),
 			'wat'    => __( 'Monitoring, updates en kleine aanpassingen, zodat alles blijft werken.', 'veryo' ),
@@ -378,6 +408,137 @@ function veryo_price_ladder() {
 			'max'    => 500,
 			'path'   => 'prijzen',
 		),
+	);
+}
+
+/**
+ * Abonnementen: bij elk pakket één passend abonnement.
+ * Prijzen per maand, exclusief btw.
+ *
+ * @return array<string,array<string,mixed>>
+ */
+function veryo_subscriptions() {
+	return array(
+		'bijblijven'         => array(
+			'naam'   => __( 'Bijblijven', 'veryo' ),
+			'bij'    => __( 'AI-Startpakket', 'veryo' ),
+			'pakket' => 'ai-startpakket',
+			'inhoud' => __( 'Elk kwartaal een update-sessie (wat is er nieuw en wat heb je eraan), nieuwe medewerkers krijgen toegang tot de Academy, je AI-beleid wordt jaarlijks bijgewerkt en je kunt vragen per mail stellen.', 'veryo' ),
+			'prijs'  => __( '€195 per maand', 'veryo' ),
+			'price'  => 195,
+			'unit'   => 'maand',
+		),
+		'werkplek-onderhoud' => array(
+			'naam'      => __( 'Werkplek-onderhoud', 'veryo' ),
+			'bij'       => __( 'AI-werkplek', 'veryo' ),
+			'pakket'    => 'ai-werkplek',
+			'inhoud'    => __( 'Nieuwe medewerkers inrichten, toegangsrechten bijhouden, en nieuwe functies van Copilot of Gemini beoordelen en aanzetten.', 'veryo' ),
+			'prijs'     => __( '€10 per gebruiker per maand, minimaal €99', 'veryo' ),
+			'price'     => 10,
+			'min_total' => 99,
+			'unit'      => 'gebruiker per maand',
+		),
+		'veilig-blijven'     => array(
+			'naam'   => __( 'Veilig blijven', 'veryo' ),
+			'bij'    => __( 'AI-veiligheidscheck', 'veryo' ),
+			'pakket' => 'veilig-ai-gebruik',
+			'inhoud' => __( 'Elke maand een controle van rechten en instellingen, twee keer per jaar een korte bewustwordingssessie, en je beleid blijft actueel.', 'veryo' ),
+			'prijs'  => __( '€149 per maand', 'veryo' ),
+			'price'  => 149,
+			'unit'   => 'maand',
+		),
+		'onderhoud'          => array(
+			'naam'   => __( 'Onderhoud', 'veryo' ),
+			'bij'    => __( 'AI-agents en automatisering', 'veryo' ),
+			'pakket' => 'ai-agents',
+			'inhoud' => __( 'Verplicht bij elke gebouwde koppeling of agent: bewaking, foutmeldingen oplossen en aanpassen als je software verandert.', 'veryo' ),
+			'prijs'  => __( '€150–500 per maand, afhankelijk van het aantal koppelingen', 'veryo' ),
+			'min'    => 150,
+			'max'    => 500,
+			'unit'   => 'maand',
+		),
+	);
+}
+
+/**
+ * AI-partner: alles in één, per teamgrootte.
+ *
+ * @return array<string,array<string,mixed>>
+ */
+function veryo_partner_tiers() {
+	return array(
+		'tot-10' => array(
+			'label' => __( 'Tot 10 medewerkers', 'veryo' ),
+			'users' => 10,
+			'price' => 495,
+			'uren'  => 4,
+			'extra' => __( 'Bijblijven, Werkplek-onderhoud en Veilig blijven, plus 4 uur per maand voor verbeteringen en nieuwe toepassingen.', 'veryo' ),
+		),
+		'11-25'  => array(
+			'label' => __( '11–25 medewerkers', 'veryo' ),
+			'users' => 25,
+			'price' => 745,
+			'uren'  => 6,
+			'extra' => __( 'Bijblijven, Werkplek-onderhoud en Veilig blijven, plus 6 uur per maand en maandelijks overleg.', 'veryo' ),
+		),
+		'26-50'  => array(
+			'label' => __( '26–50 medewerkers', 'veryo' ),
+			'users' => 50,
+			'price' => 995,
+			'uren'  => 10,
+			'extra' => __( 'Bijblijven, Werkplek-onderhoud en Veilig blijven, plus 10 uur per maand, maandelijks overleg en voorrang bij vragen.', 'veryo' ),
+		),
+	);
+}
+
+/**
+ * Prijzen AI-werkplek per aantal gebruikers.
+ *
+ * @return array<int,array<string,mixed>>
+ */
+function veryo_werkplek_prices() {
+	return array(
+		array(
+			'label' => __( 'Tot 10 gebruikers', 'veryo' ),
+			'price' => 1495,
+		),
+		array(
+			'label' => __( '11–25 gebruikers', 'veryo' ),
+			'price' => 2495,
+		),
+	);
+}
+
+/**
+ * Maandbedrag van de drie losse abonnementen voor een aantal medewerkers.
+ *
+ * @param int $users Aantal gebruikers.
+ * @return int
+ */
+function veryo_loose_subscriptions_total( $users ) {
+	$subs     = veryo_subscriptions();
+	$werkplek = max( (int) $subs['werkplek-onderhoud']['min_total'], (int) $subs['werkplek-onderhoud']['price'] * (int) $users );
+	return (int) $subs['bijblijven']['price'] + $werkplek + (int) $subs['veilig-blijven']['price'];
+}
+
+/**
+ * De eerlijke rekenvergelijking (10 medewerkers), berekend uit de tabellen.
+ *
+ * @return string
+ */
+function veryo_partner_comparison() {
+	$subs     = veryo_subscriptions();
+	$tiers    = veryo_partner_tiers();
+	$werkplek = max( (int) $subs['werkplek-onderhoud']['min_total'], (int) $subs['werkplek-onderhoud']['price'] * 10 );
+	return sprintf(
+		/* translators: 1: bijblijven, 2: werkplek, 3: veilig, 4: totaal, 5: AI-partner, 6: uren. */
+		__( 'Een bedrijf met 10 medewerkers dat Bijblijven, Werkplek-onderhoud en Veilig blijven los afneemt, betaalt €%1$d + €%2$d + €%3$d = €%4$d per maand. Met AI-partner betaal je €%5$d en krijg je er %6$d uur per maand bij.', 'veryo' ),
+		(int) $subs['bijblijven']['price'],
+		$werkplek,
+		(int) $subs['veilig-blijven']['price'],
+		veryo_loose_subscriptions_total( 10 ),
+		(int) $tiers['tot-10']['price'],
+		(int) $tiers['tot-10']['uren']
 	);
 }
 

@@ -59,3 +59,20 @@ veryo/
 - HTML-validatie (html-validate), JSON-LD parsen, check op externe URL's.
 - Lighthouse mobiel (Chromium via Playwright) op home, /ai-automatisering/, /waar-begin-ik-met-ai/.
 - screenshot.png via Playwright; zip bouwen met `tools/build.sh`.
+
+---
+
+# Plan v3 (zes pijlers, abonnementen, beweging)
+
+**Uitgangspunt:** het bestaande thema (v2 + premium vormgeving) wordt uitgebreid, niet opnieuw gebouwd.
+
+1. **Prijzen en catalogus** (`inc/quiz/catalog.php`): losse onderdelen werkplek (€1.495 / €2.495), veiligheidscheck (€995), agents; abonnementen Bijblijven €195, Werkplek-onderhoud €10/gebruiker (min. €99), Veilig blijven €149, Onderhoud €150–500; AI-partner €495 / €745 / €995 met 4 / 6 / 10 uur. Rekensom 195 + 100 + 149 = 444 automatisch berekend en getest.
+2. **Pagina's**: `/ai-werkplek/`, `/ai-agents/`, `/veilig-ai-gebruik/`, `/ai-training/ai-strategie/`, `/ai-training/zzp/` nieuw; `/ai-op-maat/ai-agents/` vervalt (301 naar `/ai-agents/` als de oude pagina niet bestaat). Blok "Daarna doorlopend" op elke pakketpagina. "Geen IT-bedrijf" op /over-veryo/ en in de FAQ. Blogs 15–17. Homepage in de v3-volgorde.
+3. **Menu, instellingen, schema**: mega-menu (Starten / Inrichten / Veilig en doorlopend); instellingen voor animaties, smooth scroll, WhatsApp-knop, klantlogo's, foto oprichter, achternaam; `UnitPriceSpecification` per abonnement.
+4. **Beweging**: GSAP 3.15 + ScrollTrigger + SplitText en Lenis 1.3 lokaal in `assets/vendor/`, `assets/js/motion.js` (defer, alleen waar nodig). Alles zichtbaar zonder JS (`.has-motion` op `<html>` pas via JS); reduced motion en de instelling "Animaties" zetten alles uit; mobiel geen pinning.
+5. **Testen**: zoals in de DoD, plus JS uit, reduced motion, 375px en screenshots tijdens het scrollen.
+
+**Keuze bij [VUL IN] uit de opdracht:** de eigenaar wil geen zichtbare placeholders voor bezoekers. Daarom:
+- het citaat van de oprichter komt uit zijn eigen woorden (eerder in het gesprek);
+- fotoplekken tonen een rustig monogram tot er via *Instellingen > Veryo* een foto is gekozen;
+- jaarkorting, open zzp-trainingen en opzegtermijn krijgen neutrale tekst zonder cijfer, en staan als open punt in de README.

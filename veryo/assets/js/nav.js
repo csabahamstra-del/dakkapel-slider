@@ -41,7 +41,9 @@
 		btn.addEventListener( 'click', function ( event ) {
 			event.preventDefault();
 			var li = btn.closest( '.has-sub' );
-			var open = ! li.classList.contains( 'is-open' );
+			// Met de muis op desktop is het menu al open door hover; een klik houdt het dan open.
+			var hoverClick = event.detail > 0 && window.matchMedia( '(hover: hover) and (min-width: 1100px)' ).matches;
+			var open = hoverClick ? true : ! li.classList.contains( 'is-open' );
 			closeSubs( li );
 			li.classList.toggle( 'is-open', open );
 			btn.setAttribute( 'aria-expanded', open ? 'true' : 'false' );

@@ -27,6 +27,10 @@ class Veryo_Primary_Walker extends Walker_Nav_Menu {
 	 * @param stdClass $args   Argumenten.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
+		if ( $depth > 0 ) {
+			$output .= '<ul class="mega-col">';
+			return;
+		}
 		$output .= '<ul class="sub-menu" id="veryo-sub-' . (int) $this->sub_count . '">';
 	}
 
@@ -80,6 +84,12 @@ class Veryo_Primary_Walker extends Walker_Nav_Menu {
 			/* translators: %s: naam van het menu-item. */
 			$label   = sprintf( __( 'Submenu %s', 'veryo' ), $title );
 			$output .= '<button type="button" class="nav-toggle-sub nav-caret" aria-expanded="false" aria-controls="' . esc_attr( $sub_id ) . '" aria-label="' . esc_attr( $label ) . '">' . wp_kses( veryo_icon( 'down' ), veryo_svg_kses() ) . '</button>';
+			return;
+		}
+
+		// Kolomkop in het mega-menu: een kop zonder link.
+		if ( $depth > 0 && $has_children && ( '' === $url || '#' === $url ) ) {
+			$output .= '<span class="mega-heading">' . esc_html( $title ) . '</span>';
 			return;
 		}
 

@@ -9,8 +9,9 @@ defined( 'ABSPATH' ) || exit;
 
 $veryo_home_faq = array(
 	array( __( 'Is AI iets voor mijn bedrijf?', 'veryo' ), __( 'Als er in je bedrijf werk is dat elke week terugkomt, zoals mail beantwoorden, offertes maken of facturen verwerken, dan is de kans groot dat AI daar tijd bespaart. Of het de moeite waard is, hangt af van hoeveel uur het nu kost. De gratis AI-scan geeft daar in drie minuten een eerste antwoord op.', 'veryo' ) ),
-	array( __( 'Wat kost het?', 'veryo' ), __( 'De AI-scan is gratis. Het AI-Startpakket kost €1.995 voor teams tot 10 medewerkers, €2.995 bij 11 tot 25 en €4.495 bij 26 tot 50. Invoering van een afgebakende toepassing begint bij €750 en het AI-partner-abonnement kost €495 tot €995 per maand. Alle prijzen zijn exclusief btw.', 'veryo' ) ),
+	array( __( 'Wat kost het?', 'veryo' ), __( 'De AI-scan is gratis. Het AI-Startpakket kost €1.995 voor teams tot 10 medewerkers, €2.995 bij 11 tot 25 en €4.495 bij 26 tot 50. Losse onderdelen beginnen bij €750 en AI-partner kost €495 tot €995 per maand. Alle prijzen zijn exclusief btw.', 'veryo' ) ),
 	array( __( 'Verkopen jullie software?', 'veryo' ), __( 'Nee. We verkopen geen eigen software en adviseren onafhankelijk welke tools bij jullie passen. Vaak is dat software die je al hebt. Worden we ooit partner van een leverancier waar we een vergoeding voor krijgen, dan zeggen we dat erbij.', 'veryo' ) ),
+	array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo is geen IT-bedrijf: we doen geen IT-beheer, hardware, netwerken, helpdesk of storingsdienst. We werken wel prettig samen met je vaste IT-beheerder, bijvoorbeeld bij het inrichten van Copilot of het op orde brengen van toegangsrechten.', 'veryo' ) ),
 	array( __( 'Is het veilig met onze gegevens?', 'veryo' ), __( 'We werken met zakelijke versies en API’s waarbij je gegevens niet worden gebruikt om AI-modellen te trainen. Bij persoonsgegevens sluiten we een verwerkersovereenkomst. Jij blijft eigenaar van je data, en in het AI-beleid leggen we vast welke gegevens nooit in een AI-tool mogen.', 'veryo' ) ),
 	array( __( 'Moeten wij zelf technisch zijn?', 'veryo' ), __( 'Nee. Wij adviseren, richten in en koppelen. Jij en je team werken in de software die je al kent, en in de training leer je hoe je er goed mee omgaat. We leggen uit wie waarvoor aanspreekpunt is.', 'veryo' ) ),
 	array( __( 'Wat is de AI-geletterdheidsplicht?', 'veryo' ), __( 'Sinds 2 februari 2025 verplicht de Europese AI Act (artikel 4) organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers. Dat betekent dat mensen die met AI werken moeten snappen wat het kan, wat niet en waar de risico’s zitten. Een training is een praktische manier om daaraan te werken.', 'veryo' ) ),
@@ -24,16 +25,10 @@ $veryo_home  = veryo_sec_hero(
 		array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ),
 		array( __( 'Bekijk het AI-Startpakket', 'veryo' ), veryo_link( 'ai-startpakket' ), 'link' ),
 	),
-	veryo_sec_facts(
-		array(
-			array( __( 'AI-Startpakket', 'veryo' ), __( 'Vaste prijs, vanaf €1.995', 'veryo' ) ),
-			array( __( 'Onafhankelijk', 'veryo' ), __( 'Geen eigen software te verkopen', 'veryo' ) ),
-			array( __( 'Reactie', 'veryo' ), __( 'Binnen één werkdag', 'veryo' ) ),
-			array( __( 'Werkgebied', 'veryo' ), __( 'Friesland, Groningen en Drenthe', 'veryo' ) ),
-		)
-	),
+	veryo_sec_founder_row(),
 	'veryo-hero--home'
 );
+$veryo_home .= veryo_sec_marquee();
 $veryo_home .= veryo_sec_wide(
 	veryo_b_columns(
 		array(
@@ -43,7 +38,7 @@ $veryo_home .= veryo_sec_wide(
 			),
 			array(
 				'width' => '50%',
-				'inner' => veryo_b_p( __( 'Veryo is een AI-bureau voor het MKB, en je onafhankelijke AI-partner. We helpen bedrijven tot ongeveer vijftig mensen om AI in te zetten waar het echt tijd scheelt: bij de mail, de offertes, de administratie en de planning. Eerst snappen, dan slim inzetten, met vaste prijzen.', 'veryo' ) )
+				'inner' => veryo_b_p( __( 'Veryo is een AI-bureau voor het MKB, en je onafhankelijke AI-partner. We helpen bedrijven tot ongeveer vijftig mensen om AI in te zetten waar het echt tijd scheelt: bij de mail, de offertes, de administratie en de planning, en in de kantoorsoftware die je al hebt. Eerst snappen, dan slim inzetten, met vaste prijzen.', 'veryo' ) )
 					. veryo_b_p( __( 'Weet je nog niet waar je moet beginnen? Doe dan de gratis AI-scan. Je beantwoordt negen korte vragen over je bedrijf en krijgt een persoonlijk rapport met je drie grootste tijdwinsten, wat ze ongeveer opleveren en hoe je begint.', 'veryo' ) )
 					. veryo_b_buttons( array( array( __( 'Zo werkt de AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ) ) ) ),
 			),
@@ -52,8 +47,9 @@ $veryo_home .= veryo_sec_wide(
 	),
 	'veryo-intro veryo-intro-split'
 );
+$veryo_home .= veryo_sec_contrast();
 $veryo_home .= veryo_sec_startpakket( __( 'Het Veryo AI-Startpakket', 'veryo' ), __( 'Medewerkers gebruiken ChatGPT al op eigen houtje en niemand weet wat er wordt ingevoerd. Met het AI-Startpakket zet je het in één keer goed neer: vijf onderdelen, vaste prijs, vanaf €1.995.', 'veryo' ) );
-$veryo_home .= veryo_sec_services();
+$veryo_home .= veryo_sec_pillars();
 $veryo_home .= veryo_sec_steps_home();
 $veryo_home .= veryo_sec_independent( '', true );
 $veryo_home .= veryo_sec_wide(
@@ -76,7 +72,7 @@ $veryo_home .= veryo_sec_wide(
 		__( 'Vaste prijzen, vooraf duidelijk', 'veryo' ),
 		veryo_b_p( __( 'Je begint met de gratis scan, zet de basis neer met het Startpakket en bouwt uit als het werkt. Je krijgt vooraf altijd een vaste prijs.', 'veryo' ) )
 	)
-	. veryo_sec_price_table( array( 'scan', 'startpakket', 'quickwin', 'partner' ) )
+	. veryo_sec_price_table( array( 'scan', 'startpakket', 'werkplek', 'partner' ) )
 	. veryo_b_p(
 		sprintf(
 			/* translators: %s: link naar prijzen. */
@@ -104,7 +100,9 @@ $veryo_home .= veryo_sec_wide(
 	),
 	'veryo-why'
 );
+$veryo_home .= veryo_sec_conviction();
 $veryo_home .= veryo_sec_cases();
+$veryo_home .= veryo_b_shortcode( '[veryo_klantlogos]' );
 $veryo_phone = veryo_setting( 'phone' );
 $veryo_email = veryo_setting( 'email' );
 $veryo_home .= veryo_sec_wide(
@@ -388,8 +386,9 @@ $veryo_training = veryo_page_standard(
 		'links'    => array(
 			array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'Training, beleid en een eerste toepassing', 'veryo' ) ),
 			array( 'ai-training/ai-geletterdheid', __( 'AI-geletterdheid training', 'veryo' ), __( 'Specifiek voor de AI Act', 'veryo' ) ),
+			array( 'ai-training/ai-strategie', __( 'AI-strategie training', 'veryo' ), __( 'Voor directie en MT', 'veryo' ) ),
+			array( 'ai-training/zzp', __( 'AI-training voor zzp’ers', 'veryo' ), __( 'Online en in kleine groepen', 'veryo' ) ),
 			array( 'academy', __( 'Veryo Academy', 'veryo' ), __( 'Online AI-cursus, binnenkort', 'veryo' ) ),
-			array( 'leeuwarden', __( 'AI-training in Leeuwarden', 'veryo' ), __( 'Op locatie of bij jou', 'veryo' ) ),
 			array( 'branches/zakelijke-dienstverlening', __( 'AI voor accountants', 'veryo' ), __( 'En andere adviesbureaus', 'veryo' ) ),
 		),
 	)
@@ -527,7 +526,7 @@ $veryo_opmaat = veryo_page_standard(
 				'list'  => array(
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/chatbot' ) ) . '">' . __( 'AI-chatbot voor je website', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Beantwoordt vragen op basis van jullie eigen informatie', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/whatsapp-assistent' ) ) . '">' . __( 'WhatsApp-assistent', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Vragen, gegevens en foto’s verzamelen, afspraken plannen', 'veryo' ) . '</span>',
-					'<a href="' . esc_url( veryo_link( 'ai-op-maat/ai-agents' ) ) . '">' . __( 'AI-agents', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Voeren meerdere stappen van een proces zelfstandig uit', 'veryo' ) . '</span>',
+					'<a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'AI-agents', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Voeren meerdere stappen van een proces zelfstandig uit', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/interne-assistent' ) ) . '">' . __( 'Interne AI-assistent', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Een chatbot op je eigen documenten en procedures', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/ai-receptionist-horeca' ) ) . '">' . __( 'AI-receptionist voor horeca', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Neemt de telefoon aan en noteert reserveringen', 'veryo' ) . '</span>',
 				),
@@ -564,18 +563,56 @@ $veryo_opmaat = veryo_page_standard(
 /*
  * Prijzen
  */
-$veryo_prices  = veryo_sec_answer( __( 'Wat kost AI voor je bedrijf? Bij Veryo begin je met een gratis AI-scan. Het AI-Startpakket kost €1.995 voor teams tot 10 medewerkers, €2.995 bij 11–25 en €4.495 bij 26–50. Invoering begint bij €750, het AI-partner-abonnement kost €495 tot €995 per maand. Alle prijzen zijn exclusief btw.', 'veryo' ) );
+$veryo_prices  = veryo_sec_answer( __( 'Wat kost AI voor je bedrijf? Bij Veryo begin je met een gratis AI-scan. Het AI-Startpakket kost €1.995 voor teams tot 10 medewerkers, €2.995 bij 11–25 en €4.495 bij 26–50. Losse onderdelen beginnen bij €750 en doorlopende begeleiding kost €149 tot €995 per maand. Alle prijzen zijn exclusief btw.', 'veryo' ) );
 $veryo_prices .= veryo_sec_text(
 	__( 'Van scan naar partner', 'veryo' ),
-	array( __( 'Je hoeft niet alles tegelijk te doen. De meeste bedrijven beginnen met de gratis scan, zetten de basis neer met het AI-Startpakket, voeren daarna de beste kansen in en houden het bij met een AI-partner-abonnement. Hieronder staan de stappen op volgorde, met voor wie ze zijn.', 'veryo' ) )
+	array( __( 'Je hoeft niet alles tegelijk te doen. De meeste bedrijven beginnen met de gratis scan, zetten de basis neer met het AI-Startpakket, voeren daarna de beste kansen in en houden het bij met een abonnement of met AI-partner. Hieronder staan de stappen op volgorde, met voor wie ze zijn.', 'veryo' ) )
 );
 $veryo_prices .= veryo_sec_ladder();
+$veryo_prices .= veryo_sec_tiered_price(
+	__( 'Het AI-Startpakket per teamgrootte', 'veryo' ),
+	__( 'Kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg. De inhoud is voor iedereen gelijk.', 'veryo' ),
+	veryo_startpakket_prices(),
+	sprintf(
+		/* translators: %s: link naar het Startpakket. */
+		__( 'Eenmalig, exclusief btw. <a href="%s">Alles over het AI-Startpakket</a>.', 'veryo' ),
+		esc_url( veryo_link( 'ai-startpakket' ) )
+	),
+	true
+);
 $veryo_prices .= veryo_b_p( __( 'Alle bedragen zijn exclusief btw en bedoeld als indicatie. Voordat we beginnen, krijg je altijd een vaste prijs op papier. Mogelijk subsidie via de SLIM-regeling voor trainingen; openstellingsperiodes en voorwaarden wisselen, check de actuele situatie.', 'veryo' ), array( 'className' => 'veryo-small' ) );
+$veryo_prices .= veryo_b_group(
+	veryo_b_h( __( 'Doorlopend: een abonnement per pakket', 'veryo' ) )
+	. veryo_b_p( __( 'Bij elk pakket hoort één passend abonnement. De eerste maand loopt het kosteloos mee; daarna kies je zelf of het doorloopt.', 'veryo' ) )
+	. veryo_sec_subscriptions(),
+	array(
+		'align'     => 'wide',
+		'className' => 'veryo-subscriptions',
+		'layout'    => false,
+	)
+);
+$veryo_prices .= veryo_b_group(
+	veryo_b_h( __( 'AI-partner: alles in één, voordeliger', 'veryo' ) )
+	. veryo_b_p(
+		sprintf(
+			/* translators: %s: link naar AI-partner. */
+			__( 'Bijblijven, Werkplek-onderhoud en Veilig blijven in één abonnement, plus uren voor verbeteringen. <a href="%s">Meer over AI-partner</a>.', 'veryo' ),
+			esc_url( veryo_link( 'ai-partner' ) )
+		)
+	)
+	. veryo_sec_partner_tiers(),
+	array(
+		'align'     => 'wide',
+		'className' => 'veryo-partner-prices',
+		'layout'    => false,
+	)
+);
+$veryo_prices .= veryo_sec_subscription_terms();
 $veryo_prices .= veryo_sec_text(
 	__( 'Wat bepaalt de kosten van AI-automatisering?', 'veryo' ),
 	array(
-		__( 'We kijken altijd eerst wat je bestaande software kan. Is het een kwestie van inrichten en trainen, dan valt het vaak binnen het Startpakket of een quick win. Moet er een koppeling komen tussen systemen die niet met elkaar praten, dan hangt de prijs af van het aantal stappen en koppelingen: één afgebakende flow is een quick win, een heel traject van aanvraag tot factuur is een project.', 'veryo' ),
-		__( 'Maatwerk, zoals een eigen assistent of agent, bouwen we alleen als bestaande software tekortschiet. Daarnaast zijn er verbruikskosten voor de gebruikte software. Die lopen bij voorkeur via je eigen account, zodat je precies ziet wat je betaalt. Voor een MKB-bedrijf gaat het meestal om tientallen euro’s per maand; we geven vooraf een inschatting.', 'veryo' ),
+		__( 'We kijken altijd eerst wat je bestaande software kan. Is het een kwestie van inrichten en trainen, dan valt het vaak binnen het Startpakket, de AI-werkplek of een quick win. Moet er een koppeling komen tussen systemen die niet met elkaar praten, dan hangt de prijs af van het aantal stappen en koppelingen: één afgebakende flow is een quick win, een heel traject van aanvraag tot factuur is een project.', 'veryo' ),
+		__( 'Een AI-agent of maatwerk bouwen we alleen als bestaande software tekortschiet. Daarnaast zijn er verbruikskosten voor de gebruikte software. Die lopen bij voorkeur via je eigen account, zodat je precies ziet wat je betaalt. Voor een MKB-bedrijf gaat het meestal om tientallen euro’s per maand; we geven vooraf een inschatting.', 'veryo' ),
 	)
 );
 $veryo_prices .= veryo_sec_text(
@@ -587,7 +624,8 @@ $veryo_prices .= veryo_sec_faq(
 		array( __( 'Zijn de prijzen inclusief btw?', 'veryo' ), __( 'Nee, alle prijzen zijn exclusief btw.', 'veryo' ) ),
 		array( __( 'Waarom kost het AI-Startpakket meer bij een groter team?', 'veryo' ), __( 'Omdat de training, het beleid en de nazorg voor meer mensen zijn. De inhoud blijft gelijk: kansensessie, teamtraining, AI-beleid, één quick win en 30 dagen nazorg.', 'veryo' ) ),
 		array( __( 'Waarom staan er bij invoering bandbreedtes en geen vaste bedragen?', 'veryo' ), __( 'Omdat de omvang per bedrijf verschilt. Na de AI-scan of de kansensessie krijg je een vaste prijs voor jouw situatie. Daar blijven we aan vast zitten, tenzij je zelf iets toevoegt.', 'veryo' ) ),
-		array( __( 'Zijn er terugkerende kosten?', 'veryo' ), __( 'Alleen als je dat wilt: het AI-partner-abonnement kost €495 tot €995 per maand en onderhoud van gebouwde koppelingen €150 tot €500 per maand. Daarnaast zijn er verbruikskosten voor de gebruikte software, bij voorkeur op je eigen account.', 'veryo' ) ),
+		array( __( 'Zijn er terugkerende kosten?', 'veryo' ), __( 'Alleen als je dat wilt. Bij elk pakket hoort een abonnement van €149 tot €195 per maand (Werkplek-onderhoud: €10 per gebruiker, minimaal €99), en AI-partner kost €495 tot €995 per maand. Onderhoud van gebouwde koppelingen en agents (€150 tot €500 per maand) is verplicht zolang die draaien. Daarnaast zijn er verbruikskosten voor software, bij voorkeur op je eigen account.', 'veryo' ) ),
+		array( __( 'Loopt een abonnement automatisch door?', 'veryo' ), __( 'Nee. Na een pakket loopt het passende abonnement de eerste maand kosteloos mee, en je kiest vooraf zelf of het daarna doorloopt. Losse abonnementen hebben een minimale looptijd van drie maanden en zijn daarna maandelijks opzegbaar.', 'veryo' ) ),
 		array( __( 'Wanneer verdient een automatisering zich terug?', 'veryo' ), __( 'Dat reken je uit met het aantal uren dat het scheelt. Een quick win van €1.000 die drie uur per week bespaart, verdient zich bij een kostprijs van €45 per uur in ongeveer acht weken terug. Dat is een rekenvoorbeeld, geen belofte.', 'veryo' ) ),
 	)
 );
@@ -612,7 +650,7 @@ $veryo_about .= veryo_sec_text(
 		__( 'We zien bij ondernemers in Friesland, Groningen en Drenthe hetzelfde patroon: ze horen overal dat ze iets met AI moeten, maar niemand vertelt ze wat, wat het kost en wat het oplevert. Veryo is de nuchtere partner die dat wel doet. Eerst snappen, dan slim inzetten.', 'veryo' ),
 	)
 );
-$veryo_about .= veryo_sec_photo( __( 'portret van de oprichter in de werkplaats of op kantoor in Leeuwarden', 'veryo' ), __( 'Oprichter van Veryo, AI-bureau in Leeuwarden', 'veryo' ) );
+$veryo_about .= veryo_b_group( veryo_b_shortcode( '[veryo_portret size="large"]' ), array( 'className' => 'veryo-portrait-wrap' ) );
 $veryo_about .= veryo_sec_text(
 	__( 'Wie er achter Veryo zit', 'veryo' ),
 	array(
@@ -621,6 +659,25 @@ $veryo_about .= veryo_sec_text(
 	)
 );
 $veryo_about .= veryo_sec_independent();
+$veryo_about .= veryo_sec_text(
+	__( 'Wat we doen, in zes pijlers', 'veryo' ),
+	array( __( 'Alles wat Veryo doet, past in zes pijlers. Je kunt bij elke pijler instappen.', 'veryo' ) ),
+	array(
+		'<a href="' . esc_url( veryo_link( 'ai-startpakket' ) ) . '">' . __( 'Advies en AI-Startpakket', 'veryo' ) . '</a>: ' . __( 'gratis AI-scan, kansensessie, AI-Startpakket en AI-implementatie.', 'veryo' ),
+		'<a href="' . esc_url( veryo_link( 'ai-training' ) ) . '">' . __( 'Training', 'veryo' ) . '</a>: ' . __( 'in-company training, AI-geletterdheid en de Veryo Academy.', 'veryo' ),
+		'<a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . __( 'De AI-werkplek', 'veryo' ) . '</a>: ' . __( 'Microsoft 365 met Copilot of Google Workspace met Gemini goed inrichten.', 'veryo' ),
+		'<a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'Digitale collega’s en automatisering', 'veryo' ) . '</a>: ' . __( 'AI-agents, koppelingen en maatwerk waar bestaande software tekortschiet.', 'veryo' ),
+		'<a href="' . esc_url( veryo_link( 'veilig-ai-gebruik' ) ) . '">' . __( 'Veilig AI-gebruik', 'veryo' ) . '</a>: ' . __( 'beleid, toegangsrechten, tweestapsverificatie, bewustwording en waar je wilt Europese alternatieven.', 'veryo' ),
+		'<a href="' . esc_url( veryo_link( 'ai-partner' ) ) . '">' . __( 'AI-partner', 'veryo' ) . '</a>: ' . __( 'doorlopende begeleiding in één abonnement.', 'veryo' ),
+	)
+);
+$veryo_about .= veryo_sec_text(
+	__( 'Veryo is geen IT-bedrijf', 'veryo' ),
+	array(
+		__( 'We doen geen IT-beheer, hardware, netwerken, helpdesk of storingsdienst. Daar zijn goede IT-beheerders voor, en die heb je misschien al. Veryo richt zich op AI: welke past, hoe je hem veilig inricht, en hoe je team er goed mee werkt.', 'veryo' ),
+		__( 'Heb je een vaste IT-beheerder, dan werken we graag met die samen. Bijvoorbeeld bij het inrichten van Copilot, het op orde brengen van toegangsrechten of het uitvoeren van acties uit de AI-veiligheidscheck.', 'veryo' ),
+	)
+);
 $veryo_about .= veryo_sec_text(
 	__( 'Hoe we werken', 'veryo' ),
 	array(),
@@ -660,7 +717,7 @@ $veryo_contact .= veryo_b_columns(
 		),
 		array(
 			'width' => '40%',
-			'inner' => veryo_b_h( __( 'Direct contact', 'veryo' ) ) . veryo_b_shortcode( '[veryo_contact_details]' )
+			'inner' => veryo_b_shortcode( '[veryo_portret size="small"]' ) . veryo_b_h( __( 'Direct contact', 'veryo' ) ) . veryo_b_shortcode( '[veryo_contact_details]' )
 				. veryo_b_h( __( 'Liever eerst weten wat AI je oplevert?', 'veryo' ), 3, array( 'fontSize' => 'heading' ) )
 				. veryo_b_p( __( 'Doe de gratis AI-scan en krijg binnen enkele minuten een rapport met je drie grootste tijdwinsten.', 'veryo' ) )
 				. veryo_b_buttons( array( array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'link' ) ) ),

@@ -50,6 +50,7 @@ function veryo_settings_fields() {
 				'instagram'     => array( 'url', __( 'Instagram-URL', 'veryo' ), '' ),
 				'founder_first' => array( 'text', __( 'Voornaam oprichter', 'veryo' ), __( 'Wordt als auteur van blogberichten en onder e-mails gebruikt.', 'veryo' ) ),
 				'founder_last'  => array( 'text', __( 'Achternaam oprichter', 'veryo' ), '' ),
+				'founder_photo' => array( 'media', __( 'Foto oprichter', 'veryo' ), __( 'Een portret, liefst vierkant en minimaal 800 pixels breed. Verschijnt onder de hero, bij de overtuiging op de homepage, op Over Veryo en op Contact. Zonder foto staat er een rustig monogram.', 'veryo' ) ),
 			),
 		),
 		'scan'    => array(
@@ -73,6 +74,11 @@ function veryo_settings_fields() {
 			'fields' => array(
 				'show_cases'       => array( 'checkbox', __( 'Toon cases en reviews', 'veryo' ), __( 'Zet dit pas aan als de [VUL IN]-blokken met echte cases en reviews zijn gevuld.', 'veryo' ) ),
 				'academy_waitlist' => array( 'checkbox', __( 'Toon Academy als "binnenkort/wachtlijst"', 'veryo' ), __( 'De Academy-pagina toont het wachtlijstformulier.', 'veryo' ) ),
+				'animations'       => array( 'checkbox', __( 'Animaties', 'veryo' ), __( 'Scroll- en tekstanimaties. Bezoekers die in hun systeem "beweging beperken" hebben ingesteld, krijgen ze nooit.', 'veryo' ) ),
+				'smooth_scroll'    => array( 'checkbox', __( 'Smooth scrolling', 'veryo' ), __( 'Vloeiend scrollen (niet op de AI-scan-pagina en niet bij "beweging beperken").', 'veryo' ) ),
+				'whatsapp'         => array( 'checkbox', __( 'WhatsApp-knop', 'veryo' ), __( 'Een zwevende knop rechtsonder die een WhatsApp-gesprek opent.', 'veryo' ) ),
+				'whatsapp_number'  => array( 'text', __( 'WhatsApp-nummer', 'veryo' ), __( 'Internationaal, bv. 31612345678 (zonder + of spaties).', 'veryo' ) ),
+				'client_logos'     => array( 'media_multi', __( 'Klantlogo’s', 'veryo' ), __( 'Alleen zichtbaar als "Toon cases en reviews" aan staat. Gebruik alleen logo’s van klanten die daar toestemming voor gaven.', 'veryo' ) ),
 			),
 		),
 	);
@@ -123,6 +129,12 @@ function veryo_sanitize_settings( $input ) {
 					break;
 				case 'checkbox':
 					$out[ $key ] = empty( $value ) ? 0 : 1;
+					break;
+				case 'media':
+					$out[ $key ] = absint( $value ) ? (string) absint( $value ) : '';
+					break;
+				case 'media_multi':
+					$out[ $key ] = implode( ',', array_filter( array_map( 'absint', explode( ',', (string) $value ) ) ) );
 					break;
 				case 'secret':
 					if ( ! empty( $input['api_key_remove'] ) ) {
@@ -184,6 +196,20 @@ function veryo_render_setting_field( $key, $field, $settings ) {
 			break;
 		case 'number':
 			echo '<input type="number" min="0" step="1" class="small-text" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" value="' . esc_attr( (string) $value ) . '">';
+			break;
+		case 'media':
+		case 'media_multi':
+			$multi = 'media_multi' === $type;
+			echo '<div class="veryo-media" data-multiple="' . ( $multi ? '1' : '0' ) . '">';
+			echo '<input type="hidden" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" value="' . esc_attr( (string) $value ) . '">';
+			echo '<div class="veryo-media__preview" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">';
+			foreach ( array_filter( array_map( 'absint', explode( ',', (string) $value ) ) ) as $media_id ) {
+				echo wp_get_attachment_image( $media_id, 'thumbnail', false, array( 'style' => 'width:72px;height:72px;object-fit:cover;border-radius:6px' ) );
+			}
+			echo '</div>';
+			echo '<button type="button" class="button veryo-media__pick">' . esc_html( $multi ? __( 'Logo’s kiezen', 'veryo' ) : __( 'Foto kiezen', 'veryo' ) ) . '</button> ';
+			echo '<button type="button" class="button-link veryo-media__clear">' . esc_html__( 'Leegmaken', 'veryo' ) . '</button>';
+			echo '</div>';
 			break;
 		default:
 			$input_type = in_array( $type, array( 'email', 'url' ), true ) ? $type : 'text';
@@ -305,3 +331,44 @@ function veryo_handle_test_mail() {
 	exit;
 }
 add_action( 'admin_post_veryo_test_mail', 'veryo_handle_test_mail' );
+
+/**
+ * Mediakiezer voor foto- en logovelden op de instellingenpagina.
+ *
+ * @param string $hook Admin-pagina.
+ */
+function veryo_settings_media_script( $hook ) {
+	if ( 'settings_page_veryo' !== $hook ) {
+		return;
+	}
+	wp_enqueue_media();
+	$js = <<<'JS'
+document.querySelectorAll('.veryo-media').forEach(function (box) {
+	var input = box.querySelector('input[type="hidden"]');
+	var preview = box.querySelector('.veryo-media__preview');
+	var multiple = box.getAttribute('data-multiple') === '1';
+	box.querySelector('.veryo-media__pick').addEventListener('click', function () {
+		var frame = wp.media({ multiple: multiple ? 'add' : false, library: { type: 'image' } });
+		frame.on('select', function () {
+			var items = frame.state().get('selection').toJSON();
+			input.value = items.map(function (a) { return a.id; }).join(',');
+			preview.innerHTML = '';
+			items.forEach(function (a) {
+				var img = document.createElement('img');
+				img.src = (a.sizes && a.sizes.thumbnail ? a.sizes.thumbnail.url : a.url);
+				img.alt = '';
+				img.style.cssText = 'width:72px;height:72px;object-fit:cover;border-radius:6px';
+				preview.appendChild(img);
+			});
+		});
+		frame.open();
+	});
+	box.querySelector('.veryo-media__clear').addEventListener('click', function () {
+		input.value = '';
+		preview.innerHTML = '';
+	});
+});
+JS;
+	wp_add_inline_script( 'media-editor', $js );
+}
+add_action( 'admin_enqueue_scripts', 'veryo_settings_media_script' );

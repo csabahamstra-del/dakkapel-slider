@@ -8,7 +8,7 @@ $ok    = 0;
 $check = function ( $cond, $msg ) use ( &$fail, &$ok ) {
 	if ( $cond ) { $ok++; } else { $fail++; echo "FOUT: $msg\n"; }
 };
-$long_types = '/^(ai-startpakket|ai-partner|ai-automatisering|ai-implementatie-mkb|ai-training|ai-op-maat|ai-adviseur-|leeuwarden|branches\/)/';
+$long_types = '/^(ai-startpakket|ai-partner|ai-werkplek|ai-agents|veilig-ai-gebruik|ai-automatisering|ai-implementatie-mkb|ai-training|ai-op-maat|ai-adviseur-|leeuwarden|branches\/)/';
 printf( "%-45s %-5s %-4s %-4s %s\n", 'pad', 'parent', 'tit', 'desc', 'woorden' );
 foreach ( veryo_content_pages() as $path => $def ) {
 	$page = veryo_find_page( $path );

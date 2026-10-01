@@ -139,7 +139,7 @@
 						{
 							"fontFamily": "Newsreader",
 							"fontStyle": "normal",
-							"fontWeight": "200 800",
+							"fontWeight": "500",
 							"fontDisplay": "swap",
 							"src": [
 								"file:./assets/fonts/Newsreader-Variable.woff2"

@@ -11,7 +11,7 @@ Dit thema zet bij activatie de complete Veryo-site klaar: alle pagina's, menu's,
    - de homepage wordt de statische voorpagina en `/blog/` de berichtenpagina (alleen als er nog geen geldige keuze was);
    - het hoofdmenu en het footermenu worden aangemaakt en gekoppeld;
    - de permalinks worden op `/%postname%/` gezet, maar **alleen** als ze op "Standaard" stonden;
-   - 14 blogconcepten worden aangemaakt (status: concept);
+   - 17 blogconcepten worden aangemaakt (status: concept);
    - de tagline wordt "AI die echt werkt." en het site-icoon wordt het Veryo-beeldmerk.
    - de standaardinhoud van WordPress ("Hello world!" en "Sample Page") gaat naar de prullenbak, maar alleen als je die nog niet hebt aangepast.
 4. Bovenaan wp-admin verschijnt een melding met een link naar de instellingen en een lijst met alle `[VUL IN]`-placeholders.
@@ -73,19 +73,29 @@ Op de site staat nergens een `[VUL IN]`- of `[FOTO]`-plek of iets dat op "under 
   - in de editor een afbeeldingsblok toevoegen waar je wilt (geef het een alt-tekst met het zoekwoord van de pagina);
   - of foto's als `assets/images/photos/{sleutel}.webp` in het thema zetten (sleutels en bronvermelding in `assets/images/photos/CREDITS.md`). Bij een nieuwe installatie komen ze dan automatisch op de juiste plekken.
   Een echte foto van jezelf op Over Veryo werkt goed voor vertrouwen.
-- **Blogconcepten** (14, status concept): per kop staat de opzet. Schrijf ze uit en controleer actuele voorwaarden, prijzen en regelingen (SLIM, WBSO) voor je publiceert.
+- **Blogconcepten** (17, status concept): per kop staat de opzet. Schrijf ze uit en controleer actuele voorwaarden, prijzen en regelingen (SLIM, WBSO) voor je publiceert.
 - **LinkedIn en Instagram**: vul de URL's in onder **Instellingen > Veryo** zodra ze er zijn.
+- **Foto van jezelf**: kies onder **Instellingen > Veryo > Foto oprichter** een portret. Het verschijnt onder de hero, naast je citaat op de homepage, op Over Veryo en op Contact. Zonder foto staat er een vormgegeven merkvlak met je naam (geen lege plek).
+- **Jaarkorting AI-partner**: de site zegt dat je korting krijgt als je een jaar vooruitbetaalt, zonder percentage. Wil je het percentage noemen, zet het dan in de tekst op `/ai-partner/` en `/prijzen/`.
+- **Open groepstrainingen voor zzp'ers**: op `/ai-training/zzp/` staat dat data, locatie en prijs via de wachtlijst bekend worden gemaakt. Vul ze aan zodra ze vaststaan.
+- **Opzegtermijn**: overal één maand (losse abonnementen na de minimale looptijd van drie maanden, en AI-partner na het eerste jaar). Dit is een aanname, gelijk aan de algemene voorwaarden; pas beide aan als het anders moet.
 
 ## Aanbod, prijzen en menu
 
-Veryo staat op de site als **onafhankelijke AI-partner** die geen eigen software verkoopt. Het aanbod en alle prijzen staan op één plek: `inc/quiz/catalog.php` (`veryo_price_ladder()`, `veryo_startpakket_prices()` en `veryo_startpakket_parts()`). Pas je daar een prijs aan, dan verandert die in de prijsladder, het Startpakket-blok, de rapportmail en de AI-scan. Prijzen in de lopende tekst van pagina's pas je in de editor aan.
+Veryo staat op de site als **onafhankelijke AI-partner** die geen eigen software verkoopt, en uitdrukkelijk **geen IT-bedrijf** (geen IT-beheer, hardware of helpdesk; dat staat op Over Veryo en in de FAQ). Het aanbod is opgebouwd in zes pijlers. Alle prijzen staan op één plek: `inc/quiz/catalog.php` (`veryo_price_ladder()`, `veryo_startpakket_prices()`, `veryo_subscriptions()`, `veryo_partner_tiers()` en `veryo_werkplek_prices()`). Pas je daar een prijs aan, dan verandert die in de prijsblokken, de schema.org-gegevens, llms.txt, de rapportmail en de AI-scan. Prijzen in de lopende tekst van pagina's pas je in de editor aan.
 
-- **AI-Startpakket** (`/ai-startpakket/`, hoofdproduct): tot 10 medewerkers €1.995, 11–25 €2.995, 26–50 €4.495, excl. btw. Vijf onderdelen: AI-scan en kansensessie, training voor het hele team, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg. De pagina heeft Service-schema met drie Offers (box **Veryo SEO** > schema "AI-Startpakket"). Het blok staat ook als patroon **AI-Startpakket (uitgelicht)** in de editor. Alleen het prijsblok van het Startpakket krijgt het amberkleurige accent.
-- **AI-partner** (`/ai-partner/`): €495–995 per maand excl. btw, per maand opzegbaar. **Let op:** de opzegtermijn van één maand is een aanname, gelijk aan de algemene voorwaarden. Klopt die niet, pas dan de pagina én de voorwaarden aan.
-- **Veryo Academy** (`/academy/`): €49–79 per persoon, staffelkorting vanaf 10 deelnemers. Het wachtlijstformulier vraagt naam, bedrijf, aantal medewerkers, e-mail en toestemming. Het aantal staat bij de lead en in de CSV-export (`aantal_medewerkers`).
-- **Prijzenpagina** (`/prijzen/`): instap (gratis scan), hoofdproduct (Startpakket), losse onderdelen en doorlopend (partner, onderhoud).
-- **Hoofdmenu > Diensten**: AI-Startpakket, AI-training, AI-implementatie MKB, AI-automatisering en koppelingen, AI op maat, AI-partner.
-- **Rapportmail van de AI-scan**: onderaan staat het blok "Je volgende stap: het AI-Startpakket" met de prijs voor de teamgrootte uit de scan. Het rapport adviseert eerst te kijken wat bestaande software al kan, en noemt geen softwaremerken.
+**De zes pijlers en hun pagina's**
+
+1. **Advies en AI-Startpakket**: `/waar-begin-ik-met-ai/` (gratis scan), `/ai-startpakket/` (hoofdproduct: €1.995 / €2.995 / €4.495), `/ai-implementatie-mkb/`.
+2. **Training**: `/ai-training/`, `/ai-training/ai-geletterdheid/`, `/ai-training/ai-strategie/` (directie en MT, €750–1.500), `/ai-training/zzp/` (online, €49–79), `/academy/`.
+3. **De AI-werkplek**: `/ai-werkplek/` (Copilot of Gemini inrichten, €1.495 tot 10 gebruikers, €2.495 bij 11–25).
+4. **Digitale collega's en automatisering**: `/ai-agents/` (project €2.500–7.500, maatwerk vanaf €5.000), `/ai-automatisering/` met subpagina's, `/ai-op-maat/`. Het oude adres `/ai-op-maat/ai-agents/` stuurt door naar `/ai-agents/`.
+5. **Veilig AI-gebruik**: `/veilig-ai-gebruik/` (AI-veiligheidscheck €995).
+6. **AI-partner**: `/ai-partner/` (€495 / €745 / €995 per maand, met 4 / 6 / 10 uur).
+
+**Abonnementen.** Bij elk pakket hoort één abonnement, dat op de pakketpagina direct onder de prijs staat ("Daarna doorlopend"): Bijblijven €195 (bij het Startpakket), Werkplek-onderhoud €10 per gebruiker met minimaal €99, Veilig blijven €149, en Onderhoud €150–500 (verplicht bij gebouwde koppelingen en agents). De eerste maand loopt kosteloos mee en de klant kiest vooraf zelf of het doorloopt. De rekenvergelijking op `/ai-partner/` en `/prijzen/` (€195 + €100 + €149 = €444 tegenover €495 met 4 uur erbij) wordt uit de tabellen berekend, dus klopt altijd. Elk abonnement staat in schema.org als `Offer` met een `UnitPriceSpecification`.
+
+**Menu.** Diensten is een mega-menu met drie kolommen: Starten, Inrichten, en Veilig en doorlopend. Op mobiel staan de kolommen onder elkaar.
 
 ## Publicatie-checklist
 
@@ -155,7 +165,22 @@ Onder **Leads** in wp-admin (alleen voor beheerders) staan alle inzendingen van 
 
 Verzoeken om inzage of verwijdering handel je af via **Extra > Persoonsgegevens exporteren/wissen**; leads worden daar op e-mailadres gevonden.
 
-## 10. Bewerken
+## 10. Beweging en interactie
+
+De site gebruikt GSAP (met ScrollTrigger en SplitText) en Lenis voor animaties en vloeiend scrollen. Alles staat lokaal in het thema (`assets/vendor/`), er wordt niets van een CDN geladen. De licenties staan in `assets/vendor/gsap/LICENSE.md` (GSAP Standard "no charge" license) en `assets/vendor/lenis/LICENSE` (MIT). Controleer de GSAP-licentie bij elke update.
+
+- **Aan- en uitzetten**: onder **Instellingen > Veryo > Weergave** staan "Animaties" en "Smooth scrolling". Bezoekers die in hun systeem "beweging beperken" hebben ingesteld, krijgen nooit animaties, pinning of smooth scrolling.
+- **Zonder JavaScript** is alle inhoud zichtbaar; de animaties zetten hun beginstand pas als het script geladen is.
+- **Op mobiel** zijn er geen vastgepinde secties of horizontale scroll: de zes pijlers zijn dan swipebare kaarten.
+- **Wat er beweegt**: de hero-kop schuift woord voor woord omhoog (met CSS, zodat hij direct zichtbaar is), het grote vinkje tekent zichzelf, een doorlopende band met processen, "Zonder aanpak / met Veryo" met doorstrepen en vinkjes, de zes pijlers horizontaal, een stappenlijn die vult, je citaat dat woord voor woord kleurt, sectiekoppen die uit een masker schuiven, de prijsschakelaar per teamgrootte, de FAQ, de AI-scan (stappen schuiven, uren tellen op), een sticky "Doe de gratis AI-scan" op mobiel en het grote woordmerk in de footer.
+- **WhatsApp-knop**: zet hem aan onder **Instellingen > Veryo > Weergave** en vul het nummer internationaal in (bijv. 31612345678).
+- **Klantlogo's**: kies ze onder **Instellingen > Veryo**. Ze verschijnen pas als "Toon cases en reviews" aan staat.
+
+**Lettertypes.** Newsreader en Plus Jakarta Sans staan lokaal in het thema, ingekort tot Latijnse tekens (alle Nederlandse letters, €, aanhalingstekens). Newsreader staat vast op gewicht 500 (zoals de huisstijl voorschrijft), met variabele optische grootte. Daardoor laden ze veel sneller. Licentie: SIL Open Font License, zie `assets/fonts/LICENSE.md`.
+
+**CSS.** `assets/css/main.css` is de bron; de site laadt `main.min.css` (ingekort, onder 60 KB) als die nieuwer is. Pas je de CSS aan, maak dan opnieuw `main.min.css` met `tools/minify-css.py` uit de projectmap, of haal `main.min.css` weg (dan wordt `main.css` geladen).
+
+## 11. Bewerken
 
 Alle pagina's bestaan uit gewone Gutenberg-blokken en zijn in de editor aan te passen. Terugkerende secties staan als blokpatronen in de categorie **Veryo** (hero, CTA-blok AI-scan, AI-Startpakket, dienstenoverzicht, prijsladder, FAQ, stappenplan, branche-grid, regioblok, direct antwoord). Een FAQ-blok levert automatisch FAQPage-schema op, met exact de zichtbare vragen en antwoorden. Per pagina stel je in de box **Veryo SEO** de SEO-title (max. 60 tekens), meta description (140–155 tekens), canonical, noindex en het dienstschema met prijsrange in.
 

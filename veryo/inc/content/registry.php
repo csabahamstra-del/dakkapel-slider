@@ -28,7 +28,7 @@ function veryo_content_pages() {
 		return $pages;
 	}
 	$pages = array();
-	foreach ( array( 'pages-main', 'pages-producten', 'pages-automatisering', 'pages-opmaat', 'pages-regio', 'pages-branches', 'pages-legal' ) as $file ) {
+	foreach ( array( 'pages-main', 'pages-producten', 'pages-pijlers', 'pages-automatisering', 'pages-opmaat', 'pages-regio', 'pages-branches', 'pages-legal' ) as $file ) {
 		$pages = array_merge( $pages, require VERYO_DIR . '/inc/content/' . $file . '.php' );
 	}
 	return $pages;

@@ -115,6 +115,7 @@ function veryo_seo_metabox( $post ) {
 				<option value=""><?php esc_html_e( 'Alleen webpagina', 'veryo' ); ?></option>
 				<option value="service" <?php selected( $m( '_veryo_schema_type' ), 'service' ); ?>><?php esc_html_e( 'Dienst (Service)', 'veryo' ); ?></option>
 				<option value="startpakket" <?php selected( $m( '_veryo_schema_type' ), 'startpakket' ); ?>><?php esc_html_e( 'AI-Startpakket (drie vaste prijzen)', 'veryo' ); ?></option>
+				<option value="partner" <?php selected( $m( '_veryo_schema_type' ), 'partner' ); ?>><?php esc_html_e( 'AI-partner (maandprijs per teamgrootte)', 'veryo' ); ?></option>
 			</select>
 			<label for="veryo_price_min"><?php esc_html_e( 'Prijs vanaf (€)', 'veryo' ); ?></label>
 			<input type="number" min="0" step="1" id="veryo_price_min" name="veryo_price_min" value="<?php echo esc_attr( (string) $m( '_veryo_price_min' ) ); ?>" style="width:100px">
@@ -181,7 +182,7 @@ function veryo_save_seo_metabox( $post_id ) {
 	}
 	if ( isset( $_POST['veryo_schema_type'] ) ) {
 		$type = sanitize_key( wp_unslash( $_POST['veryo_schema_type'] ) );
-		update_post_meta( $post_id, '_veryo_schema_type', in_array( $type, array( 'service', 'startpakket' ), true ) ? $type : '' );
+		update_post_meta( $post_id, '_veryo_schema_type', in_array( $type, array( 'service', 'startpakket', 'partner' ), true ) ? $type : '' );
 	}
 	foreach ( array(
 		'veryo_price_min' => '_veryo_price_min',
@@ -673,7 +674,7 @@ function veryo_schema_graph() {
 
 	// Dienst.
 	$schema_type = (string) get_post_meta( $id, '_veryo_schema_type', true );
-	if ( is_page() && in_array( $schema_type, array( 'service', 'startpakket' ), true ) ) {
+	if ( is_page() && in_array( $schema_type, array( 'service', 'startpakket', 'partner' ), true ) ) {
 		$area    = (string) get_post_meta( $id, '_veryo_area', true );
 		$areas   = $area ? array( $area ) : array( 'Friesland', 'Groningen', 'Drenthe' );
 		$service = array(
@@ -712,6 +713,8 @@ function veryo_schema_graph() {
 				);
 			}
 			$service['offers'] = $offers;
+		} elseif ( 'partner' === $schema_type ) {
+			$service['offers'] = veryo_schema_partner_offers();
 		} elseif ( '' !== (string) $min ) {
 			$spec = array(
 				'@type'                 => 'PriceSpecification',
@@ -728,7 +731,31 @@ function veryo_schema_graph() {
 				'priceSpecification' => $spec,
 			);
 		}
+		// Het abonnement dat bij dit pakket hoort.
+		$sub_key = veryo_schema_subscription_for_page( $id );
+		if ( $sub_key ) {
+			$offers            = isset( $service['offers'] ) ? $service['offers'] : array();
+			$offers            = isset( $offers['@type'] ) ? array( $offers ) : $offers;
+			$offers[]          = veryo_schema_subscription_offer( $sub_key );
+			$service['offers'] = $offers;
+		}
 		$graph[] = $service;
+	}
+
+	// Prijzenpagina: alle abonnementen en AI-partner.
+	$page_ids = get_option( 'veryo_page_ids', array() );
+	if ( is_page() && is_array( $page_ids ) && ! empty( $page_ids['prijzen'] ) && (int) $page_ids['prijzen'] === $id ) {
+		$offers = array();
+		foreach ( array_keys( veryo_subscriptions() ) as $sub_key ) {
+			$offers[] = veryo_schema_subscription_offer( $sub_key );
+		}
+		$graph[] = array(
+			'@type'    => 'Service',
+			'@id'      => $url . '#abonnementen',
+			'name'     => __( 'Abonnementen en AI-partner', 'veryo' ),
+			'provider' => array( '@id' => home_url( '/#organization' ) ),
+			'offers'   => array_merge( $offers, veryo_schema_partner_offers() ),
+		);
 	}
 
 	// Blogbericht.
@@ -925,7 +952,7 @@ function veryo_llms_txt() {
 	$out[] = $clean(
 		sprintf(
 			/* translators: %s: plaats. */
-			__( 'Veryo is de onafhankelijke AI-partner voor het MKB (teams tot ongeveer 50 mensen), gevestigd in %s. Veryo adviseert welke AI past, voert die in en traint het team, en bouwt koppelingen of maatwerk waar bestaande software tekortschiet. Veryo verkoopt geen eigen software. Hoofdproduct is het Veryo AI-Startpakket. Vaste pakketprijzen en resultaten die je in uren en euro’s kunt meten. Werkgebied: Friesland, Groningen en Drenthe (op locatie); trainingen en online diensten ook landelijk. Sterk in bouw, installatie, agri en techniek.', 'veryo' ),
+			__( 'Veryo is de onafhankelijke AI-partner voor het MKB (teams tot ongeveer 50 mensen), gevestigd in %s. Veryo adviseert welke AI past, voert die in en traint het team, en bouwt koppelingen of maatwerk waar bestaande software tekortschiet. Veryo verkoopt geen eigen software. Hoofdproduct is het Veryo AI-Startpakket. Zes pijlers: advies en AI-Startpakket, training, de AI-werkplek (Copilot en Gemini), digitale collega’s (AI-agents) en automatisering, veilig AI-gebruik en AI-partner. Veryo is geen IT-bedrijf en doet geen IT-beheer, hardware of helpdesk. Vaste pakketprijzen en resultaten die je in uren en euro’s kunt meten. Werkgebied: Friesland, Groningen en Drenthe (op locatie); trainingen en online diensten ook landelijk. Sterk in bouw, installatie, agri en techniek.', 'veryo' ),
 			$c['city'] ? $c['city'] : 'Leeuwarden'
 		)
 	);
@@ -934,6 +961,16 @@ function veryo_llms_txt() {
 	$out[] = '';
 	foreach ( veryo_price_ladder() as $row ) {
 		$out[] = '- [' . $clean( $row['dienst'] ) . '](' . veryo_url( $row['path'] ) . '): ' . $clean( $row['prijs'] ) . '. ' . $clean( $row['wat'] );
+	}
+	$out[] = '';
+	$out[] = '## ' . __( 'Abonnementen (per maand, exclusief btw)', 'veryo' );
+	$out[] = '';
+	foreach ( veryo_subscriptions() as $sub ) {
+		$out[] = '- ' . $clean( $sub['naam'] ) . ' (' . $clean( $sub['bij'] ) . '): ' . $clean( $sub['prijs'] ) . '. ' . $clean( $sub['inhoud'] );
+	}
+	foreach ( veryo_partner_tiers() as $tier ) {
+		/* translators: 1: teamgrootte, 2: prijs. */
+		$out[] = '- ' . $clean( sprintf( __( 'AI-partner, %1$s: €%2$d per maand.', 'veryo' ), mb_strtolower( $tier['label'] ), (int) $tier['price'] ) ) . ' ' . $clean( $tier['extra'] );
 	}
 	$out[] = '';
 	$out[] = '## ' . __( 'Regio’s', 'veryo' );
@@ -985,3 +1022,81 @@ function veryo_legal_draft_notice() {
 	echo '<div class="notice notice-warning"><p><strong>' . esc_html__( 'Concepttekst, laat dit juridisch controleren.', 'veryo' ) . '</strong> ' . esc_html__( 'Haal daarna het vinkje "Juridisch concept" weg in de box Veryo SEO.', 'veryo' ) . '</p></div>';
 }
 add_action( 'admin_notices', 'veryo_legal_draft_notice' );
+
+/**
+ * Offer met maandprijs voor een abonnement (UnitPriceSpecification).
+ *
+ * @param string $key Sleutel uit veryo_subscriptions().
+ * @return array<string,mixed>
+ */
+function veryo_schema_subscription_offer( $key ) {
+	$sub  = veryo_subscriptions()[ $key ];
+	$spec = array(
+		'@type'                 => 'UnitPriceSpecification',
+		'priceCurrency'         => 'EUR',
+		'unitText'              => $sub['unit'],
+		'valueAddedTaxIncluded' => false,
+	);
+	if ( isset( $sub['min'], $sub['max'] ) ) {
+		$spec['minPrice'] = (int) $sub['min'];
+		$spec['maxPrice'] = (int) $sub['max'];
+	} else {
+		$spec['price'] = (int) $sub['price'];
+	}
+	return array(
+		'@type'              => 'Offer',
+		'name'               => $sub['naam'],
+		'description'        => $sub['inhoud'],
+		'priceCurrency'      => 'EUR',
+		'priceSpecification' => $spec,
+	);
+}
+
+/**
+ * Offers voor AI-partner, één per teamgrootte.
+ *
+ * @return array<int,array<string,mixed>>
+ */
+function veryo_schema_partner_offers() {
+	$offers = array();
+	foreach ( veryo_partner_tiers() as $tier ) {
+		$offers[] = array(
+			'@type'              => 'Offer',
+			/* translators: %s: teamgrootte. */
+			'name'               => sprintf( __( 'AI-partner, %s', 'veryo' ), mb_strtolower( $tier['label'] ) ),
+			'description'        => $tier['extra'],
+			'priceCurrency'      => 'EUR',
+			'priceSpecification' => array(
+				'@type'                 => 'UnitPriceSpecification',
+				'price'                 => (int) $tier['price'],
+				'priceCurrency'         => 'EUR',
+				'unitText'              => 'maand',
+				'valueAddedTaxIncluded' => false,
+			),
+		);
+	}
+	return $offers;
+}
+
+/**
+ * Welk abonnement hoort bij deze pakketpagina?
+ *
+ * @param int $id Pagina-ID.
+ * @return string Sleutel of leeg.
+ */
+function veryo_schema_subscription_for_page( $id ) {
+	$map = array(
+		'ai-startpakket'    => 'bijblijven',
+		'ai-werkplek'       => 'werkplek-onderhoud',
+		'veilig-ai-gebruik' => 'veilig-blijven',
+		'ai-agents'         => 'onderhoud',
+	);
+	$ids = get_option( 'veryo_page_ids', array() );
+	foreach ( $map as $path => $key ) {
+		if ( is_array( $ids ) && ! empty( $ids[ $path ] ) && (int) $ids[ $path ] === (int) $id ) {
+			return $key;
+		}
+	}
+	return '';
+}
+

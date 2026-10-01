@@ -28,6 +28,7 @@ function veryo_settings_defaults() {
 		'instagram'        => '',
 		'founder_first'    => 'Csaba',
 		'founder_last'     => '',
+		'founder_photo'    => '',
 		// AI-scan.
 		'api_key'          => '',
 		'model'            => 'claude-sonnet-5-5',
@@ -41,6 +42,11 @@ function veryo_settings_defaults() {
 		// Weergave.
 		'show_cases'       => 0,
 		'academy_waitlist' => 1,
+		'animations'       => 1,
+		'smooth_scroll'    => 1,
+		'whatsapp'         => 0,
+		'whatsapp_number'  => '',
+		'client_logos'     => '',
 	);
 }
 
@@ -206,13 +212,14 @@ function veryo_big_check_svg() {
  */
 function veryo_icon( $name ) {
 	$paths = array(
-		'menu'  => '<path d="M4 7h16M4 12h16M4 17h16"/>',
-		'close' => '<path d="M6 6l12 12M18 6L6 18"/>',
-		'down'  => '<path d="M6 9l6 6 6-6"/>',
-		'check' => '<path d="M5 12.5l4.5 4.5L19 7"/>',
-		'mail'  => '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/>',
-		'phone' => '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>',
-		'pin'   => '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+		'menu'     => '<path d="M4 7h16M4 12h16M4 17h16"/>',
+		'close'    => '<path d="M6 6l12 12M18 6L6 18"/>',
+		'down'     => '<path d="M6 9l6 6 6-6"/>',
+		'check'    => '<path d="M5 12.5l4.5 4.5L19 7"/>',
+		'whatsapp' => '<path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 01-2.1-2.1l.8-1-1-2z"/>',
+		'mail'     => '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/>',
+		'phone'    => '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/>',
+		'pin'      => '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
 	);
 	if ( ! isset( $paths[ $name ] ) ) {
 		return '';
@@ -312,4 +319,19 @@ function veryo_rate_limited( $bucket, $max = 5 ) {
 	}
 	set_transient( $key, $count + 1, HOUR_IN_SECONDS );
 	return false;
+}
+
+/**
+ * Het officiële woordmerk als inline SVG in currentColor (groot in de footer).
+ *
+ * @return string
+ */
+function veryo_wordmark_svg() {
+	$file = VERYO_DIR . '/assets/logo/veryo-woordmerk.svg';
+	$svg  = file_exists( $file ) ? (string) file_get_contents( $file ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- lokaal themabestand.
+	if ( '' === $svg ) {
+		return '';
+	}
+	$svg = preg_replace( '/fill="#[0-9A-Fa-f]{3,6}"/', 'fill="currentColor"', $svg );
+	return (string) preg_replace( '/<svg\b[^>]*?(viewBox="[^"]*")[^>]*>/', '<svg $1 xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMinYMid meet">', $svg, 1 );
 }

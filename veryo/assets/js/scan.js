@@ -119,14 +119,20 @@
 	}
 
 	function showStep( index, focus ) {
+		var back = index < current;
 		current = index;
 		steps.forEach( function ( step, i ) {
 			step.hidden = i !== index;
-			step.classList.remove( 'is-entering' );
+			step.classList.remove( 'is-entering', 'is-back' );
 		} );
 		var step = steps[ index ];
 		if ( ! reduce ) {
+			// Vooruit schuift de stap van rechts naar links in, terug van links naar rechts.
+			void step.offsetWidth;
 			step.classList.add( 'is-entering' );
+			if ( back ) {
+				step.classList.add( 'is-back' );
+			}
 		}
 		if ( 3 === index ) {
 			updateSliders();
@@ -307,7 +313,7 @@
 	function showResult( body ) {
 		var score = Math.max( 0, Math.min( 100, parseInt( body.score, 10 ) || 0 ) );
 		var html = '<p class="scan-result__label">Jouw geschatte tijdwinst</p>' +
-			'<p class="scan-result__big">' + escapeHtml( body.uren ) + ' uur per week <span class="scan-result__euro">(±' + escapeHtml( body.euro ) + ' per jaar)</span></p>' +
+			'<p class="scan-result__big"><span class="scan-result__check" aria-hidden="true"><svg viewBox="0 0 64 64" focusable="false"><polyline points="18,23 29,45 47,16" fill="none" stroke="#E0A03A" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/></svg></span><span class="scan-result__hours" data-to="' + escapeHtml( body.uren ) + '">' + escapeHtml( body.uren ) + '</span> uur per week <span class="scan-result__euro">(±' + escapeHtml( body.euro ) + ' per jaar)</span></p>' +
 			'<div class="scan-result__score"><span>Kansenscore: <strong>' + score + '</strong> van 100</span>' +
 			'<span class="scan-result__meter" aria-hidden="true"><span style="width:' + score + '%"></span></span></div>' +
 			'<p class="veryo-meta">' + escapeHtml( body.aannames ) + '</p>' +
@@ -324,6 +330,29 @@
 		form.hidden = true;
 		result.hidden = false;
 		result.focus();
+		// Het aantal uren telt op van 0 naar de uitkomst; daarna tekent het vinkje zichzelf.
+		var hours = result.querySelector( '.scan-result__hours' );
+		var check = result.querySelector( '.scan-result__check' );
+		var target = parseInt( hours ? hours.getAttribute( 'data-to' ) : '0', 10 ) || 0;
+		if ( hours && ! reduce && target > 0 ) {
+			var start = null;
+			var tick = function ( t ) {
+				if ( null === start ) {
+					start = t;
+				}
+				var p = Math.min( 1, ( t - start ) / 900 );
+				hours.textContent = String( Math.round( target * ( 1 - Math.pow( 1 - p, 3 ) ) ) );
+				if ( p < 1 ) {
+					window.requestAnimationFrame( tick );
+				} else if ( check ) {
+					check.classList.add( 'is-drawn' );
+				}
+			};
+			hours.textContent = '0';
+			window.requestAnimationFrame( tick );
+		} else if ( check ) {
+			check.classList.add( 'is-drawn' );
+		}
 		try {
 			window.sessionStorage.removeItem( STORE );
 		} catch ( e ) {}
