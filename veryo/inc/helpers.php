@@ -156,22 +156,37 @@ function veryo_url( $path ) {
 }
 
 /**
- * Logo als <img>.
+ * Het officiële Veryo-logo, inline als SVG (geen los bestand dat de server moet leveren).
+ * Is er onder Weergave > Customizer > Site-identiteit een eigen logo ingesteld, dan wordt
+ * dat in de header gebruikt.
  *
- * @param string $variant 'default' of 'wit'.
+ * @param string $variant 'default' (op licht) of 'wit' (op petrol).
  * @param int    $height  Hoogte in pixels.
  * @return string
  */
 function veryo_logo_img( $variant = 'default', $height = 36 ) {
-	$file  = 'wit' === $variant ? 'veryo-logo-wit.svg' : 'veryo-logo.svg';
+	if ( 'default' === $variant && has_custom_logo() ) {
+		$logo_id = (int) get_theme_mod( 'custom_logo' );
+		return (string) wp_get_attachment_image(
+			$logo_id,
+			'full',
+			false,
+			array(
+				'class'   => 'veryo-logo-img',
+				'alt'     => __( 'Veryo', 'veryo' ),
+				'loading' => false,
+			)
+		);
+	}
+	$file = VERYO_DIR . '/assets/logo/' . ( 'wit' === $variant ? 'veryo-logo-wit.svg' : 'veryo-logo.svg' );
+	$svg  = file_exists( $file ) ? (string) file_get_contents( $file ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- lokaal themabestand.
+	if ( '' === $svg ) {
+		return esc_html__( 'Veryo', 'veryo' );
+	}
 	$width = (int) round( $height * 236.2 / 64 );
-	return sprintf(
-		'<img src="%1$s" alt="%2$s" width="%3$d" height="%4$d" class="veryo-logo-img">',
-		esc_url( VERYO_URI . '/assets/logo/' . $file ),
-		esc_attr__( 'Veryo', 'veryo' ),
-		$width,
-		(int) $height
-	);
+	$attrs = sprintf( '<svg class="veryo-logo-img" role="img" aria-label="%1$s" focusable="false" width="%2$d" height="%3$d"', esc_attr__( 'Veryo', 'veryo' ), $width, (int) $height );
+	$svg   = preg_replace( '/<svg\b[^>]*?(viewBox="[^"]*")[^>]*>/', $attrs . ' $1 xmlns="http://www.w3.org/2000/svg">', $svg, 1 );
+	return (string) $svg;
 }
 
 /**

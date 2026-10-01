@@ -133,6 +133,7 @@ function veryo_run_setup() {
 			continue;
 		}
 		veryo_apply_page_meta( $post_id, $def );
+		veryo_remember_content( $post_id );
 		$ids[ $path ]        = $post_id;
 		$report['created'][] = '' === $path ? '/' : '/' . $path . '/';
 	}
@@ -216,6 +217,106 @@ function veryo_run_setup() {
 	update_option( 'veryo_last_setup_report', $report, false );
 
 	return $report;
+}
+
+/**
+ * Vingerafdruk van de inhoud zoals het thema die heeft geplaatst. Zo is later te zien
+ * of iemand de pagina zelf heeft aangepast.
+ *
+ * @param int $post_id ID.
+ */
+function veryo_remember_content( $post_id ) {
+	update_post_meta( $post_id, '_veryo_content_hash', md5( (string) get_post_field( 'post_content', $post_id, 'raw' ) ) );
+}
+
+/**
+ * Is deze pagina nog precies zoals het thema hem heeft geplaatst?
+ *
+ * @param WP_Post $page Pagina.
+ * @return bool
+ */
+function veryo_page_untouched( $page ) {
+	$hash = (string) get_post_meta( $page->ID, '_veryo_content_hash', true );
+	if ( '' !== $hash ) {
+		return md5( (string) $page->post_content ) === $hash;
+	}
+	// Pagina's uit een eerdere versie van het thema: nooit opgeslagen sinds het aanmaken.
+	return $page->post_modified_gmt === $page->post_date_gmt;
+}
+
+/**
+ * Pagina's van het thema bijwerken naar de nieuwste inhoud. Alleen pagina's die niemand
+ * zelf heeft aangepast; WordPress bewaart de vorige versie als revisie.
+ *
+ * @param bool $with_menus Ook de Veryo-menu's opnieuw opbouwen.
+ * @return array<string,array<int,string>>
+ */
+function veryo_refresh_content( $with_menus = false ) {
+	$report = veryo_run_setup();
+	$result = array(
+		'updated'  => array(),
+		'same'     => array(),
+		'kept'     => array(),
+		'created'  => $report['created'],
+		'messages' => array(),
+	);
+	kses_remove_filters();
+	foreach ( veryo_content_pages() as $path => $def ) {
+		$page  = veryo_find_page( $path );
+		$label = '' === $path ? '/' : '/' . $path . '/';
+		if ( ! $page || in_array( $label, $report['created'], true ) ) {
+			continue;
+		}
+		if ( ! veryo_page_untouched( $page ) ) {
+			$result['kept'][] = $label;
+			continue;
+		}
+		if ( $page->post_content === $def['content'] ) {
+			$result['same'][] = $label;
+			continue;
+		}
+		// Huidige versie eerst als revisie bewaren, zodat je altijd terug kunt.
+		if ( wp_revisions_enabled( $page ) ) {
+			_wp_put_post_revision( $page );
+		}
+		$updated = wp_update_post(
+			wp_slash(
+				array(
+					'ID'           => $page->ID,
+					'post_content' => $def['content'],
+				)
+			),
+			true
+		);
+		if ( is_wp_error( $updated ) ) {
+			$result['messages'][] = sprintf( 'Fout bij %s: %s', $label, $updated->get_error_message() );
+			continue;
+		}
+		veryo_apply_page_meta( $page->ID, $def );
+		veryo_remember_content( $page->ID );
+		$result['updated'][] = $label;
+	}
+	kses_init();
+
+	if ( $with_menus ) {
+		foreach ( array( 'Veryo hoofdmenu', 'Veryo footer' ) as $name ) {
+			$menu = wp_get_nav_menu_object( $name );
+			if ( $menu ) {
+				wp_delete_nav_menu( $menu->term_id );
+			}
+		}
+		$ids = array();
+		foreach ( array_keys( veryo_content_pages() ) as $path ) {
+			$page = veryo_find_page( $path );
+			if ( $page ) {
+				$ids[ $path ] = $page->ID;
+			}
+		}
+		$menu_report = array( 'messages' => array() );
+		veryo_setup_menus( $ids, $menu_report );
+		$result['messages'] = array_merge( $result['messages'], $menu_report['messages'] );
+	}
+	return $result;
 }
 
 /**

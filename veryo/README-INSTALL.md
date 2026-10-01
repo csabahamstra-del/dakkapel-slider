@@ -16,7 +16,10 @@ Dit thema zet bij activatie de complete Veryo-site klaar: alle pagina's, menu's,
    - de standaardinhoud van WordPress ("Hello world!" en "Sample Page") gaat naar de prullenbak, maar alleen als je die nog niet hebt aangepast.
 4. Bovenaan wp-admin verschijnt een melding met een link naar de instellingen en een lijst met alle `[VUL IN]`-placeholders.
 
-**Had je een eerdere versie van het thema al actief?** Dan worden alleen de ontbrekende pagina's aangemaakt (zoals `/ai-startpakket/` en `/ai-partner/`). Een bestaande homepage, prijzenpagina en bestaande menu's blijven zoals ze waren. Wil je de nieuwe versie daarvan: verwijder die pagina's of menu's (of zet ze in de prullenbak) en klik daarna op de knop hieronder.
+**Had je een eerdere versie van het thema al actief?** Upload de nieuwe zip (Weergave > Thema's > Thema uploaden > "Vervangen door geüpload"). De nieuwe vormgeving geldt dan meteen op alle pagina's. Wil je ook de nieuwe teksten en indeling van de pagina's zelf (bijvoorbeeld de nieuwe homepage), ga dan naar **Extra > Veryo-inhoud** en klik op **Pagina's bijwerken**:
+   - alleen pagina's die je zelf niet hebt aangepast worden vervangen; pagina's die je wel hebt bewerkt, blijven staan en worden in de melding genoemd;
+   - de vorige versie blijft bewaard als revisie (in de editor onder Revisies), zodat je altijd terug kunt;
+   - vink "Ook het Veryo-hoofdmenu en de Veryo-footer opnieuw opbouwen" aan als je ook de nieuwe menu's wilt. Eigen menu-aanpassingen gaan dan verloren.
 
 Pagina per ongeluk verwijderd? Ga naar **Extra > Veryo-inhoud** en klik op **Veryo-inhoud opnieuw aanmaken (ontbrekende pagina's)**. Alleen ontbrekende pagina's, menu's en concepten worden aangemaakt.
 
@@ -26,7 +29,11 @@ Ga naar **Instellingen > Permalinks** en controleer dat **Berichtnaam** (`/%post
 
 Gebruikt je hosting nginx en geeft `/llms.txt` een 404? Dan serveert nginx `.txt`-bestanden rechtstreeks. Vraag je hostingpartij om `/llms.txt` door te sturen naar WordPress (`try_files $uri $uri/ /index.php?$args;`).
 
-## 3. Instellingen invullen (Instellingen > Veryo)
+## 3. Logo
+
+Het thema gebruikt het officiële Veryo-logo uit de huisstijl (`assets/logo/`): `veryo-logo.svg` in de header en `veryo-logo-wit.svg` (amber beeldmerk met witte tekst) in de footer. Het logo staat als inline SVG in de pagina, zodat het altijd scherp is en niet afhankelijk is van hoe je hosting `.svg`-bestanden aanbiedt. Wil je een ander logobestand in de header, upload dat dan onder **Weergave > Customizer > Site-identiteit > Logo**. Het site-icoon en de afbeelding in e-mails zijn gemaakt van het officiële beeldmerk.
+
+## 3b. Instellingen invullen (Instellingen > Veryo)
 
 **Bedrijfsgegevens.** Deze staan al ingevuld: Veryo (handelsnaam van Merklenz, eenmanszaak), Lange Marktstraat 1, Leeuwarden, 085 060 5752, info@veryo.nl, KvK 73435996, oprichter Csaba. Vul nog aan zodra ze er zijn: **LinkedIn** en **Instagram**. Postcode en btw-nummer worden bewust niet getoond. Deze gegevens verschijnen in de footer, op de contactpagina, in schema.org en in e-mails. Lege velden worden nergens getoond.
 
@@ -85,7 +92,7 @@ Veryo staat op de site als **onafhankelijke AI-partner** die geen eigen software
 1. Thema geïnstalleerd en geactiveerd; permalinks op **Berichtnaam** (§2).
 2. **Instellingen > Lezen**: het vinkje "Zoekmachines ontmoedigen deze site te indexeren" staat **uit**.
 3. SMTP-plugin ingesteld en testmail ontvangen (§4).
-4. API-sleutel in `wp-config.php`, "Test API-verbinding" gelukt; Calendly-link en e-mail voor leadmeldingen ingevuld (§3).
+4. API-sleutel in `wp-config.php`, "Test API-verbinding" gelukt; Calendly-link en e-mail voor leadmeldingen ingevuld (§3b).
 5. Zelf één keer de AI-scan en het contactformulier ingevuld; rapportmail en interne melding ontvangen.
 6. Juridische teksten laten controleren (§6).
 7. https actief (slotje in de browser), daarna sitemap indienen bij Google en Bing (§7).

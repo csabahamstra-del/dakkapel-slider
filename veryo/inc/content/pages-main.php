@@ -23,23 +23,44 @@ $veryo_home  = veryo_sec_hero(
 	array(
 		array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ),
 		array( __( 'Bekijk het AI-Startpakket', 'veryo' ), veryo_link( 'ai-startpakket' ), 'link' ),
-	)
+	),
+	veryo_sec_facts(
+		array(
+			array( __( 'AI-Startpakket', 'veryo' ), __( 'Vaste prijs, vanaf €1.995', 'veryo' ) ),
+			array( __( 'Onafhankelijk', 'veryo' ), __( 'Geen eigen software te verkopen', 'veryo' ) ),
+			array( __( 'Reactie', 'veryo' ), __( 'Binnen één werkdag', 'veryo' ) ),
+			array( __( 'Werkgebied', 'veryo' ), __( 'Friesland, Groningen en Drenthe', 'veryo' ) ),
+		)
+	),
+	'veryo-hero--home'
 );
-$veryo_home .= veryo_b_group(
-	veryo_b_h( __( 'Iedereen roept dat je iets met AI moet. Maar wat dan?', 'veryo' ) )
-	. veryo_b_p( __( 'Veryo is een AI-bureau voor het MKB, en je onafhankelijke AI-partner. We helpen bedrijven tot ongeveer vijftig mensen om AI in te zetten waar het echt tijd scheelt: bij de mail, de offertes, de administratie en de planning. Eerst snappen, dan slim inzetten. Zonder hype, met vaste prijzen.', 'veryo' ) )
-	. veryo_b_p( __( 'Weet je nog niet waar je moet beginnen? Doe dan de gratis AI-scan. Je beantwoordt negen korte vragen over je bedrijf en krijgt een persoonlijk rapport met je drie grootste tijdwinsten, wat ze ongeveer opleveren en hoe je begint.', 'veryo' ) )
-	. veryo_b_buttons( array( array( __( 'Zo werkt de AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ) ) ) ),
-	array( 'className' => 'veryo-intro' )
+$veryo_home .= veryo_sec_wide(
+	veryo_b_columns(
+		array(
+			array(
+				'width' => '50%',
+				'inner' => veryo_b_h( __( 'Iedereen roept dat je iets met AI moet. Maar wat dan?', 'veryo' ) ),
+			),
+			array(
+				'width' => '50%',
+				'inner' => veryo_b_p( __( 'Veryo is een AI-bureau voor het MKB, en je onafhankelijke AI-partner. We helpen bedrijven tot ongeveer vijftig mensen om AI in te zetten waar het echt tijd scheelt: bij de mail, de offertes, de administratie en de planning. Eerst snappen, dan slim inzetten, met vaste prijzen.', 'veryo' ) )
+					. veryo_b_p( __( 'Weet je nog niet waar je moet beginnen? Doe dan de gratis AI-scan. Je beantwoordt negen korte vragen over je bedrijf en krijgt een persoonlijk rapport met je drie grootste tijdwinsten, wat ze ongeveer opleveren en hoe je begint.', 'veryo' ) )
+					. veryo_b_buttons( array( array( __( 'Zo werkt de AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ) ) ) ),
+			),
+		),
+		array( 'className' => 'veryo-head' )
+	),
+	'veryo-intro veryo-intro-split'
 );
 $veryo_home .= veryo_sec_startpakket( __( 'Het Veryo AI-Startpakket', 'veryo' ), __( 'Medewerkers gebruiken ChatGPT al op eigen houtje en niemand weet wat er wordt ingevoerd. Met het AI-Startpakket zet je het in één keer goed neer: vijf onderdelen, vaste prijs, vanaf €1.995.', 'veryo' ) );
 $veryo_home .= veryo_sec_services();
-$veryo_home .= veryo_sec_photo( __( 'team van een MKB-bedrijf aan het werk op kantoor', 'veryo' ), __( 'AI-bureau voor het MKB: team aan het werk', 'veryo' ), 'team' );
 $veryo_home .= veryo_sec_steps_home();
-$veryo_home .= veryo_sec_independent();
-$veryo_home .= veryo_b_group(
-	veryo_b_h( __( 'Wat er mogelijk is', 'veryo' ) )
-	. veryo_b_p( __( 'Een greep uit wat AI in het MKB kan doen. Vaak kan de software die je al hebt het meeste; waar niet, bouwen we een koppeling. Tijdwinst is een indicatie voor teams van 5 tot 20 mensen.', 'veryo' ) )
+$veryo_home .= veryo_sec_independent( '', true );
+$veryo_home .= veryo_sec_wide(
+	veryo_sec_head(
+		__( 'Wat er mogelijk is', 'veryo' ),
+		veryo_b_p( __( 'Een greep uit wat AI in het MKB kan doen. Vaak kan de software die je al hebt het meeste; waar niet, bouwen we een koppeling. Tijdwinst is een indicatie voor teams van 5 tot 20 mensen.', 'veryo' ) )
+	)
 	. veryo_b_columns(
 		array(
 			veryo_b_h( __( 'Klantcontact', 'veryo' ), 3, array( 'fontSize' => 'heading' ) ) . veryo_b_list( array( __( 'Conceptantwoorden op mail in jullie toon', 'veryo' ), __( 'WhatsApp-assistent die 24/7 vragen beantwoordt', 'veryo' ), __( 'Klanten automatisch op de hoogte houden', 'veryo' ) ) ),
@@ -48,13 +69,28 @@ $veryo_home .= veryo_b_group(
 		)
 	)
 	. veryo_b_buttons( array( array( __( 'Alles over AI-automatisering en koppelingen', 'veryo' ), veryo_link( 'ai-automatisering' ), 'link' ) ) ),
-	array( 'className' => 'veryo-catalog-teaser' )
+	'veryo-catalog-teaser veryo-possible'
 );
-$veryo_home .= veryo_sec_price( array( 'scan', 'startpakket', 'quickwin', 'partner' ), __( 'Vaste prijzen, vooraf duidelijk', 'veryo' ), __( 'Je begint met de gratis scan, zet de basis neer met het Startpakket en bouwt uit als het werkt.', 'veryo' ) );
-$veryo_home .= veryo_sec_branches( __( 'AI voor jouw branche', 'veryo' ), __( 'We kennen de praktijk van bouw, installatie, agri en techniek het best, maar werken voor het hele MKB.', 'veryo' ) );
-$veryo_home .= veryo_sec_regions();
-$veryo_home .= veryo_b_group(
-	veryo_b_h( __( 'Waarom Veryo', 'veryo' ) )
+$veryo_home .= veryo_sec_wide(
+	veryo_sec_head(
+		__( 'Vaste prijzen, vooraf duidelijk', 'veryo' ),
+		veryo_b_p( __( 'Je begint met de gratis scan, zet de basis neer met het Startpakket en bouwt uit als het werkt. Je krijgt vooraf altijd een vaste prijs.', 'veryo' ) )
+	)
+	. veryo_sec_price_table( array( 'scan', 'startpakket', 'quickwin', 'partner' ) )
+	. veryo_b_p(
+		sprintf(
+			/* translators: %s: link naar prijzen. */
+			__( 'Alle bedragen zijn exclusief btw. <a href="%s">Bekijk alle prijzen</a>.', 'veryo' ),
+			esc_url( veryo_link( 'prijzen' ) )
+		),
+		array( 'className' => 'veryo-small' )
+	),
+	'veryo-price-home'
+);
+$veryo_home .= veryo_sec_branches( __( 'AI voor jouw branche', 'veryo' ), __( 'We kennen de praktijk van bouw, installatie, agri en techniek het best, maar werken voor het hele MKB.', 'veryo' ), true );
+$veryo_home .= veryo_sec_regions( '', '', true );
+$veryo_home .= veryo_sec_wide(
+	veryo_sec_head( __( 'Waarom Veryo', 'veryo' ), veryo_b_p( __( 'Zes dingen waar je ons aan kunt houden.', 'veryo' ) ) )
 	. veryo_b_list(
 		array(
 			'<strong>' . __( 'Nuchter.', 'veryo' ) . '</strong> ' . __( 'We beginnen bij je werk, niet bij de techniek. Als iets niet de moeite waard is, zeggen we dat.', 'veryo' ),
@@ -66,10 +102,36 @@ $veryo_home .= veryo_b_group(
 		),
 		array( 'className' => 'is-style-checks' )
 	),
-	array( 'className' => 'veryo-why' )
+	'veryo-why'
 );
 $veryo_home .= veryo_sec_cases();
-$veryo_home .= veryo_sec_faq( $veryo_home_faq );
+$veryo_phone = veryo_setting( 'phone' );
+$veryo_email = veryo_setting( 'email' );
+$veryo_home .= veryo_sec_wide(
+	veryo_b_columns(
+		array(
+			array(
+				'width' => '40%',
+				'inner' => veryo_b_h( __( 'Veelgestelde vragen', 'veryo' ) )
+					. veryo_b_p(
+						sprintf(
+							/* translators: 1: tel-link, 2: telefoonnummer, 3: e-mailadres. */
+							__( 'Staat je vraag er niet bij? Bel <a href="%1$s">%2$s</a> of mail <a href="mailto:%3$s">%3$s</a>. We reageren binnen één werkdag.', 'veryo' ),
+							esc_attr( veryo_tel_href( $veryo_phone ) ),
+							str_replace( ' ', '&nbsp;', esc_html( $veryo_phone ) ),
+							esc_html( $veryo_email )
+						),
+						array( 'className' => 'veryo-small' )
+					),
+			),
+			array(
+				'width' => '60%',
+				'inner' => veryo_sec_faq( $veryo_home_faq, false ),
+			),
+		)
+	),
+	'veryo-questions'
+);
 $veryo_home .= veryo_sec_cta_scan( __( 'Begin met de gratis AI-scan', 'veryo' ) );
 
 /*
