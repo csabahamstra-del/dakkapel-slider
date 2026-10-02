@@ -70,6 +70,9 @@ function veryo_tools_page() {
 				<?php if ( $refresh['updated'] ) : ?>
 					<p><strong><?php esc_html_e( 'Bijgewerkt:', 'veryo' ); ?></strong> <?php echo esc_html( implode( ', ', $refresh['updated'] ) ); ?></p>
 				<?php endif; ?>
+				<?php if ( ! empty( $refresh['photos'] ) ) : ?>
+					<p><strong><?php esc_html_e( 'Zelf aangepast, alleen een foto toegevoegd:', 'veryo' ); ?></strong> <?php echo esc_html( implode( ', ', $refresh['photos'] ) ); ?></p>
+				<?php endif; ?>
 				<?php if ( $refresh['kept'] ) : ?>
 					<p><strong><?php esc_html_e( 'Niet aangeraakt (zelf aangepast):', 'veryo' ); ?></strong> <?php echo esc_html( implode( ', ', $refresh['kept'] ) ); ?></p>
 				<?php endif; ?>

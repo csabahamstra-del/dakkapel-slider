@@ -257,6 +257,7 @@ function veryo_refresh_content( $with_menus = false ) {
 		'updated'  => array(),
 		'same'     => array(),
 		'kept'     => array(),
+		'photos'   => array(),
 		'created'  => $report['created'],
 		'messages' => array(),
 	);
@@ -268,7 +269,12 @@ function veryo_refresh_content( $with_menus = false ) {
 			continue;
 		}
 		if ( ! veryo_page_untouched( $page ) ) {
-			$result['kept'][] = $label;
+			// Zelf aangepast: tekst blijft staan, alleen een ontbrekende foto komt erbij.
+			if ( veryo_add_missing_photo( $page, $def ) ) {
+				$result['photos'][] = $label;
+			} else {
+				$result['kept'][] = $label;
+			}
 			continue;
 		}
 		if ( $page->post_content === $def['content'] ) {
@@ -297,6 +303,7 @@ function veryo_refresh_content( $with_menus = false ) {
 		$result['updated'][] = $label;
 	}
 	kses_init();
+	delete_option( 'veryo_photos_new' );
 
 	if ( $with_menus ) {
 		foreach ( array( 'Veryo hoofdmenu', 'Veryo footer' ) as $name ) {
@@ -317,6 +324,91 @@ function veryo_refresh_content( $with_menus = false ) {
 		$result['messages'] = array_merge( $result['messages'], $menu_report['messages'] );
 	}
 	return $result;
+}
+
+/**
+ * Op een zelf aangepaste pagina alleen de foto uit de nieuwste inhoud toevoegen, op de plek
+ * waar hij in het ontwerp staat. De tekst van de pagina blijft ongewijzigd.
+ *
+ * @param WP_Post             $page Pagina.
+ * @param array<string,mixed> $def  Definitie uit veryo_content_pages().
+ * @return bool Of er een foto is toegevoegd.
+ */
+function veryo_add_missing_photo( $page, $def ) {
+	if ( false !== strpos( (string) $page->post_content, 'wp-block-image' ) || false === strpos( $def['content'], 'wp:image' ) ) {
+		return false;
+	}
+	$new_blocks = parse_blocks( $def['content'] );
+	$image      = null;
+	$anchor     = '';
+	foreach ( $new_blocks as $i => $block ) {
+		if ( 'core/image' !== $block['blockName'] ) {
+			continue;
+		}
+		$image = $block;
+		for ( $j = $i - 1; $j >= 0; $j-- ) {
+			if ( null !== $new_blocks[ $j ]['blockName'] ) {
+				$anchor = veryo_block_fingerprint( $new_blocks[ $j ] );
+				break;
+			}
+		}
+		break;
+	}
+	if ( ! $image ) {
+		return false;
+	}
+	$old_blocks = parse_blocks( (string) $page->post_content );
+	$position   = null;
+	$first      = null;
+	foreach ( $old_blocks as $i => $block ) {
+		if ( null === $block['blockName'] ) {
+			continue;
+		}
+		if ( null === $first ) {
+			$first = $i;
+		}
+		if ( '' !== $anchor && veryo_block_fingerprint( $block ) === $anchor ) {
+			$position = $i;
+			break;
+		}
+	}
+	if ( null === $position ) {
+		$position = $first;
+	}
+	if ( null === $position ) {
+		return false;
+	}
+	array_splice( $old_blocks, $position + 1, 0, array( $image ) );
+	if ( wp_revisions_enabled( $page ) ) {
+		_wp_put_post_revision( $page );
+	}
+	$updated = wp_update_post(
+		wp_slash(
+			array(
+				'ID'           => $page->ID,
+				'post_content' => serialize_blocks( $old_blocks ),
+			)
+		),
+		true
+	);
+	return ! is_wp_error( $updated );
+}
+
+/**
+ * Herkenning van een blok: de eerste kop, anders het begin van de tekst.
+ *
+ * @param array<string,mixed> $block Blok uit parse_blocks().
+ * @return string
+ */
+function veryo_block_fingerprint( $block ) {
+	$html = render_block( $block );
+	if ( preg_match( '/<h[1-6][^>]*>(.*?)<\/h[1-6]>/is', $html, $m ) ) {
+		$text = $m[1];
+	} else {
+		$text = $html;
+	}
+	$text = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( $text ) ) );
+	return function_exists( 'mb_substr' ) ? mb_substr( $text, 0, 60 ) : substr( $text, 0, 60 );
 }
 
 /**

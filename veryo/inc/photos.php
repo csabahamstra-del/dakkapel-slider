@@ -52,11 +52,12 @@ function veryo_photo_aliases() {
  * Pad naar het fotobestand in het thema.
  *
  * @param string $key Sleutel.
+ * @param string $ext Alleen deze extensie proberen (webp of jpg).
  * @return string Leeg als het bestand ontbreekt.
  */
-function veryo_photo_file( $key ) {
-	foreach ( array( 'webp', 'jpg' ) as $ext ) {
-		$file = VERYO_DIR . '/assets/images/photos/' . $key . '.' . $ext;
+function veryo_photo_file( $key, $ext = '' ) {
+	foreach ( $ext ? array( $ext ) : array( 'webp', 'jpg' ) as $try ) {
+		$file = VERYO_DIR . '/assets/images/photos/' . $key . '.' . $try;
 		if ( file_exists( $file ) ) {
 			return $file;
 		}
@@ -73,37 +74,122 @@ function veryo_import_photos() {
 	$ids = get_option( 'veryo_photo_ids', array() );
 	$ids = is_array( $ids ) ? $ids : array();
 	require_once ABSPATH . 'wp-admin/includes/image.php';
+	$errors = array();
 	foreach ( veryo_photo_library() as $key => $title ) {
 		if ( ! empty( $ids[ $key ] ) && get_post( (int) $ids[ $key ] ) ) {
 			continue;
 		}
-		$file = veryo_photo_file( $key );
-		if ( '' === $file ) {
-			continue;
+		// Eerst WebP; lukt dat niet (sommige hosting staat WebP niet toe), dan JPG.
+		foreach ( array( 'webp', 'jpg' ) as $ext ) {
+			$file = veryo_photo_file( $key, $ext );
+			if ( '' === $file ) {
+				continue;
+			}
+			$attachment_id = veryo_import_photo_file( $file, $title );
+			if ( is_wp_error( $attachment_id ) ) {
+				$errors[ $key ] = $attachment_id->get_error_message();
+				continue;
+			}
+			$ids[ $key ] = $attachment_id;
+			unset( $errors[ $key ] );
+			break;
 		}
-		$bits = wp_upload_bits( 'veryo-' . basename( $file ), null, (string) file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- lokaal themabestand.
-		if ( ! empty( $bits['error'] ) ) {
-			continue;
-		}
-		$type          = wp_check_filetype( $bits['file'] );
-		$attachment_id = wp_insert_attachment(
-			array(
-				'post_mime_type' => $type['type'],
-				'post_title'     => $title,
-				'post_status'    => 'inherit',
-			),
-			$bits['file']
-		);
-		if ( is_wp_error( $attachment_id ) || ! $attachment_id ) {
-			continue;
-		}
-		wp_update_attachment_metadata( $attachment_id, wp_generate_attachment_metadata( $attachment_id, $bits['file'] ) );
-		update_post_meta( $attachment_id, '_wp_attachment_image_alt', $title );
-		$ids[ $key ] = (int) $attachment_id;
 	}
 	update_option( 'veryo_photo_ids', $ids, false );
+	update_option( 'veryo_photo_errors', $errors, false );
+	if ( $errors ) {
+		// Later nog eens proberen, maar niet bij elke klik in wp-admin.
+		set_transient( 'veryo_photos_retry', 1, HOUR_IN_SECONDS );
+	} else {
+		update_option( 'veryo_photos_version', veryo_photos_fingerprint(), false );
+	}
 	return $ids;
 }
+
+/**
+ * Eén fotobestand in de mediabibliotheek zetten.
+ *
+ * @param string $file  Pad naar het bestand in het thema.
+ * @param string $title Titel en alt-tekst.
+ * @return int|WP_Error Attachment-ID of fout.
+ */
+function veryo_import_photo_file( $file, $title ) {
+	$bits = wp_upload_bits( 'veryo-' . basename( $file ), null, (string) file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- lokaal themabestand.
+	if ( ! empty( $bits['error'] ) ) {
+		return new WP_Error( 'veryo_upload', (string) $bits['error'] );
+	}
+	$type          = wp_check_filetype( $bits['file'] );
+	$attachment_id = wp_insert_attachment(
+		array(
+			'post_mime_type' => $type['type'] ? $type['type'] : 'image/jpeg',
+			'post_title'     => $title,
+			'post_status'    => 'inherit',
+		),
+		$bits['file'],
+		0,
+		true
+	);
+	if ( is_wp_error( $attachment_id ) ) {
+		return $attachment_id;
+	}
+	wp_update_attachment_metadata( $attachment_id, wp_generate_attachment_metadata( $attachment_id, $bits['file'] ) );
+	update_post_meta( $attachment_id, '_wp_attachment_image_alt', $title );
+	return (int) $attachment_id;
+}
+
+/**
+ * Vingerafdruk van de foto's in het thema, om te zien of er nieuwe zijn bijgekomen.
+ *
+ * @return string
+ */
+function veryo_photos_fingerprint() {
+	$files = glob( VERYO_DIR . '/assets/images/photos/*.{webp,jpg}', GLOB_BRACE );
+	return md5( implode( '|', array_map( 'basename', is_array( $files ) ? $files : array() ) ) );
+}
+
+/**
+ * Na een thema-update: nieuwe foto's automatisch in de mediabibliotheek zetten, zonder knop.
+ */
+function veryo_maybe_import_photos() {
+	if ( ! current_user_can( 'upload_files' ) || wp_doing_ajax() ) {
+		return;
+	}
+	if ( get_option( 'veryo_photos_version' ) === veryo_photos_fingerprint() || get_transient( 'veryo_photos_retry' ) ) {
+		return;
+	}
+	$before = get_option( 'veryo_photo_ids', array() );
+	$after  = veryo_import_photos();
+	if ( count( (array) $after ) > count( (array) $before ) ) {
+		update_option( 'veryo_photos_new', 1, false );
+	}
+}
+add_action( 'admin_init', 'veryo_maybe_import_photos' );
+
+/**
+ * Melding over de foto's: klaar om op de pagina's te zetten, of een fout bij het importeren.
+ */
+function veryo_photos_notice() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	$errors = get_option( 'veryo_photo_errors', array() );
+	if ( is_array( $errors ) && $errors ) {
+		echo '<div class="notice notice-error"><p><strong>' . esc_html__( 'Veryo: niet alle foto’s konden in de mediabibliotheek worden gezet.', 'veryo' ) . '</strong> ';
+		foreach ( $errors as $key => $message ) {
+			echo esc_html( $key . ': ' . $message ) . '. ';
+		}
+		echo esc_html__( 'Controleer of de map wp-content/uploads schrijfbaar is, of upload de foto’s uit het thema (assets/images/photos) zelf via Media.', 'veryo' ) . '</p></div>';
+		return;
+	}
+	if ( get_option( 'veryo_photos_new' ) ) {
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+		if ( $screen && 'tools_page_veryo-content' === $screen->id ) {
+			return;
+		}
+		echo '<div class="notice notice-info"><p>' . esc_html__( 'Veryo: de foto’s staan in je mediabibliotheek. Zet ze op je pagina’s via', 'veryo' ) . ' <a href="' . esc_url( admin_url( 'tools.php?page=veryo-content' ) ) . '">' . esc_html__( 'Extra > Veryo-inhoud > Pagina’s bijwerken', 'veryo' ) . '</a>.</p></div>';
+	}
+}
+add_action( 'admin_notices', 'veryo_photos_notice' );
 
 /**
  * Attachment-ID van een foto, of 0.
