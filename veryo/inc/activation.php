@@ -563,6 +563,16 @@ function veryo_setup_menus( $ids, &$report ) {
 		$object = wp_get_nav_menu_object( $menu['name'] );
 		if ( $object ) {
 			$menu_id = (int) $object->term_id;
+			// Verwijzen menu-items naar pagina's die er niet meer zijn (verwijderd en opnieuw
+			// aangemaakt), dan het menu opnieuw vullen.
+			if ( veryo_menu_is_broken( $menu_id, $menu['items'], $ids ) ) {
+				foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
+					wp_delete_post( $item->ID, true );
+				}
+				veryo_add_menu_items( $menu_id, $menu['items'], $ids );
+				/* translators: %s: menunaam. */
+				$report['messages'][] = sprintf( __( 'Menu "%s" hersteld.', 'veryo' ), $menu['name'] );
+			}
 		} else {
 			$menu_id = wp_create_nav_menu( $menu['name'] );
 			if ( is_wp_error( $menu_id ) ) {
@@ -577,6 +587,34 @@ function veryo_setup_menus( $ids, &$report ) {
 		}
 	}
 	set_theme_mod( 'nav_menu_locations', $locations );
+}
+
+/**
+ * Of een Veryo-menu pagina's mist die wel bestaan (bijvoorbeeld na verwijderen en opnieuw aanmaken).
+ *
+ * @param int                         $menu_id Menu.
+ * @param array<int,array<int,mixed>> $items   Menudefinitie.
+ * @param array<string,int>           $ids     Pad => pagina-ID.
+ * @return bool
+ */
+function veryo_menu_is_broken( $menu_id, $items, $ids ) {
+	$present = array();
+	foreach ( (array) wp_get_nav_menu_items( $menu_id ) as $item ) {
+		if ( 'post_type' === $item->type && 'publish' === get_post_status( (int) $item->object_id ) ) {
+			$present[ (int) $item->object_id ] = true;
+		}
+	}
+	$stack = $items;
+	while ( $stack ) {
+		$entry = array_shift( $stack );
+		if ( isset( $entry[1] ) && is_string( $entry[1] ) && isset( $ids[ $entry[1] ] ) && empty( $present[ $ids[ $entry[1] ] ] ) ) {
+			return true;
+		}
+		if ( ! empty( $entry[2] ) && is_array( $entry[2] ) ) {
+			$stack = array_merge( $stack, $entry[2] );
+		}
+	}
+	return false;
 }
 
 /**

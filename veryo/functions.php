@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'VERYO_VERSION', '1.0.0' );
+define( 'VERYO_VERSION', '1.1.0' );
 define( 'VERYO_DIR', get_template_directory() );
 define( 'VERYO_URI', get_template_directory_uri() );
 
