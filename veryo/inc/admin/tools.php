@@ -51,6 +51,20 @@ function veryo_tools_page() {
 			</div>
 		<?php endif; ?>
 
+		<?php $veryo_health = veryo_site_health(); ?>
+		<h2><?php esc_html_e( 'Stand van de website', 'veryo' ); ?></h2>
+		<table class="widefat striped" style="max-width:720px">
+			<tbody>
+				<tr><td><?php esc_html_e( 'Themaversie', 'veryo' ); ?></td><td><?php echo esc_html( VERYO_VERSION ); ?></td></tr>
+				<tr><td><?php esc_html_e( 'Ontbrekende pagina’s', 'veryo' ); ?></td><td><?php echo esc_html( $veryo_health['missing'] ? implode( ', ', $veryo_health['missing'] ) : '0' ); ?></td></tr>
+				<tr><td><?php esc_html_e( 'Pagina’s als concept', 'veryo' ); ?></td><td><?php echo esc_html( $veryo_health['drafts'] ? implode( ', ', $veryo_health['drafts'] ) : '0' ); ?></td></tr>
+				<tr><td><?php esc_html_e( 'Menu op plek Hoofdmenu', 'veryo' ); ?></td><td><?php echo esc_html( '' !== $veryo_health['location'] ? sprintf( '%s (%d items)', $veryo_health['location'], $veryo_health['items'] ) : __( 'geen', 'veryo' ) ); ?></td></tr>
+				<tr><td><?php esc_html_e( 'Foto’s in mediabibliotheek', 'veryo' ); ?></td><td><?php echo esc_html( (string) count( array_filter( (array) get_option( 'veryo_photo_ids', array() ), 'get_post' ) ) ); ?></td></tr>
+			</tbody>
+		</table>
+		<p><?php esc_html_e( 'Klopt hier iets niet, of zie je op de website geen menu? Deze knop zet pagina’s, concepten van het thema en het hoofdmenu en de footer recht.', 'veryo' ); ?></p>
+		<?php veryo_repair_button( __( 'Website herstellen', 'veryo' ) ); ?>
+
 		<p><?php esc_html_e( 'Deze knop maakt pagina’s, menu’s en blogconcepten van het thema aan die nog ontbreken. Bestaande pagina’s worden nooit overschreven; heb je een pagina verwijderd of hernoemd, dan wordt hij opnieuw aangemaakt.', 'veryo' ); ?></p>
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="veryo_rerun_setup">
@@ -160,8 +174,122 @@ function veryo_missing_pages() {
 }
 
 /**
- * Melding met één knop als er pagina's van het thema ontbreken. Een thema opnieuw uploaden
- * maakt in WordPress geen pagina's aan; deze knop wel.
+ * Stand van pagina's en menu's: wat er mis is en hersteld kan worden.
+ *
+ * @return array<string,mixed>
+ */
+function veryo_site_health() {
+	$health = array(
+		'missing'  => array(),
+		'drafts'   => array(),
+		'location' => '',
+		'items'    => 0,
+		'repair'   => false,
+	);
+	foreach ( veryo_content_pages() as $path => $def ) {
+		$page  = veryo_find_page( $path );
+		$label = '' === $path ? '/' : '/' . $path . '/';
+		if ( ! $page ) {
+			$health['missing'][] = $label;
+		} elseif ( 'publish' !== $page->post_status ) {
+			// Bijvoorbeeld teruggezet uit de prullenbak: WordPress maakt daar een concept van.
+			$health['drafts'][] = $label;
+		}
+	}
+	$locations = get_nav_menu_locations();
+	$assigned  = ! empty( $locations['primary'] ) ? wp_get_nav_menu_object( (int) $locations['primary'] ) : false;
+	if ( $assigned ) {
+		$health['location'] = $assigned->name;
+		$health['items']    = count( (array) wp_get_nav_menu_items( $assigned->term_id ) );
+	}
+	$health['repair'] = $health['missing'] || $health['drafts'] || 'Veryo hoofdmenu' !== $health['location'] || veryo_menus_need_repair();
+	return $health;
+}
+
+/**
+ * Alles herstellen: ontbrekende pagina's aanmaken, concepten van het thema publiceren,
+ * de Veryo-menu's opnieuw vullen en aan hoofdmenu en footer koppelen.
+ *
+ * @return array<string,mixed> Verslag zoals veryo_run_setup().
+ */
+function veryo_repair_site() {
+	$published = array();
+	foreach ( veryo_content_pages() as $path => $def ) {
+		$page = veryo_find_page( $path );
+		if ( $page && in_array( $page->post_status, array( 'draft', 'pending', 'private' ), true ) ) {
+			wp_update_post(
+				array(
+					'ID'          => $page->ID,
+					'post_status' => 'publish',
+				)
+			);
+			$published[] = '' === $path ? '/' : '/' . $path . '/';
+		}
+	}
+	$report = veryo_run_setup();
+	$ids    = array();
+	foreach ( array_keys( veryo_content_pages() ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page ) {
+			$ids[ $path ] = $page->ID;
+		}
+	}
+	$locations = get_theme_mod( 'nav_menu_locations', array() );
+	$locations = is_array( $locations ) ? $locations : array();
+	foreach ( veryo_menu_definitions() as $location => $menu ) {
+		$object  = wp_get_nav_menu_object( $menu['name'] );
+		$menu_id = $object ? (int) $object->term_id : wp_create_nav_menu( $menu['name'] );
+		if ( is_wp_error( $menu_id ) ) {
+			continue;
+		}
+		foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
+			wp_delete_post( $item->ID, true );
+		}
+		veryo_add_menu_items( $menu_id, $menu['items'], $ids );
+		$locations[ $location ] = $menu_id;
+	}
+	set_theme_mod( 'nav_menu_locations', $locations );
+	if ( $published ) {
+		/* translators: %s: lijst met pagina's. */
+		$report['messages'][] = sprintf( __( 'Weer gepubliceerd (stonden als concept): %s', 'veryo' ), implode( ', ', $published ) );
+	}
+	$report['messages'][] = __( 'Hoofdmenu en footer opnieuw gevuld en gekoppeld.', 'veryo' );
+	return $report;
+}
+
+/**
+ * Knop: alles herstellen.
+ */
+function veryo_handle_repair_site() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Geen toegang.', 'veryo' ) );
+	}
+	check_admin_referer( 'veryo_repair_site' );
+	$report = veryo_repair_site();
+	set_transient( 'veryo_setup_ran_' . get_current_user_id(), $report, MINUTE_IN_SECONDS );
+	wp_safe_redirect( admin_url( 'tools.php?page=veryo-content' ) );
+	exit;
+}
+add_action( 'admin_post_veryo_repair_site', 'veryo_handle_repair_site' );
+
+/**
+ * Formulier met de herstelknop.
+ *
+ * @param string $label Tekst op de knop.
+ */
+function veryo_repair_button( $label ) {
+	?>
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0 0 10px">
+		<input type="hidden" name="action" value="veryo_repair_site">
+		<?php wp_nonce_field( 'veryo_repair_site' ); ?>
+		<?php submit_button( $label, 'primary', 'submit', false ); ?>
+	</form>
+	<?php
+}
+
+/**
+ * Melding met één knop als pagina's of het menu niet in orde zijn. Een thema opnieuw
+ * uploaden maakt in WordPress geen pagina's of menu's aan; deze knop wel.
  */
 function veryo_missing_pages_notice() {
 	if ( ! current_user_can( 'manage_options' ) ) {
@@ -171,32 +299,36 @@ function veryo_missing_pages_notice() {
 	if ( ! $screen || ! in_array( $screen->id, array( 'dashboard', 'themes', 'edit-page', 'upload', 'nav-menus', 'tools_page_veryo-content' ), true ) ) {
 		return;
 	}
-	$missing = veryo_missing_pages();
-	$menus   = ! $missing && veryo_menus_need_repair();
-	if ( ! $missing && ! $menus ) {
+	$health = veryo_site_health();
+	if ( ! $health['repair'] ) {
 		return;
 	}
 	?>
 	<div class="notice notice-warning">
-		<p>
-			<?php if ( $missing ) : ?>
-				<strong>
+		<p><strong><?php esc_html_e( 'Veryo: de website is niet compleet.', 'veryo' ); ?></strong></p>
+		<ul style="list-style:disc;padding-left:20px">
+			<?php if ( $health['missing'] ) : ?>
+				<li>
 					<?php
 					/* translators: %d: aantal pagina's. */
-					echo esc_html( sprintf( _n( 'Veryo: %d pagina van de website ontbreekt.', 'Veryo: %d pagina’s van de website ontbreken.', count( $missing ), 'veryo' ), count( $missing ) ) );
+					echo esc_html( sprintf( _n( '%d pagina ontbreekt.', '%d pagina’s ontbreken.', count( $health['missing'] ), 'veryo' ), count( $health['missing'] ) ) );
 					?>
-				</strong>
-				<?php esc_html_e( 'Klik op de knop om ze opnieuw aan te maken, met foto’s. Bestaande pagina’s blijven zoals ze zijn.', 'veryo' ); ?>
-			<?php else : ?>
-				<strong><?php esc_html_e( 'Veryo: het menu is onvolledig.', 'veryo' ); ?></strong>
-				<?php esc_html_e( 'Het verwijst nog naar pagina’s die verwijderd zijn. Klik op de knop om het hoofdmenu en de footer te herstellen.', 'veryo' ); ?>
+				</li>
 			<?php endif; ?>
-		</p>
-		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0 0 10px">
-			<input type="hidden" name="action" value="veryo_rerun_setup">
-			<?php wp_nonce_field( 'veryo_rerun_setup' ); ?>
-			<?php submit_button( $missing ? __( 'Ontbrekende pagina’s aanmaken', 'veryo' ) : __( 'Menu herstellen', 'veryo' ), 'primary', 'submit', false ); ?>
-		</form>
+			<?php if ( $health['drafts'] ) : ?>
+				<li>
+					<?php
+					/* translators: %d: aantal pagina's. */
+					echo esc_html( sprintf( _n( '%d pagina staat als concept (bijvoorbeeld na terugzetten uit de prullenbak) en is dus onzichtbaar, ook in het menu.', '%d pagina’s staan als concept (bijvoorbeeld na terugzetten uit de prullenbak) en zijn dus onzichtbaar, ook in het menu.', count( $health['drafts'] ), 'veryo' ), count( $health['drafts'] ) ) );
+					?>
+				</li>
+			<?php endif; ?>
+			<?php if ( 'Veryo hoofdmenu' !== $health['location'] || veryo_menus_need_repair() ) : ?>
+				<li><?php esc_html_e( 'Het hoofdmenu is onvolledig of niet gekoppeld.', 'veryo' ); ?></li>
+			<?php endif; ?>
+		</ul>
+		<p><?php esc_html_e( 'Eén klik zet alles recht: ontbrekende pagina’s komen terug, concepten van het thema worden gepubliceerd en het hoofdmenu en de footer worden opnieuw gevuld. Je eigen teksten blijven staan.', 'veryo' ); ?></p>
+		<?php veryo_repair_button( __( 'Website herstellen', 'veryo' ) ); ?>
 	</div>
 	<?php
 }
