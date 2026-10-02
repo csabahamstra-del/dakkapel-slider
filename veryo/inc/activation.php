@@ -447,12 +447,11 @@ function veryo_add_menu_items( $menu_id, $items, $ids, $parent_item = 0 ) {
 }
 
 /**
- * Hoofd- en footermenu aanmaken (alleen als ze nog niet bestaan) en aan locaties koppelen.
+ * Opbouw van het Veryo-hoofdmenu en de Veryo-footer.
  *
- * @param array<string,int>   $ids    Pagina-ID's.
- * @param array<string,mixed> $report Verslag.
+ * @return array<string,array<string,mixed>> Locatie => naam en items.
  */
-function veryo_setup_menus( $ids, &$report ) {
+function veryo_menu_definitions() {
 	$branches = array(
 		array( __( 'Installatietechniek', 'veryo' ), 'branches/installatie' ),
 		array( __( 'Bouw en aannemerij', 'veryo' ), 'branches/bouw' ),
@@ -556,6 +555,17 @@ function veryo_setup_menus( $ids, &$report ) {
 			),
 		),
 	);
+	return $menus;
+}
+
+/**
+ * Hoofd- en footermenu aanmaken (alleen als ze nog niet bestaan) en aan locaties koppelen.
+ *
+ * @param array<string,int>   $ids    Pagina-ID's.
+ * @param array<string,mixed> $report Verslag.
+ */
+function veryo_setup_menus( $ids, &$report ) {
+	$menus = veryo_menu_definitions();
 
 	$locations = get_theme_mod( 'nav_menu_locations', array() );
 	$locations = is_array( $locations ) ? $locations : array();
@@ -587,6 +597,29 @@ function veryo_setup_menus( $ids, &$report ) {
 		}
 	}
 	set_theme_mod( 'nav_menu_locations', $locations );
+}
+
+/**
+ * Of een van de Veryo-menu's naar pagina's verwijst die er niet meer zijn, terwijl die
+ * pagina's wel (opnieuw) bestaan.
+ *
+ * @return bool
+ */
+function veryo_menus_need_repair() {
+	$ids = array();
+	foreach ( array_keys( veryo_content_pages() ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page ) {
+			$ids[ $path ] = $page->ID;
+		}
+	}
+	foreach ( veryo_menu_definitions() as $menu ) {
+		$object = wp_get_nav_menu_object( $menu['name'] );
+		if ( $object && veryo_menu_is_broken( (int) $object->term_id, $menu['items'], $ids ) ) {
+			return true;
+		}
+	}
+	return false;
 }
 
 /**

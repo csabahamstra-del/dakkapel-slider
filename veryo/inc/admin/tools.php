@@ -168,28 +168,34 @@ function veryo_missing_pages_notice() {
 		return;
 	}
 	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
-	if ( ! $screen || ! in_array( $screen->id, array( 'dashboard', 'themes', 'edit-page', 'upload', 'tools_page_veryo-content' ), true ) ) {
+	if ( ! $screen || ! in_array( $screen->id, array( 'dashboard', 'themes', 'edit-page', 'upload', 'nav-menus', 'tools_page_veryo-content' ), true ) ) {
 		return;
 	}
 	$missing = veryo_missing_pages();
-	if ( ! $missing ) {
+	$menus   = ! $missing && veryo_menus_need_repair();
+	if ( ! $missing && ! $menus ) {
 		return;
 	}
 	?>
 	<div class="notice notice-warning">
 		<p>
-			<strong>
-				<?php
-				/* translators: %d: aantal pagina's. */
-				echo esc_html( sprintf( _n( 'Veryo: %d pagina van de website ontbreekt.', 'Veryo: %d pagina’s van de website ontbreken.', count( $missing ), 'veryo' ), count( $missing ) ) );
-				?>
-			</strong>
-			<?php esc_html_e( 'Klik op de knop om ze opnieuw aan te maken, met foto’s. Bestaande pagina’s blijven zoals ze zijn.', 'veryo' ); ?>
+			<?php if ( $missing ) : ?>
+				<strong>
+					<?php
+					/* translators: %d: aantal pagina's. */
+					echo esc_html( sprintf( _n( 'Veryo: %d pagina van de website ontbreekt.', 'Veryo: %d pagina’s van de website ontbreken.', count( $missing ), 'veryo' ), count( $missing ) ) );
+					?>
+				</strong>
+				<?php esc_html_e( 'Klik op de knop om ze opnieuw aan te maken, met foto’s. Bestaande pagina’s blijven zoals ze zijn.', 'veryo' ); ?>
+			<?php else : ?>
+				<strong><?php esc_html_e( 'Veryo: het menu is onvolledig.', 'veryo' ); ?></strong>
+				<?php esc_html_e( 'Het verwijst nog naar pagina’s die verwijderd zijn. Klik op de knop om het hoofdmenu en de footer te herstellen.', 'veryo' ); ?>
+			<?php endif; ?>
 		</p>
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin:0 0 10px">
 			<input type="hidden" name="action" value="veryo_rerun_setup">
 			<?php wp_nonce_field( 'veryo_rerun_setup' ); ?>
-			<?php submit_button( __( 'Ontbrekende pagina’s aanmaken', 'veryo' ), 'primary', 'submit', false ); ?>
+			<?php submit_button( $missing ? __( 'Ontbrekende pagina’s aanmaken', 'veryo' ) : __( 'Menu herstellen', 'veryo' ), 'primary', 'submit', false ); ?>
 		</form>
 	</div>
 	<?php
