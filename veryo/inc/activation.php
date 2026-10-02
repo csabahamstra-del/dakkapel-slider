@@ -418,8 +418,9 @@ function veryo_block_fingerprint( $block ) {
  * @param array<int,array<int,string>> $items    Items: array( label, pad of '#' ), of array( label, pad, children[] ).
  * @param array<string,int>            $ids      Pagina-ID's per pad.
  * @param int                          $parent_item Parent menu-item.
+ * @param array<int,string>|null       $errors Foutmeldingen (optioneel).
  */
-function veryo_add_menu_items( $menu_id, $items, $ids, $parent_item = 0 ) {
+function veryo_add_menu_items( $menu_id, $items, $ids, $parent_item = 0, &$errors = null ) {
 	$position = 0;
 	foreach ( $items as $item ) {
 		++$position;
@@ -440,8 +441,14 @@ function veryo_add_menu_items( $menu_id, $items, $ids, $parent_item = 0 ) {
 			$args['menu-item-url']  = '#' === $path ? '#' : home_url( '/' . $path . '/' );
 		}
 		$item_id = wp_update_nav_menu_item( $menu_id, 0, $args );
-		if ( ! is_wp_error( $item_id ) && ! empty( $item[2] ) ) {
-			veryo_add_menu_items( $menu_id, $item[2], $ids, $item_id );
+		if ( is_wp_error( $item_id ) ) {
+			if ( is_array( $errors ) ) {
+				$errors[] = $label . ': ' . $item_id->get_error_message();
+			}
+			continue;
+		}
+		if ( ! empty( $item[2] ) ) {
+			veryo_add_menu_items( $menu_id, $item[2], $ids, $item_id, $errors );
 		}
 	}
 }

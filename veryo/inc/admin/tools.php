@@ -245,8 +245,15 @@ function veryo_repair_site() {
 		foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
 			wp_delete_post( $item->ID, true );
 		}
-		veryo_add_menu_items( $menu_id, $menu['items'], $ids );
+		$errors = array();
+		veryo_add_menu_items( $menu_id, $menu['items'], $ids, 0, $errors );
 		$locations[ $location ] = $menu_id;
+		wp_cache_delete( 'last_changed', 'posts' );
+		/* translators: 1: menunaam, 2: aantal items. */
+		$report['messages'][] = sprintf( __( '%1$s: %2$d items.', 'veryo' ), $menu['name'], count( (array) wp_get_nav_menu_items( $menu_id ) ) );
+		foreach ( $errors as $error ) {
+			$report['messages'][] = __( 'Fout bij menu-item', 'veryo' ) . ' ' . $error;
+		}
 	}
 	set_theme_mod( 'nav_menu_locations', $locations );
 	if ( $published ) {
