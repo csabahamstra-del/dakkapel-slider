@@ -32,6 +32,19 @@ function veryo_photo_library() {
 		'woning'       => __( 'Woning', 'veryo' ),
 		'werkplaats'   => __( 'Werkplaats', 'veryo' ),
 		'landschap'    => __( 'Landschap in Noord-Nederland', 'veryo' ),
+		'werkplek'     => __( 'Werkplekken met beeldschermen op kantoor', 'veryo' ),
+	);
+}
+
+/**
+ * Sleutels die dezelfde foto gebruiken als een andere sleutel (zo staat een foto maar één keer
+ * in de mediabibliotheek).
+ *
+ * @return array<string,string>
+ */
+function veryo_photo_aliases() {
+	return array(
+		'training' => 'team',
 	);
 }
 
@@ -100,7 +113,10 @@ function veryo_import_photos() {
  */
 function veryo_photo_id( $key ) {
 	$ids = get_option( 'veryo_photo_ids', array() );
-	$id  = is_array( $ids ) && ! empty( $ids[ $key ] ) ? (int) $ids[ $key ] : 0;
+	if ( ( ! is_array( $ids ) || empty( $ids[ $key ] ) ) && isset( veryo_photo_aliases()[ $key ] ) ) {
+		$key = veryo_photo_aliases()[ $key ];
+	}
+	$id = is_array( $ids ) && ! empty( $ids[ $key ] ) ? (int) $ids[ $key ] : 0;
 	return ( $id && wp_attachment_is_image( $id ) ) ? $id : 0;
 }
 
@@ -110,20 +126,36 @@ function veryo_photo_id( $key ) {
  * @param int    $id    Attachment-ID.
  * @param string $alt   Alt-tekst (per pagina, met het zoekwoord).
  * @param string $css_class Extra class.
+ * @param string $align     Uitlijning: '' of 'wide'.
  * @return string
  */
-function veryo_b_image( $id, $alt, $css_class = 'veryo-img' ) {
-	$src   = wp_get_attachment_image_src( $id, 'large' );
+function veryo_b_image( $id, $alt, $css_class = 'veryo-img', $align = '' ) {
+	$size  = 'wide' === $align ? 'full' : 'large';
+	$src   = wp_get_attachment_image_src( $id, $size );
 	$url   = $src ? $src[0] : (string) wp_get_attachment_url( $id );
-	$attrs = array(
-		'id'              => $id,
-		'sizeSlug'        => 'large',
-		'linkDestination' => 'none',
-		'className'       => $css_class,
-	);
+	$attrs = array( 'id' => $id );
+	if ( $align ) {
+		$attrs['align'] = $align;
+	}
+	$attrs['sizeSlug']        = $size;
+	$attrs['linkDestination'] = 'none';
+	$attrs['className']       = $css_class;
+	$classes                  = 'wp-block-image' . ( $align ? ' align' . $align : '' ) . ' size-' . $size . ' ' . $css_class;
 	return veryo_b(
 		'image',
 		$attrs,
-		'<figure class="wp-block-image size-large ' . esc_attr( $css_class ) . '"><img src="' . esc_url( $url ) . '" alt="' . esc_attr( $alt ) . '" class="wp-image-' . (int) $id . '"/></figure>'
+		'<figure class="' . esc_attr( $classes ) . '"><img src="' . esc_url( $url ) . '" alt="' . esc_attr( $alt ) . '" class="wp-image-' . (int) $id . '"/></figure>'
 	);
 }
+
+/**
+ * Foto's in de pagina-inhoud staan in dit thema nooit in de hero (de kop is het grootste element
+ * bovenaan). WordPress laadt de eerste afbeeldingen standaard direct en met hoge prioriteit; hier
+ * laden ze allemaal pas als ze in beeld komen, zodat de kop sneller verschijnt.
+ *
+ * @return int
+ */
+function veryo_lazy_all_content_images() {
+	return 0;
+}
+add_filter( 'wp_omit_loading_attr_threshold', 'veryo_lazy_all_content_images' );

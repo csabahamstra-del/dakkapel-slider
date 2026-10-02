@@ -630,6 +630,9 @@ strong { font-weight: 650; }
 .veryo-img img { aspect-ratio: 16 / 9; object-fit: cover; }
 .entry-content > .veryo-img { max-width: var(--wide); }
 @media (min-width: 1024px) { .entry-content > .veryo-img { max-width: 880px; } }
+.entry-content > .veryo-img--wide { max-width: var(--wide); margin-top: var(--s6); }
+.veryo-img--wide img { aspect-ratio: 21 / 9; }
+@media (max-width: 767px) { .veryo-img--wide img { aspect-ratio: 4 / 3; } }
 .wp-block-image figcaption { margin-top: 8px; font-size: .875rem; color: var(--ink-muted); }
 
 

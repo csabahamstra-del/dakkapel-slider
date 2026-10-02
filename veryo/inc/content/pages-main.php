@@ -18,7 +18,7 @@ $veryo_home_faq = array(
 	array( __( 'Werken jullie ook buiten Noord-Nederland?', 'veryo' ), __( 'Ja. We zitten in Leeuwarden en komen in Friesland, Groningen en Drenthe op locatie. Trainingen en online diensten doen we ook in de rest van Nederland, op locatie of online.', 'veryo' ) ),
 );
 
-$veryo_home  = veryo_sec_hero(
+$veryo_home       = veryo_sec_hero(
 	__( 'AI die echt werkt.', 'veryo' ),
 	__( 'Je onafhankelijke AI-partner in Noord-Nederland. We zoeken uit welke AI bij jouw bedrijf past, richten het in en leren je team ermee werken.', 'veryo' ),
 	array(
@@ -28,8 +28,8 @@ $veryo_home  = veryo_sec_hero(
 	veryo_sec_founder_row(),
 	'veryo-hero--home'
 );
-$veryo_home .= veryo_sec_marquee();
-$veryo_home .= veryo_sec_wide(
+$veryo_home      .= veryo_sec_marquee();
+$veryo_home      .= veryo_sec_wide(
 	veryo_b_columns(
 		array(
 			array(
@@ -47,6 +47,10 @@ $veryo_home .= veryo_sec_wide(
 	),
 	'veryo-intro veryo-intro-split'
 );
+$veryo_home_photo = veryo_photo_id( 'team' );
+if ( $veryo_home_photo ) {
+	$veryo_home .= veryo_b_image( $veryo_home_photo, __( 'AI-bureau voor het MKB: team aan tafel aan het werk met laptops', 'veryo' ), 'veryo-img veryo-img--wide', 'wide' );
+}
 $veryo_home .= veryo_sec_contrast();
 $veryo_home .= veryo_sec_startpakket( __( 'Het Veryo AI-Startpakket', 'veryo' ), __( 'Medewerkers gebruiken ChatGPT al op eigen houtje en niemand weet wat er wordt ingevoerd. Met het AI-Startpakket zet je het in één keer goed neer: vijf onderdelen, vaste prijs, vanaf €1.995.', 'veryo' ) );
 $veryo_home .= veryo_sec_pillars();

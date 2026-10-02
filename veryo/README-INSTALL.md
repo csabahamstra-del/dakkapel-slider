@@ -69,10 +69,8 @@ Zorg dat het e-mailadres in de bedrijfsgegevens een echt adres op je eigen domei
 Op de site staat nergens een `[VUL IN]`- of `[FOTO]`-plek of iets dat op "under construction" lijkt, ook niet als je ingelogd bent. De site is klaar voor publicatie. Wat je later nog kunt toevoegen (overzicht onder **Extra > Veryo-inhoud**):
 
 - **Cases en reviews** (homepage en Over Veryo): het blok is verborgen tot je onder **Instellingen > Veryo** "Toon cases en reviews" aanzet. Vul het eerst met een echte klantcase en review, met toestemming.
-- **Foto's**: de pagina's hebben nu geen foto's. Je kunt er twee manieren voor gebruiken:
-  - in de editor een afbeeldingsblok toevoegen waar je wilt (geef het een alt-tekst met het zoekwoord van de pagina);
-  - of foto's als `assets/images/photos/{sleutel}.webp` in het thema zetten (sleutels en bronvermelding in `assets/images/photos/CREDITS.md`). Bij een nieuwe installatie komen ze dan automatisch op de juiste plekken.
-  Een echte foto van jezelf op Over Veryo werkt goed voor vertrouwen.
+- **Foto's**: vijf foto's staan in het thema (`assets/images/photos/`) en komen bij activeren vanzelf in de mediabibliotheek: op de homepage (breed, onder de inleiding) en op de pagina's over training, het Startpakket, implementatie, AI-partner, automatisering, AI op maat, de Academy, AI-agents, veilig AI-gebruik en de AI-werkplek. Welke foto waar staat, en welke plekken nog geen foto hebben (branches, regio's), lees je in `assets/images/photos/CREDITS.md`. Vul daar ook de bron en licentie van de foto's aan. Een foto vervangen: in de editor, of een nieuw bestand met dezelfde naam in die map zetten (geldt voor nieuwe installaties).
+  Had je het thema al actief? Klik dan op **Extra > Veryo-inhoud > Pagina's bijwerken**: dat zet de foto's in de mediabibliotheek en plaatst ze op de pagina's die je niet zelf hebt aangepast.
 - **Blogconcepten** (17, status concept): per kop staat de opzet. Schrijf ze uit en controleer actuele voorwaarden, prijzen en regelingen (SLIM, WBSO) voor je publiceert.
 - **LinkedIn en Instagram**: vul de URL's in onder **Instellingen > Veryo** zodra ze er zijn.
 - **Foto van jezelf**: kies onder **Instellingen > Veryo > Foto oprichter** een portret. Het verschijnt onder de hero, naast je citaat op de homepage, op Over Veryo en op Contact. Zonder foto staat er een vormgegeven merkvlak met je naam (geen lege plek).

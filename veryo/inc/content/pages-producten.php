@@ -119,6 +119,7 @@ $veryo_partner .= veryo_sec_text(
 		__( 'Een eigen AI-specialist aannemen is voor een bedrijf met tien of twintig mensen te veel. Met een AI-partner heb je wel iemand die meedenkt, bijhoudt wat er verandert en zorgt dat het niet stilvalt.', 'veryo' ),
 	)
 );
+$veryo_partner .= veryo_sec_photo( __( 'maandelijks overleg aan tafel met laptops', 'veryo' ), __( 'AI-partner voor het MKB: maandelijks overleg met het team', 'veryo' ), 'overleg' );
 $veryo_partner .= veryo_sec_text(
 	__( 'Wat zit er in het AI-partner-abonnement?', 'veryo' ),
 	array( __( 'AI-partner bundelt de drie losse abonnementen en voegt er uren en overleg aan toe.', 'veryo' ) ),

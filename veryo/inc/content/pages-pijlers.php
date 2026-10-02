@@ -20,6 +20,7 @@ $veryo_werkplek = veryo_page_standard(
 				__( 'Ten eerste de licenties: wie heeft welke nodig, en wat zit er al in je huidige abonnement? Ten tweede de rechten. Copilot ziet alles wat een medewerker mag zien. Staat de map met salarissen of klantcontracten voor iedereen open, dan vindt de AI die ook, en vat hem desgevraagd samen. Ten derde het gebruik: zonder uitleg probeert de helft van het team het één keer, en dan nooit meer.', 'veryo' ),
 			),
 		),
+		'photo'       => array( __( 'werkplekken met beeldschermen op kantoor', 'veryo' ), __( 'Copilot inrichten in het MKB: de AI-werkplek op kantoor', 'veryo' ), 'werkplek' ),
 		'sections'    => array(
 			array(
 				'h'     => __( 'Wat we doen als we Copilot inrichten voor het MKB', 'veryo' ),
@@ -90,6 +91,7 @@ $veryo_agents = veryo_page_standard(
 				__( 'Daar zijn AI-agents voor. Een agent leest, beoordeelt en voert een paar stappen uit in je eigen systemen. Hij doet het voorbereidende werk, en een mens keurt goed wat ertoe doet.', 'veryo' ),
 			),
 		),
+		'photo'       => array( __( 'twee medewerkers aan het werk achter hun beeldschermen', 'veryo' ), __( 'AI-agents voor bedrijven: digitale collega’s naast je team', 'veryo' ), 'laptop' ),
 		'approach'    => true,
 		'catalog'     => array(
 			'h'   => __( 'Wat een digitale collega voor je kan doen', 'veryo' ),
@@ -156,6 +158,7 @@ $veryo_veilig = veryo_page_standard(
 				__( 'Verbieden werkt meestal niet; dan gebeurt het stiekem. Beter is duidelijk maken wat wel mag, met welke tools, en de basis zo regelen dat een fout niet meteen een datalek is.', 'veryo' ),
 			),
 		),
+		'photo'       => array( __( 'team aan het werk op kantoor met beeldschermen', 'veryo' ), __( 'Veilig AI gebruiken in je bedrijf: team op kantoor', 'veryo' ), 'kantoor' ),
 		'sections'    => array(
 			array(
 				'h'     => __( 'Wat we bekijken in de AI-veiligheidscheck', 'veryo' ),

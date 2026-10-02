@@ -292,7 +292,8 @@
 					'.veryo-price-table li',
 					'.is-style-ladder li',
 					'.veryo-why .is-style-checks li',
-					'.is-style-catalog li'
+					'.is-style-catalog li',
+					'.entry-content .veryo-img'
 				];
 				groups.forEach( function ( selector ) {
 					var items = Array.prototype.filter.call( document.querySelectorAll( selector ), function ( el ) {
