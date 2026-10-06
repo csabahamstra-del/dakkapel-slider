@@ -1,6 +1,6 @@
 # Werkbon MASTER – 3. Foutafhandeling
 
-Make-scenario `9928120` in map "Veryo Werkbon – MASTER". Trigger: webhook **Werkbon MASTER – Fout gemeld** (`https://hook.eu2.make.com/ffl3vy601dmpdcy84ftdwbbfinsey1fj`). Planning: direct (instant).
+Make-scenario `9928120` in map "Veryo Werkbon – MASTER". Trigger: webhook **Werkbon MASTER – Fout gemeld**. Planning: direct (instant).
 
 ## Wat het doet
 
