@@ -5,97 +5,31 @@ Eén base per klant, gedupliceerd van de template-base. Tabel- en veldnamen zijn
 - Template-base: `appcPcWnVzejmyDcr` (workspace `wspnZBjvrrUYqKb3q`)
 - Configuratie-record in de template: `recXKTc6lu8J7LvX2`
 
-Alle gewone velden en koppelvelden zijn via de API aangemaakt. Formule-, lookup- en rollupvelden kan de Airtable-API niet aanmaken: die staan hieronder als **handmatig** en moeten één keer in de template worden toegevoegd. Daarna gaan ze bij dupliceren vanzelf mee.
+Alle velden zijn via de API aangemaakt; er zijn geen handmatige stappen nodig. Bedragen zijn gewone getal-/valutavelden die **Make** berekent (geen Airtable-formules: die kan de API niet aanmaken).
 
-## Handmatige stappen (eenmalig in de template)
+## Berekeningen (in Make, nooit door de AI)
 
-### 1. Koppelvelden op "één record" zetten
+| Waar            | Veld                                                           | Berekening                                                                                                               |
+| --------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Urenregels      | Uren                                                           | `Uren (op bon)` als ingevuld, anders (eindtijd − starttijd, +24 u als over middernacht) − pauze, afgerond op 2 decimalen |
+| Urenregels      | Tarief toegepast                                               | Tarief uit de link `Tarief`; anders standaardtarief van de `Monteur`; anders `Standaard uurtarief` uit Configuratie      |
+| Urenregels      | Bedrag                                                         | Uren × Tarief toegepast, afgerond op centen                                                                              |
+| Materiaalregels | Prijs, Btw %                                                   | Uit het gematchte artikel (op moment van intake); `Prijs override` gaat voor                                             |
+| Materiaalregels | Bedrag                                                         | Aantal × (Prijs override of Prijs), afgerond op centen                                                                   |
+| Werkbonnen      | Reistijd bedrag                                                | Reistijd uren × tarief van `Reistijdtarief` (anders `Standaard reistijdtarief` uit Configuratie)                         |
+| Werkbonnen      | Totaal uren, Totaal arbeid, Totaal materiaal, Totaal excl. btw | Sommen over de regels                                                                                                    |
 
-Open het veld → _Edit field_ → zet **Allow linking to multiple records** uit:
-
-- Werkbonnen: `Gematchte klant`, `Reistijdtarief`
-- Urenregels: `Werkbon`, `Monteur`, `Tarief`
-- Materiaalregels: `Werkbon`, `Gematcht artikel`
-- Monteurs: `Standaardtarief`
-- Configuratie: `Standaard reistijdtarief`
-
-### 2. Lookup-, rollup- en formulevelden
-
-Voeg ze in deze volgorde toe (latere velden gebruiken eerdere).
-
-**Monteurs**
-
-| Veld                   | Type   | Instelling                       |
-| ---------------------- | ------ | -------------------------------- |
-| Standaardtarief bedrag | Lookup | Standaardtarief → Bedrag per uur |
-
-**Urenregels**
-
-| Veld                    | Type    | Instelling                                                                                                                                                                               |
-| ----------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tarief bedrag (gekozen) | Lookup  | Tarief → Bedrag per uur                                                                                                                                                                  |
-| Tarief bedrag (monteur) | Lookup  | Monteur → Standaardtarief bedrag                                                                                                                                                         |
-| Uren                    | Formule | zie onder                                                                                                                                                                                |
-| Tarief toegepast        | Formule | `IF(SUM({Tarief bedrag (gekozen)}), SUM({Tarief bedrag (gekozen)}), IF(SUM({Tarief bedrag (monteur)}), SUM({Tarief bedrag (monteur)}), {Tarief bedrag (standaard)}))` — opmaak: valuta € |
-| Bedrag                  | Formule | `ROUND({Uren} * {Tarief toegepast}, 2)` — opmaak: valuta €                                                                                                                               |
-
-Formule **Uren** (gebruikt `Uren (op bon)` als die is ingevuld, anders eind − start − pauze; over middernacht telt +24 uur):
-
-```
-IF(
-  {Uren (op bon)} != BLANK(),
-  {Uren (op bon)},
-  IF(
-    AND({Starttijd}, {Eindtijd}),
-    ROUND(
-      MOD(
-        (VALUE(REGEX_EXTRACT({Eindtijd}, "^\\d+")) * 60 + VALUE(REGEX_EXTRACT({Eindtijd}, "\\d+$")))
-        - (VALUE(REGEX_EXTRACT({Starttijd}, "^\\d+")) * 60 + VALUE(REGEX_EXTRACT({Starttijd}, "\\d+$")))
-        + 1440,
-        1440
-      ) / 60
-      - IF({Pauze (min)}, {Pauze (min)}, 0) / 60,
-      2
-    )
-  )
-)
-```
-
-**Materiaalregels**
-
-| Veld            | Type    | Instelling                                                                   |
-| --------------- | ------- | ---------------------------------------------------------------------------- |
-| Prijs           | Lookup  | Gematcht artikel → Verkoopprijs                                              |
-| Btw %           | Lookup  | Gematcht artikel → Btw %                                                     |
-| Prijs toegepast | Formule | `IF({Prijs override} != BLANK(), {Prijs override}, SUM({Prijs}))` — valuta € |
-| Bedrag          | Formule | `ROUND({Aantal} * {Prijs toegepast}, 2)` — valuta €                          |
-
-**Werkbonnen**
-
-| Veld                  | Type         | Instelling                                                            |
-| --------------------- | ------------ | --------------------------------------------------------------------- |
-| Klant ERP-ID          | Lookup       | Gematchte klant → ERP klant-ID                                        |
-| Reistijdtarief bedrag | Lookup       | Reistijdtarief → Bedrag per uur                                       |
-| Reistijd bedrag       | Formule      | `ROUND({Reistijd uren} * SUM({Reistijdtarief bedrag}), 2)` — valuta € |
-| Totaal uren           | Rollup       | Urenregels → Uren, `SUM(values)`                                      |
-| Totaal arbeid         | Rollup       | Urenregels → Bedrag, `SUM(values)` — valuta €                         |
-| Totaal materiaal      | Rollup       | Materiaalregels → Bedrag, `SUM(values)` — valuta €                    |
-| Totaal excl. btw      | Formule      | `{Totaal arbeid} + {Totaal materiaal} + {Reistijd bedrag}` — valuta € |
-| Aangemaakt            | Created time | —                                                                     |
-
-### 3. Kleuren (optioneel)
-
-Status: Ontvangen grijs · In review geel · Goedgekeurd groen · Afgekeurd rood · Geëxporteerd blauw · Fout rood.
+Scenario 1 vult deze velden bij intake. Scenario 2 rekent ze bij goedkeuring **opnieuw** uit op basis van de (eventueel door kantoor aangepaste) regels en schrijft de nieuwe waarden terug vóór de export. Het reviewscherm kan dus achterlopen als kantoor iets wijzigt; de export klopt altijd.
 
 ## Tabellen (via API aangemaakt)
 
-**Werkbonnen** — Werkbon (primair, door Make gevuld) · Status · Ontvangen op · Afzender · Onderwerp mail · Bijlage · Bestands-hash · Alle hashes · Werkbonnummer · Datum · Klantnaam (op bon) · Adres (op bon) · Gematchte klant → Klanten · Klantmatch zeker · Werkzaamheden · Samenvatting · Opmerkingen · Reistijd (op bon) · Reistijd uren · Reistijdtarief → Tarieven · Handtekening aanwezig · Vervolgactie nodig · Toelichting vervolgactie · Confidence · Flags · Twijfelpunten · Ruwe AI-output · Reden afkeuring · Export-ID · Exportlink · Foutmelding · Urenregels · Materiaalregels
+**Werkbonnen** — Werkbon (primair, door Make gevuld) · Status · Ontvangen op · Afzender · Onderwerp mail · Bijlage · Bestands-hash · Alle hashes · Werkbonnummer · Datum · Klantnaam (op bon) · Adres (op bon) · Gematchte klant → Klanten · Klantmatch zeker · Werkzaamheden · Samenvatting · Opmerkingen · Reistijd (op bon) · Reistijd uren · Reistijdtarief → Tarieven · Handtekening aanwezig · Vervolgactie nodig · Toelichting vervolgactie · Confidence · Flags · Twijfelpunten · Ruwe AI-output · Reden afkeuring · Export-ID · Exportlink · Foutmelding · Urenregels · Materiaalregels · Totaal uren · Reistijd bedrag · Totaal arbeid · Totaal materiaal · Totaal excl. btw
 
 **Flags:** geen handtekening · uren ontbreken · uren boven maximum · materiaal onzeker · klant niet gevonden · klant onzeker · confidence laag · meerdere werkbonnen · geen werkbon · bestand te groot · onbekend bestandstype
 
-**Urenregels** — Regel (primair, door Make) · Werkbon · Monteur (op bon) · Monteur → Monteurs · Datum · Starttijd · Eindtijd · Pauze (min) · Uren (op bon) · Soort (op bon) · Tarief → Tarieven · Tarief bedrag (standaard) (door Make uit Configuratie)
+**Urenregels** — Regel (primair, door Make) · Werkbon · Monteur (op bon) · Monteur → Monteurs · Datum · Starttijd · Eindtijd · Pauze (min) · Uren (op bon) · Soort (op bon) · Tarief → Tarieven · Tarief bedrag (standaard) · Uren · Tarief toegepast · Bedrag
 
-**Materiaalregels** — Omschrijving (op bon) · Werkbon · Artikelnummer (op bon) · Aantal · Eenheid · Gematcht artikel → Artikelen · Match zeker · Prijs override
+**Materiaalregels** — Omschrijving (op bon) · Werkbon · Artikelnummer (op bon) · Aantal · Eenheid · Gematcht artikel → Artikelen · Match zeker · Prijs override · Prijs · Btw % · Bedrag
 
 **Klanten** — Naam · Adres · Postcode · Plaats · Klantnummer · ERP klant-ID · E-mail · Actief
 
@@ -106,12 +40,6 @@ Status: Ontvangen grijs · In review geel · Goedgekeurd groen · Afgekeurd rood
 **Tarieven** — Code · Omschrijving (factuurtekst) · Type (arbeid/reistijd) · Bedrag per uur · Btw % · Zoektermen · ERP artikel-ID · Actief. In de template staan voorbeeldtarieven NORMAAL, OVERWERK, ZATERDAG en REIS.
 
 **Configuratie** (precies één record) — Naam · Bedrijfsnaam · Standaard uurtarief · Btw % standaard · Max. uren per bon · Max. uren per monteur per dag · E-mail kantoor · E-mail beheerder · Exportmethode (CSV / Adapter) · Adapter webhook-URL · Google Drive map-ID · AI-model · Extra promptinstructies · Standaard reistijdtarief → Tarieven
-
-### Tariefkeuze per urenregel
-
-1. `Tarief` ingevuld (door AI uit de soort op de bon, of door kantoor) → dat tarief.
-2. Anders het standaardtarief van de gekoppelde monteur.
-3. Anders `Standaard uurtarief` uit Configuratie (door Make bij aanmaak in `Tarief bedrag (standaard)` gezet).
 
 ## Interface "Werkbon review"
 
