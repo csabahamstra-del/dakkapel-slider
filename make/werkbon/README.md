@@ -6,23 +6,27 @@ Monteurs mailen een foto of PDF van de werkbon naar een vast adres. Make leest d
 
 ## Bestanden
 
-| Bestand                                            | Inhoud                                                                   |
-| -------------------------------------------------- | ------------------------------------------------------------------------ |
-| [`airtable-template.md`](./airtable-template.md)   | Tabellen, velden, formules, Interface en automation van de template-base |
-| [`extractie-prompt.md`](./extractie-prompt.md)     | Prompt voor de Claude-aanroep in Scenario 1                              |
-| [`extractie-schema.json`](./extractie-schema.json) | JSON-schema voor `output_config.format` (structured output)              |
+| Bestand                                                            | Inhoud                                                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| [`airtable-template.md`](./airtable-template.md)                   | Tabellen, velden, formules, Interface en automation van de template-base |
+| [`extractie-prompt.md`](./extractie-prompt.md)                     | Prompt voor de Claude-aanroep in Scenario 1                              |
+| [`extractie-schema.json`](./extractie-schema.json)                 | JSON-schema voor `output_config.format` (structured output)              |
+| [`scenario-1a-intake.md`](./scenario-1a-intake.md)                 | Scenario 1a: mail ontvangen en opslaan                                   |
+| [`scenario-1b-uitlezen.md`](./scenario-1b-uitlezen.md)             | Scenario 1b: uitlezen met Claude                                         |
+| [`scenario-3-foutafhandeling.md`](./scenario-3-foutafhandeling.md) | Scenario 3: foutafhandeling                                              |
 
 ## Make-opzet
 
 - Zone `eu2.make.com`, team "My Team".
 - Map **Veryo Werkbon – MASTER** met de template-scenario's; per klant een map **Werkbon – {Klantnaam}** met kopieën.
-- Elk scenario begint met de module **Klantinstellingen** (Set multiple variables): `airtable_base_id`, `config_record_id`, `fout_webhook_url`, `klant`. Bij klonen alleen deze module en de koppelingen aanpassen. (Na de upgrade naar Teams kan dit naar teamvariabelen.)
+- Elk scenario begint met de module **Klantinstellingen** (Set multiple variables): `airtable_base_id`, `config_record_id`, `fout_webhook_url`, `klant` (1a ook `uitlezen_webhook_url`). Bij klonen alleen deze module en de koppelingen aanpassen. (Na de upgrade naar Teams kan dit naar teamvariabelen.)
 
-| Scenario                          | Trigger                       | Doet                                                                                  |
-| --------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------- |
-| Werkbon 1 · Intake en extractie   | Mailhook                      | Bijlagen opslaan, Claude uitlezen, valideren, record "In review", melding aan kantoor |
-| Werkbon 2 · Goedkeuring en export | Webhook (Airtable-automation) | Exportpakket (JSON + CSV) → CSV-mail of ERP-adapter, status "Geëxporteerd"            |
-| Werkbon 3 · Foutafhandeling       | Webhook (error-handlers)      | Status "Fout" + mail aan beheerder                                                    |
+| Scenario                          | Trigger                       | Doet                                                                                   |
+| --------------------------------- | ----------------------------- | -------------------------------------------------------------------------------------- |
+| Werkbon 1a · Intake               | Mailhook                      | Mail + bijlagen opslaan, duplicaatcontrole, start 1b                                   |
+| Werkbon 1b · Uitlezen             | Webhook (`record_id`)         | Claude uitlezen, valideren, bedragen rekenen, record "In review"; ook opnieuw uitlezen |
+| Werkbon 2 · Goedkeuring en export | Webhook (Airtable-automation) | Exportpakket (JSON + CSV) → CSV-mail of ERP-adapter, status "Geëxporteerd"             |
+| Werkbon 3 · Foutafhandeling       | Webhook (error-handlers)      | Status "Fout" + mail aan beheerder                                                     |
 
 Mail gaat via de algemene Email-module (SMTP). In de master is die koppeling leeg; per klant kies je de verzendende mailbox.
 
@@ -37,7 +41,7 @@ Scenario 2 is ERP-onafhankelijk. Het bouwt altijd hetzelfde exportpakket (klant 
 
 1. Airtable: dupliceer de template-base naar de workspace van de klant (of die van Veryo). Vul Configuratie, Tarieven, Monteurs, Klanten, Artikelen (CSV-import kan).
 2. Airtable: noteer de base-ID (`app…`) en het record-ID van Configuratie (`rec…`).
-3. Make: maak map "Werkbon – {Klant}", kloon de drie scenario's erin.
+3. Make: maak map "Werkbon – {Klant}", kloon de scenario's (1a, 1b, 2, 3) erin.
 4. Make: maak nieuwe Mailhook en webhooks voor de klonen (gekloonde scenario's delen anders de hooks van de master).
 5. Make: vul in elk scenario de module **Klantinstellingen**; koppel de Airtable-verbinding en de mailbox (SMTP) van de klant.
 6. ERP: kies `Exportmethode`; bij Adapter het adapter-scenario klonen/bouwen en de webhook-URL in Configuratie zetten.

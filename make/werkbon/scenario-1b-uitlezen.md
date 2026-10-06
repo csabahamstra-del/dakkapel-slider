@@ -1,6 +1,6 @@
 # Werkbon MASTER – 1b. Uitlezen
 
-Make-scenario `9928221` in map "Veryo Werkbon – MASTER". Trigger: webhook **Werkbon MASTER – Werkbon uitlezen** met JSON `{"record_id": "rec…"}`. Wordt aangeroepen door 1a (na opslaan van de bijlage) en kan handmatig opnieuw worden aangeroepen om een werkbon **opnieuw uit te lezen** (oude uren- en materiaalregels worden dan eerst verwijderd).
+Make-scenario `9928221` in map "Veryo Werkbon – MASTER". Trigger: webhook **Werkbon MASTER – Werkbon uitlezen** met JSON `{"record_id": "rec…"}`. Wordt aangeroepen door [1a](./scenario-1a-intake.md) (na opslaan van de bijlage) en kan handmatig opnieuw worden aangeroepen om een werkbon **opnieuw uit te lezen** (oude uren- en materiaalregels worden dan eerst verwijderd).
 
 ## Stappen
 
@@ -18,7 +18,7 @@ Make-scenario `9928221` in map "Veryo Werkbon – MASTER". Trigger: webhook **We
 9. Router:
    - **Urenregels**: uren berekenen (eind − start − pauze, over middernacht +24 u), tarief kiezen (soort op bon → standaardtarief monteur → standaard uurtarief), bedrag; in één keer opslaan.
    - **Materiaalregels**: artikel-ID controleren, prijs en btw uit Artikelen, bedrag; in één keer opslaan.
-   - **Afronden**: reistijdbedrag, totalen, flags → werkbon op **In review**.
+   - **Afronden**: reistijdbedrag, totalen, flags → werkbon op **In review** (een oude Foutmelding wordt leeggemaakt).
 
 Elke API-stap heeft een error-handler naar Scenario 3.
 
