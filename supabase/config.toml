@@ -1,0 +1,6 @@
+# Supabase CLI project config. Run `supabase init` to fill in the remaining defaults if needed.
+project_id = "veryo"
+
+[functions.inbound-email]
+# Mailgun cannot send a Supabase JWT; the function verifies the Mailgun signature itself.
+verify_jwt = false

@@ -1,0 +1,7 @@
+{
+  // Type-checks shared function code and tests in Node. inbound-email/index.ts is Deno-only
+  // (npm: imports, Deno globals) and is checked by `supabase functions serve`/`deno check`.
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": { "noEmit": true, "allowImportingTsExtensions": true },
+  "include": ["tests", "functions/_shared"]
+}

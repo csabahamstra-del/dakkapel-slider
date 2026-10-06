@@ -163,7 +163,7 @@ async function insertMessage(
      values ($1, 'email', gen_random_uuid()::text, 'meldkamer@noordwacht.test', 'Dienstrapport') returning id`,
     [org],
   );
-  return rows[0].id;
+  return rows[0]!.id;
 }
 
 describe("raw inbound data (hard rule 5)", () => {
@@ -229,7 +229,7 @@ describe("shift reports and incidents", () => {
       [ORGS.noord],
     );
     const err = await db.as(noordPlanner, (q) =>
-      attempt(q, insertReport, [ORGS.noord, msg.rows[0].id, null, "needs_review"]),
+      attempt(q, insertReport, [ORGS.noord, msg.rows[0]!.id, null, "needs_review"]),
     );
     expect(err?.code).toBe("42501");
   });
@@ -238,7 +238,7 @@ describe("shift reports and incidents", () => {
     const results = await db.as(service, async (q) => {
       const report = (
         await q(insertReport, [ORGS.noord, await insertMessage(q), null, "needs_review"])
-      ).rows[0].id;
+      ).rows[0]!.id;
       const sql =
         "insert into public.incidents (organization_id, shift_report_id, category_code, severity) values ($1, $2, $3, 'low')";
       return [
@@ -258,11 +258,11 @@ describe("shift reports and incidents", () => {
     );
     const report = await db.client.query(insertReport, [
       ORGS.noord,
-      msg.rows[0].id,
+      msg.rows[0]!.id,
       null,
       "needs_review",
     ]);
-    const reportId = report.rows[0].id;
+    const reportId = report.rows[0]!.id;
 
     const after = await db.as(noordPlanner, async (q) => {
       await q("update public.shift_reports set status = 'rejected' where id = $1", [reportId]);
@@ -271,7 +271,7 @@ describe("shift reports and incidents", () => {
         "select actor_user_id, details from public.audit_log where entity_id = $1",
         [reportId],
       );
-      return { reviewer: r.rows[0].reviewed_by, audit: a.rows };
+      return { reviewer: r.rows[0]!.reviewed_by, audit: a.rows };
     });
     expect(after.reviewer).toBe(USERS.noordPlanner);
     expect(after.audit).toEqual([
@@ -287,7 +287,7 @@ describe("monthly reports (hard rule 9)", () => {
       "insert into public.monthly_reports (organization_id, client_id, period) values ($1, $2, '2026-03-01') returning id",
       [ORGS.noord, CLIENTS.noord],
     );
-    reportId = rows[0].id;
+    reportId = rows[0]!.id;
   });
 
   const setStatus = "update public.monthly_reports set status = $2 where id = $1";
@@ -325,7 +325,7 @@ describe("monthly reports (hard rule 9)", () => {
       const changeSent = await attempt(q, setStatus, [reportId, "draft"]);
       const row = (
         await q("select approved_by, sent_at from public.monthly_reports where id = $1", [reportId])
-      ).rows[0];
+      ).rows[0]!;
       const audit = (
         await q("select details from public.audit_log where entity_id = $1 order by id", [reportId])
       ).rows;

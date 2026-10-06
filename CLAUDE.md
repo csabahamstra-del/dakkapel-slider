@@ -89,7 +89,7 @@ locaties "sites".
 
 - Fase 1 — Extractie + evaluatie (gebouwd; wacht op echte samples en een live eval-run)
 - Fase 2 — Database, RLS, Mailgun-webhook, verwerkingswachtrij, objectmatching ← HUIDIGE FASE
-  - 2a datamodel + RLS (gebouwd) · 2b Mailgun-webhook + opslag · 2c wachtrij · 2d objectmatching
+  - 2a datamodel + RLS (gebouwd) · 2b Mailgun-webhook + opslag (gebouwd, nog niet live) · 2c wachtrij · 2d objectmatching
 - Fase 3 — Maandrapport: SQL-metrics, narrative-stap, HTML-template, Gotenberg
 - Fase 4 — Dashboard: login, beheer clients/sites, controlebak, review en versturen
 
@@ -110,5 +110,11 @@ locaties "sites".
 - Organisaties worden server-side aangemaakt (onboarding), niet door gebruikers via de API.
 - Shift reports en monthly reports worden door de verwerking (`service_role`) aangemaakt; leden
   reviewen en corrigeren ze.
+- Inbound: Mailgun-route met `forward()` naar de Edge Function `inbound-email` (geparste
+  variant). Opgeslagen worden alle geposte velden (`message.json`), `body.txt` en de bijlagen
+  byte-voor-byte. Logica staat in `supabase/functions/_shared/mailgun-inbound.ts` en gebruikt
+  alleen Web-API's, zodat hij in Deno draait en in Node getest wordt.
+- Er is nog geen afzender-allowlist: elke mail naar een bekend alias wordt opgeslagen. De extractie
+  markeert niet-rapporten als `needs_review`.
 - Open punt: AVG-bewaartermijn versus "ruwe data nooit verwijderen" — een gecontroleerde
   verwijderprocedure (bijv. bij opzegging) moet nog ontworpen worden.
