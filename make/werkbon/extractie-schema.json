@@ -1,0 +1,115 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "is_werkbon",
+    "aantal_werkbonnen",
+    "werkbonnummer",
+    "datum",
+    "klant",
+    "urenregels",
+    "reistijd",
+    "werkzaamheden",
+    "samenvatting",
+    "materialen",
+    "opmerkingen",
+    "vervolgactie",
+    "handtekening_aanwezig",
+    "confidence",
+    "twijfelpunten"
+  ],
+  "properties": {
+    "is_werkbon": { "type": "boolean" },
+    "aantal_werkbonnen": { "type": "integer" },
+    "werkbonnummer": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "datum": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "klant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["naam_op_bon", "adres_op_bon", "match_id", "match_zeker"],
+      "properties": {
+        "naam_op_bon": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "adres_op_bon": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "match_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "match_zeker": { "type": "boolean" }
+      }
+    },
+    "urenregels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "monteur_op_bon",
+          "monteur_id",
+          "datum",
+          "starttijd",
+          "eindtijd",
+          "pauze_minuten",
+          "uren",
+          "soort_op_bon",
+          "tarief_id"
+        ],
+        "properties": {
+          "monteur_op_bon": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "monteur_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "datum": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "starttijd": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "eindtijd": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "pauze_minuten": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "uren": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "soort_op_bon": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "tarief_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+        }
+      }
+    },
+    "reistijd": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["op_bon", "uren", "tarief_id"],
+      "properties": {
+        "op_bon": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "uren": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+        "tarief_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "werkzaamheden": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "samenvatting": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "materialen": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "omschrijving_op_bon",
+          "artikelnummer_op_bon",
+          "aantal",
+          "eenheid",
+          "match_id",
+          "match_zeker"
+        ],
+        "properties": {
+          "omschrijving_op_bon": { "type": "string" },
+          "artikelnummer_op_bon": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "aantal": { "anyOf": [{ "type": "number" }, { "type": "null" }] },
+          "eenheid": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "match_id": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+          "match_zeker": { "type": "boolean" }
+        }
+      }
+    },
+    "opmerkingen": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+    "vervolgactie": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodig", "toelichting"],
+      "properties": {
+        "nodig": { "type": "boolean" },
+        "toelichting": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "handtekening_aanwezig": { "type": "boolean" },
+    "confidence": { "type": "string", "enum": ["laag", "midden", "hoog"] },
+    "twijfelpunten": { "type": "array", "items": { "type": "string" } }
+  }
+}
