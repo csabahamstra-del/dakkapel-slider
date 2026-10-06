@@ -15,7 +15,8 @@ export type ReviewReasonCode =
   | "not_a_shift_report"
   | "no_reports_found"
   | "unsupported_input"
-  | "extraction_failed";
+  | "extraction_failed"
+  | "site_not_matched";
 
 export interface ReviewReason {
   code: ReviewReasonCode;

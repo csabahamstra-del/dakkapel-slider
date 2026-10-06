@@ -31,6 +31,7 @@ locaties "sites".
 /supabase          migrations/, functions/, seed.sql
 /apps/dashboard    Next.js-dashboard
 /services/pdf      docker-compose voor Gotenberg + HTML-templates
+/services/worker   Node-worker die de verwerkingswachtrij afhandelt (Docker, EU-server)
 /eval              testharnas voor extractiekwaliteit
 /samples           ECHTE testdata — staat in .gitignore, NOOIT committen
 ```
@@ -89,7 +90,7 @@ locaties "sites".
 
 - Fase 1 — Extractie + evaluatie (gebouwd; wacht op echte samples en een live eval-run)
 - Fase 2 — Database, RLS, Mailgun-webhook, verwerkingswachtrij, objectmatching ← HUIDIGE FASE
-  - 2a datamodel + RLS (gebouwd) · 2b Mailgun-webhook + opslag (gebouwd, nog niet live) · 2c wachtrij · 2d objectmatching
+  - 2a datamodel + RLS (gebouwd) · 2b Mailgun-webhook + opslag (gebouwd, nog niet live) · 2c wachtrij (gebouwd) · 2d objectmatching
 - Fase 3 — Maandrapport: SQL-metrics, narrative-stap, HTML-template, Gotenberg
 - Fase 4 — Dashboard: login, beheer clients/sites, controlebak, review en versturen
 
@@ -114,6 +115,12 @@ locaties "sites".
   variant). Opgeslagen worden alle geposte velden (`message.json`), `body.txt` en de bijlagen
   byte-voor-byte. Logica staat in `supabase/functions/_shared/mailgun-inbound.ts` en gebruikt
   alleen Web-API's, zodat hij in Deno draait en in Node getest wordt.
+- Verwerking draait in een Node-worker (`services/worker`), niet in een Edge Function: de
+  extractiecode, de Claude SDK en mammoth zijn Node-code. Alle wachtrijlogica zit in SQL-functies
+  (`claim_processing_jobs`, `complete_processing_job`, `fail_processing_job`,
+  `requeue_inbound_message`), dus een andere runtime blijft mogelijk.
+- Lokale tijden uit de extractie worden in SQL omgezet met `at time zone 'Europe/Amsterdam'`
+  (zomer-/wintertijd correct).
 - Er is nog geen afzender-allowlist: elke mail naar een bekend alias wordt opgeslagen. De extractie
   markeert niet-rapporten als `needs_review`.
 - Open punt: AVG-bewaartermijn versus "ruwe data nooit verwijderen" — een gecontroleerde

@@ -1,0 +1,16 @@
+{
+  "name": "@veryo/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@supabase/supabase-js": "^2.117.2",
+    "@veryo/core": "workspace:*",
+    "tsx": "^4.23.15"
+  }
+}

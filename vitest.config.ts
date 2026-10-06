@@ -6,6 +6,7 @@ export default defineConfig({
       "packages/*/test/**/*.test.ts",
       "eval/test/**/*.test.ts",
       "supabase/tests/unit/**/*.test.ts",
+      "services/*/test/**/*.test.ts",
     ],
   },
 });
