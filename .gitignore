@@ -1,0 +1,17 @@
+# ECHTE testdata — nooit committen
+/samples/*
+!/samples/README.md
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+
+# Eval-uitvoer (kan echte data bevatten)
+/eval/results/
