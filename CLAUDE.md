@@ -83,12 +83,13 @@ locaties "sites".
 - Schrijf tests voor metrics-berekeningen en objectmatching.
 - Code en identifiers in het Engels; teksten in rapport en dashboard in het Nederlands.
 - Vraag het als iets onduidelijk is in plaats van te gokken.
-- Controleer vóór elke commit: `pnpm typecheck && pnpm test`.
+- Controleer vóór elke commit: `pnpm lint && pnpm typecheck && pnpm test && pnpm test:db`.
 
 ## Fases
 
-- Fase 1 — Extractie + evaluatie ← HUIDIGE FASE
-- Fase 2 — Database, RLS, Mailgun-webhook, verwerkingswachtrij, objectmatching
+- Fase 1 — Extractie + evaluatie (gebouwd; wacht op echte samples en een live eval-run)
+- Fase 2 — Database, RLS, Mailgun-webhook, verwerkingswachtrij, objectmatching ← HUIDIGE FASE
+  - 2a datamodel + RLS (gebouwd) · 2b Mailgun-webhook + opslag · 2c wachtrij · 2d objectmatching
 - Fase 3 — Maandrapport: SQL-metrics, narrative-stap, HTML-template, Gotenberg
 - Fase 4 — Dashboard: login, beheer clients/sites, controlebak, review en versturen
 
@@ -101,3 +102,13 @@ locaties "sites".
   instelbaar komt in fase 2.
 - Gold labels in `/samples/*.expected.json` worden als concept gegenereerd (`pnpm eval:label`) en
   daarna door een mens gecorrigeerd.
+
+## Besluiten fase 2
+
+- Rollen: `owner` en `planner`. Eén gebruiker mag lid zijn van meerdere organizations.
+- Inbound-adres: `organizations.inbound_alias` is het lokale deel; het domein volgt in 2b.
+- Organisaties worden server-side aangemaakt (onboarding), niet door gebruikers via de API.
+- Shift reports en monthly reports worden door de verwerking (`service_role`) aangemaakt; leden
+  reviewen en corrigeren ze.
+- Open punt: AVG-bewaartermijn versus "ruwe data nooit verwijderen" — een gecontroleerde
+  verwijderprocedure (bijv. bij opzegging) moet nog ontworpen worden.
