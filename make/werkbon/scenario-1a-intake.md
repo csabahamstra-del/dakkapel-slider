@@ -24,10 +24,16 @@ Elke API-stap heeft een error-handler naar Scenario 3.
 
 ## Operaties
 
-Ca. 11 per mail met één foto (+2 per extra bijlage). Samen met 1b: ca. 52 per werkbon.
+Ca. 12 per mail met één foto en een handtekeninglogo (+1 per extra bijlage). Samen met 1b: ca. 55 per werkbon.
+
+## Testresultaat (06-10-2026)
+
+Echte mail met `testwerkbon-1.jpg` + handtekeninglogo: 1a 12 operaties, 1b 42 operaties. Record "DK-2026-0412 – Fam. de Vries", In review, € 1.149,35, 2 urenregels, 5 materiaalregels, flag "materiaal onzeker".
 
 ## Bekende grenzen
 
 - HEIC wordt wel opgeslagen, maar Claude leest alleen JPG/PNG/GIF/WEBP/PDF → 1b meldt "niets leesbaar". iOS Mail zet foto's bij versturen normaal om naar JPG.
-- Duplicaatcontrole kijkt alleen naar de eerste bijlage van de nieuwe mail (die wordt vergeleken met alle hashes van eerdere werkbonnen).
+- Duplicaatcontrole kijkt naar de **grootste** bijlage van de nieuwe mail (vergeleken met alle hashes van eerdere werkbonnen). Zo telt een logo uit de mailhandtekening, dat in elke mail zit, niet mee.
+- Logo's en andere plaatjes uit de mailhandtekening worden wel als bijlage opgeslagen; Claude negeert ze bij het uitlezen.
+- De bijlage krijgt in Airtable de naam `werkbon-<hash>.<ext>`; de originele bestandsnaam staat alleen in foutmeldingen. (Een `replace()` met een aanhalingsteken als zoekterm laat de scenario-validatie van Make falen, dus de naam wordt niet opgeschoond maar vervangen.)
 - Webhook-URL's staan bewust niet in deze repo (publiek); ze staan in de module Klantinstellingen.
