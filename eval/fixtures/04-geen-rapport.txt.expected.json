@@ -1,0 +1,11 @@
+{
+  "source": "04-geen-rapport.txt",
+  "reviewed": true,
+  "expected_status": "needs_review",
+  "pii_terms": [],
+  "notes": "Nieuwsbrief, geen dienstrapport.",
+  "output": {
+    "is_shift_report": false,
+    "reports": []
+  }
+}

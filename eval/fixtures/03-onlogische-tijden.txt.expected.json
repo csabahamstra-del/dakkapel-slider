@@ -1,0 +1,35 @@
+{
+  "source": "03-onlogische-tijden.txt",
+  "reviewed": true,
+  "expected_status": "needs_review",
+  "pii_terms": ["M. Jansen", "Jansen"],
+  "notes": "Dienst van 17,5 uur en aankomst vóór melding: moet naar de controlebak.",
+  "output": {
+    "is_shift_report": true,
+    "reports": [
+      {
+        "site_name": "Kantoorpand Westpoort",
+        "site_address": "Havenstraat 88, Amsterdam",
+        "client_name": "Westpoort Beheer",
+        "shift_start": "2026-03-20T06:00",
+        "shift_end": "2026-03-20T23:30",
+        "shift_type": "static_guarding",
+        "guard_refs": ["beveiliger_1"],
+        "summary": "Dagdienst met één brandmelding door aangebrande toast.",
+        "remarks": [],
+        "incidents": [
+          {
+            "category": "fire",
+            "reported_at": "2026-03-20T09:12",
+            "arrived_at": "2026-03-20T09:05",
+            "severity": "low",
+            "summary": "Brandmelding verdieping 3; melder (medewerker klant) rook rook bij de pantry, oorzaak aangebrande toast. BMI gereset, brandweer afgemeld.",
+            "involved_roles": ["reporter", "client_employee", "guard", "fire_department"]
+          }
+        ],
+        "confidence": 0.9,
+        "uncertainties": []
+      }
+    ]
+  }
+}

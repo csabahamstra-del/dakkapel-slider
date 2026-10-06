@@ -1,0 +1,34 @@
+{
+  "source": "01-nachtdienst-alarm.txt",
+  "reviewed": true,
+  "expected_status": "ok",
+  "pii_terms": ["Jan de Vries", "Jan", "de Vries", "P. Bakker", "Bakker"],
+  "output": {
+    "is_shift_report": true,
+    "reports": [
+      {
+        "site_name": "Distributiecentrum Noord",
+        "site_address": "Industrieweg 12, 8025 AB Zwolle",
+        "client_name": "Lindeboom Logistiek B.V.",
+        "shift_start": "2026-03-12T22:00",
+        "shift_end": "2026-03-13T06:00",
+        "shift_type": "static_guarding",
+        "guard_refs": ["4471"],
+        "summary": "Nachtdienst met twee rondes zonder bijzonderheden en één alarmopvolging zonder sporen van braak.",
+        "remarks": ["Lamp bij laaddock 3 defect."],
+        "incidents": [
+          {
+            "category": "alarm_response",
+            "reported_at": "2026-03-13T01:42",
+            "arrived_at": "2026-03-13T01:51",
+            "severity": "low",
+            "summary": "Inbraakalarm sectie B (magazijn); geen sporen van braak, vermoedelijk een vogel. Alarm gereset in overleg met meldkamer.",
+            "involved_roles": ["guard"]
+          }
+        ],
+        "confidence": 0.9,
+        "uncertainties": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "source": "02-surveillance-meerdere-incidenten.txt",
+  "reviewed": true,
+  "expected_status": "ok",
+  "pii_terms": ["S. Yilmaz", "Yilmaz", "Kees Mulder", "Kees", "Mulder", "06-12345678"],
+  "output": {
+    "is_shift_report": true,
+    "reports": [
+      {
+        "site_name": "Bedrijventerrein De Hooge Akker",
+        "site_address": "Akkerweg 4, Deventer",
+        "client_name": "Akker Vastgoed",
+        "shift_start": "2026-03-14T19:00",
+        "shift_end": "2026-03-15T03:00",
+        "shift_type": "mobile_patrol",
+        "guard_refs": ["2093"],
+        "summary": "Surveillance met graffiti op unit 7 en een openstaande achterdeur bij unit 3.",
+        "remarks": [],
+        "incidents": [
+          {
+            "category": "vandalism",
+            "reported_at": "2026-03-14T19:40",
+            "arrived_at": null,
+            "severity": "medium",
+            "summary": "Graffiti op de achtergevel van unit 7, foto's gemaakt.",
+            "involved_roles": ["guard"]
+          },
+          {
+            "category": "open_door_window",
+            "reported_at": "2026-03-14T20:15",
+            "arrived_at": null,
+            "severity": "low",
+            "summary": "Achterdeur unit 3 stond open; pand gecontroleerd, niets vermist, deur afgesloten. Medewerker klant geïnformeerd.",
+            "involved_roles": ["guard", "client_employee"]
+          }
+        ],
+        "confidence": 0.9,
+        "uncertainties": []
+      },
+      {
+        "site_name": "Sportpark Het Veld",
+        "site_address": "Veldlaan 1, Deventer",
+        "client_name": "Gemeente Deventer",
+        "shift_start": "2026-03-14T19:00",
+        "shift_end": "2026-03-15T03:00",
+        "shift_type": "mobile_patrol",
+        "guard_refs": ["2093"],
+        "summary": "Surveillance met overlast door jongeren en een verdachte persoon bij het hekwerk.",
+        "remarks": [],
+        "incidents": [
+          {
+            "category": "nuisance",
+            "reported_at": "2026-03-14T23:30",
+            "arrived_at": null,
+            "severity": "low",
+            "summary": "Groep van ca. 6 jongeren bij de kantine met harde muziek en drankgebruik; aangesproken, groep vertrok rustig.",
+            "involved_roles": ["guard"]
+          },
+          {
+            "category": "suspicious_situation",
+            "reported_at": "2026-03-15T01:10",
+            "arrived_at": "2026-03-15T01:22",
+            "severity": "medium",
+            "summary": "Verdachte probeerde over het hek bij de kantine te klimmen en vluchtte bij aankomst. Politie geïnformeerd, geen aanhouding.",
+            "involved_roles": ["suspect", "guard", "police"]
+          }
+        ],
+        "confidence": 0.9,
+        "uncertainties": []
+      }
+    ]
+  }
+}

@@ -26,9 +26,24 @@ export interface ExtractOptions {
   config: Pick<CoreConfig, "extractionModel" | "minConfidence" | "maxShiftHours">;
   /** Overrides config.extractionModel (used by the eval labeler). */
   model?: string;
+  /** Only for models that support effort (not Haiku 4.5). */
+  effort?: "low" | "medium" | "high" | "xhigh" | "max";
 }
 
 class AttemptError extends Error {}
+
+/**
+ * The SDK reports invalid structured output as a plain AnthropicError without its own class,
+ * so we recognise it by message. Everything else (auth, config, network) must not be mistaken
+ * for a bad model answer.
+ */
+function isOutputParseError(error: unknown): boolean {
+  return (
+    error instanceof Anthropic.AnthropicError &&
+    !(error instanceof Anthropic.APIError) &&
+    error.message.startsWith("Failed to parse structured output")
+  );
+}
 
 /**
  * Turns one inbound message into validated structured data.
@@ -37,7 +52,7 @@ class AttemptError extends Error {}
  */
 export async function extractReport(
   input: ExtractionInput,
-  { client, config, model = config.extractionModel }: ExtractOptions,
+  { client, config, model = config.extractionModel, effort }: ExtractOptions,
 ): Promise<ExtractionResult> {
   const { blocks, skipped } = await buildContentBlocks(input);
   const errors: string[] = [];
@@ -87,7 +102,10 @@ export async function extractReport(
         max_tokens: 16000,
         system: EXTRACTION_SYSTEM_PROMPT,
         messages: [{ role: "user", content }],
-        output_config: { format: zodOutputFormat(ExtractionOutputSchema) },
+        output_config: {
+          format: zodOutputFormat(ExtractionOutputSchema),
+          ...(effort ? { effort } : {}),
+        },
       });
       usage.inputTokens += response.usage.input_tokens;
       usage.outputTokens += response.usage.output_tokens;
@@ -113,11 +131,10 @@ export async function extractReport(
       }
       return { ...base, attempts, output: parsed.data, validation };
     } catch (error) {
-      if (error instanceof Anthropic.APIError) {
-        // The SDK already retried transient errors (429/5xx/connection); give up on this job.
-        throw error;
-      }
-      errors.push(error instanceof Error ? error.message : String(error));
+      // Only bad model output is retried here. API, auth and config errors are rethrown: the SDK
+      // already retried transient ones, and the job queue decides whether to try again later.
+      if (!(error instanceof AttemptError) && !isOutputParseError(error)) throw error;
+      errors.push((error as Error).message);
     }
   }
 

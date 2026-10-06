@@ -73,6 +73,12 @@ describe("extractReport", () => {
     await expect(extractReport(input, { client, config })).rejects.toBe(apiError);
   });
 
+  it("rethrows configuration errors instead of sending them to review", async () => {
+    const authError = new Anthropic.AnthropicError("Could not resolve authentication method.");
+    const { client } = fakeClient(authError);
+    await expect(extractReport(input, { client, config })).rejects.toBe(authError);
+  });
+
   it("marks reports with skipped attachments for review", async () => {
     const { client } = fakeClient(response(good));
     const result = await extractReport(

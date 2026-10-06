@@ -9,7 +9,7 @@ export const EXTRACTION_SYSTEM_PROMPT = `Je zet dienst- en incidentrapporten van
 
 ## Wat je levert
 - is_shift_report: false als het document geen dienst- of incidentrapport is.
-- reports: één item per dienst. Een document met meerdere diensten (bijvoorbeeld een weekexport) levert meerdere items op.
+- reports: één item per dienst per object. Een document met meerdere diensten (bijvoorbeeld een weekexport) levert meerdere items op. Een surveillanceroute langs meerdere objecten levert één item per object op, met dezelfde dienstijden en alleen de incidenten van dat object.
 
 ## Tijden
 - Schrijf alle tijden als lokale Nederlandse tijd in het formaat YYYY-MM-DDTHH:mm, zonder tijdzone.

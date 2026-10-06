@@ -1,0 +1,16 @@
+{
+  "name": "@veryo/eval",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "eval": "tsx src/run.ts",
+    "label": "tsx src/label.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@veryo/core": "workspace:*",
+    "zod": "^4.6.5"
+  }
+}
