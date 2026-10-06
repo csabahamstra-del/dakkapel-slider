@@ -26,85 +26,30 @@
       "type": "integer"
     },
     "werkbonnummer": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string"
     },
     "datum": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string"
     },
     "klant": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "naam_op_bon",
-        "straat_huisnummer",
-        "postcode",
-        "plaats",
-        "klantnummer_op_bon"
-      ],
+      "required": ["naam_op_bon", "straat_huisnummer", "postcode", "plaats", "klantnummer_op_bon"],
       "properties": {
         "naam_op_bon": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         },
         "straat_huisnummer": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         },
         "postcode": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         },
         "plaats": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         },
         "klantnummer_op_bon": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         }
       }
     },
@@ -126,54 +71,19 @@
         ],
         "properties": {
           "monteur_op_bon": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "monteur_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "datum": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "starttijd": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "eindtijd": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "pauze_minuten": {
             "anyOf": [
@@ -196,24 +106,10 @@
             ]
           },
           "soort_op_bon": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "tarief_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           }
         }
       }
@@ -221,21 +117,10 @@
     "reistijd": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "op_bon",
-        "uren",
-        "tarief_id"
-      ],
+      "required": ["op_bon", "uren", "tarief_id"],
       "properties": {
         "op_bon": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         },
         "uren": {
           "anyOf": [
@@ -248,36 +133,15 @@
           ]
         },
         "tarief_id": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         }
       }
     },
     "werkzaamheden": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string"
     },
     "samenvatting": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string"
     },
     "materialen": {
       "type": "array",
@@ -297,14 +161,7 @@
             "type": "string"
           },
           "artikelnummer_op_bon": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "aantal": {
             "anyOf": [
@@ -317,24 +174,10 @@
             ]
           },
           "eenheid": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "match_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "match_zeker": {
             "type": "boolean"
@@ -343,35 +186,18 @@
       }
     },
     "opmerkingen": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "string"
     },
     "vervolgactie": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "nodig",
-        "toelichting"
-      ],
+      "required": ["nodig", "toelichting"],
       "properties": {
         "nodig": {
           "type": "boolean"
         },
         "toelichting": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
+          "type": "string"
         }
       }
     },
@@ -380,11 +206,7 @@
     },
     "confidence": {
       "type": "string",
-      "enum": [
-        "laag",
-        "midden",
-        "hoog"
-      ]
+      "enum": ["laag", "midden", "hoog"]
     },
     "twijfelpunten": {
       "type": "array",
