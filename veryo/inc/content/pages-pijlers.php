@@ -12,6 +12,11 @@ defined( 'ABSPATH' ) || exit;
  */
 $veryo_werkplek = veryo_page_standard(
 	array(
+		'contact'     => array(
+			__( 'Copilot of Gemini: wat past bij jullie?', 'veryo' ),
+			__( 'Vertel welke kantoorsoftware jullie gebruiken en met hoeveel mensen. Je krijgt binnen één werkdag advies over licenties en inrichting.', 'veryo' ),
+			__( 'Bijvoorbeeld: we hebben Microsoft 365 Business Standard voor 12 mensen. Is Copilot het waard?', 'veryo' ),
+		),
 		'answer'      => __( 'Veryo richt Copilot in voor het MKB, of Gemini als je met Google Workspace werkt: welke licenties je nodig hebt, wie welke gegevens mag zien vóórdat de AI erbij kan, de juiste instellingen, en een korte training zodat je team het ook echt gebruikt. Vaste prijs: €1.495 tot 10 gebruikers, €2.495 bij 11 tot 25, exclusief btw.', 'veryo' ),
 		'problem'     => array(
 			'h' => __( 'De AI zit al in je kantoorsoftware, maar wie zet hem goed aan?', 'veryo' ),
@@ -83,6 +88,11 @@ $veryo_werkplek = veryo_page_standard(
  */
 $veryo_agents = veryo_page_standard(
 	array(
+		'contact'     => array(
+			__( 'Welk werk kan een digitale collega overnemen?', 'veryo' ),
+			__( 'Beschrijf een taak die steeds terugkomt. Je hoort binnen één werkdag of een AI-agent daar zinvol is.', 'veryo' ),
+			__( 'Bijvoorbeeld: alle inkomende storingsmeldingen sorteren en inplannen.', 'veryo' ),
+		),
 		'answer'      => __( 'Veryo bouwt AI-agents voor bedrijven: digitale collega’s die een terugkerende taak overnemen, zoals aanvragen beoordelen, inkoopfacturen verwerken of klantvragen beantwoorden, gekoppeld aan de software die je al gebruikt. Als project €2.500 tot €7.500, maatwerk vanaf €5.000, exclusief btw. Alleen als bestaande software het niet al oplost.', 'veryo' ),
 		'problem'     => array(
 			'h' => __( 'Werk dat elke dag hetzelfde gaat, maar net te veel denkwerk is voor een simpele regel', 'veryo' ),
@@ -150,6 +160,11 @@ $veryo_agents = veryo_page_standard(
  */
 $veryo_veilig = veryo_page_standard(
 	array(
+		'contact'     => array(
+			__( 'Twijfel je of AI bij jullie veilig wordt gebruikt?', 'veryo' ),
+			__( 'Stel je vraag over beleid, rechten of datalekken. Je krijgt binnen één werkdag een nuchter antwoord.', 'veryo' ),
+			__( 'Bijvoorbeeld: medewerkers gebruiken de gratis ChatGPT met klantgegevens. Wat moeten we doen?', 'veryo' ),
+		),
 		'answer'      => __( 'Veilig AI gebruiken in je bedrijf begint met weten wat medewerkers nu in AI-tools invoeren. Veryo doet een AI-veiligheidscheck voor €995 exclusief btw: hoe AI nu wordt gebruikt, wie welke gegevens kan zien, of tweestapsverificatie aanstaat en of er beleid is, met een rapport vol concrete acties.', 'veryo' ),
 		'problem'     => array(
 			'h' => __( 'Weet jij wat er in ChatGPT wordt geplakt?', 'veryo' ),
@@ -225,6 +240,11 @@ $veryo_veilig = veryo_page_standard(
  */
 $veryo_strategie = veryo_page_standard(
 	array(
+		'contact'     => array(
+			__( 'Een sessie voor je MT plannen?', 'veryo' ),
+			__( 'Vertel kort waar jullie als directie mee zitten. Je krijgt binnen één werkdag een voorstel voor de opzet.', 'veryo' ),
+			__( 'Bijvoorbeeld: we willen een AI-koers bepalen voor de komende twee jaar.', 'veryo' ),
+		),
 		'answer'      => __( 'De AI-strategie training van Veryo is een halve dag voor eigenaar, directie of MT: wat betekent AI voor ons bedrijf, waar liggen de kansen, welke keuzes maken we en wie is verantwoordelijk. Inhoudelijk is het de kansensessie uit het AI-Startpakket, los af te nemen voor €750 tot €1.500 exclusief btw.', 'veryo' ),
 		'problem'     => array(
 			'h' => __( 'Iedereen praat over AI, maar wie in het bedrijf beslist er iets over?', 'veryo' ),

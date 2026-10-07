@@ -44,6 +44,10 @@ while ( have_posts() ) :
 		<?php endif; ?>
 		<div class="entry-content">
 			<?php the_content(); ?>
+			<?php
+			// Na het lezen: direct een vraag kunnen stellen over het onderwerp.
+			echo do_shortcode( shortcode_unautop( do_blocks( veryo_sec_contact( __( 'Vraag over dit onderwerp?', 'veryo' ), __( 'Stel hem direct. Je krijgt binnen één werkdag een persoonlijk antwoord, toegespitst op jouw bedrijf.', 'veryo' ) ) ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- eigen block markup, opgebouwd met escaping.
+			?>
 		</div>
 	</article>
 	<?php

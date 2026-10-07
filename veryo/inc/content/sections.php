@@ -708,6 +708,14 @@ function veryo_page_standard( $d ) {
 	if ( ! empty( $d['after_price'] ) ) {
 		$out .= $d['after_price'];
 	}
+	if ( empty( $d['no_contact'] ) ) {
+		$contact = isset( $d['contact'] ) ? $d['contact'] : array();
+		$out    .= veryo_sec_contact(
+			isset( $contact[0] ) ? $contact[0] : '',
+			isset( $contact[1] ) ? $contact[1] : '',
+			isset( $contact[2] ) ? $contact[2] : ''
+		);
+	}
 	if ( ! empty( $d['faq'] ) ) {
 		$out .= veryo_sec_faq( $d['faq'] );
 	}
@@ -717,6 +725,66 @@ function veryo_page_standard( $d ) {
 		$out .= veryo_sec_links( $d['links'] );
 	}
 	return $out;
+}
+
+/**
+ * Contactblok met kort formulier: wie twijfelt, stelt direct een vraag aan de oprichter.
+ * Op tactische plekken: na de prijs, voor de veelgestelde vragen.
+ *
+ * @param string $title       Kop.
+ * @param string $text        Inleiding.
+ * @param string $placeholder Voorbeeldvraag in het berichtveld.
+ * @return string
+ */
+function veryo_sec_contact( $title = '', $text = '', $placeholder = '' ) {
+	$title = $title ? $title : __( 'Twijfel je wat bij jou past? Vraag het gewoon.', 'veryo' );
+	$text  = $text ? $text : __( 'Stel je vraag hier. Je krijgt binnen één werkdag een persoonlijk antwoord, zonder verkooppraatje en zonder dat je ergens aan vastzit.', 'veryo' );
+	$name  = veryo_setting( 'founder_first' );
+	$name  = $name ? $name : 'Veryo';
+	$phone = veryo_setting( 'phone' );
+	$email = veryo_setting( 'email' );
+	$reach = array();
+	if ( $phone ) {
+		$reach[] = '<a href="' . esc_attr( veryo_tel_href( $phone ) ) . '">' . str_replace( ' ', '&nbsp;', esc_html( $phone ) ) . '</a>';
+	}
+	if ( $email ) {
+		$reach[] = '<a href="mailto:' . esc_attr( $email ) . '">' . esc_html( $email ) . '</a>';
+	}
+	$left = veryo_b_p( esc_html__( 'Direct contact', 'veryo' ), array( 'className' => 'veryo-kicker' ) )
+		. veryo_b_h( esc_html( $title ) )
+		. veryo_b_p( esc_html( $text ), array( 'className' => 'veryo-lead' ) )
+		. veryo_b_group(
+			veryo_b_shortcode( '[veryo_portret size="small"]' )
+			. veryo_b_p(
+				'<strong>' . esc_html( $name ) . '</strong><br>'
+				. esc_html__( 'Leest en beantwoordt je vraag zelf.', 'veryo' )
+			),
+			array(
+				'className' => 'veryo-contact-band__person',
+				'layout'    => false,
+			)
+		);
+	if ( $reach ) {
+		/* translators: %s: telefoonnummer en/of e-mailadres. */
+		$left .= veryo_b_p( sprintf( esc_html__( 'Liever bellen of mailen? %s', 'veryo' ), implode( ' · ', $reach ) ), array( 'className' => 'veryo-small' ) );
+	}
+	$form = '[veryo_form type="contact" compact="1" button="' . __( 'Stel je vraag', 'veryo' ) . '"' . ( $placeholder ? ' placeholder="' . str_replace( array( '"', '[', ']' ), '', $placeholder ) . '"' : '' ) . ']';
+	return veryo_sec_wide(
+		veryo_b_columns(
+			array(
+				array(
+					'width' => '42%',
+					'inner' => $left,
+				),
+				array(
+					'width' => '58%',
+					'inner' => veryo_b_group( veryo_b_shortcode( $form ), array( 'className' => 'is-style-paper veryo-form-wrap' ) ),
+				),
+			)
+		),
+		'veryo-contact-band',
+		'vraag'
+	);
 }
 
 /**

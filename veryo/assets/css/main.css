@@ -950,3 +950,23 @@ html.lenis, html.lenis body { height: auto; }
 .veryo-about-founder h2 + p { margin-top: 20px; }
 .veryo-about-founder p + p { margin-top: 16px; }
 .veryo-about-founder .wp-block-column { align-self: center; }
+
+/* ---------------------------------------------------------------- Contactblok met kort formulier */
+
+.veryo-kicker { font: 600 .78125rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--amber-deep); }
+.veryo-kicker + h2 { margin-top: 16px !important; }
+.veryo-contact-band .wp-block-columns { gap: var(--s4) var(--s5); align-items: center; }
+.veryo-contact-band h2 { font-size: var(--fs-display-m); line-height: 1.12; letter-spacing: -.02em; max-width: 18ch; }
+.veryo-contact-band .veryo-lead { color: var(--ink-muted); margin-top: 20px; }
+.veryo-contact-band__person { display: flex; align-items: center; gap: 16px; margin-top: var(--s3) !important; }
+.veryo-contact-band__person p { margin: 0 !important; line-height: 1.45; color: var(--ink-muted); font-size: .9375rem; }
+.veryo-contact-band__person strong { color: var(--ink); }
+.veryo-contact-band .veryo-small { margin-top: 20px; color: var(--ink-muted); }
+.veryo-form--compact { display: grid; gap: 18px; }
+@media (min-width: 640px) {
+	.veryo-form--compact { grid-template-columns: 1fr 1fr; column-gap: 20px; }
+	.veryo-form--compact > .field:has(textarea), .veryo-form--compact > .field--check, .veryo-form--compact > button, .veryo-form--compact > .form-status { grid-column: 1 / -1; }
+}
+.veryo-form--compact .field textarea { min-height: 96px; }
+.veryo-form--compact > button { justify-self: start; }
+.single-post .veryo-contact-band { margin-top: var(--s6); }

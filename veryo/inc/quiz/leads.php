@@ -435,6 +435,7 @@ function veryo_lead_box_details( $post ) {
 		'email'       => __( 'E-mail', 'veryo' ),
 		'telefoon'    => __( 'Telefoon', 'veryo' ),
 		'bericht'     => __( 'Bericht', 'veryo' ),
+		'pagina'      => __( 'Verstuurd vanaf', 'veryo' ),
 	);
 	foreach ( $labels as $key => $label ) {
 		if ( isset( $lead['contact'][ $key ] ) && '' !== $lead['contact'][ $key ] ) {

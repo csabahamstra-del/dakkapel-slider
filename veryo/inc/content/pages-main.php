@@ -87,6 +87,11 @@ $veryo_home .= veryo_sec_wide(
 	),
 	'veryo-price-home'
 );
+$veryo_home .= veryo_sec_contact(
+	__( 'Weet je niet welke stap bij jou past?', 'veryo' ),
+	__( 'Vertel in een paar zinnen hoe jullie werken. Je krijgt binnen één werkdag een persoonlijk advies over waar je het best kunt beginnen. Gratis en zonder verplichtingen.', 'veryo' ),
+	__( 'Bijvoorbeeld: we zijn met 12 mensen en willen Copilot goed inzetten. Waar beginnen we?', 'veryo' )
+);
 $veryo_home .= veryo_sec_branches( __( 'AI voor jouw branche', 'veryo' ), __( 'We kennen de praktijk van bouw, installatie, agri en techniek het best, maar werken voor het hele MKB.', 'veryo' ), true );
 $veryo_home .= veryo_sec_regions( '', '', true );
 $veryo_home .= veryo_sec_wide(
@@ -215,6 +220,11 @@ foreach ( $veryo_auto_cats as $veryo_slug => $veryo_desc ) {
 
 $veryo_auto = veryo_page_standard(
 	array(
+		'contact'  => array(
+			__( 'Welke taak kost jullie de meeste tijd?', 'veryo' ),
+			__( 'Beschrijf kort welk werk steeds terugkomt. Je hoort binnen één werkdag of het te automatiseren is en wat dat ongeveer kost.', 'veryo' ),
+			__( 'Bijvoorbeeld: we typen werkbonnen over in de boekhouding. Kan dat automatisch?', 'veryo' ),
+		),
 		'approach' => true,
 		'answer'   => __( 'Veryo helpt het MKB met AI-automatisering: voor terugkerend werk zoals mail, offertes, facturen en planning kijken we eerst wat je bestaande software kan, richten dat in en trainen je team. Alleen waar nodig bouwen we een koppeling. Een afgebakende automatisering kost €750 tot €1.500, een project met meerdere koppelingen €2.500 tot €7.500, exclusief btw.', 'veryo' ),
 		'problem'  => array(
@@ -286,6 +296,11 @@ $veryo_auto = veryo_page_standard(
  */
 $veryo_impl = veryo_page_standard(
 	array(
+		'contact'  => array(
+			__( 'Vraag over invoering in jouw bedrijf?', 'veryo' ),
+			__( 'Vertel kort hoe jullie nu werken. Je krijgt binnen één werkdag een eerlijk antwoord over wat zinvol is en wat niet.', 'veryo' ),
+			__( 'Bijvoorbeeld: we zijn met 15 mensen en weten niet waar we moeten beginnen.', 'veryo' ),
+		),
 		'answer'   => __( 'Veryo begeleidt AI-implementatie voor het MKB van plan tot live: we zoeken uit waar AI in jouw bedrijf het meest oplevert, bouwen de oplossingen in je eigen software en zorgen dat je team ermee werkt. Een kansensessie met roadmap kost €750 tot €1.500, exclusief btw.', 'veryo' ),
 		'problem'  => array(
 			'h' => __( 'Waarom AI-implementatie in het MKB vaak blijft hangen', 'veryo' ),
@@ -342,6 +357,11 @@ $veryo_impl = veryo_page_standard(
  */
 $veryo_training = veryo_page_standard(
 	array(
+		'contact'  => array(
+			__( 'Een training op maat voor je team?', 'veryo' ),
+			__( 'Vertel hoe groot je team is en wat ze nu met AI doen. Je krijgt binnen één werkdag een voorstel voor de opzet en een datum.', 'veryo' ),
+			__( 'Bijvoorbeeld: training voor 10 mensen op kantoor, de meesten hebben nog nooit ChatGPT gebruikt.', 'veryo' ),
+		),
 		'answer'   => __( 'Veryo geeft AI-training voor bedrijven: een praktische incompany training of workshop voor teams tot twintig mensen, met oefeningen uit jullie eigen werk in ChatGPT, Claude of Copilot. Een halve dag kost €1.200, een hele dag €2.800, exclusief btw.', 'veryo' ),
 		'problem'  => array(
 			'h' => __( 'Waarom een AI-training voor je team?', 'veryo' ),
@@ -403,6 +423,11 @@ $veryo_training = veryo_page_standard(
  */
 $veryo_literacy = veryo_page_standard(
 	array(
+		'contact'  => array(
+			__( 'Vraag over AI-geletterdheid en de AI Act?', 'veryo' ),
+			__( 'Twijfel je wat de AI Act van jouw bedrijf vraagt? Stel je vraag; je krijgt binnen één werkdag een praktisch antwoord.', 'veryo' ),
+			__( 'Bijvoorbeeld: moeten ook onze buitendienstmensen een training volgen?', 'veryo' ),
+		),
 		'answer'   => __( 'De AI-geletterdheid training van Veryo helpt je team voldoen aan artikel 4 van de AI Act: medewerkers leren wat AI kan, waar de risico’s zitten en hoe ze er veilig mee werken. De training duurt een halve of hele dag, kost €1.200 tot €2.800 exclusief btw, en is geschikt voor groepen tot twintig mensen.', 'veryo' ),
 		'problem'  => array(
 			'h' => __( 'Wat vraagt de AI Act van je als werkgever?', 'veryo' ),
@@ -515,6 +540,11 @@ $veryo_academy .= veryo_sec_links(
  */
 $veryo_opmaat = veryo_page_standard(
 	array(
+		'contact'  => array(
+			__( 'Iets wat geen pakket goed doet?', 'veryo' ),
+			__( 'Beschrijf kort wat je zoekt. Je hoort binnen één werkdag of maatwerk nodig is of dat het met bestaande software kan.', 'veryo' ),
+			__( 'Bijvoorbeeld: we willen dat offerteaanvragen uit de mail automatisch in ons CRM komen.', 'veryo' ),
+		),
 		'answer'   => __( 'Veryo bouwt AI op maat voor het MKB als bestaande software tekortschiet: een maatwerk AI-oplossing zoals een chatbot op je eigen kennis, een WhatsApp-assistent, een AI-agent of een interne AI-assistent voor je bedrijf. Maatwerk begint bij €5.000 exclusief btw, afhankelijk van koppelingen en omvang.', 'veryo' ),
 		'problem'  => array(
 			'h' => __( 'Wanneer kies je voor een maatwerk AI-oplossing?', 'veryo' ),
@@ -623,6 +653,11 @@ $veryo_prices .= veryo_sec_text(
 	__( 'Wat kost een chatbot laten maken?', 'veryo' ),
 	array( __( 'Vaak kan een chatbot met bestaande software worden ingericht; dan valt het meestal onder een project (€2.500 tot €7.500). Moet hij koppelen met je agenda, CRM of WhatsApp op een manier die geen pakket goed ondersteunt, dan wordt het maatwerk (vanaf €5.000). Op de pagina over de AI-chatbot lees je wat je voor dat bedrag krijgt.', 'veryo' ) )
 );
+$veryo_prices .= veryo_sec_contact(
+	__( 'Een prijs voor jouw situatie?', 'veryo' ),
+	__( 'Vertel kort wat je wilt aanpakken en met hoeveel mensen. Je krijgt binnen één werkdag een eerlijke inschatting van wat het kost en wat het oplevert.', 'veryo' ),
+	__( 'Bijvoorbeeld: wat kost het om offertes sneller te maken voor een team van 6?', 'veryo' )
+);
 $veryo_prices .= veryo_sec_faq(
 	array(
 		array( __( 'Zijn de prijzen inclusief btw?', 'veryo' ), __( 'Nee, alle prijzen zijn exclusief btw.', 'veryo' ) ),
@@ -706,7 +741,12 @@ $veryo_about .= veryo_sec_text(
 );
 $veryo_about .= veryo_sec_regions( __( 'Een AI-bureau in Leeuwarden, voor het hele noorden', 'veryo' ) );
 $veryo_about .= veryo_sec_cases();
-$veryo_about .= veryo_sec_cta_scan( __( 'Kennismaken?', 'veryo' ), __( 'De snelste manier om te zien of we iets voor je kunnen betekenen, is de gratis AI-scan. Liever eerst even praten? Dat kan ook via de contactpagina.', 'veryo' ) );
+$veryo_about .= veryo_sec_contact(
+	__( 'Kennismaken?', 'veryo' ),
+	__( 'Stel je vraag of vertel kort wat je zoekt. Ik reageer zelf, binnen één werkdag, en we kijken samen of Veryo iets voor je kan betekenen.', 'veryo' ),
+	__( 'Bijvoorbeeld: ik wil graag een keer kennismaken en horen wat AI voor ons bedrijf kan doen.', 'veryo' )
+);
+$veryo_about .= veryo_sec_cta_scan( __( 'Eerst zelf ontdekken wat AI oplevert?', 'veryo' ), __( 'Doe de gratis AI-scan: negen vragen, ongeveer drie minuten, en je krijgt een persoonlijk rapport met je drie grootste tijdwinsten.', 'veryo' ) );
 $veryo_about .= veryo_sec_links(
 	array(
 		array( 'contact', __( 'Contact', 'veryo' ), __( 'Mail, bel of vul het formulier in', 'veryo' ) ),
@@ -752,6 +792,11 @@ $veryo_branches .= veryo_sec_text(
 );
 $veryo_branches .= veryo_sec_branches( __( 'Kies je branche', 'veryo' ) );
 $veryo_branches .= veryo_sec_steps();
+$veryo_branches .= veryo_sec_contact(
+	__( 'Staat jouw branche er niet bij?', 'veryo' ),
+	__( 'We werken voor het hele MKB. Vertel kort wat voor bedrijf je hebt; je hoort binnen één werkdag waar AI bij jullie het meeste oplevert.', 'veryo' ),
+	__( 'Bijvoorbeeld: we zijn een schildersbedrijf met 9 mensen. Wat kan AI voor ons doen?', 'veryo' )
+);
 $veryo_branches .= veryo_sec_cta_scan();
 
 /*

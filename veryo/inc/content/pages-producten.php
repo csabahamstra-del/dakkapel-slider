@@ -79,6 +79,11 @@ $veryo_startpakket .= veryo_sec_text(
 		'<strong>' . __( 'Geen juridisch advies.', 'veryo' ) . '</strong> ' . __( 'Het AI-beleid is praktisch. Wil je het juridisch laten toetsen, dan raden we een jurist aan.', 'veryo' ),
 	)
 );
+$veryo_startpakket .= veryo_sec_contact(
+	__( 'Vragen over het AI-Startpakket?', 'veryo' ),
+	__( 'Twijfel je of het pakket bij jouw team past, of wil je een datum voor de kansensessie? Stel je vraag; je krijgt binnen één werkdag antwoord.', 'veryo' ),
+	__( 'Bijvoorbeeld: past het Startpakket bij een team van 8 mensen met Google Workspace?', 'veryo' )
+);
 $veryo_startpakket .= veryo_sec_faq(
 	array(
 		array( __( 'Voor welke bedrijven is het AI-Startpakket?', 'veryo' ), __( 'Voor MKB-bedrijven met een team tot ongeveer 50 mensen die AI goed willen invoeren. Het maakt niet uit of er al iemand met ChatGPT werkt of nog niemand.', 'veryo' ) ),
@@ -153,6 +158,11 @@ $veryo_partner .= veryo_sec_text(
 	)
 );
 $veryo_partner .= veryo_sec_subscription_terms();
+$veryo_partner .= veryo_sec_contact(
+	__( 'Welk niveau AI-partner past bij jullie?', 'veryo' ),
+	__( 'Vertel hoe groot je team is en wat er al draait. Je krijgt binnen één werkdag advies over het niveau dat past, en wat je er per maand voor krijgt.', 'veryo' ),
+	__( 'Bijvoorbeeld: we hebben het Startpakket gedaan en willen nu doorlopende hulp voor 20 mensen.', 'veryo' )
+);
 $veryo_partner .= veryo_sec_faq(
 	array(
 		array( __( 'Moet ik eerst het AI-Startpakket afnemen?', 'veryo' ), __( 'Het hoeft niet, maar het helpt. Zonder basis gaat het eerste deel van de uren op aan wat in het Startpakket zit.', 'veryo' ) ),

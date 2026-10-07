@@ -106,7 +106,8 @@
 				bericht: value( 'bericht' ),
 				medewerkers: value( 'medewerkers' ),
 				toestemming: value( 'toestemming' ),
-				website: value( 'website' )
+				website: value( 'website' ),
+				pagina: window.location.pathname
 			};
 			button.disabled = true;
 			status.className = 'form-status';

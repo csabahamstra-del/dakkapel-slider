@@ -238,17 +238,30 @@ function veryo_field( $type, $name, $label, $required = false, $attrs = array(),
  * @return string
  */
 function veryo_sc_form( $atts ) {
-	$atts = shortcode_atts( array( 'type' => 'contact' ), $atts, 'veryo_form' );
-	$type = 'academy' === $atts['type'] ? 'academy' : 'contact';
+	static $count = 0;
+	$atts         = shortcode_atts(
+		array(
+			'type'        => 'contact',
+			'compact'     => '',
+			'placeholder' => '',
+			'button'      => '',
+		),
+		$atts,
+		'veryo_form'
+	);
+	$type         = 'academy' === $atts['type'] ? 'academy' : 'contact';
+	$compact      = 'contact' === $type && '' !== $atts['compact'];
 	if ( 'academy' === $type && ! veryo_setting( 'academy_waitlist' ) ) {
 		return '';
 	}
 	veryo_enqueue_with_config( 'veryo-forms' );
 
-	$p       = 'form-' . $type;
+	// Meerdere formulieren op één pagina: elk zijn eigen id's.
+	++$count;
+	$p       = 'form-' . $type . ( $count > 1 ? '-' . $count : '' );
 	$privacy = '<a href="' . esc_url( veryo_url( 'privacyverklaring' ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'privacyverklaring', 'veryo' ) . '</a>';
 
-	$out  = '<form class="veryo-form" data-veryo-form="' . esc_attr( $type ) . '" novalidate>';
+	$out  = '<form class="veryo-form' . ( $compact ? ' veryo-form--compact' : '' ) . '" data-veryo-form="' . esc_attr( $type ) . '" novalidate>';
 	$out .= veryo_field(
 		'text',
 		'naam',
@@ -301,7 +314,7 @@ function veryo_sc_form( $atts ) {
 		$p
 	);
 	if ( 'contact' === $type ) {
-		$out .= veryo_field(
+		$out          .= veryo_field(
 			'tel',
 			'telefoon',
 			__( 'Telefoonnummer (optioneel)', 'veryo' ),
@@ -313,15 +326,19 @@ function veryo_sc_form( $atts ) {
 			'',
 			$p
 		);
+		$message_attrs = array(
+			'rows'      => $compact ? '3' : '5',
+			'maxlength' => '2000',
+		);
+		if ( '' !== $atts['placeholder'] ) {
+			$message_attrs['placeholder'] = $atts['placeholder'];
+		}
 		$out .= veryo_field(
 			'textarea',
 			'bericht',
-			__( 'Bericht', 'veryo' ),
+			$compact ? __( 'Je vraag', 'veryo' ) : __( 'Bericht', 'veryo' ),
 			true,
-			array(
-				'rows'      => '5',
-				'maxlength' => '2000',
-			),
+			$message_attrs,
 			'',
 			$p
 		);
@@ -331,11 +348,13 @@ function veryo_sc_form( $atts ) {
 		? __( 'Ik ga akkoord dat Veryo mijn gegevens bewaart om mij te laten weten wanneer de cursus beschikbaar is, zoals beschreven in de %s.', 'veryo' )
 		/* translators: %s: link naar privacyverklaring. */
 		: __( 'Ik ga akkoord dat Veryo mijn gegevens gebruikt om contact met mij op te nemen, zoals beschreven in de %s.', 'veryo' );
-	$out .= '<div class="field field--check"><input type="checkbox" id="' . esc_attr( $p ) . '-toestemming" name="toestemming" value="1" required aria-describedby="' . esc_attr( $p ) . '-toestemming-error"><label for="' . esc_attr( $p ) . '-toestemming">' . sprintf( esc_html( $consent ), $privacy ) . '</label><p class="field-error" id="' . esc_attr( $p ) . '-toestemming-error" hidden></p></div>';
-	$out .= '<div class="hp-field" aria-hidden="true"><label for="' . esc_attr( $p ) . '-website">' . esc_html__( 'Laat dit veld leeg', 'veryo' ) . '</label><input type="text" id="' . esc_attr( $p ) . '-website" name="website" tabindex="-1" autocomplete="off"></div>';
-	$out .= '<button type="submit" class="btn btn--petrol">' . esc_html( 'academy' === $type ? __( 'Zet me op de wachtlijst', 'veryo' ) : __( 'Verstuur bericht', 'veryo' ) ) . '</button>';
-	$out .= '<p class="form-status" role="status" aria-live="polite"></p>';
-	$out .= '</form>';
+	$out  .= '<div class="field field--check"><input type="checkbox" id="' . esc_attr( $p ) . '-toestemming" name="toestemming" value="1" required aria-describedby="' . esc_attr( $p ) . '-toestemming-error"><label for="' . esc_attr( $p ) . '-toestemming">' . sprintf( esc_html( $consent ), $privacy ) . '</label><p class="field-error" id="' . esc_attr( $p ) . '-toestemming-error" hidden></p></div>';
+	$out  .= '<div class="hp-field" aria-hidden="true"><label for="' . esc_attr( $p ) . '-website">' . esc_html__( 'Laat dit veld leeg', 'veryo' ) . '</label><input type="text" id="' . esc_attr( $p ) . '-website" name="website" tabindex="-1" autocomplete="off"></div>';
+	$label = 'academy' === $type ? __( 'Zet me op de wachtlijst', 'veryo' ) : __( 'Verstuur bericht', 'veryo' );
+	$label = '' !== $atts['button'] ? $atts['button'] : $label;
+	$out  .= '<button type="submit" class="btn btn--petrol">' . esc_html( $label ) . '</button>';
+	$out  .= '<p class="form-status" role="status" aria-live="polite"></p>';
+	$out  .= '</form>';
 	return $out;
 }
 

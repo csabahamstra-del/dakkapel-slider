@@ -307,6 +307,11 @@ function veryo_rest_form( $request ) {
 	if ( 'contact' === $type ) {
 		$contact['telefoon'] = veryo_clean_text( isset( $p['telefoon'] ) ? $p['telefoon'] : '', 20 );
 		$contact['bericht']  = veryo_clean_text( isset( $p['bericht'] ) ? $p['bericht'] : '', 2000, true );
+		// Pagina waarop het formulier is ingevuld, alleen als intern pad.
+		$page = isset( $p['pagina'] ) && is_string( $p['pagina'] ) ? $p['pagina'] : '';
+		if ( preg_match( '#^/[a-z0-9/_\-]{0,150}$#i', $page ) ) {
+			$contact['pagina'] = $page;
+		}
 		if ( '' !== $contact['telefoon'] && ! veryo_valid_phone( $contact['telefoon'] ) ) {
 			$errors['telefoon'] = __( 'Dit telefoonnummer lijkt niet te kloppen.', 'veryo' );
 		}

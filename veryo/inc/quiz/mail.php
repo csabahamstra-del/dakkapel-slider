@@ -310,6 +310,7 @@ function veryo_mail_internal_form( $lead_id ) {
 		'email'       => __( 'E-mail', 'veryo' ),
 		'telefoon'    => __( 'Telefoon', 'veryo' ),
 		'bericht'     => __( 'Bericht', 'veryo' ),
+		'pagina'      => __( 'Verstuurd vanaf', 'veryo' ),
 	);
 	$admin   = admin_url( 'post.php?post=' . $lead_id . '&action=edit' );
 	$html    = '<tr><td style="padding:24px 32px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">';
