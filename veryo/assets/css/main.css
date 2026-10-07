@@ -776,6 +776,9 @@ strong { font-weight: 650; }
 .veryo-portret { margin: 0; flex-shrink: 0; }
 .veryo-portret img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .veryo-portret--small { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; }
+.veryo-portret--small img { object-position: 50% 30%; }
+.veryo-hero .veryo-portret--small { box-shadow: 0 0 0 2px var(--amber); }
+.post-meta__avatar { display: inline-block; width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; vertical-align: middle; margin: -4px 6px 0 2px; }
 .veryo-portret--large { width: 100%; max-width: 420px; aspect-ratio: 4 / 5; border-radius: var(--r-l); overflow: hidden; }
 .veryo-portret.is-monogram { display: grid; place-items: center; background: var(--petrol-soft); color: var(--petrol); }
 .veryo-portret.is-monogram span { font: 500 1.5rem/1 var(--serif); }
@@ -943,3 +946,7 @@ html.lenis, html.lenis body { height: auto; }
 	.veryo-marquee .veryo-marquee__track { animation: none !important; }
 	.veryo-pillar:hover, .is-style-ladder li:hover { transform: none; }
 }
+.veryo-about-founder .wp-block-columns { gap: var(--s4) var(--s5); align-items: center; }
+.veryo-about-founder h2 + p { margin-top: 20px; }
+.veryo-about-founder p + p { margin-top: 16px; }
+.veryo-about-founder .wp-block-column { align-self: center; }

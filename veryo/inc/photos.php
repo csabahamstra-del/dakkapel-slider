@@ -33,6 +33,7 @@ function veryo_photo_library() {
 		'werkplaats'   => __( 'Werkplaats', 'veryo' ),
 		'landschap'    => __( 'Landschap in Noord-Nederland', 'veryo' ),
 		'werkplek'     => __( 'Werkplekken met beeldschermen op kantoor', 'veryo' ),
+		'oprichter'    => __( 'Csaba, oprichter van Veryo', 'veryo' ),
 	);
 }
 

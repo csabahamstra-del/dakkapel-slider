@@ -514,6 +514,20 @@ function veryo_rapport_headers() {
 add_action( 'template_redirect', 'veryo_rapport_headers' );
 
 /**
+ * Foto van de oprichter: die uit Instellingen > Veryo, anders het portret dat met het thema
+ * wordt meegeleverd.
+ *
+ * @return int Attachment-ID of 0.
+ */
+function veryo_founder_photo_id() {
+	$photo = absint( veryo_setting( 'founder_photo' ) );
+	if ( $photo && wp_attachment_is_image( $photo ) ) {
+		return $photo;
+	}
+	return veryo_photo_id( 'oprichter' );
+}
+
+/**
  * Portret van de oprichter. Zonder foto (Instellingen > Veryo) een rustig monogram,
  * zodat er nooit een lege of "under construction"-plek staat.
  *
@@ -524,12 +538,12 @@ function veryo_sc_portret( $atts ) {
 	$atts  = shortcode_atts( array( 'size' => 'small' ), $atts, 'veryo_portret' );
 	$size  = 'large' === $atts['size'] ? 'large' : 'small';
 	$name  = trim( veryo_setting( 'founder_first' ) . ' ' . veryo_setting( 'founder_last' ) );
-	$photo = absint( veryo_setting( 'founder_photo' ) );
+	$photo = veryo_founder_photo_id();
 	$class = 'veryo-portret veryo-portret--' . $size;
 	if ( $photo && wp_attachment_is_image( $photo ) ) {
 		return '<figure class="' . esc_attr( $class ) . '">' . wp_get_attachment_image(
 			$photo,
-			'large' === $size ? 'large' : 'medium',
+			'large' === $size ? 'large' : 'thumbnail',
 			false,
 			array(
 				/* translators: %s: naam oprichter. */

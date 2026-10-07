@@ -593,10 +593,15 @@ function veryo_schema_organization() {
 		$org['sameAs'] = $same;
 	}
 	if ( $c['founder'] ) {
-		$org['founder'] = array(
+		$org['founder']    = array(
 			'@type' => 'Person',
 			'name'  => $c['founder'],
 		);
+		$veryo_founder_img = veryo_founder_photo_id() ? wp_get_attachment_image_url( veryo_founder_photo_id(), 'large' ) : '';
+		if ( $veryo_founder_img ) {
+			$org['founder']['image']    = $veryo_founder_img;
+			$org['founder']['jobTitle'] = __( 'Oprichter', 'veryo' );
+		}
 	}
 	if ( $c['legal_name'] ) {
 		$org['legalName'] = $c['legal_name'];

@@ -14,3 +14,11 @@ en verschijnen ze op de pagina's die die sleutel gebruiken. Een sleutel zonder f
 
 Nog zonder foto (tonen niets tot je er een toevoegt): `installateur`, `telefoon`, `bouw`, `agri`,
 `horeca`, `logistiek`, `woning`, `werkplaats`, `landschap`.
+
+## Portret oprichter
+
+| Bestand | Inhoud | Gebruikt op |
+| --- | --- | --- |
+| `oprichter.webp` / `.jpg` | Csaba, oprichter van Veryo (aangeleverd door Veryo) | Hero homepage, overtuiging homepage, Over Veryo, Contact, auteur bij blogberichten |
+
+Een andere foto kies je in Instellingen > Veryo > Foto oprichter; die gaat dan voor.

@@ -654,13 +654,22 @@ $veryo_about .= veryo_sec_text(
 		__( 'We zien bij ondernemers in Friesland, Groningen en Drenthe hetzelfde patroon: ze horen overal dat ze iets met AI moeten, maar niemand vertelt ze wat, wat het kost en wat het oplevert. Veryo is de nuchtere partner die dat wel doet. Eerst snappen, dan slim inzetten.', 'veryo' ),
 	)
 );
-$veryo_about .= veryo_b_group( veryo_b_shortcode( '[veryo_portret size="large"]' ), array( 'className' => 'veryo-portrait-wrap' ) );
-$veryo_about .= veryo_sec_text(
-	__( 'Wie er achter Veryo zit', 'veryo' ),
-	array(
-		__( 'Veryo is opgericht door Csaba. Hij begon Veryo omdat hij gelooft in wat AI voor het MKB kan betekenen, mits je het nuchter en goed inzet. Veel processen in een bedrijf kunnen een stuk makkelijker, en dat levert elke week tijd op die je aan je eigenlijke werk kunt besteden.', 'veryo' ),
-		__( 'Daar draait Veryo om: niet om de techniek, maar om het werk dat daarna lichter wordt. Csaba kijkt met je mee, adviseert welke tools passen, richt het in en blijft aanspreekpunt als het eenmaal draait.', 'veryo' ),
-	)
+$veryo_about .= veryo_sec_wide(
+	veryo_b_columns(
+		array(
+			array(
+				'width' => '58%',
+				'inner' => veryo_b_h( __( 'Wie er achter Veryo zit', 'veryo' ) )
+					. veryo_b_p( __( 'Veryo is opgericht door Csaba. Hij begon Veryo omdat hij gelooft in wat AI voor het MKB kan betekenen, mits je het nuchter en goed inzet. Veel processen in een bedrijf kunnen een stuk makkelijker, en dat levert elke week tijd op die je aan je eigenlijke werk kunt besteden.', 'veryo' ) )
+					. veryo_b_p( __( 'Daar draait Veryo om: niet om de techniek, maar om het werk dat daarna lichter wordt. Csaba kijkt met je mee, adviseert welke tools passen, richt het in en blijft aanspreekpunt als het eenmaal draait.', 'veryo' ) ),
+			),
+			array(
+				'width' => '42%',
+				'inner' => veryo_b_shortcode( '[veryo_portret size="large"]' ),
+			),
+		)
+	),
+	'veryo-conviction veryo-about-founder'
 );
 $veryo_about .= veryo_sec_independent();
 $veryo_about .= veryo_sec_text(

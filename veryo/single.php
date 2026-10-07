@@ -20,7 +20,21 @@ while ( have_posts() ) :
 					<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 					<?php $veryo_author = veryo_company()['founder']; ?>
 					<?php if ( $veryo_author ) : ?>
-						<span aria-hidden="true">·</span> <?php echo esc_html( sprintf( /* translators: %s: naam auteur. */ __( 'Door %s', 'veryo' ), $veryo_author ) ); ?>
+						<span aria-hidden="true">·</span>
+						<?php if ( veryo_founder_photo_id() ) : ?>
+							<?php
+							echo wp_get_attachment_image(
+								veryo_founder_photo_id(),
+								'thumbnail',
+								false,
+								array(
+									'class' => 'post-meta__avatar',
+									'alt'   => '',
+								)
+							);
+							?>
+						<?php endif; ?>
+						<?php echo esc_html( sprintf( /* translators: %s: naam auteur. */ __( 'Door %s', 'veryo' ), $veryo_author ) ); ?>
 					<?php endif; ?>
 				</p>
 			</div>
