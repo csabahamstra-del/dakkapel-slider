@@ -22,3 +22,9 @@ Nog zonder foto (tonen niets tot je er een toevoegt): `installateur`, `telefoon`
 | `oprichter.webp` / `.jpg` | Csaba, oprichter van Veryo (aangeleverd door Veryo) | Hero homepage, overtuiging homepage, Over Veryo, Contact, auteur bij blogberichten |
 
 Een andere foto kies je in Instellingen > Veryo > Foto oprichter; die gaat dan voor.
+
+## Homepage-banner
+
+| Bestand | Inhoud | Gebruikt op |
+| --- | --- | --- |
+| `hero.webp` / `.jpg` | Team aan het werk op kantoor (uitsnede van aangeleverde foto 5) | Achtergrond van de homepage-banner |

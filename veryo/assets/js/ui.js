@@ -139,7 +139,64 @@
 		} );
 	}
 
-	/* Sticky CTA op mobiel: zichtbaar na de hero, weg boven de footer. */
+	/* Homepage-banner: diensten draaien voorbij, de middelste staat uitgelicht. Zonder JavaScript een gewone lijst. */
+	document.querySelectorAll( '.veryo-hero__services' ).forEach( function ( nav ) {
+		var items = Array.prototype.slice.call( nav.querySelectorAll( 'li' ) );
+		var total = items.length;
+		var wide = window.matchMedia( '(min-width: 1100px)' );
+		if ( total < 3 ) {
+			return;
+		}
+		var active = 0;
+		var paused = false;
+		var layout = function () {
+			items.forEach( function ( li, i ) {
+				var d = ( ( i - active ) % total + total ) % total;
+				if ( d > total / 2 ) {
+					d -= total;
+				}
+				li.style.setProperty( '--d', d );
+				li.style.setProperty( '--ad', Math.abs( d ) );
+				li.classList.toggle( 'is-active', 0 === d );
+				li.classList.toggle( 'is-far', Math.abs( d ) > 2 );
+			} );
+			if ( wide.matches ) {
+				nav.classList.remove( 'tick-pop' );
+				void nav.offsetWidth;
+				nav.classList.add( 'tick-pop' );
+			}
+		};
+		nav.classList.add( 'is-rotating' );
+		layout();
+		items.forEach( function ( li, i ) {
+			li.addEventListener( 'focusin', function () {
+				paused = true;
+				active = i;
+				layout();
+			} );
+		} );
+		nav.addEventListener( 'focusout', function () {
+			paused = false;
+		} );
+		nav.addEventListener( 'mouseenter', function () {
+			paused = true;
+		} );
+		nav.addEventListener( 'mouseleave', function () {
+			paused = false;
+		} );
+		if ( reduce ) {
+			return;
+		}
+		window.setInterval( function () {
+			if ( paused || document.hidden || ! wide.matches ) {
+				return;
+			}
+			active = ( active + 1 ) % total;
+			layout();
+		}, 2600 );
+	} );
+
+		/* Sticky CTA op mobiel: zichtbaar na de hero, weg boven de footer. */
 	var sticky = document.querySelector( '.veryo-sticky-cta' );
 	var hero = document.querySelector( '.veryo-hero' ) || document.querySelector( '.page-header' );
 	var footer = document.querySelector( '.site-footer' );

@@ -80,7 +80,7 @@
 
 			tasks.push( function () {
 				/* 1. Hero: het grote vinkje tekent zichzelf en schuift licht mee. */
-				document.querySelectorAll( '.veryo-hero.has-check' ).forEach( function ( hero ) {
+				document.querySelectorAll( '.veryo-hero.has-check:not(.veryo-hero--photo)' ).forEach( function ( hero ) {
 					var check = hero.querySelector( '.veryo-hero-check' );
 					if ( ! check ) {
 						check = makeCheck( 'veryo-hero-check' );
