@@ -34,6 +34,7 @@ locaties "sites".
 /services/worker   Node-worker die de verwerkingswachtrij afhandelt (Docker, EU-server)
 /eval              testharnas voor extractiekwaliteit
 /samples           ECHTE testdata — staat in .gitignore, NOOIT committen
+/services/outreach los project: cold-outreach-pipeline voor Veryo zelf (zie README daar)
 ```
 
 ## Harde regels (nooit van afwijken)
@@ -125,3 +126,10 @@ locaties "sites".
   markeert niet-rapporten als `needs_review`.
 - Open punt: AVG-bewaartermijn versus "ruwe data nooit verwijderen" — een gecontroleerde
   verwijderprocedure (bijv. bij opzegging) moet nog ontworpen worden.
+
+## Nevenproject: Veryo Outreach (`services/outreach`)
+
+Autonome cold outreach voor Veryo zelf; los van Rapportage (geen gedeelde code of data). De
+volledige brief, besluiten en fasering staan in `services/outreach/README.md`. Kernregels: standaard
+`OUTREACH_MODE=shadow`, verzendcontrole weigert bij twijfel, harde limieten, afmeldingen permanent,
+alleen officiële API's/open data (scraping alleen na akkoord van Csaba).

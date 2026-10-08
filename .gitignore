@@ -15,3 +15,6 @@ coverage/
 
 # Eval-uitvoer (kan echte data bevatten)
 /eval/results/
+
+# Outreach: lokale database (bevat persoonsgegevens van leads)
+/services/outreach/data/
