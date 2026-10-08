@@ -1,5 +1,9 @@
 # Veryo Outreach
 
+> **Status (okt 2026): gepauzeerd.** Csaba koos voor een kant-en-klare tool (Lemlist); zie
+> [LEMLIST-SETUP.md](LEMLIST-SETUP.md). De code hieronder (fundament + TenderNed) blijft staan
+> voor als we later eigen triggers (aanbestedingen) of een KvK-check willen toevoegen.
+
 Autonome cold-outreach-pipeline voor Veryo zelf: leads vinden, kwalificeren, mailen (4 mails in
 14 dagen), reacties classificeren en gesprekken koppelen. Staat los van Veryo Rapportage; deelt
 alleen de tooling van de monorepo.
