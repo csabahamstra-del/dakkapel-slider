@@ -39,11 +39,16 @@ alleen de tooling van de monorepo.
     pnpm --filter @veryo/outreach cli suppression:sync
     pnpm --filter @veryo/outreach cli check-send <adres> [--first]   # proef van de verzendcontrole
     pnpm --filter @veryo/outreach cli notion:setup        # alleen voor een nieuwe workspace
+    pnpm --filter @veryo/outreach cli tenderned:probe     # live vorm van de TenderNed-lijst tonen
+    pnpm --filter @veryo/outreach cli discover:tenderned [--days 60] [--max 300] [--no-notion]
+    pnpm --filter @veryo/outreach cli candidates          # kandidatenpool tonen
 
 ## Bouwfases
 
 1. Fundament: config, logging, SQLite, afmeldlijst, Notion-databases, DNS-check ← gebouwd
-2. Leads vinden + verrijken + scoren (TED/TenderNed, Meta Ad Library, Places, KvK, Hunter)
+2. Leads vinden + verrijken + scoren ← bezig
+   - TenderNed (beveiliging, trigger "Aanbesteding") ← gebouwd
+   - Meta Ad Library (vak), KvK-verificatie, Hunter, scoring + selectie ← volgt
 3. Personalisatie (`trigger_zin`) + kwaliteitscheck
 4. Versturen + sequence-planning (shadow)
 5. Inbox-monitoring + reply-classificatie + Calendly-koppeling (geen automatische antwoorden:
@@ -58,3 +63,22 @@ alleen de tooling van de monorepo.
 - Mailverificatie: Hunter (EU, vinden + verifiëren). KvK-API geeft geen bestuurders; de naam
   van de beslisser komt van de eigen site van het bedrijf of van Hunter.
 - Geen automatische antwoorden op reacties.
+
+## TenderNed
+
+- De lijst met publicaties (`/papi/tenderned-rs-tns/v2/publicaties`, open data, CC0) is
+  openbaar. We vragen gunningen op (`publicatieType=AGO`) en bladeren terug tot
+  `TENDERNED_AWARD_MAX_AGE_DAYS` (standaard 60).
+- De winnaars staan in de eForms-XML (`/publicaties/{id}/public-xml`). Daarvoor is een gratis
+  inlog nodig, aan te vragen via functioneelbeheer@tenderned.nl.
+- Relevant = CPV-code 7971xxxx (beveiligingsdiensten, bewaking, surveillance, alarmopvolging).
+- Elke winnaar wordt een kandidaat met:
+  - KvK-nummer (uit de XML) en plaats;
+  - domein (van de website, of van het zakelijke mailadres in de XML);
+  - de link naar de publicatie als trigger-URL;
+  - een momentopname van de bron (`trigger_excerpt`).
+- VOF en CV in de naam worden lokaal uitgesloten. De echte rechtsvorm controleert KvK later.
+  Gezien-markering voorkomt dubbel ophalen; een mislukte download wordt de volgende run
+  opnieuw geprobeerd.
+- De veldnamen van de lijst zijn niet officieel gedocumenteerd. `cli tenderned:probe` toont de
+  live vorm; `readListItem` is daar tolerant voor.

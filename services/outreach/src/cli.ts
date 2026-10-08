@@ -8,6 +8,10 @@
  *   suppress <email|domain> [reason...]   add to the unsubscribe list (and sync to Notion)
  *   suppression:sync             merge the unsubscribe list between Notion and the database
  *   check-send <email> [--first] dry run of the send guard for one address
+ *   tenderned:probe [id]         show the live shape of the TenderNed list (and one notice)
+ *   discover:tenderned [--days N] [--max N] [--no-notion]
+ *                                find recent security contract winners → candidates (→ Notion)
+ *   candidates                   list the candidate pool
  */
 import { Client } from "@notionhq/client";
 import { createAudit } from "./audit.js";
@@ -18,6 +22,10 @@ import { checkMailDns } from "./dns-check.js";
 import { checkSend, SUPPRESSION_SYNCED_AT } from "./guard.js";
 import { createLogger } from "./log.js";
 import { NotionWorkspace } from "./notion/workspace.js";
+import { listCandidates } from "./candidates.js";
+import { pushCandidatesToNotion } from "./crm.js";
+import { discoverTenderNed } from "./discover/tenderned.js";
+import { TenderNedClient } from "./sources/tenderned.js";
 import { addSuppression, listSuppressions } from "./suppression.js";
 import { syncSuppressions } from "./suppression-sync.js";
 
@@ -36,6 +44,22 @@ function requireIds(config: OutreachConfig) {
     );
   }
   return { leads, suppression };
+}
+
+function flag(args: string[], name: string): number | undefined {
+  const i = args.indexOf(name);
+  if (i === -1) return undefined;
+  const value = Number(args[i + 1]);
+  if (!Number.isInteger(value) || value <= 0)
+    throw new Error(`${name} verwacht een positief getal`);
+  return value;
+}
+
+function tenderNedFor(config: OutreachConfig): TenderNedClient {
+  return new TenderNedClient({
+    username: config.tenderned.username,
+    password: config.tenderned.password,
+  });
 }
 
 async function dnsCheck(domain: string): Promise<boolean> {
@@ -146,9 +170,64 @@ async function main(argv: string[]): Promise<number> {
       );
       return result.allowed ? 0 : 1;
     }
+    case "tenderned:probe": {
+      const client = tenderNedFor(config);
+      const { raw, items } = await client.listPage(0);
+      const sample = Array.isArray(raw) ? raw[0] : (raw as { content?: unknown[] })?.content?.[0];
+      console.log("Lijst, velden bovenaan:", Object.keys((raw ?? {}) as object).join(", "));
+      console.log("Eerste item (ruw):", JSON.stringify(sample, null, 2)?.slice(0, 3000));
+      console.log(`Gelezen: ${items.length} items, eerste:`, items[0]);
+      const id = args[0] ?? items[0]?.id;
+      if (id && client.hasCredentials) {
+        console.log(`Publicatie ${id}:`, JSON.stringify(await client.awardNotice(id), null, 2));
+      } else if (id) {
+        console.log("Geen TenderNed-inlog: publicatie-XML overgeslagen.");
+      }
+      return 0;
+    }
+    case "discover:tenderned": {
+      const client = tenderNedFor(config);
+      if (!client.hasCredentials) {
+        throw new Error(
+          "TENDERNED_API_USERNAME/PASSWORD ontbreken (aanvragen via functioneelbeheer@tenderned.nl)",
+        );
+      }
+      const stats = await discoverTenderNed(db, client, audit, {
+        days: flag(args, "--days") ?? config.tenderned.awardMaxAgeDays,
+        maxNotices: flag(args, "--max"),
+      });
+      console.log("TenderNed:", stats);
+      if (!args.includes("--no-notion")) {
+        const leads = requireIds(config).leads;
+        const pushed = await pushCandidatesToNotion(db, notionFor(config), leads, audit);
+        console.log(`Naar Notion (status Gevonden): ${pushed}`);
+      }
+      return stats.errors ? 1 : 0;
+    }
+    case "candidates": {
+      for (const c of listCandidates(db)) {
+        const mark =
+          c.status === "excluded"
+            ? `✗ ${c.statusReason}`
+            : c.notionPageId
+              ? "✓ in Notion"
+              : "· lokaal";
+        console.log(
+          [
+            c.companyName,
+            c.kvkNumber ?? "-",
+            c.city ?? "-",
+            c.triggerDescription,
+            c.triggerUrl,
+            mark,
+          ].join(" | "),
+        );
+      }
+      return 0;
+    }
     default:
       console.log(
-        "Commando's: doctor, dns-check, notion:setup, notion:verify, suppress, suppression:sync, check-send",
+        "Commando's: doctor, dns-check, notion:setup, notion:verify, suppress, suppression:sync, check-send, tenderned:probe, discover:tenderned, candidates",
       );
       return command ? 2 : 0;
   }

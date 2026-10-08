@@ -1,5 +1,6 @@
 /** Notion access for the outreach CRM: creating/checking the databases and the unsubscribe list. */
 import { collectPaginatedAPI, isFullPage, type Client } from "@notionhq/client";
+import type { Candidate } from "../candidates.js";
 import {
   LEADS_DB,
   SUPPRESSION_DB,
@@ -108,6 +109,30 @@ export class NotionWorkspace {
         },
         Bron: { select: { name: SOURCE_LABEL[entry.source] } },
         Datum: { date: { start: entry.createdAt } },
+      },
+    });
+    return page.id;
+  }
+
+  /** Creates a lead with status "Gevonden". Legal form stays empty until KvK has verified it. */
+  async createLead(dataSourceId: string, candidate: Candidate): Promise<string> {
+    const rich = (value?: string) => ({
+      rich_text: value ? [{ text: { content: value.slice(0, 2000) } }] : [],
+    });
+    const isVak = candidate.segment === "vak";
+    const page = await this.api.pages.create({
+      parent: { type: "data_source_id", data_source_id: dataSourceId },
+      properties: {
+        Bedrijf: { title: [{ text: { content: candidate.companyName.slice(0, 2000) } }] },
+        Domein: rich(candidate.domainHint),
+        Doelgroep: { select: { name: isVak ? "Vak" : "Beveiliging" } },
+        ...(isVak ? {} : { Subbranche: { select: { name: "Beveiliging" } } }),
+        Plaats: rich(candidate.city),
+        "KvK-nummer": rich(candidate.kvkNumber),
+        "Trigger-type": { select: { name: candidate.triggerType } },
+        "Trigger-omschrijving": rich(candidate.triggerDescription),
+        "Trigger-URL": { url: candidate.triggerUrl },
+        Status: { select: { name: "Gevonden" } },
       },
     });
     return page.id;

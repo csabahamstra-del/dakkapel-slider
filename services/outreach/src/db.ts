@@ -56,6 +56,44 @@ const MIGRATIONS: string[] = [
     updated_at text not null
   );
   `,
+  `
+  -- Candidate pool: companies found by a source, with the trigger that justifies contact.
+  -- trigger_excerpt is a snapshot of the source, so personalisation and the quality check work
+  -- on exactly what was found (the live page may change).
+  create table candidates (
+    id integer primary key,
+    segment text not null check (segment in ('vak', 'beveiliging')),
+    company_name text not null,
+    name_key text not null,
+    kvk_number text,
+    city text,
+    domain_hint text,
+    legal_form_hint text,
+    trigger_type text not null,
+    trigger_description text not null,
+    trigger_url text not null,
+    trigger_date text,
+    trigger_excerpt text not null,
+    source text not null,
+    source_ref text not null,
+    status text not null default 'found' check (status in ('found', 'excluded')),
+    status_reason text,
+    notion_page_id text,
+    created_at text not null,
+    updated_at text not null
+  );
+  create unique index candidates_company on candidates (segment, name_key);
+  create index candidates_kvk on candidates (kvk_number);
+
+  -- Source records already processed, so a weekly run does not fetch them again.
+  create table source_seen (
+    source text not null,
+    ref text not null,
+    outcome text not null,
+    seen_at text not null,
+    primary key (source, ref)
+  );
+  `,
 ];
 
 export function openDb(path: string): Db {

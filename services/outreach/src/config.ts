@@ -41,6 +41,10 @@ const EnvSchema = z.object({
   NOTION_PARENT_PAGE_ID: optional,
   NOTION_LEADS_DATA_SOURCE_ID: optional,
   NOTION_SUPPRESSION_DATA_SOURCE_ID: optional,
+  TENDERNED_API_USERNAME: optional,
+  TENDERNED_API_PASSWORD: optional,
+  // An award counts as a fresh trigger for this many days after publication.
+  TENDERNED_AWARD_MAX_AGE_DAYS: z.coerce.number().int().min(1).max(365).default(60),
 });
 
 export interface OutreachConfig {
@@ -61,6 +65,7 @@ export interface OutreachConfig {
     leadsDataSourceId?: string;
     suppressionDataSourceId?: string;
   };
+  tenderned: { username?: string; password?: string; awardMaxAgeDays: number };
 }
 
 type Env = Record<string, string | undefined>;
@@ -100,14 +105,23 @@ export function loadConfig(env: Env = process.env): OutreachConfig {
       leadsDataSourceId: e.NOTION_LEADS_DATA_SOURCE_ID,
       suppressionDataSourceId: e.NOTION_SUPPRESSION_DATA_SOURCE_ID,
     },
+    tenderned: {
+      username: e.TENDERNED_API_USERNAME,
+      password: e.TENDERNED_API_PASSWORD,
+      awardMaxAgeDays: e.TENDERNED_AWARD_MAX_AGE_DAYS,
+    },
   };
 }
 
 /** Summary safe to print or log: no tokens. */
 export function describeConfig(config: OutreachConfig): Record<string, unknown> {
-  const { notion, ...rest } = config;
+  const { notion, tenderned, ...rest } = config;
   return {
     ...rest,
+    tenderned: {
+      login: tenderned.username && tenderned.password ? "(gezet)" : "(ontbreekt)",
+      awardMaxAgeDays: tenderned.awardMaxAgeDays,
+    },
     notion: {
       token: notion.token ? "(gezet)" : "(ontbreekt)",
       parentPageId: notion.parentPageId ?? "(ontbreekt)",
