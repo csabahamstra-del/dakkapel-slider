@@ -63,7 +63,9 @@ function veryo_apply_page_meta( $post_id, $def ) {
 		update_post_meta( $post_id, '_veryo_schema_type', $def['schema']['type'] );
 		if ( isset( $def['schema']['min'] ) ) {
 			update_post_meta( $post_id, '_veryo_price_min', (int) $def['schema']['min'] );
-			update_post_meta( $post_id, '_veryo_price_max', (int) $def['schema']['max'] );
+			if ( isset( $def['schema']['max'] ) ) {
+				update_post_meta( $post_id, '_veryo_price_max', (int) $def['schema']['max'] );
+			}
 		}
 		if ( ! empty( $def['schema']['area'] ) ) {
 			update_post_meta( $post_id, '_veryo_area', $def['schema']['area'] );
@@ -459,7 +461,7 @@ function veryo_add_menu_items( $menu_id, $items, $ids, $parent_item = 0, &$error
  * @return array<string,array<string,mixed>> Locatie => naam en items.
  */
 function veryo_menu_definitions() {
-	$branches = array(
+	$branches  = array(
 		array( __( 'Installatietechniek', 'veryo' ), 'branches/installatie' ),
 		array( __( 'Bouw en aannemerij', 'veryo' ), 'branches/bouw' ),
 		array( __( 'Agri en mechanisatie', 'veryo' ), 'branches/agri' ),
@@ -468,7 +470,12 @@ function veryo_menu_definitions() {
 		array( __( 'Horeca en retail', 'veryo' ), 'branches/horeca-retail' ),
 		array( __( 'Transport en logistiek', 'veryo' ), 'branches/transport' ),
 		array( __( 'Werving en recruitment', 'veryo' ), 'branches/recruitment' ),
+		array( __( 'Beveiligingsbedrijven', 'veryo' ), 'branches/beveiliging' ),
 	);
+	$solutions = array();
+	foreach ( veryo_products() as $key => $product ) {
+		$solutions[] = array( $product['naam'], 'oplossingen/' . $key );
+	}
 
 	$menus = array(
 		'primary' => array(
@@ -508,6 +515,7 @@ function veryo_menu_definitions() {
 						),
 					),
 				),
+				array( __( 'Oplossingen', 'veryo' ), 'oplossingen', $solutions ),
 				array( __( 'Branches', 'veryo' ), 'branches', $branches ),
 				array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
 				array( __( 'Over Veryo', 'veryo' ), 'over-veryo' ),
@@ -536,6 +544,7 @@ function veryo_menu_definitions() {
 						array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
 					),
 				),
+				array( __( 'Oplossingen', 'veryo' ), 'oplossingen', $solutions ),
 				array(
 					__( 'Regio’s', 'veryo' ),
 					'#',

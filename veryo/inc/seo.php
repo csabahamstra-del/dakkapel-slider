@@ -116,6 +116,7 @@ function veryo_seo_metabox( $post ) {
 				<option value="service" <?php selected( $m( '_veryo_schema_type' ), 'service' ); ?>><?php esc_html_e( 'Dienst (Service)', 'veryo' ); ?></option>
 				<option value="startpakket" <?php selected( $m( '_veryo_schema_type' ), 'startpakket' ); ?>><?php esc_html_e( 'AI-Startpakket (drie vaste prijzen)', 'veryo' ); ?></option>
 				<option value="partner" <?php selected( $m( '_veryo_schema_type' ), 'partner' ); ?>><?php esc_html_e( 'AI-partner (maandprijs per teamgrootte)', 'veryo' ); ?></option>
+				<option value="oplossing" <?php selected( $m( '_veryo_schema_type' ), 'oplossing' ); ?>><?php esc_html_e( 'Oplossing (maandprijs vanaf)', 'veryo' ); ?></option>
 			</select>
 			<label for="veryo_price_min"><?php esc_html_e( 'Prijs vanaf (€)', 'veryo' ); ?></label>
 			<input type="number" min="0" step="1" id="veryo_price_min" name="veryo_price_min" value="<?php echo esc_attr( (string) $m( '_veryo_price_min' ) ); ?>" style="width:100px">
@@ -182,7 +183,7 @@ function veryo_save_seo_metabox( $post_id ) {
 	}
 	if ( isset( $_POST['veryo_schema_type'] ) ) {
 		$type = sanitize_key( wp_unslash( $_POST['veryo_schema_type'] ) );
-		update_post_meta( $post_id, '_veryo_schema_type', in_array( $type, array( 'service', 'startpakket', 'partner' ), true ) ? $type : '' );
+		update_post_meta( $post_id, '_veryo_schema_type', in_array( $type, array( 'service', 'startpakket', 'partner', 'oplossing' ), true ) ? $type : '' );
 	}
 	foreach ( array(
 		'veryo_price_min' => '_veryo_price_min',
@@ -679,7 +680,7 @@ function veryo_schema_graph() {
 
 	// Dienst.
 	$schema_type = (string) get_post_meta( $id, '_veryo_schema_type', true );
-	if ( is_page() && in_array( $schema_type, array( 'service', 'startpakket', 'partner' ), true ) ) {
+	if ( is_page() && in_array( $schema_type, array( 'service', 'startpakket', 'partner', 'oplossing' ), true ) ) {
 		$area    = (string) get_post_meta( $id, '_veryo_area', true );
 		$areas   = $area ? array( $area ) : array( 'Friesland', 'Groningen', 'Drenthe' );
 		$service = array(
@@ -720,6 +721,19 @@ function veryo_schema_graph() {
 			$service['offers'] = $offers;
 		} elseif ( 'partner' === $schema_type ) {
 			$service['offers'] = veryo_schema_partner_offers();
+		} elseif ( 'oplossing' === $schema_type && '' !== (string) $min ) {
+			// Vaste oplossing: maandprijs vanaf.
+			$service['offers'] = array(
+				'@type'              => 'Offer',
+				'priceCurrency'      => 'EUR',
+				'priceSpecification' => array(
+					'@type'                 => 'UnitPriceSpecification',
+					'minPrice'              => (int) $min,
+					'priceCurrency'         => 'EUR',
+					'unitText'              => 'maand',
+					'valueAddedTaxIncluded' => false,
+				),
+			);
 		} elseif ( '' !== (string) $min ) {
 			$spec = array(
 				'@type'                 => 'PriceSpecification',
@@ -966,6 +980,12 @@ function veryo_llms_txt() {
 	$out[] = '';
 	foreach ( veryo_price_ladder() as $row ) {
 		$out[] = '- [' . $clean( $row['dienst'] ) . '](' . veryo_url( $row['path'] ) . '): ' . $clean( $row['prijs'] ) . '. ' . $clean( $row['wat'] );
+	}
+	$out[] = '';
+	$out[] = '## ' . __( 'Oplossingen (vanaf €750 per maand, exclusief btw)', 'veryo' );
+	$out[] = '';
+	foreach ( veryo_products() as $key => $product ) {
+		$out[] = '- [' . $clean( $product['naam'] ) . '](' . veryo_url( 'oplossingen/' . $key ) . '): ' . $clean( $product['kort'] );
 	}
 	$out[] = '';
 	$out[] = '## ' . __( 'Abonnementen (per maand, exclusief btw)', 'veryo' );

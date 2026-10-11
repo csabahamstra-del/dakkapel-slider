@@ -372,3 +372,19 @@ JS;
 	wp_add_inline_script( 'media-editor', $js );
 }
 add_action( 'admin_enqueue_scripts', 'veryo_settings_media_script' );
+
+/**
+ * Eenmalig: de Instagram-link invullen op sites waar dat veld nog leeg is opgeslagen.
+ */
+function veryo_migrate_instagram() {
+	if ( get_option( 'veryo_instagram_migrated' ) ) {
+		return;
+	}
+	$saved = get_option( 'veryo_settings', array() );
+	if ( is_array( $saved ) && isset( $saved['instagram'] ) && '' === $saved['instagram'] ) {
+		$saved['instagram'] = veryo_settings_defaults()['instagram'];
+		update_option( 'veryo_settings', $saved );
+	}
+	update_option( 'veryo_instagram_migrated', 1, false );
+}
+add_action( 'admin_init', 'veryo_migrate_instagram' );

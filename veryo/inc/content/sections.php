@@ -487,6 +487,7 @@ function veryo_sec_branches( $title = '', $intro = '', $wide = false ) {
 		'horeca-retail'             => array( __( 'Horeca en retail', 'veryo' ), __( 'Reviews, social en reserveringen', 'veryo' ) ),
 		'transport'                 => array( __( 'Transport en logistiek', 'veryo' ), __( 'Planning, statusberichten en documenten', 'veryo' ) ),
 		'recruitment'               => array( __( 'Werving en recruitment', 'veryo' ), __( 'Solliciteren via WhatsApp', 'veryo' ) ),
+		'beveiliging'               => array( __( 'Beveiligingsbedrijven', 'veryo' ), __( 'Rapportages, incidenten en roosters', 'veryo' ) ),
 	);
 	$items    = array();
 	foreach ( $branches as $slug => $b ) {
@@ -682,6 +683,9 @@ function veryo_page_standard( $d ) {
 	}
 	if ( ! empty( $d['approach'] ) ) {
 		$out .= veryo_sec_approach();
+	}
+	if ( ! empty( $d['products'] ) ) {
+		$out .= veryo_sec_products( $d['products']['keys'], $d['products']['h'], isset( $d['products']['intro'] ) ? $d['products']['intro'] : '', true, $d['products']['keys'][0] );
 	}
 	if ( ! empty( $d['catalog'] ) ) {
 		$out .= veryo_sec_catalog( $d['catalog']['ids'], $d['catalog']['h'], isset( $d['catalog']['intro'] ) ? $d['catalog']['intro'] : '' );

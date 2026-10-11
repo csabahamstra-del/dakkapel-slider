@@ -1039,3 +1039,54 @@ html.lenis, html.lenis body { height: auto; }
 	.veryo-hero__services:not(.is-rotating) { height: auto !important; }
 	.veryo-hero__services:not(.is-rotating) li:nth-child(n+6) { display: none; }
 }
+
+/* ---------------------------------------------------------------- Oplossingen: kaarten */
+
+.veryo-products__grid { display: grid; gap: 20px; margin-top: var(--s4) !important; }
+@media (min-width: 760px) { .veryo-products__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) {
+	.veryo-products__grid { grid-template-columns: repeat(3, 1fr); }
+	.veryo-products__grid .veryo-product.is-featured { grid-column: span 2; }
+	.veryo-products__grid.has-3 .veryo-product.is-featured, .veryo-products__grid.has-6 .veryo-product.is-featured, .veryo-products__grid.has-7 .veryo-product.is-featured { grid-row: span 2; }
+}
+@media (min-width: 760px) { .veryo-products__grid.has-1 .veryo-product { grid-column: 1 / -1; } }
+.veryo-product {
+	position: relative; display: flex; flex-direction: column; margin: 0 !important; padding: 32px;
+	background: var(--paper); border-radius: var(--r-l); box-shadow: 0 0 0 1px var(--line-soft);
+	transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.veryo-product:hover { transform: translateY(-3px); box-shadow: 0 0 0 1px var(--line), 0 18px 40px rgba(16, 42, 38, .1); }
+.veryo-product:focus-within { box-shadow: 0 0 0 2px var(--petrol); }
+.veryo-product > * + * { margin-top: 14px !important; }
+.veryo-product__for { font: 600 .75rem/1.4 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--amber-deep); }
+.veryo-product h3 { font: 500 clamp(1.375rem, 1.2rem + .6vw, 1.75rem)/1.15 var(--serif) !important; letter-spacing: -.015em; }
+.veryo-product h3 a { color: inherit; text-decoration: none; }
+.veryo-product h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.veryo-product h3 a:focus-visible { outline: none; }
+.veryo-product > p:not([class]) { color: var(--ink-muted); }
+.veryo-product__price { margin-top: auto !important; padding-top: 18px; font-weight: 650; color: var(--petrol); }
+.veryo-product__price span { font-weight: 400; color: var(--ink-muted); font-size: .875rem; }
+.veryo-product__more { font-weight: 600; font-size: .9375rem; color: var(--ink); }
+.veryo-product__more::after { content: " →"; transition: margin .3s var(--ease); }
+.veryo-product:hover .veryo-product__more::after { margin-left: 4px; }
+.veryo-product.is-featured { background: var(--petrol); color: var(--paper); box-shadow: none; padding: 40px; }
+.veryo-product.is-featured .veryo-product__for { color: var(--amber); }
+.veryo-product.is-featured h3 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.75rem) !important; max-width: 16ch; }
+.veryo-product.is-featured > p:not([class]) { color: var(--petrol-soft); font-size: 1.125rem; max-width: 52ch; }
+.veryo-product.is-featured .veryo-product__price { color: var(--amber); }
+.veryo-product.is-featured .veryo-product__price span, .veryo-product.is-featured .veryo-product__more { color: var(--paper); }
+.veryo-product.is-featured::before {
+	content: "Instapproduct"; position: absolute; top: 24px; right: 24px; padding: 4px 10px; border-radius: var(--r-s);
+	background: var(--amber); color: var(--ink); font: 700 .6875rem/1.4 var(--sans); letter-spacing: .1em; text-transform: uppercase;
+}
+.veryo-products__grid:not(.has-6):not(.has-7) .veryo-product.is-featured::before { content: "Aanbevolen"; }
+
+/* Detailpagina */
+.veryo-product-fit .wp-block-columns { gap: var(--s4) var(--s5); }
+.veryo-product-price { max-width: var(--content); }
+.veryo-product__big { font: 500 clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem)/1.1 var(--serif); color: var(--petrol); letter-spacing: -.02em; }
+.company-details__social { display: flex; align-items: center; gap: 10px; }
+.veryo-product__steps { list-style: none; counter-reset: vstep; padding: 0 !important; margin-top: var(--s4) !important; display: grid; gap: 12px 28px; }
+@media (min-width: 760px) { .veryo-product__steps { grid-template-columns: 1fr 1fr; } }
+.veryo-product__steps li { counter-increment: vstep; position: relative; margin: 0 !important; padding: 14px 0 0 44px; border-top: 1px solid rgba(255, 255, 255, .16); color: var(--paper); font-weight: 500; }
+.veryo-product__steps li::before { content: counter(vstep, decimal-leading-zero); position: absolute; left: 0; top: 14px; font: 500 1.125rem/1.4 var(--serif); color: var(--amber); }

@@ -256,6 +256,7 @@ add_filter( 'wp_omit_loading_attr_threshold', 'veryo_lazy_all_content_images' );
 function veryo_hero_services() {
 	return array(
 		array( 'scan', __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
+		array( 'phone', __( 'AI lead-opvolging', 'veryo' ), 'oplossingen/ai-lead-opvolging' ),
 		array( 'box', __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
 		array( 'monitor', __( 'Copilot en Gemini inrichten', 'veryo' ), 'ai-werkplek' ),
 		array( 'bot', __( 'AI-agents als digitale collega', 'veryo' ), 'ai-agents' ),

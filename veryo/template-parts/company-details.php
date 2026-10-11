@@ -25,6 +25,6 @@ $veryo_place   = trim( $veryo_c['postcode'] . ' ' . $veryo_c['city'] );
 		<li class="company-details__social"><a href="<?php echo esc_url( $veryo_c['linkedin'] ); ?>" rel="me"><?php esc_html_e( 'LinkedIn', 'veryo' ); ?></a></li>
 	<?php endif; ?>
 	<?php if ( $veryo_c['instagram'] ) : ?>
-		<li class="company-details__social"><a href="<?php echo esc_url( $veryo_c['instagram'] ); ?>" rel="me"><?php esc_html_e( 'Instagram', 'veryo' ); ?></a></li>
+		<li class="company-details__social"><?php echo wp_kses( veryo_icon( 'instagram' ), veryo_svg_kses() ); ?><a href="<?php echo esc_url( $veryo_c['instagram'] ); ?>" target="_blank" rel="me noopener" aria-label="<?php esc_attr_e( 'Veryo op Instagram', 'veryo' ); ?>"><?php esc_html_e( 'Instagram', 'veryo' ); ?></a></li>
 	<?php endif; ?>
 </ul>

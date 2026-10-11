@@ -54,6 +54,11 @@ if ( $veryo_home_photo ) {
 $veryo_home .= veryo_sec_contrast();
 $veryo_home .= veryo_sec_startpakket( __( 'Het Veryo AI-Startpakket', 'veryo' ), __( 'Medewerkers gebruiken ChatGPT al op eigen houtje en niemand weet wat er wordt ingevoerd. Met het AI-Startpakket zet je het in één keer goed neer: vijf onderdelen, vaste prijs, vanaf €1.995.', 'veryo' ) );
 $veryo_home .= veryo_sec_pillars();
+$veryo_home .= veryo_sec_products(
+	array(),
+	__( 'Kant-en-klare AI-oplossingen', 'veryo' ),
+	__( 'Voor werk dat in veel bedrijven hetzelfde gaat, hebben we vaste oplossingen. We richten ze in op jouw systemen en houden ze draaiende, vanaf €750 per maand.', 'veryo' )
+);
 $veryo_home .= veryo_sec_steps_home();
 $veryo_home .= veryo_sec_independent( '', true );
 $veryo_home .= veryo_sec_wide(
@@ -650,6 +655,16 @@ $veryo_prices .= veryo_sec_text(
 	)
 );
 $veryo_prices .= veryo_sec_text(
+	__( 'Wat kosten de vaste oplossingen?', 'veryo' ),
+	array(
+		sprintf(
+			/* translators: %s: link naar oplossingen. */
+			__( 'Voor werk dat in veel bedrijven hetzelfde gaat, zoals leads opvolgen, klantrapportages, werkbonnen en inkoopfacturen, hebben we <a href="%s">vaste oplossingen</a>. Die kosten vanaf €750 per maand, exclusief btw. We richten ze in op jouw systemen en houden ze draaiende; na een kort gesprek krijg je een vaste prijs.', 'veryo' ),
+			esc_url( veryo_link( 'oplossingen' ) )
+		),
+	)
+);
+$veryo_prices .= veryo_sec_text(
 	__( 'Wat kost een chatbot laten maken?', 'veryo' ),
 	array( __( 'Vaak kan een chatbot met bestaande software worden ingericht; dan valt het meestal onder een project (€2.500 tot €7.500). Moet hij koppelen met je agenda, CRM of WhatsApp op een manier die geen pakket goed ondersteunt, dan wordt het maatwerk (vanaf €5.000). Op de pagina over de AI-chatbot lees je wat je voor dat bedrag krijgt.', 'veryo' ) )
 );
@@ -782,7 +797,7 @@ $veryo_contact .= veryo_b_columns(
 /*
  * Branches (overzicht)
  */
-$veryo_branches  = veryo_sec_answer( __( 'AI per branche: Veryo zet AI in voor installatie, bouw, agri, makelaardij, zakelijke dienstverlening, horeca en retail, transport en werving. Per sector verschillen de tijdvreters, dus per sector verschillen de toepassingen. Een eerste automatisering begint bij €750, exclusief btw.', 'veryo' ) );
+$veryo_branches  = veryo_sec_answer( __( 'AI per branche: Veryo zet AI in voor installatie, bouw, agri, makelaardij, zakelijke dienstverlening, horeca en retail, transport, werving en beveiliging. Per sector verschillen de tijdvreters, dus per sector verschillen de toepassingen. Een eerste automatisering begint bij €750, exclusief btw.', 'veryo' ) );
 $veryo_branches .= veryo_sec_text(
 	__( 'Waarom per branche kijken?', 'veryo' ),
 	array(

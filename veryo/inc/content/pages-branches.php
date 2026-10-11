@@ -31,6 +31,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'installateur met tablet bij een warmtepomp op locatie', 'veryo' ), __( 'AI voor installateurs: werkbon op de tablet', 'veryo' ), 'installateur' ),
+				'products' => array(
+					'keys' => array( 'ai-lead-opvolging', 'ai-calculatie-offerte-factuur', 'werkbonnen-verwerken' ),
+					'h'    => __( 'Vaste oplossingen voor installateurs', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'De drie automatiseringen die installateurs het meest opleveren', 'veryo' ),
 					'intro' => __( 'Plus een paar die er goed bij passen. Tijdwinst is een indicatie voor een team van 5 tot 20 mensen.', 'veryo' ),
@@ -90,6 +94,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'uitvoerder op een bouwplaats die meerwerk fotografeert met zijn telefoon', 'veryo' ), __( 'AI in de bouw: meerwerk vastleggen op de bouwplaats', 'veryo' ), 'bouw' ),
+				'products' => array(
+					'keys' => array( 'ai-lead-opvolging', 'ai-calculatie-offerte-factuur', 'werkbonnen-verwerken' ),
+					'h'    => __( 'Vaste oplossingen voor aannemers en bouwbedrijven', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de bouw concreet doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen voor aannemers, plus wat er goed bij past.', 'veryo' ),
@@ -149,6 +157,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'monteur in de werkplaats van een mechanisatiebedrijf bij een trekker', 'veryo' ), __( 'AI in de landbouw: onderhoud in de werkplaats plannen', 'veryo' ), 'agri' ),
+				'products' => array(
+					'keys' => array( 'werkbonnen-verwerken', 'inkoopfacturen-automatiseren' ),
+					'h'    => __( 'Vaste oplossingen voor agri en mechanisatie', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de landbouw en mechanisatie oplevert', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
@@ -208,6 +220,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'makelaar bij een woning met een tablet en de agenda voor bezichtigingen', 'veryo' ), __( 'AI voor makelaars: bezichtigingen plannen', 'veryo' ), 'woning' ),
+				'products' => array(
+					'keys' => array( 'ai-lead-opvolging' ),
+					'h'    => __( 'Vaste oplossing voor makelaars', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor makelaars concreet doet', 'veryo' ),
 					'intro' => __( 'Samen vormen deze bouwstenen de AI-inbox voor je kantoor.', 'veryo' ),
@@ -270,6 +286,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'adviseur in gesprek met een klant aan tafel, met een laptop die meeluistert', 'veryo' ), __( 'AI voor accountants: gespreksverslag automatisch', 'veryo' ), 'overleg' ),
+				'products' => array(
+					'keys' => array( 'inkoopfacturen-automatiseren' ),
+					'h'    => __( 'Vaste oplossing voor accountants en adviesbureaus', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor accountants en adviesbureaus doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen voor kennisbedrijven, plus wat er goed bij past.', 'veryo' ),
@@ -335,6 +355,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'eigenaar van een lunchroom die achter de bar op haar telefoon reviews bekijkt', 'veryo' ), __( 'AI voor horeca: reviews beantwoorden', 'veryo' ), 'horeca' ),
+				'products' => array(
+					'keys' => array( 'inkoopfacturen-automatiseren' ),
+					'h'    => __( 'Vaste oplossing voor horeca en retail', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor horeca en retail doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
@@ -393,6 +417,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'planner op een transportkantoor met een planbord en twee schermen', 'veryo' ), __( 'AI in de logistiek: planningsassistent voor de planner', 'veryo' ), 'logistiek' ),
+				'products' => array(
+					'keys' => array( 'inkoopfacturen-automatiseren', 'werkbonnen-verwerken' ),
+					'h'    => __( 'Vaste oplossingen voor transport en logistiek', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de logistiek concreet doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
@@ -451,6 +479,10 @@ return array(
 					),
 				),
 				'photo'    => array( __( 'chauffeur in de cabine die via WhatsApp reageert op een vacature', 'veryo' ), __( 'WhatsApp-werving: solliciteren zonder cv', 'veryo' ), 'telefoon' ),
+				'products' => array(
+					'keys' => array( 'ai-recruitment-assistent' ),
+					'h'    => __( 'Vaste oplossing voor werving en selectie', 'veryo' ),
+				),
 				'catalog'  => array(
 					'h'     => __( 'Wat we automatiseren in werving', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
@@ -491,4 +523,78 @@ return array(
 			)
 		),
 	),
+
+	/* ------------------------------------------------------------------------- */
+	'branches/beveiliging'               => array(
+		'title'     => __( 'AI voor beveiligingsbedrijven', 'veryo' ),
+		'seo_title' => __( 'AI voor beveiligingsbedrijven: rapportages en meer | Veryo', 'veryo' ),
+		'desc'      => __( 'AI voor beveiligingsbedrijven: dienst- en incidentrapporten automatisch naar maandrapportages per opdrachtgever, plus inkoop en werving. Vanaf €750.', 'veryo' ),
+		'kw'        => 'ai voor beveiligingsbedrijven',
+		'schema'    => array(
+			'type' => 'service',
+			'min'  => 750,
+			'max'  => 25000,
+			'area' => 'Nederland',
+		),
+		'content'   => veryo_page_standard(
+			array(
+				'answer'   => __( 'Veryo zet AI in voor beveiligingsbedrijven, met AI Klantrapportage als hoofdproduct: dienst- en incidentrapporten worden automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever. Daarnaast automatiseren we inkoopfacturen en de eerste stappen van werving. Vaste oplossingen vanaf €750 per maand, exclusief btw.', 'veryo' ),
+				'problem'  => array(
+					'h'    => __( 'Waar de tijd in een beveiligingsbedrijf naartoe gaat', 'veryo' ),
+					'p'    => array(
+						__( 'Het werk op locatie loopt meestal goed. Het werk eromheen vreet de uren: alles wat er tijdens diensten gebeurt, moet worden vastgelegd, verwerkt en verantwoord richting opdrachtgevers. En dat gebeurt vaak nog met de hand.', 'veryo' ),
+					),
+					'list' => array(
+						'<strong>' . __( 'Dienstrapporten', 'veryo' ) . '</strong>: ' . __( 'elke dienst levert een rapport op dat iemand moet lezen en verwerken.', 'veryo' ),
+						'<strong>' . __( 'Incidentverslagen', 'veryo' ) . '</strong>: ' . __( 'per incident een verslag, met opvolging richting opdrachtgever.', 'veryo' ),
+						'<strong>' . __( 'Maandrapportages voor opdrachtgevers', 'veryo' ) . '</strong>: ' . __( 'per klant een overzicht, elke maand opnieuw met de hand in elkaar gezet.', 'veryo' ),
+						'<strong>' . __( 'Roosters', 'veryo' ) . '</strong>: ' . __( 'diensten, beschikbaarheid, passen en diploma’s die op elkaar moeten passen.', 'veryo' ),
+						'<strong>' . __( 'Inkoopfacturen', 'veryo' ) . '</strong>: ' . __( 'kleding, middelen, voertuigen en onderaannemers, allemaal handmatig ingeboekt.', 'veryo' ),
+					),
+				),
+				'products' => array(
+					'keys'  => array( 'ai-klantrapportage', 'inkoopfacturen-automatiseren', 'ai-recruitment-assistent' ),
+					'h'     => __( 'Vaste oplossingen voor beveiligingsbedrijven', 'veryo' ),
+					'intro' => __( 'AI Klantrapportage is ons hoofdproduct voor de beveiliging. Inkoopfacturen en de recruitment-assistent passen er goed naast.', 'veryo' ),
+				),
+				'catalog'  => array(
+					'h'     => __( 'Wat er verder te automatiseren valt', 'veryo' ),
+					'intro' => __( 'Losse automatiseringen die goed passen bij een beveiligingsbedrijf. Tijdwinst is een indicatie voor een team van 5 tot 50 mensen.', 'veryo' ),
+					'ids'   => array( 'planningsassistent', 'certificaten', 'whatsapp-sollicitatie', 'archiveren', 'documenten-samenvatten' ),
+				),
+				'sections' => array(
+					array(
+						'h' => __( 'Zo ziet het eruit in de praktijk', 'veryo' ),
+						'p' => array(
+							__( 'Een voorbeeld: beveiligers sturen hun dienstrapport aan het eind van de dienst naar een vast mailadres, of het rapport komt uit jullie eigen systeem. Een incident wordt apart vastgelegd. Gedurende de maand verzamelt AI Klantrapportage alles per opdrachtgever en locatie.', 'veryo' ),
+							__( 'Aan het eind van de maand staat per opdrachtgever een conceptrapportage klaar in jullie huisstijl: het aantal diensten en rondes, de incidenten met een korte samenvatting en de bijzonderheden. De planner of leidinggevende leest na, past aan waar nodig en verstuurt. Wat eerst een middag per klant kostte, is nu een kwestie van nalezen.', 'veryo' ),
+						),
+					),
+					array(
+						'h' => __( 'Vertrouwelijk en zorgvuldig', 'veryo' ),
+						'p' => array( __( 'Rapporten in de beveiliging bevatten gevoelige informatie over locaties, personen en incidenten. We werken daarom met zakelijke AI-diensten die gegevens niet gebruiken om modellen te trainen, sluiten een verwerkersovereenkomst en geven alleen toegang tot wat nodig is. Een mens leest elke rapportage na voor die naar de opdrachtgever gaat.', 'veryo' ) ),
+					),
+				),
+				'faq'      => array(
+					array( __( 'Werkt AI Klantrapportage met ons rapportagesysteem?', 'veryo' ), __( 'Komen rapporten als mail of PDF binnen, dan altijd. Heeft je systeem een export of koppeling, dan halen we ze daar rechtstreeks uit. Dat checken we in het eerste gesprek.', 'veryo' ) ),
+					array( __( 'Kunnen de rapportages in onze eigen huisstijl?', 'veryo' ), __( 'Ja. Logo, kleuren en indeling stemmen we vooraf af, zodat elke opdrachtgever een vertrouwd overzicht krijgt.', 'veryo' ) ),
+					array( __( 'Kan AI ook helpen met roosters?', 'veryo' ), __( 'Een planningsassistent kan voorstellen doen op basis van beschikbaarheid, passen en diploma’s. Dat is maatwerk; de planner beslist altijd.', 'veryo' ) ),
+					array( __( 'Wat kost het?', 'veryo' ), __( 'Vaste oplossingen zoals AI Klantrapportage kosten vanaf €750 per maand, exclusief btw. Na een kort gesprek krijg je een vaste prijs.', 'veryo' ) ),
+				),
+				'contact'  => array(
+					__( 'Hoeveel tijd kost rapporteren bij jullie?', 'veryo' ),
+					__( 'Vertel hoeveel opdrachtgevers je hebt en hoe rapportages nu worden gemaakt. Je hoort binnen één werkdag wat AI Klantrapportage voor jullie kan betekenen.', 'veryo' ),
+					__( 'Bijvoorbeeld: we hebben 25 opdrachtgevers en maken elke maand handmatig de rapportages.', 'veryo' ),
+				),
+				'cta'      => array( __( 'Beveiligingsbedrijf? Zie waar jouw uren zitten', 'veryo' ), '' ),
+				'links'    => array(
+					array( 'oplossingen/ai-klantrapportage', __( 'AI Klantrapportage', 'veryo' ), __( 'Het hoofdproduct voor beveiligingsbedrijven', 'veryo' ) ),
+					array( 'oplossingen/inkoopfacturen-automatiseren', __( 'Inkoopfacturen automatiseren', 'veryo' ), __( 'Minder handmatig inboeken', 'veryo' ) ),
+					array( 'oplossingen/ai-recruitment-assistent', __( 'AI recruitment-assistent', 'veryo' ), __( 'Sneller nieuwe beveiligers werven', 'veryo' ) ),
+					array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid en rechten op orde', 'veryo' ) ),
+				),
+			)
+		),
+	),
+
 );
