@@ -79,6 +79,7 @@ $veryo_startpakket .= veryo_sec_text(
 		'<strong>' . __( 'Geen juridisch advies.', 'veryo' ) . '</strong> ' . __( 'Het AI-beleid is praktisch. Wil je het juridisch laten toetsen, dan raden we een jurist aan.', 'veryo' ),
 	)
 );
+$veryo_startpakket .= veryo_sec_collega_blok();
 $veryo_startpakket .= veryo_sec_contact(
 	__( 'Vragen over het AI-Startpakket?', 'veryo' ),
 	__( 'Twijfel je of het pakket bij jouw team past, of wil je een datum voor de kansensessie? Stel je vraag; je krijgt binnen één werkdag antwoord.', 'veryo' ),
@@ -147,7 +148,7 @@ $veryo_partner .= veryo_sec_text(
 	__( 'Wat er niet onder AI-partner valt', 'veryo' ),
 	array(
 		__( 'Onderhoud van koppelingen en agents die we voor je bouwen, valt er niet onder. Dat is apart, omdat het per bedrijf sterk verschilt: €150 tot €500 per maand, afhankelijk van het aantal koppelingen. Grotere projecten krijgen altijd een eigen vaste prijs, zodat het abonnement voorspelbaar blijft.', 'veryo' ),
-		__( 'Veryo doet ook geen IT-beheer, hardware, netwerken of helpdesk. Heb je een vaste IT-beheerder, dan werken we graag met die samen.', 'veryo' ),
+		__( 'Veryo doet ook geen algemeen IT-beheer, netwerken of helpdesk. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. Heb je een vaste IT-beheerder, dan werken we graag met die samen.', 'veryo' ),
 	)
 );
 $veryo_partner .= veryo_sec_text(
@@ -158,6 +159,7 @@ $veryo_partner .= veryo_sec_text(
 	)
 );
 $veryo_partner .= veryo_sec_subscription_terms();
+$veryo_partner .= veryo_sec_collega_blok();
 $veryo_partner .= veryo_sec_contact(
 	__( 'Welk niveau AI-partner past bij jullie?', 'veryo' ),
 	__( 'Vertel hoe groot je team is en wat er al draait. Je krijgt binnen één werkdag advies over het niveau dat past, en wat je er per maand voor krijgt.', 'veryo' ),
@@ -169,7 +171,7 @@ $veryo_partner .= veryo_sec_faq(
 		array( __( 'Wat is de looptijd?', 'veryo' ), __( 'AI-partner sluit je af per jaar en wordt maandelijks gefactureerd. Betaal je het jaar vooruit, dan krijg je korting.', 'veryo' ) ),
 		array( __( 'Wat als ik mijn uren in een maand niet gebruik?', 'veryo' ), __( 'Die vervallen aan het eind van de maand. In het overleg kijken we samen hoe je de uren het best inzet.', 'veryo' ) ),
 		array( __( 'Is AI-partner goedkoper dan losse abonnementen?', 'veryo' ), esc_html( veryo_partner_comparison() ) ),
-		array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen IT-beheer, hardware, netwerken of helpdesk. We werken graag samen met je vaste IT-beheerder.', 'veryo' ) ),
+		array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen algemeen IT-beheer, netwerken of helpdesk. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. We werken graag samen met je vaste IT-beheerder.', 'veryo' ) ),
 		array( __( 'Komen jullie ook langs?', 'veryo' ), __( 'In Friesland, Groningen en Drenthe kan het overleg op locatie. Elders doen we het online.', 'veryo' ) ),
 	)
 );

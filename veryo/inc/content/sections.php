@@ -295,7 +295,7 @@ function veryo_sec_ladder() {
 		$tag( $l['scan'] ) . '<br>' . esc_html( $l['scan']['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $l['scan']['voor'] ) . '</span>',
 		array(
 			'class' => 'is-featured',
-			'text'  => '<span class="veryo-flag">' . esc_html__( 'Hoofdproduct', 'veryo' ) . '</span><br><strong>' . esc_html( $l['startpakket']['dienst'] ) . '</strong><br>' . esc_html( $l['startpakket']['wat'] ) . '<br>' . implode( ' · ', $sp ) . '<br><span class="veryo-meta">' . esc_html( $l['startpakket']['voor'] ) . ' <a href="' . esc_url( veryo_link( 'ai-startpakket' ) ) . '">' . esc_html__( 'Alles over het AI-Startpakket', 'veryo' ) . '</a></span>',
+			'text'  => '<span class="veryo-flag">' . esc_html__( 'Aanbevolen start', 'veryo' ) . '</span><br><strong>' . esc_html( $l['startpakket']['dienst'] ) . '</strong><br>' . esc_html( $l['startpakket']['wat'] ) . '<br>' . implode( ' · ', $sp ) . '<br><span class="veryo-meta">' . esc_html( $l['startpakket']['voor'] ) . ' <a href="' . esc_url( veryo_link( 'ai-startpakket' ) ) . '">' . esc_html__( 'Alles over het AI-Startpakket', 'veryo' ) . '</a></span>',
 		),
 		'<strong>' . esc_html__( 'Invoering en koppelingen', 'veryo' ) . '</strong><br>' . esc_html__( 'De beste kansen uit de kansensessie invoeren: eerst met software die je al hebt of kunt nemen, alleen waar nodig met een eigen koppeling of maatwerk.', 'veryo' ) . '<br>'
 			. esc_html__( 'Quick win', 'veryo' ) . ': <strong>' . esc_html( $l['quickwin']['prijs'] ) . '</strong> · ' . esc_html__( 'Project', 'veryo' ) . ': <strong>' . esc_html( $l['project']['prijs'] ) . '</strong> · ' . esc_html__( 'Maatwerk', 'veryo' ) . ': <strong>' . esc_html( $l['maatwerk']['prijs'] ) . '</strong>',
@@ -712,6 +712,13 @@ function veryo_page_standard( $d ) {
 	if ( ! empty( $d['after_price'] ) ) {
 		$out .= $d['after_price'];
 	}
+	if ( empty( $d['no_collega'] ) ) {
+		if ( ! empty( $d['collega_regio'] ) ) {
+			$out .= veryo_sec_collega_blok( 'regio', $d['collega_regio'] );
+		} else {
+			$out .= veryo_sec_collega_blok( isset( $d['collega_variant'] ) ? $d['collega_variant'] : 'standaard' );
+		}
+	}
 	if ( empty( $d['no_contact'] ) ) {
 		$contact = isset( $d['contact'] ) ? $d['contact'] : array();
 		$out    .= veryo_sec_contact(
@@ -1029,7 +1036,7 @@ function veryo_sec_pillars() {
 			)
 		);
 	}
-	$inner  = veryo_sec_head( __( 'Wat we doen, in zes pijlers', 'veryo' ), veryo_b_p( __( 'Van het eerste advies tot doorlopende begeleiding. Je kunt bij elke pijler instappen. Veryo is geen IT-bedrijf: beheer, hardware en helpdesk laten we aan je IT-beheerder.', 'veryo' ) ) );
+	$inner  = veryo_sec_head( __( 'Wat we doen, in zes pijlers', 'veryo' ), veryo_b_p( __( 'Van het eerste advies tot doorlopende begeleiding. Je kunt bij elke pijler instappen. Veryo is geen IT-bedrijf: algemeen beheer en helpdesk laten we aan je IT-beheerder.', 'veryo' ) ) );
 	$inner .= veryo_b_group(
 		$panels,
 		array(

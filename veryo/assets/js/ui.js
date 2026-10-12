@@ -198,7 +198,7 @@
 
 		/* Sticky CTA op mobiel: zichtbaar na de hero, weg boven de footer. */
 	var sticky = document.querySelector( '.veryo-sticky-cta' );
-	var hero = document.querySelector( '.veryo-hero' ) || document.querySelector( '.page-header' );
+	var hero = document.querySelector( '.veryo-hero' ) || document.querySelector( '.veryo-collega-hero' ) || document.querySelector( '.page-header' );
 	var footer = document.querySelector( '.site-footer' );
 	if ( sticky && 'IntersectionObserver' in window ) {
 		sticky.hidden = false;

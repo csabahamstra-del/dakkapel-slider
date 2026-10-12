@@ -39,16 +39,17 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo is een AI-adviseur in Friesland, gevestigd in Leeuwarden. We helpen Friese MKB-bedrijven met AI-automatisering, AI-training en AI op maat, en komen daarvoor gewoon langs. Een eerste automatisering kost €750 tot €1.500, een incompany training vanaf €1.200, exclusief btw.', 'veryo' ),
-				'problem'  => array(
+				'collega_regio' => 'friesland',
+				'answer'        => __( 'Veryo is een AI-adviseur in Friesland, gevestigd in Leeuwarden. We helpen Friese MKB-bedrijven met AI-automatisering, AI-training en AI op maat, en komen daarvoor gewoon langs. Een eerste automatisering kost €750 tot €1.500, een incompany training vanaf €1.200, exclusief btw.', 'veryo' ),
+				'problem'       => array(
 					'h' => __( 'AI voor het Friese MKB, zonder poespas', 'veryo' ),
 					'p' => array(
 						__( 'Friese ondernemers zijn niet snel onder de indruk. Dat is maar goed ook, want over AI wordt veel beloofd. Wat we in de provincie vooral horen: “Ik lees er overal over, maar wat moet ik er in mijn bedrijf mee?” Een bouwbedrijf in Drachten heeft andere vragen dan een recreatiepark aan de kust of een loonwerker in de Friese Wouden.', 'veryo' ),
 						__( 'Als AI-bureau in Friesland beginnen we daarom bij je werk. Waar gaat de tijd heen? Welke software gebruik je? Wat ergert je team het meest? Pas daarna kijken we wat AI kan doen, en wat het oplevert in uren en euro’s.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'bedrijfspand op een Fries bedrijventerrein met een busje van een installateur ervoor', 'veryo' ), __( 'AI-adviseur in Friesland op bezoek bij een MKB-bedrijf', 'veryo' ), 'landschap' ),
-				'sections' => array(
+				'photo'         => array( __( 'bedrijfspand op een Fries bedrijventerrein met een busje van een installateur ervoor', 'veryo' ), __( 'AI-adviseur in Friesland op bezoek bij een MKB-bedrijf', 'veryo' ), 'landschap' ),
+				'sections'      => array(
 					array(
 						'h'    => __( 'Sectoren die we in Friesland veel zien', 'veryo' ),
 						'list' => array(
@@ -67,20 +68,20 @@ return array(
 						array( 'Leeuwarden', 'Heerenveen', 'Sneek', 'Drachten', 'Harlingen', 'Dokkum', __( 'en de rest van Friesland, ook de Waddeneilanden in overleg', 'veryo' ) )
 					),
 				),
-				'catalog'  => array(
+				'catalog'       => array(
 					'h'   => __( 'Veelgevraagd in Friesland', 'veryo' ),
 					'ids' => array( 'offerte-generator', 'digitale-werkbon', 'onderhoudsplanning', 'whatsapp-assistent', 'vertalen' ),
 				),
-				'price'    => array( 'steps' => array( 'scan', 'startpakket', 'training', 'quickwin' ) ),
-				'faq'      => array(
+				'price'         => array( 'steps' => array( 'scan', 'startpakket', 'training', 'quickwin' ) ),
+				'faq'           => array(
 					array( __( 'Komen jullie op locatie in heel Friesland?', 'veryo' ), __( 'Ja. Vanuit Leeuwarden komen we in heel de provincie langs, van Harlingen tot Oosterwolde en van Dokkum tot Lemmer. Voor de eilanden maken we een afspraak op maat.', 'veryo' ) ),
 					array( __( 'Kunnen jullie een AI-training in Friesland geven?', 'veryo' ), __( 'Ja, bij jou op locatie of in Leeuwarden. Een halve dag voor maximaal twintig mensen kost €1.200 exclusief btw.', 'veryo' ) ),
 					array( __( 'Werken jullie ook met kleine bedrijven?', 'veryo' ), __( 'Ja. Een groot deel van het Friese MKB bestaat uit bedrijven met twee tot twintig mensen. Juist daar kan één goede automatisering veel schelen.', 'veryo' ) ),
 					array( __( 'Kunnen berichten ook in het Duits of Fries?', 'veryo' ), __( 'Vertalen naar Duits en Engels werkt goed, handig voor toerisme en export. Fries is minder vanzelfsprekend voor AI-modellen; dat testen we per toepassing.', 'veryo' ) ),
 					array( __( 'Wat kost een AI-adviseur in Friesland?', 'veryo' ), __( 'De AI-scan is gratis. Een kansensessie met roadmap kost €750 tot €1.500, een eerste automatisering €750 tot €1.500. In Noord-Nederland rekenen we geen reiskosten. Alles exclusief btw.', 'veryo' ) ),
 				),
-				'cta'      => array( __( 'Friese ondernemer? Begin met de AI-scan', 'veryo' ), '' ),
-				'links'    => array(
+				'cta'           => array( __( 'Friese ondernemer? Begin met de AI-scan', 'veryo' ), '' ),
+				'links'         => array(
 					array( 'leeuwarden', __( 'AI-training en automatisering in Leeuwarden', 'veryo' ), __( 'Onze thuisbasis', 'veryo' ) ),
 					array( 'branches/agri', __( 'AI in de landbouw', 'veryo' ), __( 'Voor agrarische bedrijven en mechanisatie', 'veryo' ) ),
 					array( 'branches/installatie', __( 'AI voor installateurs', 'veryo' ), __( 'Offertes, werkbonnen, storingen', 'veryo' ) ),
@@ -104,16 +105,17 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo is een AI-adviseur voor het MKB in Groningen, in de stad en de provincie. Vanuit Leeuwarden komen we op locatie voor AI-automatisering, AI-training en AI op maat. De gratis AI-scan is een goed begin; een eerste automatisering kost €750 tot €1.500 en een training vanaf €1.200, exclusief btw.', 'veryo' ),
-				'problem'  => array(
+				'collega_regio' => 'groningen',
+				'answer'        => __( 'Veryo is een AI-adviseur voor het MKB in Groningen, in de stad en de provincie. Vanuit Leeuwarden komen we op locatie voor AI-automatisering, AI-training en AI op maat. De gratis AI-scan is een goed begin; een eerste automatisering kost €750 tot €1.500 en een training vanaf €1.200, exclusief btw.', 'veryo' ),
+				'problem'       => array(
 					'h' => __( 'Groningse bedrijven en AI: veel kennis om je heen, weinig tijd', 'veryo' ),
 					'p' => array(
 						__( 'In Groningen is AI-kennis nooit ver weg, met de universiteit, de hogeschool en een flinke techsector in de stad. Maar voor een technisch bedrijf in Veendam of een logistieke dienstverlener bij Delfzijl voelt dat vaak ver van de dagelijkse praktijk. Onderzoek en prototypes zijn iets anders dan een automatisering die maandagochtend gewoon werkt.', 'veryo' ),
 						__( 'Als AI-bureau voor Groningen richten we ons op dat laatste: praktische toepassingen die in je eigen software draaien, met een vaste prijs en iemand die ze onderhoudt.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'logistiek bedrijf in de Eemshaven-regio met vrachtwagens aan het dock', 'veryo' ), __( 'AI-adviseur in Groningen bij een logistiek bedrijf', 'veryo' ), 'logistiek' ),
-				'sections' => array(
+				'photo'         => array( __( 'logistiek bedrijf in de Eemshaven-regio met vrachtwagens aan het dock', 'veryo' ), __( 'AI-adviseur in Groningen bij een logistiek bedrijf', 'veryo' ), 'logistiek' ),
+				'sections'      => array(
 					array(
 						'h'    => __( 'Waar we Groningse bedrijven mee helpen', 'veryo' ),
 						'list' => array(
@@ -134,20 +136,20 @@ return array(
 						array( __( 'Stad Groningen', 'veryo' ), 'Veendam', 'Hoogezand', 'Delfzijl', 'Winsum', __( 'en de rest van de provincie Groningen', 'veryo' ) )
 					),
 				),
-				'catalog'  => array(
+				'catalog'       => array(
 					'h'   => __( 'Veelgevraagd in Groningen', 'veryo' ),
 					'ids' => array( 'planningsassistent', 'statusberichten', 'technische-documentatie', 'gespreksverslagen', 'dashboard' ),
 				),
-				'price'    => array( 'steps' => array( 'scan', 'startpakket', 'training', 'project' ) ),
-				'faq'      => array(
+				'price'         => array( 'steps' => array( 'scan', 'startpakket', 'training', 'project' ) ),
+				'faq'           => array(
 					array( __( 'Komen jullie ook in de stad Groningen?', 'veryo' ), __( 'Ja, in de stad en in de hele provincie. Voor een kansensessie, training of oplevering komen we op locatie.', 'veryo' ) ),
 					array( __( 'Rekenen jullie reiskosten voor Groningen?', 'veryo' ), __( 'Nee. In Friesland, Groningen en Drenthe rekenen we geen reiskosten. Dat zit in de vaste prijs.', 'veryo' ) ),
 					array( __( 'Werken jullie samen met Groningse onderwijsinstellingen?', 'veryo' ), __( 'Op dit moment niet. We richten ons op praktische toepassingen voor het MKB.', 'veryo' ) ),
 					array( __( 'Kunnen jullie een AI-training in Groningen geven?', 'veryo' ), __( 'Ja, bij jou op locatie of online. Een halve dag voor maximaal twintig personen kost €1.200 exclusief btw.', 'veryo' ) ),
 					array( __( 'Is een AI-adviseur in Groningen niet dichterbij?', 'veryo' ), __( 'Misschien wel. Het verschil zit in de aanpak: wij adviseren, bouwen en onderhouden, met vaste prijzen. Kies wat bij je past.', 'veryo' ) ),
 				),
-				'cta'      => array( __( 'Groningse ondernemer? Doe de AI-scan', 'veryo' ), '' ),
-				'links'    => array(
+				'cta'           => array( __( 'Groningse ondernemer? Doe de AI-scan', 'veryo' ), '' ),
+				'links'         => array(
 					array( 'branches/transport', __( 'AI in de logistiek', 'veryo' ), __( 'Planning en statusberichten', 'veryo' ) ),
 					array( 'branches/zakelijke-dienstverlening', __( 'AI voor accountants en adviesbureaus', 'veryo' ), __( 'Verslagen en kennis', 'veryo' ) ),
 					array( 'ai-implementatie-mkb', __( 'AI-implementatie voor het MKB', 'veryo' ), __( 'Van plan tot live', 'veryo' ) ),
@@ -171,17 +173,18 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo is een AI-adviseur voor het MKB in Drenthe. We helpen bedrijven in Assen, Emmen, Hoogeveen, Meppel en omgeving met AI-automatisering, AI-training en AI op maat, met vaste prijzen. Een eerste automatisering kost €750 tot €1.500, een incompany training vanaf €1.200, exclusief btw.', 'veryo' ),
-				'extra'    => array( __( 'AI-training in Drenthe', 'veryo' ), array( __( 'Veel Drentse bedrijven beginnen met een training voor het team, bij hen op locatie. In een halve dag leert iedereen wat AI kan en niet kan, hoe je het veilig gebruikt en hoe je het inzet voor offertes, mail en werkinstructies. Daarmee werk je ook aan de AI-geletterdheid die de AI Act sinds 2 februari 2025 vraagt.', 'veryo' ), __( 'Een voorbeeld: een maakbedrijf in Hoogeveen kan de training combineren met een korte ronde door de werkplaats en het kantoor. Aan het eind van de dag ligt er een lijst met de automatiseringen die het meeste opleveren, en weet het team hoe het zelf al kan beginnen.', 'veryo' ) ) ),
-				'problem'  => array(
+				'collega_regio' => 'drenthe',
+				'answer'        => __( 'Veryo is een AI-adviseur voor het MKB in Drenthe. We helpen bedrijven in Assen, Emmen, Hoogeveen, Meppel en omgeving met AI-automatisering, AI-training en AI op maat, met vaste prijzen. Een eerste automatisering kost €750 tot €1.500, een incompany training vanaf €1.200, exclusief btw.', 'veryo' ),
+				'extra'         => array( __( 'AI-training in Drenthe', 'veryo' ), array( __( 'Veel Drentse bedrijven beginnen met een training voor het team, bij hen op locatie. In een halve dag leert iedereen wat AI kan en niet kan, hoe je het veilig gebruikt en hoe je het inzet voor offertes, mail en werkinstructies. Daarmee werk je ook aan de AI-geletterdheid die de AI Act sinds 2 februari 2025 vraagt.', 'veryo' ), __( 'Een voorbeeld: een maakbedrijf in Hoogeveen kan de training combineren met een korte ronde door de werkplaats en het kantoor. Aan het eind van de dag ligt er een lijst met de automatiseringen die het meeste opleveren, en weet het team hoe het zelf al kan beginnen.', 'veryo' ) ) ),
+				'problem'       => array(
 					'h' => __( 'Drentse maakbedrijven, boeren en installateurs', 'veryo' ),
 					'p' => array(
 						__( 'Drenthe heeft een sterke basis van maakindustrie, agrarische bedrijven en installatietechniek. Bedrijven waar het echte werk in de werkplaats, op het land of bij de klant gebeurt, en waar het kantoorwerk vaak op de schouders van één of twee mensen ligt.', 'veryo' ),
 						__( 'Juist daar kan AI-automatisering in Drenthe veel schelen. Niet door de werkplaats te veranderen, maar door het werk eromheen lichter te maken: de offertes, de onderhoudsplanning, de bestellingen en de administratie.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'werkplaats van een Drents metaalbedrijf met een medewerker aan een tablet', 'veryo' ), __( 'AI-adviseur in Drenthe bij een maakbedrijf', 'veryo' ), 'werkplaats' ),
-				'sections' => array(
+				'photo'         => array( __( 'werkplaats van een Drents metaalbedrijf met een medewerker aan een tablet', 'veryo' ), __( 'AI-adviseur in Drenthe bij een maakbedrijf', 'veryo' ), 'werkplaats' ),
+				'sections'      => array(
 					array(
 						'h'    => __( 'AI-automatisering in Drenthe: waar het meestal zit', 'veryo' ),
 						'list' => array(
@@ -199,19 +202,19 @@ return array(
 						array( 'Assen', 'Emmen', 'Hoogeveen', 'Meppel', __( 'en de rest van Drenthe', 'veryo' ) )
 					),
 				),
-				'catalog'  => array(
+				'catalog'       => array(
 					'h'   => __( 'Veelgevraagd in Drenthe', 'veryo' ),
 					'ids' => array( 'onderhoudsplanning', 'inkoop-bestellingen', 'calculatietool', 'nacalculatie', 'projectfotos' ),
 				),
-				'price'    => array( 'steps' => array( 'scan', 'startpakket', 'quickwin', 'project' ) ),
-				'faq'      => array(
+				'price'         => array( 'steps' => array( 'scan', 'startpakket', 'quickwin', 'project' ) ),
+				'faq'           => array(
 					array( __( 'Komen jullie in heel Drenthe?', 'veryo' ), __( 'Ja. We komen in Assen, Emmen, Hoogeveen, Meppel en alles daartussen, voor kansensessies, trainingen en opleveringen.', 'veryo' ) ),
 					array( __( 'Werken jullie ook voor agrarische bedrijven?', 'veryo' ), __( 'Ja. Agri en mechanisatie is een van de sectoren die we het best kennen, van loonwerk tot machinehandel.', 'veryo' ) ),
 					array( __( 'Wat betekent de afstand voor de prijs?', 'veryo' ), __( 'Niets. In Friesland, Groningen en Drenthe rekenen we geen reiskosten. Je krijgt vooraf een vaste prijs.', 'veryo' ) ),
 					array( __( 'Kunnen we beginnen met een training?', 'veryo' ), __( 'Ja, dat is vaak een goede eerste stap. Een halve dag incompany training voor maximaal twintig mensen kost €1.200 exclusief btw.', 'veryo' ) ),
 				),
-				'cta'      => array( __( 'Drents bedrijf? Zie wat AI je oplevert', 'veryo' ), '' ),
-				'links'    => array(
+				'cta'           => array( __( 'Drents bedrijf? Zie wat AI je oplevert', 'veryo' ), '' ),
+				'links'         => array(
 					array( 'branches/agri', __( 'AI in de landbouw', 'veryo' ), __( 'Agrarische bedrijven en mechanisatie', 'veryo' ) ),
 					array( 'ai-automatisering/offertes-en-calculaties', __( 'Offertes en calculaties automatiseren', 'veryo' ), __( 'Voor maakbedrijven', 'veryo' ) ),
 					array( 'ai-adviseur-friesland', __( 'AI-adviseur in Friesland', 'veryo' ), __( 'Onze thuisprovincie', 'veryo' ) ),
@@ -234,16 +237,17 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo geeft AI-training in Leeuwarden en helpt bedrijven in de stad met AI-automatisering. Leeuwarden is onze thuisbasis: trainingen doen we op een locatie in de stad of bij jou op kantoor. Een incompany training kost €1.200 voor een halve dag, een eerste automatisering €750 tot €1.500, exclusief btw.', 'veryo' ),
-				'problem'  => array(
+				'collega_regio' => 'leeuwarden',
+				'answer'        => __( 'Veryo geeft AI-training in Leeuwarden en helpt bedrijven in de stad met AI-automatisering. Leeuwarden is onze thuisbasis: trainingen doen we op een locatie in de stad of bij jou op kantoor. Een incompany training kost €1.200 voor een halve dag, een eerste automatisering €750 tot €1.500, exclusief btw.', 'veryo' ),
+				'problem'       => array(
 					'h' => __( 'Een AI-specialist in Leeuwarden, om de hoek', 'veryo' ),
 					'p' => array(
 						__( 'Voor een Leeuwarder bedrijf is het prettig als de AI-specialist niet uit de Randstad hoeft te komen. Even langskomen voor een kop koffie, een vervolgafspraak zonder reisdag, en iemand die weet hoe het er hier aan toe gaat.', 'veryo' ),
 						__( 'We zien in de stad een mix van zakelijke dienstverleners, winkels en horeca in de binnenstad en technische bedrijven op de bedrijventerreinen aan de rand. Allemaal met dezelfde vraag: hoe zet ik AI in zonder dat het een project van een jaar wordt?', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'trainingsruimte in Leeuwarden met een groep deelnemers en een scherm', 'veryo' ), __( 'AI-training in Leeuwarden voor een MKB-team', 'veryo' ), 'training' ),
-				'sections' => array(
+				'photo'         => array( __( 'trainingsruimte in Leeuwarden met een groep deelnemers en een scherm', 'veryo' ), __( 'AI-training in Leeuwarden voor een MKB-team', 'veryo' ), 'training' ),
+				'sections'      => array(
 					array(
 						'h' => __( 'AI-training in Leeuwarden: op locatie of bij jou', 'veryo' ),
 						'p' => array(
@@ -260,19 +264,19 @@ return array(
 						array( __( 'Binnenstad', 'veryo' ), __( 'Bedrijventerreinen De Zwette en Hemrik', 'veryo' ), 'Stiens', 'Grou', 'Dronryp', 'Wirdum' )
 					),
 				),
-				'catalog'  => array(
+				'catalog'       => array(
 					'h'   => __( 'Veelgevraagd in Leeuwarden', 'veryo' ),
 					'ids' => array( 'gespreksverslagen', 'documenten-samenvatten', 'reviews', 'social-captions', 'mail-concepten' ),
 				),
-				'price'    => array( 'steps' => array( 'startpakket', 'academy', 'training', 'quickwin' ) ),
-				'faq'      => array(
+				'price'         => array( 'steps' => array( 'startpakket', 'academy', 'training', 'quickwin' ) ),
+				'faq'           => array(
 					array( __( 'Waar in Leeuwarden geven jullie de training?', 'veryo' ), __( 'Bij jou op kantoor, of op onze trainingslocatie in Leeuwarden. Die trainingslocatie is op aanvraag: geef bij je aanvraag aan dat je die wilt gebruiken, dan regelen we de ruimte.', 'veryo' ) ),
 					array( __( 'Kan ik gewoon even langskomen?', 'veryo' ), __( 'Graag, maar maak even een afspraak, want we zijn vaak op locatie bij klanten.', 'veryo' ) ),
 					array( __( 'Wat kost een AI-training in Leeuwarden?', 'veryo' ), __( 'Een halve dag voor maximaal twintig personen kost €1.200, een hele dag €2.800, exclusief btw. Mogelijk is er subsidie via de SLIM-regeling; openstellingsperiodes en voorwaarden wisselen, check de actuele situatie.', 'veryo' ) ),
 					array( __( 'Is er ook een open training voor losse deelnemers?', 'veryo' ), __( 'Op dit moment niet. Voor losse deelnemers komt er de online cursus van de Veryo Academy; zet je op de wachtlijst.', 'veryo' ) ),
 				),
-				'cta'      => array( __( 'Uit Leeuwarden? Begin met de gratis AI-scan', 'veryo' ), '' ),
-				'links'    => array(
+				'cta'           => array( __( 'Uit Leeuwarden? Begin met de gratis AI-scan', 'veryo' ), '' ),
+				'links'         => array(
 					array( 'ai-adviseur-friesland', __( 'AI-adviseur in Friesland', 'veryo' ), __( 'Voor de hele provincie', 'veryo' ) ),
 					array( 'ai-training', __( 'AI-training voor bedrijven', 'veryo' ), __( 'Alle trainingsvormen', 'veryo' ) ),
 					array( 'branches/horeca-retail', __( 'AI voor horeca en retail', 'veryo' ), __( 'Reviews en social', 'veryo' ) ),

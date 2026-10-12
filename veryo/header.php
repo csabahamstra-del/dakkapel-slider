@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit;
 				);
 			}
 			?>
-			<a class="header-cta" href="<?php echo esc_url( veryo_url( 'waar-begin-ik-met-ai' ) ); ?>"><?php esc_html_e( 'Doe de gratis AI-scan', 'veryo' ); ?></a>
+			<a class="header-cta" href="<?php echo esc_url( veryo_collega_url( 'demo' ) ); ?>"><?php echo esc_html( veryo_collega()['cta_primair'] ); ?></a>
 		</nav>
 	</div>
 </header>

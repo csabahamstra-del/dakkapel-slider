@@ -59,6 +59,19 @@ function veryo_apply_page_meta( $post_id, $def ) {
 			update_post_meta( $post_id, '_veryo_' . $flag, 1 );
 		}
 	}
+	if ( ! empty( $def['og_image'] ) ) {
+		update_post_meta( $post_id, '_veryo_og_image', $def['og_image'] );
+	}
+	// Zelfde gegevens voor Rank Math, als die later wordt geïnstalleerd (alleen als ze nog leeg zijn).
+	foreach ( array(
+		'rank_math_title'         => $def['seo_title'],
+		'rank_math_description'   => $def['desc'],
+		'rank_math_focus_keyword' => isset( $def['kw'] ) ? $def['kw'] : '',
+	) as $rm_key => $rm_value ) {
+		if ( '' !== $rm_value && '' === (string) get_post_meta( $post_id, $rm_key, true ) ) {
+			update_post_meta( $post_id, $rm_key, $rm_value );
+		}
+	}
 	if ( ! empty( $def['schema'] ) ) {
 		update_post_meta( $post_id, '_veryo_schema_type', $def['schema']['type'] );
 		if ( isset( $def['schema']['min'] ) ) {
@@ -292,6 +305,7 @@ function veryo_refresh_content( $with_menus = false ) {
 				array(
 					'ID'           => $page->ID,
 					'post_content' => $def['content'],
+					'post_title'   => veryo_collega()['slug'] === $path ? $def['title'] : $page->post_title,
 				)
 			),
 			true
@@ -434,6 +448,9 @@ function veryo_add_menu_items( $menu_id, $items, $ids, $parent_item = 0, &$error
 			'menu-item-parent-id' => $parent_item,
 			'menu-item-position'  => $position,
 		);
+		if ( ! empty( $item[3] ) ) {
+			$args['menu-item-classes'] = $item[3];
+		}
 		if ( '#' !== $path && isset( $ids[ $path ] ) ) {
 			$args['menu-item-type']      = 'post_type';
 			$args['menu-item-object']    = 'page';
@@ -481,6 +498,7 @@ function veryo_menu_definitions() {
 		'primary' => array(
 			'name'  => 'Veryo hoofdmenu',
 			'items' => array(
+				array( veryo_collega()['naam'], veryo_collega()['slug'], array(), 'is-highlight' ),
 				array(
 					__( 'Diensten', 'veryo' ),
 					'#',
@@ -529,6 +547,7 @@ function veryo_menu_definitions() {
 					__( 'Diensten', 'veryo' ),
 					'#',
 					array(
+						array( veryo_collega()['naam'], veryo_collega()['slug'] ),
 						array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
 						array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
 						array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),

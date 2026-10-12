@@ -374,6 +374,7 @@ function veryo_page_product( $key ) {
 		array( 'className' => 'is-style-soft veryo-price veryo-product-price' )
 	);
 
+	$out .= veryo_sec_collega_blok();
 	$out .= veryo_sec_contact(
 		/* translators: %s: naam van de oplossing. */
 		sprintf( __( 'Is %s iets voor jou?', 'veryo' ), $p['naam'] ),

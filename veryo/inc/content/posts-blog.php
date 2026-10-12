@@ -507,4 +507,78 @@ return array(
 			)
 		),
 	),
+
+	'lokale-ai-of-chatgpt'                => array(
+		'title'     => __( 'Lokale AI of ChatGPT: wat is veiliger voor je bedrijfsgegevens?', 'veryo' ),
+		'seo_title' => __( 'Lokale AI of ChatGPT: wat is veiliger? | Veryo', 'veryo' ),
+		'desc'      => __( 'Lokale AI op een eigen server of ChatGPT in de cloud: wat is veiliger voor je bedrijfsgegevens? De verschillen voor het mkb, eerlijk naast elkaar gezet.', 'veryo' ),
+		'kw'        => 'lokale ai voor bedrijven',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'Waar je gegevens naartoe gaan', 'veryo' ), __( 'Leg uit wat er gebeurt als een medewerker een klantdocument in ChatGPT plakt, en wat het verschil is met zakelijke abonnementen. Zonder bangmakerij: zakelijke cloudversies zijn vaak goed geregeld, maar de gegevens verlaten wel het pand.', 'veryo' ) ),
+				array( __( 'Wat lokale AI anders maakt', 'veryo' ), sprintf( /* translators: %s: link. */ __( 'Leg uit dat lokale AI op een eigen machine op kantoor draait, zodat gegevens het pand niet verlaten voor AI-verwerking. Noem eerlijk de keerzijde: voor algemene taken kunnen grote cloudmodellen soms meer. Link naar <a href="%s">lokale AI voor bedrijven met [veryo_collega_naam]</a>.', 'veryo' ), esc_url( veryo_link( veryo_collega()['slug'] ) ) ) ),
+				array(
+					__( 'Waar let je op?', 'veryo' ),
+					__( 'Drie vragen om aan elke AI-oplossing te stellen.', 'veryo' ),
+					array(
+						array( __( 'Waar gebeurt de AI-verwerking?', 'veryo' ), __( 'In de cloud van een externe partij, of op een machine die je zelf beheert of laat beheren.', 'veryo' ) ),
+						array( __( 'Wie ziet wat?', 'veryo' ), __( 'Rechten per medewerker: niet iedereen hoeft alles te kunnen opvragen.', 'veryo' ) ),
+						array( __( 'Wat staat er in de verwerkersovereenkomst?', 'veryo' ), __( 'Leg uit wat een verwerkersovereenkomst regelt en waarom je die altijd wilt hebben. Geen juridisch advies.', 'veryo' ) ),
+					),
+				),
+			),
+			array(
+				array( __( 'Is ChatGPT onveilig voor bedrijven?', 'veryo' ), __( 'Niet per se. Met een zakelijk abonnement en duidelijke afspraken kan het verantwoord. Het verschil is waar je gegevens worden verwerkt. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Wat is AVG-proof AI?', 'veryo' ), __( 'AI die je zo inricht dat persoonsgegevens rechtmatig, veilig en met afspraken worden verwerkt. Lokale verwerking maakt dat eenvoudiger. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Werkt lokale AI zonder internet?', 'veryo' ), __( 'Ja, vragen over je eigen documenten wel. Koppelingen met cloudpakketten verversen pas weer als de verbinding terug is. [VUL IN: aanvullen]', 'veryo' ) ),
+			)
+		),
+	),
+
+	'kennis-ervaren-medewerkers-behouden' => array(
+		'title'     => __( 'Zo houd je de kennis van ervaren medewerkers in je bedrijf', 'veryo' ),
+		'seo_title' => __( 'Kennis van ervaren medewerkers behouden | Veryo', 'veryo' ),
+		'desc'      => __( 'Gaat een ervaren medewerker met pensioen, dan gaat er veel kennis mee de deur uit. Zo leg je die vast met interviews, spraakmemo’s en een AI-kennisbank.', 'veryo' ),
+		'kw'        => 'ai kennisbank bedrijf',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'De kennis die nergens staat', 'veryo' ), __( 'Beschrijf het probleem: de meest ervaren collega weet welke klant wat gewend is, waar je op let bij een lastige klus en wat er vaak misgaat. Niets daarvan staat op papier.', 'veryo' ) ),
+				array(
+					__( 'Drie manieren om kennis vast te leggen', 'veryo' ),
+					__( 'Van eenvoudig naar uitgebreid.', 'veryo' ),
+					array(
+						array( __( 'Interviews', 'veryo' ), __( 'Een uur per onderwerp met de ervaren medewerker, met vaste vragen. Geef een voorbeeldlijst.', 'veryo' ) ),
+						array( __( 'Spraakmemo’s', 'veryo' ), __( 'Na een klus kort inspreken wat er bijzonder was. Laagdrempelig voor mensen die niet graag schrijven.', 'veryo' ) ),
+						array( __( 'Een AI-kennisbank', 'veryo' ), sprintf( /* translators: %s: link. */ __( 'Alles komt samen in een AI-assistent waar collega’s vragen aan stellen, met bronvermelding. Link naar <a href="%s">een AI-kennisbank voor je bedrijf</a>.', 'veryo' ), esc_url( veryo_link( veryo_collega()['slug'] ) ) ) ),
+					),
+				),
+				array( __( 'Begin voordat iemand weggaat', 'veryo' ), __( 'Leg uit waarom je beter een jaar voor het pensioen begint dan in de laatste maand.', 'veryo' ) ),
+			),
+			array(
+				array( __( 'Hoeveel tijd kost een kennisinterview?', 'veryo' ), __( 'Reken op een uur per onderwerp, plus uitwerktijd. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Wat als de medewerker niet graag schrijft?', 'veryo' ), __( 'Dan zijn spraakmemo’s en interviews juist geschikt. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Blijft de kennis vertrouwelijk?', 'veryo' ), __( 'Met een lokale AI-kennisbank blijft de kennis op een eigen machine op kantoor, met rechten per medewerker. [VUL IN: aanvullen]', 'veryo' ) ),
+			)
+		),
+	),
+
+	'wat-kost-een-eigen-ai-assistent'     => array(
+		'title'     => __( 'Wat kost een eigen AI-assistent voor het mkb?', 'veryo' ),
+		'seo_title' => __( 'Wat kost een eigen AI-assistent voor het mkb? | Veryo', 'veryo' ),
+		'desc'      => __( 'Wat kost een eigen AI-assistent voor het mkb? Eenmalige kosten, maandbedragen, hardware en wat het oplevert, met een rekenvoorbeeld voor je eigen bedrijf.', 'veryo' ),
+		'kw'        => 'ai assistent medewerkers',
+		'content'   => $veryo_draft(
+			array(
+				array( __( 'Waar betaal je voor?', 'veryo' ), __( 'Splits de kosten op: intake, installatie, kennis verzamelen, koppelingen, training, en daarna een maandbedrag voor beheer, updates, backups en kennisonderhoud.', 'veryo' ) ),
+				array( __( 'Een rekenvoorbeeld', 'veryo' ), sprintf( /* translators: %s: link. */ __( 'Gebruik de prijzen van [veryo_collega_naam]: maandpakketten vanaf [veryo_collega_prijs id=start], installatie vanaf [veryo_collega_prijs id=installatie]. Zet daar de tijdwinst tegenover en verwijs naar <a href="%s">de rekenhulp</a>. Benadruk dat het een indicatie is.', 'veryo' ), esc_url( veryo_link( veryo_collega()['slug'] ) . '#rekenhulp' ) ) ),
+				array( __( 'Hardware: kopen of in het abonnement', 'veryo' ), __( 'Leg de twee opties uit en wanneer welke handig is.', 'veryo' ) ),
+			),
+			array(
+				array( __( 'Is een eigen AI-assistent duurder dan ChatGPT?', 'veryo' ), __( 'Per maand vaak wel, maar je krijgt een assistent die je eigen kennis kent en lokaal draait. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Moet ik een server kopen?', 'veryo' ), __( 'Nee, je kunt de hardware ook in het abonnement laten verwerken. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Wanneer verdient het zich terug?', 'veryo' ), __( 'Dat hangt af van het aantal medewerkers en hoeveel tijd ze nu kwijt zijn aan zoeken en vragen. [VUL IN: aanvullen]', 'veryo' ) ),
+			)
+		),
+	),
+
 );

@@ -71,7 +71,7 @@ $veryo_werkplek = veryo_page_standard(
 			array( __( 'Hebben we Copilot of Gemini al?', 'veryo' ), __( 'Misschien gedeeltelijk. In veel abonnementen zit al een gratis variant; de uitgebreide versie die in je eigen bestanden en mail kan zoeken, is een aparte licentie. We zoeken het voor je uit.', 'veryo' ) ),
 			array( __( 'Moet iedereen een licentie krijgen?', 'veryo' ), __( 'Nee. Vaak hebben een paar mensen er veel aan en anderen weinig. We adviseren per rol, zodat je niet betaalt voor licenties die niet worden gebruikt.', 'veryo' ) ),
 			array( __( 'Is Copilot veilig voor bedrijfsgegevens?', 'veryo' ), __( 'Copilot ziet wat een medewerker mag zien. Als de rechten kloppen, is het risico beperkt. Daarom zetten we die eerst goed, en regelen we dat je gegevens niet worden gebruikt om modellen te trainen.', 'veryo' ) ),
-			array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen IT-beheer, hardware, netwerken of helpdesk. Heb je een vaste IT-beheerder, dan werken we graag met die samen.', 'veryo' ) ),
+			array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen algemeen IT-beheer, netwerken of helpdesk. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. Heb je een vaste IT-beheerder, dan werken we graag met die samen.', 'veryo' ) ),
 			array( __( 'Hoe lang duurt de inrichting?', 'veryo' ), __( 'Meestal twee tot drie weken, afhankelijk van hoe de rechten er nu bij staan. De training plannen we als alles klaarstaat.', 'veryo' ) ),
 		),
 		'links'       => array(
@@ -223,7 +223,7 @@ $veryo_veilig = veryo_page_standard(
 			array( __( 'Mogen medewerkers ChatGPT gebruiken?', 'veryo' ), __( 'Dat bepaal je zelf, maar verbieden werkt slecht. Beter: een zakelijke versie met de juiste instellingen, en duidelijke afspraken over wat er wel en niet in mag.', 'veryo' ) ),
 			array( __( 'Is een AI-beleid verplicht?', 'veryo' ), __( 'Niet als apart document. Wel verplicht de AI Act sinds 2 februari 2025 organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid. Een beleid en een training helpen daarbij.', 'veryo' ) ),
 			array( __( 'Hoe lang duurt de veiligheidscheck?', 'veryo' ), __( 'Ongeveer twee weken: een week voor de vragenlijst en het bekijken van de instellingen, en daarna een gesprek over het rapport.', 'veryo' ) ),
-			array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen IT-beheer, hardware, netwerken of helpdesk. We werken graag samen met je vaste IT-beheerder.', 'veryo' ) ),
+			array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen algemeen IT-beheer, netwerken of helpdesk. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. We werken graag samen met je vaste IT-beheerder.', 'veryo' ) ),
 			array( __( 'Kunnen jullie Europese alternatieven adviseren?', 'veryo' ), __( 'Ja, waar je dat wilt. We leggen uit wat de opties zijn en wat je ervoor inlevert, zodat je een bewuste keuze maakt.', 'veryo' ) ),
 		),
 		'links'       => array(

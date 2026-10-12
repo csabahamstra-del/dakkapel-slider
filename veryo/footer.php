@@ -18,6 +18,7 @@ $veryo_company = veryo_company();
 				<?php echo veryo_logo_img( 'wit', 36 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- opgebouwd met esc_*. ?>
 			</a>
 			<p class="footer-tagline"><?php esc_html_e( 'AI die echt werkt.', 'veryo' ); ?><br><?php echo esc_html( veryo_brand_line() ); ?>.</p>
+			<p class="footer-collega"><a href="<?php echo esc_url( veryo_collega_url() ); ?>"><?php echo esc_html( veryo_collega()['naam'] ); ?></a>: <?php esc_html_e( 'lokale AI die op je eigen kantoor draait en alles weet van je bedrijf.', 'veryo' ); ?></p>
 			<?php get_template_part( 'template-parts/company-details', null, array( 'context' => 'footer' ) ); ?>
 		</div>
 		<?php
@@ -55,7 +56,11 @@ $veryo_company = veryo_company();
 $veryo_post = get_post();
 if ( ! ( is_singular() && $veryo_post && has_shortcode( (string) $veryo_post->post_content, 'veryo_ai_scan' ) ) ) :
 	?>
-	<a class="veryo-sticky-cta" href="<?php echo esc_url( veryo_url( 'waar-begin-ik-met-ai' ) ); ?>" hidden><?php esc_html_e( 'Doe de gratis AI-scan', 'veryo' ); ?></a>
+	<?php if ( is_page( veryo_collega()['slug'] ) ) : ?>
+		<a class="veryo-sticky-cta" href="#demo" hidden><?php echo esc_html( veryo_collega()['cta_primair'] ); ?></a>
+	<?php else : ?>
+		<a class="veryo-sticky-cta" href="<?php echo esc_url( veryo_url( 'waar-begin-ik-met-ai' ) ); ?>" hidden><?php esc_html_e( 'Doe de gratis AI-scan', 'veryo' ); ?></a>
+	<?php endif; ?>
 	<?php
 endif;
 $veryo_wa = preg_replace( '/\D/', '', (string) veryo_setting( 'whatsapp_number' ) );

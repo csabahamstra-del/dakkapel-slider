@@ -62,6 +62,9 @@ class Veryo_Primary_Walker extends Walker_Nav_Menu {
 		$in_trail     = $is_current || in_array( 'current-menu-ancestor', $classes, true ) || in_array( 'current-menu-parent', $classes, true );
 
 		$li_classes = array( 'menu-item' );
+		if ( in_array( 'is-highlight', $classes, true ) ) {
+			$li_classes[] = 'is-highlight';
+		}
 		if ( $has_children ) {
 			$li_classes[] = 'has-sub';
 		}

@@ -249,21 +249,21 @@ function veryo_lazy_all_content_images() {
 add_filter( 'wp_omit_loading_attr_threshold', 'veryo_lazy_all_content_images' );
 
 /**
- * Diensten die rechts in de homepage-banner voorbij draaien.
+ * Taken van Veryo Collega die rechts in de homepage-banner voorbij draaien.
  *
  * @return array<int,array<int,string>> Lijst van array( icoon, label, pad ).
  */
 function veryo_hero_services() {
+	$slug = veryo_collega()['slug'];
 	return array(
-		array( 'scan', __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
-		array( 'phone', __( 'AI lead-opvolging', 'veryo' ), 'oplossingen/ai-lead-opvolging' ),
-		array( 'box', __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
-		array( 'monitor', __( 'Copilot en Gemini inrichten', 'veryo' ), 'ai-werkplek' ),
-		array( 'bot', __( 'AI-agents als digitale collega', 'veryo' ), 'ai-agents' ),
-		array( 'flow', __( 'Automatisering en koppelingen', 'veryo' ), 'ai-automatisering' ),
-		array( 'users', __( 'AI-training voor je team', 'veryo' ), 'ai-training' ),
-		array( 'shield', __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
-		array( 'partner', __( 'AI-partner per maand', 'veryo' ), 'ai-partner' ),
+		array( 'scan', __( 'Kennisbank met bronvermelding', 'veryo' ), $slug ),
+		array( 'users', __( 'Inwerken en vervanging bij uitval', 'veryo' ), $slug ),
+		array( 'box', __( 'Conceptoffertes en calculatie', 'veryo' ), $slug ),
+		array( 'mail', __( 'Mail samenvatten en beantwoorden', 'veryo' ), $slug ),
+		array( 'flow', __( 'Facturen en openstaande posten', 'veryo' ), $slug ),
+		array( 'monitor', __( 'Planning en projectstatus', 'veryo' ), $slug ),
+		array( 'partner', __( 'Sparringpartner voor de eigenaar', 'veryo' ), $slug ),
+		array( 'shield', __( 'Werkt ook zonder internet', 'veryo' ), $slug ),
 	);
 }
 
@@ -301,7 +301,7 @@ function veryo_render_home_hero( $html, $block ) {
 	foreach ( veryo_hero_services() as $service ) {
 		$items .= '<li><a href="' . esc_url( veryo_url( $service[2] ) ) . '">' . veryo_icon( $service[0] ) . '<span>' . esc_html( $service[1] ) . '</span></a></li>';
 	}
-	$services = '<nav class="veryo-hero__services" aria-label="' . esc_attr__( 'Diensten van Veryo', 'veryo' ) . '"><ul>' . $items . '</ul>'
+	$services = '<nav class="veryo-hero__services" aria-label="' . esc_attr( sprintf( /* translators: %s: productnaam. */ __( 'Wat %s doet', 'veryo' ), veryo_collega()['naam'] ) ) . '"><ul>' . $items . '</ul>'
 		. '<span class="veryo-hero__tick" aria-hidden="true">' . veryo_icon( 'check' ) . '</span></nav>';
 	$html     = substr( $html, 0, $close ) . $services . substr( $html, $close );
 	$html     = substr( $html, 0, $open + 1 ) . $media . substr( $html, $open + 1 );

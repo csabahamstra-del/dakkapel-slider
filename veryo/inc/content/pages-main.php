@@ -11,24 +11,47 @@ $veryo_home_faq = array(
 	array( __( 'Is AI iets voor mijn bedrijf?', 'veryo' ), __( 'Als er in je bedrijf werk is dat elke week terugkomt, zoals mail beantwoorden, offertes maken of facturen verwerken, dan is de kans groot dat AI daar tijd bespaart. Of het de moeite waard is, hangt af van hoeveel uur het nu kost. De gratis AI-scan geeft daar in drie minuten een eerste antwoord op.', 'veryo' ) ),
 	array( __( 'Wat kost het?', 'veryo' ), __( 'De AI-scan is gratis. Het AI-Startpakket kost €1.995 voor teams tot 10 medewerkers, €2.995 bij 11 tot 25 en €4.495 bij 26 tot 50. Losse onderdelen beginnen bij €750 en AI-partner kost €495 tot €995 per maand. Alle prijzen zijn exclusief btw.', 'veryo' ) ),
 	array( __( 'Verkopen jullie software?', 'veryo' ), __( 'Nee. We verkopen geen eigen software en adviseren onafhankelijk welke tools bij jullie passen. Vaak is dat software die je al hebt. Worden we ooit partner van een leverancier waar we een vergoeding voor krijgen, dan zeggen we dat erbij.', 'veryo' ) ),
-	array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo is geen IT-bedrijf: we doen geen IT-beheer, hardware, netwerken, helpdesk of storingsdienst. We werken wel prettig samen met je vaste IT-beheerder, bijvoorbeeld bij het inrichten van Copilot of het op orde brengen van toegangsrechten.', 'veryo' ) ),
+	array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo is geen IT-bedrijf: we doen geen algemeen IT-beheer, netwerken, helpdesk of storingsdienst. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. We werken wel prettig samen met je vaste IT-beheerder, bijvoorbeeld bij het inrichten van Copilot of het op orde brengen van toegangsrechten.', 'veryo' ) ),
 	array( __( 'Is het veilig met onze gegevens?', 'veryo' ), __( 'We werken met zakelijke versies en API’s waarbij je gegevens niet worden gebruikt om AI-modellen te trainen. Bij persoonsgegevens sluiten we een verwerkersovereenkomst. Jij blijft eigenaar van je data, en in het AI-beleid leggen we vast welke gegevens nooit in een AI-tool mogen.', 'veryo' ) ),
 	array( __( 'Moeten wij zelf technisch zijn?', 'veryo' ), __( 'Nee. Wij adviseren, richten in en koppelen. Jij en je team werken in de software die je al kent, en in de training leer je hoe je er goed mee omgaat. We leggen uit wie waarvoor aanspreekpunt is.', 'veryo' ) ),
 	array( __( 'Wat is de AI-geletterdheidsplicht?', 'veryo' ), __( 'Sinds 2 februari 2025 verplicht de Europese AI Act (artikel 4) organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers. Dat betekent dat mensen die met AI werken moeten snappen wat het kan, wat niet en waar de risico’s zitten. Een training is een praktische manier om daaraan te werken.', 'veryo' ) ),
 	array( __( 'Werken jullie ook buiten Noord-Nederland?', 'veryo' ), __( 'Ja. We zitten in Leeuwarden en komen in Friesland, Groningen en Drenthe op locatie. Trainingen en online diensten doen we ook in de rest van Nederland, op locatie of online.', 'veryo' ) ),
 );
 
-$veryo_home       = veryo_sec_hero(
-	__( 'AI die echt werkt.', 'veryo' ),
-	__( 'Je onafhankelijke AI-partner in Noord-Nederland. We zoeken uit welke AI bij jouw bedrijf past, richten het in en leren je team ermee werken.', 'veryo' ),
+$veryo_home       = veryo_b_group(
+	veryo_b_p( '[veryo_collega_naam]', array( 'className' => 'veryo-kicker' ) )
+	. veryo_b_h( __( 'Een AI-collega die alles weet van jouw bedrijf.', 'veryo' ), 1, array( 'fontSize' => 'display-xl' ) )
+	. veryo_b_p( __( 'Draait op je eigen kantoor. [veryo_collega_naam] kent jullie documenten, mail en systemen, en je gegevens verlaten het pand niet voor AI-verwerking.', 'veryo' ), array( 'className' => 'veryo-lead' ) )
+	. veryo_b_shortcode( '[veryo_collega_cta]' )
+	. veryo_sec_founder_row(),
 	array(
-		array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ),
-		array( __( 'Bekijk het AI-Startpakket', 'veryo' ), veryo_link( 'ai-startpakket' ), 'link' ),
-	),
-	veryo_sec_founder_row(),
-	'veryo-hero--home'
+		'tagName'   => 'section',
+		'align'     => 'full',
+		'className' => 'is-style-petrol veryo-hero has-check veryo-hero--home',
+	)
 );
 $veryo_home      .= veryo_sec_marquee();
+$veryo_home      .= veryo_sec_wide(
+	veryo_b_columns(
+		array(
+			array(
+				'width' => '50%',
+				'inner' => veryo_b_h( __( 'AI die echt werkt.', 'veryo' ), 2, array( 'fontSize' => 'display-l' ) ),
+			),
+			array(
+				'width' => '50%',
+				'inner' => veryo_b_p( __( 'Je onafhankelijke AI-partner uit Leeuwarden, werkzaam in heel Nederland. We zoeken uit welke AI bij jouw bedrijf past, richten het in en leren je team ermee werken.', 'veryo' ), array( 'className' => 'veryo-lead' ) )
+					. veryo_b_buttons(
+						array(
+							array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ),
+							array( __( 'Bekijk het AI-Startpakket', 'veryo' ), veryo_link( 'ai-startpakket' ), 'link' ),
+						)
+					),
+			),
+		)
+	),
+	'veryo-home-partner'
+);
 $veryo_home      .= veryo_sec_wide(
 	veryo_b_columns(
 		array(
@@ -59,6 +82,7 @@ $veryo_home .= veryo_sec_products(
 	__( 'Kant-en-klare AI-oplossingen', 'veryo' ),
 	__( 'Voor werk dat in veel bedrijven hetzelfde gaat, hebben we vaste oplossingen. We richten ze in op jouw systemen en houden ze draaiende, vanaf €750 per maand.', 'veryo' )
 );
+$veryo_home .= veryo_sec_collega_offline();
 $veryo_home .= veryo_sec_steps_home();
 $veryo_home .= veryo_sec_independent( '', true );
 $veryo_home .= veryo_sec_wide(
@@ -737,7 +761,7 @@ $veryo_about .= veryo_sec_text(
 $veryo_about .= veryo_sec_text(
 	__( 'Veryo is geen IT-bedrijf', 'veryo' ),
 	array(
-		__( 'We doen geen IT-beheer, hardware, netwerken, helpdesk of storingsdienst. Daar zijn goede IT-beheerders voor, en die heb je misschien al. Veryo richt zich op AI: welke past, hoe je hem veilig inricht, en hoe je team er goed mee werkt.', 'veryo' ),
+		__( 'We doen geen algemeen IT-beheer, netwerken, helpdesk of storingsdienst. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. Daar zijn goede IT-beheerders voor, en die heb je misschien al. Veryo richt zich op AI: welke past, hoe je hem veilig inricht, en hoe je team er goed mee werkt.', 'veryo' ),
 		__( 'Heb je een vaste IT-beheerder, dan werken we graag met die samen. Bijvoorbeeld bij het inrichten van Copilot, het op orde brengen van toegangsrechten of het uitvoeren van acties uit de AI-veiligheidscheck.', 'veryo' ),
 	)
 );
