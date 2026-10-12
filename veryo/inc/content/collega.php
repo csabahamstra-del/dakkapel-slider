@@ -843,3 +843,36 @@ function veryo_collega_autocreate() {
 	update_option( 'veryo_collega_page_done', 1, false );
 }
 add_action( 'admin_init', 'veryo_collega_autocreate' );
+
+/**
+ * Eenmalig: [VUL IN]-notities uit de blogconcepten van het thema halen, ook op sites waar die
+ * concepten al bestaan. Alleen concepten, gepubliceerde berichten blijven ongemoeid.
+ */
+function veryo_blog_remove_placeholders() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_blog_placeholders_removed' ) ) {
+		return;
+	}
+	foreach ( array_keys( veryo_content_posts() ) as $slug ) {
+		$post = get_page_by_path( $slug, OBJECT, 'post' );
+		if ( ! $post instanceof WP_Post || 'draft' !== $post->post_status || false === strpos( $post->post_content, '[VUL IN' ) ) {
+			continue;
+		}
+		// Nooit aangepast? Dan de nieuwe versie van het concept; anders alleen de notities eruit.
+		$defs  = veryo_content_posts();
+		$clean = $post->post_modified_gmt === $post->post_date_gmt
+			? $defs[ $slug ]['content']
+			: preg_replace( '/\s?\[VUL IN:[^\]]*\]/u', '', $post->post_content );
+		kses_remove_filters();
+		wp_update_post(
+			wp_slash(
+				array(
+					'ID'           => $post->ID,
+					'post_content' => $clean,
+				)
+			)
+		);
+		kses_init();
+	}
+	update_option( 'veryo_blog_placeholders_removed', 1, false );
+}
+add_action( 'admin_init', 'veryo_blog_remove_placeholders' );

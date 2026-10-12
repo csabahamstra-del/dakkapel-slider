@@ -116,7 +116,6 @@ In PHP: `get_template_part( 'template-parts/collega-blok' )`.
 - `[CASE VOLGT]`. Het blok is verborgen zolang Toon cases uit staat.
 - Een echte OG-afbeelding: vervang `assets/images/og-collega.png`, 1200 × 630.
 - Eventueel echte foto's.
-- De definitieve prijzen en pakketinhoud: zie `[CONTROLEER]` in de config.
 
 ## Aanbod, prijzen en menu
 

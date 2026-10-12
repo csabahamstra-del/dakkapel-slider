@@ -56,9 +56,9 @@ return array(
 				array( __( 'Wat je beter niet doet', 'veryo' ), __( 'Drie valkuilen: alles tegelijk willen, een rommelig proces automatiseren, en automatiseren wat een paar keer per jaar voorkomt.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Hoeveel tijd kost het om met AI te beginnen?', 'veryo' ), __( 'Een eerste inventarisatie kost een paar uur. Een eerste automatisering staat vaak binnen een paar weken. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Moet ik technisch zijn om AI te gebruiken?', 'veryo' ), __( 'Nee. Voor de eerste stappen heb je alleen nieuwsgierigheid nodig. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Wat is een goede eerste AI-toepassing?', 'veryo' ), __( 'Vaak mail, offertes of inkoopfacturen: werk dat vaak terugkomt en goed af te bakenen is. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Hoeveel tijd kost het om met AI te beginnen?', 'veryo' ), __( 'Een eerste inventarisatie kost een paar uur. Een eerste automatisering staat vaak binnen een paar weken.', 'veryo' ) ),
+				array( __( 'Moet ik technisch zijn om AI te gebruiken?', 'veryo' ), __( 'Nee. Voor de eerste stappen heb je alleen nieuwsgierigheid nodig.', 'veryo' ) ),
+				array( __( 'Wat is een goede eerste AI-toepassing?', 'veryo' ), __( 'Vaak mail, offertes of inkoopfacturen: werk dat vaak terugkomt en goed af te bakenen is.', 'veryo' ) ),
 			)
 		),
 	),
@@ -87,9 +87,9 @@ return array(
 				array( __( 'Hoe kies je wat bij jou past?', 'veryo' ), __( 'Verwijs naar de AI-scan en de rekensom: uren per week keer besparingsfactor.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Kan AI mijn medewerkers vervangen?', 'veryo' ), __( 'In het MKB gaat het vooral om werk weghalen dat niemand leuk vindt, niet om mensen vervangen. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Welke afdeling levert het meeste op?', 'veryo' ), __( 'Dat verschilt per bedrijf; vaak zit het in offertes en administratie. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Werkt AI met mijn bestaande software?', 'veryo' ), __( 'Meestal wel, via koppelingen met Outlook, Exact, Moneybird en andere pakketten. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Kan AI mijn medewerkers vervangen?', 'veryo' ), __( 'In het MKB gaat het vooral om werk weghalen dat niemand leuk vindt, niet om mensen vervangen.', 'veryo' ) ),
+				array( __( 'Welke afdeling levert het meeste op?', 'veryo' ), __( 'Dat verschilt per bedrijf; vaak zit het in offertes en administratie.', 'veryo' ) ),
+				array( __( 'Werkt AI met mijn bestaande software?', 'veryo' ), __( 'Meestal wel, via koppelingen met Outlook, Exact, Moneybird en andere pakketten.', 'veryo' ) ),
 			)
 		),
 	),
@@ -115,9 +115,9 @@ return array(
 				array( __( 'Goedkope chatbots: waar je op moet letten', 'veryo' ), __( 'Vergelijk abonnementen met een chatbot op maat; let op datagebruik, eigenaarschap en of hij bij twijfel doorverwijst.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Zijn er maandelijkse kosten?', 'veryo' ), __( 'Ja, verbruik en eventueel onderhoud. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Hoe lang duurt het bouwen van een chatbot?', 'veryo' ), __( 'Meestal vier tot zes weken voor een eerste versie. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Kan een chatbot ook via WhatsApp?', 'veryo' ), __( 'Ja, via de WhatsApp Business API. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Zijn er maandelijkse kosten?', 'veryo' ), __( 'Ja, verbruik en eventueel onderhoud.', 'veryo' ) ),
+				array( __( 'Hoe lang duurt het bouwen van een chatbot?', 'veryo' ), __( 'Meestal vier tot zes weken voor een eerste versie.', 'veryo' ) ),
+				array( __( 'Kan een chatbot ook via WhatsApp?', 'veryo' ), __( 'Ja, via de WhatsApp Business API.', 'veryo' ) ),
 			)
 		),
 	),
@@ -142,9 +142,9 @@ return array(
 				array( __( 'Wanneer AI-automatisering niet de moeite waard is', 'veryo' ), __( 'Werk dat zelden voorkomt, processen die nog niet helder zijn, beslissingen met grote gevolgen.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Is AI-automatisering subsidiabel?', 'veryo' ), __( 'Soms; regelingen wisselen en moeten per situatie gecheckt worden. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Waarom werken jullie met vaste prijzen?', 'veryo' ), __( 'Zodat je vooraf weet waar je aan toe bent. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Wat als de automatisering niet werkt?', 'veryo' ), __( 'We testen met echte gegevens voordat we live gaan. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Is AI-automatisering subsidiabel?', 'veryo' ), __( 'Soms; regelingen wisselen en moeten per situatie gecheckt worden.', 'veryo' ) ),
+				array( __( 'Waarom werken jullie met vaste prijzen?', 'veryo' ), __( 'Zodat je vooraf weet waar je aan toe bent.', 'veryo' ) ),
+				array( __( 'Wat als de automatisering niet werkt?', 'veryo' ), __( 'We testen met echte gegevens voordat we live gaan.', 'veryo' ) ),
 			)
 		),
 	),
@@ -170,9 +170,9 @@ return array(
 				array( __( 'Checklist voor het MKB', 'veryo' ), __( 'Vijf vragen: welke tools, welke gegevens, wie controleert, wie is verantwoordelijk, welke training is gegeven. Maak hier een lijst van in het definitieve artikel.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Is er een boete als je niets doet?', 'veryo' ), __( 'Beschrijf alleen wat vaststaat en verwijs naar de officiële bronnen. [VUL IN: laat controleren]', 'veryo' ) ),
-				array( __( 'Is er een officieel certificaat?', 'veryo' ), __( 'Nee, er is geen wettelijk certificaat voor AI-geletterdheid. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Hoe vaak moet je trainen?', 'veryo' ), __( 'De wet noemt geen termijn; een jaarlijkse update is verstandig. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Is er een boete als je niets doet?', 'veryo' ), __( 'Beschrijf alleen wat vaststaat en verwijs naar de officiële bronnen.', 'veryo' ) ),
+				array( __( 'Is er een officieel certificaat?', 'veryo' ), __( 'Nee, er is geen wettelijk certificaat voor AI-geletterdheid.', 'veryo' ) ),
+				array( __( 'Hoe vaak moet je trainen?', 'veryo' ), __( 'De wet noemt geen termijn; een jaarlijkse update is verstandig.', 'veryo' ) ),
 			)
 		),
 	),
@@ -199,9 +199,9 @@ return array(
 				array( __( 'Invoeren in je bedrijf', 'veryo' ), __( 'Bespreek het beleid met het team, laat het juridisch checken en plan een jaarlijkse update.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Is een AI-beleid verplicht?', 'veryo' ), __( 'Niet als apart document, maar het helpt bij AI-geletterdheid. [VUL IN: laat controleren]', 'veryo' ) ),
-				array( __( 'Hoe lang moet een AI-beleid zijn?', 'veryo' ), __( 'Kort: één tot twee pagina’s. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Moet een jurist ernaar kijken?', 'veryo' ), __( 'Dat is verstandig. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Is een AI-beleid verplicht?', 'veryo' ), __( 'Niet als apart document, maar het helpt bij AI-geletterdheid.', 'veryo' ) ),
+				array( __( 'Hoe lang moet een AI-beleid zijn?', 'veryo' ), __( 'Kort: één tot twee pagina’s.', 'veryo' ) ),
+				array( __( 'Moet een jurist ernaar kijken?', 'veryo' ), __( 'Dat is verstandig.', 'veryo' ) ),
 			)
 		),
 	),
@@ -223,13 +223,13 @@ return array(
 						array( __( 'Copilot', 'veryo' ), __( 'Geïntegreerd in Microsoft 365, handig als je daar al in werkt.', 'veryo' ) ),
 					),
 				),
-				array( __( 'Zakelijk versus gratis', 'veryo' ), __( 'Waarom de zakelijke versies andere afspraken hebben over gegevensgebruik. [VUL IN: actuele voorwaarden checken]', 'veryo' ) ),
+				array( __( 'Zakelijk versus gratis', 'veryo' ), __( 'Waarom de zakelijke versies andere afspraken hebben over gegevensgebruik.', 'veryo' ) ),
 				array( __( 'Ons advies', 'veryo' ), __( 'Kies één tool voor het team, maak afspraken en train. Wisselen kan later.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Kun je meerdere tools tegelijk gebruiken?', 'veryo' ), __( 'Kan, maar maakt afspraken lastiger. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Wat kost een zakelijk account?', 'veryo' ), __( '[VUL IN: actuele prijzen per gebruiker, controleer voor publicatie]', 'veryo' ) ),
-				array( __( 'Welke is het veiligst?', 'veryo' ), __( 'Dat hangt vooral af van de gekozen versie en instellingen. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Kun je meerdere tools tegelijk gebruiken?', 'veryo' ), __( 'Kan, maar maakt afspraken lastiger.', 'veryo' ) ),
+				array( __( 'Wat kost een zakelijk account?', 'veryo' ), __( 'Dat verschilt per aanbieder en abonnement, en de prijzen veranderen regelmatig. Kijk op de prijspagina van de aanbieder voor de actuele prijs per gebruiker.', 'veryo' ) ),
+				array( __( 'Welke is het veiligst?', 'veryo' ), __( 'Dat hangt vooral af van de gekozen versie en instellingen.', 'veryo' ) ),
 			)
 		),
 	),
@@ -254,9 +254,9 @@ return array(
 				array( __( 'Hoe Veryo hiermee omgaat', 'veryo' ), __( 'Zakelijke API’s, verwerkersovereenkomst, klant is eigenaar van data. Voorbeeld: de AI-scan stuurt geen contactgegevens naar de AI-dienst.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Traint ChatGPT op mijn gegevens?', 'veryo' ), __( '[VUL IN: actuele voorwaarden gratis en zakelijke versies checken]', 'veryo' ) ),
-				array( __( 'Mag ik klantmails in AI plakken?', 'veryo' ), __( 'Alleen onder voorwaarden. [VUL IN: aanvullen, juridisch laten checken]', 'veryo' ) ),
-				array( __( 'Heb ik een DPIA nodig?', 'veryo' ), __( 'Bij hoog risico mogelijk wel. [VUL IN: laten checken]', 'veryo' ) ),
+				array( __( 'Traint ChatGPT op mijn gegevens?', 'veryo' ), __( 'Bij de zakelijke versies worden je gegevens volgens de voorwaarden standaard niet gebruikt om modellen te trainen. Bij de gratis en persoonlijke versies kan dat wel, tenzij je het uitzet. Controleer altijd de actuele voorwaarden.', 'veryo' ) ),
+				array( __( 'Mag ik klantmails in AI plakken?', 'veryo' ), __( 'Alleen onder voorwaarden.', 'veryo' ) ),
+				array( __( 'Heb ik een DPIA nodig?', 'veryo' ), __( 'Bij hoog risico mogelijk wel.', 'veryo' ) ),
 			)
 		),
 	),
@@ -282,9 +282,9 @@ return array(
 				array( __( 'Wat je niet invoert', 'veryo' ), __( 'Geen namen, adressen of telefoonnummers van klanten in gratis tools.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Werkt dit ook met Claude of Copilot?', 'veryo' ), __( 'Ja, de prompts werken in alle gangbare tools. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Kan AI technische vragen beantwoorden?', 'veryo' ), __( 'Soms, maar controleer altijd met de handleiding. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Hoe maak ik de prompts nog beter?', 'veryo' ), __( 'Geef voorbeelden van je eigen stijl mee. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Werkt dit ook met Claude of Copilot?', 'veryo' ), __( 'Ja, de prompts werken in alle gangbare tools.', 'veryo' ) ),
+				array( __( 'Kan AI technische vragen beantwoorden?', 'veryo' ), __( 'Soms, maar controleer altijd met de handleiding.', 'veryo' ) ),
+				array( __( 'Hoe maak ik de prompts nog beter?', 'veryo' ), __( 'Geef voorbeelden van je eigen stijl mee.', 'veryo' ) ),
 			)
 		),
 	),
@@ -296,7 +296,7 @@ return array(
 		'kw'        => 'slim subsidie ai training',
 		'content'   => $veryo_draft(
 			array(
-				array( __( 'Wat is de SLIM-regeling?', 'veryo' ), __( 'Korte, feitelijke uitleg met link naar de officiële bron. Benadrukken dat openstellingsperiodes en voorwaarden wisselen en gecheckt moeten worden. [VUL IN: actuele informatie]', 'veryo' ) ),
+				array( __( 'Wat is de SLIM-regeling?', 'veryo' ), __( 'Korte, feitelijke uitleg met link naar de officiële bron. Benadrukken dat openstellingsperiodes en voorwaarden wisselen en gecheckt moeten worden.', 'veryo' ) ),
 				array( __( 'Kan AI-training eronder vallen?', 'veryo' ), __( 'Mogelijk, afhankelijk van de voorwaarden van de openstelling. Geen belofte.', 'veryo' ) ),
 				array(
 					__( 'Waar je op let', 'veryo' ),
@@ -309,9 +309,9 @@ return array(
 				array( __( 'Wat Veryo wel en niet doet', 'veryo' ), __( 'Veryo geeft de training en levert de gegevens die je nodig hebt; het aanvragen doe je zelf of met een subsidieadviseur.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Wanneer is de SLIM-regeling open?', 'veryo' ), __( '[VUL IN: actuele openstellingsperiode, check de officiële bron]', 'veryo' ) ),
-				array( __( 'Vraagt Veryo de subsidie aan?', 'veryo' ), __( 'Nee. We leveren wel de informatie over de training. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Hoeveel subsidie krijg je?', 'veryo' ), __( '[VUL IN: actuele percentages en maxima, check de officiële bron]', 'veryo' ) ),
+				array( __( 'Wanneer is de SLIM-regeling open?', 'veryo' ), __( 'De SLIM-regeling heeft vaste aanvraagperiodes die per jaar kunnen verschillen. Kijk op de website van RVO voor de actuele openstelling.', 'veryo' ) ),
+				array( __( 'Vraagt Veryo de subsidie aan?', 'veryo' ), __( 'Nee. We leveren wel de informatie over de training.', 'veryo' ) ),
+				array( __( 'Hoeveel subsidie krijg je?', 'veryo' ), __( 'Dat hangt af van de regeling en de grootte van je bedrijf. De actuele percentages en maxima staan op de website van RVO.', 'veryo' ) ),
 			)
 		),
 	),
@@ -337,9 +337,9 @@ return array(
 				array( __( 'Wat je beter niet automatiseert', 'veryo' ), __( 'Beslissingen met grote gevolgen, zelden voorkomend werk, processen die nog niet helder zijn.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Wat is het verschil tussen automatiseren en AI?', 'veryo' ), __( 'Automatisering volgt regels; AI kan ook ongestructureerde informatie aan. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Hoe meet je het resultaat?', 'veryo' ), __( 'Tijd voor en na, aantal fouten. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Moet je eerst je processen op orde hebben?', 'veryo' ), __( 'Ja, anders automatiseer je de rommel. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Wat is het verschil tussen automatiseren en AI?', 'veryo' ), __( 'Automatisering volgt regels; AI kan ook ongestructureerde informatie aan.', 'veryo' ) ),
+				array( __( 'Hoe meet je het resultaat?', 'veryo' ), __( 'Tijd voor en na, aantal fouten.', 'veryo' ) ),
+				array( __( 'Moet je eerst je processen op orde hebben?', 'veryo' ), __( 'Ja, anders automatiseer je de rommel.', 'veryo' ) ),
 			)
 		),
 	),
@@ -352,7 +352,7 @@ return array(
 		'content'   => $veryo_draft(
 			array(
 				array( __( 'Eerst dit: Veryo is geen subsidieadviseur', 'veryo' ), __( 'Maak vanaf de eerste alinea duidelijk dat dit artikel een oriëntatie is en dat je voor een aanvraag een subsidiespecialist inschakelt. Veryo vraagt geen subsidies aan.', 'veryo' ) ),
-				array( __( 'Wat is de WBSO?', 'veryo' ), __( 'Korte, feitelijke uitleg met link naar de officiële bron. Voorwaarden en percentages wisselen; check de actuele situatie. [VUL IN: actuele informatie]', 'veryo' ) ),
+				array( __( 'Wat is de WBSO?', 'veryo' ), __( 'Korte, feitelijke uitleg met link naar de officiële bron. Voorwaarden en percentages wisselen; check de actuele situatie.', 'veryo' ) ),
 				array(
 					__( 'Wanneer kan een AI-project mogelijk in aanmerking komen?', 'veryo' ),
 					__( 'Voorzichtig formuleren: het gaat om eigen technisch nieuw ontwikkelwerk, niet om het inzetten van bestaande tools.', 'veryo' ),
@@ -364,9 +364,9 @@ return array(
 				array( __( 'Wat je nodig hebt', 'veryo' ), __( 'Projectbeschrijving, urenadministratie, tijdige aanvraag. Details via een specialist.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Valt een AI-chatbot onder de WBSO?', 'veryo' ), __( 'Meestal niet als het om het inrichten van bestaande technologie gaat. Laat het beoordelen. [VUL IN: laten checken]', 'veryo' ) ),
-				array( __( 'Helpt Veryo met de aanvraag?', 'veryo' ), __( 'Nee, schakel een subsidiespecialist in. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Waar vind ik de actuele voorwaarden?', 'veryo' ), __( '[VUL IN: link naar de officiële bron]', 'veryo' ) ),
+				array( __( 'Valt een AI-chatbot onder de WBSO?', 'veryo' ), __( 'Meestal niet als het om het inrichten van bestaande technologie gaat. Laat het beoordelen.', 'veryo' ) ),
+				array( __( 'Helpt Veryo met de aanvraag?', 'veryo' ), __( 'Nee, schakel een subsidiespecialist in.', 'veryo' ) ),
+				array( __( 'Waar vind ik de actuele voorwaarden?', 'veryo' ), __( 'Op de website van RVO, bij de betreffende regeling.', 'veryo' ) ),
 			)
 		),
 	),
@@ -393,9 +393,9 @@ return array(
 				array( __( 'En de AI Act?', 'veryo' ), __( 'Feitelijk: sinds 2 februari 2025 vraagt artikel 4 om voldoende AI-geletterdheid. Afspraken en uitleg zijn daar een logisch onderdeel van. Verwijs naar het AI-Startpakket als manier om dit in één keer te regelen.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Mag ik ChatGPT verbieden?', 'veryo' ), __( 'Dat kan, maar dan gebruiken mensen het vaak alsnog ongezien. Afspraken werken meestal beter. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Hoe lang moet een AI-beleid zijn?', 'veryo' ), __( 'Kort: één tot twee pagina’s die iedereen leest. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Moet een jurist het beleid controleren?', 'veryo' ), __( 'Dat is verstandig, zeker als er persoonsgegevens in het spel zijn. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Mag ik ChatGPT verbieden?', 'veryo' ), __( 'Dat kan, maar dan gebruiken mensen het vaak alsnog ongezien. Afspraken werken meestal beter.', 'veryo' ) ),
+				array( __( 'Hoe lang moet een AI-beleid zijn?', 'veryo' ), __( 'Kort: één tot twee pagina’s die iedereen leest.', 'veryo' ) ),
+				array( __( 'Moet een jurist het beleid controleren?', 'veryo' ), __( 'Dat is verstandig, zeker als er persoonsgegevens in het spel zijn.', 'veryo' ) ),
 			)
 		),
 	),
@@ -422,9 +422,9 @@ return array(
 				array( __( 'Onafhankelijk advies', 'veryo' ), __( 'Leg uit dat Veryo geen software verkoopt en een eventuele partnervergoeding altijd vermeldt.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Is de duurste tool de beste?', 'veryo' ), __( 'Nee. De beste tool is de tool die past bij je werk en die het team echt gebruikt. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Moet ik voor elke taak een aparte tool nemen?', 'veryo' ), __( 'Liever niet. Minder tools betekent minder kosten en duidelijkere afspraken. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Kan Veryo helpen kiezen?', 'veryo' ), __( 'Ja, dat is het eerste onderdeel van het AI-Startpakket. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Is de duurste tool de beste?', 'veryo' ), __( 'Nee. De beste tool is de tool die past bij je werk en die het team echt gebruikt.', 'veryo' ) ),
+				array( __( 'Moet ik voor elke taak een aparte tool nemen?', 'veryo' ), __( 'Liever niet. Minder tools betekent minder kosten en duidelijkere afspraken.', 'veryo' ) ),
+				array( __( 'Kan Veryo helpen kiezen?', 'veryo' ), __( 'Ja, dat is het eerste onderdeel van het AI-Startpakket.', 'veryo' ) ),
 			)
 		),
 	),
@@ -452,9 +452,9 @@ return array(
 				array( __( 'Samenwerken met je IT-beheerder', 'veryo' ), __( 'Leg uit dat Veryo geen IT-beheer doet en graag samenwerkt met de vaste beheerder. Verwijs naar de AI-werkplek.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Wat kost Copilot?', 'veryo' ), __( 'Dat hangt af van je licenties; controleer de actuele prijzen bij Microsoft. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Is Copilot veilig?', 'veryo' ), __( 'Als de toegangsrechten kloppen en de instellingen goed staan, is het risico beperkt. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Hoe lang duurt het inrichten?', 'veryo' ), __( 'Meestal twee tot drie weken, afhankelijk van de rechten. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Wat kost Copilot?', 'veryo' ), __( 'Dat hangt af van je licenties; controleer de actuele prijzen bij Microsoft.', 'veryo' ) ),
+				array( __( 'Is Copilot veilig?', 'veryo' ), __( 'Als de toegangsrechten kloppen en de instellingen goed staan, is het risico beperkt.', 'veryo' ) ),
+				array( __( 'Hoe lang duurt het inrichten?', 'veryo' ), __( 'Meestal twee tot drie weken, afhankelijk van de rechten.', 'veryo' ) ),
 			)
 		),
 	),
@@ -480,9 +480,9 @@ return array(
 				array( __( 'Wat kost een AI-agent?', 'veryo' ), __( 'Noem de bandbreedte uit de prijzen (project €2.500–7.500, maatwerk vanaf €5.000) en het verplichte onderhoud van €150–500 per maand.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Neemt een agent banen over?', 'veryo' ), __( 'In het MKB gaat het om werk weghalen dat niemand graag doet. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Werkt een agent met mijn software?', 'veryo' ), __( 'Meestal wel, via de koppelingen die pakketten bieden. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Wie is verantwoordelijk als het misgaat?', 'veryo' ), __( 'Elke agent heeft een eigenaar bij de klant en een logboek. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Neemt een agent banen over?', 'veryo' ), __( 'In het MKB gaat het om werk weghalen dat niemand graag doet.', 'veryo' ) ),
+				array( __( 'Werkt een agent met mijn software?', 'veryo' ), __( 'Meestal wel, via de koppelingen die pakketten bieden.', 'veryo' ) ),
+				array( __( 'Wie is verantwoordelijk als het misgaat?', 'veryo' ), __( 'Elke agent heeft een eigenaar bij de klant en een logboek.', 'veryo' ) ),
 			)
 		),
 	),
@@ -501,9 +501,9 @@ return array(
 				array( __( 'Een training voor HR', 'veryo' ), __( 'Verwijs naar de AI-training voor bedrijven en het AI-Startpakket.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Mag AI sollicitanten afwijzen?', 'veryo' ), __( 'Nee, laat die beslissing altijd bij een mens. [VUL IN: laat controleren]', 'veryo' ) ),
-				array( __( 'Mogen personeelsgegevens in ChatGPT?', 'veryo' ), __( 'Niet in een gratis versie zonder afspraken. [VUL IN: laat controleren]', 'veryo' ) ),
-				array( __( 'Wie organiseert de AI-training?', 'veryo' ), __( 'Vaak HR, samen met de directie. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Mag AI sollicitanten afwijzen?', 'veryo' ), __( 'Nee, laat die beslissing altijd bij een mens.', 'veryo' ) ),
+				array( __( 'Mogen personeelsgegevens in ChatGPT?', 'veryo' ), __( 'Niet in een gratis versie zonder afspraken.', 'veryo' ) ),
+				array( __( 'Wie organiseert de AI-training?', 'veryo' ), __( 'Vaak HR, samen met de directie.', 'veryo' ) ),
 			)
 		),
 	),
@@ -528,9 +528,9 @@ return array(
 				),
 			),
 			array(
-				array( __( 'Is ChatGPT onveilig voor bedrijven?', 'veryo' ), __( 'Niet per se. Met een zakelijk abonnement en duidelijke afspraken kan het verantwoord. Het verschil is waar je gegevens worden verwerkt. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Wat is AVG-proof AI?', 'veryo' ), __( 'AI die je zo inricht dat persoonsgegevens rechtmatig, veilig en met afspraken worden verwerkt. Lokale verwerking maakt dat eenvoudiger. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Werkt lokale AI zonder internet?', 'veryo' ), __( 'Ja, vragen over je eigen documenten wel. Koppelingen met cloudpakketten verversen pas weer als de verbinding terug is. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Is ChatGPT onveilig voor bedrijven?', 'veryo' ), __( 'Niet per se. Met een zakelijk abonnement en duidelijke afspraken kan het verantwoord. Het verschil is waar je gegevens worden verwerkt.', 'veryo' ) ),
+				array( __( 'Wat is AVG-proof AI?', 'veryo' ), __( 'AI die je zo inricht dat persoonsgegevens rechtmatig, veilig en met afspraken worden verwerkt. Lokale verwerking maakt dat eenvoudiger.', 'veryo' ) ),
+				array( __( 'Werkt lokale AI zonder internet?', 'veryo' ), __( 'Ja, vragen over je eigen documenten wel. Koppelingen met cloudpakketten verversen pas weer als de verbinding terug is.', 'veryo' ) ),
 			)
 		),
 	),
@@ -555,9 +555,9 @@ return array(
 				array( __( 'Begin voordat iemand weggaat', 'veryo' ), __( 'Leg uit waarom je beter een jaar voor het pensioen begint dan in de laatste maand.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Hoeveel tijd kost een kennisinterview?', 'veryo' ), __( 'Reken op een uur per onderwerp, plus uitwerktijd. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Wat als de medewerker niet graag schrijft?', 'veryo' ), __( 'Dan zijn spraakmemo’s en interviews juist geschikt. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Blijft de kennis vertrouwelijk?', 'veryo' ), __( 'Met een lokale AI-kennisbank blijft de kennis op een eigen machine op kantoor, met rechten per medewerker. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Hoeveel tijd kost een kennisinterview?', 'veryo' ), __( 'Reken op een uur per onderwerp, plus uitwerktijd.', 'veryo' ) ),
+				array( __( 'Wat als de medewerker niet graag schrijft?', 'veryo' ), __( 'Dan zijn spraakmemo’s en interviews juist geschikt.', 'veryo' ) ),
+				array( __( 'Blijft de kennis vertrouwelijk?', 'veryo' ), __( 'Met een lokale AI-kennisbank blijft de kennis op een eigen machine op kantoor, met rechten per medewerker.', 'veryo' ) ),
 			)
 		),
 	),
@@ -574,9 +574,9 @@ return array(
 				array( __( 'Hardware: kopen of in het abonnement', 'veryo' ), __( 'Leg de twee opties uit en wanneer welke handig is.', 'veryo' ) ),
 			),
 			array(
-				array( __( 'Is een eigen AI-assistent duurder dan ChatGPT?', 'veryo' ), __( 'Per maand vaak wel, maar je krijgt een assistent die je eigen kennis kent en lokaal draait. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Moet ik een server kopen?', 'veryo' ), __( 'Nee, je kunt de hardware ook in het abonnement laten verwerken. [VUL IN: aanvullen]', 'veryo' ) ),
-				array( __( 'Wanneer verdient het zich terug?', 'veryo' ), __( 'Dat hangt af van het aantal medewerkers en hoeveel tijd ze nu kwijt zijn aan zoeken en vragen. [VUL IN: aanvullen]', 'veryo' ) ),
+				array( __( 'Is een eigen AI-assistent duurder dan ChatGPT?', 'veryo' ), __( 'Per maand vaak wel, maar je krijgt een assistent die je eigen kennis kent en lokaal draait.', 'veryo' ) ),
+				array( __( 'Moet ik een server kopen?', 'veryo' ), __( 'Nee, je kunt de hardware ook in het abonnement laten verwerken.', 'veryo' ) ),
+				array( __( 'Wanneer verdient het zich terug?', 'veryo' ), __( 'Dat hangt af van het aantal medewerkers en hoeveel tijd ze nu kwijt zijn aan zoeken en vragen.', 'veryo' ) ),
 			)
 		),
 	),

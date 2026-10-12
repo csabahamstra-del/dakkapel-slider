@@ -79,7 +79,7 @@ function veryo_collega() {
 				),
 			),
 
-			// Maandelijkse pakketten, exclusief btw. [CONTROLEER] koppelingen en uren kennisonderhoud.
+			// Maandelijkse pakketten, exclusief btw: prijs, aantal koppelingen en uren kennisonderhoud.
 			'pakketten'        => array(
 				'start' => array(
 					'naam'        => __( 'Start', 'veryo' ),
