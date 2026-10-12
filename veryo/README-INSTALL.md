@@ -78,6 +78,46 @@ Op de site staat nergens een `[VUL IN]`- of `[FOTO]`-plek of iets dat op "under 
 - **Open groepstrainingen voor zzp'ers**: op `/ai-training/zzp/` staat dat data, locatie en prijs via de wachtlijst bekend worden gemaakt. Vul ze aan zodra ze vaststaan.
 - **Opzegtermijn**: overal één maand (losse abonnementen na de minimale looptijd van drie maanden, en AI-partner na het eerste jaar). Dit is een aanname, gelijk aan de algemene voorwaarden; pas beide aan als het anders moet.
 
+## Veryo Collega (hoofdproduct)
+
+Productpagina: `/veryo-collega/`. Het product staat als eerste, licht uitgelicht menu-item in het hoofdmenu en in de footer. De knop rechtsboven heet "Plan een demo" en gaat naar het demoformulier onderaan de productpagina. Daarnaast staat het product:
+
+- in de banner van de homepage, met halverwege de pagina de band "Trek de internetkabel eruit";
+- als herbruikbaar blok op alle dienst-, oplossings-, branche- en automatiseringspagina's, het AI-Startpakket en AI-partner;
+- in een regionale variant op de regiopagina's;
+- in het rapport van de AI-scan, als de uitkomst over kennis, documenten of mail gaat, of als het team groter is dan tien mensen.
+
+**Naam, prijzen en knopteksten aanpassen.** Alles staat op één plek: `inc/collega-config.php`. Daar staan:
+
+- productnaam en ondertitel;
+- de knopteksten;
+- contactgegevens;
+- de eenmalige posten en de drie maandpakketten, met per pakket het aantal koppelingen en de uren kennisonderhoud;
+- de regel over hardware;
+- de standaardwaarden en de aanname (30%) van de rekenhulp.
+
+Teksten op de site lezen die waarden op het moment van tonen, via shortcodes zoals `[veryo_collega_naam]` en `[veryo_collega_prijs id=start]`. Een wijziging staat dus direct overal goed: op de pagina's, in de menu's, in het schema en in llms.txt. Alleen de paginatitel, SEO-titel en metabeschrijving worden bij het aanmaken vastgelegd. Klik na een naamswijziging daarom op Extra > Veryo-inhoud > Pagina's bijwerken.
+
+Liever niet in het thema zelf wijzigen? Gebruik dan het filter `veryo_collega_config` in een eigen plugin.
+
+**Herbruikbaar blok invoegen.** Gebruik in de editor een Shortcode-blok met een van deze shortcodes:
+
+| Shortcode | Wat je krijgt |
+|---|---|
+| `[veryo_collega_blok]` | Het standaardblok |
+| `[veryo_collega_blok variant=regio regio=friesland]` | De regionale variant; ook `groningen`, `drenthe` of `leeuwarden` |
+| `[veryo_collega_blok variant=intern]` | De variant voor de pagina Interne AI-assistent |
+
+In PHP: `get_template_part( 'template-parts/collega-blok' )`.
+
+**Demo-aanvragen** komen binnen als lead met het type "Demo-aanvraag" en worden gemaild naar het e-mailadres uit de config (info@veryo.nl).
+
+**Nog in te vullen:**
+- `[CASE VOLGT]`. Het blok is verborgen zolang Toon cases uit staat.
+- Een echte OG-afbeelding: vervang `assets/images/og-collega.png`, 1200 × 630.
+- Eventueel echte foto's.
+- De definitieve prijzen en pakketinhoud: zie `[CONTROLEER]` in de config.
+
 ## Aanbod, prijzen en menu
 
 Veryo staat op de site als **onafhankelijke AI-partner** die geen eigen software verkoopt, en uitdrukkelijk **geen IT-bedrijf** (geen IT-beheer, hardware of helpdesk; dat staat op Over Veryo en in de FAQ). Het aanbod is opgebouwd in zes pijlers. Alle prijzen staan op één plek: `inc/quiz/catalog.php` (`veryo_price_ladder()`, `veryo_startpakket_prices()`, `veryo_subscriptions()`, `veryo_partner_tiers()` en `veryo_werkplek_prices()`). Pas je daar een prijs aan, dan verandert die in de prijsblokken, de schema.org-gegevens, llms.txt, de rapportmail en de AI-scan. Prijzen in de lopende tekst van pagina's pas je in de editor aan.
