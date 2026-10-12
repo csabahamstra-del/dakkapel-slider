@@ -787,3 +787,59 @@ function veryo_scan_fits_collega( $recs, $team ) {
 	}
 	return false;
 }
+
+/**
+ * Na een thema-update: de productpagina eenmalig vanzelf aanmaken als die ontbreekt, en het
+ * Veryo-menu bijwerken. Zo verwijst de knop Plan een demo nooit naar een lege pagina.
+ * Andere ontbrekende pagina's blijven bij de knop Website herstellen.
+ */
+function veryo_collega_autocreate() {
+	if ( ! current_user_can( 'manage_options' ) || wp_doing_ajax() || get_option( 'veryo_collega_page_done' ) ) {
+		return;
+	}
+	$slug = veryo_collega()['slug'];
+	if ( ! veryo_find_page( $slug ) ) {
+		$defs = veryo_content_pages();
+		if ( ! isset( $defs[ $slug ] ) ) {
+			return;
+		}
+		$def = $defs[ $slug ];
+		kses_remove_filters();
+		$post_id = wp_insert_post(
+			wp_slash(
+				array(
+					'post_type'      => 'page',
+					'post_status'    => 'publish',
+					'post_title'     => $def['title'],
+					'post_name'      => $slug,
+					'post_content'   => $def['content'],
+					'comment_status' => 'closed',
+					'ping_status'    => 'closed',
+				)
+			),
+			true
+		);
+		kses_init();
+		if ( is_wp_error( $post_id ) ) {
+			return;
+		}
+		veryo_apply_page_meta( $post_id, $def );
+		veryo_remember_content( $post_id );
+		$map          = get_option( 'veryo_page_ids', array() );
+		$map          = is_array( $map ) ? $map : array();
+		$map[ $slug ] = $post_id;
+		update_option( 'veryo_page_ids', $map, false );
+	}
+	// Menu's met de nieuwe pagina opnieuw vullen (alleen de Veryo-menu's die iets missen).
+	$ids = array();
+	foreach ( array_keys( veryo_content_pages() ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page ) {
+			$ids[ $path ] = $page->ID;
+		}
+	}
+	$report = array( 'messages' => array() );
+	veryo_setup_menus( $ids, $report );
+	update_option( 'veryo_collega_page_done', 1, false );
+}
+add_action( 'admin_init', 'veryo_collega_autocreate' );

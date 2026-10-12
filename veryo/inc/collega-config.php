@@ -132,7 +132,25 @@ function veryo_collega() {
  * @return string
  */
 function veryo_collega_url( $anchor = '' ) {
+	// Bestaat de productpagina (nog) niet, dan liever naar contact dan naar een 404.
+	if ( ! veryo_collega_page_exists() ) {
+		return veryo_url( 'contact' );
+	}
 	return veryo_url( veryo_collega()['slug'] ) . ( $anchor ? '#' . $anchor : '' );
+}
+
+/**
+ * Staat de productpagina gepubliceerd op de site?
+ *
+ * @return bool
+ */
+function veryo_collega_page_exists() {
+	static $exists = null;
+	if ( null === $exists ) {
+		$page   = get_page_by_path( veryo_collega()['slug'] );
+		$exists = $page instanceof WP_Post && 'publish' === $page->post_status;
+	}
+	return $exists;
 }
 
 /**
