@@ -281,7 +281,7 @@ function veryo_rest_form( $request ) {
 	}
 
 	$type = isset( $p['type'] ) ? veryo_key( $p['type'] ) : '';
-	if ( ! in_array( $type, array( 'contact', 'academy' ), true ) ) {
+	if ( ! in_array( $type, array( 'contact', 'academy', 'demo' ), true ) ) {
 		return new WP_Error( 'veryo_invalid_type', __( 'Onbekend formulier.', 'veryo' ), array( 'status' => 400 ) );
 	}
 
@@ -303,6 +303,29 @@ function veryo_rest_form( $request ) {
 			$errors['medewerkers'] = __( 'Vul een aantal tussen 1 en 1000 in.', 'veryo' );
 		}
 		$contact['medewerkers'] = '' === $raw_count ? '' : (string) (int) $raw_count;
+	}
+	if ( 'demo' === $type ) {
+		$options             = veryo_demo_options();
+		$contact['telefoon'] = veryo_clean_text( isset( $p['telefoon'] ) ? $p['telefoon'] : '', 20 );
+		if ( '' === $contact['bedrijf'] ) {
+			$errors['bedrijf'] = __( 'Vul je bedrijfsnaam in.', 'veryo' );
+		}
+		if ( ! veryo_valid_phone( $contact['telefoon'] ) ) {
+			$errors['telefoon'] = __( 'Vul een geldig telefoonnummer in.', 'veryo' );
+		}
+		foreach ( array( 'medewerkers', 'branche' ) as $field ) {
+			$value = isset( $p[ $field ] ) && is_string( $p[ $field ] ) ? $p[ $field ] : '';
+			if ( ! isset( $options[ $field ][ $value ] ) ) {
+				$errors[ $field ] = __( 'Maak een keuze.', 'veryo' );
+				continue;
+			}
+			$contact[ $field ] = $options[ $field ][ $value ];
+		}
+		$contact['boekhoudpakket'] = veryo_clean_text( isset( $p['boekhoudpakket'] ) ? $p['boekhoudpakket'] : '', 80 );
+		$page                      = isset( $p['pagina'] ) && is_string( $p['pagina'] ) ? $p['pagina'] : '';
+		if ( preg_match( '#^/[a-z0-9/_\\-]{0,150}$#i', $page ) ) {
+			$contact['pagina'] = $page;
+		}
 	}
 	if ( 'contact' === $type ) {
 		$contact['telefoon'] = veryo_clean_text( isset( $p['telefoon'] ) ? $p['telefoon'] : '', 20 );
@@ -341,9 +364,9 @@ function veryo_rest_form( $request ) {
 	return new WP_REST_Response(
 		array(
 			'ok'      => true,
-			'message' => 'academy' === $type
+			'message' => 'demo' === $type ? __( 'Dank je! We nemen binnen één werkdag contact op om de demo te plannen.', 'veryo' ) : ( 'academy' === $type
 				? __( 'Je staat op de wachtlijst. We sturen je één bericht zodra de cursus beschikbaar is.', 'veryo' )
-				: __( 'Dank je, je bericht is verstuurd. We reageren binnen één werkdag.', 'veryo' ),
+				: __( 'Dank je, je bericht is verstuurd. We reageren binnen één werkdag.', 'veryo' ) ),
 		),
 		200
 	);

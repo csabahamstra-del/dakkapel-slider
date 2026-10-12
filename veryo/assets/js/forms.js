@@ -82,13 +82,25 @@
 					errors.bericht = 'Schrijf een kort bericht.';
 				}
 			}
-			if ( value( 'medewerkers' ) && ! /^\d{1,4}$/.test( value( 'medewerkers' ) ) ) {
+			if ( 'demo' === type ) {
+				if ( ! value( 'bedrijf' ) ) {
+					errors.bedrijf = 'Vul je bedrijfsnaam in.';
+				}
+				if ( ! phoneRe.test( value( 'telefoon' ) ) ) {
+					errors.telefoon = 'Vul een geldig telefoonnummer in.';
+				}
+				[ 'medewerkers', 'branche' ].forEach( function ( name ) {
+					if ( ! value( name ) ) {
+						errors[ name ] = 'Maak een keuze.';
+					}
+				} );
+			} else if ( value( 'medewerkers' ) && ! /^\d{1,4}$/.test( value( 'medewerkers' ) ) ) {
 				errors.medewerkers = 'Vul een aantal tussen 1 en 1000 in.';
 			}
 			if ( ! value( 'toestemming' ) ) {
 				errors.toestemming = 'Geef toestemming om je gegevens te gebruiken.';
 			}
-			[ 'naam', 'email', 'telefoon', 'bericht', 'medewerkers', 'toestemming' ].forEach( function ( name ) {
+			[ 'naam', 'bedrijf', 'email', 'telefoon', 'bericht', 'medewerkers', 'branche', 'toestemming' ].forEach( function ( name ) {
 				setError( name, errors[ name ] );
 			} );
 			var names = Object.keys( errors );
@@ -105,6 +117,8 @@
 				telefoon: value( 'telefoon' ),
 				bericht: value( 'bericht' ),
 				medewerkers: value( 'medewerkers' ),
+				branche: value( 'branche' ),
+				boekhoudpakket: value( 'boekhoudpakket' ),
 				toestemming: value( 'toestemming' ),
 				website: value( 'website' ),
 				pagina: window.location.pathname

@@ -232,6 +232,25 @@ function veryo_field( $type, $name, $label, $required = false, $attrs = array(),
 }
 
 /**
+ * Keuzelijst (verplicht), in dezelfde opmaak als veryo_field().
+ *
+ * @param string               $name    Naam.
+ * @param string               $label   Label.
+ * @param array<string,string> $options Waarde => label.
+ * @param string               $prefix  Prefix voor id's.
+ * @return string
+ */
+function veryo_select_field( $name, $label, $options, $prefix ) {
+	$id   = $prefix . '-' . $name;
+	$out  = '<div class="field"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . ' <span class="req" aria-hidden="true">*</span></label>';
+	$out .= '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" required aria-describedby="' . esc_attr( $id ) . '-error"><option value="">' . esc_html__( 'Maak een keuze', 'veryo' ) . '</option>';
+	foreach ( $options as $value => $text ) {
+		$out .= '<option value="' . esc_attr( $value ) . '">' . esc_html( $text ) . '</option>';
+	}
+	return $out . '</select><p class="field-error" id="' . esc_attr( $id ) . '-error" hidden></p></div>';
+}
+
+/**
  * Contactformulier of Academy-wachtlijst.
  *
  * @param array<string,string>|string $atts Attributen.
@@ -249,7 +268,7 @@ function veryo_sc_form( $atts ) {
 		$atts,
 		'veryo_form'
 	);
-	$type         = 'academy' === $atts['type'] ? 'academy' : 'contact';
+	$type         = in_array( $atts['type'], array( 'academy', 'demo' ), true ) ? $atts['type'] : 'contact';
 	$compact      = 'contact' === $type && '' !== $atts['compact'];
 	if ( 'academy' === $type && ! veryo_setting( 'academy_waitlist' ) ) {
 		return '';
@@ -261,7 +280,7 @@ function veryo_sc_form( $atts ) {
 	$p       = 'form-' . $type . ( $count > 1 ? '-' . $count : '' );
 	$privacy = '<a href="' . esc_url( veryo_url( 'privacyverklaring' ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'privacyverklaring', 'veryo' ) . '</a>';
 
-	$out  = '<form class="veryo-form' . ( $compact ? ' veryo-form--compact' : '' ) . '" data-veryo-form="' . esc_attr( $type ) . '" novalidate>';
+	$out  = '<form class="veryo-form' . ( $compact || 'demo' === $type ? ' veryo-form--compact' : '' ) . '" data-veryo-form="' . esc_attr( $type ) . '" novalidate>';
 	$out .= veryo_field(
 		'text',
 		'naam',
@@ -278,7 +297,7 @@ function veryo_sc_form( $atts ) {
 		'text',
 		'bedrijf',
 		__( 'Bedrijf', 'veryo' ),
-		false,
+		'demo' === $type,
 		array(
 			'autocomplete' => 'organization',
 			'maxlength'    => '120',
@@ -313,6 +332,32 @@ function veryo_sc_form( $atts ) {
 		'',
 		$p
 	);
+	if ( 'demo' === $type ) {
+		$out    .= veryo_field(
+			'tel',
+			'telefoon',
+			__( 'Telefoonnummer', 'veryo' ),
+			true,
+			array(
+				'autocomplete' => 'tel',
+				'maxlength'    => '20',
+			),
+			'',
+			$p
+		);
+		$options = veryo_demo_options();
+		$out    .= veryo_select_field( 'medewerkers', __( 'Aantal medewerkers', 'veryo' ), $options['medewerkers'], $p );
+		$out    .= veryo_select_field( 'branche', __( 'Branche', 'veryo' ), $options['branche'], $p );
+		$out    .= veryo_field(
+			'text',
+			'boekhoudpakket',
+			__( 'Welk boekhoudpakket gebruiken jullie? (optioneel)', 'veryo' ),
+			false,
+			array( 'maxlength' => '80' ),
+			'',
+			$p
+		);
+	}
 	if ( 'contact' === $type ) {
 		$out          .= veryo_field(
 			'tel',
@@ -351,6 +396,7 @@ function veryo_sc_form( $atts ) {
 	$out  .= '<div class="field field--check"><input type="checkbox" id="' . esc_attr( $p ) . '-toestemming" name="toestemming" value="1" required aria-describedby="' . esc_attr( $p ) . '-toestemming-error"><label for="' . esc_attr( $p ) . '-toestemming">' . sprintf( esc_html( $consent ), $privacy ) . '</label><p class="field-error" id="' . esc_attr( $p ) . '-toestemming-error" hidden></p></div>';
 	$out  .= '<div class="hp-field" aria-hidden="true"><label for="' . esc_attr( $p ) . '-website">' . esc_html__( 'Laat dit veld leeg', 'veryo' ) . '</label><input type="text" id="' . esc_attr( $p ) . '-website" name="website" tabindex="-1" autocomplete="off"></div>';
 	$label = 'academy' === $type ? __( 'Zet me op de wachtlijst', 'veryo' ) : __( 'Verstuur bericht', 'veryo' );
+	$label = 'demo' === $type ? veryo_collega()['cta_primair'] : $label;
 	$label = '' !== $atts['button'] ? $atts['button'] : $label;
 	$out  .= '<button type="submit" class="btn btn--petrol">' . esc_html( $label ) . '</button>';
 	$out  .= '<p class="form-status" role="status" aria-live="polite"></p>';
@@ -511,6 +557,12 @@ function veryo_sc_rapport() {
 	$out .= '<p>' . esc_html__( 'Kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg.', 'veryo' ) . '</p>';
 	/* translators: %s: prijsindicatie voor de teamgrootte. */
 	$out .= '<p>' . esc_html( sprintf( __( 'Voor jullie teamgrootte: %s, exclusief btw.', 'veryo' ), veryo_startpakket_price_for_team( $team ) ) ) . ' <a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p></div>';
+	if ( veryo_scan_fits_collega( $r['aanbevelingen'], $team ) ) {
+		$cc   = veryo_collega();
+		$out .= '<div class="report__next report__collega"><h2>' . esc_html( sprintf( /* translators: %s: productnaam. */ __( 'Past bij jullie: %s', 'veryo' ), $cc['naam'] ) ) . '</h2>';
+		$out .= '<p>' . esc_html( sprintf( /* translators: %s: productnaam. */ __( 'Veel van jullie kansen draaien om kennis, documenten en mail. %s is een AI-collega die op een eigen machine bij jullie op kantoor draait en vragen beantwoordt uit jullie eigen documenten en systemen. Je gegevens verlaten het pand niet voor AI-verwerking.', 'veryo' ), $cc['naam'] ) ) . '</p>';
+		$out .= '<p><a class="btn btn--amber" href="' . esc_url( veryo_collega_url( 'demo' ) ) . '">' . esc_html( $cc['cta_primair'] ) . '</a> <a href="' . esc_url( veryo_collega_url() ) . '">' . esc_html( sprintf( /* translators: %s: productnaam. */ __( 'Meer over %s', 'veryo' ), $cc['naam'] ) ) . '</a></p></div>';
+	}
 	if ( $calendly ) {
 		$out .= '<p><a class="btn btn--amber" href="' . esc_url( $calendly ) . '">' . esc_html__( 'Plan een gesprek', 'veryo' ) . '</a></p>';
 	}

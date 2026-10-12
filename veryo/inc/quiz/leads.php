@@ -32,6 +32,7 @@ function veryo_lead_sources() {
 		'ai-scan' => __( 'AI-scan', 'veryo' ),
 		'academy' => __( 'Academy-wachtlijst', 'veryo' ),
 		'contact' => __( 'Contactformulier', 'veryo' ),
+		'demo'    => __( 'Demo-aanvraag', 'veryo' ),
 	);
 }
 
@@ -428,14 +429,16 @@ function veryo_lead_box_details( $post ) {
 		__( 'Toestemming', 'veryo' ) => $lead['consent_at'] ? wp_date( 'j F Y H:i', (int) strtotime( $lead['consent_at'] ) ) : '',
 	);
 	$labels  = array(
-		'voornaam'    => __( 'Voornaam', 'veryo' ),
-		'naam'        => __( 'Naam', 'veryo' ),
-		'bedrijf'     => __( 'Bedrijf', 'veryo' ),
-		'medewerkers' => __( 'Aantal medewerkers', 'veryo' ),
-		'email'       => __( 'E-mail', 'veryo' ),
-		'telefoon'    => __( 'Telefoon', 'veryo' ),
-		'bericht'     => __( 'Bericht', 'veryo' ),
-		'pagina'      => __( 'Verstuurd vanaf', 'veryo' ),
+		'voornaam'       => __( 'Voornaam', 'veryo' ),
+		'naam'           => __( 'Naam', 'veryo' ),
+		'bedrijf'        => __( 'Bedrijf', 'veryo' ),
+		'medewerkers'    => __( 'Aantal medewerkers', 'veryo' ),
+		'email'          => __( 'E-mail', 'veryo' ),
+		'telefoon'       => __( 'Telefoon', 'veryo' ),
+		'bericht'        => __( 'Bericht', 'veryo' ),
+		'branche'        => __( 'Branche', 'veryo' ),
+		'boekhoudpakket' => __( 'Boekhoudpakket', 'veryo' ),
+		'pagina'         => __( 'Verstuurd vanaf', 'veryo' ),
 	);
 	foreach ( $labels as $key => $label ) {
 		if ( isset( $lead['contact'][ $key ] ) && '' !== $lead['contact'][ $key ] ) {

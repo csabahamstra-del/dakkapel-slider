@@ -287,7 +287,9 @@ function veryo_mail_internal_scan( $lead_id ) {
 	}
 	$text .= "\n" . __( 'Lead in WordPress:', 'veryo' ) . ' ' . $admin . "\n";
 
-	return veryo_send_mail( veryo_internal_email(), $subject, veryo_mail_layout( $subject, $html ), $text, $c['email'] );
+	// Demo-aanvragen voor Veryo Collega gaan naar het adres uit de centrale config.
+	$to = 'demo' === $lead['source'] ? veryo_collega()['email'] : veryo_internal_email();
+	return veryo_send_mail( $to, $subject, veryo_mail_layout( $subject, $html ), $text, $c['email'] );
 }
 
 /**
@@ -304,13 +306,15 @@ function veryo_mail_internal_form( $lead_id ) {
 	$who     = trim( ( isset( $c['bedrijf'] ) ? $c['bedrijf'] . ' – ' : '' ) . ( isset( $c['naam'] ) ? $c['naam'] : '' ), ' –' );
 	$subject = sprintf( '[%s] %s', $label, $who );
 	$labels  = array(
-		'naam'        => __( 'Naam', 'veryo' ),
-		'bedrijf'     => __( 'Bedrijf', 'veryo' ),
-		'medewerkers' => __( 'Aantal medewerkers', 'veryo' ),
-		'email'       => __( 'E-mail', 'veryo' ),
-		'telefoon'    => __( 'Telefoon', 'veryo' ),
-		'bericht'     => __( 'Bericht', 'veryo' ),
-		'pagina'      => __( 'Verstuurd vanaf', 'veryo' ),
+		'naam'           => __( 'Naam', 'veryo' ),
+		'bedrijf'        => __( 'Bedrijf', 'veryo' ),
+		'medewerkers'    => __( 'Aantal medewerkers', 'veryo' ),
+		'email'          => __( 'E-mail', 'veryo' ),
+		'telefoon'       => __( 'Telefoon', 'veryo' ),
+		'bericht'        => __( 'Bericht', 'veryo' ),
+		'branche'        => __( 'Branche', 'veryo' ),
+		'boekhoudpakket' => __( 'Boekhoudpakket', 'veryo' ),
+		'pagina'         => __( 'Verstuurd vanaf', 'veryo' ),
 	);
 	$admin   = admin_url( 'post.php?post=' . $lead_id . '&action=edit' );
 	$html    = '<tr><td style="padding:24px 32px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">';
