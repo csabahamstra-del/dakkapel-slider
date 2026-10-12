@@ -293,7 +293,13 @@
 					'.is-style-ladder li',
 					'.veryo-why .is-style-checks li',
 					'.is-style-catalog li',
-					'.entry-content .veryo-img'
+					'.entry-content .veryo-img',
+					'.veryo-product',
+					'.veryo-collega-card',
+					'.veryo-collega-task',
+					'.veryo-collega-plan',
+					'.veryo-tiles li',
+					'.veryo-collega-blok'
 				];
 				groups.forEach( function ( selector ) {
 					var items = Array.prototype.filter.call( document.querySelectorAll( selector ), function ( el ) {

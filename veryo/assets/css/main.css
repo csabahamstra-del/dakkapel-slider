@@ -727,7 +727,7 @@ strong { font-weight: 650; }
 .veryo-price-table .d { color: var(--ink-muted); }
 .veryo-price-table .p { font: 500 1.5rem/1.2 var(--serif); letter-spacing: -.01em; text-wrap: balance; }
 .veryo-price-table li.is-featured .p { color: var(--amber-deep); }
-.veryo-price-table li.is-featured .t::after { content: "Hoofdproduct"; margin-left: 12px; vertical-align: 2px; display: inline-block; background: var(--amber); color: var(--ink); font-size: .6875rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; border-radius: var(--r-s); }
+.veryo-price-table li.is-featured .t::after { content: "Aanbevolen start"; margin-left: 12px; vertical-align: 2px; display: inline-block; background: var(--amber); color: var(--ink); font-size: .6875rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; border-radius: var(--r-s); }
 
 /* Wat er mogelijk is: drie kolommen */
 .veryo-possible .wp-block-columns { gap: var(--s4); }
@@ -1090,3 +1090,198 @@ html.lenis, html.lenis body { height: auto; }
 @media (min-width: 760px) { .veryo-product__steps { grid-template-columns: 1fr 1fr; } }
 .veryo-product__steps li { counter-increment: vstep; position: relative; margin: 0 !important; padding: 14px 0 0 44px; border-top: 1px solid rgba(255, 255, 255, .16); color: var(--paper); font-weight: 500; }
 .veryo-product__steps li::before { content: counter(vstep, decimal-leading-zero); position: absolute; left: 0; top: 14px; font: 500 1.125rem/1.4 var(--serif); color: var(--amber); }
+
+/* ---------------------------------------------------------------- Veryo Collega */
+
+/* Menu: het hoofdproduct licht uitgelicht. */
+.site-nav .menu > .is-highlight > a { color: var(--petrol); font-weight: 650; }
+.site-nav .menu > .is-highlight > a::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--amber); vertical-align: 2px; }
+
+/* Hero van de productpagina. */
+.veryo-collega-hero { position: relative; overflow: hidden; padding-top: var(--s6); padding-bottom: var(--s6); }
+.veryo-collega-hero > .wp-block-columns { max-width: var(--wide); margin-left: auto !important; margin-right: auto !important; gap: var(--s4) var(--s5); align-items: center; }
+.veryo-collega-hero h1 { font-size: clamp(2.5rem, 1.6rem + 4vw, 5rem) !important; line-height: 1.02; letter-spacing: -.03em; max-width: 13ch; margin-top: 18px; }
+.veryo-collega-hero .veryo-lead { color: rgba(255, 255, 255, .82); margin-top: 24px; max-width: 46ch; font-size: clamp(1.125rem, 1rem + .4vw, 1.3125rem); }
+.veryo-collega-hero .veryo-collega-cta { margin-top: var(--s4); }
+.is-style-petrol .veryo-kicker { color: var(--amber); }
+.is-style-petrol .btn--link { color: var(--paper); }
+
+/* Het kastje met kennis die erin stroomt. */
+.veryo-box svg { display: block; width: 100%; height: auto; max-width: 520px; margin-left: auto; overflow: visible; }
+.veryo-box__flow { fill: none; stroke: rgba(224, 160, 58, .55); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 6 10; }
+.veryo-box__tag { fill: rgba(255, 255, 255, .7); font: 500 13px var(--sans); }
+.veryo-box__unit rect:first-child { fill: #0E2B26; stroke: rgba(255, 255, 255, .22); stroke-width: 1.5; }
+.veryo-box__screen { fill: rgba(221, 232, 228, .1); stroke: rgba(221, 232, 228, .25); }
+.veryo-box__check { fill: none; stroke: var(--amber); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.veryo-box__led { fill: #7CD3A8; }
+.veryo-box__vent, .veryo-box__floor { fill: none; stroke: rgba(255, 255, 255, .22); stroke-width: 3; stroke-linecap: round; }
+.has-motion .veryo-box__flow { animation: veryo-flow 2.4s linear infinite; animation-delay: calc(var(--i, 0) * -.45s); }
+.has-motion .veryo-box__led, .has-motion .veryo-cable__led { animation: veryo-led 2.4s ease-in-out infinite; }
+@keyframes veryo-flow { to { stroke-dashoffset: -64; } }
+@keyframes veryo-led { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .has-motion .veryo-box__flow, .has-motion .veryo-box__led, .has-motion .veryo-cable__led, .has-motion .veryo-cable__plug, .has-motion .veryo-cable__pins { animation: none; } }
+
+/* Het probleem: drie kaarten. */
+.veryo-collega-cards { display: grid; gap: 20px; margin-top: var(--s4) !important; }
+@media (min-width: 900px) { .veryo-collega-cards { grid-template-columns: repeat(3, 1fr); } }
+.veryo-collega-card { margin: 0 !important; padding: 32px; background: var(--paper); border-radius: var(--r-l); box-shadow: 0 0 0 1px var(--line-soft); }
+.veryo-collega-card h3 { font: 500 clamp(1.375rem, 1.2rem + .6vw, 1.75rem)/1.2 var(--serif) !important; letter-spacing: -.015em; margin-top: 12px; }
+.veryo-collega-card p:not(.veryo-collega-card__nr) { color: var(--ink-muted); margin-top: 14px; }
+.veryo-collega-card__nr { font: 500 1rem/1 var(--serif); color: var(--amber-deep); }
+
+/* Wat het doet: raster met iconen. */
+.veryo-collega-tasks { display: grid; gap: 0 var(--s4); margin-top: var(--s4) !important; border-top: 1px solid var(--line); }
+@media (min-width: 700px) { .veryo-collega-tasks { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .veryo-collega-tasks { grid-template-columns: repeat(3, 1fr); } }
+.veryo-collega-task { position: relative; margin: 0 !important; padding: 28px 0 28px 60px; border-bottom: 1px solid var(--line); }
+.veryo-collega-task::before {
+	content: ""; position: absolute; left: 0; top: 26px; width: 40px; height: 40px; border-radius: 12px; background: var(--petrol-soft);
+}
+.veryo-collega-task::after {
+	content: ""; position: absolute; left: 9px; top: 35px; width: 22px; height: 22px; background: var(--petrol);
+	-webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
+}
+.veryo-collega-task h3 { font: 600 1.0625rem/1.35 var(--sans) !important; }
+.veryo-collega-task p { color: var(--ink-muted); margin-top: 6px; }
+.veryo-collega-task.is-kennis { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z'/%3E%3Cpath d='M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5'/%3E%3C/svg%3E"); }
+.veryo-collega-task.is-inwerken { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='9' cy='8' r='3.5'/%3E%3Cpath d='M2.5 20a6.5 6.5 0 0 1 13 0'/%3E%3Cpath d='M17 8h5M19.5 5.5v5'/%3E%3C/svg%3E"); }
+.veryo-collega-task.is-offerte { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z'/%3E%3Cpath d='M14 3v6h6M8 13h8M8 17h5'/%3E%3C/svg%3E"); }
+.veryo-collega-task.is-mail { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='M3.5 6.5l8.5 6.5 8.5-6.5'/%3E%3C/svg%3E"); }
+.veryo-collega-task.is-administratie { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='3' width='16' height='18' rx='2'/%3E%3Cpath d='M8 7h8M8 11h8M8 15h3M14 16l1.5 1.5L18 15'/%3E%3C/svg%3E"); }
+.veryo-collega-task.is-planning { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 10h18M8 3v4M16 3v4M8 14h3'/%3E%3C/svg%3E"); }
+.veryo-collega-task.is-sparring { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12z'/%3E%3Cpath d='M9 11h.01M13 11h.01M17 11h.01'/%3E%3C/svg%3E"); }
+
+/* Privacy en de kabel. */
+.veryo-collega-privacy .is-style-checks { margin-top: var(--s4) !important; }
+.veryo-collega-offline { position: relative; overflow: hidden; padding-top: var(--s6); padding-bottom: var(--s6); }
+.veryo-collega-offline > .wp-block-columns { max-width: var(--wide); margin-left: auto !important; margin-right: auto !important; gap: var(--s4) var(--s5); align-items: center; }
+.veryo-collega-offline h2 { max-width: 16ch; margin-top: 16px; }
+.veryo-collega-offline .veryo-lead { color: rgba(255, 255, 255, .8); margin-top: 24px; max-width: 52ch; }
+.veryo-collega-offline .veryo-collega-cta { margin-top: var(--s4); }
+.veryo-cable svg { display: block; width: 100%; max-width: 440px; height: auto; margin-left: auto; overflow: visible; }
+.veryo-cable__wire { fill: none; stroke: rgba(255, 255, 255, .45); stroke-width: 6; stroke-linecap: round; }
+.veryo-cable__plug { fill: rgba(255, 255, 255, .85); }
+.veryo-cable__pins { fill: none; stroke: rgba(255, 255, 255, .85); stroke-width: 4; stroke-linecap: round; }
+.veryo-cable__box rect { fill: #0E2B26; stroke: rgba(255, 255, 255, .3); stroke-width: 1.5; }
+.veryo-cable__box path { fill: none; stroke: rgba(255, 255, 255, .3); stroke-width: 4; stroke-linecap: round; }
+.veryo-cable__led { fill: #7CD3A8; }
+.has-motion .veryo-cable__plug, .has-motion .veryo-cable__pins { animation: veryo-unplug 4.8s cubic-bezier(.65, 0, .35, 1) infinite; }
+@keyframes veryo-unplug { 0%, 30% { transform: translateX(42px); } 50%, 100% { transform: translateX(0); } }
+
+/* Voor wie: tabs. */
+.veryo-tabs { margin-top: var(--s4) !important; display: grid; gap: 20px; }
+@media (min-width: 760px) { .veryo-tabs:not(.is-enhanced) { grid-template-columns: repeat(2, 1fr); } }
+.veryo-tab { margin: 0 !important; padding: 32px; background: var(--paper); border-radius: var(--r-l); box-shadow: 0 0 0 1px var(--line-soft); }
+.veryo-tab h3 { font: 500 1.5rem/1.2 var(--serif) !important; }
+.veryo-tab__sub { color: var(--ink-muted); margin-top: 6px; }
+.veryo-tab__questions { list-style: none; padding: 0 !important; margin-top: 20px !important; display: grid; gap: 12px; }
+.veryo-tab__questions li { margin: 0 !important; padding: 16px 20px; border-radius: 14px; background: var(--sand); font-weight: 500; position: relative; padding-left: 48px; }
+.veryo-tab__questions li::before { content: "?"; position: absolute; left: 16px; top: 15px; width: 22px; height: 22px; border-radius: 50%; background: var(--petrol); color: var(--paper); font: 700 .8125rem/22px var(--sans); text-align: center; }
+.veryo-tabs.is-enhanced .veryo-tab h3 { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+.veryo-tabs__list { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.veryo-tabs__tab { flex-shrink: 0; min-height: 44px; padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); font: 600 .9375rem/1.2 var(--sans); cursor: pointer; }
+.veryo-tabs__tab:hover { border-color: var(--petrol); }
+.veryo-tabs__tab[aria-selected="true"] { background: var(--petrol); border-color: var(--petrol); color: var(--paper); }
+.veryo-tabs__tab:focus-visible, .veryo-tab:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* Koppelingen als teksttegels. */
+.veryo-tiles { list-style: none; padding: 0 !important; margin-top: var(--s4) !important; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.veryo-tiles li { margin: 0 !important; padding: 22px 24px; border-radius: 14px; background: var(--paper); box-shadow: 0 0 0 1px var(--line-soft); font-weight: 600; }
+
+/* Pakketten en prijzen. */
+.veryo-collega-prices { margin-top: var(--s4); }
+.veryo-collega-prices h3 { font: 600 .78125rem/1.4 var(--sans) !important; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 16px; }
+.veryo-collega-monthly-title { margin-top: var(--s5) !important; }
+.veryo-collega-plans { display: grid; gap: 20px; }
+@media (min-width: 900px) { .veryo-collega-plans { grid-template-columns: repeat(3, 1fr); align-items: stretch; } }
+.veryo-collega-plan { position: relative; display: flex; flex-direction: column; padding: 32px; background: var(--paper); border-radius: var(--r-l); box-shadow: 0 0 0 1px var(--line-soft); }
+.veryo-collega-plan h4 { font: 500 1.75rem/1.1 var(--serif); }
+.veryo-collega-plan__team { color: var(--ink-muted); margin-top: 6px; }
+.veryo-collega-plan__price { margin-top: 20px; color: var(--ink-muted); }
+.veryo-collega-plan__price strong { font: 500 2.5rem/1 var(--serif); color: var(--ink); letter-spacing: -.02em; }
+.veryo-collega-plan .is-style-checks { margin: 24px 0 28px; }
+.veryo-collega-plan .btn { margin-top: auto; align-self: flex-start; }
+.veryo-collega-plan.is-featured { background: var(--petrol); color: var(--paper); box-shadow: none; }
+.veryo-collega-plan.is-featured .veryo-collega-plan__team, .veryo-collega-plan.is-featured .veryo-collega-plan__price { color: var(--petrol-soft); }
+.veryo-collega-plan.is-featured .veryo-collega-plan__price strong { color: var(--amber); }
+.veryo-collega-plan.is-featured .is-style-checks, .veryo-collega-plan.is-featured .is-style-checks li { border-color: rgba(255, 255, 255, .16); }
+.veryo-collega-plan__badge { position: absolute; top: 24px; right: 24px; padding: 4px 10px; border-radius: var(--r-s); background: var(--amber); color: var(--ink); font: 700 .6875rem/1.4 var(--sans); letter-spacing: .1em; text-transform: uppercase; }
+.veryo-collega-prices__note { margin-top: 24px; color: var(--ink-muted); }
+
+/* Rekenhulp. */
+.veryo-calc { display: grid; gap: var(--s4); margin-top: var(--s4); align-items: start; }
+@media (min-width: 900px) { .veryo-calc { grid-template-columns: 1fr 1fr; } }
+.veryo-calc__form { display: grid; gap: 20px; padding: 32px; background: var(--paper); border-radius: var(--r-l); box-shadow: 0 0 0 1px var(--line-soft); }
+.veryo-calc__form input { width: 100%; max-width: 220px; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 1.125rem; }
+.veryo-calc__form input:focus-visible { outline: 2px solid var(--petrol); outline-offset: 2px; }
+.veryo-calc__result { padding: 32px; border-radius: var(--r-l); background: var(--petrol); color: var(--paper); }
+.veryo-calc__label { font: 600 .78125rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.veryo-calc__hours { margin-top: 12px; font-size: 1.125rem; }
+.veryo-calc__hours strong { font: 500 clamp(3rem, 2.4rem + 2.4vw, 4.5rem)/1 var(--serif); letter-spacing: -.03em; }
+.veryo-calc__value, .veryo-calc__plan { margin-top: 12px; font-size: 1.125rem; }
+.veryo-calc__value strong { color: var(--amber); }
+.veryo-calc__note { margin-top: 20px; font-size: .875rem; color: rgba(255, 255, 255, .72); }
+.veryo-calc__result .btn { margin-top: 24px; }
+
+/* Kennis die blijft. */
+.veryo-collega-knowledge .wp-block-columns { gap: var(--s4) var(--s5); align-items: flex-start; }
+.veryo-collega-knowledge .veryo-statement { margin-top: 20px; }
+.veryo-collega-knowledge p + p { margin-top: 16px; }
+
+/* Demo-aanvraag. */
+.veryo-collega-demo { padding-top: var(--s6); padding-bottom: var(--s6); }
+.veryo-collega-demo > .wp-block-columns { max-width: var(--wide); margin-left: auto !important; margin-right: auto !important; gap: var(--s4) var(--s5); align-items: flex-start; }
+.veryo-collega-demo h2 { max-width: 14ch; }
+.veryo-collega-demo .veryo-lead { color: rgba(255, 255, 255, .82); margin-top: 24px; }
+.veryo-collega-demo .veryo-collega-contact { color: var(--petrol-soft); margin-top: 24px; }
+.veryo-collega-demo .veryo-collega-contact a { color: var(--paper); }
+.veryo-collega-demo .veryo-form-wrap { color: var(--ink); }
+.field select { width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); font: inherit; color: var(--ink); }
+.field select:focus-visible { outline: 2px solid var(--petrol); outline-offset: 2px; }
+.field select[aria-invalid="true"] { border-color: var(--error); border-width: 2px; }
+.veryo-form--compact > .field:has(select) { grid-column: auto; }
+
+/* Herbruikbaar blok. */
+.entry-content > .veryo-collega-blok, .veryo-collega-blok { max-width: var(--wide); margin-top: var(--s6); }
+.veryo-collega-blok { position: relative; display: grid; gap: var(--s4); align-items: center; padding: 40px 32px; border-radius: var(--r-l); background: var(--petrol); color: var(--paper); overflow: hidden; }
+@media (min-width: 900px) { .veryo-collega-blok { grid-template-columns: 1.3fr 1fr; padding: 56px 64px; } }
+.veryo-collega-blok h2 { font-size: var(--fs-display-m); line-height: 1.15; margin-top: 14px; max-width: 22ch; color: var(--paper); }
+.veryo-collega-blok p:not(.veryo-kicker) { color: rgba(255, 255, 255, .82); margin-top: 16px; max-width: 56ch; }
+.veryo-collega-blok__points { list-style: none; padding: 0 !important; margin-top: 20px; display: grid; gap: 8px; }
+.veryo-collega-blok__points li { margin: 0 !important; padding-left: 26px; position: relative; }
+.veryo-collega-blok__points li::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 7px; border-left: 2px solid var(--amber); border-bottom: 2px solid var(--amber); transform: rotate(-45deg); }
+.veryo-collega-blok .veryo-cta-buttons { margin-top: 28px; }
+.veryo-collega-blok .btn--link { color: var(--paper); }
+.veryo-collega-blok .veryo-box svg { max-width: 360px; }
+@media (max-width: 899px) { .veryo-collega-blok .veryo-box { display: none; } }
+
+/* Homepage: het oude hero-statement als intro. */
+.veryo-home-partner .wp-block-columns { gap: var(--s4) var(--s5); align-items: flex-end; }
+.veryo-home-partner .wp-block-buttons { margin-top: var(--s3); }
+
+/* Footer en rapport. */
+.footer-collega { margin-top: 16px; font-size: .9375rem; color: rgba(255, 255, 255, .72); max-width: 32ch; }
+.footer-collega a { color: var(--amber); font-weight: 600; }
+.report__collega { background: var(--petrol); color: var(--paper); }
+.report__collega a:not(.btn) { color: var(--paper); }
+@media (min-width: 1100px) {
+	.site-nav .menu > li > a, .nav-label, .header-cta { white-space: nowrap; }
+}
+@media (min-width: 1100px) and (max-width: 1299px) {
+	.site-nav, .nav-open .site-nav { gap: 20px; }
+	.site-nav .menu { gap: 18px; }
+	.site-nav .menu > li > a, .nav-label { font-size: .875rem; }
+	.header-cta { padding-left: 16px !important; padding-right: 16px !important; }
+}
+.veryo-collega-plan.is-featured .is-style-checks li::before, .is-style-petrol .is-style-checks li::before {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0A03A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+}
+.is-style-petrol .veryo-form-wrap a, .veryo-collega-demo .veryo-form-wrap a { color: var(--petrol); }
+/* Kleine amber tekst op petrol: iets lichter, zodat het contrast minstens 4,5:1 is. */
+.is-style-petrol .veryo-kicker, .veryo-collega-blok .veryo-kicker, .veryo-calc__label, .veryo-calc__value strong,
+.footer-collega a, .veryo-collega-plan.is-featured .veryo-collega-plan__price strong, .veryo-product.is-featured .veryo-product__for,
+.veryo-product.is-featured .veryo-product__price { color: #EAB25A; }
+@media (max-width: 781px) {
+	.veryo-collega-hero .veryo-box svg { max-width: 360px; margin: 8px auto 0; }
+	.veryo-collega-hero { padding-bottom: var(--s5); }
+}

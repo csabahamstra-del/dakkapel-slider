@@ -7,12 +7,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'VERYO_VERSION', '1.5.0' );
+define( 'VERYO_VERSION', '1.6.0' );
 define( 'VERYO_DIR', get_template_directory() );
 define( 'VERYO_URI', get_template_directory_uri() );
 
 $veryo_includes = array(
 	'inc/helpers.php',
+	'inc/collega-config.php',
 	'inc/setup.php',
 	'inc/class-veryo-primary-walker.php',
 	'inc/class-veryo-footer-walker.php',
@@ -20,6 +21,7 @@ $veryo_includes = array(
 	'inc/photos.php',
 	'inc/content/sections.php',
 	'inc/content/products.php',
+	'inc/content/collega.php',
 	'inc/content/registry.php',
 	'inc/quiz/catalog.php',
 	'inc/quiz/scoring.php',
