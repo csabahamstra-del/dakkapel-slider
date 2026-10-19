@@ -358,6 +358,17 @@
 		} catch ( e ) {}
 	}
 
+	/* Herkomst: utm_source uit de URL, of van de eerste pagina van dit bezoek (zie ui.js). */
+	function utmSource() {
+		var value = '';
+		try {
+			value = new URLSearchParams( window.location.search ).get( 'utm_source' ) || window.sessionStorage.getItem( 'veryo_utm_source' ) || '';
+		} catch ( e ) {
+			value = '';
+		}
+		return String( value ).slice( 0, 80 );
+	}
+
 	function submit() {
 		for ( var i = 0; i < total; i++ ) {
 			if ( ! validate( i ) ) {
@@ -372,6 +383,7 @@
 			chosen[ task ] = data.uren[ task ] || 0;
 		} );
 		data.uren = chosen;
+		data.utm_source = utmSource();
 		submitBtn.disabled = true;
 		status.className = 'scan-status';
 		status.textContent = 'Bezig met versturen…';

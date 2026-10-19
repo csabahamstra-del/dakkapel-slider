@@ -240,6 +240,11 @@ function veryo_rest_scan( $request ) {
 	if ( is_wp_error( $lead_id ) ) {
 		return new WP_Error( 'veryo_save_failed', __( 'Er ging iets mis bij het opslaan. Probeer het later opnieuw.', 'veryo' ), array( 'status' => 500 ) );
 	}
+	// Herkomst (utm_source uit de URL), voor de scan-webhook.
+	$utm = isset( $p['utm_source'] ) && is_string( $p['utm_source'] ) ? sanitize_text_field( $p['utm_source'] ) : '';
+	if ( '' !== $utm ) {
+		update_post_meta( $lead_id, '_veryo_utm_source', mb_substr( $utm, 0, 80 ) );
+	}
 
 	// Interne melding direct, zodat een lead ook bij een trage WP-Cron binnenkomt.
 	if ( ! veryo_mail_internal_scan( $lead_id ) ) {

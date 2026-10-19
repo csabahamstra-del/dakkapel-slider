@@ -63,6 +63,7 @@ function veryo_settings_fields() {
 				'work_weeks'       => array( 'number', __( 'Werkweken per jaar', 'veryo' ), __( 'Standaard 46.', 'veryo' ) ),
 				'lead_email'       => array( 'email', __( 'E-mail voor interne leadmeldingen', 'veryo' ), __( 'Hier komt de melding "[HEET] Nieuwe AI-scan: …" binnen.', 'veryo' ) ),
 				'calendly_url'     => array( 'url', __( 'Calendly- of afspraaklink', 'veryo' ), __( 'Leeg = de knop "Plan een gesprek" wordt niet getoond.', 'veryo' ) ),
+				'scan_webhook'     => array( 'url', __( 'Webhook AI-scan (Make)', 'veryo' ), __( 'Na elke AI-scan gaat de inzending, met berekeningen, als JSON naar deze URL. Leeg laten = de URL uit de constante VERYO_SCAN_WEBHOOK_URL.', 'veryo' ) ),
 				'make_webhook'     => array( 'url', __( 'Make-webhook-URL (optioneel)', 'veryo' ), __( 'Elke nieuwe lead wordt als JSON naar deze URL gestuurd, bijvoorbeeld om een taak in ClickUp of Notion te maken.', 'veryo' ) ),
 				'retention_months' => array( 'number', __( 'Bewaartermijn leads (maanden)', 'veryo' ), __( 'Oudere leads worden dagelijks automatisch verwijderd. Standaard 24.', 'veryo' ) ),
 				'mail_from_name'   => array( 'text', __( 'Afzendernaam e-mails', 'veryo' ), __( 'Standaard "Veryo".', 'veryo' ) ),
@@ -154,6 +155,10 @@ function veryo_sanitize_settings( $input ) {
 	$out['retention_months'] = max( 1, min( 120, (int) $out['retention_months'] ) );
 	if ( '' === $out['model'] ) {
 		$out['model'] = 'claude-sonnet-5-5';
+	}
+	if ( '' !== $out['scan_webhook'] && 0 !== strpos( $out['scan_webhook'], 'https://' ) ) {
+		add_settings_error( 'veryo_settings', 'veryo_scan_webhook', __( 'De webhook-URL moet met https:// beginnen.', 'veryo' ) );
+		$out['scan_webhook'] = '';
 	}
 	if ( '' !== $out['make_webhook'] && 0 !== strpos( $out['make_webhook'], 'https://' ) ) {
 		add_settings_error( 'veryo_settings', 'veryo_webhook', __( 'De webhook-URL moet met https:// beginnen.', 'veryo' ) );

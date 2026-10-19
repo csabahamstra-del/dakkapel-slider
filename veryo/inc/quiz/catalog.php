@@ -255,9 +255,16 @@ function veryo_startpakket_price_for_team( $team ) {
 	$p = veryo_startpakket_prices();
 	switch ( $team ) {
 		case '1':
+		case '2-10':
 		case '2-5':
 			/* translators: %s: prijs. */
 			return sprintf( __( '%s voor teams tot 10 medewerkers', 'veryo' ), veryo_euro( $p['tot-10']['price'] ) );
+		case '11-25':
+			/* translators: %s: prijs. */
+			return sprintf( __( '%s voor teams van 11 tot 25 medewerkers', 'veryo' ), veryo_euro( $p['11-25']['price'] ) );
+		case '26-50':
+			/* translators: %s: prijs. */
+			return sprintf( __( '%s voor teams van 26 tot 50 medewerkers', 'veryo' ), veryo_euro( $p['26-50']['price'] ) );
 		case '6-20':
 			/* translators: 1: prijs tot 10, 2: prijs 11–25. */
 			return sprintf( __( '%1$s tot 10 medewerkers, %2$s bij 11–25 medewerkers', 'veryo' ), veryo_euro( $p['tot-10']['price'] ), veryo_euro( $p['11-25']['price'] ) );
@@ -568,9 +575,9 @@ function veryo_scan_branches() {
 function veryo_scan_team_sizes() {
 	return array(
 		'1'     => '1',
-		'2-5'   => '2–5',
-		'6-20'  => '6–20',
-		'21-50' => '21–50',
+		'2-10'  => '2-10',
+		'11-25' => '11-25',
+		'26-50' => '26-50',
 		'50+'   => '50+',
 	);
 }

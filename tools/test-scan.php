@@ -8,7 +8,7 @@ $fail = 0; $ok = 0;
 $check = function ( $cond, $msg ) use ( &$fail, &$ok ) { if ( $cond ) { $ok++; echo "ok   $msg\n"; } else { $fail++; echo "FOUT $msg\n"; } };
 
 $body = array(
-	'branche' => 'bouw', 'team' => '2-5', 'taken' => array( 'administratie', 'planning' ),
+	'branche' => 'bouw', 'team' => '2-10', 'taken' => array( 'administratie', 'planning' ),
 	'uren' => array( 'administratie' => 6, 'planning' => 4, 'content' => 30 ), 'tools' => array( 'moneybird' ),
 	'ai_gebruik' => 'paar', 'frustratie' => 'Mail piet@klant.nl of bel 0612345678 als het niet lukt.', 'timing' => '3-maanden',
 	'voornaam' => 'Piet', 'bedrijf' => 'Bouwbedrijf Geheim', 'email' => 'piet@geheim-bouw.nl', 'telefoon' => '058 1234567', 'toestemming' => true,

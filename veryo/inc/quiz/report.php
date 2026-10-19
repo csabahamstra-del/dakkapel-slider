@@ -560,6 +560,10 @@ function veryo_scan_process_report( $lead_id, $force = false ) {
 	if ( ! get_post_meta( $lead_id, '_veryo_webhook_done', true ) ) {
 		veryo_send_webhook( $lead_id );
 	}
+	// Scan-webhook naar Make: pas na de rapportmail, zodat die nooit vertraagt.
+	if ( ! get_post_meta( $lead_id, '_veryo_scan_webhook_done', true ) ) {
+		veryo_send_scan_webhook( $lead_id );
+	}
 
 	delete_transient( $lock );
 	return $sent;

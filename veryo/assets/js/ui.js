@@ -3,6 +3,14 @@
 	'use strict';
 
 	var reduce = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+
+	/* Herkomst onthouden voor de AI-scan: utm_source van de eerste pagina van dit bezoek (geen cookie). */
+	try {
+		var utm = new URLSearchParams( window.location.search ).get( 'utm_source' );
+		if ( utm && ! window.sessionStorage.getItem( 'veryo_utm_source' ) ) {
+			window.sessionStorage.setItem( 'veryo_utm_source', utm.slice( 0, 80 ) );
+		}
+	} catch ( e ) {}
 	var root = document.documentElement;
 
 	/* FAQ: vloeiend open en dicht via grid-template-rows, aria-expanded op de vraag. */

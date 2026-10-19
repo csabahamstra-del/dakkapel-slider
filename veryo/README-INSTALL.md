@@ -202,6 +202,18 @@ Onder **Leads** in wp-admin (alleen voor beheerders) staan alle inzendingen van 
 
 Verzoeken om inzage of verwijdering handel je af via **Extra > Persoonsgegevens exporteren/wissen**; leads worden daar op e-mailadres gevonden.
 
+### Webhook na de AI-scan (Make)
+
+Na elke AI-scan stuurt de website de inzending als JSON naar Make. Het versturen gebeurt server-side, dus de URL is niet zichtbaar in de browser.
+
+- **URL:** de constante `VERYO_SCAN_WEBHOOK_URL`, met als standaard de Make-hook. Je kunt die overschrijven in `wp-config.php` of bij Instellingen > Veryo > Webhook AI-scan.
+- **Moment:** pas nadat de rapportmail is verstuurd, met een timeout van 5 seconden. Het rapport en de bevestiging voor de bezoeker wachten er nooit op.
+- **Velden:** voornaam, bedrijfsnaam, email, telefoon, branche, teamgrootte, tijdvreters, uren_per_week, tools, ai_gebruik, frustratie, timing, tijdwinst_uren_per_week, kansenscore, top_tijdwinst, urenlek_per_jaar, pakket, terugverdientijd_weken, segment, deur en bron.
+  - `terugverdientijd_weken` is leeg (`null`) bij een pakket op maat of bij 0 uur.
+  - `bron` is utm_source uit de link van de eerste pagina van het bezoek, anders "Direct".
+- **Segment:** de keuze "2-10" medewerkers telt niet als 6 of meer.
+- **Als het misgaat:** elke poging staat in het log van de lead. Mislukt de webhook, dan gaat de inzending als back-upmail naar info@veryo.nl.
+
 ## 10. Beweging en interactie
 
 De site gebruikt GSAP (met ScrollTrigger en SplitText) en Lenis voor animaties en vloeiend scrollen. Alles staat lokaal in het thema (`assets/vendor/`), er wordt niets van een CDN geladen. De licenties staan in `assets/vendor/gsap/LICENSE.md` (GSAP Standard "no charge" license) en `assets/vendor/lenis/LICENSE` (MIT). Controleer de GSAP-licentie bij elke update.

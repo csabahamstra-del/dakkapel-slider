@@ -37,6 +37,7 @@ function veryo_settings_defaults() {
 		'lead_email'       => get_option( 'admin_email' ),
 		'calendly_url'     => '',
 		'make_webhook'     => '',
+		'scan_webhook'     => '',
 		'retention_months' => 24,
 		'mail_from_name'   => 'Veryo',
 		// Weergave.

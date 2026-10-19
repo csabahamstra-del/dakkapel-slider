@@ -145,7 +145,7 @@ function veryo_sc_ai_scan() {
 	);
 	$contact .= '<div class="field field--check"><input type="checkbox" id="scan-toestemming" name="toestemming" value="1" required aria-describedby="scan-toestemming-error"><label for="scan-toestemming">'
 		/* translators: %s: link naar privacyverklaring. */
-		. sprintf( esc_html__( 'Ik ga akkoord dat Veryo mijn gegevens gebruikt om het rapport te maken en contact met mij op te nemen, zoals beschreven in de %s.', 'veryo' ), $privacy )
+		. sprintf( esc_html__( 'Ik ga akkoord dat Veryo mijn gegevens gebruikt om het rapport te maken, contact met mij op te nemen en mij per mail tips en opvolging te sturen, zoals beschreven in de %s. Afmelden kan altijd.', 'veryo' ), $privacy )
 		. '</label><p class="field-error" id="scan-toestemming-error" hidden></p></div>';
 	$contact .= '<div class="hp-field" aria-hidden="true"><label for="scan-website">' . esc_html__( 'Laat dit veld leeg', 'veryo' ) . '</label><input type="text" id="scan-website" name="website" tabindex="-1" autocomplete="off"></div>';
 	$contact .= '</div>';

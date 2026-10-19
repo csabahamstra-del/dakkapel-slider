@@ -55,7 +55,8 @@ function veryo_scan_factors() {
  * @return bool
  */
 function veryo_scan_team_is_large( $team ) {
-	return in_array( $team, array( '6-20', '21-50', '50+' ), true );
+	// Oude keuzes (6-20, 21-50) blijven gelden voor leads van vóór de nieuwe indeling.
+	return in_array( $team, array( '11-25', '26-50', '50+', '6-20', '21-50' ), true );
 }
 
 /**

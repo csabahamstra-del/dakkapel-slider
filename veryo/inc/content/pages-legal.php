@@ -21,6 +21,7 @@ $veryo_privacy .= veryo_sec_text(
 		__( 'Uw antwoorden: branche, teamgrootte, de taken waar tijd naartoe gaat en het aantal uren per taak, de tools die u gebruikt, hoe u nu AI gebruikt, de optionele tekst over uw grootste frustratie en wanneer u iets wilt doen.', 'veryo' ),
 		__( 'Uw contactgegevens: voornaam, bedrijfsnaam, e-mailadres en, als u dat invult, uw telefoonnummer.', 'veryo' ),
 		__( 'Het tijdstip waarop u toestemming gaf.', 'veryo' ),
+		__( 'Als de link waarmee u op de site kwam een bronvermelding bevat (utm_source), die bron. Bijvoorbeeld de naam van een nieuwsbrief of advertentie.', 'veryo' ),
 		__( 'Een onleesbaar gemaakte (gehashte) versie van uw IP-adres, om misbruik te voorkomen. Het leesbare IP-adres slaan we niet op.', 'veryo' ),
 		__( 'De cijfers die we uit uw antwoorden berekenen (geschatte tijdwinst, kansenscore) en het rapport dat we voor u maken.', 'veryo' ),
 	)
@@ -31,6 +32,7 @@ $veryo_privacy .= veryo_sec_text(
 	array(
 		__( 'Om uw persoonlijke rapport te maken en naar u te mailen.', 'veryo' ),
 		__( 'Om contact met u op te nemen over het rapport, bijvoorbeeld telefonisch als u uw nummer heeft ingevuld.', 'veryo' ),
+		__( 'Om u per mail tips en opvolging te sturen na de AI-scan. Afmelden kan altijd, via de link in de mail of door ons te mailen.', 'veryo' ),
 		__( 'Om vragen te beantwoorden die u via het contactformulier stuurt.', 'veryo' ),
 		__( 'Om u te informeren als de Veryo Academy beschikbaar is, als u zich op de wachtlijst heeft gezet.', 'veryo' ),
 		__( 'Voor eigen, anonieme statistieken over AI-gebruik in het MKB. Daarvoor gebruiken we alleen antwoorden en cijfers, zonder contactgegevens en zonder de frustratietekst.', 'veryo' ),
@@ -55,7 +57,7 @@ $veryo_privacy .= veryo_sec_text(
 		__( 'Anthropic, voor het schrijven van het rapport (zonder contactgegevens, zie hierboven).', 'veryo' ),
 		__( 'Onze hostingpartij mijn.host, waar de website en de gegevens staan, in Nederland.', 'veryo' ),
 		__( 'Onze e-maildienst voor het versturen van e-mail: mijn.host (Nederland).', 'veryo' ),
-		__( 'Als we een automatiseringsplatform gebruiken om aanvragen op te volgen, gebeurt dat onder een verwerkersovereenkomst of de zakelijke voorwaarden van dat platform.', 'veryo' ),
+		__( 'Make (make.com), het automatiseringsplatform waarmee we aanvragen uit de AI-scan opvolgen. Daar gaan uw contactgegevens, antwoorden en de berekende cijfers naartoe, op Europese servers.', 'veryo' ),
 		__( 'Met deze partijen hebben we een verwerkersovereenkomst of zij verwerken de gegevens onder hun eigen zakelijke voorwaarden. We verkopen uw gegevens nooit.', 'veryo' ),
 	)
 );
