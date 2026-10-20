@@ -3,7 +3,7 @@
  * Title: AI-Startpakket (uitgelicht)
  * Slug: veryo/startpakket
  * Categories: veryo
- * Description: Het Veryo AI-Startpakket met de vijf onderdelen en de drie prijzen.
+ * Description: Het Veryo AI-Startpakket met de vijf onderdelen en een knop voor een gratis offerte.
  * Viewport Width: 1280
  *
  * @package Veryo

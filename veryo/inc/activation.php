@@ -308,7 +308,7 @@ function veryo_refresh_content( $with_menus = false ) {
 				array(
 					'ID'           => $page->ID,
 					'post_content' => $def['content'],
-					'post_title'   => veryo_collega()['slug'] === $path ? $def['title'] : $page->post_title,
+					'post_title'   => ( veryo_collega()['slug'] === $path || ! empty( $def['force_title'] ) ) ? $def['title'] : $page->post_title,
 				)
 			),
 			true
@@ -538,7 +538,7 @@ function veryo_menu_definitions() {
 				),
 				array( __( 'Oplossingen', 'veryo' ), 'oplossingen', $solutions ),
 				array( __( 'Branches', 'veryo' ), 'branches', $branches ),
-				array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
+				array( __( 'Gratis offerte', 'veryo' ), 'prijzen' ),
 				array( __( 'Over Veryo', 'veryo' ), 'over-veryo' ),
 				array( __( 'Contact', 'veryo' ), 'contact' ),
 			),
@@ -562,7 +562,7 @@ function veryo_menu_definitions() {
 						array( __( 'AI op maat', 'veryo' ), 'ai-op-maat' ),
 						array( __( 'AI-partner', 'veryo' ), 'ai-partner' ),
 						array( __( 'Veryo Academy', 'veryo' ), 'academy' ),
-						array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
+						array( __( 'Gratis offerte', 'veryo' ), 'prijzen' ),
 						array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
 					),
 				),
@@ -809,3 +809,78 @@ function veryo_dismiss_notice() {
 	exit;
 }
 add_action( 'admin_post_veryo_dismiss_notice', 'veryo_dismiss_notice' );
+
+/**
+ * Eenmalig na de update zonder prijzen (1.8.0). Pagina's die niemand zelf heeft aangepast,
+ * krijgen de nieuwe tekst (de oude versie blijft als revisie bewaard), het menu-item
+ * "Prijzen" heet voortaan "Gratis offerte" en ongewijzigde blogconcepten worden vernieuwd.
+ * Pagina's die je zelf hebt aangepast, blijven staan; die staan in een melding, zodat je de
+ * bedragen er zelf uit kunt halen.
+ */
+function veryo_prices_removed_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_prices_removed_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_prices_removed_done', 1, false );
+	veryo_refresh_content( false );
+
+	// Menu-items naar de offertepagina een nieuwe naam geven.
+	$page = veryo_find_page( 'prijzen' );
+	if ( $page ) {
+		foreach ( array( 'Veryo hoofdmenu', 'Veryo footer' ) as $name ) {
+			foreach ( (array) wp_get_nav_menu_items( $name ) as $item ) {
+				if ( (int) $item->object_id === $page->ID && 'Prijzen' === $item->title ) {
+					wp_update_post(
+						array(
+							'ID'         => $item->ID,
+							'post_title' => __( 'Gratis offerte', 'veryo' ),
+						)
+					);
+				}
+			}
+		}
+	}
+
+	// Blogconcepten die nog precies zo zijn als het thema ze plaatste.
+	kses_remove_filters();
+	foreach ( veryo_content_posts() as $slug => $def ) {
+		$post = get_page_by_path( $slug, OBJECT, 'post' );
+		if ( $post instanceof WP_Post && 'draft' === $post->post_status && false !== strpos( $post->post_content, '€' ) && $post->post_modified_gmt === $post->post_date_gmt ) {
+			wp_update_post(
+				wp_slash(
+					array(
+						'ID'           => $post->ID,
+						'post_content' => $def['content'],
+					)
+				)
+			);
+		}
+	}
+	kses_init();
+}
+add_action( 'admin_init', 'veryo_prices_removed_upgrade', 20 );
+
+/**
+ * Melding met pagina's en berichten waar nog een bedrag in euro's in staat (zelf geschreven
+ * of zelf aangepaste tekst). Verdwijnt vanzelf als er geen bedragen meer in staan.
+ */
+function veryo_prices_left_notice() {
+	if ( ! current_user_can( 'edit_pages' ) || ! get_option( 'veryo_prices_removed_done' ) ) {
+		return;
+	}
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( ! $screen || ! in_array( $screen->id, array( 'dashboard', 'edit-page', 'edit-post' ), true ) ) {
+		return;
+	}
+	global $wpdb;
+	$rows = $wpdb->get_results( $wpdb->prepare( "SELECT ID, post_title FROM {$wpdb->posts} WHERE post_type IN ('page','post') AND post_status IN ('publish','draft','future') AND post_content LIKE %s LIMIT 20", '%' . $wpdb->esc_like( '€' ) . '%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+	if ( ! $rows ) {
+		return;
+	}
+	$links = array();
+	foreach ( $rows as $row ) {
+		$links[] = '<a href="' . esc_url( get_edit_post_link( (int) $row->ID ) ) . '">' . esc_html( '' !== $row->post_title ? $row->post_title : '#' . $row->ID ) . '</a>';
+	}
+	echo '<div class="notice notice-warning"><p><strong>' . esc_html__( 'Op de site staan geen prijzen meer, maar in deze teksten staat nog een bedrag:', 'veryo' ) . '</strong> ' . implode( ', ', $links ) . '. ' . esc_html__( 'Je hebt ze zelf aangepast, dus het thema laat ze staan. Haal de bedragen er zelf uit, of vervang ze door "Vraag een gratis offerte aan".', 'veryo' ) . '</p></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- links hierboven ge-escaped.
+}
+add_action( 'admin_notices', 'veryo_prices_left_notice' );

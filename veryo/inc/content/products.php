@@ -27,7 +27,7 @@ function veryo_products() {
 			'naam'        => __( 'AI lead-opvolging', 'veryo' ),
 			'voor'        => __( 'Voor vakbedrijven die adverteren', 'veryo' ),
 			'kort'        => __( 'Binnen ongeveer twee minuten na een aanvraag stuurt de AI een WhatsApp of belt hij de lead, stelt de kwalificatievragen en plant direct een inmeting in je agenda.', 'veryo' ),
-			'pitch'       => __( 'AI lead-opvolging van Veryo neemt binnen ongeveer twee minuten contact op met elke nieuwe lead: via WhatsApp of telefonisch. De assistent stelt je kwalificatievragen en plant direct een inmeting of afspraak in je agenda. Zo koelt geen enkele lead meer af en haal je meer afspraken uit hetzelfde advertentiebudget. Vanaf €750 per maand, exclusief btw.', 'veryo' ),
+			'pitch'       => __( 'AI lead-opvolging van Veryo neemt binnen ongeveer twee minuten contact op met elke nieuwe lead: via WhatsApp of telefonisch. De assistent stelt je kwalificatievragen en plant direct een inmeting of afspraak in je agenda. Zo koelt geen enkele lead meer af en haal je meer afspraken uit hetzelfde advertentiebudget.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Je betaalt voor elke lead uit Google, Meta of een vergelijkingssite. Maar de aanvraag komt binnen terwijl je op het dak staat, een vloer legt of een kozijn afmontert. Je belt ’s avonds terug, of de volgende dag. Tegen die tijd heeft de klant al met twee andere bedrijven gesproken.', 'veryo' ),
 				__( 'Hoe langer een lead wacht, hoe kleiner de kans op een afspraak. Dat is geen kwestie van harder werken: je kunt simpelweg niet altijd direct opnemen. Precies dat deel neemt de AI over.', 'veryo' ),
@@ -65,7 +65,7 @@ function veryo_products() {
 			'naam'        => __( 'AI Klantrapportage', 'veryo' ),
 			'voor'        => __( 'Voor beveiligingsbedrijven', 'veryo' ),
 			'kort'        => __( 'Dienst- en incidentrapporten worden automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever.', 'veryo' ),
-			'pitch'       => __( 'AI Klantrapportage verwerkt dienst- en incidentrapporten automatisch tot nette maandelijkse PDF-rapportages per opdrachtgever. De rapporten komen binnen via de mail of uit je eigen systeem; de AI ordent ze, vat samen en zet ze in jouw huisstijl. Dat scheelt uren rapportagewerk per maand en geeft een professionelere uitstraling richting klanten. Vanaf €750 per maand, exclusief btw.', 'veryo' ),
+			'pitch'       => __( 'AI Klantrapportage verwerkt dienst- en incidentrapporten automatisch tot nette maandelijkse PDF-rapportages per opdrachtgever. De rapporten komen binnen via de mail of uit je eigen systeem; de AI ordent ze, vat samen en zet ze in jouw huisstijl. Dat scheelt uren rapportagewerk per maand en geeft een professionelere uitstraling richting klanten.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Elke dienst levert een rapport op, en elk incident een verslag. Aan het eind van de maand wil elke opdrachtgever een overzicht: wat is er gebeurd, hoe vaak, welke rondes zijn gelopen en welke bijzonderheden waren er.', 'veryo' ),
 				__( 'Dat overzicht wordt nu vaak met de hand gemaakt: rapporten doorlezen, tellen, knippen en plakken in Word of Excel. Uren werk per opdrachtgever, elke maand opnieuw, terwijl de inhoud er al ligt.', 'veryo' ),
@@ -95,14 +95,14 @@ function veryo_products() {
 			'placeholder' => __( 'Bijvoorbeeld: we hebben 25 opdrachtgevers en maken elke maand handmatig de rapportages.', 'veryo' ),
 			'branches'    => array( 'branches/beveiliging' ),
 			'seo_title'   => __( 'AI Klantrapportage voor beveiligingsbedrijven | Veryo', 'veryo' ),
-			'desc'        => __( 'Dienst- en incidentrapporten automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever. Voor beveiligers, vanaf €750 per maand.', 'veryo' ),
+			'desc'        => __( 'Dienst- en incidentrapporten automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever. Voor beveiligers. Vraag een gratis offerte aan.', 'veryo' ),
 			'kw'          => 'rapportage beveiligingsbedrijf automatiseren',
 		),
 		'ai-calculatie-offerte-factuur' => array(
 			'naam'        => __( 'AI voor calculatie, offerte en factuur', 'veryo' ),
 			'voor'        => __( 'Voor bouw, installatie en techniek', 'veryo' ),
 			'kort'        => __( 'Leest bestekken en tekeningen, helpt met de calculatie, maakt de offerte en na afloop de factuur. Bovenop je bestaande pakket.', 'veryo' ),
-			'pitch'       => __( 'AI voor calculatie, offerte en factuur leest bestekken en tekeningen, helpt met de calculatie, maakt de offerte en na afloop de factuur. Het werkt bovenop je bestaande offerte- of boekhoudpakket, dus je hoeft niet over te stappen. Offertes in minuten in plaats van uren, en minder kantoorwerk. Vanaf €750 per maand, exclusief btw.', 'veryo' ),
+			'pitch'       => __( 'AI voor calculatie, offerte en factuur leest bestekken en tekeningen, helpt met de calculatie, maakt de offerte en na afloop de factuur. Het werkt bovenop je bestaande offerte- of boekhoudpakket, dus je hoeft niet over te stappen. Offertes in minuten in plaats van uren, en minder kantoorwerk.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Een goede offerte kost tijd: het bestek doorlezen, hoeveelheden uit de tekening halen, prijzen opzoeken, de calculatie opbouwen en dan alles netjes in een offerte zetten. Vaak ’s avonds, omdat overdag het werk voorgaat.', 'veryo' ),
 				__( 'En als het werk klaar is, begint het opnieuw: meerwerk verzamelen, uren en materialen nalopen en de factuur maken. Dubbel werk, met kans op fouten en te laat factureren.', 'veryo' ),
@@ -132,14 +132,14 @@ function veryo_products() {
 			'placeholder' => __( 'Bijvoorbeeld: we maken 30 offertes per maand en elke offerte kost ons twee uur.', 'veryo' ),
 			'branches'    => array( 'branches/bouw', 'branches/installatie' ),
 			'seo_title'   => __( 'AI voor calculatie, offerte en factuur | Veryo', 'veryo' ),
-			'desc'        => __( 'AI die bestekken en tekeningen leest, helpt calculeren, de offerte maakt en na afloop de factuur. Bovenop je eigen pakket, vanaf €750 per maand.', 'veryo' ),
+			'desc'        => __( 'AI die bestekken en tekeningen leest, helpt calculeren, de offerte maakt en na afloop de factuur. Bovenop je eigen pakket. Vraag een gratis offerte aan.', 'veryo' ),
 			'kw'          => 'offerte maken met ai',
 		),
 		'werkbonnen-verwerken'          => array(
 			'naam'        => __( 'Werkbonnen verwerken', 'veryo' ),
 			'voor'        => __( 'Voor bedrijven met monteurs en buitendienst', 'veryo' ),
 			'kort'        => __( 'Ingevulde werkbonnen (foto, PDF of formulier) worden automatisch uitgelezen, gecontroleerd en verwerkt, zodat facturatie direct kan starten.', 'veryo' ),
-			'pitch'       => __( 'Met Werkbonnen verwerken van Veryo worden ingevulde werkbonnen automatisch uitgelezen, gecontroleerd en verwerkt in je administratie of planning. Of de bon nu als foto, PDF of formulier binnenkomt. Zo kan facturatie direct starten en hoeft niemand meer over te typen. Vanaf €750 per maand, exclusief btw.', 'veryo' ),
+			'pitch'       => __( 'Met Werkbonnen verwerken van Veryo worden ingevulde werkbonnen automatisch uitgelezen, gecontroleerd en verwerkt in je administratie of planning. Of de bon nu als foto, PDF of formulier binnenkomt. Zo kan facturatie direct starten en hoeft niemand meer over te typen.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Monteurs vullen werkbonnen in op papier, in een app of als PDF. Op kantoor typt iemand ze over in de administratie: uren, materialen, bijzonderheden. Bonnen zijn soms onleesbaar of onvolledig, dus wordt er nagebeld.', 'veryo' ),
 				__( 'Ondertussen ligt de factuur stil. Hoe langer een bon blijft liggen, hoe later het geld binnenkomt, en hoe groter de kans dat er uren of materialen niet worden gefactureerd.', 'veryo' ),
@@ -169,14 +169,14 @@ function veryo_products() {
 			'placeholder' => __( 'Bijvoorbeeld: onze 8 monteurs leveren elke week zo’n 60 papieren werkbonnen in.', 'veryo' ),
 			'branches'    => array( 'branches/installatie', 'branches/bouw', 'branches/agri', 'branches/transport' ),
 			'seo_title'   => __( 'Werkbonnen automatisch verwerken met AI | Veryo', 'veryo' ),
-			'desc'        => __( 'Werkbonnen als foto, PDF of formulier automatisch uitgelezen, gecontroleerd en verwerkt in je administratie. Direct factureren, vanaf €750 per maand.', 'veryo' ),
+			'desc'        => __( 'Werkbonnen als foto, PDF of formulier automatisch uitgelezen, gecontroleerd en verwerkt in je administratie. Direct factureren. Gratis offerte.', 'veryo' ),
 			'kw'          => 'werkbonnen automatisch verwerken',
 		),
 		'inkoopfacturen-automatiseren'  => array(
 			'naam'        => __( 'Inkoopfacturen automatiseren', 'veryo' ),
 			'voor'        => __( 'Voor elk bedrijf met veel inkoop', 'veryo' ),
 			'kort'        => __( 'Inkoopfacturen uit de mail worden automatisch uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je boekhouding gezet.', 'veryo' ),
-			'pitch'       => __( 'Met Inkoopfacturen automatiseren worden inkoopfacturen die per mail binnenkomen automatisch uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je ERP of boekhoudpakket gezet. Je administratie hoeft alleen nog de afwijkingen te bekijken. Vanaf €750 per maand, exclusief btw.', 'veryo' ),
+			'pitch'       => __( 'Met Inkoopfacturen automatiseren worden inkoopfacturen die per mail binnenkomen automatisch uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je ERP of boekhoudpakket gezet. Je administratie hoeft alleen nog de afwijkingen te bekijken.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Tientallen of honderden inkoopfacturen per maand, elk in een andere opmaak. Iemand opent ze, controleert bedragen en aantallen, zoekt de bijbehorende inkooporder of werkbon en boekt ze in.', 'veryo' ),
 				__( 'Het is precies, saai en foutgevoelig werk. Een factuur die dubbel wordt betaald of een prijs die niet klopt met de afspraak, valt pas op als het te laat is.', 'veryo' ),
@@ -206,14 +206,14 @@ function veryo_products() {
 			'placeholder' => __( 'Bijvoorbeeld: we krijgen 300 inkoopfacturen per maand en boeken ze allemaal met de hand in.', 'veryo' ),
 			'branches'    => array( 'branches/agri', 'branches/transport', 'branches/horeca-retail', 'branches/zakelijke-dienstverlening', 'branches/beveiliging' ),
 			'seo_title'   => __( 'Inkoopfacturen automatiseren met AI | Veryo', 'veryo' ),
-			'desc'        => __( 'Inkoopfacturen uit de mail automatisch uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je boekhouding gezet. Vanaf €750 per maand.', 'veryo' ),
+			'desc'        => __( 'Inkoopfacturen uit de mail automatisch uitgelezen, gematcht met inkooporders of werkbonnen en in je boekhouding gezet. Vraag een gratis offerte aan.', 'veryo' ),
 			'kw'          => 'inkoopfacturen automatiseren',
 		),
 		'ai-recruitment-assistent'      => array(
 			'naam'        => __( 'AI recruitment-assistent', 'veryo' ),
 			'voor'        => __( 'Voor bedrijven die veel werven', 'veryo' ),
 			'kort'        => __( 'Screent en kwalificeert cv’s, plant sollicitatiegesprekken in en verstuurt de mails naar kandidaten. De beslissing neemt altijd een mens.', 'veryo' ),
-			'pitch'       => __( 'De AI recruitment-assistent van Veryo screent en kwalificeert cv’s, plant sollicitatiegesprekken in en verstuurt de mails naar kandidaten. Zo krijgt elke sollicitant snel antwoord en houdt je recruiter tijd over voor de gesprekken. De beslissing over wie wordt aangenomen, neemt altijd een mens. Vanaf €750 per maand, exclusief btw.', 'veryo' ),
+			'pitch'       => __( 'De AI recruitment-assistent van Veryo screent en kwalificeert cv’s, plant sollicitatiegesprekken in en verstuurt de mails naar kandidaten. Zo krijgt elke sollicitant snel antwoord en houdt je recruiter tijd over voor de gesprekken. De beslissing over wie wordt aangenomen, neemt altijd een mens.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Op een vacature komen tientallen reacties binnen. Elk cv moet worden gelezen, kandidaten willen snel horen waar ze staan en het plannen van gesprekken kost eindeloos heen-en-weer mailen.', 'veryo' ),
 				__( 'Goede kandidaten haken af als het te lang duurt. En je recruiters besteden hun tijd aan administratie in plaats van aan de gesprekken die er echt toe doen.', 'veryo' ),
@@ -243,7 +243,7 @@ function veryo_products() {
 			'placeholder' => __( 'Bijvoorbeeld: we krijgen 80 reacties per vacature en plannen alle gesprekken met de hand.', 'veryo' ),
 			'branches'    => array( 'branches/recruitment', 'branches/beveiliging' ),
 			'seo_title'   => __( 'AI recruitment-assistent: cv’s screenen en plannen | Veryo', 'veryo' ),
-			'desc'        => __( 'Een AI recruitment-assistent die cv’s screent, gesprekken inplant en kandidaten mailt. De mens beslist altijd wie wordt aangenomen. Vanaf €750 per maand.', 'veryo' ),
+			'desc'        => __( 'Een AI recruitment-assistent die cv’s screent, gesprekken inplant en kandidaten mailt. De mens beslist wie wordt aangenomen. Vraag een gratis offerte aan.', 'veryo' ),
 			'kw'          => 'ai recruitment assistent',
 		),
 	);
@@ -251,12 +251,12 @@ function veryo_products() {
 }
 
 /**
- * Prijsregel voor een oplossing.
+ * Regel onder een oplossing: geen prijs, wel de gratis offerte.
  *
  * @return string
  */
 function veryo_product_price() {
-	return __( 'Vanaf €750 per maand', 'veryo' );
+	return __( 'Gratis offerte op maat', 'veryo' );
 }
 
 /**
@@ -292,7 +292,7 @@ function veryo_product_cards( $keys = array(), $featured = 'ai-lead-opvolging' )
 			. veryo_b_h( '<a href="' . esc_url( veryo_link( 'oplossingen/' . $key ) ) . '">' . esc_html( $p['naam'] ) . '</a>', 3 )
 			. veryo_b_p( esc_html( $p['kort'] ) )
 			. $steps
-			. veryo_b_p( esc_html( veryo_product_price() ) . ' <span>' . esc_html__( 'excl. btw', 'veryo' ) . '</span>', array( 'className' => 'veryo-product__price' ) )
+			. veryo_b_p( esc_html( veryo_product_price() ), array( 'className' => 'veryo-product__price' ) )
 			. veryo_b_p( esc_html__( 'Bekijk hoe het werkt', 'veryo' ), array( 'className' => 'veryo-product__more' ) ),
 			array(
 				'className' => 'veryo-product' . ( $is_big ? ' is-featured' : '' ),
@@ -321,7 +321,7 @@ function veryo_product_cards( $keys = array(), $featured = 'ai-lead-opvolging' )
  */
 function veryo_sec_products( $keys = array(), $title = '', $intro = '', $overview = true, $featured = 'ai-lead-opvolging' ) {
 	$title = $title ? $title : __( 'Kant-en-klare AI-oplossingen', 'veryo' );
-	$intro = $intro ? $intro : __( 'Vaste oplossingen voor werk dat in veel bedrijven hetzelfde gaat. We richten ze in op jouw systemen en houden ze draaiende, voor een vaste prijs per maand.', 'veryo' );
+	$intro = $intro ? $intro : __( 'Vaste oplossingen voor werk dat in veel bedrijven hetzelfde gaat. We richten ze in op jouw systemen en houden ze draaiende. Je krijgt vooraf een gratis offerte.', 'veryo' );
 	$head  = veryo_b_p( $intro );
 	if ( $overview ) {
 		$head .= veryo_b_buttons( array( array( __( 'Alle oplossingen', 'veryo' ), veryo_link( 'oplossingen' ), 'link' ) ) );
@@ -363,12 +363,11 @@ function veryo_page_product( $key ) {
 
 	$out .= veryo_b_group(
 		veryo_b_h( __( 'Wat kost het?', 'veryo' ) )
-		. veryo_b_p( '<strong class="veryo-product__big">' . esc_html( veryo_product_price() ) . '</strong> ' . esc_html__( 'exclusief btw', 'veryo' ) )
-		. veryo_b_p( esc_html__( 'Wat het voor jou kost, hangt af van het volume en de systemen waarop we aansluiten. Na een kort gesprek krijg je vooraf een vaste prijs. We richten de oplossing in op jouw systemen, testen met echte voorbeelden en houden hem daarna draaiende.', 'veryo' ) )
+		. veryo_b_p( esc_html__( 'Wat het voor jou kost, hangt af van het volume en de systemen waarop we aansluiten. Na een kort gesprek krijg je een gratis offerte met vooraf een vaste prijs. We richten de oplossing in op jouw systemen, testen met echte voorbeelden en houden hem daarna draaiende.', 'veryo' ) )
 		. veryo_b_buttons(
 			array(
-				array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ),
-				array( __( 'Neem contact op', 'veryo' ), veryo_link( 'contact' ), 'link' ),
+				array( veryo_offerte_label(), veryo_offerte_url(), 'amber' ),
+				array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'link' ),
 			)
 		),
 		array( 'className' => 'is-style-soft veryo-price veryo-product-price' )
@@ -378,7 +377,7 @@ function veryo_page_product( $key ) {
 	$out .= veryo_sec_contact(
 		/* translators: %s: naam van de oplossing. */
 		sprintf( __( 'Is %s iets voor jou?', 'veryo' ), $p['naam'] ),
-		__( 'Vertel kort hoe het nu bij jullie gaat. Je hoort binnen één werkdag of het past en wat het ongeveer kost.', 'veryo' ),
+		__( 'Vertel kort hoe het nu bij jullie gaat. Je hoort binnen één werkdag of het past, en je krijgt een gratis offerte.', 'veryo' ),
 		$p['placeholder']
 	);
 	$out .= veryo_sec_faq( $p['faq'] );

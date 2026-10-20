@@ -20,7 +20,6 @@ return array(
 		'kw'        => 'lokale ai voor bedrijven',
 		'schema'    => array(
 			'type' => 'collega',
-			'min'  => (int) reset( $veryo_cc['pakketten'] )['prijs'],
 			'area' => 'Nederland',
 		),
 		'meta'      => array( 'hide_title' => 1 ),

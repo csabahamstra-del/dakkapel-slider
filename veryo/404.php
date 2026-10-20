@@ -16,7 +16,7 @@ get_template_part( 'template-parts/page-header', null, array( 'title' => __( 'De
 		<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Naar de homepage', 'veryo' ); ?></a></li>
 		<li><a href="<?php echo esc_url( veryo_url( 'waar-begin-ik-met-ai' ) ); ?>"><?php esc_html_e( 'Doe de gratis AI-scan', 'veryo' ); ?></a></li>
 		<li><a href="<?php echo esc_url( veryo_url( 'ai-automatisering' ) ); ?>"><?php esc_html_e( 'AI-automatisering voor het MKB', 'veryo' ); ?></a></li>
-		<li><a href="<?php echo esc_url( veryo_url( 'prijzen' ) ); ?>"><?php esc_html_e( 'Prijzen', 'veryo' ); ?></a></li>
+		<li><a href="<?php echo esc_url( veryo_url( 'prijzen' ) ); ?>"><?php esc_html_e( 'Gratis offerte', 'veryo' ); ?></a></li>
 		<li><a href="<?php echo esc_url( veryo_url( 'contact' ) ); ?>"><?php esc_html_e( 'Contact', 'veryo' ); ?></a></li>
 	</ul>
 </div>

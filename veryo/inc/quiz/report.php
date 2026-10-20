@@ -109,7 +109,7 @@ Schrijfstijl:
 Inhoud:
 - Kies precies 3 aanbevelingen, uitsluitend uit de meegegeven catalogus. Gebruik alleen bestaande waarden van "id" als catalogus_id.
 - Kies items die passen bij de taken met de meeste uren en bij de branche. Kies drie verschillende items.
-- Verzin geen cijfers, percentages, klantnamen of resultaten. Gebruik alleen de meegegeven getallen uit "berekening". Noem geen prijzen; die voegt Veryo zelf toe.
+- Verzin geen cijfers, percentages, klantnamen of resultaten. Gebruik alleen de meegegeven getallen uit "berekening". Noem geen prijzen of bedragen van Veryo.
 - Koppel "waarom" aan de antwoorden van de lezer (taken, uren, tools, frustratie).
 - Beschrijf in "hoe" dat de eerste stap is om te kijken of hun bestaande software dit al kan, of dat het met een passende tool op te lossen is, en dat pas daarna een eigen koppeling aan de orde is. Veryo verkoopt geen eigen software en adviseert onafhankelijk.
 - Noem geen softwaremerken of productnamen.
@@ -459,7 +459,6 @@ function veryo_scan_normalize_report( $data, $answers, $calc ) {
 	foreach ( $report['aanbevelingen'] as &$rec ) {
 		$item          = veryo_catalog_item( $rec['catalogus_id'] );
 		$rec['niveau'] = $levels[ $item['niveau'] ]['label'];
-		$rec['prijs']  = $levels[ $item['niveau'] ]['price'];
 		$rec['tijd']   = $item['tijdwinst_tekst'];
 	}
 	unset( $rec );

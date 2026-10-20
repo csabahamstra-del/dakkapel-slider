@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$veryo_solutions  = veryo_sec_answer( __( 'Oplossingen van Veryo zijn vaste AI-toepassingen voor werk dat in veel bedrijven hetzelfde gaat: leads opvolgen, rapporteren, offertes en facturen maken, werkbonnen en inkoopfacturen verwerken en kandidaten screenen. We richten ze in op jouw systemen en houden ze draaiende, vanaf €750 per maand, exclusief btw.', 'veryo' ) );
+$veryo_solutions  = veryo_sec_answer( __( 'Oplossingen van Veryo zijn vaste AI-toepassingen voor werk dat in veel bedrijven hetzelfde gaat: leads opvolgen, rapporteren, offertes en facturen maken, werkbonnen en inkoopfacturen verwerken en kandidaten screenen. We richten ze in op jouw systemen en houden ze draaiende. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) );
 $veryo_solutions .= veryo_sec_wide( veryo_product_cards(), 'veryo-products veryo-products--overview' );
 $veryo_solutions .= veryo_sec_wide(
 	veryo_b_h( __( 'Zo zetten we een oplossing neer', 'veryo' ) )
@@ -40,7 +40,7 @@ $veryo_solutions .= veryo_sec_contact(
 );
 $veryo_solutions .= veryo_sec_faq(
 	array(
-		array( __( 'Wat kost een oplossing?', 'veryo' ), __( 'Vanaf €750 per maand, exclusief btw. De prijs hangt af van het volume en de systemen waarop we aansluiten. Je krijgt vooraf een vaste prijs.', 'veryo' ) ),
+		array( __( 'Wat kost een oplossing?', 'veryo' ), __( 'De prijs hangt af van het volume en de systemen waarop we aansluiten. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
 		array( __( 'Moet ik andere software gaan gebruiken?', 'veryo' ), __( 'Nee. De oplossingen werken bovenop je bestaande mail, agenda, administratie en planning. We verkopen geen eigen software.', 'veryo' ) ),
 		array( __( 'Hoe snel draait het?', 'veryo' ), __( 'Dat hangt af van de koppelingen. Na het eerste gesprek hoor je wat de planning is; daar houden we ons aan.', 'veryo' ) ),
 		array( __( 'Wat gebeurt er met onze gegevens?', 'veryo' ), __( 'We werken met zakelijke AI-diensten die je gegevens niet gebruiken om modellen te trainen, sluiten een verwerkersovereenkomst en geven alleen toegang tot wat nodig is.', 'veryo' ) ),
@@ -52,7 +52,7 @@ $veryo_solution_pages = array(
 	'oplossingen' => array(
 		'title'     => __( 'AI-oplossingen voor het MKB', 'veryo' ),
 		'seo_title' => __( 'AI-oplossingen voor het MKB: vaste prijs per maand | Veryo', 'veryo' ),
-		'desc'      => __( 'Kant-en-klare AI-oplossingen: lead-opvolging, klantrapportage, offertes en facturen, werkbonnen, inkoopfacturen en recruitment. Vanaf €750 per maand.', 'veryo' ),
+		'desc'      => __( 'Kant-en-klare AI-oplossingen: lead-opvolging, klantrapportage, offertes, werkbonnen, inkoopfacturen en recruitment. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai oplossingen mkb',
 		'content'   => $veryo_solutions,
 	),

@@ -13,7 +13,7 @@ return array(
 	'ai-op-maat/chatbot'                => array(
 		'title'     => __( 'AI-chatbot laten maken voor je bedrijf', 'veryo' ),
 		'seo_title' => __( 'AI-chatbot laten maken voor je bedrijf | Veryo', 'veryo' ),
-		'desc'      => __( 'Een AI-chatbot laten maken voor je website die antwoord geeft uit je eigen kennis en doorverwijst naar een mens. Wat het kost: vanaf €2.500 excl. btw.', 'veryo' ),
+		'desc'      => __( 'Een AI-chatbot laten maken voor je website die antwoord geeft uit je eigen kennis en doorverwijst naar een mens. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai chatbot laten maken',
 		'schema'    => array(
 			'type' => 'service',
@@ -22,7 +22,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Bij Veryo kun je een AI-chatbot laten maken voor je website die vragen beantwoordt op basis van jullie eigen informatie, en bij twijfel doorverwijst naar een collega. Een chatbot voor je website kost €2.500 tot €7.500; met koppelingen naar agenda, CRM of WhatsApp wordt het maatwerk vanaf €5.000, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Bij Veryo kun je een AI-chatbot laten maken voor je website die vragen beantwoordt op basis van jullie eigen informatie, en bij twijfel doorverwijst naar een collega. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Waarom een chatbot voor je website?', 'veryo' ),
 					'p' => array(
@@ -47,8 +47,8 @@ return array(
 					array(
 						'h' => __( 'Chatbot laten maken: kosten en wat ze bepaalt', 'veryo' ),
 						'p' => array(
-							__( 'Een chatbot die vragen beantwoordt op basis van je website en een paar documenten, valt meestal in een project van €2.500 tot €7.500. Moet hij afspraken inplannen in je agenda, gegevens in je CRM zetten, via WhatsApp werken of meerdere talen spreken, dan wordt het maatwerk vanaf €5.000.', 'veryo' ),
-							__( 'Daarnaast zijn er verbruikskosten voor de AI-dienst en de hosting. Voor een MKB-website met een normaal aantal gesprekken gaat het meestal om tientallen euro’s per maand. Onderhoud en bijwerken kan via een abonnement van €150 tot €500 per maand.', 'veryo' ),
+							__( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+							__( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs. Daarnaast zijn er verbruikskosten voor de AI-dienst en de hosting. Voor een MKB-website met een normaal aantal gesprekken gaat het meestal om tientallen euro’s per maand.', 'veryo' ),
 						),
 					),
 					array(
@@ -58,7 +58,7 @@ return array(
 				),
 				'price'    => array( 'steps' => array( 'startpakket', 'project', 'maatwerk', 'onderhoud' ) ),
 				'faq'      => array(
-					array( __( 'Wat kost een chatbot laten maken?', 'veryo' ), __( 'Een AI-chatbot voor je website kost meestal €2.500 tot €7.500. Met koppelingen naar agenda, CRM of WhatsApp wordt het maatwerk vanaf €5.000. Daarnaast zijn er verbruikskosten van meestal tientallen euro’s per maand. Alles exclusief btw.', 'veryo' ) ),
+					array( __( 'Wat kost een chatbot laten maken?', 'veryo' ), __( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs. Daarnaast zijn er verbruikskosten van meestal tientallen euro’s per maand.', 'veryo' ) ),
 					array( __( 'Hoe lang duurt het om een chatbot te laten maken?', 'veryo' ), __( 'Een eerste versie staat meestal binnen vier tot zes weken, inclusief een testperiode met je eigen team.', 'veryo' ) ),
 					array( __( 'Werkt de chatbot op elke website?', 'veryo' ), __( 'Op vrijwel elke website, of het nu WordPress is of een ander systeem. Het is een klein stukje code dat we plaatsen of dat je webbouwer toevoegt.', 'veryo' ) ),
 					array( __( 'Wat als de chatbot iets verkeerds zegt?', 'veryo' ), __( 'We beperken de chatbot tot jouw bronnen, testen vooraf met echte vragen en loggen de gesprekken. Zien we een fout, dan verbeteren we de bronnen of de instructies.', 'veryo' ) ),
@@ -67,7 +67,7 @@ return array(
 				'links'    => array(
 					array( 'ai-op-maat/whatsapp-assistent', __( 'WhatsApp-assistent', 'veryo' ), __( 'Dezelfde kennis, via WhatsApp', 'veryo' ) ),
 					array( 'ai-automatisering/klantcontact', __( 'Klantcontact automatiseren', 'veryo' ), __( 'Mail, telefoon en berichten', 'veryo' ) ),
-					array( 'prijzen', __( 'Prijzen', 'veryo' ), __( 'Alle pakketten op een rij', 'veryo' ) ),
+					array( 'prijzen', __( 'Gratis offerte', 'veryo' ), __( 'Vooraf een vaste prijs', 'veryo' ) ),
 					array( 'branches/horeca-retail', __( 'AI voor horeca en retail', 'veryo' ), __( 'Chatbot en reserveringen', 'veryo' ) ),
 				),
 			)
@@ -78,7 +78,7 @@ return array(
 	'ai-op-maat/whatsapp-assistent'     => array(
 		'title'     => __( 'WhatsApp-assistent voor je bedrijf', 'veryo' ),
 		'seo_title' => __( 'WhatsApp-assistent voor je bedrijf | Veryo', 'veryo' ),
-		'desc'      => __( 'Een WhatsApp-chatbot voor je bedrijf: vragen 24/7 beantwoorden, gegevens en foto’s verzamelen en afspraken inplannen via de officiële API. Vanaf €2.500.', 'veryo' ),
+		'desc'      => __( 'Een WhatsApp-chatbot voor je bedrijf: vragen 24/7 beantwoorden, gegevens en foto’s verzamelen en afspraken inplannen via de officiële API. Gratis offerte.', 'veryo' ),
 		'kw'        => 'whatsapp chatbot bedrijf',
 		'schema'    => array(
 			'type' => 'service',
@@ -87,7 +87,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo bouwt een WhatsApp-chatbot voor je bedrijf: een assistent die vragen 24/7 beantwoordt, gegevens en foto’s verzamelt en afspraken inplant, via de officiële WhatsApp Business API. Een WhatsApp-assistent kost €2.500 tot €7.500, met uitgebreide koppelingen maatwerk vanaf €5.000, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo bouwt een WhatsApp-chatbot voor je bedrijf: een assistent die vragen 24/7 beantwoordt, gegevens en foto’s verzamelt en afspraken inplant, via de officiële WhatsApp Business API. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Wat je vooraf beslist', 'veryo' ), array( __( 'Voordat we bouwen, leggen we samen vast welke vragen de assistent zelf mag beantwoorden, welke gegevens hij opvraagt en wanneer hij doorzet naar een collega. Ook spreken we af binnen welke tijd een collega reageert op een doorgezet gesprek, zodat de klant weet waar hij aan toe is.', 'veryo' ), __( 'Een WhatsApp-assistent werkt het best met een beperkt aantal onderwerpen om mee te beginnen, bijvoorbeeld storingen, afspraken en veelgestelde vragen. Na een paar weken kijken we in de gesprekken wat er nog meer gevraagd wordt en breiden we uit waar het zin heeft.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Iedereen appt, maar wie appt er terug?', 'veryo' ),
@@ -141,7 +141,7 @@ return array(
 	'ai-op-maat/interne-assistent'      => array(
 		'title'     => __( 'AI-assistent op je eigen documenten', 'veryo' ),
 		'seo_title' => __( 'AI-assistent op je eigen documenten | Veryo', 'veryo' ),
-		'desc'      => __( 'Een chatbot op je eigen documenten: een interne AI-assistent die vragen beantwoordt uit je handleidingen en procedures, met bronvermelding. Vanaf €5.000.', 'veryo' ),
+		'desc'      => __( 'Een chatbot op je eigen documenten: een interne AI-assistent die vragen beantwoordt uit je handleidingen en procedures, met bronvermelding. Gratis offerte.', 'veryo' ),
 		'kw'        => 'chatbot eigen documenten',
 		'schema'    => array(
 			'type' => 'service',
@@ -151,7 +151,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'collega_variant' => 'intern',
-				'answer'          => __( 'Veryo bouwt een chatbot op je eigen documenten: een interne AI-assistent die vragen van collega’s beantwoordt uit jullie handleidingen, procedures en productbladen, met een verwijzing naar de bron. Een interne assistent is maatwerk van €5.000 tot €25.000, exclusief btw.', 'veryo' ),
+				'answer'          => __( 'Veryo bouwt een chatbot op je eigen documenten: een interne AI-assistent die vragen van collega’s beantwoordt uit jullie handleidingen, procedures en productbladen, met een verwijzing naar de bron. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'           => array( __( 'Voor wie een interne assistent het meest oplevert', 'veryo' ), array( __( 'Een interne assistent verdient zich het snelst terug bij bedrijven met veel technische documentatie, wisselende projecten of regelmatig nieuwe medewerkers. Denk aan installatiebedrijven met honderden toestellen van verschillende fabrikanten, adviesbureaus met eigen werkwijzen en procedures, of bedrijven waar de kennis nu bij één of twee ervaren collega’s zit.', 'veryo' ), __( 'Een voorbeeld: een servicemonteur staat bij een klant met een toestel dat hij zelden ziet. In plaats van de collega op kantoor te bellen, vraagt hij de assistent naar de juiste instelling en krijgt hij het antwoord met de pagina uit de handleiding. De collega op kantoor kan doorwerken.', 'veryo' ) ) ),
 				'problem'         => array(
 					'h' => __( 'Zoeken kost meer tijd dan het antwoord', 'veryo' ),
@@ -190,7 +190,7 @@ return array(
 					array( __( 'Is een interne kennisbank met AI veilig?', 'veryo' ), __( 'We regelen toegang per medewerker, gebruiken zakelijke API’s en sluiten een verwerkersovereenkomst als er persoonsgegevens in de documenten staan. Echt gevoelige documenten laten we eruit of zetten we achter aparte rechten.', 'veryo' ) ),
 					array( __( 'Werkt het met SharePoint of Google Drive?', 'veryo' ), __( 'Ja, dat zijn de meest gebruikte bronnen. Andere systemen met een koppeling kunnen ook.', 'veryo' ) ),
 					array( __( 'Hoeveel documenten kunnen erin?', 'veryo' ), __( 'Van een paar tientallen tot duizenden. Meer documenten betekent niet automatisch betere antwoorden; we helpen kiezen wat erin hoort.', 'veryo' ) ),
-					array( __( 'Wat kost een chatbot op eigen documenten?', 'veryo' ), __( 'Maatwerk van €5.000 tot €25.000, afhankelijk van het aantal bronnen, gebruikers en koppelingen. Daarnaast verbruikskosten, meestal beperkt. Alles exclusief btw.', 'veryo' ) ),
+					array( __( 'Wat kost een chatbot op eigen documenten?', 'veryo' ), __( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs. Daarnaast verbruikskosten, meestal beperkt.', 'veryo' ) ),
 				),
 				'links'           => array(
 					array( 'ai-automatisering/kennis-en-documenten', __( 'Kennis en documenten', 'veryo' ), __( 'Alle toepassingen', 'veryo' ) ),
@@ -205,7 +205,7 @@ return array(
 	'ai-op-maat/ai-receptionist-horeca' => array(
 		'title'     => __( 'AI-receptionist voor restaurants en horeca', 'veryo' ),
 		'seo_title' => __( 'AI-receptionist voor restaurants en horeca | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-receptionist voor restaurants: een AI-telefoonassistent die opneemt, reserveringen noteert en vragen beantwoordt als jij het druk hebt. Vanaf €5.000.', 'veryo' ),
+		'desc'      => __( 'AI-receptionist voor restaurants: een AI-telefoonassistent die opneemt, reserveringen noteert en vragen beantwoordt als jij het druk hebt. Gratis offerte.', 'veryo' ),
 		'kw'        => 'ai receptionist voor restaurants',
 		'schema'    => array(
 			'type' => 'service',
@@ -214,7 +214,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo bouwt een AI-receptionist voor restaurants en horeca: een AI-telefoonassistent die de telefoon opneemt als het druk is of je gesloten bent, reserveringen noteert, vragen over openingstijden en allergenen beantwoordt en lastige vragen doorzet. Een AI-voicebot is maatwerk vanaf €5.000, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo bouwt een AI-receptionist voor restaurants en horeca: een AI-telefoonassistent die de telefoon opneemt als het druk is of je gesloten bent, reserveringen noteert, vragen over openingstijden en allergenen beantwoordt en lastige vragen doorzet. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Zo pakken we het aan', 'veryo' ), array( __( 'We beginnen met het vastleggen van de informatie die de assistent nodig heeft: openingstijden, menu en allergenen, bereikbaarheid, regels voor groepen en wat er moet gebeuren bij een klacht. Daarna testen we met echte gesprekken door jou en je team, voordat er een gast mee belt.', 'veryo' ), __( 'In de eerste weken luisteren we gesprekken terug en passen we aan waar de assistent twijfelt of te lang praat. Pas als het goed loopt, zetten we hem ook in als overloop tijdens drukke uren.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'De telefoon gaat altijd op het verkeerde moment', 'veryo' ),
@@ -252,7 +252,7 @@ return array(
 				'faq'      => array(
 					array( __( 'Klinkt een AI-receptionist als een robot?', 'veryo' ), __( 'De stemmen zijn tegenwoordig goed verstaanbaar en natuurlijk. Toch merkt een beller dat het een assistent is, en dat vertellen we ook aan het begin van het gesprek.', 'veryo' ) ),
 					array( __( 'Werkt het met mijn reserveringssysteem?', 'veryo' ), __( 'Als je reserveringssysteem een koppeling heeft, kan de assistent reserveringen direct inboeken. Zo niet, dan noteert hij ze en krijg je een overzicht.', 'veryo' ) ),
-					array( __( 'Wat kost een AI-telefoonassistent?', 'veryo' ), __( 'Maatwerk vanaf €5.000, exclusief btw, plus verbruikskosten per gespreksminuut. Die hangen af van het aantal gesprekken; we geven vooraf een inschatting.', 'veryo' ) ),
+					array( __( 'Wat kost een AI-telefoonassistent?', 'veryo' ), __( 'Je krijgt vooraf een gratis offerte met een vaste prijs, plus een inschatting van de verbruikskosten per gespreksminuut. Die hangen af van het aantal gesprekken; we geven vooraf een inschatting.', 'veryo' ) ),
 					array( __( 'Kan het ook voor andere bedrijven dan horeca?', 'veryo' ), __( 'Ja. Een AI-telefoonassistent buiten kantoortijd werkt ook voor installateurs, makelaars en dienstverleners.', 'veryo' ) ),
 				),
 				'links'    => array(

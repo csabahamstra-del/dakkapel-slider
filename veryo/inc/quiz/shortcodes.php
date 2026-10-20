@@ -466,7 +466,7 @@ function veryo_sc_report_preview() {
 		$out .= '<li><strong>' . esc_html( $label ) . '</strong><span class="line"></span><span class="line line--short"></span></li>';
 	}
 	$out .= '</ol></div>';
-	$out .= '<figcaption>' . esc_html__( 'Zo ziet je rapport eruit: je tijdwinst, een kansenscore en drie concrete aanbevelingen met prijsindicatie.', 'veryo' ) . '</figcaption>';
+	$out .= '<figcaption>' . esc_html__( 'Zo ziet je rapport eruit: je tijdwinst, een kansenscore en drie concrete aanbevelingen.', 'veryo' ) . '</figcaption>';
 	return $out . '</figure>';
 }
 
@@ -546,8 +546,8 @@ function veryo_sc_rapport() {
 		$out .= '<p><strong>' . esc_html__( 'Waarom:', 'veryo' ) . '</strong> ' . esc_html( $rec['waarom'] ) . '</p>';
 		$out .= '<p><strong>' . esc_html__( 'Hoe het werkt:', 'veryo' ) . '</strong> ' . esc_html( $rec['hoe'] ) . '</p>';
 		$out .= '<p><strong>' . esc_html__( 'Eerste stap:', 'veryo' ) . '</strong> ' . esc_html( $rec['eerste_stap'] ) . '</p>';
-		/* translators: 1: niveau, 2: prijs, 3: tijdwinst. */
-		$out .= '<p class="veryo-meta">' . esc_html( sprintf( __( '%1$s · %2$s excl. btw · indicatie tijdwinst %3$s', 'veryo' ), $rec['niveau'], $rec['prijs'], $rec['tijd'] ) ) . '</p></li>';
+		/* translators: 1: niveau, 2: tijdwinst. */
+		$out .= '<p class="veryo-meta">' . esc_html( sprintf( __( '%1$s · indicatie tijdwinst %2$s', 'veryo' ), $rec['niveau'], $rec['tijd'] ) ) . '</p></li>';
 	}
 	$out .= '</ol>';
 	$out .= '<h2>' . esc_html__( 'Hier kun je zelf mee beginnen', 'veryo' ) . '</h2><p>' . esc_html( $r['zelf_beginnen'] ) . '</p>';
@@ -555,8 +555,7 @@ function veryo_sc_rapport() {
 	$team = isset( $lead['answers']['team'] ) ? (string) $lead['answers']['team'] : '';
 	$out .= '<div class="report__next"><h2>' . esc_html__( 'Je volgende stap: het AI-Startpakket', 'veryo' ) . '</h2>';
 	$out .= '<p>' . esc_html__( 'Kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg.', 'veryo' ) . '</p>';
-	/* translators: %s: prijsindicatie voor de teamgrootte. */
-	$out .= '<p>' . esc_html( sprintf( __( 'Voor jullie teamgrootte: %s, exclusief btw.', 'veryo' ), veryo_startpakket_price_for_team( $team ) ) ) . ' <a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p></div>';
+	$out .= '<p>' . esc_html__( 'Je krijgt een gratis offerte op maat van jullie team, met vooraf een vaste prijs.', 'veryo' ) . ' <a href="' . esc_url( veryo_offerte_url() ) . '">' . esc_html( veryo_offerte_label() ) . '</a> · <a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p></div>';
 	if ( veryo_scan_fits_collega( $r['aanbevelingen'], $team ) ) {
 		$cc   = veryo_collega();
 		$out .= '<div class="report__next report__collega"><h2>' . esc_html( sprintf( /* translators: %s: productnaam. */ __( 'Past bij jullie: %s', 'veryo' ), $cc['naam'] ) ) . '</h2>';

@@ -55,20 +55,12 @@ function veryo_sc_collega_ondertitel() {
 }
 
 /**
- * Eén prijs: een maandpakket (start, groei, pro) of een eenmalige post (intake, koppelingen, ...).
+ * Vroeger één prijs; op de site staan geen prijzen meer. Blijft bestaan zodat een oude
+ * shortcode in zelf geschreven tekst niets toont in plaats van "[veryo_collega_prijs]".
  *
- * @param array<string,string>|string $atts Attributen: id.
  * @return string
  */
-function veryo_sc_collega_prijs( $atts ) {
-	$atts = shortcode_atts( array( 'id' => 'start' ), $atts, 'veryo_collega_prijs' );
-	$c    = veryo_collega();
-	if ( isset( $c['pakketten'][ $atts['id'] ] ) ) {
-		return esc_html( veryo_collega_euro( $c['pakketten'][ $atts['id'] ]['prijs'] ) );
-	}
-	if ( isset( $c['eenmalig'][ $atts['id'] ] ) ) {
-		return esc_html( veryo_collega_euro( $c['eenmalig'][ $atts['id'] ]['prijs'] ) );
-	}
+function veryo_sc_collega_prijs() {
 	return '';
 }
 
@@ -89,7 +81,7 @@ function veryo_sc_collega_cta( $atts ) {
 }
 
 /**
- * Pakketten en prijzen: eenmalige posten en drie maandpakketten.
+ * Pakketten: eenmalige onderdelen en drie maandpakketten, zonder bedragen.
  *
  * @return string
  */
@@ -99,8 +91,7 @@ function veryo_sc_collega_prijzen() {
 
 	$out .= '<div class="veryo-collega-once"><h3>' . esc_html__( 'Eenmalig', 'veryo' ) . '</h3><ul class="veryo-price-table">';
 	foreach ( $c['eenmalig'] as $row ) {
-		$price = ( $row['vanaf'] ? __( 'vanaf', 'veryo' ) . ' ' : '' ) . veryo_collega_euro( $row['prijs'] );
-		$out  .= '<li><span class="t">' . esc_html( $row['label'] ) . '</span><span class="d">' . esc_html( $row['notitie'] ) . '</span><span class="p">' . esc_html( $price ) . '</span></li>';
+		$out .= '<li><span class="t">' . esc_html( $row['label'] ) . '</span><span class="d">' . esc_html( $row['notitie'] ) . '</span></li>';
 	}
 	$out .= '</ul></div>';
 
@@ -120,15 +111,14 @@ function veryo_sc_collega_prijzen() {
 			$out .= '<p class="veryo-collega-plan__badge">' . esc_html( $c['uitgelicht_label'] ) . '</p>';
 		}
 		$out .= '<h4>' . esc_html( $plan['naam'] ) . '</h4><p class="veryo-collega-plan__team">' . esc_html( $plan['team'] ) . '</p>';
-		$out .= '<p class="veryo-collega-plan__price"><strong>' . esc_html( veryo_collega_euro( $plan['prijs'] ) ) . '</strong> ' . esc_html__( 'per maand', 'veryo' ) . '</p>';
 		$out .= '<ul class="is-style-checks">';
 		foreach ( $items as $item ) {
 			$out .= '<li>' . esc_html( $item ) . '</li>';
 		}
-		$out .= '</ul><a class="btn ' . ( $plan['uitgelicht'] ? 'btn--amber' : 'btn--petrol' ) . '" href="' . esc_url( veryo_collega_url( 'demo' ) ) . '">' . esc_html( $c['cta_primair'] ) . '</a></div>';
+		$out .= '</ul><a class="btn ' . ( $plan['uitgelicht'] ? 'btn--amber' : 'btn--petrol' ) . '" href="' . esc_url( veryo_offerte_url() ) . '">' . esc_html__( 'Gratis offerte', 'veryo' ) . '</a></div>';
 	}
 	$out .= '</div>';
-	$out .= '<p class="veryo-collega-prices__note">' . esc_html( $c['hardware'] ) . ' ' . esc_html__( 'Alle prijzen zijn exclusief btw. De intake wordt verrekend als je doorgaat.', 'veryo' ) . '</p>';
+	$out .= '<p class="veryo-collega-prices__note">' . esc_html( $c['hardware'] ) . ' ' . esc_html__( 'Na de intake krijg je een gratis offerte op maat, met vooraf een vaste prijs.', 'veryo' ) . '</p>';
 	return $out . '</div>';
 }
 
@@ -149,9 +139,8 @@ function veryo_sc_collega_rekenhulp() {
 	$plans = array();
 	foreach ( $c['pakketten'] as $key => $plan ) {
 		$plans[] = array(
-			'tot'   => (int) $plan['tot'],
-			'naam'  => $plan['naam'],
-			'prijs' => (int) $plan['prijs'],
+			'tot'  => (int) $plan['tot'],
+			'naam' => $plan['naam'],
 		);
 	}
 	// Standaarduitkomst, ook voor bezoekers zonder JavaScript.
@@ -214,11 +203,11 @@ function veryo_sc_collega_rekenhulp() {
 	/* translators: %s: aantal uren. */
 	$out .= '<p class="veryo-calc__hours"><strong data-out="uren">' . esc_html( number_format_i18n( $hours, 0 ) ) . '</strong> ' . esc_html__( 'uur bespaard', 'veryo' ) . '</p>';
 	$out .= '<p class="veryo-calc__value">' . esc_html__( 'Waarde:', 'veryo' ) . ' <strong data-out="waarde">' . esc_html( veryo_collega_euro( $value ) ) . '</strong></p>';
-	$out .= '<p class="veryo-calc__plan">' . esc_html__( 'Passend pakket:', 'veryo' ) . ' <strong data-out="pakket">' . esc_html( $default['naam'] . ', ' . veryo_collega_euro( $default['prijs'] ) . ' ' . __( 'per maand', 'veryo' ) ) . '</strong></p>';
+	$out .= '<p class="veryo-calc__plan">' . esc_html__( 'Passend pakket:', 'veryo' ) . ' <strong data-out="pakket">' . esc_html( $default['naam'] ) . '</strong></p>';
 	$out .= '<p class="veryo-calc__note">' . esc_html(
 		sprintf(
 			/* translators: %d: percentage. */
-			__( 'Dit is een indicatie, geen belofte. We rekenen met de aanname dat %d%% van die tijd wegvalt, en met 4,33 weken per maand. Wat het bij jou oplevert, hangt af van je kennis, je systemen en hoe je team ermee werkt. Exclusief eenmalige kosten en btw.', 'veryo' ),
+			__( 'Dit is een indicatie, geen belofte. We rekenen met de aanname dat %d%% van die tijd wegvalt, en met 4,33 weken per maand. Wat het bij jou oplevert, hangt af van je kennis, je systemen en hoe je team ermee werkt.', 'veryo' ),
 			(int) round( $r['besparing'] * 100 )
 		)
 	) . '</p>';
@@ -645,7 +634,7 @@ function veryo_page_collega() {
 	$out .= veryo_sec_wide(
 		veryo_sec_head(
 			__( 'Werkt met de systemen die je al hebt', 'veryo' ),
-			veryo_b_p( __( 'Een koppeling kost vanaf [veryo_collega_prijs id=koppelingen] per systeem, eenmalig. Bij cloudpakketten haalt de AI de gegevens op; de verwerking gebeurt lokaal.', 'veryo' ) )
+			veryo_b_p( __( 'Elke koppeling richten we eenmalig in en staat in je offerte. Bij cloudpakketten haalt de AI de gegevens op; de verwerking gebeurt lokaal.', 'veryo' ) )
 		)
 		. veryo_b_list(
 			array(
@@ -661,15 +650,15 @@ function veryo_page_collega() {
 		'veryo-collega-links'
 	);
 
-	// 9. Pakketten en prijzen.
+	// 9. Pakketten.
 	$out .= veryo_sec_wide(
 		veryo_sec_head(
-			__( 'Pakketten en prijzen', 'veryo' ),
-			veryo_b_p( __( 'Eenmalig de intake, installatie en het vullen met kennis. Daarna een vast bedrag per maand voor beheer, updates, backups en kennisonderhoud.', 'veryo' ) )
+			__( 'Pakketten', 'veryo' ),
+			veryo_b_p( __( 'Eenmalig de intake, installatie en het vullen met kennis. Daarna een vast bedrag per maand voor beheer, updates, backups en kennisonderhoud. Wat het voor jou kost, staat in een gratis offerte op maat.', 'veryo' ) )
 		)
 		. veryo_b_shortcode( '[veryo_collega_prijzen]' ),
 		'veryo-collega-pricing',
-		'prijzen'
+		'pakketten'
 	);
 
 	// 10. Rekenhulp.
@@ -697,7 +686,7 @@ function veryo_page_collega() {
 			array( __( 'Wie mag wat zien?', 'veryo' ), __( 'Dat stel je per medewerker of afdeling in. De werkvloer ziet bijvoorbeeld wel de werkinstructies, maar niet de salarisadministratie. [veryo_collega_naam] antwoordt alleen uit bronnen waar iemand toegang toe heeft.', 'veryo' ) ),
 			array( __( 'Hoe komt de kennis erin?', 'veryo' ), __( 'We verzamelen documenten, procedures, eerdere offertes en projecten uit je mappen en systemen. Kennis die alleen in hoofden zit, halen we op met interviews en spraakmemo’s van ervaren medewerkers. Daarna komt er elke maand nieuwe kennis bij.', 'veryo' ) ),
 			array( __( 'Welke machine hebben we nodig, en moeten we die kopen?', 'veryo' ), __( 'Een krachtige computer of kleine server die op kantoor staat. Welke precies, hangt af van het aantal medewerkers en wat ze ermee doen; dat adviseren we na de intake. Je kiest zelf: de hardware kopen of in het abonnement verwerken.', 'veryo' ) ),
-			array( __( 'Kan het koppelen met ons boekhoudpakket?', 'veryo' ), __( 'In veel gevallen wel, bijvoorbeeld met SnelStart. Een koppeling kost vanaf [veryo_collega_prijs id=koppelingen] per systeem, eenmalig. In de intake kijken we wat er met jouw pakket kan.', 'veryo' ) ),
+			array( __( 'Kan het koppelen met ons boekhoudpakket?', 'veryo' ), __( 'In veel gevallen wel, bijvoorbeeld met SnelStart. Een koppeling richten we eenmalig in; wat dat kost, staat in je offerte. In de intake kijken we wat er met jouw pakket kan.', 'veryo' ) ),
 			array( __( 'Wat als de AI een fout maakt?', 'veryo' ), __( 'Dat kan gebeuren, net als bij een mens. Daarom laat [veryo_collega_naam] bij antwoorden zien uit welke bron ze komen, zodat je het kunt controleren. De AI maakt concepten, jouw mensen beslissen. Berekeningen maakt hij met jouw eigen gegevens, en jouw mensen controleren.', 'veryo' ) ),
 			array( __( 'Hoe lang duurt het voordat het werkt?', 'veryo' ), __( 'Dat hangt af van de hoeveelheid kennis en het aantal koppelingen. Na de intake krijg je een planning, en daar houden we ons aan.', 'veryo' ) ),
 			array( __( 'Welke techniek gebruiken jullie?', 'veryo' ), __( 'Bewezen open-source software, zoals Ollama om de taalmodellen op de machine te draaien en Open WebUI als omgeving waarin medewerkers vragen stellen. Welke modellen we gebruiken, kiezen we per klant op basis van de taken en de machine. Het is geen eigen software van Veryo: wij installeren, richten in en beheren.', 'veryo' ) ),

@@ -89,20 +89,20 @@ $veryo_fp      .= veryo_sec_wide(
 	'veryo-lp-for'
 );
 $veryo_fp_rows  = array(
-	array( __( 'AI-Startpakket (tot 10 medewerkers)', 'veryo' ), '€1.995', '€995' ),
-	array( __( 'AI lead-opvolging', 'veryo' ), __( '€1.500 + €195 p/m', 'veryo' ), __( '€750 + €195 p/m', 'veryo' ) ),
-	array( __( 'AI Klantrapportage', 'veryo' ), __( 'setup + €750–2.500 p/m', 'veryo' ), __( 'setup -50% + normaal maandbedrag', 'veryo' ) ),
-	array( 'Veryo Collega', __( 'op aanvraag', 'veryo' ), __( 'inrichting -50% + normaal maandbedrag', 'veryo' ) ),
+	array( __( 'AI-Startpakket (tot 10 medewerkers)', 'veryo' ), __( 'de helft van de normale prijs', 'veryo' ) ),
+	array( __( 'AI lead-opvolging', 'veryo' ), __( 'inrichting -50% + normaal maandbedrag', 'veryo' ) ),
+	array( __( 'AI Klantrapportage', 'veryo' ), __( 'setup -50% + normaal maandbedrag', 'veryo' ) ),
+	array( 'Veryo Collega', __( 'inrichting -50% + normaal maandbedrag', 'veryo' ) ),
 );
-$veryo_fp_table = '<thead><tr><th>' . esc_html__( 'Oplossing', 'veryo' ) . '</th><th>' . esc_html__( 'Normaal', 'veryo' ) . '</th><th>' . esc_html__( 'Als Founding Partner', 'veryo' ) . '</th></tr></thead><tbody>';
+$veryo_fp_table = '<thead><tr><th>' . esc_html__( 'Oplossing', 'veryo' ) . '</th><th>' . esc_html__( 'Als Founding Partner', 'veryo' ) . '</th></tr></thead><tbody>';
 foreach ( $veryo_fp_rows as $veryo_row ) {
-	$veryo_fp_table .= '<tr><td>' . esc_html( $veryo_row[0] ) . '</td><td>' . esc_html( $veryo_row[1] ) . '</td><td>' . esc_html( $veryo_row[2] ) . '</td></tr>';
+	$veryo_fp_table .= '<tr><td>' . esc_html( $veryo_row[0] ) . '</td><td>' . esc_html( $veryo_row[1] ) . '</td></tr>';
 }
 $veryo_fp_table .= '</tbody>';
 $veryo_fp       .= veryo_sec_wide(
 	veryo_b_h( esc_html__( 'Wat je krijgt', 'veryo' ) )
 	. veryo_b( 'table', array( 'className' => 'veryo-lp-table' ), '<figure class="wp-block-table veryo-lp-table"><table class="has-fixed-layout">' . $veryo_fp_table . '</table></figure>' )
-	. veryo_b_p( esc_html__( 'Het abonnement loopt de eerste maand gratis mee. Daarna kies je zelf of het doorloopt. Alle prijzen exclusief btw.', 'veryo' ), array( 'className' => 'veryo-small' ) ),
+	. veryo_b_p( esc_html__( 'Het abonnement loopt de eerste maand gratis mee. Daarna kies je zelf of het doorloopt. Wat het voor jou kost, hoor je in het eerste gesprek en staat in een gratis offerte.', 'veryo' ), array( 'className' => 'veryo-small' ) ),
 	'veryo-lp-offer'
 );
 $veryo_fp       .= veryo_sec_wide(
@@ -182,16 +182,17 @@ $veryo_lo .= veryo_sec_wide(
 );
 $veryo_lo .= veryo_sec_wide(
 	veryo_b_group(
-		veryo_b_h( esc_html__( 'Prijs', 'veryo' ) )
+		veryo_b_h( esc_html__( 'Wat kost het?', 'veryo' ) )
 		. veryo_b_list(
 			array(
-				'<strong>' . esc_html__( '€1.500 eenmalig', 'veryo' ) . '</strong> ' . esc_html__( 'voor inrichten en afstemmen op jullie werkwijze', 'veryo' ),
-				'<strong>' . esc_html__( '€195 per maand', 'veryo' ) . '</strong> ' . esc_html__( 'voor de AI, onderhoud en aanpassingen', 'veryo' ),
+				'<strong>' . esc_html__( 'Eenmalig', 'veryo' ) . '</strong> ' . esc_html__( 'inrichten en afstemmen op jullie werkwijze', 'veryo' ),
+				'<strong>' . esc_html__( 'Per maand', 'veryo' ) . '</strong> ' . esc_html__( 'de AI, onderhoud en aanpassingen', 'veryo' ),
 				esc_html__( 'De eerste maand loopt het abonnement gratis mee', 'veryo' ),
-				esc_html__( 'Exclusief btw en verbruikskosten (meestal enkele tientjes per maand, op je eigen account)', 'veryo' ),
+				esc_html__( 'Verbruikskosten lopen via je eigen account', 'veryo' ),
 			),
 			array( 'className' => 'is-style-checks' )
 		)
+		. veryo_b_p( esc_html__( 'Na een gesprek van 30 minuten krijg je een gratis offerte met een vaste prijs.', 'veryo' ) )
 		. veryo_b_buttons( array( array( esc_html__( 'Plan een gesprek', 'veryo' ), $veryo_calendly, 'amber' ) ) ),
 		array( 'className' => 'is-style-soft veryo-price veryo-lp-price' )
 	),
@@ -247,8 +248,9 @@ $veryo_kr .= veryo_sec_wide(
 );
 $veryo_kr .= veryo_sec_wide(
 	veryo_b_group(
-		veryo_b_h( esc_html__( 'Prijs', 'veryo' ) )
-		. veryo_b_shortcode( '[veryo_lp_kr_prijs]' ),
+		veryo_b_h( esc_html__( 'Wat kost het?', 'veryo' ) )
+		. veryo_b_shortcode( '[veryo_lp_kr_prijs]' )
+		. veryo_b_buttons( array( array( esc_html__( 'Vraag een gratis proefrapport aan', 'veryo' ), '#proefrapport', 'amber' ) ) ),
 		array( 'className' => 'is-style-soft veryo-price veryo-lp-price' )
 	),
 	'veryo-lp-pricing'

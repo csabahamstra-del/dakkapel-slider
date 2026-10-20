@@ -106,7 +106,7 @@
 			var larger = ! plan && plans.length;
 			plan = plan || plans[ plans.length - 1 ];
 			if ( plan ) {
-				out( 'pakket' ).textContent = plan.naam + ', ' + euro( plan.prijs ) + ' per maand' + ( larger ? ' (bij meer dan ' + plan.tot + ' medewerkers maken we een voorstel op maat)' : '' );
+				out( 'pakket' ).textContent = plan.naam + ( larger ? ' (bij meer dan ' + plan.tot + ' medewerkers maken we een voorstel op maat)' : '' );
 			}
 		};
 		box.addEventListener( 'input', update );

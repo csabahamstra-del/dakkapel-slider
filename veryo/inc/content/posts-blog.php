@@ -101,7 +101,7 @@ return array(
 		'kw'        => 'wat kost een ai chatbot',
 		'content'   => $veryo_draft(
 			array(
-				array( __( 'Het korte antwoord', 'veryo' ), __( 'Noem de bandbreedtes: project €2.500–7.500, maatwerk vanaf €5.000, plus verbruik en optioneel onderhoud €150–500 per maand. Alles exclusief btw.', 'veryo' ) ),
+				array( __( 'Het korte antwoord', 'veryo' ), __( 'Leg uit waar de kosten van afhangen: omvang, koppelingen, verbruik en onderhoud. Noem geen bedragen; verwijs naar de gratis offerte.', 'veryo' ) ),
 				array(
 					__( 'Waar de kosten uit bestaan', 'veryo' ),
 					__( 'Leg de drie soorten kosten uit.', 'veryo' ),
@@ -125,7 +125,7 @@ return array(
 	'wat-kost-ai-automatisering'          => array(
 		'title'     => __( 'Wat kost AI-automatisering voor het MKB?', 'veryo' ),
 		'seo_title' => __( 'Wat kost AI-automatisering voor het MKB? | Veryo', 'veryo' ),
-		'desc'      => __( 'Wat kost AI-automatisering? Van quick win (€750–1.500) tot maatwerk (vanaf €5.000), plus verbruik en onderhoud. Met een rekenvoorbeeld erbij.', 'veryo' ),
+		'desc'      => __( 'Wat kost AI-automatisering? Waar de kosten van afhangen, hoe je de opbrengst in uren en euro’s uitrekent en hoe je een gratis offerte op maat krijgt.', 'veryo' ),
 		'kw'        => 'wat kost ai automatisering',
 		'content'   => $veryo_draft(
 			array(
@@ -136,7 +136,7 @@ return array(
 					__( 'Werk de rekensom uit met uren × kostprijs. Duidelijk vermelden dat het een voorbeeld is.', 'veryo' ),
 					array(
 						array( __( 'De formule', 'veryo' ), __( 'Besparing per jaar = uren per week × werkweken × kostprijs per uur.', 'veryo' ) ),
-						array( __( 'Een voorbeeld', 'veryo' ), __( 'Quick win van €1.000, drie uur per week, €45 per uur: ongeveer acht weken.', 'veryo' ) ),
+						array( __( 'Een voorbeeld', 'veryo' ), __( 'Reken met het aantal uren dat het scheelt maal de kostprijs per uur, en zet dat naast de offerte.', 'veryo' ) ),
 					),
 				),
 				array( __( 'Wanneer AI-automatisering niet de moeite waard is', 'veryo' ), __( 'Werk dat zelden voorkomt, processen die nog niet helder zijn, beslissingen met grote gevolgen.', 'veryo' ) ),
@@ -477,7 +477,7 @@ return array(
 					),
 				),
 				array( __( 'Waar een agent niet voor is', 'veryo' ), __( 'Beslissingen met grote gevolgen, taken die zelden voorkomen, en werk waar eerst het proces niet helder is.', 'veryo' ) ),
-				array( __( 'Wat kost een AI-agent?', 'veryo' ), __( 'Noem de bandbreedte uit de prijzen (project €2.500–7.500, maatwerk vanaf €5.000) en het verplichte onderhoud van €150–500 per maand.', 'veryo' ) ),
+				array( __( 'Wat kost een AI-agent?', 'veryo' ), __( 'Leg uit waar de kosten van afhangen, dat gebouwde agents altijd onderhoud nodig hebben, en verwijs naar de gratis offerte. Noem geen bedragen.', 'veryo' ) ),
 			),
 			array(
 				array( __( 'Neemt een agent banen over?', 'veryo' ), __( 'In het MKB gaat het om werk weghalen dat niemand graag doet.', 'veryo' ) ),

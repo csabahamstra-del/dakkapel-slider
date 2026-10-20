@@ -13,7 +13,7 @@ return array(
 	'branches/installatie'               => array(
 		'title'     => __( 'AI voor installateurs en installatiebedrijven', 'veryo' ),
 		'seo_title' => __( 'AI voor installateurs en installatiebedrijven | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor installateurs: een offerte-generator met calculatietool, digitale werkbon naar factuur en een WhatsApp-assistent voor storingen. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'AI voor installateurs: een offerte-generator met calculatietool, digitale werkbon naar factuur en een WhatsApp-assistent voor storingen. Gratis offerte.', 'veryo' ),
 		'kw'        => 'ai voor installateurs',
 		'schema'    => array(
 			'type' => 'service',
@@ -22,7 +22,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in voor installateurs en installatiebedrijven: een offerte-generator met eigen calculatietool, een digitale werkbon die automatisch een factuur wordt en een WhatsApp-assistent die storingsmeldingen opvangt. Een quick win kost €750 tot €1.500, een project €2.500 tot €7.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in voor installateurs en installatiebedrijven: een offerte-generator met eigen calculatietool, een digitale werkbon die automatisch een factuur wordt en een WhatsApp-assistent die storingsmeldingen opvangt. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Herkenbaar voor elk installatiebedrijf', 'veryo' ),
 					'p' => array(
@@ -59,7 +59,7 @@ return array(
 					array( __( 'Maakt de AI zelf de prijs?', 'veryo' ), __( 'Nee. Prijzen, uurtarieven en marges staan in de calculatietool met vaste rekenregels. AI leest de aanvraag en vult in; de calculator controleert.', 'veryo' ) ),
 					array( __( 'Hoeveel tijd scheelt een offerte-generator?', 'veryo' ), __( 'In de catalogus rekenen we met 3 tot 8 uur per week voor een team van 5 tot 20 mensen. Wat het bij jou oplevert, hangt af van het aantal offertes en hoe je nu werkt. De AI-scan maakt een schatting.', 'veryo' ) ),
 					array( __( 'Kunnen monteurs de werkbon echt inspreken?', 'veryo' ), __( 'Ja. Ze spreken in de telefoon in wat er is gedaan en maken foto’s. De AI maakt er een gestructureerde werkbon van, die de monteur nog even controleert.', 'veryo' ) ),
-					array( __( 'Is een training voor ons team ook mogelijk?', 'veryo' ), __( 'Ja. Een halve dag AI-training met voorbeelden uit de installatietechniek kost €1.200 exclusief btw.', 'veryo' ) ),
+					array( __( 'Is een training voor ons team ook mogelijk?', 'veryo' ), __( 'Ja. Vraag een gratis offerte aan.', 'veryo' ) ),
 				),
 				'cta'      => array( __( 'Installateur? Zie waar jouw uren zitten', 'veryo' ), '' ),
 				'links'    => array(
@@ -76,7 +76,7 @@ return array(
 	'branches/bouw'                      => array(
 		'title'     => __( 'AI in de bouw: voor aannemers en bouwbedrijven', 'veryo' ),
 		'seo_title' => __( 'AI in de bouw: voor aannemers en bouwbedrijven | Veryo', 'veryo' ),
-		'desc'      => __( 'AI in de bouw voor aannemers: materiaalstaat uit het bestek, nacalculatie per project en meerwerk inspreken op de bouwplaats. Vaste prijs, vanaf €750.', 'veryo' ),
+		'desc'      => __( 'AI in de bouw voor aannemers: materiaalstaat uit het bestek, nacalculatie per project en meerwerk inspreken op de bouwplaats. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai in de bouw',
 		'schema'    => array(
 			'type' => 'service',
@@ -85,7 +85,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in de bouw in voor aannemers en bouwbedrijven: een concept-materiaalstaat uit tekening of bestek, nacalculatie die begroot en werkelijk per project naast elkaar zet, en meerwerk dat op de bouwplaats wordt ingesproken. Een quick win kost €750 tot €1.500, maatwerk vanaf €5.000, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in de bouw in voor aannemers en bouwbedrijven: een concept-materiaalstaat uit tekening of bestek, nacalculatie die begroot en werkelijk per project naast elkaar zet, en meerwerk dat op de bouwplaats wordt ingesproken. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Waar een bouwbedrijf geld laat liggen', 'veryo' ),
 					'p' => array(
@@ -139,7 +139,7 @@ return array(
 	'branches/agri'                      => array(
 		'title'     => __( 'AI voor agrarische bedrijven en mechanisatie', 'veryo' ),
 		'seo_title' => __( 'AI voor agrarische bedrijven en mechanisatie | Veryo', 'veryo' ),
-		'desc'      => __( 'AI in de landbouw en mechanisatie: onderhoud en keuringen automatisch plannen, onderdelen bestellen en projectfoto’s omzetten in posts. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'AI in de landbouw en mechanisatie: onderhoud en keuringen automatisch plannen, onderdelen bestellen en projectfoto’s omzetten in posts. Gratis offerte.', 'veryo' ),
 		'kw'        => 'ai in de landbouw',
 		'schema'    => array(
 			'type' => 'service',
@@ -148,7 +148,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in de landbouw en mechanisatie in waar het kantoorwerk zit: onderhoud en keuringen van machines automatisch plannen, onderdelen en inkoop regelen, en projectfoto’s omzetten in posts. Voor loonbedrijven, mechanisatiebedrijven en machinehandel. Een quick win kost €750 tot €1.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in de landbouw en mechanisatie in waar het kantoorwerk zit: onderhoud en keuringen van machines automatisch plannen, onderdelen en inkoop regelen, en projectfoto’s omzetten in posts. Voor loonbedrijven, mechanisatiebedrijven en machinehandel. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Het seizoen wacht niet op de administratie', 'veryo' ),
 					'p' => array(
@@ -210,7 +210,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in voor makelaars: één AI-inbox waarin berichten uit WhatsApp, telefoon en webformulieren samenkomen met een conceptantwoord, bezichtigingen die automatisch worden ingepland, en woningteksten in de toon van je kantoor. Een quick win kost €750 tot €1.500, een project €2.500 tot €7.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in voor makelaars: één AI-inbox waarin berichten uit WhatsApp, telefoon en webformulieren samenkomen met een conceptantwoord, bezichtigingen die automatisch worden ingepland, en woningteksten in de toon van je kantoor. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Waar een makelaarskantoor begint', 'veryo' ), array( __( 'De meeste kantoren beginnen met de AI-inbox, omdat daar direct zichtbaar wordt hoeveel reacties er binnenkomen en hoe snel ze worden beantwoord. Daarna volgen de woningteksten en het inplannen van bezichtigingen. Een kantoor met twee of drie makelaars merkt vooral rust in de week na een nieuwe woning: de reacties zijn beantwoord, de bezichtigingen staan en niemand heeft ’s avonds nog zitten plannen.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Vijf kanalen, één makelaar', 'veryo' ),
@@ -268,7 +268,7 @@ return array(
 	'branches/zakelijke-dienstverlening' => array(
 		'title'     => __( 'AI voor accountants en adviesbureaus', 'veryo' ),
 		'seo_title' => __( 'AI voor accountants en adviesbureaus | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor accountants en adviesbureaus: gespreksverslagen met actiepunten, documenten samenvatten en een interne AI-assistent op je eigen kennis. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'AI voor accountants en adviesbureaus: gespreksverslagen met actiepunten, documenten samenvatten en een interne AI-assistent op je kennis. Gratis offerte.', 'veryo' ),
 		'kw'        => 'ai voor accountants',
 		'schema'    => array(
 			'type' => 'service',
@@ -277,7 +277,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in voor accountants, administratiekantoren en adviesbureaus: gespreksverslagen met actiepunten die automatisch in je CRM komen, documenten samenvatten als voorbereiding en een interne AI-assistent op jullie eigen kennis. Een quick win kost €750 tot €1.500, een interne assistent is maatwerk vanaf €5.000, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in voor accountants, administratiekantoren en adviesbureaus: gespreksverslagen met actiepunten die automatisch in je CRM komen, documenten samenvatten als voorbereiding en een interne AI-assistent op jullie eigen kennis. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Kenniswerk dat verzandt in typewerk', 'veryo' ),
 					'p' => array(
@@ -336,7 +336,7 @@ return array(
 	'branches/horeca-retail'             => array(
 		'title'     => __( 'AI voor horeca en retail', 'veryo' ),
 		'seo_title' => __( 'AI voor horeca en retail | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor horeca en retail: reviews verzamelen en beantwoorden, social media plannen en een AI-receptionist die de telefoon opneemt. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'AI voor horeca en retail: reviews verzamelen en beantwoorden, social media plannen en een AI-receptionist die de telefoon opneemt. Vraag een offerte aan.', 'veryo' ),
 		'kw'        => 'ai voor horeca',
 		'schema'    => array(
 			'type' => 'service',
@@ -345,7 +345,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in voor horeca en retail: reviews verzamelen en beantwoorden, social media plannen met kant-en-klare posts, en een AI-receptionist die de telefoon opneemt als het druk is. Reviews en social zijn quick wins van €750 tot €1.500; een AI-receptionist is maatwerk vanaf €5.000, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in voor horeca en retail: reviews verzamelen en beantwoorden, social media plannen met kant-en-klare posts, en een AI-receptionist die de telefoon opneemt als het druk is. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Waar je begint', 'veryo' ), array( __( 'De meeste horecazaken en winkels beginnen met reviews: het levert snel iets zichtbaars op en het kost weinig. Daarna volgt vaak de social planning, omdat het team toch al foto’s maakt. De AI-receptionist is een grotere stap, die we pas zetten als duidelijk is hoeveel gesprekken er gemist worden.', 'veryo' ), __( 'Voor winkels met een webshop is een chatbot op de website een logische volgende stap: vragen over levertijden, retouren en voorraad komen daar veel voor en zijn goed te beantwoorden uit je eigen informatie.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Gastvrij zijn kost al je aandacht', 'veryo' ),
@@ -381,7 +381,7 @@ return array(
 				'faq'      => array(
 					array( __( 'Worden reacties op reviews automatisch geplaatst?', 'veryo' ), __( 'Alleen na jouw akkoord. De reactie staat klaar, jij keurt goed. Bij kritische reviews raden we altijd aan om zelf even mee te lezen.', 'veryo' ) ),
 					array( __( 'Werkt het met ons reserveringssysteem?', 'veryo' ), __( 'Veel reserveringssystemen hebben een koppeling. Dat checken we vooraf.', 'veryo' ) ),
-					array( __( 'Wat kost een AI-receptionist voor een restaurant?', 'veryo' ), __( 'Maatwerk vanaf €5.000 exclusief btw, plus verbruikskosten per gespreksminuut. Op de pagina over de AI-receptionist lees je meer.', 'veryo' ) ),
+					array( __( 'Wat kost een AI-receptionist voor een restaurant?', 'veryo' ), __( 'Je krijgt vooraf een gratis offerte met een vaste prijs, plus een inschatting van de verbruikskosten per gespreksminuut. Op de pagina over de AI-receptionist lees je meer.', 'veryo' ) ),
 					array( __( 'Kunnen de posts in onze eigen stijl?', 'veryo' ), __( 'Ja. We beginnen met jullie toon en een paar voorbeelden, en stellen bij tot het klinkt zoals jullie praten.', 'veryo' ) ),
 				),
 				'cta'      => array( __( 'Horeca of winkel? Zie wat AI je oplevert', 'veryo' ), '' ),
@@ -398,7 +398,7 @@ return array(
 	'branches/transport'                 => array(
 		'title'     => __( 'AI voor transport en logistiek', 'veryo' ),
 		'seo_title' => __( 'AI voor transport en logistiek | Veryo', 'veryo' ),
-		'desc'      => __( 'AI in de logistiek: een planningsassistent, automatische statusberichten voor klanten en vrachtdocumenten archiveren. Vanaf €750, excl. btw.', 'veryo' ),
+		'desc'      => __( 'AI in de logistiek: een planningsassistent, automatische statusberichten voor klanten en vrachtdocumenten archiveren. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai in de logistiek',
 		'schema'    => array(
 			'type' => 'service',
@@ -407,7 +407,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in de logistiek in voor transportbedrijven: een planningsassistent die ritten voorstelt, automatische statusberichten zodat klanten niet hoeven te bellen, en vrachtdocumenten die vanzelf worden benoemd en gearchiveerd. Statusberichten zijn een quick win van €750 tot €1.500; een planningsassistent is maatwerk, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in de logistiek in voor transportbedrijven: een planningsassistent die ritten voorstelt, automatische statusberichten zodat klanten niet hoeven te bellen, en vrachtdocumenten die vanzelf worden benoemd en gearchiveerd. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Waar je begint in transport', 'veryo' ), array( __( 'Statusberichten zijn meestal de beste eerste stap: ze zijn goed af te bakenen, klanten merken het direct en het scheelt de planning telefoontjes. Daarna volgt het archiveren van documenten, omdat dat elke dag terugkomt en foutgevoelig is.', 'veryo' ), __( 'De planningsassistent is een grotere stap. Die zetten we pas op als de basisgegevens op orde zijn en de planner weet welke regels hij in zijn hoofd gebruikt. Vaak helpt het al om die regels eerst samen op papier te zetten.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Planning, bellen en papier', 'veryo' ),
@@ -469,7 +469,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet WhatsApp-werving met AI op voor werkgevers en recruitmentbureaus: kandidaten solliciteren via WhatsApp zonder cv, vacatureteksten worden geschreven in de taal van vakmensen, en elke kandidaat krijgt automatisch bericht. Solliciteren via WhatsApp is een project van €2.500 tot €7.500; opvolging een quick win vanaf €750, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet WhatsApp-werving met AI op voor werkgevers en recruitmentbureaus: kandidaten solliciteren via WhatsApp zonder cv, vacatureteksten worden geschreven in de taal van vakmensen, en elke kandidaat krijgt automatisch bericht. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Voor wie het werkt', 'veryo' ), array( __( 'WhatsApp-werving werkt het best voor functies waar kandidaten vooral op hun telefoon zitten en weinig tijd hebben voor een formulier: monteurs, chauffeurs, productiemedewerkers, horecapersoneel en schoonmakers. Voor functies waar een uitgebreide motivatie of portfolio belangrijk is, blijft een klassieke sollicitatie vaak beter.', 'veryo' ), __( 'Een voorbeeld: een uitzendbureau in het noorden met veel vacatures in productie en logistiek kan alle eerste reacties via WhatsApp laten binnenkomen. De intercedent ziet per kandidaat een korte samenvatting en belt alleen nog met wie echt past.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Kandidaten zitten op WhatsApp, niet op je sollicitatieformulier', 'veryo' ),
@@ -512,7 +512,7 @@ return array(
 					array( __( 'Is WhatsApp-werving AVG-proof?', 'veryo' ), __( 'Met de officiële WhatsApp Business API, een verwerkersovereenkomst en een duidelijke privacyverklaring kun je het zorgvuldig inrichten. We helpen je daarbij; laat de juridische teksten controleren.', 'veryo' ) ),
 					array( __( 'Werkt dit voor recruitmentbureaus én werkgevers?', 'veryo' ), __( 'Ja. Voor een bureau met veel vacatures levert het meer op, maar ook een werkgever met een paar vacatures per jaar bespaart tijd en haalt meer reacties binnen.', 'veryo' ) ),
 					array( __( 'Kan het koppelen met ons ATS?', 'veryo' ), __( 'Als je sollicitantvolgsysteem een koppeling heeft, zetten we kandidaten daar direct in.', 'veryo' ) ),
-					array( __( 'Wat kost het?', 'veryo' ), __( 'Solliciteren via WhatsApp is een project van €2.500 tot €7.500. Vacatureteksten en kandidaatopvolging zijn quick wins van €750 tot €1.500. Alles exclusief btw.', 'veryo' ) ),
+					array( __( 'Wat kost het?', 'veryo' ), __( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
 				),
 				'cta'      => array( __( 'Werven via WhatsApp? Begin met de AI-scan', 'veryo' ), '' ),
 				'links'    => array(
@@ -528,7 +528,7 @@ return array(
 	'branches/beveiliging'               => array(
 		'title'     => __( 'AI voor beveiligingsbedrijven', 'veryo' ),
 		'seo_title' => __( 'AI voor beveiligingsbedrijven: rapportages en meer | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor beveiligingsbedrijven: dienst- en incidentrapporten automatisch naar maandrapportages per opdrachtgever, plus inkoop en werving. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'AI voor beveiligingsbedrijven: dienst- en incidentrapporten automatisch naar maandrapportages per opdrachtgever, plus inkoop en werving. Gratis offerte.', 'veryo' ),
 		'kw'        => 'ai voor beveiligingsbedrijven',
 		'schema'    => array(
 			'type' => 'service',
@@ -538,7 +538,7 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in voor beveiligingsbedrijven, met AI Klantrapportage als hoofdproduct: dienst- en incidentrapporten worden automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever. Daarnaast automatiseren we inkoopfacturen en de eerste stappen van werving. Vaste oplossingen vanaf €750 per maand, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI in voor beveiligingsbedrijven, met AI Klantrapportage als hoofdproduct: dienst- en incidentrapporten worden automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever. Daarnaast automatiseren we inkoopfacturen en de eerste stappen van werving. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h'    => __( 'Waar de tijd in een beveiligingsbedrijf naartoe gaat', 'veryo' ),
 					'p'    => array(
@@ -579,7 +579,7 @@ return array(
 					array( __( 'Werkt AI Klantrapportage met ons rapportagesysteem?', 'veryo' ), __( 'Komen rapporten als mail of PDF binnen, dan altijd. Heeft je systeem een export of koppeling, dan halen we ze daar rechtstreeks uit. Dat checken we in het eerste gesprek.', 'veryo' ) ),
 					array( __( 'Kunnen de rapportages in onze eigen huisstijl?', 'veryo' ), __( 'Ja. Logo, kleuren en indeling stemmen we vooraf af, zodat elke opdrachtgever een vertrouwd overzicht krijgt.', 'veryo' ) ),
 					array( __( 'Kan AI ook helpen met roosters?', 'veryo' ), __( 'Een planningsassistent kan voorstellen doen op basis van beschikbaarheid, passen en diploma’s. Dat is maatwerk; de planner beslist altijd.', 'veryo' ) ),
-					array( __( 'Wat kost het?', 'veryo' ), __( 'Vaste oplossingen zoals AI Klantrapportage kosten vanaf €750 per maand, exclusief btw. Na een kort gesprek krijg je een vaste prijs.', 'veryo' ) ),
+					array( __( 'Wat kost het?', 'veryo' ), __( 'Na een kort gesprek krijg je een gratis offerte met een vaste prijs.', 'veryo' ) ),
 				),
 				'contact'  => array(
 					__( 'Hoeveel tijd kost rapporteren bij jullie?', 'veryo' ),

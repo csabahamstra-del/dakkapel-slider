@@ -15,7 +15,7 @@ return array(
 	'ai-automatisering/klantcontact'            => array(
 		'title'     => __( 'Klantcontact automatiseren met AI', 'veryo' ),
 		'seo_title' => __( 'Klantcontact automatiseren met AI | Veryo', 'veryo' ),
-		'desc'      => __( 'Klantvragen automatiseren met AI: mail sorteren, conceptantwoorden, WhatsApp-assistent en klantupdates in je eigen tools. Quick win vanaf €750 excl. btw.', 'veryo' ),
+		'desc'      => __( 'Klantvragen automatiseren met AI: mail sorteren, conceptantwoorden, WhatsApp-assistent en klantupdates in je eigen tools. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'klantvragen automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -24,7 +24,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo helpt MKB-bedrijven klantvragen automatiseren met AI: inkomende mail wordt gesorteerd, er staan conceptantwoorden klaar in jullie toon, en een WhatsApp-assistent beantwoordt vragen buiten kantoortijd. Een quick win zoals mailsortering kost €750 tot €1.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo helpt MKB-bedrijven klantvragen automatiseren met AI: inkomende mail wordt gesorteerd, er staan conceptantwoorden klaar in jullie toon, en een WhatsApp-assistent beantwoordt vragen buiten kantoortijd. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Te veel vragen, te weinig handen', 'veryo' ),
 					'p' => array(
@@ -79,7 +79,7 @@ return array(
 	'ai-automatisering/offertes-en-calculaties' => array(
 		'title'     => __( 'Offertes en calculaties automatiseren met AI', 'veryo' ),
 		'seo_title' => __( 'Offertes en calculaties automatiseren met AI | Veryo', 'veryo' ),
-		'desc'      => __( 'Offertes automatiseren met AI: van aanvraag of foto naar conceptofferte, automatische opvolging en een eigen calculatietool. Vanaf €750 excl. btw.', 'veryo' ),
+		'desc'      => __( 'Offertes automatiseren met AI: van aanvraag of foto naar conceptofferte, automatische opvolging en een eigen calculatietool. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'offertes automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -88,7 +88,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo helpt je offertes automatiseren: een aanvraag, notities of foto worden een conceptofferte met jullie prijzen, openstaande offertes worden vanzelf opgevolgd en calculaties komen in één eigen tool. Offerte-opvolging kost €750 tot €1.500, een offerte-generator €2.500 tot €7.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo helpt je offertes automatiseren: een aanvraag, notities of foto worden een conceptofferte met jullie prijzen, openstaande offertes worden vanzelf opgevolgd en calculaties komen in één eigen tool. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Offertes die blijven liggen', 'veryo' ),
 					'p' => array(
@@ -137,7 +137,7 @@ return array(
 	'ai-automatisering/administratie'           => array(
 		'title'     => __( 'Administratie en facturen automatiseren', 'veryo' ),
 		'seo_title' => __( 'Administratie en facturen automatiseren | Veryo', 'veryo' ),
-		'desc'      => __( 'Administratie automatiseren: inkoopfacturen, bonnetjes, werkbon naar factuur en debiteuren, gekoppeld aan Exact, Moneybird of SnelStart. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'Administratie automatiseren: inkoopfacturen, bonnetjes, werkbon naar factuur en debiteuren, gekoppeld aan Exact, Moneybird of SnelStart. Gratis offerte.', 'veryo' ),
 		'kw'        => 'administratie automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -146,7 +146,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo helpt MKB-bedrijven hun administratie automatiseren: inkoopfacturen en bonnetjes worden automatisch verwerkt, afgeronde werkbonnen worden facturen en debiteuren krijgen vanzelf een herinnering. We koppelen aan je bestaande boekhoudpakket. Een quick win kost €750 tot €1.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo helpt MKB-bedrijven hun administratie automatiseren: inkoopfacturen en bonnetjes worden automatisch verwerkt, afgeronde werkbonnen worden facturen en debiteuren krijgen vanzelf een herinnering. We koppelen aan je bestaande boekhoudpakket. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'De administratie die ’s avonds wordt gedaan', 'veryo' ),
 					'p' => array(
@@ -184,7 +184,7 @@ return array(
 					array( __( 'Vervangt dit mijn boekhouder?', 'veryo' ), __( 'Nee. Het haalt het invoerwerk weg, zodat je boekhouder zich kan richten op controle en advies.', 'veryo' ) ),
 					array( __( 'Hoe betrouwbaar is het uitlezen van facturen?', 'veryo' ), __( 'Bij nette pdf-facturen is het uitlezen betrouwbaar; bij foto’s van verfrommelde bonnetjes minder. Daarom blijft alles een concept tot iemand het goedkeurt, en markeren we twijfelgevallen.', 'veryo' ) ),
 					array( __( 'Is het veilig om facturen door AI te laten lezen?', 'veryo' ), __( 'We gebruiken zakelijke API’s waarbij je gegevens niet worden gebruikt om modellen te trainen, en sluiten een verwerkersovereenkomst als er persoonsgegevens in zitten.', 'veryo' ) ),
-					array( __( 'Wat kost administratie automatiseren?', 'veryo' ), __( 'Het automatisch verwerken van inkoopfacturen is meestal een quick win van €750 tot €1.500. Een koppeling van werkbon naar factuur is een project van €2.500 tot €7.500. Alles exclusief btw.', 'veryo' ) ),
+					array( __( 'Wat kost administratie automatiseren?', 'veryo' ), __( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
 				),
 				'links'    => array(
 					array( 'ai-automatisering/werkprocessen', __( 'Werkprocessen automatiseren', 'veryo' ), __( 'Digitale werkbon en planning', 'veryo' ) ),
@@ -199,7 +199,7 @@ return array(
 	'ai-automatisering/werkprocessen'           => array(
 		'title'     => __( 'Planning, werkbonnen en inkoop automatiseren', 'veryo' ),
 		'seo_title' => __( 'Planning, werkbonnen en inkoop automatiseren | Veryo', 'veryo' ),
-		'desc'      => __( 'Werkprocessen automatiseren met AI: planning als voorstel, digitale werkbon, opleverrapport, inkoop en onderhoudsplanning. Voor het MKB, vanaf €750.', 'veryo' ),
+		'desc'      => __( 'Werkprocessen automatiseren met AI: planning als voorstel, digitale werkbon, opleverrapport, inkoop en onderhoudsplanning. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'werkprocessen automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -208,7 +208,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo helpt technische MKB-bedrijven werkprocessen automatiseren: een weekplanning als voorstel, een werkbon die je inspreekt, opleverrapporten uit foto’s, bestellingen uit een materiaallijst en onderhoud dat vanzelf wordt ingepland. Een quick win kost €750 tot €1.500, een project €2.500 tot €7.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo helpt technische MKB-bedrijven werkprocessen automatiseren: een weekplanning als voorstel, een werkbon die je inspreekt, opleverrapporten uit foto’s, bestellingen uit een materiaallijst en onderhoud dat vanzelf wordt ingepland. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Het werk loopt, de papierwinkel eromheen niet', 'veryo' ),
 					'p' => array(
@@ -261,7 +261,7 @@ return array(
 	'ai-automatisering/marketing'               => array(
 		'title'     => __( 'AI-marketing voor het MKB', 'veryo' ),
 		'seo_title' => __( 'AI-marketing voor het MKB: SEO, content en social | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-marketing voor het MKB: SEO-blogs, lokale pagina’s, social posts, reviews en e-mailflows, altijd met menselijke check. Quick wins vanaf €750 excl. btw.', 'veryo' ),
+		'desc'      => __( 'AI-marketing voor het MKB: SEO-blogs, lokale pagina’s, social posts, reviews en e-mailflows, altijd met menselijke check. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai marketing mkb',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -270,7 +270,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo zet AI-marketing voor het MKB in: van zoekwoordenplanning en SEO-blogs tot social posts, reviews en e-mailflows. AI maakt de concepten, een mens controleert alles voordat het online gaat. Een quick win zoals social captions of reviewverzoeken kost €750 tot €1.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo zet AI-marketing voor het MKB in: van zoekwoordenplanning en SEO-blogs tot social posts, reviews en e-mailflows. AI maakt de concepten, een mens controleert alles voordat het online gaat. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
 					'h' => __( 'Marketing die er altijd bij moet', 'veryo' ),
 					'p' => array(
@@ -303,7 +303,7 @@ return array(
 					array( __( 'Straft Google AI-teksten af?', 'veryo' ), __( 'Google kijkt naar kwaliteit en nut voor de lezer, niet naar hoe een tekst is gemaakt. Een AI-concept dat door een vakman is aangevuld en gecontroleerd, kan dus prima werken. Massaal ongecontroleerde teksten plaatsen raden we af.', 'veryo' ) ),
 					array( __( 'Kunnen jullie ook advertenties beheren?', 'veryo' ), __( 'We maken advertentievarianten en een wekelijkse samenvatting van de resultaten. Het budget en de keuzes blijven bij jou of je marketingbureau.', 'veryo' ) ),
 					array( __( 'Hoe krijg ik meer Google-reviews?', 'veryo' ), __( 'Door het vragen makkelijk en vast onderdeel van je werk te maken. Na elke klus gaat er automatisch een vriendelijk reviewverzoek uit. Reviews kopen of neppen doen we niet.', 'veryo' ) ),
-					array( __( 'Wat kost AI-marketing?', 'veryo' ), __( 'Losse flows, zoals reviewverzoeken of social captions, zijn quick wins van €750 tot €1.500. Een contentmachine met blogs, lokale pagina’s en hergebruik is een project van €2.500 tot €7.500. Alles exclusief btw.', 'veryo' ) ),
+					array( __( 'Wat kost AI-marketing?', 'veryo' ), __( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
 				),
 				'links'    => array(
 					array( 'branches/horeca-retail', __( 'AI voor horeca en retail', 'veryo' ), __( 'Reviews en social', 'veryo' ) ),
@@ -318,7 +318,7 @@ return array(
 	'ai-automatisering/hr-en-werving'           => array(
 		'title'     => __( 'Werving en HR automatiseren met AI', 'veryo' ),
 		'seo_title' => __( 'Werving en HR automatiseren met AI | Veryo', 'veryo' ),
-		'desc'      => __( 'Werving automatiseren met AI: vacatures in de taal van vakmensen, solliciteren via WhatsApp, voorselectie en opvolging van kandidaten. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'Werving automatiseren met AI: vacatures in de taal van vakmensen, solliciteren via WhatsApp, voorselectie en opvolging van kandidaten. Gratis offerte.', 'veryo' ),
 		'kw'        => 'werving automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -327,7 +327,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo helpt MKB-bedrijven werving automatiseren: vacatures in de taal van vakmensen, solliciteren via WhatsApp zonder cv, een shortlist op harde eisen en automatische opvolging van kandidaten. De mens beslist. Een quick win zoals kandidaatopvolging kost €750 tot €1.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo helpt MKB-bedrijven werving automatiseren: vacatures in de taal van vakmensen, solliciteren via WhatsApp zonder cv, een shortlist op harde eisen en automatische opvolging van kandidaten. De mens beslist. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Wat je vooraf regelt', 'veryo' ), array( __( 'Werving automatiseren begint niet bij de techniek maar bij drie afspraken. Welke eisen zijn echt hard, zoals een rijbewijs of een VCA-diploma? Wie voert de gesprekken en wanneer is die persoon beschikbaar? En hoe snel krijgt een kandidaat antwoord? Als die drie dingen vastliggen, is de automatisering een kwestie van inrichten.', 'veryo' ), __( 'Ook HR na de werving levert tijd op. Verlof en verzuim melden via WhatsApp of een formulier, certificaten die op tijd een herinnering geven en een onboarding die vanzelf klaarstaat: het zijn kleine flows die samen elke maand uren schelen.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Vakmensen vinden is lastig genoeg', 'veryo' ),
@@ -380,7 +380,7 @@ return array(
 	'ai-automatisering/kennis-en-documenten'    => array(
 		'title'     => __( 'Interne AI-assistent en documenten', 'veryo' ),
 		'seo_title' => __( 'Interne AI-assistent en documenten | Veryo', 'veryo' ),
-		'desc'      => __( 'Een interne kennisbank met AI: een assistent op je eigen documenten en procedures, werkinstructies uit video en documenten samenvatten. Vanaf €750.', 'veryo' ),
+		'desc'      => __( 'Een interne kennisbank met AI: een assistent op je eigen documenten en procedures, en werkinstructies uit video en documenten. Vraag een offerte aan.', 'veryo' ),
 		'kw'        => 'interne kennisbank ai',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -389,7 +389,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo bouwt een interne kennisbank met AI: een assistent die vragen van collega’s beantwoordt uit jullie eigen documenten, handleidingen en procedures, met verwijzing naar de bron. Ook maken we werkinstructies uit video en vatten we documenten samen. Een interne assistent is maatwerk vanaf €5.000; losse flows vanaf €750, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo bouwt een interne kennisbank met AI: een assistent die vragen van collega’s beantwoordt uit jullie eigen documenten, handleidingen en procedures, met verwijzing naar de bron. Ook maken we werkinstructies uit video en vatten we documenten samen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Waar een kennisbank het meest oplevert', 'veryo' ), array( __( 'De winst zit vooral bij vragen die vaak terugkomen en waarvan het antwoord ergens op papier staat: hoe werkt dit toestel, welke procedure geldt hier, wat hebben we met deze klant afgesproken. Hoe meer collega’s dezelfde vragen stellen, hoe meer tijd een interne assistent bespaart.', 'veryo' ), __( 'Een voorbeeld: een installatiebedrijf met drie nieuwe monteurs per jaar kan de inwerkperiode verkorten door werkinstructies uit korte video’s te laten maken en ze doorzoekbaar te zetten. De ervaren collega’s worden minder vaak gebeld en de nieuwe mensen durven eerder zelf aan de slag.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Kennis die in één hoofd zit', 'veryo' ),
@@ -442,7 +442,7 @@ return array(
 	'ai-automatisering/rapportages'             => array(
 		'title'     => __( 'Rapportages en dashboards automatiseren', 'veryo' ),
 		'seo_title' => __( 'Rapportages en dashboards automatiseren | Veryo', 'veryo' ),
-		'desc'      => __( 'Rapportages automatiseren met AI: een ondernemersdashboard, elke maandag je cijfers in gewone taal en Excel zonder gedoe. Quick win vanaf €750 excl. btw.', 'veryo' ),
+		'desc'      => __( 'Rapportages automatiseren met AI: een ondernemersdashboard, elke maandag je cijfers in gewone taal en Excel zonder gedoe. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'rapportages automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -451,7 +451,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'approach' => true,
-				'answer'   => __( 'Veryo helpt MKB-bedrijven rapportages automatiseren: omzet, offertes, debiteuren, planning en leads in één dashboard, en elke maandag een kort bericht met je belangrijkste cijfers in gewone taal. Een maandagbericht kost €750 tot €1.500, een dashboard €2.500 tot €7.500, exclusief btw.', 'veryo' ),
+				'answer'   => __( 'Veryo helpt MKB-bedrijven rapportages automatiseren: omzet, offertes, debiteuren, planning en leads in één dashboard, en elke maandag een kort bericht met je belangrijkste cijfers in gewone taal. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'    => array( __( 'Welke cijfers het meest opleveren', 'veryo' ), array( __( 'De meeste ondernemers hebben genoeg aan drie tot vijf cijfers: openstaande offertes en hun waarde, facturen die te lang openstaan, de bezetting van de planning voor de komende weken en het aantal nieuwe aanvragen. Wie die elke week ziet, stuurt eerder bij.', 'veryo' ), __( 'Een voorbeeld: een technisch bedrijf met vijftien mensen kan elke maandagochtend een bericht in Teams krijgen met die vier cijfers en twee zinnen uitleg. Het kost niemand tijd om te maken en het gesprek in het weekoverleg gaat meteen over wat er moet gebeuren.', 'veryo' ), __( 'Voor wie dieper wil kijken, is rendement per project of klanttype de volgende stap. Dan zie je welke klussen goed verdienen en welke structureel tegenvallen.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Cijfers bij elkaar zoeken', 'veryo' ),

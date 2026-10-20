@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Prijsladder
+ * Title: Van scan tot partner
  * Slug: veryo/prijsladder
  * Categories: veryo
  * Description: Alle stappen van gratis scan tot partner-abonnement.

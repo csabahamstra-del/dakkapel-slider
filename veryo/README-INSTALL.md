@@ -228,7 +228,6 @@ Het sjabloon heet **Landingspagina (zonder menu)** (`templates/landing.php`) en 
 
 - **Vrije plekken** per oplossing (0, 1 of 2). De teller op /founding-partner leest deze waarden; werk ze met de hand bij.
 - **WhatsApp-test live**: standaard uit. Uit = een voorbeeld van de chat met "Binnenkort zelf te testen". Aan = het testformulier op /lead-opvolging. Je kunt dit ook vastzetten met `define( 'VERYO_WHATSAPP_LIVE', true );` in `wp-config.php`.
-- **Setup-prijs klantrapportage**: zolang dit leeg is, staat er geen setup-regel bij de prijs.
 - **Webhook formulieren**: laat leeg om de standaard te gebruiken.
 
 **Formulieren.** De drie formulieren gaan server-side als JSON naar Make, via de constante `VERYO_FORMS_WEBHOOK_URL` (in `wp-config.php` te overschrijven) of de instelling hierboven. De URL komt nooit in de browser.
@@ -242,7 +241,17 @@ Het sjabloon heet **Landingspagina (zonder menu)** (`templates/landing.php`) en 
 
 **Knoppen "Plan een gesprek"** gaan naar Calendly (`VERYO_LP_CALENDLY_URL`, standaard https://calendly.com/wearecue-info/kennismaking-veryo).
 
-**Nog aan te leveren:** de setup-prijs voor klantrapportage, een echt geanonimiseerd voor/na-rapport (nu een illustratie), een schermopname van de WhatsApp-flow (nu een voorbeeld-chat) en het Make-scenario voor de formulieren.
+**Nog aan te leveren:** een echt geanonimiseerd voor/na-rapport (nu een illustratie), een schermopname van de WhatsApp-flow (nu een voorbeeld-chat) en het Make-scenario voor de formulieren.
+
+### Geen prijzen op de site (vanaf 1.8.0)
+
+Op de website staan geen bedragen meer. Overal waar een prijs stond, staat nu "Vraag een gratis offerte aan" of "Gratis offerte", met een link naar het offerteformulier op `/prijzen/#offerte`. De pagina /prijzen/ heet nu **Gratis offerte aanvragen** (het adres blijft hetzelfde, zodat oude links blijven werken) en het menu-item heet **Gratis offerte**.
+
+- Ook het schema (Google) en `/llms.txt` bevatten geen prijzen meer.
+- Het AI-scanrapport en de rapportmail noemen geen pakketprijs meer, wel de geschatte tijdwinst in uren en euro’s (dat is de besparing van de klant, geen prijs van Veryo). Hetzelfde geldt voor de "Waarde" in de rekenhulp van Veryo Collega.
+- De Make-webhook van de AI-scan stuurt `pakket` en `terugverdientijd_weken` nog wel mee; die zie je alleen intern.
+- **Bij de update:** de eerste keer dat een beheerder wp-admin opent, worden alle pagina's die niemand zelf heeft aangepast bijgewerkt (de oude versie blijft als revisie bewaard). Pagina's die je zelf hebt aangepast, blijven staan. Staat daar nog een bedrag in, dan zie je op het dashboard een melding met links naar die pagina's.
+- De bedragen staan nog in de code (`inc/quiz/catalog.php`, `inc/collega-config.php`), maar worden nergens meer getoond.
 
 ## 10. Beweging en interactie
 

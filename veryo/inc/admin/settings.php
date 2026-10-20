@@ -78,7 +78,6 @@ function veryo_settings_fields() {
 				'fp_klantrapportage' => array( 'number', __( 'Founding Partner: vrije plekken AI Klantrapportage', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
 				'fp_collega'         => array( 'number', __( 'Founding Partner: vrije plekken Veryo Collega', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
 				'whatsapp_live'      => array( 'checkbox', __( 'WhatsApp-test op /lead-opvolging live', 'veryo' ), __( 'Pas aanzetten als de WhatsApp-AI draait. Uit = een voorbeeld met "Binnenkort zelf te testen". De constante VERYO_WHATSAPP_LIVE in wp-config.php heeft voorrang.', 'veryo' ) ),
-				'kr_setup_price'     => array( 'text', __( 'AI Klantrapportage: prijs eenmalige inrichting', 'veryo' ), __( 'Bijvoorbeeld "€1.500". Leeg = de regel staat niet op de pagina.', 'veryo' ) ),
 				'forms_webhook'      => array( 'url', __( 'Webhook landingsformulieren (Make)', 'veryo' ), __( 'Leeg laten = de URL uit de constante VERYO_FORMS_WEBHOOK_URL.', 'veryo' ) ),
 			),
 		),

@@ -139,8 +139,8 @@ function veryo_mail_report( $lead_id ) {
 		$body .= '<p style="margin:0 0 8px"><strong>' . esc_html__( 'Waarom:', 'veryo' ) . '</strong> ' . esc_html( $rec['waarom'] ) . '</p>';
 		$body .= '<p style="margin:0 0 8px"><strong>' . esc_html__( 'Hoe het werkt:', 'veryo' ) . '</strong> ' . esc_html( $rec['hoe'] ) . '</p>';
 		$body .= '<p style="margin:0 0 8px"><strong>' . esc_html__( 'Eerste stap:', 'veryo' ) . '</strong> ' . esc_html( $rec['eerste_stap'] ) . '</p>';
-		/* translators: 1: niveau, 2: prijs, 3: tijdwinst. */
-		$body .= '<p style="margin:0;font-size:13px;color:#55635F">' . esc_html( sprintf( __( '%1$s · %2$s excl. btw · indicatie tijdwinst %3$s', 'veryo' ), $rec['niveau'], $rec['prijs'], $rec['tijd'] ) ) . '</p>';
+		/* translators: 1: niveau, 2: tijdwinst. */
+		$body .= '<p style="margin:0;font-size:13px;color:#55635F">' . esc_html( sprintf( __( '%1$s · indicatie tijdwinst %2$s', 'veryo' ), $rec['niveau'], $rec['tijd'] ) ) . '</p>';
 		$body .= '</td></tr></table></td></tr>';
 	}
 
@@ -148,13 +148,11 @@ function veryo_mail_report( $lead_id ) {
 	$body .= '<tr><td style="padding:24px 32px 0"><h2 style="' . $h2 . '">' . esc_html__( 'Hier kun je zelf mee beginnen', 'veryo' ) . '</h2><p style="' . $p . '">' . esc_html( $report['zelf_beginnen'] ) . '</p>';
 	$body .= '<p style="' . $p . '">' . esc_html( $report['afsluiting'] ) . '</p></td></tr>';
 	// Je volgende stap: het AI-Startpakket.
-	$team  = isset( $lead['answers']['team'] ) ? (string) $lead['answers']['team'] : '';
 	$body .= '<tr><td style="padding:16px 32px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#DDE8E4;border-radius:10px"><tr><td style="padding:20px 24px">';
 	$body .= '<h2 style="' . $h2 . '">' . esc_html__( 'Je volgende stap: het AI-Startpakket', 'veryo' ) . '</h2>';
 	$body .= '<p style="margin:0 0 8px">' . esc_html__( 'Wil je AI in één keer goed neerzetten? Het Veryo AI-Startpakket bevat:', 'veryo' ) . ' ' . esc_html( veryo_startpakket_parts_sentence() ) . '.</p>';
-	/* translators: %s: prijsindicatie voor de teamgrootte. */
-	$body .= '<p style="margin:0 0 8px">' . esc_html( sprintf( __( 'Voor jullie teamgrootte: %s, exclusief btw.', 'veryo' ), veryo_startpakket_price_for_team( $team ) ) ) . '</p>';
-	$body .= '<p style="margin:0"><a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '" style="color:#1D4B44;font-weight:600">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p>';
+	$body .= '<p style="margin:0 0 8px">' . esc_html__( 'Je krijgt een gratis offerte op maat van jullie team, met vooraf een vaste prijs.', 'veryo' ) . '</p>';
+	$body .= '<p style="margin:0"><a href="' . esc_url( veryo_offerte_url() ) . '" style="color:#1D4B44;font-weight:600">' . esc_html( veryo_offerte_label() ) . '</a> · <a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '" style="color:#1D4B44;font-weight:600">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p>';
 	$body .= '</td></tr></table></td></tr>';
 
 	$body .= '<tr><td style="padding:24px 32px 8px"><h2 style="' . $h2 . '">' . esc_html__( 'Volgende stap', 'veryo' ) . '</h2>';
@@ -209,8 +207,8 @@ function veryo_mail_report_text( $lead, $hours, $phone, $calendly ) {
 		$lines[] = __( 'Waarom:', 'veryo' ) . ' ' . $rec['waarom'];
 		$lines[] = __( 'Hoe het werkt:', 'veryo' ) . ' ' . $rec['hoe'];
 		$lines[] = __( 'Eerste stap:', 'veryo' ) . ' ' . $rec['eerste_stap'];
-		/* translators: 1: niveau, 2: prijs, 3: tijdwinst. */
-		$lines[] = sprintf( __( '%1$s · %2$s excl. btw · indicatie tijdwinst %3$s', 'veryo' ), $rec['niveau'], $rec['prijs'], $rec['tijd'] );
+		/* translators: 1: niveau, 2: tijdwinst. */
+		$lines[] = sprintf( __( '%1$s · indicatie tijdwinst %2$s', 'veryo' ), $rec['niveau'], $rec['tijd'] );
 	}
 	$lines[] = '';
 	$lines[] = strtoupper( __( 'Hier kun je zelf mee beginnen', 'veryo' ) );
@@ -220,8 +218,7 @@ function veryo_mail_report_text( $lead, $hours, $phone, $calendly ) {
 	$lines[] = '';
 	$lines[] = strtoupper( __( 'Je volgende stap: het AI-Startpakket', 'veryo' ) );
 	$lines[] = __( 'Wil je AI in één keer goed neerzetten? Het Veryo AI-Startpakket bevat:', 'veryo' ) . ' ' . veryo_startpakket_parts_sentence() . '.';
-	/* translators: %s: prijsindicatie voor de teamgrootte. */
-	$lines[] = sprintf( __( 'Voor jullie teamgrootte: %s, exclusief btw.', 'veryo' ), veryo_startpakket_price_for_team( isset( $lead['answers']['team'] ) ? (string) $lead['answers']['team'] : '' ) );
+	$lines[] = __( 'Je krijgt een gratis offerte op maat van jullie team, met vooraf een vaste prijs:', 'veryo' ) . ' ' . veryo_offerte_url();
 	$lines[] = __( 'Meer over het AI-Startpakket:', 'veryo' ) . ' ' . veryo_url( 'ai-startpakket' );
 	$lines[] = '';
 	if ( $calendly ) {

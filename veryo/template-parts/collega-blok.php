@@ -47,8 +47,7 @@ if ( 'regio' === $veryo_variant && $veryo_region ) {
 		<ul class="veryo-collega-blok__points">
 			<li><?php esc_html_e( 'Kent je documenten, mail en systemen', 'veryo' ); ?></li>
 			<li><?php esc_html_e( 'Werkt zelfs zonder internet', 'veryo' ); ?></li>
-			<?php /* translators: %s: maandprijs. */ ?>
-			<li><?php echo esc_html( sprintf( __( 'Vanaf %s per maand, exclusief btw', 'veryo' ), veryo_collega_euro( reset( $veryo_cc['pakketten'] )['prijs'] ) ) ); ?></li>
+			<li><?php esc_html_e( 'Gratis offerte op maat', 'veryo' ); ?></li>
 		</ul>
 		<div class="veryo-cta-buttons">
 			<a class="btn btn--amber" href="<?php echo esc_url( veryo_collega_url( 'demo' ) ); ?>"><?php echo esc_html( $veryo_cc['cta_primair'] ); ?></a>

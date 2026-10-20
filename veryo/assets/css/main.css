@@ -1325,8 +1325,7 @@ html.lenis, html.lenis body { height: auto; }
 	.veryo-lp-table tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
 	.veryo-lp-table tbody tr:last-child { border-bottom: 0; }
 	.veryo-lp-table td { border: 0; padding: 4px 20px; }
-	.veryo-lp-table td:nth-child(2)::before { content: "Normaal"; }
-	.veryo-lp-table td:nth-child(3)::before { content: "Als Founding Partner"; }
+	.veryo-lp-table td:nth-child(2)::before { content: "Als Founding Partner"; }
 	.veryo-lp-table td:nth-child(n+2)::before { display: block; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; }
 }
 

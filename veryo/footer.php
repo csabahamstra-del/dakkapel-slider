@@ -48,7 +48,6 @@ $veryo_company = veryo_company();
 			<?php if ( $veryo_company['btw'] ) : ?>
 				<span class="sep" aria-hidden="true">·</span> <?php echo esc_html( sprintf( /* translators: %s: btw-nummer. */ __( 'Btw %s', 'veryo' ), $veryo_company['btw'] ) ); ?>
 			<?php endif; ?>
-			<span class="sep" aria-hidden="true">·</span> <?php esc_html_e( 'Alle prijzen exclusief btw.', 'veryo' ); ?>
 		</p>
 	</div>
 </footer>

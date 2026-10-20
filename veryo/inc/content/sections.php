@@ -169,11 +169,10 @@ function veryo_sec_catalog( $ids, $title, $intro = '', $level = 2 ) {
 			continue;
 		}
 		$meta = sprintf(
-			/* translators: 1: tijdwinst, 2: niveau, 3: prijs. */
-			__( 'Indicatie: %1$s · %2$s (%3$s)', 'veryo' ),
+			/* translators: 1: tijdwinst, 2: niveau. */
+			__( 'Indicatie: %1$s · %2$s', 'veryo' ),
 			$item['tijdwinst_tekst'],
-			$levels[ $item['niveau'] ]['label'],
-			$levels[ $item['niveau'] ]['price']
+			$levels[ $item['niveau'] ]['label']
 		);
 		$items[] = '<strong>' . esc_html( $item['naam'] ) . '</strong><br>' . esc_html( $item['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $meta ) . '</span>';
 	}
@@ -219,7 +218,7 @@ function veryo_sec_steps( $title = '', $intro = '' ) {
 }
 
 /**
- * Prijsindicatie met enkele treden van de ladder en link naar /prijzen/.
+ * "Wat kost het?": geen bedragen, wel de onderdelen en een knop naar de gratis offerte.
  *
  * @param string[] $steps Sleutels uit veryo_price_ladder().
  * @param string   $title Kop.
@@ -233,27 +232,23 @@ function veryo_sec_price( $steps, $title = '', $intro = '' ) {
 		if ( ! isset( $ladder[ $n ] ) ) {
 			continue;
 		}
-		$items[] = '<strong>' . esc_html( $ladder[ $n ]['dienst'] ) . '</strong>: ' . esc_html( $ladder[ $n ]['prijs'] );
+		$items[] = '<strong>' . esc_html( $ladder[ $n ]['dienst'] ) . '</strong>: ' . esc_html( $ladder[ $n ]['wat'] );
 	}
 	$title = $title ? $title : __( 'Wat kost het?', 'veryo' );
 	$out   = veryo_b_h( $title );
+	$out  .= veryo_b_p( __( 'Dat hangt af van je team, je software en wat je wilt aanpakken. Daarom krijg je een gratis offerte op maat, met vooraf een vaste prijs en zonder verplichtingen.', 'veryo' ) );
 	if ( $intro ) {
 		$out .= veryo_b_p( $intro );
 	}
-	$out .= veryo_b_list( $items, array( 'className' => 'is-style-prices' ) );
-	$out .= veryo_b_p(
-		sprintf(
-			/* translators: %s: link naar prijzen. */
-			__( 'Alle bedragen zijn exclusief btw en een indicatie. Je krijgt vooraf altijd een vaste prijs. <a href="%s">Bekijk alle prijzen</a>.', 'veryo' ),
-			esc_url( veryo_link( 'prijzen' ) )
-		),
-		array( 'className' => 'veryo-small' )
-	);
+	if ( $items ) {
+		$out .= veryo_b_list( $items, array( 'className' => 'is-style-checks' ) );
+	}
+	$out .= veryo_b_buttons( array( array( veryo_offerte_label(), veryo_offerte_url() ) ) );
 	return veryo_b_group( $out, array( 'className' => 'is-style-soft veryo-price' ) );
 }
 
 /**
- * Prijzen als rustige tabel (homepage): dienst, wat het is en de prijs.
+ * Overzicht als rustige tabel (homepage): dienst, wat het is en een link naar de offerte.
  * Alleen het AI-Startpakket krijgt het amber accent.
  *
  * @param string[] $keys Sleutels uit veryo_price_ladder().
@@ -267,7 +262,7 @@ function veryo_sec_price_table( $keys ) {
 			continue;
 		}
 		$row     = $ladder[ $key ];
-		$text    = '<span class="t">' . esc_html( $row['dienst'] ) . '</span> <span class="d">' . esc_html( $row['wat'] ) . '</span> <span class="p">' . esc_html( $row['prijs'] ) . '</span>';
+		$text    = '<span class="t">' . esc_html( $row['dienst'] ) . '</span> <span class="d">' . esc_html( $row['wat'] ) . '</span> <span class="p">' . veryo_price_cell( $key ) . '</span>';
 		$items[] = 'startpakket' === $key ? array(
 			'class' => 'is-featured',
 			'text'  => $text,
@@ -277,29 +272,37 @@ function veryo_sec_price_table( $keys ) {
 }
 
 /**
+ * Laatste kolom van een overzichtstabel: "Gratis" voor de AI-scan, anders een link naar de offerte.
+ *
+ * @param string $key Sleutel uit veryo_price_ladder().
+ * @return string HTML.
+ */
+function veryo_price_cell( $key = '' ) {
+	if ( 'scan' === $key ) {
+		return esc_html__( 'Gratis', 'veryo' );
+	}
+	return '<a href="' . esc_url( veryo_offerte_url() ) . '">' . esc_html__( 'Gratis offerte', 'veryo' ) . '</a>';
+}
+
+/**
  * De volledige prijsladder (§7): scan, startpakket, invoering, partner. Plus losse onderdelen.
  * Het AI-Startpakket is de enige trede met een amber accent.
  *
  * @return string
  */
 function veryo_sec_ladder() {
-	$l   = veryo_price_ladder();
-	$tag = static function ( $row ) {
-		return '<strong>' . esc_html( $row['dienst'] ) . '</strong> <span class="veryo-price-tag">' . esc_html( $row['prijs'] ) . '</span>';
+	$l     = veryo_price_ladder();
+	$tag   = static function ( $row ) {
+		return '<strong>' . esc_html( $row['dienst'] ) . '</strong>';
 	};
-	$sp  = array();
-	foreach ( veryo_startpakket_prices() as $p ) {
-		$sp[] = esc_html( $p['label'] ) . ': <strong>' . esc_html( veryo_euro( $p['price'] ) ) . '</strong>';
-	}
 	$items = array(
-		$tag( $l['scan'] ) . '<br>' . esc_html( $l['scan']['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $l['scan']['voor'] ) . '</span>',
+		$tag( $l['scan'] ) . ' <span class="veryo-price-tag">' . esc_html( $l['scan']['prijs'] ) . '</span><br>' . esc_html( $l['scan']['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $l['scan']['voor'] ) . '</span>',
 		array(
 			'class' => 'is-featured',
-			'text'  => '<span class="veryo-flag">' . esc_html__( 'Aanbevolen start', 'veryo' ) . '</span><br><strong>' . esc_html( $l['startpakket']['dienst'] ) . '</strong><br>' . esc_html( $l['startpakket']['wat'] ) . '<br>' . implode( ' · ', $sp ) . '<br><span class="veryo-meta">' . esc_html( $l['startpakket']['voor'] ) . ' <a href="' . esc_url( veryo_link( 'ai-startpakket' ) ) . '">' . esc_html__( 'Alles over het AI-Startpakket', 'veryo' ) . '</a></span>',
+			'text'  => '<span class="veryo-flag">' . esc_html__( 'Aanbevolen start', 'veryo' ) . '</span><br><strong>' . esc_html( $l['startpakket']['dienst'] ) . '</strong><br>' . esc_html( $l['startpakket']['wat'] ) . '<br><span class="veryo-meta">' . esc_html( $l['startpakket']['voor'] ) . ' <a href="' . esc_url( veryo_link( 'ai-startpakket' ) ) . '">' . esc_html__( 'Alles over het AI-Startpakket', 'veryo' ) . '</a></span>',
 		),
-		'<strong>' . esc_html__( 'Invoering en koppelingen', 'veryo' ) . '</strong><br>' . esc_html__( 'De beste kansen uit de kansensessie invoeren: eerst met software die je al hebt of kunt nemen, alleen waar nodig met een eigen koppeling of maatwerk.', 'veryo' ) . '<br>'
-			. esc_html__( 'Quick win', 'veryo' ) . ': <strong>' . esc_html( $l['quickwin']['prijs'] ) . '</strong> · ' . esc_html__( 'Project', 'veryo' ) . ': <strong>' . esc_html( $l['project']['prijs'] ) . '</strong> · ' . esc_html__( 'Maatwerk', 'veryo' ) . ': <strong>' . esc_html( $l['maatwerk']['prijs'] ) . '</strong>',
-		'<strong>' . esc_html__( 'Doorlopend: abonnement of AI-partner', 'veryo' ) . '</strong><br>' . esc_html__( 'Bij elk pakket hoort één passend abonnement, vanaf €149 per maand. Heb je er meerdere nodig, dan is AI-partner voordeliger:', 'veryo' ) . ' <strong>' . esc_html( $l['partner']['prijs'] ) . '</strong>.<br><span class="veryo-meta">' . esc_html( $l['partner']['voor'] ) . ' ' . esc_html__( 'Onderhoud van gebouwde koppelingen:', 'veryo' ) . ' ' . esc_html( $l['onderhoud']['prijs'] ) . '.</span>',
+		'<strong>' . esc_html__( 'Invoering en koppelingen', 'veryo' ) . '</strong><br>' . esc_html__( 'De beste kansen uit de kansensessie invoeren: eerst met software die je al hebt of kunt nemen, alleen waar nodig met een eigen koppeling of maatwerk. Van een afgebakende quick win tot een project of maatwerk.', 'veryo' ),
+		'<strong>' . esc_html__( 'Doorlopend: abonnement of AI-partner', 'veryo' ) . '</strong><br>' . esc_html__( 'Bij elk pakket hoort één passend abonnement. Heb je er meerdere nodig, dan is AI-partner voordeliger.', 'veryo' ) . '<br><span class="veryo-meta">' . esc_html( $l['partner']['voor'] ) . ' ' . esc_html__( 'Gebouwde koppelingen en agents hebben altijd onderhoud nodig.', 'veryo' ) . '</span>',
 	);
 	$out   = veryo_b_list(
 		$items,
@@ -314,6 +317,7 @@ function veryo_sec_ladder() {
 		$loose[] = $tag( $l[ $key ] ) . '<br><span class="veryo-meta">' . esc_html( $l[ $key ]['wat'] ) . '</span>';
 	}
 	$out .= veryo_b_list( $loose, array( 'className' => 'is-style-prices' ) );
+	$out .= veryo_b_buttons( array( array( veryo_offerte_label(), veryo_offerte_url() ) ) );
 	return $out;
 }
 
@@ -326,21 +330,21 @@ function veryo_sec_ladder() {
  */
 function veryo_sec_startpakket( $title = '', $intro = '' ) {
 	$title = $title ? $title : __( 'Het Veryo AI-Startpakket', 'veryo' );
-	$intro = $intro ? $intro : __( 'Alles wat je nodig hebt om AI goed en veilig in je bedrijf te laten landen, in één pakket met een vaste prijs.', 'veryo' );
+	$intro = $intro ? $intro : __( 'Alles wat je nodig hebt om AI goed en veilig in je bedrijf te laten landen, in één pakket.', 'veryo' );
 	$parts = array();
 	foreach ( veryo_startpakket_parts() as $part ) {
 		$parts[] = '<strong>' . esc_html( $part[0] ) . '</strong><br>' . esc_html( $part[1] );
 	}
-	$prices = array();
-	foreach ( veryo_startpakket_prices() as $p ) {
-		$prices[] = '<span>' . esc_html( $p['label'] ) . '</span> <strong>' . esc_html( veryo_euro( $p['price'] ) ) . '</strong>';
-	}
 	$left   = veryo_b_h( $title, 2, array( 'fontSize' => 'display-l' ) ) . veryo_b_p( $intro, array( 'className' => 'veryo-lead' ) );
 	$left  .= veryo_b_list( $parts, array( 'className' => 'is-style-parts' ) );
-	$right  = veryo_b_h( __( 'Vaste prijs per teamgrootte', 'veryo' ), 3 );
-	$right .= veryo_b_list( $prices, array( 'className' => 'is-style-prices' ) );
-	$right .= veryo_b_p( __( 'Exclusief btw. Geen software, geen verplicht abonnement: je betaalt het pakket één keer.', 'veryo' ), array( 'className' => 'veryo-small' ) );
-	$right .= veryo_b_buttons( array( array( __( 'Bekijk het AI-Startpakket', 'veryo' ), veryo_link( 'ai-startpakket' ) ) ) );
+	$right  = veryo_b_h( __( 'Een offerte op maat van je team', 'veryo' ), 3 );
+	$right .= veryo_b_p( __( 'Je krijgt vooraf een vaste prijs, afgestemd op de grootte van je team. Geen software, geen verplicht abonnement: je betaalt het pakket één keer.', 'veryo' ) );
+	$right .= veryo_b_buttons(
+		array(
+			array( veryo_offerte_label(), veryo_offerte_url() ),
+			array( __( 'Bekijk het AI-Startpakket', 'veryo' ), veryo_link( 'ai-startpakket' ), 'link' ),
+		)
+	);
 	return veryo_b_group(
 		veryo_b_columns(
 			array(
@@ -745,9 +749,11 @@ function veryo_page_standard( $d ) {
  * @param string $title       Kop.
  * @param string $text        Inleiding.
  * @param string $placeholder Voorbeeldvraag in het berichtveld.
+ * @param string $anchor      Anker van de sectie.
+ * @param string $button      Tekst op de knop.
  * @return string
  */
-function veryo_sec_contact( $title = '', $text = '', $placeholder = '' ) {
+function veryo_sec_contact( $title = '', $text = '', $placeholder = '', $anchor = 'vraag', $button = '' ) {
 	$title = $title ? $title : __( 'Twijfel je wat bij jou past? Vraag het gewoon.', 'veryo' );
 	$text  = $text ? $text : __( 'Stel je vraag hier. Je krijgt binnen één werkdag een persoonlijk antwoord, zonder verkooppraatje en zonder dat je ergens aan vastzit.', 'veryo' );
 	$name  = veryo_setting( 'founder_first' );
@@ -779,7 +785,7 @@ function veryo_sec_contact( $title = '', $text = '', $placeholder = '' ) {
 		/* translators: %s: telefoonnummer en/of e-mailadres. */
 		$left .= veryo_b_p( sprintf( esc_html__( 'Liever bellen of mailen? %s', 'veryo' ), implode( ' · ', $reach ) ), array( 'className' => 'veryo-small' ) );
 	}
-	$form = '[veryo_form type="contact" compact="1" button="' . __( 'Stel je vraag', 'veryo' ) . '"' . ( $placeholder ? ' placeholder="' . str_replace( array( '"', '[', ']' ), '', $placeholder ) . '"' : '' ) . ']';
+	$form = '[veryo_form type="contact" compact="1" button="' . str_replace( '"', '', $button ? $button : __( 'Stel je vraag', 'veryo' ) ) . '"' . ( $placeholder ? ' placeholder="' . str_replace( array( '"', '[', ']' ), '', $placeholder ) . '"' : '' ) . ']';
 	return veryo_sec_wide(
 		veryo_b_columns(
 			array(
@@ -794,7 +800,7 @@ function veryo_sec_contact( $title = '', $text = '', $placeholder = '' ) {
 			)
 		),
 		'veryo-contact-band',
-		'vraag'
+		$anchor
 	);
 }
 
@@ -816,7 +822,7 @@ function veryo_sec_ongoing( $key ) {
 		3
 	);
 	$inner .= veryo_b_p( esc_html( $sub['inhoud'] ) );
-	$inner .= veryo_b_p( '<strong>' . esc_html( $sub['prijs'] ) . '</strong> ' . esc_html__( 'exclusief btw. De eerste maand loopt kosteloos mee; je kiest vooraf zelf of het daarna doorloopt.', 'veryo' ) );
+	$inner .= veryo_b_p( esc_html__( 'De eerste maand loopt kosteloos mee; je kiest vooraf zelf of het daarna doorloopt.', 'veryo' ) );
 	if ( 'onderhoud' !== $key ) {
 		$inner .= veryo_b_p(
 			sprintf(
@@ -831,7 +837,7 @@ function veryo_sec_ongoing( $key ) {
 }
 
 /**
- * Tabel met de vier abonnementen (prijzen).
+ * Tabel met de vier abonnementen.
  *
  * @return string
  */
@@ -841,7 +847,7 @@ function veryo_sec_subscriptions() {
 		$items[] = '<span class="t">' . esc_html( $sub['naam'] ) . '<br><span class="veryo-meta">' . esc_html(
 			/* translators: %s: pakket. */
 			sprintf( __( 'Bij: %s', 'veryo' ), $sub['bij'] )
-		) . '</span></span> <span class="d">' . esc_html( $sub['inhoud'] ) . '</span> <span class="p">' . esc_html( $sub['prijs'] ) . '</span>';
+		) . '</span></span> <span class="d">' . esc_html( $sub['inhoud'] ) . '</span> <span class="p">' . veryo_price_cell() . '</span>';
 	}
 	return veryo_b_list( $items, array( 'className' => 'veryo-price-table veryo-price-table--subs' ) );
 }
@@ -855,16 +861,13 @@ function veryo_sec_subscriptions() {
 function veryo_sec_partner_tiers( $comparison = true ) {
 	$items = array();
 	foreach ( veryo_partner_tiers() as $tier ) {
-		$items[] = '<span class="t">' . esc_html( $tier['label'] ) . '</span> <span class="d">' . esc_html( $tier['extra'] ) . '</span> <span class="p">' . esc_html(
-			/* translators: %s: bedrag. */
-			sprintf( __( '%s per maand', 'veryo' ), veryo_euro( $tier['price'] ) )
-		) . '</span>';
+		$items[] = '<span class="t">' . esc_html( $tier['label'] ) . '</span> <span class="d">' . esc_html( $tier['extra'] ) . '</span> <span class="p">' . veryo_price_cell() . '</span>';
 	}
 	$out = veryo_b_list( $items, array( 'className' => 'veryo-price-table veryo-price-table--partner' ) );
 	if ( $comparison ) {
-		$out .= veryo_b_p( esc_html( veryo_partner_comparison() ), array( 'className' => 'veryo-comparison' ) );
+		$out .= veryo_b_p( esc_html__( 'Neem je meerdere abonnementen af, dan is AI-partner voordeliger dan ze los te nemen, en krijg je er uren voor verbeteringen bij.', 'veryo' ), array( 'className' => 'veryo-comparison' ) );
 	}
-	$out .= veryo_b_p( esc_html__( 'Onderhoud van gebouwde koppelingen en agents valt niet onder AI-partner en blijft apart (€150–500 per maand).', 'veryo' ), array( 'className' => 'veryo-small' ) );
+	$out .= veryo_b_p( esc_html__( 'Onderhoud van gebouwde koppelingen en agents valt niet onder AI-partner en blijft apart.', 'veryo' ), array( 'className' => 'veryo-small' ) );
 	return $out;
 }
 
@@ -882,37 +885,34 @@ function veryo_sec_subscription_terms() {
 			__( 'Losse abonnementen hebben een minimale looptijd van drie maanden en zijn daarna maandelijks opzegbaar, met een opzegtermijn van één maand.', 'veryo' ),
 			__( 'AI-partner sluit je af per jaar. Betaal je het jaar vooruit, dan krijg je korting; vraag ernaar bij je offerte.', 'veryo' ),
 			__( 'Uren in AI-partner die je in een maand niet gebruikt, vervallen aan het eind van die maand.', 'veryo' ),
-			__( 'Alle bedragen zijn exclusief btw en worden maandelijks gefactureerd.', 'veryo' ),
+			__( 'Abonnementen worden maandelijks gefactureerd.', 'veryo' ),
 		),
 		'checks'
 	);
 }
 
 /**
- * Prijsblok met vaste prijzen per teamgrootte. Met JavaScript wordt het een schakelaar
- * (zie motion.js); zonder JavaScript is het een gewone lijst.
+ * Blok "wat kost het" voor een pakket: geen bedragen, wel een knop naar de gratis offerte.
  *
- * @param string                         $title Kop.
- * @param string                         $intro Inleiding.
- * @param array<int,array<string,mixed>> $rows  Rijen met label en price.
- * @param string                         $note  Kleine tekst onder de prijzen.
- * @param bool                           $featured Amber accent (alleen het AI-Startpakket).
+ * @param string $title    Kop.
+ * @param string $intro    Inleiding.
+ * @param mixed  $rows     Niet meer gebruikt (vroeger de prijzen per teamgrootte).
+ * @param string $note     Kleine tekst onder de knop.
+ * @param bool   $featured Amber accent (alleen het AI-Startpakket).
  * @return string
  */
-function veryo_sec_tiered_price( $title, $intro, $rows, $note = '', $featured = false ) {
-	$items = array();
-	foreach ( $rows as $row ) {
-		$items[] = '<span>' . esc_html( $row['label'] ) . '</span> <strong data-price="' . (int) $row['price'] . '">' . esc_html( veryo_euro( $row['price'] ) ) . '</strong>';
-	}
+function veryo_sec_tiered_price( $title, $intro, $rows = array(), $note = '', $featured = false ) {
+	unset( $rows );
 	$inner = veryo_b_h( $title );
 	if ( $intro ) {
 		$inner .= veryo_b_p( $intro );
 	}
-	$inner .= veryo_b_list( $items, array( 'className' => 'is-style-prices veryo-tiers' ) );
+	$inner .= veryo_b_p( esc_html__( 'Je krijgt een gratis offerte op maat, met vooraf een vaste prijs en zonder verplichtingen.', 'veryo' ) );
+	$inner .= veryo_b_buttons( array( array( veryo_offerte_label(), veryo_offerte_url() ) ) );
 	if ( $note ) {
 		$inner .= veryo_b_p( $note, array( 'className' => 'veryo-small' ) );
 	}
-	return veryo_b_group( $inner, array( 'className' => 'is-style-soft veryo-price veryo-price-switch' . ( $featured ? ' is-featured' : '' ) ) );
+	return veryo_b_group( $inner, array( 'className' => 'is-style-soft veryo-price' . ( $featured ? ' is-featured' : '' ) ) );
 }
 
 /**
@@ -1012,26 +1012,25 @@ function veryo_sec_contrast() {
  */
 function veryo_sec_pillars() {
 	$pillars = array(
-		array( 'ai-startpakket', __( 'Advies en AI-Startpakket', 'veryo' ), __( 'Gratis AI-scan, kansensessie en het AI-Startpakket: zo zet je AI in één keer goed neer.', 'veryo' ), __( 'Startpakket vanaf €1.995', 'veryo' ), true, __( 'Bekijk het AI-Startpakket', 'veryo' ) ),
-		array( 'ai-werkplek', __( 'De AI-werkplek', 'veryo' ), __( 'Copilot of Gemini goed ingericht: licenties, rechten, instellingen en een team dat het gebruikt.', 'veryo' ), __( 'Vanaf €1.495', 'veryo' ), true, __( 'Meer over de AI-werkplek', 'veryo' ) ),
-		array( 'ai-training', __( 'Training', 'veryo' ), __( 'In-company, AI-geletterdheid en straks de online Academy.', 'veryo' ), __( 'Vanaf €49 per persoon', 'veryo' ), false, __( 'Meer over AI-training', 'veryo' ) ),
-		array( 'ai-agents', __( 'Digitale collega’s', 'veryo' ), __( 'AI-agents, automatisering en koppelingen waar bestaande software tekortschiet.', 'veryo' ), __( 'Vanaf €750', 'veryo' ), false, __( 'Meer over AI-agents', 'veryo' ) ),
-		array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, toegangsrechten, tweestapsverificatie en bewustwording.', 'veryo' ), __( 'Veiligheidscheck €995', 'veryo' ), false, __( 'Meer over veilig AI-gebruik', 'veryo' ) ),
-		array( 'ai-partner', __( 'AI-partner', 'veryo' ), __( 'Doorlopende begeleiding in één abonnement, met uren voor verbeteringen.', 'veryo' ), __( 'Vanaf €495 per maand', 'veryo' ), false, __( 'Meer over AI-partner', 'veryo' ) ),
+		array( 'ai-startpakket', __( 'Advies en AI-Startpakket', 'veryo' ), __( 'Gratis AI-scan, kansensessie en het AI-Startpakket: zo zet je AI in één keer goed neer.', 'veryo' ), true, __( 'Bekijk het AI-Startpakket', 'veryo' ) ),
+		array( 'ai-werkplek', __( 'De AI-werkplek', 'veryo' ), __( 'Copilot of Gemini goed ingericht: licenties, rechten, instellingen en een team dat het gebruikt.', 'veryo' ), true, __( 'Meer over de AI-werkplek', 'veryo' ) ),
+		array( 'ai-training', __( 'Training', 'veryo' ), __( 'In-company, AI-geletterdheid en straks de online Academy.', 'veryo' ), false, __( 'Meer over AI-training', 'veryo' ) ),
+		array( 'ai-agents', __( 'Digitale collega’s', 'veryo' ), __( 'AI-agents, automatisering en koppelingen waar bestaande software tekortschiet.', 'veryo' ), false, __( 'Meer over AI-agents', 'veryo' ) ),
+		array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, toegangsrechten, tweestapsverificatie en bewustwording.', 'veryo' ), false, __( 'Meer over veilig AI-gebruik', 'veryo' ) ),
+		array( 'ai-partner', __( 'AI-partner', 'veryo' ), __( 'Doorlopende begeleiding in één abonnement, met uren voor verbeteringen.', 'veryo' ), false, __( 'Meer over AI-partner', 'veryo' ) ),
 	);
 	$panels  = '';
 	foreach ( $pillars as $p ) {
 		$panels .= veryo_b_group(
 			veryo_b_h( esc_html( $p[1] ), 3 )
 			. veryo_b_p( esc_html( $p[2] ) )
-			. veryo_b_p( esc_html( $p[3] ), array( 'className' => 'veryo-pillar__price' ) )
 			. veryo_b_buttons(
 				array(
-					array( esc_html( $p[5] ), veryo_link( $p[0] ), 'link' ),
+					array( esc_html( $p[4] ), veryo_link( $p[0] ), 'link' ),
 				)
 			),
 			array(
-				'className' => 'veryo-pillar' . ( $p[4] ? ' is-large' : '' ),
+				'className' => 'veryo-pillar' . ( $p[3] ? ' is-large' : '' ),
 				'layout'    => false,
 			)
 		);

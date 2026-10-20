@@ -45,7 +45,6 @@ function veryo_settings_defaults() {
 		'fp_leadopvolging'   => 2,
 		'fp_klantrapportage' => 2,
 		'fp_collega'         => 2,
-		'kr_setup_price'     => '',
 		'retention_months'   => 24,
 		'mail_from_name'     => 'Veryo',
 		// Weergave.
@@ -301,6 +300,25 @@ function veryo_svg_kses() {
  */
 function veryo_euro( $amount ) {
 	return '€' . number_format( (float) $amount, 0, ',', '.' );
+}
+
+/**
+ * Op de site staan geen prijzen: overal waar een prijs stond, staat een knop naar het
+ * offerteformulier op /prijzen/.
+ *
+ * @return string
+ */
+function veryo_offerte_url() {
+	return home_url( '/prijzen/#offerte' );
+}
+
+/**
+ * Knoptekst voor de offerte.
+ *
+ * @return string
+ */
+function veryo_offerte_label() {
+	return __( 'Vraag een gratis offerte aan', 'veryo' );
 }
 
 /**

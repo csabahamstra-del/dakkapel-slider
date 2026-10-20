@@ -418,21 +418,17 @@ function veryo_sc_lp_voorbeeld( $atts ) {
 }
 
 /**
- * Prijsblok AI Klantrapportage. De regel met de eenmalige inrichting verschijnt pas als die
- * prijs is ingevuld bij Instellingen > Veryo > Landingspagina's.
+ * Blok "wat kost het" voor AI Klantrapportage, zonder bedragen.
  *
  * @return string
  */
 function veryo_sc_lp_kr_prijs() {
-	$items = array( __( 'Vanaf €750 per maand, afhankelijk van het aantal opdrachtgevers en objecten', 'veryo' ) );
-	$setup = trim( (string) veryo_setting( 'kr_setup_price', '' ) );
-	if ( '' !== $setup ) {
-		/* translators: %s: prijs. */
-		$items[] = sprintf( __( 'Eenmalige inrichting: %s', 'veryo' ), $setup );
-	}
-	$items[] = __( 'De eerste maand loopt het abonnement gratis mee', 'veryo' );
-	$items[] = __( 'Exclusief btw', 'veryo' );
-	$out     = '<ul class="is-style-checks">';
+	$items = array(
+		__( 'Een maandbedrag dat afhangt van het aantal opdrachtgevers en objecten', 'veryo' ),
+		__( 'De eerste maand loopt het abonnement gratis mee', 'veryo' ),
+		__( 'Na het proefrapport krijg je een gratis offerte op maat, met vooraf een vaste prijs', 'veryo' ),
+	);
+	$out   = '<ul class="is-style-checks">';
 	foreach ( $items as $item ) {
 		$out .= '<li>' . esc_html( $item ) . '</li>';
 	}
