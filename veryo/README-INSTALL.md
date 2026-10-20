@@ -214,6 +214,36 @@ Na elke AI-scan stuurt de website de inzending als JSON naar Make. Het versturen
 - **Segment:** de keuze "2-10" medewerkers telt niet als 6 of meer.
 - **Als het misgaat:** elke poging staat in het log van de lead. Mislukt de webhook, dan gaat de inzending als back-upmail naar info@veryo.nl.
 
+### Landingspagina's (advertenties en outreach)
+
+Drie losse pagina's zonder hoofdmenu en zonder footer-navigatie: alleen het logo (niet klikbaar), de blokken en een kleine footer met KvK, privacyverklaring en voorwaarden. Ze worden aangemaakt bij het (opnieuw) activeren van het thema, of de eerste keer dat je wp-admin opent. Ze komen niet in het menu.
+
+- `/founding-partner/` (noindex, staat niet in de sitemap)
+- `/lead-opvolging/`
+- `/klantrapportage-beveiliging/`
+
+Het sjabloon heet **Landingspagina (zonder menu)** (`templates/landing.php`) en kun je ook op andere pagina's kiezen.
+
+**Instellingen > Veryo > Landingspagina's:**
+
+- **Vrije plekken** per oplossing (0, 1 of 2). De teller op /founding-partner leest deze waarden; werk ze met de hand bij.
+- **WhatsApp-test live**: standaard uit. Uit = een voorbeeld van de chat met "Binnenkort zelf te testen". Aan = het testformulier op /lead-opvolging. Je kunt dit ook vastzetten met `define( 'VERYO_WHATSAPP_LIVE', true );` in `wp-config.php`.
+- **Setup-prijs klantrapportage**: zolang dit leeg is, staat er geen setup-regel bij de prijs.
+- **Webhook formulieren**: laat leeg om de standaard te gebruiken.
+
+**Formulieren.** De drie formulieren gaan server-side als JSON naar Make, via de constante `VERYO_FORMS_WEBHOOK_URL` (in `wp-config.php` te overschrijven) of de instelling hierboven. De URL komt nooit in de browser.
+
+- Altijd: `formulier` (founding_partner, lead_opvolging_test of proefrapport), `deur` (Founding Partner, Vakbedrijven of Beveiliging), `bron` (utm_source, anders "Direct") en `pagina_url`.
+- founding_partner: voornaam, achternaam, bedrijfsnaam, email, telefoon, branche, medewerkers, oplossing, tijdvreter.
+- lead_opvolging_test: voornaam, telefoon, klus, postcode. Geeft een fout terug zolang de WhatsApp-test niet live is.
+- proefrapport: naam, bedrijfsnaam, email, telefoon, aantal_opdrachtgevers, rapporten_via. Er is geen upload op de site; de uploadlink gaat per mail.
+- Verplichte velden worden gecontroleerd in de browser en op de server. Er is een honeypot tegen spam, en na versturen staat de bevestiging op de pagina.
+- Elke inzending wordt ook een lead in wp-admin. De webhook heeft een timeout van 5 seconden. Mislukt hij, dan staat dat in het log van de lead en gaat er een back-upmail naar info@veryo.nl.
+
+**Knoppen "Plan een gesprek"** gaan naar Calendly (`VERYO_LP_CALENDLY_URL`, standaard https://calendly.com/wearecue-info/kennismaking-veryo).
+
+**Nog aan te leveren:** de setup-prijs voor klantrapportage, een echt geanonimiseerd voor/na-rapport (nu een illustratie), een schermopname van de WhatsApp-flow (nu een voorbeeld-chat) en het Make-scenario voor de formulieren.
+
 ## 10. Beweging en interactie
 
 De site gebruikt GSAP (met ScrollTrigger en SplitText) en Lenis voor animaties en vloeiend scrollen. Alles staat lokaal in het thema (`assets/vendor/`), er wordt niets van een CDN geladen. De licenties staan in `assets/vendor/gsap/LICENSE.md` (GSAP Standard "no charge" license) en `assets/vendor/lenis/LICENSE` (MIT). Controleer de GSAP-licentie bij elke update.

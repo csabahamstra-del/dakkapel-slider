@@ -59,6 +59,9 @@ function veryo_apply_page_meta( $post_id, $def ) {
 			update_post_meta( $post_id, '_veryo_' . $flag, 1 );
 		}
 	}
+	if ( ! empty( $def['template'] ) ) {
+		update_post_meta( $post_id, '_wp_page_template', $def['template'] );
+	}
 	if ( ! empty( $def['og_image'] ) ) {
 		update_post_meta( $post_id, '_veryo_og_image', $def['og_image'] );
 	}

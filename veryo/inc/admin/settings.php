@@ -69,6 +69,19 @@ function veryo_settings_fields() {
 				'mail_from_name'   => array( 'text', __( 'Afzendernaam e-mails', 'veryo' ), __( 'Standaard "Veryo".', 'veryo' ) ),
 			),
 		),
+		'landing' => array(
+			'title'  => __( 'Landingspagina’s', 'veryo' ),
+			'intro'  => __( 'Voor /founding-partner, /lead-opvolging en /klantrapportage-beveiliging.', 'veryo' ),
+			'fields' => array(
+				'fp_startpakket'     => array( 'number', __( 'Founding Partner: vrije plekken AI-Startpakket', 'veryo' ), __( '0, 1 of 2. Bij 0 staat er "vol".', 'veryo' ) ),
+				'fp_leadopvolging'   => array( 'number', __( 'Founding Partner: vrije plekken AI lead-opvolging', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
+				'fp_klantrapportage' => array( 'number', __( 'Founding Partner: vrije plekken AI Klantrapportage', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
+				'fp_collega'         => array( 'number', __( 'Founding Partner: vrije plekken Veryo Collega', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
+				'whatsapp_live'      => array( 'checkbox', __( 'WhatsApp-test op /lead-opvolging live', 'veryo' ), __( 'Pas aanzetten als de WhatsApp-AI draait. Uit = een voorbeeld met "Binnenkort zelf te testen". De constante VERYO_WHATSAPP_LIVE in wp-config.php heeft voorrang.', 'veryo' ) ),
+				'kr_setup_price'     => array( 'text', __( 'AI Klantrapportage: prijs eenmalige inrichting', 'veryo' ), __( 'Bijvoorbeeld "€1.500". Leeg = de regel staat niet op de pagina.', 'veryo' ) ),
+				'forms_webhook'      => array( 'url', __( 'Webhook landingsformulieren (Make)', 'veryo' ), __( 'Leeg laten = de URL uit de constante VERYO_FORMS_WEBHOOK_URL.', 'veryo' ) ),
+			),
+		),
 		'display' => array(
 			'title'  => __( 'Weergave', 'veryo' ),
 			'intro'  => '',
@@ -155,6 +168,13 @@ function veryo_sanitize_settings( $input ) {
 	$out['retention_months'] = max( 1, min( 120, (int) $out['retention_months'] ) );
 	if ( '' === $out['model'] ) {
 		$out['model'] = 'claude-sonnet-5-5';
+	}
+	foreach ( array( 'fp_startpakket', 'fp_leadopvolging', 'fp_klantrapportage', 'fp_collega' ) as $spots ) {
+		$out[ $spots ] = max( 0, min( 2, (int) $out[ $spots ] ) );
+	}
+	if ( '' !== $out['forms_webhook'] && 0 !== strpos( $out['forms_webhook'], 'https://' ) ) {
+		add_settings_error( 'veryo_settings', 'veryo_forms_webhook', __( 'De webhook-URL moet met https:// beginnen.', 'veryo' ) );
+		$out['forms_webhook'] = '';
 	}
 	if ( '' !== $out['scan_webhook'] && 0 !== strpos( $out['scan_webhook'], 'https://' ) ) {
 		add_settings_error( 'veryo_settings', 'veryo_scan_webhook', __( 'De webhook-URL moet met https:// beginnen.', 'veryo' ) );

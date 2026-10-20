@@ -57,7 +57,7 @@ $veryo_privacy .= veryo_sec_text(
 		__( 'Anthropic, voor het schrijven van het rapport (zonder contactgegevens, zie hierboven).', 'veryo' ),
 		__( 'Onze hostingpartij mijn.host, waar de website en de gegevens staan, in Nederland.', 'veryo' ),
 		__( 'Onze e-maildienst voor het versturen van e-mail: mijn.host (Nederland).', 'veryo' ),
-		__( 'Make (make.com), het automatiseringsplatform waarmee we aanvragen uit de AI-scan opvolgen. Daar gaan uw contactgegevens, antwoorden en de berekende cijfers naartoe, op Europese servers.', 'veryo' ),
+		__( 'Make (make.com), het automatiseringsplatform waarmee we aanvragen uit de AI-scan en de aanvraagformulieren opvolgen. Daar gaan uw contactgegevens, antwoorden en de berekende cijfers naartoe, op Europese servers.', 'veryo' ),
 		__( 'Met deze partijen hebben we een verwerkersovereenkomst of zij verwerken de gegevens onder hun eigen zakelijke voorwaarden. We verkopen uw gegevens nooit.', 'veryo' ),
 	)
 );

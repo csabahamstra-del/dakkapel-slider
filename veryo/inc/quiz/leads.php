@@ -29,10 +29,13 @@ function veryo_lead_statuses() {
  */
 function veryo_lead_sources() {
 	return array(
-		'ai-scan' => __( 'AI-scan', 'veryo' ),
-		'academy' => __( 'Academy-wachtlijst', 'veryo' ),
-		'contact' => __( 'Contactformulier', 'veryo' ),
-		'demo'    => __( 'Demo-aanvraag', 'veryo' ),
+		'ai-scan'             => __( 'AI-scan', 'veryo' ),
+		'academy'             => __( 'Academy-wachtlijst', 'veryo' ),
+		'contact'             => __( 'Contactformulier', 'veryo' ),
+		'demo'                => __( 'Demo-aanvraag', 'veryo' ),
+		'founding-partner'    => __( 'Founding Partner', 'veryo' ),
+		'lead-opvolging-test' => __( 'Lead-opvolging: test', 'veryo' ),
+		'proefrapport'        => __( 'Proefrapport beveiliging', 'veryo' ),
 	);
 }
 
@@ -429,16 +432,23 @@ function veryo_lead_box_details( $post ) {
 		__( 'Toestemming', 'veryo' ) => $lead['consent_at'] ? wp_date( 'j F Y H:i', (int) strtotime( $lead['consent_at'] ) ) : '',
 	);
 	$labels  = array(
-		'voornaam'       => __( 'Voornaam', 'veryo' ),
-		'naam'           => __( 'Naam', 'veryo' ),
-		'bedrijf'        => __( 'Bedrijf', 'veryo' ),
-		'medewerkers'    => __( 'Aantal medewerkers', 'veryo' ),
-		'email'          => __( 'E-mail', 'veryo' ),
-		'telefoon'       => __( 'Telefoon', 'veryo' ),
-		'bericht'        => __( 'Bericht', 'veryo' ),
-		'branche'        => __( 'Branche', 'veryo' ),
-		'boekhoudpakket' => __( 'Boekhoudpakket', 'veryo' ),
-		'pagina'         => __( 'Verstuurd vanaf', 'veryo' ),
+		'voornaam'              => __( 'Voornaam', 'veryo' ),
+		'naam'                  => __( 'Naam', 'veryo' ),
+		'bedrijf'               => __( 'Bedrijf', 'veryo' ),
+		'medewerkers'           => __( 'Aantal medewerkers', 'veryo' ),
+		'email'                 => __( 'E-mail', 'veryo' ),
+		'telefoon'              => __( 'Telefoon', 'veryo' ),
+		'bericht'               => __( 'Bericht', 'veryo' ),
+		'branche'               => __( 'Branche', 'veryo' ),
+		'boekhoudpakket'        => __( 'Boekhoudpakket', 'veryo' ),
+		'achternaam'            => __( 'Achternaam', 'veryo' ),
+		'oplossing'             => __( 'Oplossing', 'veryo' ),
+		'tijdvreter'            => __( 'Grootste tijdvreter', 'veryo' ),
+		'klus'                  => __( 'Klus', 'veryo' ),
+		'postcode'              => __( 'Postcode', 'veryo' ),
+		'aantal_opdrachtgevers' => __( 'Aantal opdrachtgevers', 'veryo' ),
+		'rapporten_via'         => __( 'Rapporten komen binnen via', 'veryo' ),
+		'pagina'                => __( 'Verstuurd vanaf', 'veryo' ),
 	);
 	foreach ( $labels as $key => $label ) {
 		if ( isset( $lead['contact'][ $key ] ) && '' !== $lead['contact'][ $key ] ) {
