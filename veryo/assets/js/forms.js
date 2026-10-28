@@ -130,6 +130,9 @@
 				button.disabled = false;
 				if ( 200 === res.status && res.body && res.body.ok ) {
 					form.reset();
+					if ( ( 'contact' === type || 'demo' === type ) && typeof window.gtag === 'function' ) {
+						window.gtag( 'event', 'conversion', { send_to: 'AW-18499301412/XHAWCJDG2KwdEKTgk_VE' } );
+					}
 					status.className = 'form-status is-success';
 					status.textContent = res.body.message || 'Verstuurd.';
 					return;

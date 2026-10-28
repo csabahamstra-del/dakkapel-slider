@@ -391,6 +391,9 @@
 			submitBtn.disabled = false;
 			if ( 200 === res.status && res.body && res.body.ok ) {
 				status.textContent = '';
+				if ( typeof window.gtag === 'function' ) {
+					window.gtag( 'event', 'conversion', { send_to: 'AW-18499301412/XHAWCJDG2KwdEKTgk_VE' } );
+				}
 				showResult( res.body );
 				return;
 			}
