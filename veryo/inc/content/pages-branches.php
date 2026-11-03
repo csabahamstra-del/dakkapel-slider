@@ -525,10 +525,72 @@ return array(
 	),
 
 	/* ------------------------------------------------------------------------- */
+	'branches/schoonmaak'                => array(
+		'title'     => __( 'AI en automatisering voor schoonmaakbedrijven', 'veryo' ),
+		'seo_title' => __( 'AI en automatisering voor schoonmaakbedrijven | Veryo', 'veryo' ),
+		'desc'      => __( 'AI voor schoonmaakbedrijven: uren en roosters controleren, inkoopfacturen automatisch verwerken en sneller werven. Bovenop je eigen tools. Gratis offerte.', 'veryo' ),
+		'kw'        => 'ai voor schoonmaakbedrijven',
+		'schema'    => array(
+			'type' => 'service',
+			'area' => 'Nederland',
+		),
+		'content'   => veryo_page_standard(
+			array(
+				'answer'   => __( 'AI voor schoonmaakbedrijven draait vooral om de administratie rond het werk. Veryo zorgt voor automatisering in je schoonmaakbedrijf bovenop de tools die je al gebruikt: uren en roosters controleren, inkoopfacturen verwerken en nieuwe medewerkers sneller werven. Je stapt niet over op nieuwe software. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'problem'  => array(
+					'h'    => __( 'Waar de kantoortijd in een schoonmaakbedrijf naartoe gaat', 'veryo' ),
+					'p'    => array(
+						__( 'Het schoonmaakwerk zelf gebeurt verspreid over veel locaties en tijden: vroeg in de ochtend, ’s avonds, in het weekend. Op kantoor komt alles samen, en daar gaat de tijd zitten.', 'veryo' ),
+					),
+					'list' => array(
+						'<strong>' . __( 'Urenregistratie', 'veryo' ) . '</strong>: ' . __( 'gewerkte uren per medewerker en per locatie naast het rooster leggen en klaarzetten voor de salarisadministratie.', 'veryo' ),
+						'<strong>' . __( 'Facturen van zzp’ers en onderaannemers', 'veryo' ) . '</strong>: ' . __( 'controleren of de uren en het tarief kloppen met wat er gepland en afgesproken is.', 'veryo' ),
+						'<strong>' . __( 'Inkoopfacturen', 'veryo' ) . '</strong>: ' . __( 'middelen, materialen en kleding, allemaal handmatig ingeboekt.', 'veryo' ),
+						'<strong>' . __( 'Werving', 'veryo' ) . '</strong>: ' . __( 'veel sollicitanten, veel heen-en-weer en kandidaten die afhaken als het te lang duurt.', 'veryo' ),
+					),
+				),
+				'products' => array(
+					'keys'  => array( 'urencontrole-beveiliging', 'inkoopfacturen-automatiseren', 'ai-recruitment-assistent' ),
+					'h'     => __( 'Oplossingen die passen bij een schoonmaakbedrijf', 'veryo' ),
+					'intro' => __( 'Urencontrole is gebouwd voor beveiligingsbedrijven, maar werkt ook voor schoonmaak: dezelfde wisselende diensten, dezelfde roosters en vaak ook zzp’ers. Inkoopfacturen en de recruitment-assistent passen er goed naast.', 'veryo' ),
+				),
+				'sections' => array(
+					array(
+						'h' => __( 'Urenregistratie in je schoonmaakbedrijf, zonder overtypen', 'veryo' ),
+						'p' => array(
+							__( 'Urencontrole legt de gewerkte uren en de facturen van zzp’ers en onderaannemers naast het rooster. Normale uren, avond, weekend en feestdagen worden apart gezet, en de uren staan klaar in het formaat van je salarisadministratie. Jij ziet alleen wat niet klopt. Lonen berekent Veryo niet; dat blijft bij je salarisadministratie.', 'veryo' ),
+						),
+					),
+					array(
+						'h' => __( 'Werkt met wat je al hebt', 'veryo' ),
+						'p' => array( __( 'Veryo is geen softwareleverancier. We koppelen aan je bestaande planningspakket, je mailbox en je boekhouding, en richten de automatisering daarop in. Je team werkt verder zoals het gewend is.', 'veryo' ) ),
+					),
+				),
+				'faq'      => array(
+					array( __( 'Werkt Urencontrole ook voor schoonmaakbedrijven?', 'veryo' ), __( 'Ja. Het is gebouwd voor de beveiliging, maar de roosters en uren in de schoonmaak lijken daar sterk op. In de kennismaking kijken we hoe jullie planning en urenregistratie nu lopen.', 'veryo' ) ),
+					array( __( 'Berekent Veryo de lonen?', 'veryo' ), __( 'Nee. Veryo controleert en deelt uren in en zet ze klaar. De loonberekening blijft bij je salarisadministratie.', 'veryo' ) ),
+					array( __( 'Moeten we een ander planningspakket nemen?', 'veryo' ), __( 'Nee. De automatisering werkt bovenop wat je al gebruikt.', 'veryo' ) ),
+					array( __( 'Wat kost het?', 'veryo' ), __( 'Na een kort gesprek krijg je een gratis offerte met een vaste prijs.', 'veryo' ) ),
+				),
+				'contact'  => array(
+					__( 'Waar gaat bij jullie de meeste kantoortijd in zitten?', 'veryo' ),
+					__( 'Vertel kort hoe jullie nu uren, roosters en facturen verwerken. Je hoort binnen één werkdag wat automatisering voor jullie kan betekenen.', 'veryo' ),
+					__( 'Bijvoorbeeld: we hebben 60 medewerkers op 25 locaties en verwerken de uren elke maand met de hand.', 'veryo' ),
+				),
+				'cta'      => array( __( 'Schoonmaakbedrijf? Zie waar jouw uren zitten', 'veryo' ), '' ),
+				'links'    => array(
+					array( 'oplossingen/urencontrole-beveiliging', __( 'Urencontrole', 'veryo' ), __( 'Werkt ook voor schoonmaak', 'veryo' ) ),
+					array( 'oplossingen/inkoopfacturen-automatiseren', __( 'Inkoopfacturen automatiseren', 'veryo' ), __( 'Minder handmatig inboeken', 'veryo' ) ),
+					array( 'oplossingen/ai-recruitment-assistent', __( 'AI recruitment-assistent', 'veryo' ), __( 'Sneller nieuwe medewerkers werven', 'veryo' ) ),
+					array( 'branches/beveiliging', __( 'AI voor beveiligingsbedrijven', 'veryo' ), __( 'Vergelijkbare roosters en uren', 'veryo' ) ),
+				),
+			)
+		),
+	),
 	'branches/beveiliging'               => array(
 		'title'     => __( 'AI voor beveiligingsbedrijven', 'veryo' ),
-		'seo_title' => __( 'AI voor beveiligingsbedrijven: rapportages en meer | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor beveiligingsbedrijven: dienst- en incidentrapporten automatisch naar maandrapportages per opdrachtgever, plus inkoop en werving. Gratis offerte.', 'veryo' ),
+		'seo_title' => __( 'AI voor beveiligingsbedrijven: uren en rapportages | Veryo', 'veryo' ),
+		'desc'      => __( 'AI voor beveiligingsbedrijven: zzp-facturen naast het rooster, maandrapportages per opdrachtgever en minder administratie. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai voor beveiligingsbedrijven',
 		'schema'    => array(
 			'type' => 'service',
@@ -538,13 +600,14 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in voor beveiligingsbedrijven, met AI Klantrapportage als hoofdproduct: dienst- en incidentrapporten worden automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever. Daarnaast automatiseren we inkoopfacturen en de eerste stappen van werving. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'answer'   => __( 'AI voor beveiligingsbedrijven, zonder nieuw softwarepakket: Veryo automatiseert de administratie van je beveiligingsbedrijf bovenop de tools die je al gebruikt. Bovenaan staat Urencontrole: facturen van zzp’ers en onderaannemers worden automatisch naast het rooster en het afgesproken tarief gelegd. Daarnaast maakt AI Klantrapportage van dienst- en incidentrapporten een maandrapportage per opdrachtgever, en automatiseren we inkoopfacturen en werving. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'  => array(
-					'h'    => __( 'Waar de tijd in een beveiligingsbedrijf naartoe gaat', 'veryo' ),
+					'h'    => __( 'Waar de tijd in de administratie van een beveiligingsbedrijf naartoe gaat', 'veryo' ),
 					'p'    => array(
 						__( 'Het werk op locatie loopt meestal goed. Het werk eromheen vreet de uren: alles wat er tijdens diensten gebeurt, moet worden vastgelegd, verwerkt en verantwoord richting opdrachtgevers. En dat gebeurt vaak nog met de hand.', 'veryo' ),
 					),
 					'list' => array(
+						'<strong>' . __( 'Uren en zzp-facturen', 'veryo' ) . '</strong>: ' . __( 'elke factuur van een zzp’er of onderaannemer naast het rooster leggen, tarieven narekenen en uren klaarzetten voor de salarisadministratie.', 'veryo' ),
 						'<strong>' . __( 'Dienstrapporten', 'veryo' ) . '</strong>: ' . __( 'elke dienst levert een rapport op dat iemand moet lezen en verwerken.', 'veryo' ),
 						'<strong>' . __( 'Incidentverslagen', 'veryo' ) . '</strong>: ' . __( 'per incident een verslag, met opvolging richting opdrachtgever.', 'veryo' ),
 						'<strong>' . __( 'Maandrapportages voor opdrachtgevers', 'veryo' ) . '</strong>: ' . __( 'per klant een overzicht, elke maand opnieuw met de hand in elkaar gezet.', 'veryo' ),
@@ -553,9 +616,9 @@ return array(
 					),
 				),
 				'products' => array(
-					'keys'  => array( 'ai-klantrapportage', 'inkoopfacturen-automatiseren', 'ai-recruitment-assistent' ),
-					'h'     => __( 'Vaste oplossingen voor beveiligingsbedrijven', 'veryo' ),
-					'intro' => __( 'AI Klantrapportage is ons hoofdproduct voor de beveiliging. Inkoopfacturen en de recruitment-assistent passen er goed naast.', 'veryo' ),
+					'keys'  => array( 'urencontrole-beveiliging', 'ai-klantrapportage', 'inkoopfacturen-automatiseren', 'ai-recruitment-assistent' ),
+					'h'     => __( 'Automatisering voor je beveiligingsbedrijf', 'veryo' ),
+					'intro' => __( 'Urencontrole en AI Klantrapportage zijn onze vaste oplossingen voor de beveiliging. Inkoopfacturen en de recruitment-assistent passen er goed naast.', 'veryo' ),
 				),
 				'catalog'  => array(
 					'h'     => __( 'Wat er verder te automatiseren valt', 'veryo' ),
@@ -576,19 +639,21 @@ return array(
 					),
 				),
 				'faq'      => array(
+					array( __( 'Kan Veryo de facturen van onze zzp’ers controleren?', 'veryo' ), __( 'Ja, dat doet Urencontrole: elke factuur wordt naast het rooster en het afgesproken tarief gelegd, en je krijgt alleen de afwijkingen te zien. De uren worden ingedeeld en klaargezet voor de salarisadministratie. Lonen berekent Veryo niet.', 'veryo' ) ),
 					array( __( 'Werkt AI Klantrapportage met ons rapportagesysteem?', 'veryo' ), __( 'Komen rapporten als mail of PDF binnen, dan altijd. Heeft je systeem een export of koppeling, dan halen we ze daar rechtstreeks uit. Dat checken we in het eerste gesprek.', 'veryo' ) ),
 					array( __( 'Kunnen de rapportages in onze eigen huisstijl?', 'veryo' ), __( 'Ja. Logo, kleuren en indeling stemmen we vooraf af, zodat elke opdrachtgever een vertrouwd overzicht krijgt.', 'veryo' ) ),
 					array( __( 'Kan AI ook helpen met roosters?', 'veryo' ), __( 'Een planningsassistent kan voorstellen doen op basis van beschikbaarheid, passen en diploma’s. Dat is maatwerk; de planner beslist altijd.', 'veryo' ) ),
 					array( __( 'Wat kost het?', 'veryo' ), __( 'Na een kort gesprek krijg je een gratis offerte met een vaste prijs.', 'veryo' ) ),
 				),
 				'contact'  => array(
-					__( 'Hoeveel tijd kost rapporteren bij jullie?', 'veryo' ),
-					__( 'Vertel hoeveel opdrachtgevers je hebt en hoe rapportages nu worden gemaakt. Je hoort binnen één werkdag wat AI Klantrapportage voor jullie kan betekenen.', 'veryo' ),
-					__( 'Bijvoorbeeld: we hebben 25 opdrachtgevers en maken elke maand handmatig de rapportages.', 'veryo' ),
+					__( 'Waar gaat bij jullie de meeste kantoortijd in zitten?', 'veryo' ),
+					__( 'Vertel hoe jullie nu uren, facturen en rapportages verwerken. Je hoort binnen één werkdag wat Urencontrole of AI Klantrapportage voor jullie kan betekenen.', 'veryo' ),
+					__( 'Bijvoorbeeld: we werken met 40 zzp’ers en controleren hun facturen elke maand met de hand.', 'veryo' ),
 				),
 				'cta'      => array( __( 'Beveiligingsbedrijf? Zie waar jouw uren zitten', 'veryo' ), '' ),
 				'links'    => array(
-					array( 'oplossingen/ai-klantrapportage', __( 'AI Klantrapportage', 'veryo' ), __( 'Het hoofdproduct voor beveiligingsbedrijven', 'veryo' ) ),
+					array( 'oplossingen/urencontrole-beveiliging', __( 'Urencontrole', 'veryo' ), __( 'Zzp-facturen naast het rooster', 'veryo' ) ),
+					array( 'oplossingen/ai-klantrapportage', __( 'AI Klantrapportage', 'veryo' ), __( 'Maandrapportages per opdrachtgever', 'veryo' ) ),
 					array( 'oplossingen/inkoopfacturen-automatiseren', __( 'Inkoopfacturen automatiseren', 'veryo' ), __( 'Minder handmatig inboeken', 'veryo' ) ),
 					array( 'oplossingen/ai-recruitment-assistent', __( 'AI recruitment-assistent', 'veryo' ), __( 'Sneller nieuwe beveiligers werven', 'veryo' ) ),
 					array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid en rechten op orde', 'veryo' ) ),

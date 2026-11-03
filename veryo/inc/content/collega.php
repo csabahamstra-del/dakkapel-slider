@@ -606,7 +606,19 @@ function veryo_page_collega() {
 		'veryo-collega-privacy',
 		'privacy'
 	);
-	$out .= veryo_sec_collega_offline( false );
+
+	// 5b. Lokale AI tegenover cloud-AI.
+	$table = '<thead><tr><th>' . esc_html__( 'Punt', 'veryo' ) . '</th><th>' . esc_html__( 'Cloud-AI (ChatGPT e.d.)', 'veryo' ) . '</th><th>' . esc_html( veryo_collega()['naam'] ) . '</th></tr></thead><tbody><tr><td>' . esc_html__( 'Waar staat je data?', 'veryo' ) . '</td><td>' . esc_html__( 'Bij een externe partij, in een datacenter in de cloud.', 'veryo' ) . '</td><td>' . esc_html__( 'Op een eigen machine bij jou op kantoor. Je gegevens verlaten het pand niet voor AI-verwerking.', 'veryo' ) . '</td></tr><tr><td>' . esc_html__( 'Werkt het zonder internet?', 'veryo' ) . '</td><td>' . esc_html__( 'Nee, zonder verbinding werkt het niet.', 'veryo' ) . '</td><td>' . esc_html__( 'Ja, voor vragen over je eigen documenten en kennis.', 'veryo' ) . '</td></tr><tr><td>' . esc_html__( 'Kosten per gebruiker', 'veryo' ) . '</td><td>' . esc_html__( 'Meestal een licentie per gebruiker per maand.', 'veryo' ) . '</td><td>' . esc_html__( 'Geen licentie per gebruiker: één pakket per maand voor het hele team.', 'veryo' ) . '</td></tr><tr><td>' . esc_html__( 'AVG', 'veryo' ) . '</td><td>' . esc_html__( 'Je deelt gegevens met een externe verwerker. Zakelijke versies en een verwerkersovereenkomst zijn nodig.', 'veryo' ) . '</td><td>' . esc_html__( 'De AI-verwerking blijft binnen je eigen bedrijf. Dat maakt AVG-proof werken eenvoudiger; Veryo sluit een verwerkersovereenkomst voor het beheer.', 'veryo' ) . '</td></tr></tbody>';
+	$out  .= veryo_sec_wide(
+		veryo_b_h( __( 'Lokale AI: waarom je bedrijfsdata binnen blijft', 'veryo' ) )
+		. veryo_b_p( __( 'Lokale AI betekent dat het taalmodel op een eigen server bij jou op kantoor draait, niet in de cloud van een ander. [veryo_collega_naam] is zo’n AI zonder cloud: een eigen ChatGPT voor je bedrijf, maar dan op je eigen machine. Je klantgegevens, prijzen en contracten gaan niet naar een externe AI-dienst.', 'veryo' ) )
+		. veryo_b_p( __( 'Dat is geen garantie dat alles vanzelf AVG-proof is; je blijft zelf verantwoordelijk voor wat je met gegevens doet. Maar AVG-proof AI is een stuk eenvoudiger als de verwerking binnen je eigen bedrijf blijft. Hieronder het verschil op een rij.', 'veryo' ) )
+		. veryo_b( 'table', array( 'className' => 'veryo-compare-table' ), '<figure class="wp-block-table veryo-compare-table"><table class="has-fixed-layout">' . $table . '</table></figure>' )
+		. veryo_b_p( __( 'Meer over de keuze tussen lokale AI en ChatGPT lees je in [veryo_bloglink slug="lokale-ai-of-chatgpt" tekst="ons artikel over lokale AI en ChatGPT"].', 'veryo' ), array( 'className' => 'veryo-small' ) ),
+		'veryo-collega-local',
+		'lokale-ai'
+	);
+	$out  .= veryo_sec_collega_offline( false );
 
 	// 6. Voor wie.
 	$out .= veryo_sec_collega_branches();
@@ -681,6 +693,9 @@ function veryo_page_collega() {
 	// 11. FAQ.
 	$out .= veryo_sec_faq(
 		array(
+			array( __( 'Wat is lokale AI?', 'veryo' ), __( 'Lokale AI is AI die op een eigen server of computer binnen je bedrijf draait, in plaats van in de cloud van een externe partij. [veryo_collega_naam] is lokale AI: het taalmodel draait op een machine bij jou op kantoor.', 'veryo' ) ),
+			array( __( 'Is dit een eigen ChatGPT voor ons bedrijf?', 'veryo' ), __( 'Zo kun je het zien: medewerkers stellen vragen in een vertrouwde chatomgeving, maar de AI draait op je eigen server en kent jullie eigen documenten. Het is geen ChatGPT en er gaan geen gegevens naar OpenAI of een andere AI-dienst.', 'veryo' ) ),
+			array( __( 'Is lokale AI AVG-proof?', 'veryo' ), __( 'Lokale AI maakt het eenvoudiger, omdat de AI-verwerking binnen je bedrijf blijft. Je blijft wel zelf verantwoordelijk voor wat je met persoonsgegevens doet. Voor het beheer sluit Veryo een verwerkersovereenkomst en stellen we rechten per medewerker in.', 'veryo' ) ),
 			array( __( 'Gaan mijn gegevens naar de cloud?', 'veryo' ), __( 'Niet voor AI-verwerking. De AI draait op een machine bij jou op kantoor en verwerkt je vragen en documenten daar. Koppel je een cloudpakket, zoals een online boekhoudpakket, dan haalt [veryo_collega_naam] de gegevens daar op; de verwerking door de AI gebeurt lokaal.', 'veryo' ) ),
 			array( __( 'Wat als we geen internet hebben?', 'veryo' ), __( 'Dan blijft [veryo_collega_naam] werken voor vragen over je eigen documenten en kennis, omdat alles op de machine op kantoor staat. Koppelingen met cloudpakketten verversen weer zodra de verbinding terug is.', 'veryo' ) ),
 			array( __( 'Wie mag wat zien?', 'veryo' ), __( 'Dat stel je per medewerker of afdeling in. De werkvloer ziet bijvoorbeeld wel de werkinstructies, maar niet de salarisadministratie. [veryo_collega_naam] antwoordt alleen uit bronnen waar iemand toegang toe heeft.', 'veryo' ) ),

@@ -343,6 +343,8 @@ function veryo_wp_robots( $robots ) {
 	}
 	if ( $id && get_post_meta( $id, '_veryo_nofollow', true ) ) {
 		$robots['nofollow'] = true;
+	} elseif ( ! empty( $robots['noindex'] ) ) {
+		$robots['follow'] = true;
 	}
 	if ( is_404() || is_search() ) {
 		$robots['noindex'] = true;
@@ -628,12 +630,60 @@ function veryo_schema_organization() {
 }
 
 /**
+ * LocalBusiness voor de homepage en /leeuwarden/: Veryo in Leeuwarden, voor Friesland, Groningen
+ * en Drenthe. Adres, telefoon en e-mail komen uit Instellingen > Veryo.
+ *
+ * @return array<string,mixed>
+ */
+function veryo_schema_local_business() {
+	$c        = veryo_company();
+	$business = array(
+		'@type'              => 'LocalBusiness',
+		'@id'                => home_url( '/#localbusiness' ),
+		'name'               => $c['name'],
+		'url'                => home_url( '/' ),
+		'image'              => VERYO_URI . '/assets/images/og-default.png',
+		'parentOrganization' => array( '@id' => home_url( '/#organization' ) ),
+		'areaServed'         => array_map(
+			static function ( $name ) {
+				return array(
+					'@type' => 'AdministrativeArea',
+					'name'  => $name,
+				);
+			},
+			array( 'Friesland', 'Groningen', 'Drenthe' )
+		),
+	);
+	if ( $c['phone'] ) {
+		$business['telephone'] = $c['phone'];
+	}
+	if ( $c['email'] ) {
+		$business['email'] = $c['email'];
+	}
+	$business['address'] = array_merge(
+		array( '@type' => 'PostalAddress' ),
+		array_filter(
+			array(
+				'streetAddress'   => $c['street'],
+				'postalCode'      => $c['postcode'],
+				'addressLocality' => $c['city'] ? $c['city'] : 'Leeuwarden',
+			)
+		),
+		array( 'addressCountry' => 'NL' )
+	);
+	return $business;
+}
+
+/**
  * Volledige @graph voor de huidige pagina.
  *
  * @return array<int,array<string,mixed>>
  */
 function veryo_schema_graph() {
-	$graph   = array( veryo_schema_organization() );
+	$graph = array( veryo_schema_organization() );
+	if ( is_front_page() || is_page( 'leeuwarden' ) ) {
+		$graph[] = veryo_schema_local_business();
+	}
 	$website = array(
 		'@type'      => 'WebSite',
 		'@id'        => home_url( '/#website' ),
@@ -716,7 +766,7 @@ function veryo_schema_graph() {
 
 	// Blogbericht.
 	if ( is_singular( 'post' ) ) {
-		$founder = veryo_company()['founder'];
+		$author  = veryo_blog_author();
 		$article = array(
 			'@type'            => 'Article',
 			'@id'              => $url . '#article',
@@ -725,10 +775,12 @@ function veryo_schema_graph() {
 			'dateModified'     => get_the_modified_date( 'c', $id ),
 			'mainEntityOfPage' => array( '@id' => $url . '#webpage' ),
 			'publisher'        => array( '@id' => home_url( '/#organization' ) ),
-			'author'           => $founder ? array(
-				'@type' => 'Person',
-				'name'  => $founder,
-			) : array( '@id' => home_url( '/#organization' ) ),
+			'author'           => array(
+				'@type'    => 'Person',
+				'name'     => $author['name'],
+				'jobTitle' => $author['job'],
+				'worksFor' => array( '@id' => home_url( '/#organization' ) ),
+			),
 			'inLanguage'       => 'nl-NL',
 			'image'            => has_post_thumbnail( $id ) ? (string) get_the_post_thumbnail_url( $id, 'large' ) : VERYO_URI . '/assets/images/og-default.png',
 		);
@@ -994,3 +1046,25 @@ function veryo_legal_draft_notice() {
 	echo '<div class="notice notice-warning"><p><strong>' . esc_html__( 'Concepttekst, laat dit juridisch controleren.', 'veryo' ) . '</strong> ' . esc_html__( 'Haal daarna het vinkje "Juridisch concept" weg in de box Veryo SEO.', 'veryo' ) . '</p></div>';
 }
 add_action( 'admin_notices', 'veryo_legal_draft_notice' );
+
+/**
+ * Het menu-item naar de blog verbergen zolang er nog geen gepubliceerd bericht is.
+ *
+ * @param array<int,WP_Post> $items Menu-items.
+ * @return array<int,WP_Post>
+ */
+function veryo_hide_empty_blog_menu_item( $items ) {
+	$blog = (int) get_option( 'page_for_posts' );
+	if ( ! $blog || (int) wp_count_posts( 'post' )->publish > 0 ) {
+		return $items;
+	}
+	return array_values(
+		array_filter(
+			$items,
+			static function ( $item ) use ( $blog ) {
+				return ! ( 'post_type' === $item->type && (int) $item->object_id === $blog );
+			}
+		)
+	);
+}
+add_filter( 'wp_nav_menu_objects', 'veryo_hide_empty_blog_menu_item' );

@@ -253,6 +253,15 @@ Op de website staan geen bedragen meer. Overal waar een prijs stond, staat nu "V
 - **Bij de update:** de eerste keer dat een beheerder wp-admin opent, worden alle pagina's die niemand zelf heeft aangepast bijgewerkt (de oude versie blijft als revisie bewaard). Pagina's die je zelf hebt aangepast, blijven staan. Staat daar nog een bedrag in, dan zie je op het dashboard een melding met links naar die pagina's.
 - De bedragen staan nog in de code (`inc/quiz/catalog.php`, `inc/collega-config.php`), maar worden nergens meer getoond.
 
+### SEO-update (vanaf 1.9.0)
+
+- **Bij de update:** de eerste keer dat een beheerder wp-admin opent, worden de nieuwe pagina's (/oplossingen/urencontrole-beveiliging/, /branches/schoonmaak/) en blogconcepten aangemaakt, worden ongewijzigde pagina's bijgewerkt en worden de Veryo-menu's opnieuw opgebouwd. Ongewijzigde blogconcepten krijgen de uitgeschreven tekst.
+- **Landingspagina's** /lead-opvolging/ en /klantrapportage-beveiliging/ staan op noindex, follow met een canonical naar de pagina onder /oplossingen/, en staan niet in de sitemap. /bedankt/ en /rapport/ ook niet.
+- **Rank Math of Yoast:** noindex en canonical worden ook in de velden van die plugins gezet, zodat hun sitemap en robots-meta kloppen.
+- **Menu's:** installatie, makelaardij, horeca en retail, transport en de AI-receptionist staan niet meer in het hoofdmenu en de footer. De pagina's bestaan nog en zijn gewoon te vinden. Het menu-item Blog verschijnt pas als er een gepubliceerd bericht is.
+- **Blogs** zijn concepten. Bovenaan elk artikel staat wat je vóór publicatie moet controleren; haal die notitie weg en publiceer. Links naar een blog (bijvoorbeeld vanuit Urencontrole en Veryo Collega) worden pas een link als het bericht gepubliceerd is.
+- **Schema:** LocalBusiness op de homepage en /leeuwarden/ (adres uit Instellingen > Veryo). Artikelen hebben als auteur "Csaba Hamstra, oprichter Veryo".
+
 ## 10. Beweging en interactie
 
 De site gebruikt GSAP (met ScrollTrigger en SplitText) en Lenis voor animaties en vloeiend scrollen. Alles staat lokaal in het thema (`assets/vendor/`), er wordt niets van een CDN geladen. De licenties staan in `assets/vendor/gsap/LICENSE.md` (GSAP Standard "no charge" license) en `assets/vendor/lenis/LICENSE` (MIT). Controleer de GSAP-licentie bij elke update.

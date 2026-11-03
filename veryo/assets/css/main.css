@@ -1386,3 +1386,31 @@ html.lenis, html.lenis body { height: auto; }
 .veryo-lp-price .wp-block-buttons { margin-top: var(--s3); }
 .veryo-lp-closer h2 { max-width: 20ch; }
 .is-landing .veryo-sticky-cta { display: none !important; }
+
+/* Vergelijkingstabel lokale AI tegenover cloud-AI. */
+.veryo-compare-table { margin-top: var(--s3) !important; }
+.veryo-compare-table table { width: 100%; border-collapse: collapse; background: var(--paper); border-radius: var(--r-l); overflow: hidden; box-shadow: 0 0 0 1px var(--line-soft); }
+.veryo-compare-table th, .veryo-compare-table td { text-align: left; vertical-align: top; padding: 16px 20px; border: 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.veryo-compare-table thead th { background: var(--petrol); color: var(--paper); font-size: .875rem; letter-spacing: .04em; }
+.veryo-compare-table tbody tr:last-child td { border-bottom: 0; }
+.veryo-compare-table tbody td:first-child { font-weight: 650; }
+@media (max-width: 699px) {
+	.veryo-compare-table table, .veryo-compare-table tbody, .veryo-compare-table tr, .veryo-compare-table td { display: block; width: 100%; }
+	.veryo-compare-table table.has-fixed-layout { table-layout: auto; }
+	.veryo-compare-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+	.veryo-compare-table tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+	.veryo-compare-table tbody tr:last-child { border-bottom: 0; }
+	.veryo-compare-table td { border: 0; padding: 4px 20px; }
+	.veryo-compare-table td:nth-child(2)::before { content: "Cloud-AI"; }
+	.veryo-compare-table td:nth-child(3)::before { content: "Veryo Collega"; }
+	.veryo-compare-table td:nth-child(n+2)::before { display: block; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; }
+}
+
+/* Tabellen: winnen van de standaardranden van het tabelblok van WordPress. */
+.wp-block-table.veryo-compare-table th, .wp-block-table.veryo-compare-table td,
+.wp-block-table.veryo-lp-table th, .wp-block-table.veryo-lp-table td { border: 0; border-bottom: 1px solid var(--line); }
+.wp-block-table.veryo-compare-table tbody tr:last-child td, .wp-block-table.veryo-lp-table tbody tr:last-child td { border-bottom: 0; }
+.wp-block-table.veryo-compare-table thead, .wp-block-table.veryo-lp-table thead { border: 0; }
+@media (max-width: 699px) {
+	.wp-block-table.veryo-compare-table td, .wp-block-table.veryo-lp-table td { border: 0; }
+}

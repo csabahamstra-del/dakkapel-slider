@@ -55,6 +55,11 @@ function veryo_whatsapp_live() {
  */
 function veryo_fp_solutions() {
 	return array(
+		'urencontrole'    => array(
+			'naam'    => 'Urencontrole',
+			'label'   => __( 'Urencontrole', 'veryo' ),
+			'setting' => 'fp_urencontrole',
+		),
 		'startpakket'     => array(
 			'naam'    => 'Startpakket',
 			'label'   => __( 'AI-Startpakket', 'veryo' ),

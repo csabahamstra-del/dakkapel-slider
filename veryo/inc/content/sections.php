@@ -474,6 +474,68 @@ function veryo_sec_cta_scan( $title = '', $text = '' ) {
 }
 
 /**
+ * Link voor "plan een afspraak": de afspraaklink uit Instellingen > Veryo, anders Calendly.
+ *
+ * @return string
+ */
+function veryo_afspraak_url() {
+	$url = (string) veryo_setting( 'calendly_url', '' );
+	return '' !== $url ? $url : ( defined( 'VERYO_LP_CALENDLY_URL' ) ? VERYO_LP_CALENDLY_URL : veryo_link( 'contact' ) );
+}
+
+/**
+ * Afsluitend CTA-blok met een afspraak (demo of kennismaking) in plaats van de AI-scan.
+ *
+ * @param string $title Kop.
+ * @param string $text  Tekst.
+ * @return string
+ */
+function veryo_sec_cta_demo( $title, $text = '' ) {
+	$inner = veryo_b_h( $title, 2, array( 'fontSize' => 'display-l' ) );
+	if ( $text ) {
+		$inner .= veryo_b_p( $text, array( 'className' => 'veryo-lead' ) );
+	}
+	$inner .= veryo_b_buttons(
+		array(
+			array( $title, veryo_afspraak_url(), 'amber' ),
+			array( __( 'Of stuur een vraag', 'veryo' ), veryo_link( 'contact' ), 'link' ),
+		)
+	);
+	return veryo_b_group(
+		$inner,
+		array(
+			'tagName'   => 'section',
+			'align'     => 'full',
+			'className' => 'is-style-petrol veryo-cta has-check',
+		)
+	);
+}
+
+/**
+ * Shortcode [veryo_bloglink slug="..." tekst="..."]: een link naar een blogbericht, maar alleen als
+ * dat bericht gepubliceerd is. Anders staat er gewone tekst, zodat er geen link naar een concept is.
+ *
+ * @param array<string,string>|string $atts Attributen.
+ * @return string
+ */
+function veryo_sc_bloglink( $atts ) {
+	$atts = shortcode_atts(
+		array(
+			'slug'  => '',
+			'tekst' => '',
+		),
+		$atts,
+		'veryo_bloglink'
+	);
+	$post = '' !== $atts['slug'] ? get_page_by_path( sanitize_title( $atts['slug'] ), OBJECT, 'post' ) : null;
+	if ( $post instanceof WP_Post && 'publish' === $post->post_status ) {
+		return '<a href="' . esc_url( get_permalink( $post ) ) . '">' . esc_html( $atts['tekst'] ) . '</a>';
+	}
+	return esc_html( $atts['tekst'] );
+}
+add_shortcode( 'veryo_bloglink', 'veryo_sc_bloglink' );
+
+/**
  * Overzicht van alle branches met links.
  *
  * @param string $title Kop.
@@ -491,7 +553,8 @@ function veryo_sec_branches( $title = '', $intro = '', $wide = false ) {
 		'horeca-retail'             => array( __( 'Horeca en retail', 'veryo' ), __( 'Reviews, social en reserveringen', 'veryo' ) ),
 		'transport'                 => array( __( 'Transport en logistiek', 'veryo' ), __( 'Planning, statusberichten en documenten', 'veryo' ) ),
 		'recruitment'               => array( __( 'Werving en recruitment', 'veryo' ), __( 'Solliciteren via WhatsApp', 'veryo' ) ),
-		'beveiliging'               => array( __( 'Beveiligingsbedrijven', 'veryo' ), __( 'Rapportages, incidenten en roosters', 'veryo' ) ),
+		'beveiliging'               => array( __( 'Beveiligingsbedrijven', 'veryo' ), __( 'Urencontrole, rapportages en roosters', 'veryo' ) ),
+		'schoonmaak'                => array( __( 'Schoonmaakbedrijven', 'veryo' ), __( 'Uren, roosters en inkoopfacturen', 'veryo' ) ),
 	);
 	$items    = array();
 	foreach ( $branches as $slug => $b ) {
@@ -690,6 +753,13 @@ function veryo_page_standard( $d ) {
 	}
 	if ( ! empty( $d['products'] ) ) {
 		$out .= veryo_sec_products( $d['products']['keys'], $d['products']['h'], isset( $d['products']['intro'] ) ? $d['products']['intro'] : '', true, $d['products']['keys'][0] );
+	}
+	if ( ! empty( $d['solutions'] ) ) {
+		$links = array();
+		foreach ( veryo_products() as $key => $product ) {
+			$links[] = array( 'oplossingen/' . $key, $product['naam'], $product['voor'] );
+		}
+		$out .= veryo_sec_links( $links, __( 'Concreet: onze oplossingen', 'veryo' ) );
 	}
 	if ( ! empty( $d['catalog'] ) ) {
 		$out .= veryo_sec_catalog( $d['catalog']['ids'], $d['catalog']['h'], isset( $d['catalog']['intro'] ) ? $d['catalog']['intro'] : '' );

@@ -41,6 +41,7 @@ function veryo_settings_defaults() {
 		// Landingspagina's.
 		'forms_webhook'      => '',
 		'whatsapp_live'      => 0,
+		'fp_urencontrole'    => 2,
 		'fp_startpakket'     => 2,
 		'fp_leadopvolging'   => 2,
 		'fp_klantrapportage' => 2,
@@ -370,4 +371,21 @@ function veryo_wordmark_svg() {
 	}
 	$svg = preg_replace( '/fill="#[0-9A-Fa-f]{3,6}"/', 'fill="currentColor"', $svg );
 	return (string) preg_replace( '/<svg\b[^>]*?(viewBox="[^"]*")[^>]*>/', '<svg $1 xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMinYMid meet">', $svg, 1 );
+}
+
+/**
+ * Auteur van de blogartikelen: de oprichter, met functie. Is alleen een voornaam ingevuld bij
+ * Instellingen > Veryo, dan de volledige naam van de oprichter.
+ *
+ * @return array{name:string,job:string}
+ */
+function veryo_blog_author() {
+	$name = trim( (string) veryo_company()['founder'] );
+	if ( '' === $name || false === strpos( $name, ' ' ) ) {
+		$name = 'Csaba Hamstra';
+	}
+	return array(
+		'name' => $name,
+		'job'  => __( 'oprichter Veryo', 'veryo' ),
+	);
 }

@@ -62,6 +62,10 @@ function veryo_apply_page_meta( $post_id, $def ) {
 	if ( ! empty( $def['template'] ) ) {
 		update_post_meta( $post_id, '_wp_page_template', $def['template'] );
 	}
+	if ( ! empty( $def['canonical'] ) ) {
+		update_post_meta( $post_id, '_veryo_canonical', home_url( '/' . trim( $def['canonical'], '/' ) . '/' ) );
+	}
+	veryo_sync_plugin_robots( $post_id );
 	if ( ! empty( $def['og_image'] ) ) {
 		update_post_meta( $post_id, '_veryo_og_image', $def['og_image'] );
 	}
@@ -481,16 +485,14 @@ function veryo_add_menu_items( $menu_id, $items, $ids, $parent_item = 0, &$error
  * @return array<string,array<string,mixed>> Locatie => naam en items.
  */
 function veryo_menu_definitions() {
+	// Installatie, makelaardij, horeca en retail en transport staan bewust niet in de menu's.
 	$branches  = array(
-		array( __( 'Installatietechniek', 'veryo' ), 'branches/installatie' ),
+		array( __( 'Beveiligingsbedrijven', 'veryo' ), 'branches/beveiliging' ),
+		array( __( 'Schoonmaakbedrijven', 'veryo' ), 'branches/schoonmaak' ),
 		array( __( 'Bouw en aannemerij', 'veryo' ), 'branches/bouw' ),
 		array( __( 'Agri en mechanisatie', 'veryo' ), 'branches/agri' ),
-		array( __( 'Makelaardij', 'veryo' ), 'branches/makelaardij' ),
 		array( __( 'Accountants en adviesbureaus', 'veryo' ), 'branches/zakelijke-dienstverlening' ),
-		array( __( 'Horeca en retail', 'veryo' ), 'branches/horeca-retail' ),
-		array( __( 'Transport en logistiek', 'veryo' ), 'branches/transport' ),
 		array( __( 'Werving en recruitment', 'veryo' ), 'branches/recruitment' ),
-		array( __( 'Beveiligingsbedrijven', 'veryo' ), 'branches/beveiliging' ),
 	);
 	$solutions = array();
 	foreach ( veryo_products() as $key => $product ) {
@@ -884,3 +886,68 @@ function veryo_prices_left_notice() {
 	echo '<div class="notice notice-warning"><p><strong>' . esc_html__( 'Op de site staan geen prijzen meer, maar in deze teksten staat nog een bedrag:', 'veryo' ) . '</strong> ' . implode( ', ', $links ) . '. ' . esc_html__( 'Je hebt ze zelf aangepast, dus het thema laat ze staan. Haal de bedragen er zelf uit, of vervang ze door "Vraag een gratis offerte aan".', 'veryo' ) . '</p></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- links hierboven ge-escaped.
 }
 add_action( 'admin_notices', 'veryo_prices_left_notice' );
+
+/**
+ * Noindex en canonical van het thema ook in de velden van Rank Math en Yoast zetten. Is een van
+ * die plugins actief, dan neemt die de robots-meta en de sitemap over en kijkt hij alleen naar
+ * zijn eigen velden.
+ *
+ * @param int $post_id ID.
+ */
+function veryo_sync_plugin_robots( $post_id ) {
+	$noindex   = (bool) get_post_meta( $post_id, '_veryo_noindex', true );
+	$nofollow  = (bool) get_post_meta( $post_id, '_veryo_nofollow', true );
+	$canonical = (string) get_post_meta( $post_id, '_veryo_canonical', true );
+	if ( $noindex ) {
+		update_post_meta( $post_id, 'rank_math_robots', array( 'noindex', $nofollow ? 'nofollow' : 'follow' ) );
+		update_post_meta( $post_id, '_yoast_wpseo_meta-robots-noindex', '1' );
+		if ( $nofollow ) {
+			update_post_meta( $post_id, '_yoast_wpseo_meta-robots-nofollow', '1' );
+		}
+	}
+	if ( '' !== $canonical ) {
+		update_post_meta( $post_id, 'rank_math_canonical_url', $canonical );
+		update_post_meta( $post_id, '_yoast_wpseo_canonical', $canonical );
+	}
+}
+
+/**
+ * Eenmalig na de SEO-update (1.9.0): nieuwe pagina's en blogconcepten aanmaken, ongewijzigde
+ * pagina's bijwerken, de Veryo-menu's opnieuw opbouwen (zonder de pagina's buiten de focus)
+ * en noindex en canonical zetten op de landingspagina's, /bedankt/ en /rapport/. Ongewijzigde
+ * blogconcepten krijgen de uitgeschreven tekst; zelf aangepaste concepten blijven staan.
+ */
+function veryo_seo_update_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_seo_update_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_seo_update_done', 1, false );
+	veryo_refresh_content( true );
+
+	$defs = veryo_content_pages();
+	foreach ( array( 'lead-opvolging', 'klantrapportage-beveiliging', 'bedankt', 'rapport' ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page && isset( $defs[ $path ] ) ) {
+			veryo_apply_page_meta( $page->ID, $defs[ $path ] );
+		}
+	}
+
+	kses_remove_filters();
+	foreach ( veryo_content_posts() as $slug => $def ) {
+		$post = get_page_by_path( $slug, OBJECT, 'post' );
+		if ( $post instanceof WP_Post && 'draft' === $post->post_status && $post->post_modified_gmt === $post->post_date_gmt && $post->post_content !== $def['content'] ) {
+			wp_update_post(
+				wp_slash(
+					array(
+						'ID'           => $post->ID,
+						'post_title'   => $def['title'],
+						'post_content' => $def['content'],
+					)
+				)
+			);
+			veryo_apply_page_meta( $post->ID, $def );
+		}
+	}
+	kses_init();
+}
+add_action( 'admin_init', 'veryo_seo_update_upgrade', 30 );

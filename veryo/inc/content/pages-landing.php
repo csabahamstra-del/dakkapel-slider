@@ -71,7 +71,7 @@ $veryo_calendly = VERYO_LP_CALENDLY_URL;
 $veryo_fp       = $veryo_lp_hero(
 	__( 'Founding Partners 2026', 'veryo' ),
 	__( 'Veryo zoekt 6 bedrijven om mee te bouwen.', 'veryo' ),
-	__( 'Jij krijgt een AI-oplossing tegen een lagere instap. Wij krijgen een eerlijk verhaal over wat het oplevert. Twee plekken per oplossing.', 'veryo' ),
+	__( 'Als founding partner krijg je een AI-oplossing tegen een lagere instap. Wij krijgen een eerlijk verhaal over wat het oplevert. Maximaal twee plekken per oplossing, zes in totaal.', 'veryo' ),
 	veryo_b_shortcode( '[veryo_lp_teller]' )
 	. veryo_b_buttons( array( array( esc_html__( 'Vraag een plek aan', 'veryo' ), '#aanvragen', 'amber' ) ) )
 );
@@ -89,6 +89,7 @@ $veryo_fp      .= veryo_sec_wide(
 	'veryo-lp-for'
 );
 $veryo_fp_rows  = array(
+	array( __( 'Urencontrole', 'veryo' ), __( '[CSABA BESLIST: Founding Partner-voordeel voor Urencontrole]', 'veryo' ) ),
 	array( __( 'AI-Startpakket (tot 10 medewerkers)', 'veryo' ), __( 'de helft van de normale prijs', 'veryo' ) ),
 	array( __( 'AI lead-opvolging', 'veryo' ), __( 'inrichting -50% + normaal maandbedrag', 'veryo' ) ),
 	array( __( 'AI Klantrapportage', 'veryo' ), __( 'setup -50% + normaal maandbedrag', 'veryo' ) ),
@@ -268,9 +269,9 @@ $veryo_kr .= $veryo_lp_closer( __( 'Hoeveel uur kostte de rapportage van vorige 
 return array(
 	'founding-partner'            => array(
 		'title'     => __( 'Founding Partners 2026', 'veryo' ),
-		'seo_title' => __( 'Founding Partners 2026: bouw mee met Veryo | Veryo', 'veryo' ),
-		'desc'      => __( 'Veryo zoekt 6 bedrijven die als Founding Partner een AI-oplossing krijgen tegen een lagere instap. Twee plekken per oplossing. Vraag een plek aan.', 'veryo' ),
-		'kw'        => 'founding partner veryo',
+		'seo_title' => __( 'Founding partner AI 2026: bouw mee met Veryo | Veryo', 'veryo' ),
+		'desc'      => __( 'Founding partner AI: Veryo zoekt 6 bedrijven die een AI-oplossing krijgen tegen een lagere instap. Maximaal twee per oplossing. Vraag een plek aan.', 'veryo' ),
+		'kw'        => 'founding partner ai',
 		'meta'      => array(
 			'hide_title' => 1,
 			'noindex'    => 1,
@@ -283,7 +284,12 @@ return array(
 		'seo_title' => __( 'Elke aanvraag binnen 2 minuten opgevolgd | Veryo', 'veryo' ),
 		'desc'      => __( 'Elke aanvraag binnen 2 minuten opgevolgd, ook om 22:00. De AI reageert via WhatsApp, vraagt door en zet de inmeting in je agenda. Plan een gesprek.', 'veryo' ),
 		'kw'        => 'leads opvolgen vakbedrijf',
-		'meta'      => array( 'hide_title' => 1 ),
+		'meta'      => array(
+			'hide_title' => 1,
+			'noindex'    => 1,
+		),
+		// Landingspagina voor advertenties: de volledige pagina onder /oplossingen/ is de canonical.
+		'canonical' => 'oplossingen/ai-lead-opvolging',
 		'template'  => 'templates/landing.php',
 		'content'   => $veryo_lo,
 	),
@@ -292,7 +298,12 @@ return array(
 		'seo_title' => __( 'Klantrapportage voor beveiligingsbedrijven | Veryo', 'veryo' ),
 		'desc'      => __( 'Je maandrapportage maakt zichzelf: dienst- en incidentrapporten worden een klantrapport in jullie huisstijl. Vraag een gratis proefrapport aan.', 'veryo' ),
 		'kw'        => 'klantrapportage beveiliging',
-		'meta'      => array( 'hide_title' => 1 ),
+		'meta'      => array(
+			'hide_title' => 1,
+			'noindex'    => 1,
+		),
+		// Landingspagina voor advertenties: de volledige pagina onder /oplossingen/ is de canonical.
+		'canonical' => 'oplossingen/ai-klantrapportage',
 		'template'  => 'templates/landing.php',
 		'content'   => $veryo_kr,
 	),

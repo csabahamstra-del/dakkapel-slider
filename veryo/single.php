@@ -18,8 +18,8 @@ while ( have_posts() ) :
 				<h1 class="page-title"><?php the_title(); ?></h1>
 				<p class="post-meta">
 					<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
-					<?php $veryo_author = veryo_company()['founder']; ?>
-					<?php if ( $veryo_author ) : ?>
+					<?php $veryo_author = veryo_blog_author(); ?>
+					<?php if ( $veryo_author['name'] ) : ?>
 						<span aria-hidden="true">·</span>
 						<?php if ( veryo_founder_photo_id() ) : ?>
 							<?php
@@ -34,7 +34,7 @@ while ( have_posts() ) :
 							);
 							?>
 						<?php endif; ?>
-						<?php echo esc_html( sprintf( /* translators: %s: naam auteur. */ __( 'Door %s', 'veryo' ), $veryo_author ) ); ?>
+						<?php echo esc_html( sprintf( /* translators: 1: naam auteur, 2: functie. */ __( 'Door %1$s, %2$s', 'veryo' ), $veryo_author['name'], $veryo_author['job'] ) ); ?>
 					<?php endif; ?>
 				</p>
 			</div>

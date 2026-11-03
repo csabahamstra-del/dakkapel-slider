@@ -65,7 +65,7 @@ $check( false !== strpos( $log, 'API-fout 401' ), 'fout gelogd (401)' );
 $check( false === strpos( $log, 'ONGELDIGE-TESTSLEUTEL' ), 'sleutel staat niet in het log' );
 $check( 3 === count( $l['report']['aanbevelingen'] ), '3 aanbevelingen' );
 foreach ( $l['report']['aanbevelingen'] as $rec ) {
-	$check( null !== veryo_catalog_item( $rec['catalogus_id'] ) && '' !== $rec['prijs'], 'aanbeveling uit catalogus: ' . $rec['catalogus_id'] . ' (' . $rec['niveau'] . ', ' . $rec['prijs'] . ')' );
+	$check( null !== veryo_catalog_item( $rec['catalogus_id'] ) && '' !== $rec['niveau'] && ! isset( $rec['prijs'] ), 'aanbeveling uit catalogus, zonder prijs: ' . $rec['catalogus_id'] . ' (' . $rec['niveau'] . ')' );
 }
 $check( (bool) $l['report_sent'], 'rapportmail verstuurd' );
 

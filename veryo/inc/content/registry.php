@@ -40,5 +40,6 @@ function veryo_content_pages() {
  * @return array<string,array<string,mixed>>
  */
 function veryo_content_posts() {
-	return require VERYO_DIR . '/inc/content/posts-blog.php';
+	// Uitgeschreven artikelen staan apart en vervangen een concept met dezelfde slug.
+	return array_merge( require VERYO_DIR . '/inc/content/posts-blog.php', require VERYO_DIR . '/inc/content/posts-artikelen.php' );
 }

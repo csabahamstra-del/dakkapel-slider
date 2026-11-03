@@ -23,11 +23,79 @@ function veryo_products() {
 		return $products;
 	}
 	$products = array(
+		'urencontrole-beveiliging'      => array(
+			'naam'        => __( 'Urencontrole', 'veryo' ),
+			'h1'          => __( 'Urencontrole voor beveiligingsbedrijven', 'veryo' ),
+			'voor'        => __( 'Voor beveiligingsbedrijven met zzp’ers', 'veryo' ),
+			'kort'        => __( 'Facturen van zzp’ers en onderaannemers automatisch naast het rooster en het afgesproken tarief. De uren worden ingedeeld en klaargezet voor de salarisadministratie; jij ziet alleen wat niet klopt.', 'veryo' ),
+			'pitch'       => __( 'Elke maand komen er tientallen facturen van zzp’ers en onderaannemers binnen. Iemand op kantoor legt ze naast het rooster, zoekt uit welke dienst wel en niet gedraaid is, rekent tarieven na en zet de uren klaar voor de salarisadministratie. Dat kost uren, en een fout kost geld. Veryo automatiseert die controle. Jij ziet alleen nog wat niet klopt.', 'veryo' ),
+			'probleem'    => array(),
+			'secties'     => array(
+				array(
+					__( 'Wat Urencontrole doet', 'veryo' ),
+					array(),
+					array(
+						'<strong>' . __( 'Facturen naast het rooster.', 'veryo' ) . '</strong> ' . __( 'Elke zzp- en onderaannemersfactuur wordt vergeleken met de geplande en gedraaide diensten.', 'veryo' ),
+						'<strong>' . __( 'Tarief gecontroleerd.', 'veryo' ) . '</strong> ' . __( 'Klopt het uurtarief met wat je hebt afgesproken? Afwijkingen worden gemarkeerd.', 'veryo' ),
+						'<strong>' . __( 'Uren ingedeeld.', 'veryo' ) . '</strong> ' . __( 'Normaal, nacht, weekend, feestdag en overuren worden apart gezet.', 'veryo' ),
+						'<strong>' . __( 'Klaar voor de salarisadministratie.', 'veryo' ) . '</strong> ' . __( 'De uren van je eigen personeel staan in het formaat dat je salarisadministratie gebruikt. Veryo berekent geen lonen; dat blijft bij je salarisadministratie.', 'veryo' ),
+						'<strong>' . __( 'Alleen de afwijkingen.', 'veryo' ) . '</strong> ' . __( 'Je krijgt een overzicht van wat niet klopt: een dienst die op de factuur staat maar niet in het rooster, een afwijkend tarief, dubbele uren.', 'veryo' ),
+					),
+					'checks',
+				),
+				array(
+					__( 'Werkt bovenop je eigen planningspakket', 'veryo' ),
+					array( __( 'Je stapt niet over op nieuwe software. Urencontrole leest uit wat je al gebruikt: je planningspakket, de facturen in je mailbox en je afspraken met zzp’ers. Veryo bouwt de koppeling, jij werkt zoals je gewend bent.', 'veryo' ) ),
+				),
+				array(
+					__( 'Voor wie', 'veryo' ),
+					array(
+						sprintf(
+							/* translators: %s: link naar de branchepagina schoonmaak. */
+							__( 'Beveiligingsbedrijven die met zzp’ers, onderaannemers of oproepkrachten werken. Denk aan evenementen-, horeca- en objectbeveiliging, met veel wisselende diensten buiten kantooruren. Ook interessant voor <a href="%s">schoonmaakbedrijven</a> met vergelijkbare roosters.', 'veryo' ),
+							esc_url( veryo_link( 'branches/schoonmaak' ) )
+						),
+					),
+				),
+			),
+			'stappen_kop' => __( 'Zo gaat het in zijn werk', 'veryo' ),
+			'stappen'     => array(
+				array( __( 'Kennismaking (15 minuten)', 'veryo' ), __( 'We kijken hoe je nu uren en facturen controleert.', 'veryo' ) ),
+				array( __( 'Inrichting', 'veryo' ), __( 'Veryo koppelt je rooster, je mailbox en je tariefafspraken.', 'veryo' ) ),
+				array( __( 'Proefmaand', 'veryo' ), __( 'Je draait een maand mee en vergelijkt met je eigen controle.', 'veryo' ) ),
+				array( __( 'Elke maand automatisch', 'veryo' ), __( 'Daarna krijg je elke periode het overzicht met afwijkingen.', 'veryo' ) ),
+			),
+			'voorwie'     => array(),
+			'oplevert'    => array(),
+			'kost'        => sprintf(
+				/* translators: 1: link naar de offertepagina, 2: link naar Founding Partners. */
+				__( 'Wat Urencontrole kost, hangt af van het aantal diensten, zzp’ers en koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs. <a href="%1$s">Zo werkt de offerte</a>. Wil je een van de eerste bedrijven zijn die meebouwt, kijk dan naar het <a href="%2$s">Founding Partner-programma</a>.', 'veryo' ),
+				esc_url( veryo_link( 'prijzen' ) ),
+				esc_url( veryo_link( 'founding-partner' ) )
+			),
+			'faq'         => array(
+				array( __( 'Berekent Veryo ook de lonen?', 'veryo' ), __( 'Nee. Veryo controleert en deelt uren in en zet ze klaar. De loonberekening blijft bij je salarisadministratie.', 'veryo' ) ),
+				array( __( 'Moeten we overstappen op een ander planningspakket?', 'veryo' ), __( 'Nee, Urencontrole werkt bovenop wat je al gebruikt.', 'veryo' ) ),
+				array( __( 'Wat gebeurt er met afwijkingen?', 'veryo' ), __( 'Die krijg je in een overzicht. Jij beslist wat je ermee doet: navragen bij de zzp’er, corrigeren of akkoord geven.', 'veryo' ) ),
+				array( __( 'Helpt dit bij de discussie over schijnzelfstandigheid?', 'veryo' ), __( 'Het geeft je een vaste, controleerbare vastlegging van wie wanneer welke dienst draaide en tegen welk tarief. Juridisch advies is het niet. Meer daarover lees je in [veryo_bloglink slug="schijnzelfstandigheid-beveiliging" tekst="ons artikel over schijnzelfstandigheid in de beveiliging"].', 'veryo' ) ),
+				array( __( 'Hoe snel draait het?', 'veryo' ), __( 'De inrichting duurt meestal twee tot drie weken na de kennismaking. Daarna draai je een proefmaand mee, naast je eigen controle.', 'veryo' ) ),
+			),
+			'cta'         => array( __( 'Plan een demo van 15 minuten', 'veryo' ), __( 'We laten zien hoe Urencontrole werkt en kijken samen naar hoe jij nu uren en facturen controleert.', 'veryo' ) ),
+			'no_collega'  => true,
+			'extra_links' => array(
+				array( 'founding-partner', __( 'Founding Partners 2026', 'veryo' ), __( 'Bouw mee met Veryo', 'veryo' ) ),
+			),
+			'placeholder' => __( 'Bijvoorbeeld: we werken met 40 zzp’ers en controleren hun facturen elke maand met de hand.', 'veryo' ),
+			'branches'    => array( 'branches/beveiliging', 'branches/schoonmaak' ),
+			'seo_title'   => __( 'Urencontrole beveiliging: zzp-facturen controleren | Veryo', 'veryo' ),
+			'desc'        => __( 'Veryo controleert zzp- en onderaannemersfacturen automatisch tegen je rooster en tarief, deelt de uren in en zet ze klaar voor de salarisadministratie.', 'veryo' ),
+			'kw'          => 'urencontrole beveiliging',
+		),
 		'ai-lead-opvolging'             => array(
 			'naam'        => __( 'AI lead-opvolging', 'veryo' ),
 			'voor'        => __( 'Voor vakbedrijven die adverteren', 'veryo' ),
 			'kort'        => __( 'Binnen ongeveer twee minuten na een aanvraag stuurt de AI een WhatsApp of belt hij de lead, stelt de kwalificatievragen en plant direct een inmeting in je agenda.', 'veryo' ),
-			'pitch'       => __( 'AI lead-opvolging van Veryo neemt binnen ongeveer twee minuten contact op met elke nieuwe lead: via WhatsApp of telefonisch. De assistent stelt je kwalificatievragen en plant direct een inmeting of afspraak in je agenda. Zo koelt geen enkele lead meer af en haal je meer afspraken uit hetzelfde advertentiebudget.', 'veryo' ),
+			'pitch'       => __( 'Lead opvolging zonder dat je zelf hoeft te bellen: AI lead-opvolging van Veryo neemt binnen ongeveer twee minuten contact op met elke nieuwe lead, via WhatsApp of telefonisch. Zo kun je leads automatisch opvolgen, ook leads uit Google Ads en Meta. De assistent stelt je kwalificatievragen en kan de inmeting automatisch inplannen in je agenda. Zo koelt geen enkele lead meer af en haal je meer afspraken uit hetzelfde advertentiebudget.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Je betaalt voor elke lead uit Google, Meta of een vergelijkingssite. Maar de aanvraag komt binnen terwijl je op het dak staat, een vloer legt of een kozijn afmontert. Je belt ’s avonds terug, of de volgende dag. Tegen die tijd heeft de klant al met twee andere bedrijven gesproken.', 'veryo' ),
 				__( 'Hoe langer een lead wacht, hoe kleiner de kans op een afspraak. Dat is geen kwestie van harder werken: je kunt simpelweg niet altijd direct opnemen. Precies dat deel neemt de AI over.', 'veryo' ),
@@ -51,21 +119,23 @@ function veryo_products() {
 			),
 			'faq'         => array(
 				array( __( 'Weet de klant dat hij met een AI praat?', 'veryo' ), __( 'Ja. De assistent stelt zich voor als digitale assistent van jouw bedrijf. Dat is eerlijk, en de AI Act vraagt het ook. Wil de klant liever een mens spreken, dan krijg jij direct een seintje.', 'veryo' ) ),
+				array( __( 'Kan ik leads uit Google Ads automatisch opvolgen?', 'veryo' ), __( 'Meestal wel. Komen de leads binnen via een formulier op je website of via de leadformulieren van Google Ads of Meta, dan koppelen we die aan de assistent. In het eerste gesprek kijken we welke bronnen jij gebruikt.', 'veryo' ) ),
 				array( __( 'Werkt het met mijn agenda en mijn leadbronnen?', 'veryo' ), __( 'Meestal wel. We koppelen met gangbare agenda’s zoals Google en Outlook, en met formulieren en advertentieplatforms als Meta en Google. In het eerste gesprek checken we wat jij gebruikt.', 'veryo' ) ),
 				array( __( 'Mag ik leads zomaar bellen of appen?', 'veryo' ), __( 'Een lead heeft zelf om contact gevraagd; daarop reageren mag. We richten het AVG-proof in: duidelijk wie er contact opneemt, alleen de gegevens die nodig zijn en een verwerkersovereenkomst.', 'veryo' ) ),
 				array( __( 'Wat als de lead een vraag stelt die de AI niet kan beantwoorden?', 'veryo' ), __( 'Dan zegt de assistent dat eerlijk en zet hij de vraag door naar jou. Je bepaalt vooraf welke onderwerpen altijd naar een mens gaan, zoals prijzen of klachten.', 'veryo' ) ),
 			),
+			'stappen_kop' => __( 'Zo werkt lead opvolging met AI', 'veryo' ),
 			'placeholder' => __( 'Bijvoorbeeld: we krijgen 40 leads per maand via Meta en bellen vaak pas de volgende dag terug.', 'veryo' ),
 			'branches'    => array( 'branches/bouw', 'branches/installatie', 'branches/makelaardij' ),
 			'seo_title'   => __( 'AI lead-opvolging: elke lead binnen 2 minuten gebeld | Veryo', 'veryo' ),
 			'desc'        => __( 'AI lead-opvolging voor vakbedrijven: binnen ongeveer 2 minuten een WhatsApp of belletje, kwalificatievragen en direct een inmeting in je agenda.', 'veryo' ),
-			'kw'          => 'ai lead opvolging',
+			'kw'          => 'lead opvolging',
 		),
 		'ai-klantrapportage'            => array(
 			'naam'        => __( 'AI Klantrapportage', 'veryo' ),
 			'voor'        => __( 'Voor beveiligingsbedrijven', 'veryo' ),
 			'kort'        => __( 'Dienst- en incidentrapporten worden automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever.', 'veryo' ),
-			'pitch'       => __( 'AI Klantrapportage verwerkt dienst- en incidentrapporten automatisch tot nette maandelijkse PDF-rapportages per opdrachtgever. De rapporten komen binnen via de mail of uit je eigen systeem; de AI ordent ze, vat samen en zet ze in jouw huisstijl. Dat scheelt uren rapportagewerk per maand en geeft een professionelere uitstraling richting klanten.', 'veryo' ),
+			'pitch'       => __( 'Rapportage in de beveiliging automatiseren: AI Klantrapportage verwerkt elk dienstrapport en incidentrapport automatisch tot een nette maandrapportage per opdrachtgever, als PDF. De rapporten komen binnen via de mail of uit je eigen systeem; de AI ordent ze, vat samen en zet ze in jouw huisstijl. Dat scheelt uren rapportagewerk per maand en geeft een professionelere uitstraling richting opdrachtgevers.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Elke dienst levert een rapport op, en elk incident een verslag. Aan het eind van de maand wil elke opdrachtgever een overzicht: wat is er gebeurd, hoe vaak, welke rondes zijn gelopen en welke bijzonderheden waren er.', 'veryo' ),
 				__( 'Dat overzicht wordt nu vaak met de hand gemaakt: rapporten doorlezen, tellen, knippen en plakken in Word of Excel. Uren werk per opdrachtgever, elke maand opnieuw, terwijl de inhoud er al ligt.', 'veryo' ),
@@ -92,17 +162,18 @@ function veryo_products() {
 				array( __( 'Blijven de gegevens van onze opdrachtgevers veilig?', 'veryo' ), __( 'We werken met zakelijke AI-diensten die je gegevens niet gebruiken om modellen te trainen, sluiten een verwerkersovereenkomst en geven alleen toegang tot wat nodig is.', 'veryo' ) ),
 				array( __( 'Kan de AI zelf iets verzinnen in een rapportage?', 'veryo' ), __( 'De rapportage wordt opgebouwd uit jullie eigen rapporten, en een mens leest het concept na voor het de deur uitgaat. Klopt iets niet, dan pas je het aan voor verzending.', 'veryo' ) ),
 			),
+			'stappen_kop' => __( 'Rapportage beveiliging automatiseren: zo werkt het', 'veryo' ),
 			'placeholder' => __( 'Bijvoorbeeld: we hebben 25 opdrachtgevers en maken elke maand handmatig de rapportages.', 'veryo' ),
 			'branches'    => array( 'branches/beveiliging' ),
-			'seo_title'   => __( 'AI Klantrapportage voor beveiligingsbedrijven | Veryo', 'veryo' ),
+			'seo_title'   => __( 'Rapportage beveiliging automatiseren met AI | Veryo', 'veryo' ),
 			'desc'        => __( 'Dienst- en incidentrapporten automatisch verwerkt tot nette maandelijkse PDF-rapportages per opdrachtgever. Voor beveiligers. Vraag een gratis offerte aan.', 'veryo' ),
-			'kw'          => 'rapportage beveiligingsbedrijf automatiseren',
+			'kw'          => 'rapportage beveiliging automatiseren',
 		),
 		'ai-calculatie-offerte-factuur' => array(
 			'naam'        => __( 'AI voor calculatie, offerte en factuur', 'veryo' ),
 			'voor'        => __( 'Voor bouw, installatie en techniek', 'veryo' ),
 			'kort'        => __( 'Leest bestekken en tekeningen, helpt met de calculatie, maakt de offerte en na afloop de factuur. Bovenop je bestaande pakket.', 'veryo' ),
-			'pitch'       => __( 'AI voor calculatie, offerte en factuur leest bestekken en tekeningen, helpt met de calculatie, maakt de offerte en na afloop de factuur. Het werkt bovenop je bestaande offerte- of boekhoudpakket, dus je hoeft niet over te stappen. Offertes in minuten in plaats van uren, en minder kantoorwerk.', 'veryo' ),
+			'pitch'       => __( 'Offertes automatiseren zonder nieuw pakket: AI voor calculatie, offerte en factuur kan het bestek lezen met AI, helpt de calculatie te automatiseren, maakt de offerte en na afloop de factuur. Een offerte maken met AI gebeurt bovenop je bestaande offerte- of boekhoudpakket, dus je hoeft niet over te stappen. Offertes in minuten in plaats van uren, en minder kantoorwerk.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Een goede offerte kost tijd: het bestek doorlezen, hoeveelheden uit de tekening halen, prijzen opzoeken, de calculatie opbouwen en dan alles netjes in een offerte zetten. Vaak ’s avonds, omdat overdag het werk voorgaat.', 'veryo' ),
 				__( 'En als het werk klaar is, begint het opnieuw: meerwerk verzamelen, uren en materialen nalopen en de factuur maken. Dubbel werk, met kans op fouten en te laat factureren.', 'veryo' ),
@@ -129,11 +200,12 @@ function veryo_products() {
 				array( __( 'Werkt het met mijn offerte- of boekhoudpakket?', 'veryo' ), __( 'Het werkt bovenop je bestaande pakket. Veel pakketten hebben een koppeling; anders werken we met exports of een eenvoudige tussenlaag. Dat checken we vooraf.', 'veryo' ) ),
 				array( __( 'Kan de AI tekeningen lezen?', 'veryo' ), __( 'Tekst in bestekken en duidelijke tekeningen leest hij goed. Bij complexe tekeningen helpt hij met het uittrekken van hoeveelheden, en controleert de calculator het resultaat.', 'veryo' ) ),
 			),
+			'stappen_kop' => __( 'Offertes automatiseren: zo werkt het', 'veryo' ),
 			'placeholder' => __( 'Bijvoorbeeld: we maken 30 offertes per maand en elke offerte kost ons twee uur.', 'veryo' ),
 			'branches'    => array( 'branches/bouw', 'branches/installatie' ),
-			'seo_title'   => __( 'AI voor calculatie, offerte en factuur | Veryo', 'veryo' ),
+			'seo_title'   => __( 'Offertes automatiseren: calculatie en factuur met AI | Veryo', 'veryo' ),
 			'desc'        => __( 'AI die bestekken en tekeningen leest, helpt calculeren, de offerte maakt en na afloop de factuur. Bovenop je eigen pakket. Vraag een gratis offerte aan.', 'veryo' ),
-			'kw'          => 'offerte maken met ai',
+			'kw'          => 'offertes automatiseren',
 		),
 		'werkbonnen-verwerken'          => array(
 			'naam'        => __( 'Werkbonnen verwerken', 'veryo' ),
@@ -176,7 +248,7 @@ function veryo_products() {
 			'naam'        => __( 'Inkoopfacturen automatiseren', 'veryo' ),
 			'voor'        => __( 'Voor elk bedrijf met veel inkoop', 'veryo' ),
 			'kort'        => __( 'Inkoopfacturen uit de mail worden automatisch uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je boekhouding gezet.', 'veryo' ),
-			'pitch'       => __( 'Met Inkoopfacturen automatiseren worden inkoopfacturen die per mail binnenkomen automatisch uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je ERP of boekhoudpakket gezet. Je administratie hoeft alleen nog de afwijkingen te bekijken.', 'veryo' ),
+			'pitch'       => __( 'Inkoopfacturen automatiseren betekent: facturen automatisch verwerken in plaats van overtypen. Inkoopfacturen die per mail binnenkomen, worden uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je boekhouding gezet, zoals SnelStart, Exact of Moneybird, of in je ERP. Je administratie hoeft alleen nog de afwijkingen te bekijken.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Tientallen of honderden inkoopfacturen per maand, elk in een andere opmaak. Iemand opent ze, controleert bedragen en aantallen, zoekt de bijbehorende inkooporder of werkbon en boekt ze in.', 'veryo' ),
 				__( 'Het is precies, saai en foutgevoelig werk. Een factuur die dubbel wordt betaald of een prijs die niet klopt met de afspraak, valt pas op als het te laat is.', 'veryo' ),
@@ -203,6 +275,7 @@ function veryo_products() {
 				array( __( 'Heeft mijn boekhoudpakket dit niet al?', 'veryo' ), __( 'Veel pakketten lezen facturen uit, maar matchen niet met inkooporders of werkbonnen en controleren niet op afwijkende prijzen. Doet jouw pakket al genoeg, dan zeggen we dat eerlijk.', 'veryo' ) ),
 				array( __( 'Wordt er automatisch betaald?', 'veryo' ), __( 'Nee. De AI bereidt voor en controleert; je administratie keurt goed en betaalt.', 'veryo' ) ),
 			),
+			'stappen_kop' => __( 'Facturen uit je mail automatisch verwerken', 'veryo' ),
 			'placeholder' => __( 'Bijvoorbeeld: we krijgen 300 inkoopfacturen per maand en boeken ze allemaal met de hand in.', 'veryo' ),
 			'branches'    => array( 'branches/agri', 'branches/transport', 'branches/horeca-retail', 'branches/zakelijke-dienstverlening', 'branches/beveiliging' ),
 			'seo_title'   => __( 'Inkoopfacturen automatiseren met AI | Veryo', 'veryo' ),
@@ -339,31 +412,40 @@ function veryo_page_product( $key ) {
 	$p   = veryo_products()[ $key ];
 	$out = veryo_sec_answer( $p['pitch'] );
 
-	$out .= veryo_sec_text( __( 'Het probleem', 'veryo' ), $p['probleem'] );
+	if ( ! empty( $p['probleem'] ) ) {
+		$out .= veryo_sec_text( __( 'Het probleem', 'veryo' ), $p['probleem'] );
+	}
+	if ( ! empty( $p['secties'] ) ) {
+		foreach ( $p['secties'] as $section ) {
+			$out .= veryo_sec_text( $section[0], $section[1], isset( $section[2] ) ? $section[2] : array(), isset( $section[3] ) ? $section[3] : '' );
+		}
+	}
 
 	$steps = array();
 	foreach ( $p['stappen'] as $step ) {
 		$steps[] = '<strong>' . esc_html( $step[0] ) . '</strong><br>' . esc_html( $step[1] );
 	}
 	$out .= veryo_sec_wide(
-		veryo_b_h( __( 'Zo werkt het', 'veryo' ) )
+		veryo_b_h( isset( $p['stappen_kop'] ) ? $p['stappen_kop'] : __( 'Zo werkt het', 'veryo' ) )
 		. veryo_b_list( $steps, array( 'className' => 'is-style-steps' ) ),
 		'veryo-steps--home veryo-product-steps'
 	);
 
-	$out .= veryo_sec_wide(
-		veryo_b_columns(
-			array(
-				array( 'inner' => veryo_b_h( __( 'Voor wie', 'veryo' ) ) . veryo_b_list( array_map( 'esc_html', $p['voorwie'] ), array( 'className' => 'is-style-checks' ) ) ),
-				array( 'inner' => veryo_b_h( __( 'Wat het oplevert', 'veryo' ) ) . veryo_b_list( array_map( 'esc_html', $p['oplevert'] ), array( 'className' => 'is-style-checks' ) ) ),
-			)
-		),
-		'veryo-product-fit'
-	);
+	if ( ! empty( $p['voorwie'] ) ) {
+		$out .= veryo_sec_wide(
+			veryo_b_columns(
+				array(
+					array( 'inner' => veryo_b_h( __( 'Voor wie', 'veryo' ) ) . veryo_b_list( array_map( 'esc_html', $p['voorwie'] ), array( 'className' => 'is-style-checks' ) ) ),
+					array( 'inner' => veryo_b_h( __( 'Wat het oplevert', 'veryo' ) ) . veryo_b_list( array_map( 'esc_html', $p['oplevert'] ), array( 'className' => 'is-style-checks' ) ) ),
+				)
+			),
+			'veryo-product-fit'
+		);
+	}
 
 	$out .= veryo_b_group(
 		veryo_b_h( __( 'Wat kost het?', 'veryo' ) )
-		. veryo_b_p( esc_html__( 'Wat het voor jou kost, hangt af van het volume en de systemen waarop we aansluiten. Na een kort gesprek krijg je een gratis offerte met vooraf een vaste prijs. We richten de oplossing in op jouw systemen, testen met echte voorbeelden en houden hem daarna draaiende.', 'veryo' ) )
+		. veryo_b_p( isset( $p['kost'] ) ? $p['kost'] : esc_html__( 'Wat het voor jou kost, hangt af van het volume en de systemen waarop we aansluiten. Na een kort gesprek krijg je een gratis offerte met vooraf een vaste prijs. We richten de oplossing in op jouw systemen, testen met echte voorbeelden en houden hem daarna draaiende.', 'veryo' ) )
 		. veryo_b_buttons(
 			array(
 				array( veryo_offerte_label(), veryo_offerte_url(), 'amber' ),
@@ -373,7 +455,9 @@ function veryo_page_product( $key ) {
 		array( 'className' => 'is-style-soft veryo-price veryo-product-price' )
 	);
 
-	$out .= veryo_sec_collega_blok();
+	if ( empty( $p['no_collega'] ) ) {
+		$out .= veryo_sec_collega_blok();
+	}
 	$out .= veryo_sec_contact(
 		/* translators: %s: naam van de oplossing. */
 		sprintf( __( 'Is %s iets voor jou?', 'veryo' ), $p['naam'] ),
@@ -381,7 +465,7 @@ function veryo_page_product( $key ) {
 		$p['placeholder']
 	);
 	$out .= veryo_sec_faq( $p['faq'] );
-	$out .= veryo_sec_cta_scan();
+	$out .= ! empty( $p['cta'] ) ? veryo_sec_cta_demo( $p['cta'][0], $p['cta'][1] ) : veryo_sec_cta_scan();
 
 	$links = array();
 	foreach ( veryo_products() as $other => $o ) {
@@ -394,6 +478,9 @@ function veryo_page_product( $key ) {
 		if ( isset( $branches[ $path ] ) ) {
 			$links[] = array( $path, $branches[ $path ], __( 'Branche', 'veryo' ) );
 		}
+	}
+	if ( ! empty( $p['extra_links'] ) ) {
+		$links = array_merge( $links, $p['extra_links'] );
 	}
 	$out .= veryo_sec_links( $links, __( 'Andere oplossingen en branches', 'veryo' ) );
 	return $out;
@@ -415,5 +502,6 @@ function veryo_branch_labels() {
 		'branches/transport'                 => __( 'AI voor transport en logistiek', 'veryo' ),
 		'branches/recruitment'               => __( 'AI voor werving en recruitment', 'veryo' ),
 		'branches/beveiliging'               => __( 'AI voor beveiligingsbedrijven', 'veryo' ),
+		'branches/schoonmaak'                => __( 'AI voor schoonmaakbedrijven', 'veryo' ),
 	);
 }

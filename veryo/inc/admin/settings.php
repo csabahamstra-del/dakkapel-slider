@@ -73,6 +73,7 @@ function veryo_settings_fields() {
 			'title'  => __( 'Landingspagina’s', 'veryo' ),
 			'intro'  => __( 'Voor /founding-partner, /lead-opvolging en /klantrapportage-beveiliging.', 'veryo' ),
 			'fields' => array(
+				'fp_urencontrole'    => array( 'number', __( 'Founding Partner: vrije plekken Urencontrole', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
 				'fp_startpakket'     => array( 'number', __( 'Founding Partner: vrije plekken AI-Startpakket', 'veryo' ), __( '0, 1 of 2. Bij 0 staat er "vol".', 'veryo' ) ),
 				'fp_leadopvolging'   => array( 'number', __( 'Founding Partner: vrije plekken AI lead-opvolging', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
 				'fp_klantrapportage' => array( 'number', __( 'Founding Partner: vrije plekken AI Klantrapportage', 'veryo' ), __( '0, 1 of 2.', 'veryo' ) ),
@@ -168,7 +169,7 @@ function veryo_sanitize_settings( $input ) {
 	if ( '' === $out['model'] ) {
 		$out['model'] = 'claude-sonnet-5-5';
 	}
-	foreach ( array( 'fp_startpakket', 'fp_leadopvolging', 'fp_klantrapportage', 'fp_collega' ) as $spots ) {
+	foreach ( array( 'fp_urencontrole', 'fp_startpakket', 'fp_leadopvolging', 'fp_klantrapportage', 'fp_collega' ) as $spots ) {
 		$out[ $spots ] = max( 0, min( 2, (int) $out[ $spots ] ) );
 	}
 	if ( '' !== $out['forms_webhook'] && 0 !== strpos( $out['forms_webhook'], 'https://' ) ) {

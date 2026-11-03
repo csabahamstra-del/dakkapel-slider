@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  */
 $veryo_places = static function ( $intro, $places ) {
 	return array(
-		'h'     => __( 'Plaatsen waar we komen', 'veryo' ),
+		'h'     => __( 'Waar we werken', 'veryo' ),
 		'p'     => array( $intro ),
 		'list'  => $places,
 		'style' => 'places',
@@ -64,8 +64,8 @@ return array(
 						'p' => array( __( 'Een recreatiebedrijf aan het IJsselmeer krijgt in het seizoen veel dezelfde vragen via mail en WhatsApp, deels in het Duits. Met een WhatsApp-assistent die antwoordt in de taal van de gast, en conceptantwoorden op mail, kan de receptie zich richten op de gasten aan de balie. Dit is een voorbeeld van wat kan, geen klantcase.', 'veryo' ) ),
 					),
 					$veryo_places(
-						__( 'Vanuit Leeuwarden zijn we snel in heel Friesland. We komen op locatie voor de kansensessie, de training en de oplevering.', 'veryo' ),
-						array( 'Leeuwarden', 'Heerenveen', 'Sneek', 'Drachten', 'Harlingen', 'Dokkum', __( 'en de rest van Friesland, ook de Waddeneilanden in overleg', 'veryo' ) )
+						__( 'Vanuit Leeuwarden zijn we snel in heel Friesland. We werken voor bedrijven in Leeuwarden, Drachten, Heerenveen en Sneek, en komen op locatie voor de kansensessie, de training en de oplevering.', 'veryo' ),
+						array( 'Leeuwarden', 'Drachten', 'Heerenveen', 'Sneek', 'Harlingen', 'Dokkum', __( 'en de rest van Friesland, ook de Waddeneilanden in overleg', 'veryo' ) )
 					),
 				),
 				'catalog'       => array(
@@ -74,6 +74,7 @@ return array(
 				),
 				'price'         => array( 'steps' => array( 'scan', 'startpakket', 'training', 'quickwin' ) ),
 				'faq'           => array(
+					array( __( 'Werken jullie ook in Drachten, Heerenveen en Sneek?', 'veryo' ), __( 'Ja. Drachten, Heerenveen en Sneek liggen op een half uur tot drie kwartier rijden van Leeuwarden. We komen langs voor de kennismaking, de training en de oplevering; tussendoor overleggen we vaak online.', 'veryo' ) ),
 					array( __( 'Komen jullie op locatie in heel Friesland?', 'veryo' ), __( 'Ja. Vanuit Leeuwarden komen we in heel de provincie langs, van Harlingen tot Oosterwolde en van Dokkum tot Lemmer. Voor de eilanden maken we een afspraak op maat.', 'veryo' ) ),
 					array( __( 'Kunnen jullie een AI-training in Friesland geven?', 'veryo' ), __( 'Ja, bij jou op locatie of in Leeuwarden. Vraag een gratis offerte aan.', 'veryo' ) ),
 					array( __( 'Werken jullie ook met kleine bedrijven?', 'veryo' ), __( 'Ja. Een groot deel van het Friese MKB bestaat uit bedrijven met twee tot twintig mensen. Juist daar kan één goede automatisering veel schelen.', 'veryo' ) ),
@@ -132,8 +133,8 @@ return array(
 						),
 					),
 					$veryo_places(
-						__( 'Groningen ligt op ongeveer een uur rijden van Leeuwarden. We plannen afspraken in de provincie zo dat we er efficiënt kunnen zijn, en voor veel overleg werkt online ook prima.', 'veryo' ),
-						array( __( 'Stad Groningen', 'veryo' ), 'Veendam', 'Hoogezand', 'Delfzijl', 'Winsum', __( 'en de rest van de provincie Groningen', 'veryo' ) )
+						__( 'Groningen ligt op ongeveer een uur rijden van Leeuwarden. We werken voor bedrijven in de stad Groningen, Leek en Winschoten en de rest van de provincie. Afspraken plannen we zo dat we er efficiënt kunnen zijn, en voor veel overleg werkt online ook prima.', 'veryo' ),
+						array( __( 'Groningen stad', 'veryo' ), 'Leek', 'Winschoten', 'Veendam', 'Hoogezand', 'Delfzijl', __( 'en de rest van de provincie Groningen', 'veryo' ) )
 					),
 				),
 				'catalog'       => array(
@@ -142,6 +143,7 @@ return array(
 				),
 				'price'         => array( 'steps' => array( 'scan', 'startpakket', 'training', 'project' ) ),
 				'faq'           => array(
+					array( __( 'Werken jullie ook in Leek en Winschoten?', 'veryo' ), __( 'Ja. Leek ligt aan de kant van Friesland, Winschoten in het oosten van de provincie. In beide plaatsen komen we op locatie voor de kennismaking, de training en de oplevering.', 'veryo' ) ),
 					array( __( 'Komen jullie ook in de stad Groningen?', 'veryo' ), __( 'Ja, in de stad en in de hele provincie. Voor een kansensessie, training of oplevering komen we op locatie.', 'veryo' ) ),
 					array( __( 'Rekenen jullie reiskosten voor Groningen?', 'veryo' ), __( 'Nee. In Friesland, Groningen en Drenthe rekenen we geen reiskosten. Dat zit in de vaste prijs.', 'veryo' ) ),
 					array( __( 'Werken jullie samen met Groningse onderwijsinstellingen?', 'veryo' ), __( 'Op dit moment niet. We richten ons op praktische toepassingen voor het MKB.', 'veryo' ) ),
@@ -198,7 +200,7 @@ return array(
 						'p' => array( __( 'Een mechanisatiebedrijf bij Emmen houdt de keuringsdata van machines van klanten bij in een Excel. Met een automatische onderhouds- en keuringsplanning krijgt de klant op tijd een uitnodiging, wordt de afspraak ingepland en staat de onderdelenbestelling klaar. Dit is een voorbeeld van wat kan, geen klantcase.', 'veryo' ) ),
 					),
 					$veryo_places(
-						__( 'Assen ligt op ongeveer een uur rijden van Leeuwarden, Emmen iets verder. We komen op locatie voor kansensessies, trainingen en opleveringen.', 'veryo' ),
+						__( 'Assen ligt op ongeveer een uur rijden van Leeuwarden, Emmen iets verder. We werken voor bedrijven in Assen, Emmen en Hoogeveen en de rest van Drenthe, en komen op locatie voor kansensessies, trainingen en opleveringen.', 'veryo' ),
 						array( 'Assen', 'Emmen', 'Hoogeveen', 'Meppel', __( 'en de rest van Drenthe', 'veryo' ) )
 					),
 				),
@@ -209,6 +211,7 @@ return array(
 				'price'         => array( 'steps' => array( 'scan', 'startpakket', 'quickwin', 'project' ) ),
 				'faq'           => array(
 					array( __( 'Komen jullie in heel Drenthe?', 'veryo' ), __( 'Ja. We komen in Assen, Emmen, Hoogeveen, Meppel en alles daartussen, voor kansensessies, trainingen en opleveringen.', 'veryo' ) ),
+					array( __( 'Is Veryo een AI-consultancy voor Drentse bedrijven?', 'veryo' ), __( 'Ja, maar dan praktisch: we adviseren niet alleen, we richten de automatisering ook in bovenop de tools die je al gebruikt en leren je team ermee werken. Voor bedrijven in Assen, Emmen, Hoogeveen en de rest van Drenthe.', 'veryo' ) ),
 					array( __( 'Werken jullie ook voor agrarische bedrijven?', 'veryo' ), __( 'Ja. Agri en mechanisatie is een van de sectoren die we het best kennen, van loonwerk tot machinehandel.', 'veryo' ) ),
 					array( __( 'Wat betekent de afstand voor de prijs?', 'veryo' ), __( 'Niets. In Friesland, Groningen en Drenthe rekenen we geen reiskosten. Je krijgt vooraf een vaste prijs.', 'veryo' ) ),
 					array( __( 'Kunnen we beginnen met een training?', 'veryo' ), __( 'Ja, dat is vaak een goede eerste stap. Vraag een gratis offerte aan.', 'veryo' ) ),
@@ -260,7 +263,7 @@ return array(
 						'p' => array( __( 'Na een training willen veel bedrijven direct iets toepassen. Een voorbeeld: een administratiekantoor in de binnenstad kan beginnen met gespreksverslagen die automatisch worden gemaakt en een assistent die klantdocumenten samenvat als voorbereiding. Een winkel of horecazaak begint vaak met reviews en social media. Omdat we om de hoek zitten, is een tussentijds overleg zo geregeld.', 'veryo' ) ),
 					),
 					$veryo_places(
-						__( 'In en rond Leeuwarden komen we overal, ook voor een kort overleg.', 'veryo' ),
+						__( 'In en rond Leeuwarden komen we overal, ook voor een kort overleg. Vanuit Leeuwarden werken we ook voor bedrijven in Drachten, Heerenveen en Sneek.', 'veryo' ),
 						array( __( 'Binnenstad', 'veryo' ), __( 'Bedrijventerreinen De Zwette en Hemrik', 'veryo' ), 'Stiens', 'Grou', 'Dronryp', 'Wirdum' )
 					),
 				),
@@ -271,6 +274,7 @@ return array(
 				'price'         => array( 'steps' => array( 'startpakket', 'academy', 'training', 'quickwin' ) ),
 				'faq'           => array(
 					array( __( 'Waar in Leeuwarden geven jullie de training?', 'veryo' ), __( 'Bij jou op kantoor, of op onze trainingslocatie in Leeuwarden. Die trainingslocatie is op aanvraag: geef bij je aanvraag aan dat je die wilt gebruiken, dan regelen we de ruimte.', 'veryo' ) ),
+					array( __( 'Werken jullie alleen in Leeuwarden?', 'veryo' ), __( 'Nee. Leeuwarden is onze thuisbasis, maar we werken in heel Friesland, Groningen en Drenthe op locatie, en online in de rest van Nederland.', 'veryo' ) ),
 					array( __( 'Kan ik gewoon even langskomen?', 'veryo' ), __( 'Graag, maar maak even een afspraak, want we zijn vaak op locatie bij klanten.', 'veryo' ) ),
 					array( __( 'Wat kost een AI-training in Leeuwarden?', 'veryo' ), __( 'Mogelijk is er subsidie via de SLIM-regeling; openstellingsperiodes en voorwaarden wisselen, check de actuele situatie. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
 					array( __( 'Is er ook een open training voor losse deelnemers?', 'veryo' ), __( 'Op dit moment niet. Voor losse deelnemers komt er de online cursus van de Veryo Academy; zet je op de wachtlijst.', 'veryo' ) ),
