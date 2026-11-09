@@ -232,7 +232,6 @@ $veryo_auto_cats  = array(
 	'werkprocessen'           => __( 'Planning, werkbonnen, inkoop, onderhoud en overdracht.', 'veryo' ),
 	'marketing'               => __( 'SEO, content, social en reviews, altijd met een menselijke check.', 'veryo' ),
 	'hr-en-werving'           => __( 'Vacatures, solliciteren via WhatsApp, opvolging en onboarding.', 'veryo' ),
-	'kennis-en-documenten'    => __( 'Een interne AI-assistent op je eigen documenten en procedures.', 'veryo' ),
 	'rapportages'             => __( 'Dashboards, een maandagbericht met cijfers en Excel zonder gedoe.', 'veryo' ),
 );
 $veryo_auto_items = array();
@@ -586,7 +585,7 @@ $veryo_opmaat = veryo_page_standard(
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/chatbot' ) ) . '">' . __( 'AI-chatbot voor je website', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Beantwoordt vragen op basis van jullie eigen informatie', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/whatsapp-assistent' ) ) . '">' . __( 'WhatsApp-assistent', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Vragen, gegevens en foto’s verzamelen, afspraken plannen', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'AI-agents', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Voeren meerdere stappen van een proces zelfstandig uit', 'veryo' ) . '</span>',
-					'<a href="' . esc_url( veryo_link( 'ai-op-maat/interne-assistent' ) ) . '">' . __( 'Interne AI-assistent', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Een chatbot op je eigen documenten en procedures', 'veryo' ) . '</span>',
+					'<a href="' . esc_url( veryo_collega_url() ) . '">' . __( 'Interne AI-assistent: Veryo Collega', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Lokale AI-assistent op jullie eigen documenten en procedures', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/ai-receptionist-horeca' ) ) . '">' . __( 'AI-receptionist voor horeca', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Neemt de telefoon aan en noteert reserveringen', 'veryo' ) . '</span>',
 				),
 				'style' => 'grid',

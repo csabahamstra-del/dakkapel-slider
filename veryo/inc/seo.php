@@ -605,17 +605,7 @@ function veryo_schema_organization() {
 	if ( $same ) {
 		$org['sameAs'] = $same;
 	}
-	if ( $c['founder'] ) {
-		$org['founder']    = array(
-			'@type' => 'Person',
-			'name'  => $c['founder'],
-		);
-		$veryo_founder_img = veryo_founder_photo_id() ? wp_get_attachment_image_url( veryo_founder_photo_id(), 'large' ) : '';
-		if ( $veryo_founder_img ) {
-			$org['founder']['image']    = $veryo_founder_img;
-			$org['founder']['jobTitle'] = __( 'Oprichter', 'veryo' );
-		}
-	}
+	$org['founder'] = array( '@id' => home_url( '/#founder' ) );
 	if ( $c['legal_name'] ) {
 		$org['legalName'] = $c['legal_name'];
 	}
@@ -627,6 +617,32 @@ function veryo_schema_organization() {
 		);
 	}
 	return $org;
+}
+
+/**
+ * De oprichter als Person, gekoppeld aan de organisatie (founder) en aan de blogartikelen (author).
+ *
+ * @return array<string,mixed>
+ */
+function veryo_schema_founder() {
+	$author = veryo_blog_author();
+	$c      = veryo_company();
+	$person = array(
+		'@type'    => 'Person',
+		'@id'      => home_url( '/#founder' ),
+		'name'     => $author['name'],
+		'jobTitle' => __( 'Oprichter', 'veryo' ),
+		'worksFor' => array( '@id' => home_url( '/#organization' ) ),
+		'url'      => veryo_url( 'over-veryo' ),
+	);
+	$image  = veryo_founder_photo_id() ? wp_get_attachment_image_url( veryo_founder_photo_id(), 'large' ) : '';
+	if ( $image ) {
+		$person['image'] = $image;
+	}
+	if ( $c['linkedin'] ) {
+		$person['sameAs'] = array( $c['linkedin'] );
+	}
+	return $person;
 }
 
 /**
@@ -692,9 +708,8 @@ function veryo_schema_graph() {
 		'inLanguage' => 'nl-NL',
 		'publisher'  => array( '@id' => home_url( '/#organization' ) ),
 	);
-	if ( is_front_page() ) {
-		$graph[] = $website;
-	}
+	$graph[] = $website;
+	$graph[] = veryo_schema_founder();
 
 	$id  = veryo_seo_object_id();
 	$url = veryo_seo_canonical();
@@ -750,10 +765,11 @@ function veryo_schema_graph() {
 			'description' => $desc,
 			'url'         => $url,
 			'provider'    => array( '@id' => home_url( '/#organization' ) ),
+			'serviceType' => wp_strip_all_tags( get_the_title( $id ) ),
 			'areaServed'  => array_map(
 				static function ( $name ) {
 					return array(
-						'@type' => 'AdministrativeArea',
+						'@type' => 'Nederland' === $name ? 'Country' : 'AdministrativeArea',
 						'name'  => $name,
 					);
 				},
@@ -764,11 +780,45 @@ function veryo_schema_graph() {
 		$graph[] = $service;
 	}
 
+	// Training: Course, met de vormen waarin hij gegeven wordt (op locatie en/of online).
+	$course = (string) get_post_meta( $id, '_veryo_course', true );
+	if ( is_page() && '' !== $course ) {
+		$instances = array();
+		foreach ( array_filter( explode( ',', $course ) ) as $mode ) {
+			$instances[] = array(
+				'@type'      => 'CourseInstance',
+				'courseMode' => $mode,
+				'inLanguage' => 'nl-NL',
+				'location'   => 'online' === $mode ? array(
+					'@type' => 'VirtualLocation',
+					'url'   => $url,
+				) : array(
+					'@type'   => 'Place',
+					'name'    => __( 'Bij de klant op locatie in Nederland', 'veryo' ),
+					'address' => array(
+						'@type'          => 'PostalAddress',
+						'addressCountry' => 'NL',
+					),
+				),
+			);
+		}
+		$graph[] = array(
+			'@type'             => 'Course',
+			'@id'               => $url . '#course',
+			'name'              => wp_strip_all_tags( get_the_title( $id ) ),
+			'description'       => $desc,
+			'url'               => $url,
+			'inLanguage'        => 'nl-NL',
+			'provider'          => array( '@id' => home_url( '/#organization' ) ),
+			'hasCourseInstance' => $instances,
+		);
+	}
+
 	// Blogbericht.
 	if ( is_singular( 'post' ) ) {
 		$author  = veryo_blog_author();
 		$article = array(
-			'@type'            => 'Article',
+			'@type'            => 'BlogPosting',
 			'@id'              => $url . '#article',
 			'headline'         => wp_strip_all_tags( get_the_title( $id ) ),
 			'datePublished'    => get_the_date( 'c', $id ),
@@ -780,6 +830,7 @@ function veryo_schema_graph() {
 				'name'     => $author['name'],
 				'jobTitle' => $author['job'],
 				'worksFor' => array( '@id' => home_url( '/#organization' ) ),
+				'@id'      => home_url( '/#founder' ),
 			),
 			'inLanguage'       => 'nl-NL',
 			'image'            => has_post_thumbnail( $id ) ? (string) get_the_post_thumbnail_url( $id, 'large' ) : VERYO_URI . '/assets/images/og-default.png',
@@ -821,7 +872,8 @@ function veryo_schema_graph() {
  * JSON-LD uitvoeren.
  */
 function veryo_output_schema() {
-	if ( veryo_seo_plugin_active() || is_404() || is_page( 'rapport' ) ) {
+	// Ook met Rank Math: het schema van Rank Math gaat uit (inc/seo-extra.php), dit is het enige.
+	if ( is_404() || is_page( 'rapport' ) ) {
 		return;
 	}
 	$data = array(

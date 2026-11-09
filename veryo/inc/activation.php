@@ -48,6 +48,11 @@ function veryo_find_page( $path ) {
  * @param array<string,mixed> $def     Definitie uit het register.
  */
 function veryo_apply_page_meta( $post_id, $def ) {
+	$previous = array(
+		'title' => (string) get_post_meta( $post_id, '_veryo_seo_title', true ),
+		'desc'  => (string) get_post_meta( $post_id, '_veryo_seo_desc', true ),
+		'kw'    => (string) get_post_meta( $post_id, '_veryo_focus_kw', true ),
+	);
 	update_post_meta( $post_id, '_veryo_seo_title', $def['seo_title'] );
 	update_post_meta( $post_id, '_veryo_seo_desc', $def['desc'] );
 	if ( ! empty( $def['kw'] ) ) {
@@ -69,16 +74,8 @@ function veryo_apply_page_meta( $post_id, $def ) {
 	if ( ! empty( $def['og_image'] ) ) {
 		update_post_meta( $post_id, '_veryo_og_image', $def['og_image'] );
 	}
-	// Zelfde gegevens voor Rank Math, als die later wordt geïnstalleerd (alleen als ze nog leeg zijn).
-	foreach ( array(
-		'rank_math_title'         => $def['seo_title'],
-		'rank_math_description'   => $def['desc'],
-		'rank_math_focus_keyword' => isset( $def['kw'] ) ? $def['kw'] : '',
-	) as $rm_key => $rm_value ) {
-		if ( '' !== $rm_value && '' === (string) get_post_meta( $post_id, $rm_key, true ) ) {
-			update_post_meta( $post_id, $rm_key, $rm_value );
-		}
-	}
+	// Zelfde gegevens voor Rank Math (alleen waar Rank Math nog de waarde van het thema heeft).
+	veryo_sync_rank_math_fields( $post_id, $def, $previous );
 	if ( ! empty( $def['schema'] ) ) {
 		update_post_meta( $post_id, '_veryo_schema_type', $def['schema']['type'] );
 		if ( isset( $def['schema']['min'] ) ) {
@@ -89,6 +86,9 @@ function veryo_apply_page_meta( $post_id, $def ) {
 		}
 		if ( ! empty( $def['schema']['area'] ) ) {
 			update_post_meta( $post_id, '_veryo_area', $def['schema']['area'] );
+		}
+		if ( ! empty( $def['schema']['course'] ) ) {
+			update_post_meta( $post_id, '_veryo_course', implode( ',', (array) $def['schema']['course'] ) );
 		}
 	}
 }

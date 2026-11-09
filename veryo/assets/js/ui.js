@@ -1,3 +1,19 @@
+/* Meten: events naar de Google-tag van de site (Site Kit) of, zonder gtag, naar de dataLayer (GTM). */
+window.veryoTrack = function ( name, params ) {
+	params = params || {};
+	if ( typeof window.gtag === 'function' ) {
+		window.gtag( 'event', name, params );
+	} else if ( Array.isArray( window.dataLayer ) ) {
+		window.dataLayer.push( Object.assign( { event: name }, params ) );
+	}
+};
+document.addEventListener( 'click', function ( event ) {
+	var link = event.target.closest ? event.target.closest( 'a[href^="tel:"], a[href^="mailto:"]' ) : null;
+	if ( link ) {
+		window.veryoTrack( 0 === link.getAttribute( 'href' ).indexOf( 'tel:' ) ? 'click_phone' : 'click_email', { link_url: link.getAttribute( 'href' ), page_path: window.location.pathname } );
+	}
+} );
+
 /* Veryo: kleine interacties die altijd werken (ook zonder animaties). Zonder JavaScript blijft alle inhoud gewoon zichtbaar. */
 ( function () {
 	'use strict';

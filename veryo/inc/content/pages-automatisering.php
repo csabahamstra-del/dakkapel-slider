@@ -377,67 +377,6 @@ return array(
 	),
 
 	/* ------------------------------------------------------------------------- */
-	'ai-automatisering/kennis-en-documenten'    => array(
-		'title'     => __( 'Interne AI-assistent en documenten', 'veryo' ),
-		'seo_title' => __( 'Interne AI-assistent en documenten | Veryo', 'veryo' ),
-		'desc'      => __( 'Een interne kennisbank met AI: een assistent op je eigen documenten en procedures, en werkinstructies uit video en documenten. Vraag een offerte aan.', 'veryo' ),
-		'kw'        => 'interne kennisbank ai',
-		'schema'    => $veryo_q + array(
-			'min' => 750,
-			'max' => 25000,
-		),
-		'content'   => veryo_page_standard(
-			array(
-				'approach' => true,
-				'answer'   => __( 'Veryo bouwt een interne kennisbank met AI: een assistent die vragen van collega’s beantwoordt uit jullie eigen documenten, handleidingen en procedures, met verwijzing naar de bron. Ook maken we werkinstructies uit video en vatten we documenten samen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
-				'extra'    => array( __( 'Waar een kennisbank het meest oplevert', 'veryo' ), array( __( 'De winst zit vooral bij vragen die vaak terugkomen en waarvan het antwoord ergens op papier staat: hoe werkt dit toestel, welke procedure geldt hier, wat hebben we met deze klant afgesproken. Hoe meer collega’s dezelfde vragen stellen, hoe meer tijd een interne assistent bespaart.', 'veryo' ), __( 'Een voorbeeld: een installatiebedrijf met drie nieuwe monteurs per jaar kan de inwerkperiode verkorten door werkinstructies uit korte video’s te laten maken en ze doorzoekbaar te zetten. De ervaren collega’s worden minder vaak gebeld en de nieuwe mensen durven eerder zelf aan de slag.', 'veryo' ) ) ),
-				'problem'  => array(
-					'h' => __( 'Kennis die in één hoofd zit', 'veryo' ),
-					'p' => array(
-						__( 'Elk bedrijf heeft een collega die alles weet. Waar de handleiding van die ene ketel staat, hoe je een klacht afhandelt, welke procedure geldt bij een nieuwe klant. Gaat die collega met vakantie of met pensioen, dan wordt het zoeken.', 'veryo' ),
-						__( 'De documenten zijn er wel, maar verspreid over mappen, mailtjes en een intranet dat niemand gebruikt. Nieuwe medewerkers stellen dezelfde vragen die vorig jaar ook al gesteld werden.', 'veryo' ),
-					),
-				),
-				'photo'    => array( __( 'nieuwe medewerker die op een laptop een vraag stelt aan de interne assistent', 'veryo' ), __( 'Interne kennisbank met AI voor medewerkers', 'veryo' ), 'laptop' ),
-				'catalog'  => array(
-					'h'   => __( 'Wat er mogelijk is rond kennis en documenten', 'veryo' ),
-					'ids' => array( 'interne-assistent', 'werkinstructies', 'documenten-samenvatten', 'technische-documentatie', 'beleid', 'presentaties' ),
-				),
-				'sections' => array(
-					array(
-						'h' => __( 'Hoe een interne kennisbank met AI werkt', 'veryo' ),
-						'p' => array(
-							__( 'Je kiest welke documenten erin gaan: werkinstructies, productbladen, procedures, prijslijsten. De assistent doorzoekt alleen die bronnen en geeft antwoord met een verwijzing, zodat je kunt nakijken waar het staat. Staat het er niet in, dan zegt hij dat.', 'veryo' ),
-							__( 'Een voorbeeld: een monteur staat bij een onbekende installatie en vraagt via zijn telefoon hoe de foutcode op dit type toestel moet worden gereset. De assistent zoekt het op in de handleiding van de fabrikant en geeft de stappen, met paginanummer.', 'veryo' ),
-						),
-					),
-					array(
-						'h'     => __( 'Toegang en veiligheid', 'veryo' ),
-						'list'  => array(
-							__( 'Alleen medewerkers met een account hebben toegang.', 'veryo' ),
-							__( 'Gevoelige documenten, zoals personeelsdossiers, gaan er niet in, tenzij met aparte rechten.', 'veryo' ),
-							__( 'Zakelijke API’s, waarbij je documenten niet worden gebruikt om modellen te trainen.', 'veryo' ),
-							__( 'Samenvattingen van contracten zijn voorbereiding, geen juridisch advies.', 'veryo' ),
-						),
-						'style' => 'checks',
-					),
-				),
-				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'maatwerk', 'onderhoud' ) ),
-				'faq'      => array(
-					array( __( 'Welke documenten kunnen erin?', 'veryo' ), __( 'Pdf’s, Word-bestanden, webpagina’s en de meeste gangbare formaten. Scans van slechte kwaliteit werken minder goed; die zetten we eerst om.', 'veryo' ) ),
-					array( __( 'Kan de assistent fouten maken?', 'veryo' ), __( 'Ja, daarom geeft hij altijd de bron, zodat je kunt nakijken. We testen vooraf met echte vragen en verbeteren de bronnen als hij iets mist.', 'veryo' ) ),
-					array( __( 'Hoe blijft de kennisbank actueel?', 'veryo' ), __( 'Nieuwe of gewijzigde documenten in de gekoppelde map worden automatisch meegenomen. Elke kennisbank heeft een eigenaar binnen je bedrijf.', 'veryo' ) ),
-					array( __( 'Kunnen jullie een AI-beleid schrijven?', 'veryo' ), __( 'We maken een concept voor een AI-beleid, privacyverklaring of protocol. Laat het juridisch controleren voordat je het vaststelt.', 'veryo' ) ),
-				),
-				'links'    => array(
-					array( 'ai-op-maat/interne-assistent', __( 'AI-assistent op je eigen documenten', 'veryo' ), __( 'Maatwerk', 'veryo' ) ),
-					array( 'branches/zakelijke-dienstverlening', __( 'AI voor accountants', 'veryo' ), __( 'Documenten en verslagen', 'veryo' ) ),
-					array( 'ai-training', __( 'AI-training', 'veryo' ), __( 'Zodat je team ermee werkt', 'veryo' ) ),
-				),
-			)
-		),
-	),
-
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/rapportages'             => array(
 		'title'     => __( 'Rapportages en dashboards automatiseren', 'veryo' ),

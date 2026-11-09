@@ -1414,3 +1414,15 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 699px) {
 	.wp-block-table.veryo-compare-table td, .wp-block-table.veryo-lp-table td { border: 0; }
 }
+
+/* Telefoon in de header: op mobiel en tablet een ronde knop, op desktop niet (daar staat hij in de footer). */
+.header-phone { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; min-height: 44px; margin-left: auto; margin-right: 8px; border: 1px solid var(--line); border-radius: var(--r-m); color: var(--ink); text-decoration: none; font: 600 .9375rem/1 var(--sans); padding: 0 12px; }
+.header-phone .veryo-icon { width: 20px; height: 20px; }
+.header-phone__label { display: none; }
+@media (min-width: 640px) { .header-phone__label { display: inline; } }
+@media (min-width: 1100px) { .header-phone { display: none; } }
+/* Zoekveld op de 404-pagina. */
+.archive-list .search-form { display: flex; gap: 8px; margin: 16px 0 24px; max-width: 520px; }
+.archive-list .search-form label { flex: 1; }
+.archive-list .search-field { width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid var(--ink-muted); border-radius: var(--r-s); font: inherit; }
+.archive-list .search-submit { min-height: 48px; padding: 0 18px; border: 0; border-radius: var(--r-m); background: var(--petrol); color: var(--paper); font: 600 1rem/1 var(--sans); cursor: pointer; }

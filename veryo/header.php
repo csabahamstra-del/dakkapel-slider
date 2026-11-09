@@ -21,6 +21,10 @@ defined( 'ABSPATH' ) || exit;
 		<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 			<?php echo veryo_logo_img( 'default', 36 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- opgebouwd met esc_* in veryo_logo_img. ?>
 		</a>
+		<?php $veryo_phone = (string) veryo_setting( 'phone' ); ?>
+		<?php if ( '' !== $veryo_phone ) : ?>
+			<a class="header-phone" href="<?php echo esc_attr( veryo_tel_href( $veryo_phone ) ); ?>"><?php echo wp_kses( veryo_icon( 'phone' ), veryo_svg_kses() ); ?><span class="header-phone__label"><?php echo esc_html( $veryo_phone ); ?></span></a>
+		<?php endif; ?>
 		<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
 			<span class="nav-toggle__open"><?php echo wp_kses( veryo_icon( 'menu' ), veryo_svg_kses() ); ?></span>
 			<span class="nav-toggle__close"><?php echo wp_kses( veryo_icon( 'close' ), veryo_svg_kses() ); ?></span>

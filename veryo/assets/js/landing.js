@@ -140,6 +140,9 @@
 			post( payload, true ).then( function ( res ) {
 				button.disabled = false;
 				if ( 200 === res.status && res.body && res.body.ok ) {
+					if ( window.veryoTrack ) {
+						window.veryoTrack( 'generate_lead', { form_type: form.getAttribute( 'data-lp-form' ) } );
+					}
 					var done = document.createElement( 'div' );
 					done.className = 'veryo-lp-done';
 					done.setAttribute( 'role', 'status' );

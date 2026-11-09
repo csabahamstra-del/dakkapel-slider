@@ -138,69 +138,6 @@ return array(
 	),
 
 	/* ------------------------------------------------------------------------- */
-	'ai-op-maat/interne-assistent'      => array(
-		'title'     => __( 'AI-assistent op je eigen documenten', 'veryo' ),
-		'seo_title' => __( 'AI-assistent op je eigen documenten | Veryo', 'veryo' ),
-		'desc'      => __( 'Een chatbot op je eigen documenten: een interne AI-assistent die vragen beantwoordt uit je handleidingen en procedures, met bronvermelding. Gratis offerte.', 'veryo' ),
-		'kw'        => 'chatbot eigen documenten',
-		'schema'    => array(
-			'type' => 'service',
-			'min'  => 5000,
-			'max'  => 25000,
-		),
-		'content'   => veryo_page_standard(
-			array(
-				'collega_variant' => 'intern',
-				'answer'          => __( 'Veryo bouwt een chatbot op je eigen documenten: een interne AI-assistent die vragen van collega’s beantwoordt uit jullie handleidingen, procedures en productbladen, met een verwijzing naar de bron. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
-				'extra'           => array( __( 'Voor wie een interne assistent het meest oplevert', 'veryo' ), array( __( 'Een interne assistent verdient zich het snelst terug bij bedrijven met veel technische documentatie, wisselende projecten of regelmatig nieuwe medewerkers. Denk aan installatiebedrijven met honderden toestellen van verschillende fabrikanten, adviesbureaus met eigen werkwijzen en procedures, of bedrijven waar de kennis nu bij één of twee ervaren collega’s zit.', 'veryo' ), __( 'Een voorbeeld: een servicemonteur staat bij een klant met een toestel dat hij zelden ziet. In plaats van de collega op kantoor te bellen, vraagt hij de assistent naar de juiste instelling en krijgt hij het antwoord met de pagina uit de handleiding. De collega op kantoor kan doorwerken.', 'veryo' ) ) ),
-				'problem'         => array(
-					'h' => __( 'Zoeken kost meer tijd dan het antwoord', 'veryo' ),
-					'p' => array(
-						__( 'Het antwoord staat ergens. In een map op de server, in een pdf van de leverancier, in een mail van twee jaar geleden. Maar wie het nodig heeft, weet niet waar. Dus wordt er gebeld, gezocht of gegokt.', 'veryo' ),
-						__( 'Vooral nieuwe medewerkers en monteurs op locatie lopen daar tegenaan. En de ervaren collega die het wel weet, wordt tien keer per dag gestoord.', 'veryo' ),
-					),
-				),
-				'photo'           => array( __( 'monteur op locatie die op zijn telefoon een vraag stelt aan de interne assistent', 'veryo' ), __( 'Chatbot op eigen documenten voor monteurs', 'veryo' ), 'werkplaats' ),
-				'sections'        => array(
-					array(
-						'h' => __( 'Hoe een chatbot op eigen documenten werkt', 'veryo' ),
-						'p' => array(
-							__( 'Je kiest de bronnen: werkinstructies, handleidingen, procedures, prijslijsten, het personeelshandboek. We maken die doorzoekbaar voor de assistent. Een collega stelt een vraag in gewone taal, en de assistent antwoordt op basis van die bronnen, met een link naar het document en de plek waar het staat.', 'veryo' ),
-							__( 'Staat het antwoord niet in de bronnen, dan zegt de assistent dat. Hij vult niet aan uit het algemene geheugen van een AI-model. Zo weet je waar je aan toe bent.', 'veryo' ),
-						),
-					),
-					array(
-						'h'     => __( 'Waar je op kunt rekenen', 'veryo' ),
-						'list'  => array(
-							__( 'Toegang alleen voor medewerkers, eventueel per afdeling of rol.', 'veryo' ),
-							__( 'Bronvermelding bij elk antwoord.', 'veryo' ),
-							__( 'Nieuwe documenten worden automatisch meegenomen.', 'veryo' ),
-							__( 'Zakelijke API’s: je documenten worden niet gebruikt om modellen te trainen.', 'veryo' ),
-							__( 'Te gebruiken via de browser, Teams of je telefoon.', 'veryo' ),
-						),
-						'style' => 'checks',
-					),
-				),
-				'catalog'         => array(
-					'h'   => __( 'Past goed bij', 'veryo' ),
-					'ids' => array( 'interne-assistent', 'technische-documentatie', 'werkinstructies', 'documenten-samenvatten' ),
-				),
-				'price'           => array( 'steps' => array( 'startpakket', 'maatwerk', 'onderhoud' ) ),
-				'faq'             => array(
-					array( __( 'Is een interne kennisbank met AI veilig?', 'veryo' ), __( 'We regelen toegang per medewerker, gebruiken zakelijke API’s en sluiten een verwerkersovereenkomst als er persoonsgegevens in de documenten staan. Echt gevoelige documenten laten we eruit of zetten we achter aparte rechten.', 'veryo' ) ),
-					array( __( 'Werkt het met SharePoint of Google Drive?', 'veryo' ), __( 'Ja, dat zijn de meest gebruikte bronnen. Andere systemen met een koppeling kunnen ook.', 'veryo' ) ),
-					array( __( 'Hoeveel documenten kunnen erin?', 'veryo' ), __( 'Van een paar tientallen tot duizenden. Meer documenten betekent niet automatisch betere antwoorden; we helpen kiezen wat erin hoort.', 'veryo' ) ),
-					array( __( 'Wat kost een chatbot op eigen documenten?', 'veryo' ), __( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs. Daarnaast verbruikskosten, meestal beperkt.', 'veryo' ) ),
-				),
-				'links'           => array(
-					array( 'ai-automatisering/kennis-en-documenten', __( 'Kennis en documenten', 'veryo' ), __( 'Alle toepassingen', 'veryo' ) ),
-					array( 'branches/zakelijke-dienstverlening', __( 'AI voor accountants', 'veryo' ), __( 'En adviesbureaus', 'veryo' ) ),
-					array( 'ai-adviseur-groningen', __( 'AI-adviseur in Groningen', 'veryo' ), __( 'Op locatie', 'veryo' ) ),
-				),
-			)
-		),
-	),
-
 	/* ------------------------------------------------------------------------- */
 	'ai-op-maat/ai-receptionist-horeca' => array(
 		'title'     => __( 'AI-receptionist voor restaurants en horeca', 'veryo' ),

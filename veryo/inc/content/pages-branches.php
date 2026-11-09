@@ -323,8 +323,7 @@ return array(
 				),
 				'cta'      => array( __( 'Kantoor vol kenniswerk? Doe de AI-scan', 'veryo' ), '' ),
 				'links'    => array(
-					array( 'ai-automatisering/kennis-en-documenten', __( 'Kennis en documenten', 'veryo' ), __( 'Interne assistent', 'veryo' ) ),
-					array( 'ai-op-maat/interne-assistent', __( 'AI-assistent op je eigen documenten', 'veryo' ), __( 'Maatwerk', 'veryo' ) ),
+					array( veryo_collega()['slug'], __( 'Veryo Collega', 'veryo' ), __( 'Lokale AI-assistent op jullie eigen kennis', 'veryo' ) ),
 					array( 'ai-training', __( 'AI-training', 'veryo' ), __( 'Voor het hele kantoor', 'veryo' ) ),
 					array( 'ai-adviseur-groningen', __( 'AI-adviseur in Groningen', 'veryo' ), __( 'Zakelijke dienstverlening', 'veryo' ) ),
 				),

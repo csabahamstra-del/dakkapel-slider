@@ -734,7 +734,7 @@ function veryo_page_collega() {
 	);
 	$out .= veryo_sec_links(
 		array(
-			array( 'ai-op-maat/interne-assistent', __( 'Interne AI-assistent', 'veryo' ), __( 'Ook in de cloud mogelijk', 'veryo' ) ),
+			array( 'ai-training', __( 'AI-workshops en trainingen', 'veryo' ), __( 'Zo werken jullie collega’s er goed mee', 'veryo' ) ),
 			array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, rechten en bewustwording', 'veryo' ) ),
 			array( 'ai-training', __( 'AI-training voor je team', 'veryo' ), __( 'Zo haal je er het meeste uit', 'veryo' ) ),
 			array( 'oplossingen', __( 'Andere AI-oplossingen', 'veryo' ), __( 'Lead-opvolging, rapportages en meer', 'veryo' ) ),

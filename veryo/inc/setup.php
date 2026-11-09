@@ -65,7 +65,7 @@ function veryo_enqueue_assets() {
 	wp_enqueue_script( 'veryo-ui', VERYO_URI . '/assets/js/ui.js', array(), VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/js/ui.js' ), $defer );
 
 	// Beweging: GSAP, ScrollTrigger, SplitText en (optioneel) Lenis, allemaal lokaal.
-	if ( veryo_motion_enabled() ) {
+	if ( veryo_motion_enabled() && veryo_template_has_motion() ) {
 		$vendor = VERYO_URI . '/assets/vendor/';
 		wp_register_script( 'veryo-gsap', $vendor . 'gsap/gsap.min.js', array(), '3.15.0', $defer );
 		wp_register_script( 'veryo-gsap-scrolltrigger', $vendor . 'gsap/ScrollTrigger.min.js', array( 'veryo-gsap' ), '3.15.0', $defer );
@@ -381,3 +381,16 @@ function veryo_split_hero_heading( $content, $block ) {
 	);
 }
 add_filter( 'render_block', 'veryo_split_hero_heading', 10, 2 );
+
+/**
+ * Pagina's zonder animaties: juridisch, bedankt, rapport, zoeken en 404. Daar worden GSAP en
+ * Lenis niet geladen, wat scheelt in laadtijd.
+ *
+ * @return bool
+ */
+function veryo_template_has_motion() {
+	if ( is_404() || is_search() || is_page( array( 'privacyverklaring', 'cookieverklaring', 'algemene-voorwaarden', 'bedankt', 'rapport' ) ) ) {
+		return false;
+	}
+	return (bool) apply_filters( 'veryo_template_has_motion', true );
+}

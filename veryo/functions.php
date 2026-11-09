@@ -34,6 +34,7 @@ $veryo_includes = array(
 	'inc/quiz/shortcodes.php',
 	'inc/quiz/privacy.php',
 	'inc/seo.php',
+	'inc/seo-extra.php',
 	'inc/activation.php',
 	'inc/admin/settings.php',
 	'inc/admin/tools.php',
