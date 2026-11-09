@@ -14,10 +14,10 @@ return array(
 	$veryo_cc['slug'] => array(
 		'title'     => $veryo_cc['naam'],
 		/* translators: %s: productnaam. */
-		'seo_title' => sprintf( __( '%s: lokale AI voor bedrijven op kantoor | Veryo', 'veryo' ), $veryo_cc['naam'] ),
+		'seo_title' => sprintf( __( '%s: lokale AI-assistent voor bedrijven | Veryo', 'veryo' ), $veryo_cc['naam'] ),
 		/* translators: %s: productnaam. */
-		'desc'      => sprintf( __( '%s: een AI-assistent op je eigen kantoor die alles weet van je bedrijf. AVG-proof, je gegevens verlaten het pand niet. Plan een demo.', 'veryo' ), $veryo_cc['naam'] ),
-		'kw'        => 'lokale ai voor bedrijven',
+		'desc'      => sprintf( __( '%s: de lokale AI-assistent en kennisbank voor bedrijven, op jullie eigen kantoor. Jullie data blijft binnen. Plan een gratis demo.', 'veryo' ), $veryo_cc['naam'] ),
+		'kw'        => 'lokale ai assistent voor bedrijven',
 		'schema'    => array(
 			'type' => 'collega',
 			'area' => 'Nederland',

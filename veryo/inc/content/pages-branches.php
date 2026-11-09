@@ -23,10 +23,11 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet AI in voor installateurs en installatiebedrijven: een offerte-generator met eigen calculatietool, een digitale werkbon die automatisch een factuur wordt en een WhatsApp-assistent die storingsmeldingen opvangt. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo installatiebedrijven', 'veryo' ), __( 'Monteurs en binnendienst vragen hun eigen kennisbank naar storingscodes, handleidingen en eerdere klussen, op jullie eigen server.', 'veryo' ), __( 'Een praktische AI-workshop voor binnendienst en planners, met offertes en werkbonnen uit jullie eigen praktijk.', 'veryo' ), __( 'Offertes, werkbonnen en storingsmeldingen automatiseren bovenop jullie bestaande pakket.', 'veryo' ) ),
 				'problem'  => array(
 					'h' => __( 'Herkenbaar voor elk installatiebedrijf', 'veryo' ),
 					'p' => array(
-						__( 'De vraag naar warmtepompen, zonnepanelen en verduurzaming is groot, maar goede monteurs zijn schaars en de binnendienst zit vol. Offerteaanvragen stapelen zich op omdat calculeren tijd kost. Werkbonnen komen onvolledig terug, dus wordt er te laat of te weinig gefactureerd. En bij elke storing gaat de telefoon, ook ’s avonds.', 'veryo' ),
+						__( 'Er is werk genoeg, maar goede monteurs zijn schaars en de binnendienst zit vol. Offerteaanvragen stapelen zich op omdat calculeren tijd kost. Werkbonnen komen onvolledig terug, dus wordt er te laat of te weinig gefactureerd. En bij elke storing gaat de telefoon, ook ’s avonds.', 'veryo' ),
 						__( 'Het vakwerk loopt meestal prima. Het werk eromheen, van aanvraag tot factuur, kost de meeste uren. Daar zit ook de meeste winst voor AI voor installateurs.', 'veryo' ),
 					),
 				),
@@ -38,19 +39,15 @@ return array(
 				'catalog'  => array(
 					'h'     => __( 'De drie automatiseringen die installateurs het meest opleveren', 'veryo' ),
 					'intro' => __( 'Plus een paar die er goed bij passen. Tijdwinst is een indicatie voor een team van 5 tot 20 mensen.', 'veryo' ),
-					'ids'   => array( 'offerte-generator', 'calculatietool', 'digitale-werkbon', 'werkbon-factuur', 'whatsapp-assistent', 'storingen', 'onderhoudsplanning', 'subsidiecheck' ),
+					'ids'   => array( 'offerte-generator', 'calculatietool', 'digitale-werkbon', 'werkbon-factuur', 'whatsapp-assistent', 'storingen', 'onderhoudsplanning' ),
 				),
 				'sections' => array(
 					array(
 						'h' => __( 'Zo ziet AI voor installateurs eruit in de praktijk', 'veryo' ),
 						'p' => array(
-							__( 'Een voorbeeld: een klant vraagt via de website een offerte aan voor een hybride warmtepomp en stuurt foto’s van de ketel en de meterkast mee. De offerte-generator leest de aanvraag, haalt uit de calculatietool de juiste onderdelen, uren en marges, en zet een conceptofferte klaar. De calculator controleert en verstuurt dezelfde dag.', 'veryo' ),
+							__( 'Een voorbeeld: een klant vraagt via de website een offerte aan voor een nieuwe cv-ketel en stuurt foto’s van de ketel en de meterkast mee. De offerte-generator leest de aanvraag, haalt uit de calculatietool de juiste onderdelen, uren en marges, en zet een conceptofferte klaar. De calculator controleert en verstuurt dezelfde dag.', 'veryo' ),
 							__( 'Na de installatie spreekt de monteur de werkbon in: wat er is gedaan, welke materialen zijn gebruikt, bijzonderheden. Daar komt een nette werkbon uit die de klant digitaal aftekent, en een conceptfactuur voor de administratie. ’s Avonds meldt een andere klant een storing via WhatsApp. De assistent vraagt naar merk, foutcode en een foto, geeft de standaardtips en plant zo nodig een monteur in.', 'veryo' ),
 						),
-					),
-					array(
-						'h' => __( 'Regelingen en terugverdientijd in de offerte', 'veryo' ),
-						'p' => array( __( 'Bij verduurzaming vragen klanten vaak naar subsidies en terugverdientijd. We kunnen per project laten nagaan welke regelingen mogelijk van toepassing zijn en een terugverdienberekening aan de offerte toevoegen. Regelingen veranderen regelmatig, dus de installateur controleert altijd de actuele voorwaarden.', 'veryo' ) ),
 					),
 				),
 				'price'    => array( 'steps' => array( 'startpakket', 'training', 'quickwin', 'project', 'maatwerk' ) ),
@@ -86,6 +83,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet AI in de bouw in voor aannemers en bouwbedrijven: een concept-materiaalstaat uit tekening of bestek, nacalculatie die begroot en werkelijk per project naast elkaar zet, en meerwerk dat op de bouwplaats wordt ingesproken. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo bouwbedrijven', 'veryo' ), __( 'Bestekken, eerdere calculaties en projectdossiers op één plek doorzoekbaar, zodat kennis niet bij één calculator blijft.', 'veryo' ), __( 'Een AI-training voor werkvoorbereiding en uitvoering, met bestekken en meerwerk als oefening.', 'veryo' ), __( 'Materiaalstaten, nacalculatie en meerwerk automatiseren in de software die jullie al gebruiken.', 'veryo' ) ),
 				'problem'  => array(
 					'h' => __( 'Waar een bouwbedrijf geld laat liggen', 'veryo' ),
 					'p' => array(
@@ -101,14 +99,14 @@ return array(
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de bouw concreet doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen voor aannemers, plus wat er goed bij past.', 'veryo' ),
-					'ids'   => array( 'materiaalstaat', 'nacalculatie', 'meerwerk', 'calculatietool', 'urenregistratie', 'inkoop-bestellingen', 'opleverrapport', 'aanbestedingsscan' ),
+					'ids'   => array( 'materiaalstaat', 'nacalculatie', 'meerwerk', 'calculatietool', 'urenregistratie', 'inkoop-bestellingen', 'aanbestedingsscan' ),
 				),
 				'sections' => array(
 					array(
-						'h' => __( 'Van bestek tot oplevering', 'veryo' ),
+						'h' => __( 'Van bestek tot nacalculatie', 'veryo' ),
 						'p' => array(
 							__( 'Een voorbeeld: een aannemer met vijftien mensen krijgt een bestek voor een verbouwing. Uit de tekening en het bestek maakt AI een concept-materiaalstaat, die de calculator controleert en aanvult. Dat scheelt vooral het begin, waar nu uren in gaan.', 'veryo' ),
-							__( 'Tijdens de bouw spreekt de uitvoerder meerwerk in of maakt hij een foto met een korte toelichting. Daar komt direct een meerwerkregel van, die aan het project wordt gekoppeld. Wekelijks zie je per project begroot tegenover werkelijk, zodat je bijstuurt terwijl het nog kan. Bij oplevering worden de foto’s en notities een opleverrapport in huisstijl.', 'veryo' ),
+							__( 'Tijdens de bouw spreekt de uitvoerder meerwerk in of maakt hij een foto met een korte toelichting. Daar komt direct een meerwerkregel van, die aan het project wordt gekoppeld. Wekelijks zie je per project begroot tegenover werkelijk, zodat je bijstuurt terwijl het nog kan.', 'veryo' ),
 						),
 					),
 					array(
@@ -137,9 +135,9 @@ return array(
 
 	/* ------------------------------------------------------------------------- */
 	'branches/agri'                      => array(
-		'title'     => __( 'AI voor agrarische bedrijven en mechanisatie', 'veryo' ),
-		'seo_title' => __( 'AI voor agrarische bedrijven en mechanisatie | Veryo', 'veryo' ),
-		'desc'      => __( 'AI in de landbouw en mechanisatie: onderhoud en keuringen automatisch plannen, onderdelen bestellen en projectfoto’s omzetten in posts. Gratis offerte.', 'veryo' ),
+		'title'     => __( 'Agrarische automatisering met AI', 'veryo' ),
+		'seo_title' => __( 'Agrarische automatisering: AI voor agri en mechanisatie | Veryo', 'veryo' ),
+		'desc'      => __( 'Agrarische automatisering met AI: onderhoud en keuringen plannen, onderdelen bestellen en kennis vastleggen, voor loonwerk en mechanisatie. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'ai in de landbouw',
 		'schema'    => array(
 			'type' => 'service',
@@ -148,7 +146,8 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in de landbouw en mechanisatie in waar het kantoorwerk zit: onderhoud en keuringen van machines automatisch plannen, onderdelen en inkoop regelen, en projectfoto’s omzetten in posts. Voor loonbedrijven, mechanisatiebedrijven en machinehandel. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'answer'   => __( 'Agrarische automatisering met AI: Veryo zet AI in de landbouw en mechanisatie in waar het kantoorwerk zit. Onderhoud en keuringen van machines automatisch plannen, onderdelen en inkoop regelen, en de kennis van ervaren monteurs vastleggen. Voor loonbedrijven, mechanisatiebedrijven en machinehandel. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo agrarische bedrijven', 'veryo' ), __( 'De kennis van ervaren monteurs en de handleidingen van machines doorzoekbaar voor het hele team, ook in drukke seizoenen.', 'veryo' ), __( 'Een AI-workshop op locatie, met voorbeelden uit loonwerk, mechanisatie en machinehandel.', 'veryo' ), __( 'Onderhoud, keuringen en onderdelenbestellingen automatisch plannen bovenop jullie administratie.', 'veryo' ) ),
 				'problem'  => array(
 					'h' => __( 'Het seizoen wacht niet op de administratie', 'veryo' ),
 					'p' => array(
@@ -164,14 +163,14 @@ return array(
 				'catalog'  => array(
 					'h'     => __( 'Wat AI in de landbouw en mechanisatie oplevert', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
-					'ids'   => array( 'onderhoudsplanning', 'inkoop-bestellingen', 'projectfotos', 'voorraad', 'upsell-signalen', 'urenregistratie', 'technische-documentatie' ),
+					'ids'   => array( 'onderhoudsplanning', 'inkoop-bestellingen', 'voorraad', 'upsell-signalen', 'urenregistratie', 'technische-documentatie' ),
 				),
 				'sections' => array(
 					array(
 						'h' => __( 'Een voorbeeld uit de mechanisatie', 'veryo' ),
 						'p' => array(
 							__( 'Een mechanisatiebedrijf onderhoudt machines van tweehonderd klanten. Alle machines met de datum van de laatste beurt of keuring komen in één lijst. Zes weken voor de volgende datum krijgt de klant automatisch een bericht met een voorstel voor een afspraak. Zodra de afspraak staat, wordt gecheckt of de onderdelen op voorraad zijn en zo niet, staat de bestelling klaar.', 'veryo' ),
-							__( 'Klanten met een machine die bijna uit de garantie of het onderhoudscontract loopt, worden gesignaleerd, zodat de verkoper op tijd kan bellen. En de mooie klussen van de week worden met een foto en een korte tekst een post voor de website en social media.', 'veryo' ),
+							__( 'Klanten met een machine die bijna uit de garantie of het onderhoudscontract loopt, worden gesignaleerd, zodat de verkoper op tijd kan bellen.', 'veryo' ),
 						),
 					),
 					array(
@@ -211,6 +210,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet AI in voor makelaars: één AI-inbox waarin berichten uit WhatsApp, telefoon en webformulieren samenkomen met een conceptantwoord, bezichtigingen die automatisch worden ingepland, en woningteksten in de toon van je kantoor. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo makelaarskantoren', 'veryo' ), __( 'Woningdossiers, procedures en eerdere vragen van klanten doorzoekbaar voor het hele kantoor, zonder dat gegevens naar de cloud gaan.', 'veryo' ), __( 'Een AI-training voor het kantoor: mails, woningteksten en verslagen sneller en veilig.', 'veryo' ), __( 'De inbox, bezichtigingen en statusberichten automatiseren bovenop jullie makelaarssoftware.', 'veryo' ) ),
 				'extra'    => array( __( 'Waar een makelaarskantoor begint', 'veryo' ), array( __( 'De meeste kantoren beginnen met de AI-inbox, omdat daar direct zichtbaar wordt hoeveel reacties er binnenkomen en hoe snel ze worden beantwoord. Daarna volgen de woningteksten en het inplannen van bezichtigingen. Een kantoor met twee of drie makelaars merkt vooral rust in de week na een nieuwe woning: de reacties zijn beantwoord, de bezichtigingen staan en niemand heeft ’s avonds nog zitten plannen.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Vijf kanalen, één makelaar', 'veryo' ),
@@ -227,7 +227,7 @@ return array(
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor makelaars concreet doet', 'veryo' ),
 					'intro' => __( 'Samen vormen deze bouwstenen de AI-inbox voor je kantoor.', 'veryo' ),
-					'ids'   => array( 'lead-invoer', 'mail-concepten', 'whatsapp-assistent', 'voicebot', 'statusberichten', 'social-captions', 'reviews' ),
+					'ids'   => array( 'lead-invoer', 'mail-concepten', 'whatsapp-assistent', 'voicebot', 'statusberichten' ),
 				),
 				'sections' => array(
 					array(
@@ -278,6 +278,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet AI in voor accountants, administratiekantoren en adviesbureaus: gespreksverslagen met actiepunten die automatisch in je CRM komen, documenten samenvatten als voorbereiding en een interne AI-assistent op jullie eigen kennis. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo accountants en adviesbureaus', 'veryo' ), __( 'Dossiers, procedures en vakkennis doorzoekbaar via een lokale AI-assistent, zodat vertrouwelijke klantgegevens binnen blijven.', 'veryo' ), __( 'AI-training en AI-geletterdheid voor het hele kantoor, zoals de AI Act vraagt.', 'veryo' ), __( 'Gespreksverslagen, samenvattingen en documentstromen automatiseren bovenop jullie software.', 'veryo' ) ),
 				'problem'  => array(
 					'h' => __( 'Kenniswerk dat verzandt in typewerk', 'veryo' ),
 					'p' => array(
@@ -334,8 +335,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/horeca-retail'             => array(
 		'title'     => __( 'AI voor horeca en retail', 'veryo' ),
-		'seo_title' => __( 'AI voor horeca en retail | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor horeca en retail: reviews verzamelen en beantwoorden, social media plannen en een AI-receptionist die de telefoon opneemt. Vraag een offerte aan.', 'veryo' ),
+		'seo_title' => __( 'AI voor horeca en retail: telefoon, reserveringen, team | Veryo', 'veryo' ),
+		'desc'      => __( 'AI voor horeca en retail: een AI-telefoonassistent voor reserveringen, een AI-training voor je team en kennis die niet verdwijnt. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'ai voor horeca',
 		'schema'    => array(
 			'type' => 'service',
@@ -344,12 +345,13 @@ return array(
 		),
 		'content'   => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in voor horeca en retail: reviews verzamelen en beantwoorden, social media plannen met kant-en-klare posts, en een AI-receptionist die de telefoon opneemt als het druk is. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
-				'extra'    => array( __( 'Waar je begint', 'veryo' ), array( __( 'De meeste horecazaken en winkels beginnen met reviews: het levert snel iets zichtbaars op en het kost weinig. Daarna volgt vaak de social planning, omdat het team toch al foto’s maakt. De AI-receptionist is een grotere stap, die we pas zetten als duidelijk is hoeveel gesprekken er gemist worden.', 'veryo' ), __( 'Voor winkels met een webshop is een chatbot op de website een logische volgende stap: vragen over levertijden, retouren en voorraad komen daar veel voor en zijn goed te beantwoorden uit je eigen informatie.', 'veryo' ) ) ),
+				'answer'   => __( 'AI voor horeca en retail begint bij de telefoon en het team. Veryo zet een AI-telefoonassistent in die opneemt als het druk is en reserveringen noteert, traint het team in het werken met AI en legt kennis vast die nu in een paar hoofden zit. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo horeca en retail', 'veryo' ), __( 'Recepten, procedures en afspraken doorzoekbaar voor het hele team, handig bij het inwerken van nieuwe medewerkers.', 'veryo' ), __( 'Een korte AI-workshop voor eigenaar en team, gericht op het werk dat elke week terugkomt.', 'veryo' ), __( 'Een AI-telefoonassistent voor reserveringen en vragen, en reviewreacties ter goedkeuring.', 'veryo' ) ),
+				'extra'    => array( __( 'Waar je begint', 'veryo' ), array( __( 'De meeste horecazaken beginnen met een korte AI-workshop voor het team en een telling van de gemiste telefoontjes. Blijkt dat er veel gesprekken blijven liggen, dan is een AI-telefoonassistent de logische volgende stap. Reviews beantwoorden met AI kan ook, altijd met jouw akkoord.', 'veryo' ), __( 'Voor winkels met een webshop is een chatbot op de website een logische volgende stap: vragen over levertijden, retouren en voorraad komen daar veel voor en zijn goed te beantwoorden uit je eigen informatie.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Gastvrij zijn kost al je aandacht', 'veryo' ),
 					'p' => array(
-						__( 'In de horeca en de winkel draait alles om de gast of klant die voor je staat. Maar ondertussen moeten er reviews worden beantwoord, moet Instagram worden bijgehouden en gaat de telefoon precies als het het drukst is.', 'veryo' ),
+						__( 'In de horeca en de winkel draait alles om de gast of klant die voor je staat. Maar ondertussen gaat de telefoon precies als het het drukst is, moeten nieuwe medewerkers worden ingewerkt en moeten er reviews worden beantwoord.', 'veryo' ),
 						__( 'Dat werk schiet er als eerste bij in. Een negatieve review blijft onbeantwoord, de laatste post is van drie maanden geleden en een gast die wilde reserveren, belt het restaurant verderop.', 'veryo' ),
 					),
 				),
@@ -361,7 +363,7 @@ return array(
 				'catalog'  => array(
 					'h'     => __( 'Wat AI voor horeca en retail doet', 'veryo' ),
 					'intro' => __( 'De drie belangrijkste automatiseringen, plus wat er goed bij past.', 'veryo' ),
-					'ids'   => array( 'reviews', 'bedrijfsprofiel', 'social-captions', 'voicebot', 'website-chatbot', 'nieuwsbrief', 'klanttevredenheid' ),
+					'ids'   => array( 'voicebot', 'website-chatbot', 'reviews', 'klanttevredenheid' ),
 				),
 				'sections' => array(
 					array(
@@ -407,6 +409,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet AI in de logistiek in voor transportbedrijven: een planningsassistent die ritten voorstelt, automatische statusberichten zodat klanten niet hoeven te bellen, en vrachtdocumenten die vanzelf worden benoemd en gearchiveerd. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo transportbedrijven', 'veryo' ), __( 'Afspraken met klanten, routes en procedures doorzoekbaar voor planners, zodat niet alles via één persoon loopt.', 'veryo' ), __( 'Een AI-training voor planning en binnendienst, met praktijkvoorbeelden uit de logistiek.', 'veryo' ), __( 'Statusberichten, planning en vrachtdocumenten automatiseren bovenop jullie TMS of planningspakket.', 'veryo' ) ),
 				'extra'    => array( __( 'Waar je begint in transport', 'veryo' ), array( __( 'Statusberichten zijn meestal de beste eerste stap: ze zijn goed af te bakenen, klanten merken het direct en het scheelt de planning telefoontjes. Daarna volgt het archiveren van documenten, omdat dat elke dag terugkomt en foutgevoelig is.', 'veryo' ), __( 'De planningsassistent is een grotere stap. Die zetten we pas op als de basisgegevens op orde zijn en de planner weet welke regels hij in zijn hoofd gebruikt. Vaak helpt het al om die regels eerst samen op papier te zetten.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Planning, bellen en papier', 'veryo' ),
@@ -469,6 +472,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet WhatsApp-werving met AI op voor werkgevers en recruitmentbureaus: kandidaten solliciteren via WhatsApp zonder cv, vacatureteksten worden geschreven in de taal van vakmensen, en elke kandidaat krijgt automatisch bericht. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo werving en recruitment', 'veryo' ), __( 'Kennis over functies, vacatures en kandidaten veilig doorzoekbaar, zonder cv’s naar een externe AI-dienst te sturen.', 'veryo' ), __( 'Een AI-training voor recruiters: vacatureteksten, opvolging en AI-geletterdheid.', 'veryo' ), __( 'Solliciteren via WhatsApp, voorselectie en opvolging automatiseren bovenop jullie ATS.', 'veryo' ) ),
 				'extra'    => array( __( 'Voor wie het werkt', 'veryo' ), array( __( 'WhatsApp-werving werkt het best voor functies waar kandidaten vooral op hun telefoon zitten en weinig tijd hebben voor een formulier: monteurs, chauffeurs, productiemedewerkers, horecapersoneel en schoonmakers. Voor functies waar een uitgebreide motivatie of portfolio belangrijk is, blijft een klassieke sollicitatie vaak beter.', 'veryo' ), __( 'Een voorbeeld: een uitzendbureau in het noorden met veel vacatures in productie en logistiek kan alle eerste reacties via WhatsApp laten binnenkomen. De intercedent ziet per kandidaat een korte samenvatting en belt alleen nog met wie echt past.', 'veryo' ) ) ),
 				'problem'  => array(
 					'h' => __( 'Kandidaten zitten op WhatsApp, niet op je sollicitatieformulier', 'veryo' ),
@@ -536,6 +540,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'AI voor schoonmaakbedrijven draait vooral om de administratie rond het werk. Veryo zorgt voor automatisering in je schoonmaakbedrijf bovenop de tools die je al gebruikt: uren en roosters controleren, inkoopfacturen verwerken en nieuwe medewerkers sneller werven. Je stapt niet over op nieuwe software. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo schoonmaakbedrijven', 'veryo' ), __( 'Werkinstructies, objectafspraken en procedures doorzoekbaar voor leidinggevenden, ook voor nieuwe collega’s.', 'veryo' ), __( 'Een AI-workshop voor kantoor en leidinggevenden, met roosters en uren als voorbeeld.', 'veryo' ), __( 'Urencontrole, inkoopfacturen en werving automatiseren bovenop jullie planning en boekhouding.', 'veryo' ) ),
 				'problem'  => array(
 					'h'    => __( 'Waar de kantoortijd in een schoonmaakbedrijf naartoe gaat', 'veryo' ),
 					'p'    => array(
@@ -600,6 +605,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'AI voor beveiligingsbedrijven, zonder nieuw softwarepakket: Veryo automatiseert de administratie van je beveiligingsbedrijf bovenop de tools die je al gebruikt. Bovenaan staat Urencontrole: facturen van zzp’ers en onderaannemers worden automatisch naast het rooster en het afgesproken tarief gelegd. Daarnaast maakt AI Klantrapportage van dienst- en incidentrapporten een maandrapportage per opdrachtgever, en automatiseren we inkoopfacturen en werving. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'help'     => array( __( 'Zo helpt Veryo beveiligingsbedrijven', 'veryo' ), __( 'Procedures, objectinstructies en afspraken met opdrachtgevers doorzoekbaar op jullie eigen server, zonder gevoelige gegevens in de cloud.', 'veryo' ), __( 'Een AI-training voor planning en kantoor, inclusief AI-geletterdheid voor het team.', 'veryo' ), __( 'Urencontrole van zzp-facturen, klantrapportages en inkoopfacturen automatiseren.', 'veryo' ) ),
 				'problem'  => array(
 					'h'    => __( 'Waar de tijd in de administratie van een beveiligingsbedrijf naartoe gaat', 'veryo' ),
 					'p'    => array(

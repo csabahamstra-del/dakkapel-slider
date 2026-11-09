@@ -28,8 +28,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-adviseur-friesland' => array(
 		'title'     => __( 'AI-adviseur in Friesland voor het MKB', 'veryo' ),
-		'seo_title' => __( 'AI-adviseur in Friesland voor het MKB | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-adviseur in Friesland: Veryo uit Leeuwarden helpt het Friese MKB met AI-automatisering en AI-training, op locatie. Vraag een gratis offerte aan.', 'veryo' ),
+		'seo_title' => __( 'AI-adviseur Friesland: AI voor het Friese mkb | Veryo', 'veryo' ),
+		'desc'      => __( 'AI-adviseur in Friesland: Veryo uit Leeuwarden helpt het Friese mkb met AI-training, automatisering en een lokale AI-assistent. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'ai adviseur friesland',
 		'schema'    => array(
 			'type' => 'service',
@@ -63,6 +63,12 @@ return array(
 						'h' => __( 'Een voorbeeld uit de praktijk', 'veryo' ),
 						'p' => array( __( 'Een recreatiebedrijf aan het IJsselmeer krijgt in het seizoen veel dezelfde vragen via mail en WhatsApp, deels in het Duits. Met een WhatsApp-assistent die antwoordt in de taal van de gast, en conceptantwoorden op mail, kan de receptie zich richten op de gasten aan de balie. Dit is een voorbeeld van wat kan, geen klantcase.', 'veryo' ) ),
 					),
+					array(
+						'h' => __( 'AI voor het mkb in Friesland: waar je begint', 'veryo' ),
+						'p' => array(
+							__( 'Voor de meeste Friese mkb-bedrijven is de eerste stap klein: een AI-workshop voor het team, of één automatisering voor het werk dat elke week terugkomt. Bedrijven die veel kennis in een paar hoofden hebben, kiezen voor Veryo Collega, een lokale AI-assistent die op het eigen kantoor draait. Vanuit Leeuwarden zijn we snel in Sneek, Heerenveen, Drachten of Harlingen voor een kennismaking.', 'veryo' ),
+						),
+					),
 					$veryo_places(
 						__( 'Vanuit Leeuwarden zijn we snel in heel Friesland. We werken voor bedrijven in Leeuwarden, Drachten, Heerenveen en Sneek, en komen op locatie voor de kansensessie, de training en de oplevering.', 'veryo' ),
 						array( 'Leeuwarden', 'Drachten', 'Heerenveen', 'Sneek', 'Harlingen', 'Dokkum', __( 'en de rest van Friesland, ook de Waddeneilanden in overleg', 'veryo' ) )
@@ -95,8 +101,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-adviseur-groningen' => array(
 		'title'     => __( 'AI-adviseur in Groningen voor het MKB', 'veryo' ),
-		'seo_title' => __( 'AI-adviseur in Groningen voor het MKB | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-adviseur in Groningen: Veryo helpt het MKB in stad en provincie met AI-automatisering, AI-training en AI op maat. Vraag een gratis offerte aan.', 'veryo' ),
+		'seo_title' => __( 'AI-adviseur Groningen: workshops en automatisering | Veryo', 'veryo' ),
+		'desc'      => __( 'AI-adviseur in Groningen: AI-workshops, training en automatisering voor het mkb in de stad en de provincie, op locatie. Plan een gratis kennismaking.', 'veryo' ),
 		'kw'        => 'ai adviseur groningen',
 		'schema'    => array(
 			'type' => 'service',
@@ -132,6 +138,16 @@ return array(
 							__( 'Een voorbeeld: een ingenieursbureau in de stad kan een halve dag training combineren met een kansensessie in de middag. Het team leert werken met AI, en aan het eind ligt er een lijst met de drie automatiseringen die het meeste opleveren.', 'veryo' ),
 						),
 					),
+					array(
+						'h' => __( 'AI-workshop in Groningen', 'veryo' ),
+						'p' => array(
+							sprintf(
+								/* translators: %s: link naar de AI-workshop. */
+								__( 'Wil je eerst het hele team laten kennismaken met AI? Een <a href="%s">AI-workshop</a> van een dagdeel geven we bij jullie op locatie in de stad Groningen, Hoogezand, Veendam, Delfzijl of daarbuiten. Collega’s oefenen met taken uit hun eigen werk en gaan naar huis met opdrachten die ze de volgende dag gebruiken.', 'veryo' ),
+								esc_url( veryo_link( 'ai-workshop' ) )
+							),
+						),
+					),
 					$veryo_places(
 						__( 'Groningen ligt op ongeveer een uur rijden van Leeuwarden. We werken voor bedrijven in de stad Groningen, Leek en Winschoten en de rest van de provincie. Afspraken plannen we zo dat we er efficiënt kunnen zijn, en voor veel overleg werkt online ook prima.', 'veryo' ),
 						array( __( 'Groningen stad', 'veryo' ), 'Leek', 'Winschoten', 'Veendam', 'Hoogezand', 'Delfzijl', __( 'en de rest van de provincie Groningen', 'veryo' ) )
@@ -164,8 +180,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-adviseur-drenthe'   => array(
 		'title'     => __( 'AI-adviseur in Drenthe voor het MKB', 'veryo' ),
-		'seo_title' => __( 'AI-adviseur in Drenthe voor het MKB | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-adviseur in Drenthe: AI-automatisering en training voor het MKB in Assen, Emmen, Hoogeveen en Meppel. Voor agri, maakindustrie en installatie.', 'veryo' ),
+		'seo_title' => __( 'AI-adviseur Drenthe: automatisering voor je bedrijf | Veryo', 'veryo' ),
+		'desc'      => __( 'AI-adviseur in Drenthe: automatisering en AI-training voor bedrijven in Assen, Emmen, Meppel en Hoogeveen. Op locatie, met vaste prijs. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'ai adviseur drenthe',
 		'schema'    => array(
 			'type' => 'service',
@@ -199,6 +215,13 @@ return array(
 						'h' => __( 'Een voorbeeld', 'veryo' ),
 						'p' => array( __( 'Een mechanisatiebedrijf bij Emmen houdt de keuringsdata van machines van klanten bij in een Excel. Met een automatische onderhouds- en keuringsplanning krijgt de klant op tijd een uitnodiging, wordt de afspraak ingepland en staat de onderdelenbestelling klaar. Dit is een voorbeeld van wat kan, geen klantcase.', 'veryo' ) ),
 					),
+					array(
+						'h' => __( 'Automatisering voor bedrijven in Emmen, Meppel en Assen', 'veryo' ),
+						'p' => array(
+							__( 'Automatisering voor je bedrijf in Drenthe begint bij het werk dat elke week terugkomt. In Emmen en omgeving zien we veel maakindustrie en techniek: offertes, werkvoorbereiding en onderhoudsplanning. Rond Meppel en Hoogeveen veel bouw, transport en installatie, met planning, werkbonnen en inkoopfacturen. In Assen vooral zakelijke dienstverlening, waar gespreksverslagen en documenten de meeste tijd kosten.', 'veryo' ),
+							__( 'Waar je ook zit, de aanpak is hetzelfde: we komen langs voor een kennismaking, zoeken samen de grootste tijdvreter en automatiseren die bovenop de software die je al gebruikt. Voor kennis die in een paar hoofden zit, is er Veryo Collega: een lokale AI-assistent op jullie eigen kantoor.', 'veryo' ),
+						),
+					),
 					$veryo_places(
 						__( 'Assen ligt op ongeveer een uur rijden van Leeuwarden, Emmen iets verder. We werken voor bedrijven in Assen, Emmen en Hoogeveen en de rest van Drenthe, en komen op locatie voor kansensessies, trainingen en opleveringen.', 'veryo' ),
 						array( 'Assen', 'Emmen', 'Hoogeveen', 'Meppel', __( 'en de rest van Drenthe', 'veryo' ) )
@@ -229,9 +252,9 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'leeuwarden'            => array(
 		'title'     => __( 'AI-training en automatisering in Leeuwarden', 'veryo' ),
-		'seo_title' => __( 'AI-training en automatisering in Leeuwarden | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI en automatisering in Leeuwarden: training en advies | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-training in Leeuwarden en AI-automatisering voor bedrijven in de stad en omgeving. Veryo is hier gevestigd en komt langs. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'ai training leeuwarden',
+		'kw'        => 'ai en automatisering leeuwarden',
 		'schema'    => array(
 			'type' => 'service',
 			'min'  => 750,

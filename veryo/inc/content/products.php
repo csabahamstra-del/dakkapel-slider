@@ -57,6 +57,13 @@ function veryo_products() {
 						),
 					),
 				),
+				array(
+					__( 'Wat je nodig hebt om te starten', 'veryo' ),
+					array(
+						__( 'Urencontrole werkt met wat jullie al vastleggen. Voor de start hebben we drie dingen nodig: toegang tot het rooster of de export uit jullie planningspakket, het mailadres waar de facturen van zzp’ers en onderaannemers binnenkomen, en een overzicht van de tariefafspraken per zzp’er of onderaannemer.', 'veryo' ),
+						__( 'Ontbreekt er iets, bijvoorbeeld omdat tarieven alleen in losse mails staan, dan zetten we die in de inrichting eerst samen op een rij. Dat levert meteen een overzicht op dat je ook zonder automatisering goed kunt gebruiken.', 'veryo' ),
+					),
+				),
 			),
 			'stappen_kop' => __( 'Zo gaat het in zijn werk', 'veryo' ),
 			'stappen'     => array(
@@ -100,6 +107,15 @@ function veryo_products() {
 				__( 'Je betaalt voor elke lead uit Google, Meta of een vergelijkingssite. Maar de aanvraag komt binnen terwijl je op het dak staat, een vloer legt of een kozijn afmontert. Je belt ’s avonds terug, of de volgende dag. Tegen die tijd heeft de klant al met twee andere bedrijven gesproken.', 'veryo' ),
 				__( 'Hoe langer een lead wacht, hoe kleiner de kans op een afspraak. Dat is geen kwestie van harder werken: je kunt simpelweg niet altijd direct opnemen. Precies dat deel neemt de AI over.', 'veryo' ),
 			),
+			'secties'     => array(
+				array(
+					__( 'Wat je nodig hebt om te starten', 'veryo' ),
+					array(
+						__( 'Voor lead opvolging met AI hebben we je leadbronnen nodig (je websiteformulier, Google Ads of Meta), toegang tot je agenda en een WhatsApp Business-nummer. Daarnaast de vragen die je nu zelf stelt aan een nieuwe klant, in de volgorde die voor jou werkt.', 'veryo' ),
+						__( 'Met die vragen stellen we de assistent af op jouw vak. Een dakkapelbouwer vraagt naar afmetingen en het type dak, een vloerenlegger naar het aantal vierkante meters en de ondergrond. In de proefperiode lees je de gesprekken mee en sturen we bij waar nodig.', 'veryo' ),
+					),
+				),
+			),
 			'stappen'     => array(
 				array( __( 'Er komt een lead binnen', 'veryo' ), __( 'Via je website, een advertentie op Meta of Google, of een platform waar je op adverteert. De gegevens komen automatisch bij de assistent.', 'veryo' ) ),
 				array( __( 'Binnen ongeveer twee minuten contact', 'veryo' ), __( 'De assistent stuurt een WhatsApp of belt de lead, stelt zich voor namens jouw bedrijf en maakt duidelijk dat het een digitale assistent is.', 'veryo' ) ),
@@ -140,6 +156,15 @@ function veryo_products() {
 				__( 'Elke dienst levert een rapport op, en elk incident een verslag. Aan het eind van de maand wil elke opdrachtgever een overzicht: wat is er gebeurd, hoe vaak, welke rondes zijn gelopen en welke bijzonderheden waren er.', 'veryo' ),
 				__( 'Dat overzicht wordt nu vaak met de hand gemaakt: rapporten doorlezen, tellen, knippen en plakken in Word of Excel. Uren werk per opdrachtgever, elke maand opnieuw, terwijl de inhoud er al ligt.', 'veryo' ),
 			),
+			'secties'     => array(
+				array(
+					__( 'Wat je nodig hebt om te starten', 'veryo' ),
+					array(
+						__( 'Voor het automatiseren van de rapportage in de beveiliging hebben we een maand aan dienstrapporten en incidentrapporten nodig, zonder persoonsgegevens, plus een voorbeeld van een maandrapportage zoals je opdrachtgever die nu krijgt. Daarmee stellen we de opbouw en de huisstijl af.', 'veryo' ),
+						__( 'Daarna kiezen we samen hoe de rapporten binnenkomen: via een vast mailadres of rechtstreeks uit jullie rapportagesysteem. De eerste maanden leest een planner of leidinggevende elke rapportage na voordat die naar de opdrachtgever gaat.', 'veryo' ),
+					),
+				),
+			),
 			'stappen'     => array(
 				array( __( 'Rapporten verzamelen', 'veryo' ), __( 'Dienst- en incidentrapporten komen binnen via een vast mailadres of uit je eigen planning- of rapportagesysteem.', 'veryo' ) ),
 				array( __( 'Lezen en ordenen', 'veryo' ), __( 'De AI leest elk rapport, koppelt het aan de juiste opdrachtgever en locatie en haalt de belangrijke gegevens eruit: tijden, soort melding, opvolging.', 'veryo' ) ),
@@ -177,6 +202,15 @@ function veryo_products() {
 			'probleem'    => array(
 				__( 'Een goede offerte kost tijd: het bestek doorlezen, hoeveelheden uit de tekening halen, prijzen opzoeken, de calculatie opbouwen en dan alles netjes in een offerte zetten. Vaak ’s avonds, omdat overdag het werk voorgaat.', 'veryo' ),
 				__( 'En als het werk klaar is, begint het opnieuw: meerwerk verzamelen, uren en materialen nalopen en de factuur maken. Dubbel werk, met kans op fouten en te laat factureren.', 'veryo' ),
+			),
+			'secties'     => array(
+				array(
+					__( 'Wat je nodig hebt om te starten', 'veryo' ),
+					array(
+						__( 'Om offertes te automatiseren hebben we een paar recente offertes nodig, je prijslijst of de export uit je calculatiepakket en een voorbeeld van een bestek of tekening zoals je die vaak krijgt. Daarmee zien we hoe jullie calculatie is opgebouwd.', 'veryo' ),
+						__( 'De rekenregels, marges en uurtarieven blijven van jullie. De AI leest het bestek, vult in en schrijft de offertetekst; de calculator controleert en beslist. Zo krijg je snelheid zonder verrassingen in de bedragen.', 'veryo' ),
+					),
+				),
 			),
 			'stappen'     => array(
 				array( __( 'Aanvraag, bestek of tekening erin', 'veryo' ), __( 'Je zet de aanvraag, het bestek of de tekening klaar. De AI leest het en haalt de werkzaamheden en hoeveelheden eruit.', 'veryo' ) ),
@@ -216,6 +250,15 @@ function veryo_products() {
 				__( 'Monteurs vullen werkbonnen in op papier, in een app of als PDF. Op kantoor typt iemand ze over in de administratie: uren, materialen, bijzonderheden. Bonnen zijn soms onleesbaar of onvolledig, dus wordt er nagebeld.', 'veryo' ),
 				__( 'Ondertussen ligt de factuur stil. Hoe langer een bon blijft liggen, hoe later het geld binnenkomt, en hoe groter de kans dat er uren of materialen niet worden gefactureerd.', 'veryo' ),
 			),
+			'secties'     => array(
+				array(
+					__( 'Wat je nodig hebt om te starten', 'veryo' ),
+					array(
+						__( 'Voor het automatisch verwerken van werkbonnen hebben we voorbeelden nodig van werkbonnen zoals ze nu binnenkomen (foto, pdf of formulier), en toegang tot de administratie of planning waar ze in moeten. Ook de afspraken over wat een complete werkbon is, zetten we op een rij.', 'veryo' ),
+						__( 'Werkbonnen die niet compleet zijn, worden gemarkeerd in plaats van verwerkt. Zo zie je direct welke monteur nog iets moet aanvullen, en kan de rest meteen door naar de facturatie.', 'veryo' ),
+					),
+				),
+			),
 			'stappen'     => array(
 				array( __( 'Werkbon komt binnen', 'veryo' ), __( 'Als foto via WhatsApp of mail, als PDF of via een digitaal formulier. Het formaat dat je monteurs nu al gebruiken.', 'veryo' ) ),
 				array( __( 'Automatisch uitgelezen', 'veryo' ), __( 'De AI leest de bon uit: klant, project, uren, materialen en bijzonderheden, ook bij handgeschreven bonnen.', 'veryo' ) ),
@@ -252,6 +295,15 @@ function veryo_products() {
 			'probleem'    => array(
 				__( 'Tientallen of honderden inkoopfacturen per maand, elk in een andere opmaak. Iemand opent ze, controleert bedragen en aantallen, zoekt de bijbehorende inkooporder of werkbon en boekt ze in.', 'veryo' ),
 				__( 'Het is precies, saai en foutgevoelig werk. Een factuur die dubbel wordt betaald of een prijs die niet klopt met de afspraak, valt pas op als het te laat is.', 'veryo' ),
+			),
+			'secties'     => array(
+				array(
+					__( 'Wat je nodig hebt om te starten', 'veryo' ),
+					array(
+						__( 'Om inkoopfacturen te automatiseren hebben we het mailadres nodig waar ze binnenkomen, toegang tot je boekhoudpakket (zoals SnelStart, Exact of Moneybird) en, als je dat gebruikt, de inkooporders of werkbonnen waartegen gematcht moet worden.', 'veryo' ),
+						__( 'In de proefperiode boekt de administratie nog mee. Zo zie je per leverancier hoe goed de herkenning is, voordat de automatisering het overneemt. Afwijkingen in prijs of aantal blijven altijd zichtbaar voor een mens.', 'veryo' ),
+					),
+				),
 			),
 			'stappen'     => array(
 				array( __( 'Factuur komt binnen per mail', 'veryo' ), __( 'Leveranciers mailen naar je vaste facturenadres, zoals nu. Er hoeft niets te veranderen.', 'veryo' ) ),
@@ -290,6 +342,15 @@ function veryo_products() {
 			'probleem'    => array(
 				__( 'Op een vacature komen tientallen reacties binnen. Elk cv moet worden gelezen, kandidaten willen snel horen waar ze staan en het plannen van gesprekken kost eindeloos heen-en-weer mailen.', 'veryo' ),
 				__( 'Goede kandidaten haken af als het te lang duurt. En je recruiters besteden hun tijd aan administratie in plaats van aan de gesprekken die er echt toe doen.', 'veryo' ),
+			),
+			'secties'     => array(
+				array(
+					__( 'Wat je nodig hebt om te starten', 'veryo' ),
+					array(
+						__( 'Voor de recruitment-assistent hebben we je vacatures nodig, de harde eisen per functie en toegang tot de agenda van de mensen die gesprekken voeren. Gebruik je een sollicitatiesysteem, dan koppelen we daaraan.', 'veryo' ),
+						__( 'De assistent screent op de eisen die jij vastlegt, zoals diploma’s of beschikbaarheid, en legt uit waarom een kandidaat wel of niet op de shortlist staat. De keuze wie je uitnodigt en aanneemt, blijft altijd bij een mens.', 'veryo' ),
+					),
+				),
 			),
 			'stappen'     => array(
 				array( __( 'Sollicitatie komt binnen', 'veryo' ), __( 'Via je vacaturesite, een jobboard of de mail. Elke kandidaat krijgt direct een bevestiging.', 'veryo' ) ),

@@ -745,6 +745,18 @@ function veryo_page_standard( $d ) {
 	if ( ! empty( $d['problem'] ) ) {
 		$out .= veryo_sec_text( $d['problem']['h'], $d['problem']['p'], isset( $d['problem']['list'] ) ? $d['problem']['list'] : array() );
 	}
+	if ( ! empty( $d['help'] ) ) {
+		$out .= veryo_sec_text(
+			$d['help'][0],
+			array(),
+			array(
+				'<strong><a href="' . esc_url( veryo_collega_url() ) . '">' . esc_html__( 'Veryo Collega, lokale AI-assistent', 'veryo' ) . '</a>.</strong> ' . $d['help'][1],
+				'<strong><a href="' . esc_url( veryo_link( 'ai-training' ) ) . '">' . esc_html__( 'AI-training en workshops', 'veryo' ) . '</a>.</strong> ' . $d['help'][2],
+				'<strong><a href="' . esc_url( veryo_link( 'ai-automatisering' ) ) . '">' . esc_html__( 'Automatisering', 'veryo' ) . '</a>.</strong> ' . $d['help'][3],
+			),
+			'checks'
+		);
+	}
 	if ( ! empty( $d['photo'] ) ) {
 		$out .= veryo_sec_photo( $d['photo'][0], $d['photo'][1], isset( $d['photo'][2] ) ? $d['photo'][2] : '' );
 	}

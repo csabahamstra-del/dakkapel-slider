@@ -492,8 +492,8 @@ function veryo_page_collega() {
 				array(
 					'width' => '56%',
 					'inner' => veryo_b_p( $n, array( 'className' => 'veryo-kicker' ) )
-						. veryo_b_h( __( 'Een AI-collega die alles weet van jouw bedrijf.', 'veryo' ), 1, array( 'fontSize' => 'display-xl' ) )
-						. veryo_b_p( __( 'Draait op je eigen kantoor. [veryo_collega_naam] beantwoordt vragen van je medewerkers uit jullie eigen documenten en systemen, en je gegevens verlaten het pand niet voor AI-verwerking.', 'veryo' ), array( 'className' => 'veryo-lead' ) )
+						. veryo_b_h( __( 'De lokale AI-assistent voor bedrijven.', 'veryo' ), 1, array( 'fontSize' => 'display-xl' ) )
+						. veryo_b_p( __( 'Een AI-collega die alles weet van jullie bedrijf, en die op jullie eigen kantoor draait. [veryo_collega_naam] beantwoordt vragen van collega’s uit jullie eigen documenten en systemen, en jullie gegevens verlaten het pand niet voor AI-verwerking.', 'veryo' ), array( 'className' => 'veryo-lead' ) )
 						. veryo_b_shortcode( '[veryo_collega_cta]' ),
 				),
 				array(
@@ -510,7 +510,7 @@ function veryo_page_collega() {
 	);
 
 	// Citeerbaar antwoord.
-	$out .= veryo_sec_answer( __( '[veryo_collega_naam] is een AI-assistent die bij een mkb-bedrijf op kantoor draait en vragen van medewerkers beantwoordt uit de eigen documenten en systemen van dat bedrijf. Veryo installeert bewezen open-source AI op een eigen machine bij de klant, richt die in, vult hem met de kennis van het bedrijf en beheert hem daarna. Het is geen eigen software van Veryo.', 'veryo' ) );
+	$out .= veryo_sec_answer( __( '[veryo_collega_naam] is een lokale AI-assistent voor bedrijven: een interne AI-assistent en kennisbank die bij een mkb-bedrijf op kantoor draait en vragen van medewerkers beantwoordt uit de eigen documenten en systemen van dat bedrijf. Veryo installeert bewezen open-source AI op een eigen machine bij de klant, richt die in, vult hem met de kennis van het bedrijf en beheert hem daarna. Het is geen eigen software van Veryo.', 'veryo' ) );
 
 	// 2. Het probleem.
 	$problems = array(

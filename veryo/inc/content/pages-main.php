@@ -704,6 +704,25 @@ $veryo_about .= veryo_sec_wide(
 	),
 	'veryo-conviction veryo-about-founder'
 );
+$veryo_about .= veryo_sec_text(
+	__( 'Ervaring en achtergrond', 'veryo' ),
+	array(
+		__( 'Csaba werkt dagelijks met AI-tools, automatiseringsplatforms en lokale AI-modellen, en zet die in voor het werk van mkb-bedrijven: mail, offertes, administratie, planning en kennis. [INVULLEN: achtergrond en werkervaring van Csaba, bijvoorbeeld opleiding, eerdere functies en sectoren waarin hij heeft gewerkt.]', 'veryo' ),
+		__( '[INVULLEN: eventuele certificeringen of cursussen op het gebied van AI, alleen als ze echt behaald zijn.] [INVULLEN: spreekbeurten, publicaties of samenwerkingen, alleen als ze er zijn.]', 'veryo' ),
+	)
+);
+$veryo_about .= veryo_sec_text(
+	__( 'Hoe Veryo omgaat met data en veiligheid', 'veryo' ),
+	array( __( 'Bedrijfsgegevens zijn vertrouwelijk. Daarom gelden bij Veryo een paar vaste regels:', 'veryo' ) ),
+	array(
+		'<strong>' . __( 'Liefst lokaal.', 'veryo' ) . '</strong> ' . __( 'Met Veryo Collega draait de AI op een eigen machine bij jullie op kantoor. Jullie gegevens verlaten het pand niet voor AI-verwerking.', 'veryo' ),
+		'<strong>' . __( 'Zakelijke versies in de cloud.', 'veryo' ) . '</strong> ' . __( 'Gebruiken we toch een clouddienst, dan een zakelijke versie waarbij jullie gegevens niet worden gebruikt om AI-modellen te trainen.', 'veryo' ),
+		'<strong>' . __( 'Verwerkersovereenkomst.', 'veryo' ) . '</strong> ' . __( 'Bij persoonsgegevens sluiten we een verwerkersovereenkomst, en we krijgen alleen toegang tot wat nodig is.', 'veryo' ),
+		'<strong>' . __( 'Rechten per medewerker.', 'veryo' ) . '</strong> ' . __( 'Niet iedereen hoeft alles te zien. Wie welke bronnen mag gebruiken, leggen we samen vast.', 'veryo' ),
+		'<strong>' . __( 'Een mens beslist.', 'veryo' ) . '</strong> ' . __( 'AI maakt concepten en voorstellen. Wat naar een klant gaat of geld kost, controleert altijd een collega.', 'veryo' ),
+	),
+	'checks'
+);
 $veryo_about .= veryo_sec_independent();
 $veryo_about .= veryo_sec_text(
 	__( 'Wat we doen, in zes pijlers', 'veryo' ),
@@ -714,7 +733,7 @@ $veryo_about .= veryo_sec_text(
 		'<a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . __( 'De AI-werkplek', 'veryo' ) . '</a>: ' . __( 'Microsoft 365 met Copilot of Google Workspace met Gemini goed inrichten.', 'veryo' ),
 		'<a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'Digitale collega’s en automatisering', 'veryo' ) . '</a>: ' . __( 'AI-agents, koppelingen en maatwerk waar bestaande software tekortschiet.', 'veryo' ),
 		'<a href="' . esc_url( veryo_link( 'veilig-ai-gebruik' ) ) . '">' . __( 'Veilig AI-gebruik', 'veryo' ) . '</a>: ' . __( 'beleid, toegangsrechten, tweestapsverificatie, bewustwording en waar je wilt Europese alternatieven.', 'veryo' ),
-		'<a href="' . esc_url( veryo_link( 'ai-partner' ) ) . '">' . __( 'AI-partner', 'veryo' ) . '</a>: ' . __( 'doorlopende begeleiding in één abonnement.', 'veryo' ),
+		'<a href="' . esc_url( veryo_link( 'ai-partner' ) ) . '">' . __( 'AI-abonnement', 'veryo' ) . '</a>: ' . __( 'een vaste AI-partner en doorlopende begeleiding in één abonnement.', 'veryo' ),
 	)
 );
 $veryo_about .= veryo_sec_text(
@@ -910,9 +929,9 @@ return array(
 	),
 	'over-veryo'                   => array(
 		'title'     => __( 'Over Veryo', 'veryo' ),
-		'seo_title' => __( 'Over Veryo, AI-partner uit Leeuwarden', 'veryo' ),
-		'desc'      => __( 'Over Veryo: het nuchtere AI-bureau uit Leeuwarden voor het MKB in Friesland, Groningen en Drenthe. Eerst snappen, dan slim inzetten, met vaste prijzen.', 'veryo' ),
-		'kw'        => 'veryo',
+		'seo_title' => __( 'Over Veryo: nuchtere AI-partner uit Leeuwarden | Veryo', 'veryo' ),
+		'desc'      => __( 'Over Veryo: wie er achter zit, hoe we werken en hoe we met jullie data omgaan. De nuchtere AI-partner uit Leeuwarden. Maak kennis met Csaba.', 'veryo' ),
+		'kw'        => 'over veryo',
 		'content'   => $veryo_about,
 	),
 	'contact'                      => array(
