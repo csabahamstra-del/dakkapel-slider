@@ -77,7 +77,9 @@ function veryo_apply_page_meta( $post_id, $def ) {
 	// Zelfde gegevens voor Rank Math (alleen waar Rank Math nog de waarde van het thema heeft).
 	veryo_sync_rank_math_fields( $post_id, $def, $previous );
 	if ( ! empty( $def['schema'] ) ) {
-		update_post_meta( $post_id, '_veryo_schema_type', $def['schema']['type'] );
+		if ( ! empty( $def['schema']['type'] ) ) {
+			update_post_meta( $post_id, '_veryo_schema_type', $def['schema']['type'] );
+		}
 		if ( isset( $def['schema']['min'] ) ) {
 			update_post_meta( $post_id, '_veryo_price_min', (int) $def['schema']['min'] );
 			if ( isset( $def['schema']['max'] ) ) {
@@ -505,42 +507,48 @@ function veryo_menu_definitions() {
 			'items' => array(
 				array( veryo_collega()['naam'], veryo_collega()['slug'], array(), 'is-highlight' ),
 				array(
-					__( 'Diensten', 'veryo' ),
-					'#',
+					__( 'AI-trainingen', 'veryo' ),
+					'ai-training',
 					array(
+						array( __( 'AI-training voor bedrijven', 'veryo' ), 'ai-training' ),
+						array( __( 'AI-workshop voor bedrijven', 'veryo' ), 'ai-workshop' ),
+						array( __( 'AI-geletterdheid (AI Act)', 'veryo' ), 'ai-training/ai-geletterdheid' ),
+						array( __( 'ChatGPT-training voor verkopers', 'veryo' ), 'ai-training/chatgpt-training-verkopers' ),
+						array( __( 'AI-strategie voor directie en MT', 'veryo' ), 'ai-training/ai-strategie' ),
+						array( __( 'AI-training voor zzp’ers', 'veryo' ), 'ai-training/zzp' ),
+						array( __( 'Veryo Academy (online)', 'veryo' ), 'academy' ),
+					),
+				),
+				array(
+					__( 'Automatisering', 'veryo' ),
+					'ai-automatisering',
+					array(
+						array( __( 'Oplossingen', 'veryo' ), 'oplossingen', $solutions ),
 						array(
-							__( 'Starten', 'veryo' ),
-							'#',
+							__( 'Automatisering', 'veryo' ),
+							'ai-automatisering',
 							array(
-								array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
-								array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
-								array( __( 'AI-implementatie MKB', 'veryo' ), 'ai-implementatie-mkb' ),
-								array( __( 'AI-training', 'veryo' ), 'ai-training' ),
-							),
-						),
-						array(
-							__( 'Inrichten', 'veryo' ),
-							'#',
-							array(
-								array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
+								array( __( 'AI-automatisering voor het mkb', 'veryo' ), 'ai-automatisering' ),
 								array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
-								array( __( 'Automatisering en koppelingen', 'veryo' ), 'ai-automatisering' ),
 								array( __( 'AI op maat', 'veryo' ), 'ai-op-maat' ),
 							),
 						),
-						array(
-							__( 'Veilig en doorlopend', 'veryo' ),
-							'#',
-							array(
-								array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
-								array( __( 'AI-partner', 'veryo' ), 'ai-partner' ),
-							),
-						),
+						array( __( 'Branches', 'veryo' ), 'branches', $branches ),
 					),
 				),
-				array( __( 'Oplossingen', 'veryo' ), 'oplossingen', $solutions ),
-				array( __( 'Branches', 'veryo' ), 'branches', $branches ),
-				array( __( 'Gratis offerte', 'veryo' ), 'prijzen' ),
+				array(
+					__( 'Advies en partner', 'veryo' ),
+					'#',
+					array(
+						array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
+						array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
+						array( __( 'AI implementeren: stappenplan', 'veryo' ), 'ai-implementatie-mkb' ),
+						array( __( 'AI-abonnement (vaste partner)', 'veryo' ), 'ai-partner' ),
+						array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
+						array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
+					),
+				),
+				array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
 				array( __( 'Over Veryo', 'veryo' ), 'over-veryo' ),
 				array( __( 'Contact', 'veryo' ), 'contact' ),
 			),
@@ -558,13 +566,15 @@ function veryo_menu_definitions() {
 						array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
 						array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
 						array( __( 'AI-automatisering', 'veryo' ), 'ai-automatisering' ),
-						array( __( 'AI-implementatie MKB', 'veryo' ), 'ai-implementatie-mkb' ),
+						array( __( 'AI implementeren', 'veryo' ), 'ai-implementatie-mkb' ),
 						array( __( 'AI-training', 'veryo' ), 'ai-training' ),
+						array( __( 'AI-workshop', 'veryo' ), 'ai-workshop' ),
+						array( __( 'ChatGPT-training verkopers', 'veryo' ), 'ai-training/chatgpt-training-verkopers' ),
 						array( __( 'AI-geletterdheid', 'veryo' ), 'ai-training/ai-geletterdheid' ),
 						array( __( 'AI op maat', 'veryo' ), 'ai-op-maat' ),
-						array( __( 'AI-partner', 'veryo' ), 'ai-partner' ),
+						array( __( 'AI-abonnement', 'veryo' ), 'ai-partner' ),
 						array( __( 'Veryo Academy', 'veryo' ), 'academy' ),
-						array( __( 'Gratis offerte', 'veryo' ), 'prijzen' ),
+						array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
 						array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
 					),
 				),

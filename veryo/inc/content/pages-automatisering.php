@@ -263,6 +263,8 @@ return array(
 		'seo_title' => __( 'AI-marketing voor het MKB: SEO, content en social | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-marketing voor het MKB: SEO-blogs, lokale pagina’s, social posts, reviews en e-mailflows, altijd met menselijke check. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai marketing mkb',
+		// Buiten de focus van Veryo: blijft bestaan, maar niet in Google.
+		'meta'      => array( 'noindex' => 1 ),
 		'schema'    => $veryo_q + array(
 			'min' => 750,
 			'max' => 7500,

@@ -117,7 +117,7 @@ $veryo_startpakket .= veryo_sec_links(
 /*
  * AI-partner
  */
-$veryo_partner  = veryo_sec_answer( __( 'Als AI-partner voor het MKB is Veryo je vaste vraagbaak voor alles rond AI, in één abonnement: Bijblijven, Werkplek-onderhoud en Veilig blijven, plus elke maand uren voor verbeteringen en nieuwe toepassingen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) );
+$veryo_partner  = veryo_sec_answer( __( 'Met een AI-abonnement heb je een vaste AI-partner: Veryo is elke maand jullie vraagbaak voor alles rond AI, in één abonnement: Bijblijven, Werkplek-onderhoud en Veilig blijven, plus elke maand uren voor verbeteringen en nieuwe toepassingen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) );
 $veryo_partner .= veryo_sec_text(
 	__( 'Na de eerste maand valt het vaak stil', 'veryo' ),
 	array(
@@ -200,10 +200,10 @@ return array(
 		'content'   => $veryo_startpakket,
 	),
 	'ai-partner'     => array(
-		'title'     => __( 'AI-partner: vaste vraagbaak voor AI', 'veryo' ),
-		'seo_title' => __( 'AI-partner voor het MKB: maandelijks abonnement | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-partner voor het MKB: bijblijven, werkplek-onderhoud en veilig blijven in één abonnement, plus uren voor verbeteringen. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'ai partner mkb',
+		'title'     => __( 'AI-abonnement voor het mkb: een vaste AI-partner', 'veryo' ),
+		'seo_title' => __( 'AI-abonnement voor het mkb: vaste AI-partner per maand | Veryo', 'veryo' ),
+		'desc'      => __( 'Een AI-abonnement voor het mkb: elke maand een vaste AI-partner voor vragen, updates, veiligheid en verbeteringen. Plan een gratis kennismaking.', 'veryo' ),
+		'kw'        => 'ai abonnement mkb',
 		'schema'    => array(
 			'type' => 'partner',
 			'min'  => 495,

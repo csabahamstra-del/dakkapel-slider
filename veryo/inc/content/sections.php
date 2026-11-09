@@ -805,7 +805,7 @@ function veryo_page_standard( $d ) {
 		$out .= veryo_sec_faq( $d['faq'] );
 	}
 	$cta  = isset( $d['cta'] ) ? $d['cta'] : array( '', '' );
-	$out .= veryo_sec_cta_scan( $cta[0], $cta[1] );
+	$out .= ! empty( $d['cta_demo'] ) ? veryo_sec_cta_demo( $cta[0], $cta[1] ) : veryo_sec_cta_scan( $cta[0], $cta[1] );
 	if ( ! empty( $d['links'] ) ) {
 		$out .= veryo_sec_links( $d['links'] );
 	}

@@ -230,7 +230,6 @@ $veryo_auto_cats  = array(
 	'offertes-en-calculaties' => __( 'Van aanvraag naar offerte, opvolging en calculatie, zonder alles over te typen.', 'veryo' ),
 	'administratie'           => __( 'Inkoopfacturen, bonnetjes, werkbonnen en debiteuren, gekoppeld aan je boekhoudpakket.', 'veryo' ),
 	'werkprocessen'           => __( 'Planning, werkbonnen, inkoop, onderhoud en overdracht.', 'veryo' ),
-	'marketing'               => __( 'SEO, content, social en reviews, altijd met een menselijke check.', 'veryo' ),
 	'hr-en-werving'           => __( 'Vacatures, solliciteren via WhatsApp, opvolging en onboarding.', 'veryo' ),
 	'rapportages'             => __( 'Dashboards, een maandagbericht met cijfers en Excel zonder gedoe.', 'veryo' ),
 );
@@ -324,26 +323,29 @@ $veryo_impl = veryo_page_standard(
 			__( 'Vertel kort hoe jullie nu werken. Je krijgt binnen één werkdag een eerlijk antwoord over wat zinvol is en wat niet.', 'veryo' ),
 			__( 'Bijvoorbeeld: we zijn met 15 mensen en weten niet waar we moeten beginnen.', 'veryo' ),
 		),
-		'answer'    => __( 'Veryo begeleidt AI-implementatie voor het MKB van plan tot live: we zoeken uit waar AI in jouw bedrijf het meest oplevert, bouwen de oplossingen in je eigen software en zorgen dat je team ermee werkt. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+		'answer'    => __( 'AI implementeren in je bedrijf gaat het best in zes stappen: tijdvreters in kaart brengen, kansen op volgorde zetten, afspraken maken, één toepassing inrichten, je team trainen en daarna uitbreiden. Dit stappenplan laat zien hoe dat in een mkb-bedrijf werkt, wat elke stap oplevert en waar Veryo kan helpen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 		'solutions' => true,
 		'problem'   => array(
 			'h' => __( 'Waarom AI-implementatie in het MKB vaak blijft hangen', 'veryo' ),
 			'p' => array(
 				__( 'Veel ondernemers hebben ChatGPT een keer geprobeerd en zien de mogelijkheden. Maar tussen “dit is handig” en “dit draait elke dag in ons bedrijf” zit een gat. Wie gaat het bouwen? Welke software moet waarop aansluiten? Wat mag wel en niet met klantgegevens? En wat doe je als de collega die ermee begon op vakantie is?', 'veryo' ),
-				__( 'Daardoor blijft het vaak bij losse experimenten. Iedereen gebruikt het een beetje, niemand weet precies wat het oplevert, en de echte tijdvreters blijven liggen. Een AI-consultant die alleen een rapport schrijft, lost dat niet op. Je hebt iemand nodig die het ook bouwt en bijhoudt.', 'veryo' ),
+				__( 'Daardoor blijft het vaak bij losse experimenten. Iedereen gebruikt het een beetje, niemand weet precies wat het oplevert, en de echte tijdvreters blijven liggen. Een AI-consultant die alleen een rapport schrijft, lost dat niet op. Je hebt een stappenplan nodig, en iemand die het ook inricht en bijhoudt.', 'veryo' ),
 			),
 		),
 		'photo'     => array( __( 'ondernemer en adviseur aan tafel met een procesoverzicht op papier', 'veryo' ), __( 'AI-implementatie MKB: kansensessie aan tafel', 'veryo' ), 'overleg' ),
 		'sections'  => array(
 			array(
-				'h'    => __( 'Wat een AI-adviseur van Veryo concreet doet', 'veryo' ),
-				'p'    => array( __( 'We werken als AI-adviseur én als bouwer. Dat betekent dat het advies altijd uitvoerbaar is, want wij moeten het zelf ook maken. De implementatie bestaat uit vier onderdelen:', 'veryo' ) ),
-				'list' => array(
-					'<strong>' . __( 'Inventariseren.', 'veryo' ) . '</strong> ' . __( 'We lopen je processen door: waar gaat de tijd heen, welke software gebruik je, waar zitten de fouten en de ergernissen.', 'veryo' ),
-					'<strong>' . __( 'Prioriteren.', 'veryo' ) . '</strong> ' . __( 'Elke kans krijgt een inschatting van tijdwinst, kosten en risico. Je kiest zelf waar je begint.', 'veryo' ),
-					'<strong>' . __( 'Bouwen en koppelen.', 'veryo' ) . '</strong> ' . __( 'We bouwen in je eigen accounts, testen met echte gegevens en zetten pas live als het werkt.', 'veryo' ),
-					'<strong>' . __( 'Borgen.', 'veryo' ) . '</strong> ' . __( 'Je team krijgt uitleg of een training, elke automatisering een eigenaar en een logboek, en wij houden het bij.', 'veryo' ),
+				'h'     => __( 'Het stappenplan: AI implementeren in zes stappen', 'veryo' ),
+				'p'     => array( __( 'Zo pakken we een AI-implementatie in het mkb aan. Je kunt na elke stap beslissen of je doorgaat.', 'veryo' ) ),
+				'list'  => array(
+					'<strong>' . __( '1. Tijdvreters in kaart brengen.', 'veryo' ) . '</strong> ' . __( 'Waar gaat de tijd van jullie collega’s heen? Welk werk komt elke week terug, en in welke software gebeurt het? De gratis AI-scan is een goed begin.', 'veryo' ),
+					'<strong>' . __( '2. Kansen op volgorde zetten.', 'veryo' ) . '</strong> ' . __( 'Elke kans krijgt een inschatting van tijdwinst, kosten en risico. Je kiest zelf waar je begint; meestal is dat één afgebakende taak.', 'veryo' ),
+					'<strong>' . __( '3. Afspraken maken.', 'veryo' ) . '</strong> ' . __( 'Welke gegevens mogen in een AI-tool, wie controleert de uitkomst en wie is eigenaar? Dat leggen we vast in een kort AI-beleid.', 'veryo' ),
+					'<strong>' . __( '4. Eén toepassing inrichten.', 'veryo' ) . '</strong> ' . __( 'We richten de eerste toepassing in bovenop de software die jullie al gebruiken, testen met echte gegevens en zetten pas live als het werkt.', 'veryo' ),
+					'<strong>' . __( '5. Het team trainen.', 'veryo' ) . '</strong> ' . __( 'Een toepassing werkt pas als collega’s er goed mee omgaan. Een korte training hoort er altijd bij, en telt mee voor de AI-geletterdheid uit de AI Act.', 'veryo' ),
+					'<strong>' . __( '6. Meten en uitbreiden.', 'veryo' ) . '</strong> ' . __( 'Na een paar weken kijken we wat het oplevert. Werkt het, dan volgt de volgende toepassing.', 'veryo' ),
 				),
+				'style' => 'checks',
 			),
 			array(
 				'h' => __( 'Waar we meestal beginnen', 'veryo' ),
@@ -360,7 +362,8 @@ $veryo_impl = veryo_page_standard(
 		),
 		'price'     => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk', 'partner' ) ),
 		'faq'       => array(
-			array( __( 'Wat is het verschil tussen een AI-consultant en Veryo?', 'veryo' ), __( 'Een AI-consultant adviseert meestal alleen. Veryo adviseert, bouwt en onderhoudt. Dat houdt het advies realistisch, want we moeten het zelf ook werkend krijgen.', 'veryo' ) ),
+			array( __( 'Wat is het verschil tussen een AI-consultant en Veryo?', 'veryo' ), __( 'Een AI-consultant adviseert meestal alleen. Veryo adviseert, richt in en onderhoudt, bovenop de software die je al hebt. Dat houdt het advies realistisch, want we moeten het zelf ook werkend krijgen.', 'veryo' ) ),
+			array( __( 'Met welke stap van het stappenplan begin ik?', 'veryo' ), __( 'Met stap 1: weten waar de tijd heen gaat. Doe de gratis AI-scan of plan een kennismaking. Daarna kies je samen één taak om mee te beginnen.', 'veryo' ) ),
 			array( __( 'Hoe lang duurt een AI-implementatie?', 'veryo' ), __( 'De kansensessie en roadmap kosten een dagdeel plus uitwerking. Een eerste quick win staat meestal binnen twee tot vier weken. Een groter traject verdelen we in stappen, zodat je na elke stap kunt beoordelen of je doorgaat.', 'veryo' ) ),
 			array( __( 'Hebben we een AI-strategie nodig voordat we beginnen?', 'veryo' ), __( 'Nee, geen dik document. Wel een helder beeld van waar de tijd heen gaat en wat je als eerste wilt oplossen. Dat is precies wat de kansensessie oplevert.', 'veryo' ) ),
 			array( __( 'Wat als onze processen nog niet op orde zijn?', 'veryo' ), __( 'Dan beginnen we daar. Een rommelig proces automatiseren maakt het alleen sneller rommelig. Vaak helpt het al om een proces op papier te zetten voordat er iets gebouwd wordt.', 'veryo' ) ),
@@ -840,10 +843,10 @@ return array(
 		'content'   => $veryo_auto,
 	),
 	'ai-implementatie-mkb'         => array(
-		'title'     => __( 'AI-implementatie voor het MKB', 'veryo' ),
-		'seo_title' => __( 'AI-implementatie voor het MKB: van plan tot live | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-implementatie voor het MKB: Veryo zoekt uit waar AI het meest oplevert, bouwt het in je eigen software en borgt het. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'ai implementatie mkb',
+		'title'     => __( 'AI implementeren in je bedrijf: stappenplan voor het mkb', 'veryo' ),
+		'seo_title' => __( 'AI implementeren: stappenplan in 6 stappen voor het mkb | Veryo', 'veryo' ),
+		'desc'      => __( 'AI implementeren in je bedrijf? Zo pak je het aan in zes stappen: van tijdvreters in kaart brengen tot je team trainen. Plan een gratis kennismaking.', 'veryo' ),
+		'kw'        => 'ai implementeren stappenplan',
 		'schema'    => array(
 			'type' => 'service',
 			'min'  => 750,
@@ -857,6 +860,7 @@ return array(
 		'desc'      => __( 'AI-training voor bedrijven: praktische incompany training of workshop in ChatGPT, Claude of Copilot voor teams tot 20 mensen. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai training voor bedrijven',
 		'schema'    => array(
+			'course' => array( 'onsite', 'online' ),
 			'type' => 'service',
 			'min'  => 1200,
 			'max'  => 2800,
@@ -869,6 +873,7 @@ return array(
 		'desc'      => __( 'AI-geletterdheid training voor je team: voldoe aan artikel 4 van de AI Act met een praktische training over veilig AI-gebruik. Vraag een offerte aan.', 'veryo' ),
 		'kw'        => 'ai geletterdheid training',
 		'schema'    => array(
+			'course' => array( 'onsite', 'online' ),
 			'type' => 'service',
 			'min'  => 1200,
 			'max'  => 2800,
@@ -880,6 +885,7 @@ return array(
 		'seo_title' => __( 'Online AI-cursus voor beginners | Veryo Academy', 'veryo' ),
 		'desc'      => __( 'Online AI-cursus voor beginners van de Veryo Academy: korte modules van 10–15 minuten met oefeningen. Binnenkort beschikbaar, zet je nu op de wachtlijst.', 'veryo' ),
 		'kw'        => 'ai cursus online',
+		'schema'    => array( 'course' => array( 'online' ) ),
 		'content'   => $veryo_academy,
 	),
 	'ai-op-maat'                   => array(

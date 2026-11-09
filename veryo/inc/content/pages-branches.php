@@ -189,7 +189,7 @@ return array(
 				'cta'      => array( __( 'Agrarisch bedrijf? Doe de AI-scan', 'veryo' ), '' ),
 				'links'    => array(
 					array( 'ai-automatisering/werkprocessen', __( 'Werkprocessen automatiseren', 'veryo' ), __( 'Onderhoud en inkoop', 'veryo' ) ),
-					array( 'ai-automatisering/marketing', __( 'AI-marketing', 'veryo' ), __( 'Projectfoto’s naar posts', 'veryo' ) ),
+					array( 'ai-training', __( 'AI-training voor je team', 'veryo' ), __( 'Op locatie, met voorbeelden uit de agri', 'veryo' ) ),
 					array( 'ai-adviseur-friesland', __( 'AI-adviseur in Friesland', 'veryo' ), __( 'Voor de Friese agri', 'veryo' ) ),
 					array( 'ai-adviseur-drenthe', __( 'AI-adviseur in Drenthe', 'veryo' ), __( 'Voor de Drentse agri', 'veryo' ) ),
 				),
@@ -386,7 +386,7 @@ return array(
 				'cta'      => array( __( 'Horeca of winkel? Zie wat AI je oplevert', 'veryo' ), '' ),
 				'links'    => array(
 					array( 'ai-op-maat/ai-receptionist-horeca', __( 'AI-receptionist voor restaurants', 'veryo' ), __( 'Telefoon en reserveringen', 'veryo' ) ),
-					array( 'ai-automatisering/marketing', __( 'AI-marketing', 'veryo' ), __( 'Social en reviews', 'veryo' ) ),
+					array( 'ai-training', __( 'AI-training voor je team', 'veryo' ), __( 'Praktisch, op locatie', 'veryo' ) ),
 					array( 'leeuwarden', __( 'AI in Leeuwarden', 'veryo' ), __( 'Voor de binnenstad', 'veryo' ) ),
 				),
 			)

@@ -419,6 +419,7 @@ return array(
 		'desc'      => __( 'AI-strategie training voor directie en MT: een halve dag over kansen, keuzes en verantwoordelijkheid, met een roadmap. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai strategie training',
 		'schema'    => array(
+			'course' => array( 'onsite' ),
 			'type' => 'service',
 			'min'  => 750,
 			'max'  => 1500,
@@ -431,6 +432,7 @@ return array(
 		'desc'      => __( 'AI-training voor zzp’ers: korte online modules over offertes, mail, administratie en marketing met AI. Binnenkort; schrijf je in voor de wachtlijst.', 'veryo' ),
 		'kw'        => 'ai training zzp',
 		'schema'    => array(
+			'course' => array( 'online' ),
 			'type' => 'service',
 			'min'  => 49,
 			'max'  => 79,
