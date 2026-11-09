@@ -127,7 +127,7 @@ function veryo_redirects() {
 	return apply_filters(
 		'veryo_redirects',
 		array(
-			'ai-op-maat/interne-assistent'         => veryo_collega()['slug'],
+			'ai-op-maat/interne-assistent'           => veryo_collega()['slug'],
 			'ai-automatisering/kennis-en-documenten' => veryo_collega()['slug'],
 		)
 	);
@@ -184,8 +184,8 @@ add_filter( 'wpseo_json_ld_output', 'veryo_yoast_json_ld' );
  * wordt alleen overschreven als het leeg is, of nog precies de waarde heeft die het thema er
  * eerder in zette. Zelf ingevulde waarden in Rank Math blijven dus staan.
  *
- * @param int                 $post_id  ID.
- * @param array<string,mixed> $def      Definitie uit het register.
+ * @param int                  $post_id  ID.
+ * @param array<string,mixed>  $def      Definitie uit het register.
  * @param array<string,string> $previous Vorige waarden van het thema (title, desc, kw).
  */
 function veryo_sync_rank_math_fields( $post_id, $def, $previous ) {

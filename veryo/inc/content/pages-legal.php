@@ -156,7 +156,7 @@ $veryo_terms .= veryo_sec_text(
 return array(
 	'privacyverklaring'    => array(
 		'title'     => __( 'Privacyverklaring', 'veryo' ),
-		'seo_title' => __( 'Privacyverklaring | Veryo', 'veryo' ),
+		'seo_title' => __( 'Privacyverklaring: zo gaan we om met je gegevens | Veryo', 'veryo' ),
 		'desc'      => __( 'Privacyverklaring van Veryo: welke gegevens de AI-scan verzamelt, wat naar de AI-dienst van Anthropic gaat, hoe lang we bewaren en welke rechten u heeft.', 'veryo' ),
 		'kw'        => '',
 		'meta'      => array( 'legal_draft' => 1 ),

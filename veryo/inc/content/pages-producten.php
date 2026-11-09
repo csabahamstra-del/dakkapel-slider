@@ -201,7 +201,7 @@ return array(
 	),
 	'ai-partner'     => array(
 		'title'     => __( 'AI-abonnement voor het mkb: een vaste AI-partner', 'veryo' ),
-		'seo_title' => __( 'AI-abonnement voor het mkb: vaste AI-partner per maand | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI-abonnement voor het mkb: een vaste AI-partner | Veryo', 'veryo' ),
 		'desc'      => __( 'Een AI-abonnement voor het mkb: elke maand een vaste AI-partner voor vragen, updates, veiligheid en verbeteringen. Plan een gratis kennismaking.', 'veryo' ),
 		'kw'        => 'ai abonnement mkb',
 		'schema'    => array(

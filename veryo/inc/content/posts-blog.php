@@ -124,7 +124,7 @@ return array(
 
 	'wat-kost-ai-automatisering'          => array(
 		'title'     => __( 'Wat kost AI-automatisering voor het MKB?', 'veryo' ),
-		'seo_title' => __( 'Wat kost AI-automatisering voor het MKB? | Veryo', 'veryo' ),
+		'seo_title' => __( 'Wat kost AI-automatisering voor het mkb? Uitleg | Veryo', 'veryo' ),
 		'desc'      => __( 'Wat kost AI-automatisering? Waar de kosten van afhangen, hoe je de opbrengst in uren en euro’s uitrekent en hoe je een gratis offerte op maat krijgt.', 'veryo' ),
 		'kw'        => 'wat kost ai automatisering',
 		'content'   => $veryo_draft(
@@ -346,7 +346,7 @@ return array(
 
 	'wbso-voor-ai-projecten'              => array(
 		'title'     => __( 'WBSO voor AI-projecten: zo werkt het', 'veryo' ),
-		'seo_title' => __( 'WBSO voor AI-projecten: zo werkt het | Veryo', 'veryo' ),
+		'seo_title' => __( 'WBSO voor AI-projecten: zo werkt de regeling | Veryo', 'veryo' ),
 		'desc'      => __( 'WBSO en AI: wanneer een AI-project mogelijk in aanmerking komt, wat de regeling vraagt en waarom je een subsidiespecialist inschakelt. Geen advies.', 'veryo' ),
 		'kw'        => 'wbso ai',
 		'content'   => $veryo_draft(
@@ -433,7 +433,7 @@ return array(
 		'title'     => __( 'Copilot in je bedrijf: zo richt je het veilig in', 'veryo' ),
 		'seo_title' => __( 'Copilot inrichten in het MKB: veilig in 5 stappen | Veryo', 'veryo' ),
 		'desc'      => __( 'Copilot inrichten in het MKB zonder verrassingen: eerst de toegangsrechten, dan de licenties, de instellingen en het team. Een nuchter stappenplan.', 'veryo' ),
-		'kw'        => 'copilot inrichten mkb',
+		'kw'        => 'copilot veilig inrichten',
 		'content'   => $veryo_draft(
 			array(
 				array( __( 'Copilot ziet wat je medewerkers mogen zien', 'veryo' ), __( 'Leg uit dat Copilot alles kan vinden waar een medewerker rechten op heeft, en waarom dat het belangrijkste aandachtspunt is.', 'veryo' ) ),
@@ -461,9 +461,9 @@ return array(
 
 	'wat-zijn-ai-agents'                  => array(
 		'title'     => __( 'Wat zijn AI-agents, en wat kun je er als MKB’er mee?', 'veryo' ),
-		'seo_title' => __( 'Wat zijn AI-agents? Uitleg voor het MKB | Veryo', 'veryo' ),
+		'seo_title' => __( 'Wat zijn AI-agents? Heldere uitleg voor het mkb | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-agents voor bedrijven uitgelegd: wat een digitale collega wel en niet kan, voorbeelden uit het MKB, wat het kost en waar je op let bij de keuze.', 'veryo' ),
-		'kw'        => 'ai agents voor bedrijven',
+		'kw'        => 'wat zijn ai agents',
 		'content'   => $veryo_draft(
 			array(
 				array( __( 'Een agent is meer dan een chatbot', 'veryo' ), __( 'Leg het verschil uit: een chatbot beantwoordt vragen, een agent voert ook stappen uit in je systemen.', 'veryo' ) ),
@@ -489,7 +489,7 @@ return array(
 
 	'ai-voor-hr'                          => array(
 		'title'     => __( 'AI voor HR: werving, onboarding en beleid', 'veryo' ),
-		'seo_title' => __( 'AI voor HR: werving, onboarding en beleid | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI voor HR: werving, onboarding en beleid in het mkb | Veryo', 'veryo' ),
 		'desc'      => __( 'AI en HR in het MKB: vacatureteksten, voorselectie, onboarding en een AI-beleid voor medewerkers. Wat kan, wat niet mag en hoe je je team traint.', 'veryo' ),
 		'kw'        => 'ai en hr training',
 		'content'   => $veryo_draft(
@@ -537,7 +537,7 @@ return array(
 
 	'kennis-ervaren-medewerkers-behouden' => array(
 		'title'     => __( 'Zo houd je de kennis van ervaren medewerkers in je bedrijf', 'veryo' ),
-		'seo_title' => __( 'Kennis van ervaren medewerkers behouden | Veryo', 'veryo' ),
+		'seo_title' => __( 'Kennis van ervaren medewerkers behouden met AI | Veryo', 'veryo' ),
 		'desc'      => __( 'Gaat een ervaren medewerker met pensioen, dan gaat er veel kennis mee de deur uit. Zo leg je die vast met interviews, spraakmemo’s en een AI-kennisbank.', 'veryo' ),
 		'kw'        => 'ai kennisbank bedrijf',
 		'content'   => $veryo_draft(

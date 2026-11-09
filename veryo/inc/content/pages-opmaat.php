@@ -12,7 +12,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-op-maat/chatbot'                => array(
 		'title'     => __( 'AI-chatbot laten maken voor je bedrijf', 'veryo' ),
-		'seo_title' => __( 'AI-chatbot laten maken voor je bedrijf | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI-chatbot laten maken voor je website en bedrijf | Veryo', 'veryo' ),
 		'desc'      => __( 'Een AI-chatbot laten maken voor je website die antwoord geeft uit je eigen kennis en doorverwijst naar een mens. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai chatbot laten maken',
 		'schema'    => array(
@@ -77,7 +77,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-op-maat/whatsapp-assistent'     => array(
 		'title'     => __( 'WhatsApp-assistent voor je bedrijf', 'veryo' ),
-		'seo_title' => __( 'WhatsApp-assistent voor je bedrijf | Veryo', 'veryo' ),
+		'seo_title' => __( 'WhatsApp-assistent laten maken voor je bedrijf | Veryo', 'veryo' ),
 		'desc'      => __( 'Een WhatsApp-chatbot voor je bedrijf: vragen 24/7 beantwoorden, gegevens en foto’s verzamelen en afspraken inplannen via de officiële API. Gratis offerte.', 'veryo' ),
 		'kw'        => 'whatsapp chatbot bedrijf',
 		'schema'    => array(
@@ -136,14 +136,12 @@ return array(
 			)
 		),
 	),
-
-	/* ------------------------------------------------------------------------- */
 	/* ------------------------------------------------------------------------- */
 	'ai-op-maat/ai-receptionist-horeca' => array(
 		'title'     => __( 'AI-receptionist voor restaurants en horeca', 'veryo' ),
-		'seo_title' => __( 'AI-receptionist voor restaurants en horeca | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI-telefoonassistent voor restaurants en horeca | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-receptionist voor restaurants: een AI-telefoonassistent die opneemt, reserveringen noteert en vragen beantwoordt als jij het druk hebt. Gratis offerte.', 'veryo' ),
-		'kw'        => 'ai receptionist voor restaurants',
+		'kw'        => 'ai telefoonassistent restaurant',
 		'schema'    => array(
 			'type' => 'service',
 			'min'  => 5000,

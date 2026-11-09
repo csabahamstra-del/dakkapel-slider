@@ -835,8 +835,8 @@ $veryo_thanks .= veryo_sec_links(
 return array(
 	''                             => array(
 		'title'     => __( 'AI die echt werkt', 'veryo' ),
-		'seo_title' => __( 'AI-bureau voor het MKB in Noord-Nederland | Veryo', 'veryo' ),
-		'desc'      => __( 'Veryo is het nuchtere AI-bureau voor het MKB in Noord-Nederland: automatiseringen, trainingen en AI op maat met vaste prijzen. Doe de gratis AI-scan.', 'veryo' ),
+		'seo_title' => __( 'Veryo | AI-partner en lokale AI-assistent voor het mkb', 'veryo' ),
+		'desc'      => __( 'Veryo is de nuchtere AI-partner voor het mkb uit Leeuwarden: Veryo Collega, de lokale AI-assistent, plus AI-trainingen en automatisering. Plan een demo.', 'veryo' ),
 		'kw'        => 'ai bureau mkb',
 		'meta'      => array( 'hide_title' => 1 ),
 		'content'   => $veryo_home,
@@ -851,7 +851,7 @@ return array(
 	),
 	'ai-automatisering'            => array(
 		'title'     => __( 'AI-automatisering voor het MKB', 'veryo' ),
-		'seo_title' => __( 'AI-automatisering voor het MKB | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI-automatisering voor het mkb: minder handwerk | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-automatisering voor het MKB: mail, offertes, facturen en planning automatiseren in de software die je al hebt. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai automatisering mkb',
 		'schema'    => array(
@@ -863,7 +863,7 @@ return array(
 	),
 	'ai-implementatie-mkb'         => array(
 		'title'     => __( 'AI implementeren in je bedrijf: stappenplan voor het mkb', 'veryo' ),
-		'seo_title' => __( 'AI implementeren: stappenplan in 6 stappen voor het mkb | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI implementeren: stappenplan voor het mkb | Veryo', 'veryo' ),
 		'desc'      => __( 'AI implementeren in je bedrijf? Zo pak je het aan in zes stappen: van tijdvreters in kaart brengen tot je team trainen. Plan een gratis kennismaking.', 'veryo' ),
 		'kw'        => 'ai implementeren stappenplan',
 		'schema'    => array(
@@ -875,33 +875,33 @@ return array(
 	),
 	'ai-training'                  => array(
 		'title'     => __( 'AI-training voor bedrijven', 'veryo' ),
-		'seo_title' => __( 'AI-training en workshops voor bedrijven | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI-training en workshops voor bedrijven en teams | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-training voor bedrijven: praktische incompany training of workshop in ChatGPT, Claude of Copilot voor teams tot 20 mensen. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai training voor bedrijven',
 		'schema'    => array(
 			'course' => array( 'onsite', 'online' ),
-			'type' => 'service',
-			'min'  => 1200,
-			'max'  => 2800,
+			'type'   => 'service',
+			'min'    => 1200,
+			'max'    => 2800,
 		),
 		'content'   => $veryo_training,
 	),
 	'ai-training/ai-geletterdheid' => array(
 		'title'     => __( 'AI-geletterdheid: training voor je team', 'veryo' ),
-		'seo_title' => __( 'AI-geletterdheid training (AI Act) | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI-geletterdheid training voor teams (AI Act) | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-geletterdheid training voor je team: voldoe aan artikel 4 van de AI Act met een praktische training over veilig AI-gebruik. Vraag een offerte aan.', 'veryo' ),
 		'kw'        => 'ai geletterdheid training',
 		'schema'    => array(
 			'course' => array( 'onsite', 'online' ),
-			'type' => 'service',
-			'min'  => 1200,
-			'max'  => 2800,
+			'type'   => 'service',
+			'min'    => 1200,
+			'max'    => 2800,
 		),
 		'content'   => $veryo_literacy,
 	),
 	'academy'                      => array(
 		'title'     => __( 'Veryo Academy: online AI-cursus', 'veryo' ),
-		'seo_title' => __( 'Online AI-cursus voor beginners | Veryo Academy', 'veryo' ),
+		'seo_title' => __( 'Online AI-cursus voor beginners: wachtlijst | Veryo', 'veryo' ),
 		'desc'      => __( 'Online AI-cursus voor beginners van de Veryo Academy: korte modules van 10–15 minuten met oefeningen. Binnenkort beschikbaar, zet je nu op de wachtlijst.', 'veryo' ),
 		'kw'        => 'ai cursus online',
 		'schema'    => array( 'course' => array( 'online' ) ),
@@ -922,9 +922,9 @@ return array(
 	'prijzen'                      => array(
 		'title'       => __( 'Prijzen en offerte', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'Wat kost AI-automatisering? Prijzen en offerte | Veryo', 'veryo' ),
-		'desc'        => __( 'Wat kost AI-automatisering voor je bedrijf? Dat hangt af van je team en je software. Vraag een gratis offerte aan: een vaste prijs, zonder verplichtingen.', 'veryo' ),
-		'kw'          => 'wat kost ai automatisering',
+		'seo_title'   => __( 'Kosten van AI voor het mkb: gratis offerte op maat | Veryo', 'veryo' ),
+		'desc'        => __( 'Wat kost AI voor het mkb? De kosten hangen af van je team, je software en de koppelingen. Vraag een gratis offerte aan: een vaste prijs, vrijblijvend.', 'veryo' ),
+		'kw'          => 'kosten ai voor mkb',
 		'content'     => $veryo_prices,
 	),
 	'over-veryo'                   => array(
@@ -936,7 +936,7 @@ return array(
 	),
 	'contact'                      => array(
 		'title'     => __( 'Contact', 'veryo' ),
-		'seo_title' => __( 'Contact | Veryo', 'veryo' ),
+		'seo_title' => __( 'Contact: bel, mail of plan een kennismaking | Veryo', 'veryo' ),
 		'desc'      => __( 'Neem contact op met Veryo, AI voor het MKB, uit Leeuwarden. Stel je vraag over AI-automatisering, training of AI op maat; we reageren binnen één werkdag.', 'veryo' ),
 		'kw'        => 'veryo contact',
 		'content'   => $veryo_contact,
@@ -970,7 +970,7 @@ return array(
 	),
 	'blog'                         => array(
 		'title'     => __( 'Blog', 'veryo' ),
-		'seo_title' => __( 'Blog over AI in het MKB | Veryo', 'veryo' ),
+		'seo_title' => __( 'Blog over AI in het mkb: uitleg en praktijk | Veryo', 'veryo' ),
 		'desc'      => __( 'Nuchtere artikelen over AI in het MKB: waar je begint, wat het kost, wat mag volgens de AVG en de AI Act, en voorbeelden per branche. Door Veryo.', 'veryo' ),
 		'kw'        => '',
 		'content'   => '',

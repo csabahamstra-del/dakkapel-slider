@@ -41,5 +41,5 @@ function veryo_content_pages() {
  */
 function veryo_content_posts() {
 	// Uitgeschreven artikelen staan apart en vervangen een concept met dezelfde slug.
-	return array_merge( require VERYO_DIR . '/inc/content/posts-blog.php', require VERYO_DIR . '/inc/content/posts-artikelen.php' );
+	return array_merge( require VERYO_DIR . '/inc/content/posts-blog.php', require VERYO_DIR . '/inc/content/posts-artikelen.php', require VERYO_DIR . '/inc/content/posts-gidsen.php' );
 }

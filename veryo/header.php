@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 		</a>
 		<?php $veryo_phone = (string) veryo_setting( 'phone' ); ?>
 		<?php if ( '' !== $veryo_phone ) : ?>
-			<a class="header-phone" href="<?php echo esc_attr( veryo_tel_href( $veryo_phone ) ); ?>"><?php echo wp_kses( veryo_icon( 'phone' ), veryo_svg_kses() ); ?><span class="header-phone__label"><?php echo esc_html( $veryo_phone ); ?></span></a>
+			<a class="header-phone" href="<?php echo esc_attr( veryo_tel_href( $veryo_phone ) ); ?>"><?php echo wp_kses( veryo_icon( 'phone' ), veryo_svg_kses() ); ?><span class="header-phone__label"><?php echo str_replace( ' ', '&nbsp;', esc_html( $veryo_phone ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ge-escaped, alleen spaties vervangen. ?></span></a>
 		<?php endif; ?>
 		<button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
 			<span class="nav-toggle__open"><?php echo wp_kses( veryo_icon( 'menu' ), veryo_svg_kses() ); ?></span>

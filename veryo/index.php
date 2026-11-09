@@ -13,6 +13,7 @@ $veryo_blog_title = is_home() && get_option( 'page_for_posts' ) ? get_the_title(
 get_template_part( 'template-parts/page-header', null, array( 'title' => $veryo_blog_title ) );
 ?>
 <div class="archive-list">
+	<?php veryo_blog_category_nav(); ?>
 	<?php if ( have_posts() ) : ?>
 		<?php
 		while ( have_posts() ) :

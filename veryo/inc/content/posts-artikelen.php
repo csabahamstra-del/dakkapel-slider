@@ -333,7 +333,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'lokale-ai-of-chatgpt'                 => array(
 		'title'     => __( 'Lokale AI vs ChatGPT voor je bedrijf: wat is het verschil?', 'veryo' ),
-		'seo_title' => __( 'Lokale AI vs ChatGPT voor je bedrijf | Veryo', 'veryo' ),
+		'seo_title' => __( 'Lokale AI of ChatGPT: wat past bij je bedrijf? | Veryo', 'veryo' ),
 		'desc'      => __( 'Lokale AI of ChatGPT voor je bedrijf? Het verschil in waar je data staat, werken zonder internet, kosten per gebruiker en AVG, nuchter uitgelegd.', 'veryo' ),
 		'kw'        => 'lokale ai',
 		'content'   => $veryo_article(
@@ -422,7 +422,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'wat-kost-ai-automatisering'           => array(
 		'title'     => __( 'Wat kost AI-automatisering voor een MKB-bedrijf?', 'veryo' ),
-		'seo_title' => __( 'Wat kost AI-automatisering voor het MKB? | Veryo', 'veryo' ),
+		'seo_title' => __( 'Wat kost AI-automatisering voor het mkb? Uitleg | Veryo', 'veryo' ),
 		'desc'      => __( 'Wat kost AI-automatisering? Waar de kosten van afhangen, hoe je de opbrengst in uren en euro’s uitrekent en hoe je een gratis offerte op maat krijgt.', 'veryo' ),
 		'kw'        => 'wat kost ai automatisering',
 		'content'   => $veryo_article(

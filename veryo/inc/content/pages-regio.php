@@ -181,7 +181,7 @@ return array(
 	'ai-adviseur-drenthe'   => array(
 		'title'     => __( 'AI-adviseur in Drenthe voor het MKB', 'veryo' ),
 		'seo_title' => __( 'AI-adviseur Drenthe: automatisering voor je bedrijf | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-adviseur in Drenthe: automatisering en AI-training voor bedrijven in Assen, Emmen, Meppel en Hoogeveen. Op locatie, met vaste prijs. Plan een kennismaking.', 'veryo' ),
+		'desc'      => __( 'AI-adviseur in Drenthe: automatisering en AI-training voor bedrijven in Assen, Emmen, Meppel en Hoogeveen, op locatie. Plan een gratis kennismaking.', 'veryo' ),
 		'kw'        => 'ai adviseur drenthe',
 		'schema'    => array(
 			'type' => 'service',
@@ -252,7 +252,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'leeuwarden'            => array(
 		'title'     => __( 'AI-training en automatisering in Leeuwarden', 'veryo' ),
-		'seo_title' => __( 'AI en automatisering in Leeuwarden: training en advies | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI-partner in Leeuwarden: training en automatisering | Veryo', 'veryo' ),
 		'desc'      => __( 'AI-training in Leeuwarden en AI-automatisering voor bedrijven in de stad en omgeving. Veryo is hier gevestigd en komt langs. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai en automatisering leeuwarden',
 		'schema'    => array(

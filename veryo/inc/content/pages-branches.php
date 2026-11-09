@@ -136,8 +136,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/agri'                      => array(
 		'title'     => __( 'Agrarische automatisering met AI', 'veryo' ),
-		'seo_title' => __( 'Agrarische automatisering: AI voor agri en mechanisatie | Veryo', 'veryo' ),
-		'desc'      => __( 'Agrarische automatisering met AI: onderhoud en keuringen plannen, onderdelen bestellen en kennis vastleggen, voor loonwerk en mechanisatie. Plan een kennismaking.', 'veryo' ),
+		'seo_title' => __( 'Agrarische automatisering met AI voor de agri | Veryo', 'veryo' ),
+		'desc'      => __( 'Agrarische automatisering met AI: onderhoud plannen, onderdelen bestellen en kennis vastleggen, voor loonwerk en mechanisatie. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'ai in de landbouw',
 		'schema'    => array(
 			'type' => 'service',
@@ -267,7 +267,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/zakelijke-dienstverlening' => array(
 		'title'     => __( 'AI voor accountants en adviesbureaus', 'veryo' ),
-		'seo_title' => __( 'AI voor accountants en adviesbureaus | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI voor accountants, administratie- en adviesbureaus | Veryo', 'veryo' ),
 		'desc'      => __( 'AI voor accountants en adviesbureaus: gespreksverslagen met actiepunten, documenten samenvatten en een interne AI-assistent op je kennis. Gratis offerte.', 'veryo' ),
 		'kw'        => 'ai voor accountants',
 		'schema'    => array(
@@ -335,7 +335,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/horeca-retail'             => array(
 		'title'     => __( 'AI voor horeca en retail', 'veryo' ),
-		'seo_title' => __( 'AI voor horeca en retail: telefoon, reserveringen, team | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI voor horeca en retail: telefoon en reserveringen | Veryo', 'veryo' ),
 		'desc'      => __( 'AI voor horeca en retail: een AI-telefoonassistent voor reserveringen, een AI-training voor je team en kennis die niet verdwijnt. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'ai voor horeca',
 		'schema'    => array(
@@ -398,7 +398,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/transport'                 => array(
 		'title'     => __( 'AI voor transport en logistiek', 'veryo' ),
-		'seo_title' => __( 'AI voor transport en logistiek | Veryo', 'veryo' ),
+		'seo_title' => __( 'AI voor transport en logistiek: minder papierwerk | Veryo', 'veryo' ),
 		'desc'      => __( 'AI in de logistiek: een planningsassistent, automatische statusberichten voor klanten en vrachtdocumenten archiveren. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai in de logistiek',
 		'schema'    => array(
@@ -461,7 +461,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/recruitment'               => array(
 		'title'     => __( 'Werving via WhatsApp en AI', 'veryo' ),
-		'seo_title' => __( 'Werving via WhatsApp en AI | Veryo', 'veryo' ),
+		'seo_title' => __( 'Werving via WhatsApp en AI voor recruitmentbureaus | Veryo', 'veryo' ),
 		'desc'      => __( 'WhatsApp-werving met AI: solliciteren via WhatsApp zonder cv, vacatureteksten voor vakmensen en automatische kandidaatopvolging. Voor werkgevers.', 'veryo' ),
 		'kw'        => 'whatsapp werving',
 		'schema'    => array(

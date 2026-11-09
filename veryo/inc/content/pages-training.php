@@ -55,8 +55,8 @@ $veryo_workshop = veryo_page_standard(
 				),
 			),
 			array(
-				'h'    => __( 'Voor welke teams is een AI-workshop geschikt?', 'veryo' ),
-				'list' => array(
+				'h'     => __( 'Voor welke teams is een AI-workshop geschikt?', 'veryo' ),
+				'list'  => array(
 					__( 'Kantoorteams die veel mailen, plannen en verslagen schrijven.', 'veryo' ),
 					__( 'Verkoopteams die offertes en opvolgmails maken. Daarvoor is er ook een aparte ChatGPT-training voor verkopers.', 'veryo' ),
 					__( 'Directie en MT die willen begrijpen wat AI voor het bedrijf betekent, voordat er keuzes worden gemaakt.', 'veryo' ),
@@ -179,7 +179,7 @@ return array(
 	'ai-workshop'                            => array(
 		'title'     => __( 'AI-workshop voor bedrijven', 'veryo' ),
 		'seo_title' => __( 'AI-workshop voor bedrijven: praktisch, op locatie | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-workshop voor bedrijven: in een dagdeel aan de slag met AI, met taken uit jullie eigen werk. Op locatie in Noord-Nederland of online. Plan een kennismaking.', 'veryo' ),
+		'desc'      => __( 'AI-workshop voor bedrijven: in een dagdeel aan de slag met AI, met taken uit jullie eigen werk. Op locatie of online. Plan een gratis kennismaking.', 'veryo' ),
 		'kw'        => 'ai workshop bedrijven',
 		'schema'    => array(
 			'type'   => 'service',
@@ -191,7 +191,7 @@ return array(
 	'ai-training/chatgpt-training-verkopers' => array(
 		'title'     => __( 'ChatGPT-training voor verkopers', 'veryo' ),
 		'seo_title' => __( 'ChatGPT-training voor verkopers: AI voor sales | Veryo', 'veryo' ),
-		'desc'      => __( 'ChatGPT-training voor verkopers: offertes, opvolgmails en gespreksverslagen sneller en beter met AI, veilig en in jullie toon. Plan een gratis kennismaking.', 'veryo' ),
+		'desc'      => __( 'ChatGPT-training voor verkopers: offertes, opvolgmails en gespreksverslagen sneller met AI, veilig en in jullie eigen toon. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'chatgpt training verkopers',
 		'schema'    => array(
 			'type'   => 'service',

@@ -242,6 +242,10 @@ function veryo_seo_title() {
 		}
 		return wp_strip_all_tags( get_the_title( $id ) ) . ' | Veryo';
 	}
+	if ( is_category() ) {
+		/* translators: %s: categorie. */
+		return sprintf( __( 'Blog: %s | Veryo', 'veryo' ), single_cat_title( '', false ) );
+	}
 	return '';
 }
 
@@ -266,6 +270,12 @@ function veryo_seo_description() {
 			}
 		}
 	}
+	if ( is_category() ) {
+		$text = trim( wp_strip_all_tags( (string) term_description() ) );
+		if ( '' !== $text ) {
+			return $text;
+		}
+	}
 	if ( is_front_page() || is_home() ) {
 		return veryo_brand_line() . '. ' . __( 'AI-automatiseringen, trainingen en AI op maat voor het MKB in Noord-Nederland.', 'veryo' );
 	}
@@ -282,6 +292,11 @@ function veryo_seo_canonical() {
 		return home_url( '/' );
 	}
 	$id = veryo_seo_object_id();
+	if ( ! $id && is_category() ) {
+		$url   = (string) get_term_link( get_queried_object() );
+		$paged = (int) get_query_var( 'paged' );
+		return $paged > 1 ? trailingslashit( $url ) . user_trailingslashit( 'page/' . $paged ) : $url;
+	}
 	if ( ! $id ) {
 		return '';
 	}
@@ -1012,7 +1027,7 @@ function veryo_llms_txt() {
 	$out[] = $clean(
 		sprintf(
 			/* translators: %s: plaats. */
-			__( 'Veryo is de onafhankelijke AI-partner voor het MKB (teams tot ongeveer 50 mensen), gevestigd in %s. Veryo adviseert welke AI past, voert die in en traint het team, en bouwt koppelingen of maatwerk waar bestaande software tekortschiet. Veryo verkoopt geen eigen software. Hoofdproduct is Veryo Collega: een AI-assistent die op een eigen machine bij de klant op kantoor draait, gevuld met de kennis van het bedrijf, waarbij bedrijfsgegevens het pand niet verlaten voor AI-verwerking. Veryo installeert, richt in en beheert daarvoor bewezen open-source AI. Daarnaast is er het Veryo AI-Startpakket. Zes pijlers: advies en AI-Startpakket, training, de AI-werkplek (Copilot en Gemini), digitale collega’s (AI-agents) en automatisering, veilig AI-gebruik en AI-partner. Veryo is geen IT-bedrijf en doet geen algemeen IT-beheer of helpdesk; alleen de machine waarop Veryo Collega draait, beheert Veryo zelf. Prijzen staan niet op de website: elke klant krijgt een gratis offerte op maat, met vooraf een vaste prijs. Werkgebied: heel Nederland, vanuit Leeuwarden, met veel klanten in Friesland, Groningen en Drenthe. Sterk in bouw, installatie, agri en techniek.', 'veryo' ),
+			__( 'Veryo is de onafhankelijke AI-partner voor het mkb (teams tot ongeveer 50 mensen), gevestigd in %s. Veryo is geen softwarebedrijf en bouwt geen nieuwe software. Hoofdproduct is Veryo Collega: een lokale AI-assistent en kennisbank die op een eigen machine bij de klant op kantoor draait, gevuld met de kennis van het bedrijf, waarbij bedrijfsgegevens het pand niet verlaten voor AI-verwerking. Veryo installeert, richt in en beheert daarvoor bewezen open-source AI. Daarnaast geeft Veryo AI-trainingen en workshops voor teams (waaronder AI-geletterdheid onder de AI Act, een AI-workshop en ChatGPT-training voor verkopers), advies en een AI-abonnement als vaste AI-partner, en automatisering bovenop de software die een bedrijf al gebruikt. Veryo doet geen algemeen IT-beheer of helpdesk; alleen de machine waarop Veryo Collega draait, beheert Veryo zelf. Prijzen staan niet op de website: elke klant krijgt een gratis offerte op maat, met vooraf een vaste prijs. Werkgebied: heel Nederland, vanuit Leeuwarden, met veel klanten in Friesland, Groningen en Drenthe. Oprichter: Csaba Hamstra.', 'veryo' ),
 			$c['city'] ? $c['city'] : 'Leeuwarden'
 		)
 	);
@@ -1033,6 +1048,16 @@ function veryo_llms_txt() {
 	$out[] = '';
 	/* translators: %s: link naar de offertepagina. */
 	$out[] = $clean( sprintf( __( 'Prijzen: op aanvraag. Vraag een gratis offerte aan via %s.', 'veryo' ), veryo_offerte_url() ) );
+	$out[] = '';
+	$out[] = '## ' . __( 'AI-trainingen en workshops', 'veryo' );
+	$out[] = '';
+	foreach ( array( 'ai-training', 'ai-workshop', 'ai-training/ai-geletterdheid', 'ai-training/chatgpt-training-verkopers', 'ai-training/ai-strategie', 'ai-training/zzp' ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page && 'publish' === $page->post_status ) {
+			$desc  = (string) get_post_meta( $page->ID, '_veryo_seo_desc', true );
+			$out[] = '- [' . $clean( get_the_title( $page ) ) . '](' . get_permalink( $page ) . ')' . ( $desc ? ': ' . $clean( $desc ) : '' );
+		}
+	}
 	$out[] = '';
 	$out[] = '## ' . __( 'Oplossingen', 'veryo' );
 	$out[] = '';
@@ -1081,6 +1106,14 @@ function veryo_llms_txt() {
 	}
 	$out[] = '- ' . __( 'Contactpagina', 'veryo' ) . ': ' . veryo_url( 'contact' );
 	$out[] = '- ' . __( 'Gratis AI-scan', 'veryo' ) . ': ' . veryo_url( 'waar-begin-ik-met-ai' );
+	foreach ( array(
+		'instagram' => 'Instagram',
+		'linkedin'  => 'LinkedIn',
+	) as $key => $label ) {
+		if ( $c[ $key ] ) {
+			$out[] = '- ' . $label . ': ' . $c[ $key ];
+		}
+	}
 	return implode( "\n", $out ) . "\n";
 }
 

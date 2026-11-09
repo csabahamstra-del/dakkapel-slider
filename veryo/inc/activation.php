@@ -210,9 +210,11 @@ function veryo_run_setup() {
 		);
 		if ( ! is_wp_error( $post_id ) ) {
 			veryo_apply_page_meta( $post_id, $def );
+			veryo_remember_content( $post_id );
 			$report['posts'][] = $def['title'];
 		}
 	}
+	veryo_assign_blog_categories();
 
 	kses_init();
 
@@ -961,3 +963,61 @@ function veryo_seo_update_upgrade() {
 	kses_init();
 }
 add_action( 'admin_init', 'veryo_seo_update_upgrade', 30 );
+
+/**
+ * Eenmalig bij de update naar 2.0.0 (SEO-proof): nieuwe pagina's en menu's, samengevoegde
+ * pagina's naar concept (de oude URL krijgt een 301), SEO-velden en Rank Math-velden voor alle
+ * pagina's en berichten, de uitgeschreven gidsen in ongewijzigde concepten en de
+ * blogcategorieën. Zelf aangepaste pagina's, berichten en Rank Math-velden blijven staan.
+ */
+function veryo_seo_proof_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_seo_proof_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_seo_proof_done', 1, false );
+	veryo_refresh_content( true );
+
+	foreach ( array_keys( veryo_redirects() ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page && 'publish' === $page->post_status ) {
+			wp_update_post(
+				array(
+					'ID'          => $page->ID,
+					'post_status' => 'draft',
+				)
+			);
+		}
+	}
+
+	foreach ( veryo_content_pages() as $path => $def ) {
+		$page = veryo_find_page( $path );
+		if ( $page ) {
+			veryo_apply_page_meta( $page->ID, $def );
+		}
+	}
+
+	kses_remove_filters();
+	foreach ( veryo_content_posts() as $slug => $def ) {
+		$post = get_page_by_path( $slug, OBJECT, 'post' );
+		if ( ! $post instanceof WP_Post ) {
+			continue;
+		}
+		if ( 'draft' === $post->post_status && veryo_page_untouched( $post ) && $post->post_content !== $def['content'] ) {
+			wp_update_post(
+				wp_slash(
+					array(
+						'ID'           => $post->ID,
+						'post_title'   => $def['title'],
+						'post_content' => $def['content'],
+					)
+				)
+			);
+			veryo_remember_content( $post->ID );
+		}
+		veryo_apply_page_meta( $post->ID, $def );
+	}
+	kses_init();
+	veryo_assign_blog_categories();
+	flush_rewrite_rules( false );
+}
+add_action( 'admin_init', 'veryo_seo_proof_upgrade', 40 );

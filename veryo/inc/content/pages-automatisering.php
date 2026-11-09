@@ -14,7 +14,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/klantcontact'            => array(
 		'title'     => __( 'Klantcontact automatiseren met AI', 'veryo' ),
-		'seo_title' => __( 'Klantcontact automatiseren met AI | Veryo', 'veryo' ),
+		'seo_title' => __( 'Klantcontact automatiseren met AI voor het mkb | Veryo', 'veryo' ),
 		'desc'      => __( 'Klantvragen automatiseren met AI: mail sorteren, conceptantwoorden, WhatsApp-assistent en klantupdates in je eigen tools. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'klantvragen automatiseren',
 		'schema'    => $veryo_q + array(
@@ -136,7 +136,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/administratie'           => array(
 		'title'     => __( 'Administratie en facturen automatiseren', 'veryo' ),
-		'seo_title' => __( 'Administratie en facturen automatiseren | Veryo', 'veryo' ),
+		'seo_title' => __( 'Administratie en facturen automatiseren met AI | Veryo', 'veryo' ),
 		'desc'      => __( 'Administratie automatiseren: inkoopfacturen, bonnetjes, werkbon naar factuur en debiteuren, gekoppeld aan Exact, Moneybird of SnelStart. Gratis offerte.', 'veryo' ),
 		'kw'        => 'administratie automatiseren',
 		'schema'    => $veryo_q + array(
@@ -319,7 +319,7 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/hr-en-werving'           => array(
 		'title'     => __( 'Werving en HR automatiseren met AI', 'veryo' ),
-		'seo_title' => __( 'Werving en HR automatiseren met AI | Veryo', 'veryo' ),
+		'seo_title' => __( 'Werving en HR automatiseren met AI voor het mkb | Veryo', 'veryo' ),
 		'desc'      => __( 'Werving automatiseren met AI: vacatures in de taal van vakmensen, solliciteren via WhatsApp, voorselectie en opvolging van kandidaten. Gratis offerte.', 'veryo' ),
 		'kw'        => 'werving automatiseren',
 		'schema'    => $veryo_q + array(
@@ -377,12 +377,10 @@ return array(
 			)
 		),
 	),
-
-	/* ------------------------------------------------------------------------- */
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/rapportages'             => array(
 		'title'     => __( 'Rapportages en dashboards automatiseren', 'veryo' ),
-		'seo_title' => __( 'Rapportages en dashboards automatiseren | Veryo', 'veryo' ),
+		'seo_title' => __( 'Rapportages en dashboards automatiseren met AI | Veryo', 'veryo' ),
 		'desc'      => __( 'Rapportages automatiseren met AI: een ondernemersdashboard, elke maandag je cijfers in gewone taal en Excel zonder gedoe. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'rapportages automatiseren',
 		'schema'    => $veryo_q + array(

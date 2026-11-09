@@ -11,6 +11,7 @@ get_header();
 get_template_part( 'template-parts/page-header', null, array( 'title' => wp_strip_all_tags( get_the_archive_title() ) ) );
 ?>
 <div class="archive-list">
+	<?php veryo_blog_category_nav(); ?>
 	<?php if ( have_posts() ) : ?>
 		<?php
 		while ( have_posts() ) :

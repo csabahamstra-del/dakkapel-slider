@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'VERYO_VERSION', '1.9.0' );
+define( 'VERYO_VERSION', '2.0.0' );
 define( 'VERYO_DIR', get_template_directory() );
 define( 'VERYO_URI', get_template_directory_uri() );
 
@@ -35,6 +35,7 @@ $veryo_includes = array(
 	'inc/quiz/privacy.php',
 	'inc/seo.php',
 	'inc/seo-extra.php',
+	'inc/blog.php',
 	'inc/activation.php',
 	'inc/admin/settings.php',
 	'inc/admin/tools.php',
