@@ -1021,3 +1021,16 @@ function veryo_seo_proof_upgrade() {
 	flush_rewrite_rules( false );
 }
 add_action( 'admin_init', 'veryo_seo_proof_upgrade', 40 );
+
+/**
+ * Eenmalig bij 2.0.1: ongewijzigde pagina's bijwerken (onder meer /over-veryo/ zonder
+ * invulplekken). Zelf aangepaste pagina's blijven staan.
+ */
+function veryo_201_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_201_done' ) || ! get_option( 'veryo_seo_proof_done' ) ) {
+		return;
+	}
+	update_option( 'veryo_201_done', 1, false );
+	veryo_refresh_content( false );
+}
+add_action( 'admin_init', 'veryo_201_upgrade', 50 );

@@ -23,7 +23,7 @@ Datum: 9 november 2026. Gemeten op een lokale kopie van het thema met alle pagin
 - Het thema heeft een eigen lichte SEO-laag (`inc/seo.php`): title, description, canonical, robots, OG/Twitter, JSON-LD `@graph`, breadcrumbs, sitemap-filters, robots.txt en /llms.txt.
 - Per pagina is dat instelbaar in de box **Veryo SEO**.
 - Is **Yoast of Rank Math actief**, dan zet het thema zijn eigen head-uitvoer uit (geen dubbele tags) en schrijft het noindex en canonical in de velden van die plugin.
-- Of er op de live site een SEO-plugin draait, weet ik niet: `[INVULLEN: SEO-plugin live ja/nee]`. Dat bepaalt welke sitemap Google ziet.
+- Of er op de live site een SEO-plugin draait, weet ik niet: (later bevestigd: Rank Math draait live). Dat bepaalt welke sitemap Google ziet.
 
 **Overig.**
 - Analytics: het thema laadt zelf niets. De Google-tag komt via Site Kit; het thema stuurt alleen een Ads-conversie bij de AI-scan en het contact- en demoformulier.
@@ -133,7 +133,7 @@ Wat ontbreekt:
 - `Course` op de trainingspagina's.
 - `Person` voor de oprichter op /over-veryo/ (nu alleen `founder` binnen Organization).
 - `serviceType` in Service.
-- `openingHours` en LinkedIn (`[INVULLEN]`).
+- `openingHours` en LinkedIn (nog niet bekend).
 
 ## 4. Performance-risico's
 

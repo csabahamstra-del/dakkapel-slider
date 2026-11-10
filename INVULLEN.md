@@ -1,14 +1,13 @@
 # In te vullen
 
-Op de site staat niets verzonnen. Waar informatie ontbreekt, staat een `[INVULLEN: …]` in de tekst of is een veld leeg gelaten. Hieronder alles op een rij.
+Op de site staat niets verzonnen en er staan geen `[INVULLEN]`-plekken meer in de teksten. Wat hieronder staat, zijn lege instellingen of zaken buiten de site.
+
+**Optioneel voor /over-veryo/:** opleiding, eerdere functies, behaalde AI-certificaten of spreekbeurten van Csaba. Dat versterkt E-E-A-T. Geef ze door, dan zet ik ze erin.
 
 ## Teksten op de site
 
 | Waar | Wat | Waarom |
 |---|---|---|
-| `/over-veryo/`, sectie "Ervaring en achtergrond" | `[INVULLEN: achtergrond en werkervaring van Csaba]`: opleiding, eerdere functies, sectoren | E-E-A-T: Google en AI-zoekmachines willen zien wie er achter de kennis zit |
-| `/over-veryo/`, idem | `[INVULLEN: certificeringen of cursussen op het gebied van AI]`, alleen als ze echt behaald zijn | Idem. Geen certificaat? Haal de zin weg |
-| `/over-veryo/`, idem | `[INVULLEN: spreekbeurten, publicaties of samenwerkingen]`, alleen als ze er zijn | Idem. Niets? Haal de zin weg |
 | Blogconcepten | `[CONCEPT …]`-notitie bovenaan elk concept en `[CHECK]`-markeringen in de drie gidsen (24 stuks) | Feiten over AI Act, AVG en voorwaarden van ChatGPT controleren bij de genoemde bron vóór publicatie |
 
 ## Instellingen > Veryo

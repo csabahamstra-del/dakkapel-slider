@@ -707,8 +707,8 @@ $veryo_about .= veryo_sec_wide(
 $veryo_about .= veryo_sec_text(
 	__( 'Ervaring en achtergrond', 'veryo' ),
 	array(
-		__( 'Csaba werkt dagelijks met AI-tools, automatiseringsplatforms en lokale AI-modellen, en zet die in voor het werk van mkb-bedrijven: mail, offertes, administratie, planning en kennis. [INVULLEN: achtergrond en werkervaring van Csaba, bijvoorbeeld opleiding, eerdere functies en sectoren waarin hij heeft gewerkt.]', 'veryo' ),
-		__( '[INVULLEN: eventuele certificeringen of cursussen op het gebied van AI, alleen als ze echt behaald zijn.] [INVULLEN: spreekbeurten, publicaties of samenwerkingen, alleen als ze er zijn.]', 'veryo' ),
+		__( 'Csaba werkt dagelijks met AI-tools, automatiseringsplatforms en lokale AI-modellen, en zet die in voor het werk van mkb-bedrijven: mail, offertes, administratie, planning en kennis. Hij kijkt daarbij niet naar wat technisch kan, maar naar wat in een gewone werkweek tijd scheelt en veilig is voor jullie gegevens.', 'veryo' ),
+		__( 'Veryo is onafhankelijk: we verkopen geen eigen software en hebben geen belang bij een bepaalde leverancier. Daardoor kunnen we eerlijk adviseren welke tool past, ook als dat een tool is die jullie al hebben. Csaba is de vaste contactpersoon: van het eerste gesprek tot de training van jullie team.', 'veryo' ),
 	)
 );
 $veryo_about .= veryo_sec_text(

@@ -1,5 +1,7 @@
 # SEO-changelog: thema 2.0.0 (SEO-proof)
 
+**2.0.1:** geen `[INVULLEN]` meer op de site; `/over-veryo/` gebruikt alleen bekende feiten. Ongewijzigde pagina's worden bij de update vanzelf bijgewerkt.
+
 Bijbehorende documenten: [SEO_AUDIT.md](SEO_AUDIT.md) (bevindingen vooraf), [REDIRECTS.md](REDIRECTS.md), [CONTENTPLAN.md](CONTENTPLAN.md), [INVULLEN.md](INVULLEN.md), [OFF_PAGE_TODO.md](OFF_PAGE_TODO.md).
 
 Design, animaties en scrolleffecten zijn ongewijzigd.
@@ -45,7 +47,7 @@ Bij het eerste bezoek aan wp-admin na het uploaden van de zip draait één keer 
 ## Inhoud
 
 - Veryo Collega premium gepositioneerd: "De lokale AI-assistent voor bedrijven", aanspreekvorm jullie en collega's.
-- `/over-veryo/`: secties "Ervaring en achtergrond" (met `[INVULLEN]`) en "Hoe Veryo omgaat met data en veiligheid" voor E-E-A-T.
+- `/over-veryo/`: secties "Ervaring en achtergrond" en "Hoe Veryo omgaat met data en veiligheid" voor E-E-A-T.
 
 ## Blog
 
@@ -81,6 +83,6 @@ Bij het eerste bezoek aan wp-admin na het uploaden van de zip draait één keer 
 7. [ ] Rich Results Test (search.google.com/test/rich-results) voor home, `/veryo-collega/`, `/ai-training/ai-geletterdheid/` (Course + FAQ) en een blogartikel.
 8. [ ] Search Console: sitemap `https://veryo.nl/sitemap_index.xml` (Rank Math) indienen; URL-inspectie voor home, `/veryo-collega/`, `/ai-workshop/` en `/ai-training/chatgpt-training-verkopers/`.
 9. [ ] De drie gidsen controleren (alle `[CHECK]`), notitie weghalen en publiceren.
-10. [ ] `[INVULLEN]` op `/over-veryo/` invullen of weghalen; LinkedIn-URL invullen bij Instellingen > Veryo.
+10. [ ] LinkedIn-URL invullen bij Instellingen > Veryo.
 11. [ ] GA4 of GTM koppelen en in GA4 `generate_lead` als belangrijke gebeurtenis markeren.
 12. [ ] Na 2–4 weken: in Search Console kijken of de nieuwe titels meer klikken opleveren.
