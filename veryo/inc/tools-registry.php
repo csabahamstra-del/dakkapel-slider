@@ -433,6 +433,25 @@ function veryo_page_tools() {
 }
 
 /**
+ * Homepage-band: kop, subtekst, de twee logorijen en een link naar de toolspagina.
+ *
+ * @return string
+ */
+function veryo_sec_tools_band() {
+	return veryo_b_group(
+		veryo_b_h( __( 'Wij werken met de beste AI-tools, onafhankelijk', 'veryo' ) )
+		. veryo_b_p( __( 'We zijn niet gebonden aan één leverancier. Per klus kiezen we de tool die het beste past, en waarbij jullie data veilig blijft.', 'veryo' ), array( 'className' => 'veryo-tools-band__sub' ) )
+		. veryo_b_shortcode( '[veryo_tools_strip]' )
+		. veryo_b_p( '<a href="' . esc_url( veryo_link( 'tools-koppelingen' ) ) . '">' . esc_html__( 'Bekijk alle tools & koppelingen →', 'veryo' ) . '</a>', array( 'className' => 'veryo-tools-band__more' ) ),
+		array(
+			'tagName'   => 'section',
+			'align'     => 'full',
+			'className' => 'veryo-tools-band',
+		)
+	);
+}
+
+/**
  * Het "Werkt met"-blok voor een pagina als block markup.
  *
  * @param string $intro Korte omschrijving.
@@ -459,25 +478,79 @@ function veryo_insert_werkt_met( $content, $intro, $slugs ) {
 	if ( false !== strpos( $content, '[veryo_werkt_met' ) ) {
 		return $content;
 	}
-	$block = veryo_sec_werkt_met( $intro, $slugs );
+	return veryo_insert_after_first_block( $content, veryo_sec_werkt_met( $intro, $slugs ) );
+}
+
+/**
+ * Positie direct na het eerste blok op het hoogste niveau, of -1 als er geen blok is.
+ *
+ * @param string $content Block markup.
+ * @return int
+ */
+function veryo_first_block_end( $content ) {
 	$depth = 0;
 	if ( preg_match_all( '#<!--\s+(/)?wp:[a-z0-9/-]+(?:\s+\{.*?\})?\s*(/)?-->#s', $content, $m, PREG_SET_ORDER | PREG_OFFSET_CAPTURE ) ) {
 		foreach ( $m as $tag ) {
 			$closing = ! empty( $tag[1][0] );
 			$self    = ! empty( $tag[2][0] );
-			if ( $self ) {
-				if ( 0 === $depth ) {
-					$pos = $tag[0][1] + strlen( $tag[0][0] );
-					return substr( $content, 0, $pos ) . "\n" . $block . substr( $content, $pos );
-				}
+			if ( $self && 0 !== $depth ) {
 				continue;
 			}
-			$depth += $closing ? -1 : 1;
-			if ( $closing && 0 === $depth ) {
-				$pos = $tag[0][1] + strlen( $tag[0][0] );
-				return substr( $content, 0, $pos ) . "\n" . $block . substr( $content, $pos );
+			if ( ! $self ) {
+				$depth += $closing ? -1 : 1;
+			}
+			if ( $self || ( $closing && 0 === $depth ) ) {
+				return $tag[0][1] + strlen( $tag[0][0] );
 			}
 		}
 	}
-	return $block . $content;
+	return -1;
 }
+
+/**
+ * Block markup invoegen direct na het eerste blok op het hoogste niveau.
+ *
+ * @param string $content Block markup.
+ * @param string $block   In te voegen block markup.
+ * @return string
+ */
+function veryo_insert_after_first_block( $content, $block ) {
+	$pos = veryo_first_block_end( $content );
+	return $pos < 0 ? $block . $content : substr( $content, 0, $pos ) . "\n" . $block . substr( $content, $pos );
+}
+
+/**
+ * Logostrook en "Werkt met"-blok bij het tonen van de pagina toevoegen als ze nog niet in de
+ * opgeslagen inhoud staan. Zo verschijnen ze ook op pagina's die zelf zijn aangepast, zonder
+ * dat de opgeslagen tekst verandert. Staat de shortcode al in de pagina, dan gebeurt er niets.
+ * Uitzetten kan met add_filter( 'veryo_auto_tools', '__return_false' ).
+ *
+ * @param string $content Inhoud (block markup, vóór do_blocks).
+ * @return string
+ */
+function veryo_auto_tools_content( $content ) {
+	if ( is_admin() || ! is_singular( 'page' ) || ! in_the_loop() || ! is_main_query() || ! apply_filters( 'veryo_auto_tools', true ) ) {
+		return $content;
+	}
+	if ( is_front_page() ) {
+		if ( false !== strpos( $content, '[veryo_tools_strip' ) ) {
+			return $content;
+		}
+		// De oude tekstband (Offertes, Facturen…) maakt plaats voor de logostrook.
+		if ( preg_match( '#<!--\s+wp:group\s+\{[^}]*"className":"veryo-marquee"[^}]*\}\s+-->#', $content, $m, PREG_OFFSET_CAPTURE ) ) {
+			$start = $m[0][1];
+			$end   = veryo_first_block_end( substr( $content, $start ) );
+			if ( $end > 0 ) {
+				return substr( $content, 0, $start ) . veryo_sec_tools_band() . substr( $content, $start + $end );
+			}
+		}
+		return veryo_insert_after_first_block( $content, veryo_sec_tools_band() );
+	}
+	$map  = veryo_page_tools();
+	$path = get_page_uri( get_queried_object_id() );
+	if ( ! isset( $map[ $path ] ) ) {
+		return $content;
+	}
+	return veryo_insert_werkt_met( $content, $map[ $path ][0], $map[ $path ][1] );
+}
+add_filter( 'the_content', 'veryo_auto_tools_content', 8 );

@@ -25,3 +25,7 @@ Haal de regel weg uit `veryo_tools()`. Overal waar de tool stond (homepage, "Wer
 ## Categorieën en filters
 
 `veryo_tool_categories()` bepaalt de koppen (H2) op de toolspagina en bij welke filterknop een categorie hoort. De knoppen staan in `veryo_tool_filters()`.
+
+## Ook op zelf aangepaste pagina's
+
+Het thema voegt de logostrook (homepage) en het "Werkt met"-blok (pagina's uit `veryo_page_tools()`) toe bij het tonen van de pagina als ze nog niet in de opgeslagen tekst staan. Jullie eigen tekst verandert daardoor niet. Staat de shortcode al in de pagina, dan gebeurt er niets extra. Uitzetten: `add_filter( 'veryo_auto_tools', '__return_false' );`

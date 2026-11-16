@@ -1,5 +1,7 @@
 # SEO-changelog: thema 2.0.0 (SEO-proof)
 
+**2.1.1:** logo's verschijnen ook op pagina's die je zelf hebt aangepast (het thema voegt ze toe bij het tonen; de opgeslagen tekst blijft ongewijzigd).
+
 **2.1.0:** logostrook op de homepage, "Werkt met"-blokken op 42 dienst- en branchepagina's en de nieuwe pagina /tools-koppelingen/ (zie TOOLS.md).
 
 **2.0.1:** geen `[INVULLEN]` meer op de site; `/over-veryo/` gebruikt alleen bekende feiten. Ongewijzigde pagina's worden bij de update vanzelf bijgewerkt.
