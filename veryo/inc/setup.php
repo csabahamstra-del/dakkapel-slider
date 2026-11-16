@@ -111,6 +111,9 @@ function veryo_enqueue_assets() {
 		)
 	);
 
+	// Zoeken en filteren op de pagina Tools & koppelingen; alleen geladen waar de shortcode staat.
+	wp_register_script( 'veryo-tools', VERYO_URI . '/assets/js/tools.js', array(), VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/js/tools.js' ), $defer );
+
 	// Geen emoji-scripts, geen reacties-script tenzij nodig.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

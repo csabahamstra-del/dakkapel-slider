@@ -35,7 +35,17 @@ $veryo_home       = veryo_b_group(
 		'className' => 'is-style-petrol veryo-hero has-check veryo-hero--home',
 	)
 );
-$veryo_home      .= veryo_sec_marquee();
+$veryo_home      .= veryo_b_group(
+	veryo_b_h( __( 'Wij werken met de beste AI-tools, onafhankelijk', 'veryo' ) )
+	. veryo_b_p( __( 'We zijn niet gebonden aan één leverancier. Per klus kiezen we de tool die het beste past, en waarbij jullie data veilig blijft.', 'veryo' ), array( 'className' => 'veryo-tools-band__sub' ) )
+	. veryo_b_shortcode( '[veryo_tools_strip]' )
+	. veryo_b_p( '<a href="' . esc_url( veryo_link( 'tools-koppelingen' ) ) . '">' . esc_html__( 'Bekijk alle tools & koppelingen →', 'veryo' ) . '</a>', array( 'className' => 'veryo-tools-band__more' ) ),
+	array(
+		'tagName'   => 'section',
+		'align'     => 'full',
+		'className' => 'veryo-tools-band',
+	)
+);
 $veryo_home      .= veryo_sec_wide(
 	veryo_b_columns(
 		array(

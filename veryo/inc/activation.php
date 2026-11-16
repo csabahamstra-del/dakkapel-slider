@@ -548,6 +548,7 @@ function veryo_menu_definitions() {
 						array( __( 'AI-abonnement (vaste partner)', 'veryo' ), 'ai-partner' ),
 						array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
 						array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
+						array( __( 'Tools & koppelingen', 'veryo' ), 'tools-koppelingen' ),
 					),
 				),
 				array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
@@ -577,6 +578,7 @@ function veryo_menu_definitions() {
 						array( __( 'AI-abonnement', 'veryo' ), 'ai-partner' ),
 						array( __( 'Veryo Academy', 'veryo' ), 'academy' ),
 						array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
+						array( __( 'Tools & koppelingen', 'veryo' ), 'tools-koppelingen' ),
 						array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
 					),
 				),
@@ -1034,3 +1036,16 @@ function veryo_201_upgrade() {
 	veryo_refresh_content( false );
 }
 add_action( 'admin_init', 'veryo_201_upgrade', 50 );
+
+/**
+ * Eenmalig bij 2.1.0: pagina Tools & koppelingen aanmaken, menu's bijwerken en ongewijzigde
+ * pagina's de logostrook en "Werkt met"-blokken geven. Zelf aangepaste pagina's blijven staan.
+ */
+function veryo_210_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_210_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_210_done', 1, false );
+	veryo_refresh_content( true );
+}
+add_action( 'admin_init', 'veryo_210_upgrade', 60 );

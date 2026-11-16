@@ -28,8 +28,14 @@ function veryo_content_pages() {
 		return $pages;
 	}
 	$pages = array();
-	foreach ( array( 'pages-main', 'pages-training', 'pages-collega', 'pages-producten', 'pages-oplossingen', 'pages-pijlers', 'pages-automatisering', 'pages-opmaat', 'pages-regio', 'pages-branches', 'pages-landing', 'pages-legal' ) as $file ) {
+	foreach ( array( 'pages-main', 'pages-training', 'pages-tools', 'pages-collega', 'pages-producten', 'pages-oplossingen', 'pages-pijlers', 'pages-automatisering', 'pages-opmaat', 'pages-regio', 'pages-branches', 'pages-landing', 'pages-legal' ) as $file ) {
 		$pages = array_merge( $pages, require VERYO_DIR . '/inc/content/' . $file . '.php' );
+	}
+	// "Werkt met"-blok op dienst- en branchepagina's (zie inc/tools-registry.php).
+	foreach ( veryo_page_tools() as $path => $tools ) {
+		if ( isset( $pages[ $path ] ) ) {
+			$pages[ $path ]['content'] = veryo_insert_werkt_met( $pages[ $path ]['content'], $tools[0], $tools[1] );
+		}
 	}
 	return $pages;
 }

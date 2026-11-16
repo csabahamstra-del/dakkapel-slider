@@ -299,7 +299,9 @@
 					'.veryo-collega-task',
 					'.veryo-collega-plan',
 					'.veryo-tiles li',
-					'.veryo-collega-blok'
+					'.veryo-collega-blok',
+					'.veryo-werkt-met',
+					'.veryo-logo-strip'
 				];
 				groups.forEach( function ( selector ) {
 					var items = Array.prototype.filter.call( document.querySelectorAll( selector ), function ( el ) {

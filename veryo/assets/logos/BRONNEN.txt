@@ -1,0 +1,13 @@
+Logo's van tools en koppelingen
+
+Bronnen:
+- Simple Icons (https://simpleicons.org, npm simple-icons 16.38.0, CC0): gmail, google-agenda, hubspot,
+  notion, clickup, wordpress, shopify, meta-ads, google-ads, whatsapp-business, calendly, stripe,
+  make, n8n, zapier.
+- LobeHub Icons (https://github.com/lobehub/lobe-icons, npm @lobehub/icons-static-svg 1.102.0, MIT):
+  alle overige AI-merken.
+
+De logo's zijn niet aangepast (alleen de afmetingen in de SVG-kop). Grijs en kleur bij hover gaat via CSS.
+Alle merken en logo's zijn eigendom van hun eigenaren. Veryo werkt met deze tools; het is geen partnerschap.
+
+Tools zonder logo krijgen automatisch een tekstbadge. Logo toevoegen: zet {slug}.svg in deze map.
