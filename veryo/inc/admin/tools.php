@@ -103,6 +103,40 @@ function veryo_tools_page() {
 			<?php submit_button( __( 'Pagina’s bijwerken', 'veryo' ), 'secondary', 'submit', false ); ?>
 		</form>
 
+		<h2><?php esc_html_e( 'Zelf aangepaste pagina’s toch bijwerken', 'veryo' ); ?></h2>
+		<?php
+		$veryo_forced = get_transient( 'veryo_forced_ran_' . get_current_user_id() );
+		if ( is_array( $veryo_forced ) ) :
+			delete_transient( 'veryo_forced_ran_' . get_current_user_id() );
+			?>
+			<div class="notice notice-success is-dismissible"><p>
+				<?php
+				/* translators: %s: lijst met pagina's. */
+				echo esc_html( sprintf( __( 'Bijgewerkt naar de nieuwste versie: %s. De vorige versie staat bij Revisies.', 'veryo' ), $veryo_forced ? implode( ', ', $veryo_forced ) : __( 'geen', 'veryo' ) ) );
+				?>
+			</p></div>
+		<?php endif; ?>
+		<?php $veryo_changed = veryo_changed_pages(); ?>
+		<?php if ( ! $veryo_changed ) : ?>
+			<p><?php esc_html_e( 'Alle pagina’s van het thema zijn up-to-date of nooit zelf aangepast.', 'veryo' ); ?></p>
+		<?php else : ?>
+			<p><?php esc_html_e( 'Deze pagina’s heb je zelf aangepast en verschillen van de nieuwste versie in het thema. Vink aan welke je toch wilt bijwerken. Je eigen aanpassingen op die pagina’s worden dan vervangen; de vorige versie blijft bewaard als revisie, zodat je altijd terug kunt. Pagina’s uit het SEO-actieplan zijn gemarkeerd.', 'veryo' ); ?></p>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<input type="hidden" name="action" value="veryo_force_refresh">
+				<?php wp_nonce_field( 'veryo_force_refresh' ); ?>
+				<ul>
+					<?php foreach ( $veryo_changed as $veryo_path => $veryo_row ) : ?>
+						<li><label><input type="checkbox" name="veryo_paths[]" value="<?php echo esc_attr( $veryo_path ); ?>"> <a href="<?php echo esc_url( (string) get_permalink( $veryo_row['id'] ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( '/' . $veryo_path . '/' ); ?></a>
+						<?php if ( $veryo_row['priority'] ) : ?>
+							<strong><?php esc_html_e( '(SEO-actieplan)', 'veryo' ); ?></strong>
+						<?php endif; ?>
+						</label></li>
+					<?php endforeach; ?>
+				</ul>
+				<?php submit_button( __( 'Geselecteerde pagina’s bijwerken', 'veryo' ), 'secondary', 'submit', false ); ?>
+			</form>
+		<?php endif; ?>
+
 		<h2><?php esc_html_e( 'Nog in te vullen: [VUL IN]-placeholders', 'veryo' ); ?></h2>
 		<?php if ( ! $placeholders ) : ?>
 			<p><?php esc_html_e( 'Er staan geen placeholders meer in pagina’s of berichten.', 'veryo' ); ?></p>
@@ -157,6 +191,90 @@ function veryo_handle_refresh_content() {
 	exit;
 }
 add_action( 'admin_post_veryo_refresh_content', 'veryo_handle_refresh_content' );
+
+/**
+ * Pagina's uit het SEO-actieplan (Search Console, november 2026).
+ *
+ * @return string[]
+ */
+function veryo_seo_plan_pages() {
+	return array( 'ai-automatisering', 'ai-training', 'ai-implementatie-mkb', 'ai-agents', 'ai-training/ai-geletterdheid', 'branches', 'branches/installatie', 'branches/bouw', 'branches/makelaardij', 'branches/transport', 'ai-adviseur-friesland', 'leeuwarden', 'prijzen', 'ai-startpakket' );
+}
+
+/**
+ * Pagina's van het thema die zelf zijn aangepast en verschillen van de nieuwste versie.
+ *
+ * @return array<string,array{id:int,priority:bool}>
+ */
+function veryo_changed_pages() {
+	$out  = array();
+	$plan = veryo_seo_plan_pages();
+	foreach ( veryo_content_pages() as $path => $def ) {
+		if ( '' === $path ) {
+			continue;
+		}
+		$page = veryo_find_page( $path );
+		if ( ! $page || 'publish' !== $page->post_status || veryo_page_untouched( $page ) || $page->post_content === $def['content'] ) {
+			continue;
+		}
+		$out[ $path ] = array(
+			'id'       => (int) $page->ID,
+			'priority' => in_array( $path, $plan, true ),
+		);
+	}
+	uasort(
+		$out,
+		static function ( $a, $b ) {
+			return (int) $b['priority'] - (int) $a['priority'];
+		}
+	);
+	return $out;
+}
+
+/**
+ * Knop: geselecteerde, zelf aangepaste pagina's toch bijwerken. De vorige versie wordt eerst
+ * als revisie bewaard.
+ */
+function veryo_handle_force_refresh() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'Geen toegang.', 'veryo' ) );
+	}
+	check_admin_referer( 'veryo_force_refresh' );
+	$paths = isset( $_POST['veryo_paths'] ) ? array_map( 'sanitize_text_field', (array) wp_unslash( $_POST['veryo_paths'] ) ) : array();
+	$defs  = veryo_content_pages();
+	$done  = array();
+	kses_remove_filters();
+	foreach ( $paths as $path ) {
+		$page = isset( $defs[ $path ] ) ? veryo_find_page( $path ) : null;
+		if ( ! $page ) {
+			continue;
+		}
+		if ( wp_revisions_enabled( $page ) ) {
+			_wp_put_post_revision( $page );
+		}
+		$def     = $defs[ $path ];
+		$updated = wp_update_post(
+			wp_slash(
+				array(
+					'ID'           => $page->ID,
+					'post_content' => $def['content'],
+					'post_title'   => ( veryo_collega()['slug'] === $path || ! empty( $def['force_title'] ) ) ? $def['title'] : $page->post_title,
+				)
+			),
+			true
+		);
+		if ( ! is_wp_error( $updated ) ) {
+			veryo_apply_page_meta( $page->ID, $def );
+			veryo_remember_content( $page->ID );
+			$done[] = '/' . $path . '/';
+		}
+	}
+	kses_init();
+	set_transient( 'veryo_forced_ran_' . get_current_user_id(), $done, MINUTE_IN_SECONDS );
+	wp_safe_redirect( admin_url( 'tools.php?page=veryo-content' ) );
+	exit;
+}
+add_action( 'admin_post_veryo_force_refresh', 'veryo_handle_force_refresh' );
 
 /**
  * Pagina's van het thema die niet (meer) bestaan, bijvoorbeeld na verwijderen.
@@ -340,3 +458,33 @@ function veryo_missing_pages_notice() {
 	<?php
 }
 add_action( 'admin_notices', 'veryo_missing_pages_notice' );
+
+/**
+ * Melding op het dashboard: pagina's uit het SEO-actieplan die zelf zijn aangepast en daarom
+ * de nieuwe versie niet automatisch kregen.
+ */
+function veryo_seo_plan_notice() {
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( ! current_user_can( 'manage_options' ) || ! $screen || ! in_array( $screen->id, array( 'dashboard', 'themes' ), true ) ) {
+		return;
+	}
+	$plan = array_filter(
+		veryo_changed_pages(),
+		static function ( $row ) {
+			return $row['priority'];
+		}
+	);
+	if ( ! $plan ) {
+		return;
+	}
+	echo '<div class="notice notice-info"><p>';
+	echo esc_html(
+		sprintf(
+			/* translators: %d: aantal pagina's. */
+			_n( '%d pagina uit het SEO-actieplan heb je zelf aangepast en kreeg daarom de nieuwe versie niet automatisch.', '%d pagina’s uit het SEO-actieplan heb je zelf aangepast en kregen daarom de nieuwe versie niet automatisch.', count( $plan ), 'veryo' ),
+			count( $plan )
+		)
+	);
+	echo ' <a href="' . esc_url( admin_url( 'tools.php?page=veryo-content' ) ) . '">' . esc_html__( 'Bekijk en kies welke je wilt bijwerken', 'veryo' ) . '</a></p></div>';
+}
+add_action( 'admin_notices', 'veryo_seo_plan_notice' );

@@ -14,7 +14,7 @@ return array(
 		'title'     => __( 'AI voor installateurs en installatiebedrijven', 'veryo' ),
 		'seo_title' => __( 'AI voor installateurs en installatiebedrijven | Veryo', 'veryo' ),
 		'desc'      => __( 'AI voor installateurs: een offerte-generator met calculatietool, digitale werkbon naar factuur en een WhatsApp-assistent voor storingen. Gratis offerte.', 'veryo' ),
-		'kw'        => 'ai voor installateurs',
+		'kw'        => 'ai voor installatiebedrijven',
 		'schema'    => array(
 			'type' => 'service',
 			'min'  => 750,
@@ -42,6 +42,39 @@ return array(
 					'ids'   => array( 'offerte-generator', 'calculatietool', 'digitale-werkbon', 'werkbon-factuur', 'whatsapp-assistent', 'storingen', 'onderhoudsplanning' ),
 				),
 				'sections' => array(
+					array(
+						'html' => veryo_sec_usecases(
+							__( 'Een realistische workflow voor installatiebedrijven', 'veryo' ),
+							__( 'Zo ziet de workflow er in de praktijk uit. Het zijn voorbeelden van werkwijzen, geen klantcases: per bedrijf kijken we eerst hoe het werk nu loopt en welke software jullie gebruiken.', 'veryo' ),
+							veryo_sec_usecase(
+								__( 'Aanvraagintake en offerte', 'veryo' ),
+								__( 'aanvragen komen binnen via mail, telefoon en website en zijn vaak niet compleet.', 'veryo' ),
+								__( 'de aanvraag wordt gelezen, ontbrekende gegevens zoals adres, type installatie en foto’s worden opgevraagd en er staat een conceptofferte klaar op basis van jullie prijslijst.', 'veryo' ),
+								__( 'mail, websiteformulier, WhatsApp Business en jullie offerte- of boekhoudpakket.', 'veryo' ),
+								__( 'de werkvoorbereider controleert prijzen en materiaal voordat de offerte de deur uitgaat.', 'veryo' ),
+								__( 'minder uitzoekwerk per offerte en sneller reageren op aanvragen.', 'veryo' ),
+								__( 'een actuele prijslijst en eerdere offertes als voorbeeld.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'Storingsvragen en planning', 'veryo' ),
+								__( 'storingsmeldingen komen op alle kanalen binnen en de planner moet alles uitzoeken.', 'veryo' ),
+								__( 'de melding wordt gelezen, het adres en de installatie worden herkend en er staat een concept-werkbon klaar in de planning.', 'veryo' ),
+								__( 'mail, WhatsApp Business, website en jullie planningssoftware.', 'veryo' ),
+								__( 'de planner beslist over de urgentie en wie er gaat.', 'veryo' ),
+								__( 'minder bellen en uitzoeken voor de planner.', 'veryo' ),
+								__( 'installatiegegevens per klant zijn vindbaar.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'Werkbon, rapportage en factuur', 'veryo' ),
+								__( 'monteurs leveren werkbonnen en materiaalgebruik op papier of als foto aan, kantoor typt alles over.', 'veryo' ),
+								__( 'de werkbon wordt uitgelezen, materiaal en uren worden gecontroleerd en er staat een conceptfactuur en een kort rapport voor de klant klaar.', 'veryo' ),
+								__( 'WhatsApp of mail, en SnelStart, Exact Online of jullie eigen pakket.', 'veryo' ),
+								__( 'twijfel over uren of materiaal gaat naar kantoor voordat er gefactureerd wordt.', 'veryo' ),
+								__( 'sneller factureren en minder overtypen; de omvang rekenen we vooraf uit.', 'veryo' ),
+								__( 'werkbonnen bevatten steeds dezelfde basisgegevens.', 'veryo' )
+							)
+						),
+					),
 					array(
 						'h' => __( 'Zo ziet AI voor installateurs eruit in de praktijk', 'veryo' ),
 						'p' => array(
@@ -72,9 +105,9 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/bouw'                      => array(
 		'title'     => __( 'AI in de bouw: voor aannemers en bouwbedrijven', 'veryo' ),
-		'seo_title' => __( 'AI in de bouw: voor aannemers en bouwbedrijven | Veryo', 'veryo' ),
-		'desc'      => __( 'AI in de bouw voor aannemers: materiaalstaat uit het bestek, nacalculatie per project en meerwerk inspreken op de bouwplaats. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'ai in de bouw',
+		'seo_title' => __( 'AI in de bouw: van werkvoorbereiding tot oplevering | Veryo', 'veryo' ),
+		'desc'      => __( 'AI in de bouw: calculatie, werkvoorbereiding, projectdocumentatie en digitaal opleveren met AI, bovenop jullie eigen software. Bespreek jullie project.', 'veryo' ),
+		'kw'        => 'ai bouw',
 		'schema'    => array(
 			'type' => 'service',
 			'min'  => 750,
@@ -102,6 +135,39 @@ return array(
 					'ids'   => array( 'materiaalstaat', 'nacalculatie', 'meerwerk', 'calculatietool', 'urenregistratie', 'inkoop-bestellingen', 'aanbestedingsscan' ),
 				),
 				'sections' => array(
+					array(
+						'html' => veryo_sec_usecases(
+							__( 'Van werkvoorbereiding tot digitale oplevering', 'veryo' ),
+							__( 'Zo ziet de workflow er in de praktijk uit. Het zijn voorbeelden van werkwijzen, geen klantcases: per bedrijf kijken we eerst hoe het werk nu loopt en welke software jullie gebruiken.', 'veryo' ),
+							veryo_sec_usecase(
+								__( 'Calculatie en werkvoorbereiding', 'veryo' ),
+								__( 'het uitzoeken van een bestek en het opstellen van een calculatie kost veel tijd.', 'veryo' ),
+								__( 'AI leest het bestek of de tekening, zet een concept-materiaalstaat klaar en zoekt vergelijkbare eerdere calculaties erbij.', 'veryo' ),
+								__( 'jullie calculatiepakket, Excel en de projectmap.', 'veryo' ),
+								__( 'de calculator controleert hoeveelheden en prijzen; AI rekent niet zelfstandig de prijs uit.', 'veryo' ),
+								__( 'minder zoek- en overtypwerk per calculatie.', 'veryo' ),
+								__( 'eerdere calculaties en bestekken zijn digitaal beschikbaar.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'Projectdocumentatie', 'veryo' ),
+								__( 'tekeningen, mails, foto’s en afspraken per project staan verspreid over mappen en mailboxen.', 'veryo' ),
+								__( 'documenten worden automatisch per project geordend en zijn op betekenis doorzoekbaar, met de bron erbij.', 'veryo' ),
+								__( 'SharePoint, Google Drive of een netwerkschijf, en mail.', 'veryo' ),
+								__( 'de projectleider bepaalt welke documenten leidend zijn.', 'veryo' ),
+								__( 'minder zoeken naar de juiste versie of afspraak.', 'veryo' ),
+								__( 'een vaste mapstructuur per project.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'Digitaal opleveren', 'veryo' ),
+								__( 'opnames en restpunten worden met de hand uitgewerkt tot een rapport.', 'veryo' ),
+								__( 'foto’s en ingesproken opmerkingen op de bouwplaats worden automatisch een overzichtelijke restpuntenlijst en opleverrapport in jullie eigen systeem.', 'veryo' ),
+								__( 'telefoon of tablet, WhatsApp of mail, en jullie projectsoftware of documentmap.', 'veryo' ),
+								__( 'de uitvoerder controleert het rapport voordat het naar de klant gaat.', 'veryo' ),
+								__( 'minder uitwerkwerk na de oplevering.', 'veryo' ),
+								__( 'afspraken over hoe foto’s en opmerkingen worden aangeleverd.', 'veryo' )
+							)
+						),
+					),
 					array(
 						'h' => __( 'Van bestek tot nacalculatie', 'veryo' ),
 						'p' => array(
@@ -230,6 +296,39 @@ return array(
 					'ids'   => array( 'lead-invoer', 'mail-concepten', 'whatsapp-assistent', 'voicebot', 'statusberichten' ),
 				),
 				'sections' => array(
+					array(
+						'html' => veryo_sec_usecases(
+							__( 'Een realistische workflow voor makelaarskantoren', 'veryo' ),
+							__( 'Zo ziet de workflow er in de praktijk uit. Het zijn voorbeelden van werkwijzen, geen klantcases: per bedrijf kijken we eerst hoe het werk nu loopt en welke software jullie gebruiken.', 'veryo' ),
+							veryo_sec_usecase(
+								__( 'Leadopvolging', 'veryo' ),
+								__( 'reacties op woningen en waardebepalingsaanvragen blijven liggen op drukke dagen.', 'veryo' ),
+								__( 'elke nieuwe aanvraag krijgt binnen korte tijd een persoonlijk antwoord en wordt vastgelegd in jullie systeem.', 'veryo' ),
+								__( 'websiteformulier, Funda-mails, WhatsApp Business en jullie CRM.', 'veryo' ),
+								__( 'de makelaar volgt de warme leads zelf op.', 'veryo' ),
+								__( 'snellere reactie en minder gemiste leads.', 'veryo' ),
+								__( 'duidelijke afspraken over welke aanvragen voorrang krijgen.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'Bezichtigingsaanvragen', 'veryo' ),
+								__( 'inplannen van bezichtigingen kost veel heen-en-weer bellen en mailen.', 'veryo' ),
+								__( 'geïnteresseerden kiezen zelf een moment uit de beschikbare tijden en krijgen automatisch een bevestiging en herinnering.', 'veryo' ),
+								__( 'agenda, mail en WhatsApp Business.', 'veryo' ),
+								__( 'de makelaar bepaalt de beschikbare tijden.', 'veryo' ),
+								__( 'minder telefoontjes voor het inplannen.', 'veryo' ),
+								__( 'een actuele agenda per woning.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'Documentvragen en klantcommunicatie', 'veryo' ),
+								__( 'kopers en verkopers stellen steeds dezelfde vragen over documenten en het proces.', 'veryo' ),
+								__( 'een assistent beantwoordt vragen uit jullie eigen informatie en zet een concept klaar bij lastigere vragen.', 'veryo' ),
+								__( 'mail, WhatsApp Business en jullie documenten.', 'veryo' ),
+								__( 'de makelaar keurt antwoorden over prijzen, biedingen en afspraken altijd zelf goed.', 'veryo' ),
+								__( 'minder herhaalde vragen voor het kantoor.', 'veryo' ),
+								__( 'actuele informatie over het koop- en verkoopproces.', 'veryo' )
+							)
+						),
+					),
 					array(
 						'h' => __( 'Zo werkt de AI-inbox', 'veryo' ),
 						'p' => array(
@@ -398,9 +497,9 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/transport'                 => array(
 		'title'     => __( 'AI voor transport en logistiek', 'veryo' ),
-		'seo_title' => __( 'AI voor transport en logistiek: minder papierwerk | Veryo', 'veryo' ),
-		'desc'      => __( 'AI in de logistiek: een planningsassistent, automatische statusberichten voor klanten en vrachtdocumenten archiveren. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'ai in de logistiek',
+		'seo_title' => __( 'AI voor transport: orderinvoer, documenten en status | Veryo', 'veryo' ),
+		'desc'      => __( 'AI voor transport en logistiek: automatische orderinvoer, transportdocumenten verwerken, statusupdates en planning. Bespreek jullie proces met Veryo.', 'veryo' ),
+		'kw'        => 'ai transport orderinvoer',
 		'schema'    => array(
 			'type' => 'service',
 			'min'  => 750,
@@ -429,6 +528,39 @@ return array(
 					'ids'   => array( 'planningsassistent', 'statusberichten', 'archiveren', 'vertalen', 'overdracht', 'whatsapp-sollicitatie', 'dashboard' ),
 				),
 				'sections' => array(
+					array(
+						'html' => veryo_sec_usecases(
+							__( 'Een realistische workflow voor transportbedrijven', 'veryo' ),
+							__( 'Zo ziet de workflow er in de praktijk uit. Het zijn voorbeelden van werkwijzen, geen klantcases: per bedrijf kijken we eerst hoe het werk nu loopt en welke software jullie gebruiken.', 'veryo' ),
+							veryo_sec_usecase(
+								__( 'Automatische orderinvoer', 'veryo' ),
+								__( 'orders komen binnen als mail, pdf of spreadsheet en worden met de hand ingevoerd.', 'veryo' ),
+								__( 'de order wordt uitgelezen, gecontroleerd op adres, datum en lading en klaargezet in jullie TMS of planning.', 'veryo' ),
+								__( 'mail, Excel en jullie transportmanagementsysteem.', 'veryo' ),
+								__( 'de planner keurt afwijkende of onvolledige orders goed.', 'veryo' ),
+								__( 'minder invoerwerk en minder tikfouten.', 'veryo' ),
+								__( 'het TMS heeft een koppeling of importmogelijkheid.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'Transportdocumenten', 'veryo' ),
+								__( 'vrachtbrieven, pakbonnen en afleverbewijzen moeten worden uitgezocht en gearchiveerd.', 'veryo' ),
+								__( 'documenten worden uitgelezen, gekoppeld aan de juiste rit en gearchiveerd, klaar voor facturatie.', 'veryo' ),
+								__( 'mail, scans of foto’s van chauffeurs, en jullie administratie.', 'veryo' ),
+								__( 'onleesbare of afwijkende documenten gaan naar kantoor.', 'veryo' ),
+								__( 'minder zoek- en archiveerwerk.', 'veryo' ),
+								__( 'documenten worden op een vaste manier aangeleverd.', 'veryo' )
+							)
+							. veryo_sec_usecase(
+								__( 'E-mailverwerking en statusupdates', 'veryo' ),
+								__( 'klanten mailen en bellen om te vragen waar hun lading is.', 'veryo' ),
+								__( 'inkomende vragen worden gesorteerd en klanten krijgen automatisch een statusbericht bij vertrek en levering.', 'veryo' ),
+								__( 'mail, jullie planning of TMS, en sms, mail of WhatsApp Business.', 'veryo' ),
+								__( 'vragen over schade of vertraging gaan direct naar een planner.', 'veryo' ),
+								__( 'minder telefoontjes voor de planning.', 'veryo' ),
+								__( 'statusgegevens zijn beschikbaar in het systeem.', 'veryo' )
+							)
+						),
+					),
 					array(
 						'h' => __( 'Een voorbeeld', 'veryo' ),
 						'p' => array(

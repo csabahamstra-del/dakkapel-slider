@@ -106,12 +106,17 @@ function veryo_sec_wide( $inner, $css_class = '', $anchor = '' ) {
 /**
  * Het direct-antwoordblok bovenaan dienst-, regio- en branchepagina's.
  *
- * @param string $text Antwoord in 2–3 zinnen.
+ * @param string   $text Antwoord in 2–3 zinnen.
+ * @param string[] $cta  Optioneel: knop direct onder het antwoord (label, url, stijl), boven de vouw.
  * @return string
  */
-function veryo_sec_answer( $text ) {
+function veryo_sec_answer( $text, $cta = array() ) {
+	$inner = veryo_b_p( $text, array( 'fontSize' => 'body-l' ) );
+	if ( $cta ) {
+		$inner .= veryo_b_buttons( array( $cta ) );
+	}
 	return veryo_b_group(
-		veryo_b_p( $text, array( 'fontSize' => 'body-l' ) ),
+		$inner,
 		array( 'className' => 'is-style-answer veryo-answer' )
 	);
 }
@@ -546,12 +551,12 @@ add_shortcode( 'veryo_bloglink', 'veryo_sc_bloglink' );
 function veryo_sec_branches( $title = '', $intro = '', $wide = false ) {
 	$branches = array(
 		'installatie'               => array( __( 'Installatietechniek', 'veryo' ), __( 'Offertes, werkbonnen en storingen', 'veryo' ) ),
-		'bouw'                      => array( __( 'Bouw en aannemerij', 'veryo' ), __( 'Materiaalstaten, nacalculatie en meerwerk', 'veryo' ) ),
+		'bouw'                      => array( __( 'Bouw en vakbedrijven', 'veryo' ), __( 'Calculatie, werkvoorbereiding en oplevering', 'veryo' ) ),
 		'agri'                      => array( __( 'Agri en mechanisatie', 'veryo' ), __( 'Onderhoud, keuringen en onderdelen', 'veryo' ) ),
 		'makelaardij'               => array( __( 'Makelaardij', 'veryo' ), __( 'Inbox, bezichtigingen en woningteksten', 'veryo' ) ),
 		'zakelijke-dienstverlening' => array( __( 'Accountants en adviesbureaus', 'veryo' ), __( 'Verslagen, samenvattingen en kennis', 'veryo' ) ),
-		'horeca-retail'             => array( __( 'Horeca en retail', 'veryo' ), __( 'Reviews, social en reserveringen', 'veryo' ) ),
-		'transport'                 => array( __( 'Transport en logistiek', 'veryo' ), __( 'Planning, statusberichten en documenten', 'veryo' ) ),
+		'horeca-retail'             => array( __( 'Horeca en retail', 'veryo' ), __( 'Telefoon, reserveringen en team', 'veryo' ) ),
+		'transport'                 => array( __( 'Transport en logistiek', 'veryo' ), __( 'Orderinvoer, documenten en statusupdates', 'veryo' ) ),
 		'recruitment'               => array( __( 'Werving en recruitment', 'veryo' ), __( 'Solliciteren via WhatsApp', 'veryo' ) ),
 		'beveiliging'               => array( __( 'Beveiligingsbedrijven', 'veryo' ), __( 'Urencontrole, rapportages en roosters', 'veryo' ) ),
 		'schoonmaak'                => array( __( 'Schoonmaakbedrijven', 'veryo' ), __( 'Uren, roosters en inkoopfacturen', 'veryo' ) ),
@@ -740,7 +745,7 @@ function veryo_sec_steps_home() {
  * @return string
  */
 function veryo_page_standard( $d ) {
-	$out = veryo_sec_answer( $d['answer'] );
+	$out = veryo_sec_answer( $d['answer'], isset( $d['answer_cta'] ) ? $d['answer_cta'] : array() );
 
 	if ( ! empty( $d['problem'] ) ) {
 		$out .= veryo_sec_text( $d['problem']['h'], $d['problem']['p'], isset( $d['problem']['list'] ) ? $d['problem']['list'] : array() );
@@ -761,7 +766,7 @@ function veryo_page_standard( $d ) {
 		$out .= veryo_sec_photo( $d['photo'][0], $d['photo'][1], isset( $d['photo'][2] ) ? $d['photo'][2] : '' );
 	}
 	if ( ! empty( $d['approach'] ) ) {
-		$out .= veryo_sec_approach();
+		$out .= veryo_sec_approach( is_string( $d['approach'] ) ? $d['approach'] : '' );
 	}
 	if ( ! empty( $d['products'] ) ) {
 		$out .= veryo_sec_products( $d['products']['keys'], $d['products']['h'], isset( $d['products']['intro'] ) ? $d['products']['intro'] : '', true, $d['products']['keys'][0] );
@@ -778,6 +783,10 @@ function veryo_page_standard( $d ) {
 	}
 	if ( ! empty( $d['sections'] ) ) {
 		foreach ( $d['sections'] as $section ) {
+			if ( isset( $section['html'] ) ) {
+				$out .= $section['html'];
+				continue;
+			}
 			$out .= veryo_sec_text(
 				$section['h'],
 				isset( $section['p'] ) ? $section['p'] : array(),
@@ -1153,4 +1162,67 @@ function veryo_sec_conviction() {
 		),
 		'veryo-conviction'
 	);
+}
+
+/**
+ * Een toepassing als werkwijze: H3 met probleem, workflow, systemen, menselijke controle,
+ * verwachte tijdwinst en randvoorwaarden. Geen klantcase: een voorbeeld van hoe het werkt.
+ *
+ * @param string $title      Kop (H3).
+ * @param string $problem    Probleem.
+ * @param string $workflow   Workflow.
+ * @param string $systems    Systemen.
+ * @param string $control    Menselijke controle.
+ * @param string $gain       Verwachte tijdwinst.
+ * @param string $conditions Randvoorwaarden.
+ * @return string
+ */
+function veryo_sec_usecase( $title, $problem, $workflow, $systems, $control, $gain, $conditions ) {
+	return veryo_b_h( $title, 3 ) . veryo_b_list(
+		array(
+			'<strong>' . __( 'Probleem:', 'veryo' ) . '</strong> ' . $problem,
+			'<strong>' . __( 'Workflow:', 'veryo' ) . '</strong> ' . $workflow,
+			'<strong>' . __( 'Systemen:', 'veryo' ) . '</strong> ' . $systems,
+			'<strong>' . __( 'Menselijke controle:', 'veryo' ) . '</strong> ' . $control,
+			'<strong>' . __( 'Verwachte tijdwinst:', 'veryo' ) . '</strong> ' . $gain,
+			'<strong>' . __( 'Randvoorwaarden:', 'veryo' ) . '</strong> ' . $conditions,
+		),
+		array( 'className' => 'is-style-checks' )
+	);
+}
+
+/**
+ * Sectie met een H2, een korte inleiding en een of meer toepassingen (veryo_sec_usecase).
+ *
+ * @param string $title Kop (H2).
+ * @param string $intro Inleiding.
+ * @param string $cases Toepassingen (markup).
+ * @return string
+ */
+function veryo_sec_usecases( $title, $intro, $cases ) {
+	return veryo_b_group(
+		veryo_b_h( $title ) . ( $intro ? veryo_b_p( $intro ) : '' ) . $cases,
+		array( 'className' => 'veryo-section veryo-usecases' )
+	);
+}
+
+/**
+ * Lokale aanpak en contactgegevens (NAP) voor regiopagina's, uit Instellingen > Veryo.
+ *
+ * @param string   $title Kop.
+ * @param string[] $steps Lokale aanpak in korte punten.
+ * @return string
+ */
+function veryo_sec_local( $title, $steps ) {
+	$c      = veryo_company();
+	$phone  = $c['phone'] ? $c['phone'] : '085-0605752';
+	$email  = $c['email'] ? $c['email'] : 'info@veryo.nl';
+	$inner  = veryo_b_h( $title ) . veryo_b_list( $steps, array( 'className' => 'is-style-checks' ) );
+	$inner .= veryo_b_p(
+		'<strong>' . esc_html( $c['name'] ) . '</strong>, ' . esc_html( $c['city'] ? $c['city'] : 'Leeuwarden' )
+		. ' · <a href="' . esc_attr( veryo_tel_href( $phone ) ) . '">' . str_replace( ' ', '&nbsp;', esc_html( $phone ) ) . '</a>'
+		. ' · <a href="mailto:' . esc_attr( $email ) . '">' . esc_html( $email ) . '</a>',
+		array( 'className' => 'veryo-local-nap' )
+	);
+	return veryo_b_group( $inner, array( 'className' => 'veryo-section veryo-local' ) );
 }

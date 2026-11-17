@@ -539,7 +539,7 @@ return array(
 		'title'     => __( 'Zo houd je de kennis van ervaren medewerkers in je bedrijf', 'veryo' ),
 		'seo_title' => __( 'Kennis van ervaren medewerkers behouden met AI | Veryo', 'veryo' ),
 		'desc'      => __( 'Gaat een ervaren medewerker met pensioen, dan gaat er veel kennis mee de deur uit. Zo leg je die vast met interviews, spraakmemo’s en een AI-kennisbank.', 'veryo' ),
-		'kw'        => 'ai kennisbank bedrijf',
+		'kw'        => 'kennis ervaren medewerkers behouden',
 		'content'   => $veryo_draft(
 			array(
 				array( __( 'De kennis die nergens staat', 'veryo' ), __( 'Beschrijf het probleem: de meest ervaren collega weet welke klant wat gewend is, waar je op let bij een lastige klus en wat er vaak misgaat. Niets daarvan staat op papier.', 'veryo' ) ),

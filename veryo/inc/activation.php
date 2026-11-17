@@ -1049,3 +1049,24 @@ function veryo_210_upgrade() {
 	veryo_refresh_content( true );
 }
 add_action( 'admin_init', 'veryo_210_upgrade', 60 );
+
+/**
+ * Eenmalig bij 2.2.0 (SEO-actieplan): ongewijzigde pagina's bijwerken naar de nieuwe teksten
+ * en SEO-velden. Zelf aangepaste pagina's blijven staan; die kun je kiezen bij Extra >
+ * Veryo-inhoud.
+ */
+function veryo_220_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_220_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_220_done', 1, false );
+	veryo_refresh_content( false );
+	$defs = veryo_content_pages();
+	foreach ( veryo_seo_plan_pages() as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page && isset( $defs[ $path ] ) ) {
+			veryo_apply_page_meta( $page->ID, $defs[ $path ] );
+		}
+	}
+}
+add_action( 'admin_init', 'veryo_220_upgrade', 70 );

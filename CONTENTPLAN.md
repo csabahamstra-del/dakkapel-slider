@@ -6,6 +6,23 @@ Doel: per cluster een pijlerpagina (hub) met artikelen (spokes) die ernaar linke
 
 Status: **Klaar** = volledig uitgeschreven concept, alleen controleren. **Opzet** = concept met kopjes en opzet per sectie. **Nieuw** = nog te schrijven.
 
+## Eerst: de acht artikelen uit het SEO-actieplan (november 2026)
+
+Volgorde uit het actieplan op basis van Search Console. Elk artikel linkt naar de dienst die het onderwerp oplost.
+
+| # | Titel | Intentie → bestemming | Status in WordPress | Let op |
+|---|---|---|---|---|
+| 1 | Wat kost AI-automatisering voor een mkb-bedrijf? | Prijsintentie → /ai-automatisering/ + /prijzen/ | Klaar (concept `wat-kost-ai-automatisering`) | Controleren en publiceren |
+| 2 | 10 bedrijfsprocessen die je met AI kunt automatiseren | Oriëntatie → /ai-automatisering/ + branches | Opzet (`welke-processen-automatiseren`) | Uitschrijven met de 7 processen van de pillar page plus 3 branchevoorbeelden |
+| 3 | AI-workshop voor bedrijven: wat leert jullie team? | Training → /ai-training/ en /ai-workshop/ | Nieuw | Programma en leerresultaten; niet dezelfde tekst als /ai-workshop/ |
+| 4 | AI implementeren in het mkb: stappenplan | Implementatie → /ai-implementatie-mkb/ | Niet als blog | De pagina /ai-implementatie-mkb/ dekt dit nu volledig; een blog met dezelfde titel concurreert ermee. Liever: "5 fouten bij het invoeren van AI" met link naar de pagina |
+| 5 | AI-agents vs. automatisering vs. chatbots | Keuzehulp → /ai-agents/ + /ai-automatisering/ | Opzet (`wat-zijn-ai-agents`) | Uitbreiden tot keuzehulp met voorbeelden |
+| 6 | AI in installatiebedrijven: 7 praktische toepassingen | Branche → /branches/installatie/ | Nieuw | Eigen voorbeelden en ervaring toevoegen |
+| 7 | AI in de bouw: van werkvoorbereiding tot oplevering | Branche → /branches/bouw/ | Nieuw | De branchepagina heeft nu bijna dezelfde titel: kies een andere hoek, bijvoorbeeld "Digitaal opleveren in de bouw: zo werkt het met AI" |
+| 8 | AI-geletterdheid: wat moet een werkgever regelen? | Compliance → /ai-training/ai-geletterdheid/ | Klaar (`ai-geletterdheid-ai-act-mkb`) | [CHECK]-punten controleren |
+
+**Contentstandaard (uit het actieplan):** direct antwoord bovenaan, eigen praktijkinzicht, concrete stappen, randvoorwaarden, FAQ, auteur en datum (staan automatisch bij elk artikel), 2–4 interne links. Gebruik AI als hulpmiddel, maar voeg eigen kennis, voorbeelden en factchecking toe; geen massaal gegenereerde blogs.
+
 ## Cluster 1: Lokale AI en kennis (hub: /veryo-collega/)
 
 | Prio | Titel | Zoekwoord | Status | Linkt naar |

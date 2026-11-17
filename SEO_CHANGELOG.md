@@ -1,5 +1,7 @@
 # SEO-changelog: thema 2.0.0 (SEO-proof)
 
+**2.2.0:** SEO-actieplan november 2026 verwerkt, zonder URL-wijzigingen (zie SEO_ACTIEPLAN_STATUS.md). Nieuwe optie om zelf aangepaste pagina's toch bij te werken.
+
 **2.1.1:** logo's verschijnen ook op pagina's die je zelf hebt aangepast (het thema voegt ze toe bij het tonen; de opgeslagen tekst blijft ongewijzigd).
 
 **2.1.0:** logostrook op de homepage, "Werkt met"-blokken op 42 dienst- en branchepagina's en de nieuwe pagina /tools-koppelingen/ (zie TOOLS.md).

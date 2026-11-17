@@ -40,6 +40,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'collega_regio' => 'friesland',
+				'answer_cta'    => array( __( 'Plan een kennismaking', 'veryo' ), '#vraag', 'amber' ),
 				'answer'        => __( 'Veryo is een AI-adviseur in Friesland, gevestigd in Leeuwarden. We helpen Friese MKB-bedrijven met AI-automatisering, AI-training en AI op maat, en komen daarvoor gewoon langs. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'       => array(
 					'h' => __( 'AI voor het Friese MKB, zonder poespas', 'veryo' ),
@@ -51,7 +52,7 @@ return array(
 				'photo'         => array( __( 'bedrijfspand op een Fries bedrijventerrein met een busje van een installateur ervoor', 'veryo' ), __( 'AI-adviseur in Friesland op bezoek bij een MKB-bedrijf', 'veryo' ), 'landschap' ),
 				'sections'      => array(
 					array(
-						'h'    => __( 'Sectoren die we in Friesland veel zien', 'veryo' ),
+						'h'    => __( 'Sectoren waar we in Friesland op focussen', 'veryo' ),
 						'list' => array(
 							'<strong>' . __( 'Bouw en installatie.', 'veryo' ) . '</strong> ' . __( 'Offertes, werkbonnen, meerwerk en planning. Vaak de plek met de meeste tijdwinst.', 'veryo' ),
 							'<strong>' . __( 'Agri en mechanisatie.', 'veryo' ) . '</strong> ' . __( 'Onderhoud en keuringen plannen, onderdelen bestellen en het seizoenswerk organiseren.', 'veryo' ),
@@ -60,13 +61,24 @@ return array(
 						),
 					),
 					array(
-						'h' => __( 'Een voorbeeld uit de praktijk', 'veryo' ),
+						'h' => __( 'Een voorbeeld van een toepassing', 'veryo' ),
 						'p' => array( __( 'Een recreatiebedrijf aan het IJsselmeer krijgt in het seizoen veel dezelfde vragen via mail en WhatsApp, deels in het Duits. Met een WhatsApp-assistent die antwoordt in de taal van de gast, en conceptantwoorden op mail, kan de receptie zich richten op de gasten aan de balie. Dit is een voorbeeld van wat kan, geen klantcase.', 'veryo' ) ),
 					),
 					array(
 						'h' => __( 'AI voor het mkb in Friesland: waar je begint', 'veryo' ),
 						'p' => array(
 							__( 'Voor de meeste Friese mkb-bedrijven is de eerste stap klein: een AI-workshop voor het team, of één automatisering voor het werk dat elke week terugkomt. Bedrijven die veel kennis in een paar hoofden hebben, kiezen voor Veryo Collega, een lokale AI-assistent die op het eigen kantoor draait. Vanuit Leeuwarden zijn we snel in Sneek, Heerenveen, Drachten of Harlingen voor een kennismaking.', 'veryo' ),
+						),
+					),
+					array(
+						'html' => veryo_sec_local(
+							__( 'Zo werken we in Friesland', 'veryo' ),
+							array(
+								__( 'Kennismaking bij jullie op kantoor, of eerst online als dat makkelijker is.', 'veryo' ),
+								__( 'Trainingen en workshops op jullie locatie, of in Leeuwarden.', 'veryo' ),
+								__( 'Inrichten en testen samen met jullie team, met korte lijnen via telefoon en mail.', 'veryo' ),
+								__( 'Geen reiskosten binnen Noord-Nederland.', 'veryo' ),
+							)
 						),
 					),
 					$veryo_places(
@@ -87,12 +99,15 @@ return array(
 					array( __( 'Kunnen berichten ook in het Duits of Fries?', 'veryo' ), __( 'Vertalen naar Duits en Engels werkt goed, handig voor toerisme en export. Fries is minder vanzelfsprekend voor AI-modellen; dat testen we per toepassing.', 'veryo' ) ),
 					array( __( 'Wat kost een AI-adviseur in Friesland?', 'veryo' ), __( 'De AI-scan is gratis. In Noord-Nederland rekenen we geen reiskosten. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
 				),
-				'cta'           => array( __( 'Friese ondernemer? Begin met de AI-scan', 'veryo' ), '' ),
+				'cta_demo'      => true,
+				'cta'           => array( __( 'Friese ondernemer? Maak kennis', 'veryo' ), __( 'Plan een gratis kennismaking, bij jullie op kantoor of online. Liever eerst zelf kijken? Doe dan de gratis AI-scan.', 'veryo' ) ),
 				'links'         => array(
 					array( 'leeuwarden', __( 'AI-training en automatisering in Leeuwarden', 'veryo' ), __( 'Onze thuisbasis', 'veryo' ) ),
 					array( 'branches/agri', __( 'AI in de landbouw', 'veryo' ), __( 'Voor agrarische bedrijven en mechanisatie', 'veryo' ) ),
 					array( 'branches/installatie', __( 'AI voor installateurs', 'veryo' ), __( 'Offertes, werkbonnen, storingen', 'veryo' ) ),
 					array( 'ai-training', __( 'AI-training voor bedrijven', 'veryo' ), __( 'Incompany, halve of hele dag', 'veryo' ) ),
+					array( 'ai-automatisering', __( 'AI-automatisering voor bedrijven', 'veryo' ), __( 'Welke processen je kunt automatiseren', 'veryo' ) ),
+					array( 'contact', __( 'Contact', 'veryo' ), __( 'Bel, mail of plan een afspraak', 'veryo' ) ),
 				),
 			)
 		),
@@ -264,6 +279,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'collega_regio' => 'leeuwarden',
+				'answer_cta'    => array( __( 'Plan een afspraak in Leeuwarden', 'veryo' ), '#vraag', 'amber' ),
 				'answer'        => __( 'Veryo geeft AI-training in Leeuwarden en helpt bedrijven in de stad met AI-automatisering. Leeuwarden is onze thuisbasis: trainingen doen we op een locatie in de stad of bij jou op kantoor. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'       => array(
 					'h' => __( 'Een AI-specialist in Leeuwarden, om de hoek', 'veryo' ),
@@ -285,6 +301,17 @@ return array(
 						'h' => __( 'AI-automatisering in Leeuwarden', 'veryo' ),
 						'p' => array( __( 'Na een training willen veel bedrijven direct iets toepassen. Een voorbeeld: een administratiekantoor in de binnenstad kan beginnen met gespreksverslagen die automatisch worden gemaakt en een assistent die klantdocumenten samenvat als voorbereiding. Een winkel of horecazaak begint vaak met reviews en social media. Omdat we om de hoek zitten, is een tussentijds overleg zo geregeld.', 'veryo' ) ),
 					),
+					array(
+						'html' => veryo_sec_local(
+							__( 'Zo werken we in Leeuwarden', 'veryo' ),
+							array(
+								__( 'Even langskomen voor een kort overleg kan, op afspraak: we zijn vaak onderweg.', 'veryo' ),
+								__( 'Trainingen bij jullie op kantoor of op een trainingslocatie in de stad.', 'veryo' ),
+								__( 'Een vervolgafspraak zonder reisdag: we zitten om de hoek.', 'veryo' ),
+								__( 'Na de training direct een eerste toepassing, zodat het geleerde blijft hangen.', 'veryo' ),
+							)
+						),
+					),
 					$veryo_places(
 						__( 'In en rond Leeuwarden komen we overal, ook voor een kort overleg. Vanuit Leeuwarden werken we ook voor bedrijven in Drachten, Heerenveen en Sneek.', 'veryo' ),
 						array( __( 'Binnenstad', 'veryo' ), __( 'Bedrijventerreinen De Zwette en Hemrik', 'veryo' ), 'Stiens', 'Grou', 'Dronryp', 'Wirdum' )
@@ -292,21 +319,23 @@ return array(
 				),
 				'catalog'       => array(
 					'h'   => __( 'Veelgevraagd in Leeuwarden', 'veryo' ),
-					'ids' => array( 'gespreksverslagen', 'documenten-samenvatten', 'reviews', 'social-captions', 'mail-concepten' ),
+					'ids' => array( 'gespreksverslagen', 'documenten-samenvatten', 'mail-concepten', 'inkoopfacturen', 'offerte-generator' ),
 				),
 				'price'         => array( 'steps' => array( 'startpakket', 'academy', 'training', 'quickwin' ) ),
 				'faq'           => array(
 					array( __( 'Waar in Leeuwarden geven jullie de training?', 'veryo' ), __( 'Bij jou op kantoor, of op onze trainingslocatie in Leeuwarden. Die trainingslocatie is op aanvraag: geef bij je aanvraag aan dat je die wilt gebruiken, dan regelen we de ruimte.', 'veryo' ) ),
 					array( __( 'Werken jullie alleen in Leeuwarden?', 'veryo' ), __( 'Nee. Leeuwarden is onze thuisbasis, maar we werken in heel Friesland, Groningen en Drenthe op locatie, en online in de rest van Nederland.', 'veryo' ) ),
-					array( __( 'Kan ik gewoon even langskomen?', 'veryo' ), __( 'Graag, maar maak even een afspraak, want we zijn vaak op locatie bij klanten.', 'veryo' ) ),
+					array( __( 'Kan ik gewoon even langskomen?', 'veryo' ), __( 'Graag, maar maak even een afspraak, want we zijn vaak onderweg.', 'veryo' ) ),
 					array( __( 'Wat kost een AI-training in Leeuwarden?', 'veryo' ), __( 'Mogelijk is er subsidie via de SLIM-regeling; openstellingsperiodes en voorwaarden wisselen, check de actuele situatie. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
 					array( __( 'Is er ook een open training voor losse deelnemers?', 'veryo' ), __( 'Op dit moment niet. Voor losse deelnemers komt er de online cursus van de Veryo Academy; zet je op de wachtlijst.', 'veryo' ) ),
 				),
-				'cta'           => array( __( 'Uit Leeuwarden? Begin met de gratis AI-scan', 'veryo' ), '' ),
+				'cta_demo'      => true,
+				'cta'           => array( __( 'Uit Leeuwarden? Kom kennismaken', 'veryo' ), __( 'Plan een gratis kennismaking bij jullie op kantoor of bij ons in de stad. Liever eerst zelf kijken? Doe de gratis AI-scan.', 'veryo' ) ),
 				'links'         => array(
 					array( 'ai-adviseur-friesland', __( 'AI-adviseur in Friesland', 'veryo' ), __( 'Voor de hele provincie', 'veryo' ) ),
 					array( 'ai-training', __( 'AI-training voor bedrijven', 'veryo' ), __( 'Alle trainingsvormen', 'veryo' ) ),
-					array( 'branches/horeca-retail', __( 'AI voor horeca en retail', 'veryo' ), __( 'Reviews en social', 'veryo' ) ),
+					array( 'branches/horeca-retail', __( 'AI voor horeca en retail', 'veryo' ), __( 'Telefoon en reserveringen', 'veryo' ) ),
+					array( 'contact', __( 'Contact', 'veryo' ), __( 'Bel, mail of plan een afspraak', 'veryo' ) ),
 					array( 'over-veryo', __( 'Over Veryo', 'veryo' ), __( 'Wie we zijn', 'veryo' ) ),
 				),
 			)

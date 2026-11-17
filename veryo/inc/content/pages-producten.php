@@ -18,7 +18,7 @@ $veryo_sp_parts = array(
 	'<strong>' . __( '30 dagen nazorg', 'veryo' ) . '</strong><br>' . __( 'Een maand lang een vast aanspreekpunt voor vragen uit het team. Aan het eind evalueren we samen: wat werkt, wat niet, en wat de logische volgende stappen zijn.', 'veryo' ),
 );
 
-$veryo_startpakket  = veryo_sec_answer( __( 'Het Veryo AI-Startpakket is de manier om AI in één keer goed en veilig in je bedrijf neer te zetten: een kansensessie met onafhankelijk advies, een training voor het hele team, een AI-beleid op maat, één toepassing die echt werkt en 30 dagen nazorg. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) );
+$veryo_startpakket  = veryo_sec_answer( __( 'Het Veryo AI-Startpakket is de manier om AI in één keer goed en veilig in je bedrijf neer te zetten: een kansensessie met onafhankelijk advies, een training voor het hele team, een AI-beleid op maat, één toepassing die echt werkt en 30 dagen nazorg. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ), array( __( 'Vraag het AI-Startpakket aan', 'veryo' ), '#vraag', 'amber' ) );
 $veryo_startpakket .= veryo_sec_text(
 	__( 'Iedereen moet iets met AI, maar wat gebeurt er nu al?', 'veryo' ),
 	array(

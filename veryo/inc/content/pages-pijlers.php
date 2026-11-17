@@ -93,7 +93,8 @@ $veryo_agents = veryo_page_standard(
 			__( 'Beschrijf een taak die steeds terugkomt. Je hoort binnen één werkdag of een AI-agent daar zinvol is.', 'veryo' ),
 			__( 'Bijvoorbeeld: alle inkomende storingsmeldingen sorteren en inplannen.', 'veryo' ),
 		),
-		'answer'      => __( 'Veryo bouwt AI-agents voor bedrijven: digitale collega’s die een terugkerende taak overnemen, zoals aanvragen beoordelen, inkoopfacturen verwerken of klantvragen beantwoorden, gekoppeld aan de software die je al gebruikt. Alleen als bestaande software het niet al oplost. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+		'answer_cta'  => array( __( 'Bespreek een taak voor een agent', 'veryo' ), '#vraag', 'amber' ),
+		'answer'      => __( 'Een AI-agent is een digitale collega die een terugkerende taak zelfstandig voorbereidt: hij leest, zoekt informatie op en voert een paar stappen uit in jullie eigen systemen, zoals een conceptmail klaarzetten of een aanvraag compleet maken. Veryo richt AI-agents voor bedrijven in bovenop de software die jullie al gebruiken, met een mens die goedkeurt wat ertoe doet. Jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 		'problem'     => array(
 			'h' => __( 'Werk dat elke dag hetzelfde gaat, maar net te veel denkwerk is voor een simpele regel', 'veryo' ),
 			'p' => array(
@@ -103,27 +104,101 @@ $veryo_agents = veryo_page_standard(
 		),
 		'photo'       => array( __( 'twee medewerkers aan het werk achter hun beeldschermen', 'veryo' ), __( 'AI-agents voor bedrijven: digitale collega’s naast je team', 'veryo' ), 'laptop' ),
 		'approach'    => true,
-		'catalog'     => array(
-			'h'   => __( 'Wat een digitale collega voor je kan doen', 'veryo' ),
-			'ids' => array( 'mail-concepten', 'whatsapp-assistent', 'offerte-generator', 'inkoopfacturen', 'planningsassistent', 'interne-assistent' ),
-		),
 		'sections'    => array(
+			array(
+				'h'     => __( 'Wat doet een AI-agent wel en niet zelfstandig?', 'veryo' ),
+				'p'     => array( __( 'Een agent werkt binnen grenzen die jullie samen met ons vastleggen.', 'veryo' ) ),
+				'list'  => array(
+					'<strong>' . __( 'Wel zelfstandig:', 'veryo' ) . '</strong> ' . __( 'lezen, sorteren, informatie opzoeken in jullie systemen, ontbrekende gegevens opvragen en een concept klaarzetten.', 'veryo' ),
+					'<strong>' . __( 'Met goedkeuring van een mens:', 'veryo' ) . '</strong> ' . __( 'iets versturen naar een klant, een afspraak definitief maken of gegevens wijzigen in de boekhouding.', 'veryo' ),
+					'<strong>' . __( 'Nooit zelfstandig:', 'veryo' ) . '</strong> ' . __( 'betalingen, afwijzingen, prijsafspraken en andere beslissingen met grote gevolgen.', 'veryo' ),
+				),
+				'style' => 'checks',
+			),
+			array(
+				'h' => __( 'AI-agent, chatbot of workflow: wat is het verschil?', 'veryo' ),
+				'p' => array(
+					sprintf(
+						/* translators: 1: link naar chatbot, 2: link naar AI-automatisering. */
+						__( 'Een <a href="%1$s">chatbot</a> beantwoordt vragen, bijvoorbeeld van klanten op jullie website. Een <a href="%2$s">workflow</a> volgt vaste stappen: als er een factuur binnenkomt, gaat hij naar de boekhouding. Een AI-agent combineert die twee: hij begrijpt een vraag of document, kiest de juiste vervolgstap en voert die uit in jullie systemen.', 'veryo' ),
+						esc_url( veryo_link( 'ai-op-maat/chatbot' ) ),
+						esc_url( veryo_link( 'ai-automatisering' ) )
+					),
+					__( 'Zijn de stappen altijd hetzelfde, dan is een workflow goedkoper en eenvoudiger. Een agent loont waar er gelezen, beoordeeld en gezocht moet worden.', 'veryo' ),
+				),
+			),
+			array(
+				'html' => veryo_sec_usecases(
+					__( 'Toepassingen van AI-agents in het mkb', 'veryo' ),
+					__( 'Vijf toepassingen die we het vaakst bespreken. Het zijn voorbeelden van werkwijzen, geen klantcases.', 'veryo' ),
+					veryo_sec_usecase(
+						__( 'E-mailconcepten', 'veryo' ),
+						__( 'de mailbox loopt vol met vragen die steeds op elkaar lijken.', 'veryo' ),
+						__( 'de agent leest de mail, zoekt de gegevens erbij en zet een conceptantwoord klaar in jullie eigen toon.', 'veryo' ),
+						__( 'Outlook of Gmail, en waar nodig CRM of planning.', 'veryo' ),
+						__( 'een medewerker leest en verstuurt het concept.', 'veryo' ),
+						__( 'minder typen en sneller antwoord; de omvang hangt af van het aantal mails.', 'veryo' ),
+						__( 'een gedeelde mailbox en duidelijke informatie over jullie aanbod.', 'veryo' )
+					)
+					. veryo_sec_usecase(
+						__( 'WhatsApp-assistent', 'veryo' ),
+						__( 'klanten of sollicitanten appen buiten kantoortijd en wachten op antwoord.', 'veryo' ),
+						__( 'de agent beantwoordt veelgestelde vragen, vraagt gegevens uit en plant een afspraak of belt-terugmoment in.', 'veryo' ),
+						__( 'WhatsApp Business en jullie agenda.', 'veryo' ),
+						__( 'lastige of gevoelige gesprekken gaan direct naar een collega.', 'veryo' ),
+						__( 'vooral snelheid en bereikbaarheid.', 'veryo' ),
+						__( 'een WhatsApp Business-account en afspraken over wat de assistent wel en niet zegt.', 'veryo' )
+					)
+					. veryo_sec_usecase(
+						__( 'Offertevoorbereiding', 'veryo' ),
+						__( 'aanvragen zijn half compleet en offertes kosten veel uitzoekwerk.', 'veryo' ),
+						__( 'de agent maakt de aanvraag compleet, zoekt vergelijkbare eerdere offertes en zet een conceptofferte klaar.', 'veryo' ),
+						__( 'mail, jullie prijslijst en het offerte- of boekhoudpakket.', 'veryo' ),
+						__( 'de verkoper controleert prijzen en voorwaarden voordat de offerte de deur uitgaat.', 'veryo' ),
+						__( 'minder uitzoekwerk per offerte; dat rekenen we vooraf uit.', 'veryo' ),
+						__( 'een actuele prijslijst en eerdere offertes als voorbeeld.', 'veryo' )
+					)
+					. veryo_sec_usecase(
+						__( 'Documenten zoeken', 'veryo' ),
+						__( 'collega’s zoeken lang naar contracten, handleidingen of eerdere projecten.', 'veryo' ),
+						__( 'de agent zoekt op betekenis in jullie mappen en geeft het antwoord met de bron erbij.', 'veryo' ),
+						__( 'SharePoint, Google Drive of een netwerkschijf.', 'veryo' ),
+						__( 'de bron staat erbij, zodat de collega het zelf kan nagaan.', 'veryo' ),
+						__( 'minder zoeken, vooral voor nieuwe collega’s.', 'veryo' ),
+						__( 'documenten zijn actueel en rechten per medewerker zijn geregeld.', 'veryo' )
+					)
+					. veryo_sec_usecase(
+						__( 'Interne kennisassistent', 'veryo' ),
+						__( 'kennis zit in de hoofden van een paar ervaren collega’s.', 'veryo' ),
+						sprintf(
+							/* translators: %s: link naar Veryo Collega. */
+							__( 'een assistent beantwoordt vragen uit jullie eigen werkinstructies en documenten. Met <a href="%s">Veryo Collega</a> draait dat volledig lokaal, op jullie eigen kantoor.', 'veryo' ),
+							esc_url( veryo_collega_url() )
+						),
+						__( 'jullie documenten, met lokale AI of een zakelijke cloud-AI.', 'veryo' ),
+						__( 'bij belangrijke beslissingen controleert een collega de bron.', 'veryo' ),
+						__( 'minder vragen aan dezelfde ervaren collega’s.', 'veryo' ),
+						__( 'een eigenaar die de kennis actueel houdt.', 'veryo' )
+					)
+				),
+			),
+			array(
+				'h'     => __( 'Goedkeuring, rechten en foutafhandeling', 'veryo' ),
+				'list'  => array(
+					'<strong>' . __( 'Menselijke goedkeuring:', 'veryo' ) . '</strong> ' . __( 'per stap leggen we vast wat de agent zelf mag en waar een mens goedkeurt.', 'veryo' ),
+					'<strong>' . __( 'Toegangsrechten:', 'veryo' ) . '</strong> ' . __( 'de agent krijgt alleen toegang tot de systemen en gegevens die hij voor de taak nodig heeft.', 'veryo' ),
+					'<strong>' . __( 'Logging:', 'veryo' ) . '</strong> ' . __( 'alles wat de agent doet, staat in een logboek, zodat jullie kunnen nagaan wat er is gebeurd.', 'veryo' ),
+					'<strong>' . __( 'Foutafhandeling:', 'veryo' ) . '</strong> ' . __( 'twijfelt de agent of lukt een stap niet, dan gaat de taak naar een collega in plaats van dat hij gokt.', 'veryo' ),
+					'<strong>' . __( 'Grenzen:', 'veryo' ) . '</strong> ' . __( 'taken die een paar keer per jaar voorkomen of grote gevolgen hebben, laten we bij mensen.', 'veryo' ),
+				),
+				'style' => 'checks',
+			),
 			array(
 				'h' => __( 'AI-agent laten bouwen: hoe dat bij Veryo gaat', 'veryo' ),
 				'p' => array(
 					__( 'We beginnen met één taak, niet met een groot plan. Samen beschrijven we hoe die taak nu gaat, stap voor stap, en waar de beslismomenten zitten. Dan kijken we eerst of software die je al hebt of kunt nemen het kan. Pas als dat niet zo is, bouwen we een agent.', 'veryo' ),
 					__( 'Een agent draait in je eigen accounts, met een logboek van alles wat hij doet en een vaste eigenaar bij jou. We testen eerst met echte gegevens in een proefperiode, waarin een medewerker elke uitkomst controleert. Pas als het betrouwbaar werkt, gaat hij zelfstandiger aan de slag.', 'veryo' ),
 				),
-			),
-			array(
-				'h'     => __( 'Wat een AI-agent niet doet', 'veryo' ),
-				'list'  => array(
-					__( 'Beslissingen met grote gevolgen, zoals iemand afwijzen of een betaling doen, laat een agent altijd aan een mens over.', 'veryo' ),
-					__( 'Klantgerichte teksten gaan langs een mens voordat ze worden verstuurd, zeker in het begin.', 'veryo' ),
-					__( 'Taken die een paar keer per jaar voorkomen, automatiseren we niet; dat levert te weinig op.', 'veryo' ),
-					__( 'Een agent vervangt geen medewerker. Hij haalt werk weg dat niemand graag doet.', 'veryo' ),
-				),
-				'style' => 'checks',
 			),
 			array(
 				'h' => __( 'Digitale medewerker met AI: een voorbeeld', 'veryo' ),
@@ -146,11 +221,14 @@ $veryo_agents = veryo_page_standard(
 			array( __( 'Waarom is onderhoud verplicht?', 'veryo' ), __( 'Software verandert. Als een pakket een update krijgt, kan een koppeling stoppen. Met onderhoud bewaken we dat en lossen we het op voordat je het merkt.', 'veryo' ) ),
 			array( __( 'Gaan onze gegevens naar een AI-dienst?', 'veryo' ), __( 'Alleen wat nodig is voor de taak, via zakelijke API’s waarbij je gegevens niet worden gebruikt om modellen te trainen. Bij persoonsgegevens sluiten we een verwerkersovereenkomst.', 'veryo' ) ),
 		),
+		'cta_demo'    => true,
+		'cta'         => array( __( 'Welke taak zou jullie digitale collega oppakken?', 'veryo' ), __( 'Plan een gratis adviesgesprek. We bekijken één taak en vertellen eerlijk of een agent, een workflow of een chatbot het beste past.', 'veryo' ) ),
 		'links'       => array(
 			array( 'ai-automatisering', __( 'AI-automatisering voor het MKB', 'veryo' ), __( 'Alles wat er mogelijk is, per afdeling', 'veryo' ) ),
-			array( 'ai-op-maat', __( 'AI op maat', 'veryo' ), __( 'Chatbots en assistenten', 'veryo' ) ),
+			array( 'ai-op-maat/chatbot', __( 'AI-chatbot laten maken', 'veryo' ), __( 'Vragen beantwoorden op jullie website', 'veryo' ) ),
+			array( veryo_collega()['slug'], __( 'Veryo Collega', 'veryo' ), __( 'Interne kennisassistent, volledig lokaal', 'veryo' ) ),
+			array( 'branches', __( 'AI per branche', 'veryo' ), __( 'Toepassingen per sector', 'veryo' ) ),
 			array( 'branches/installatie', __( 'AI voor installateurs', 'veryo' ), __( 'Storingen, werkbonnen en offertes', 'veryo' ) ),
-			array( 'ai-adviseur-drenthe', __( 'AI-adviseur in Drenthe', 'veryo' ), __( 'Op locatie in het noorden', 'veryo' ) ),
 		),
 	)
 );
@@ -390,16 +468,17 @@ return array(
 		'content'   => $veryo_werkplek,
 	),
 	'ai-agents'                => array(
-		'title'     => __( 'Digitale collega’s: AI-agents voor je bedrijf', 'veryo' ),
-		'seo_title' => __( 'AI-agents voor bedrijven: digitale collega’s | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-agents voor bedrijven: digitale collega’s die terugkerend werk overnemen, gekoppeld aan de software die je al gebruikt. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'ai agents voor bedrijven',
-		'schema'    => array(
+		'title'       => __( 'AI-agents voor bedrijven: digitale collega’s op maat', 'veryo' ),
+		'force_title' => true,
+		'seo_title'   => __( 'AI-agents voor bedrijven: digitale collega’s op maat | Veryo', 'veryo' ),
+		'desc'        => __( 'Wat doet een AI-agent voor jullie bedrijf? Voorbeelden, het verschil met een chatbot en hoe goedkeuring en rechten geregeld zijn. Bespreek een taak.', 'veryo' ),
+		'kw'          => 'ai agents voor bedrijven',
+		'schema'      => array(
 			'type' => 'service',
 			'min'  => 2500,
 			'max'  => 25000,
 		),
-		'content'   => $veryo_agents,
+		'content'     => $veryo_agents,
 	),
 	'veilig-ai-gebruik'        => array(
 		'title'     => __( 'Veilig AI gebruiken in je bedrijf', 'veryo' ),
