@@ -31,6 +31,12 @@ function veryo_content_pages() {
 	foreach ( array( 'pages-main', 'pages-training', 'pages-tools', 'pages-collega', 'pages-producten', 'pages-oplossingen', 'pages-pijlers', 'pages-automatisering', 'pages-opmaat', 'pages-regio', 'pages-branches', 'pages-landing', 'pages-legal' ) as $file ) {
 		$pages = array_merge( $pages, require VERYO_DIR . '/inc/content/' . $file . '.php' );
 	}
+	// Contextuele interne links (zie inc/tools-registry.php).
+	foreach ( veryo_context_links() as $path => $text ) {
+		if ( isset( $pages[ $path ] ) ) {
+			$pages[ $path ]['content'] = veryo_insert_context_links( $pages[ $path ]['content'], $text, veryo_context_links_anchor( $path ) );
+		}
+	}
 	// "Werkt met"-blok op dienst- en branchepagina's (zie inc/tools-registry.php).
 	foreach ( veryo_page_tools() as $path => $tools ) {
 		if ( isset( $pages[ $path ] ) ) {

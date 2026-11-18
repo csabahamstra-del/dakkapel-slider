@@ -65,7 +65,7 @@ $veryo_startpakket .= veryo_sec_ongoing( 'bijblijven' );
 $veryo_startpakket .= veryo_sec_text(
 	__( 'Het AI-Startpakket en de AI Act', 'veryo' ),
 	array(
-		__( 'Sinds 2 februari 2025 verplicht de Europese AI Act (artikel 4) organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers. Dat geldt ook voor het MKB, en ook als het “alleen” om ChatGPT of Copilot gaat.', 'veryo' ),
+		__( 'Artikel 4 van de Europese AI Act geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend. Dat geldt ook voor het MKB, en ook als het “alleen” om ChatGPT of Copilot gaat.', 'veryo' ),
 		__( 'De wet schrijft geen vast programma voor. De training en het AI-beleid uit het Startpakket zijn concrete stappen om daaraan te werken: medewerkers weten wat AI kan en wat niet, en er zijn afspraken over veilig gebruik. Je krijgt een deelnameoverzicht voor je eigen dossier.', 'veryo' ),
 	)
 );

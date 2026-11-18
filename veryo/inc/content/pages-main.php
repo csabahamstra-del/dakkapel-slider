@@ -14,7 +14,7 @@ $veryo_home_faq = array(
 	array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo is geen IT-bedrijf: we doen geen algemeen IT-beheer, netwerken, helpdesk of storingsdienst. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. We werken wel prettig samen met je vaste IT-beheerder, bijvoorbeeld bij het inrichten van Copilot of het op orde brengen van toegangsrechten.', 'veryo' ) ),
 	array( __( 'Is het veilig met onze gegevens?', 'veryo' ), __( 'We werken met zakelijke versies en API’s waarbij je gegevens niet worden gebruikt om AI-modellen te trainen. Bij persoonsgegevens sluiten we een verwerkersovereenkomst. Jij blijft eigenaar van je data, en in het AI-beleid leggen we vast welke gegevens nooit in een AI-tool mogen.', 'veryo' ) ),
 	array( __( 'Moeten wij zelf technisch zijn?', 'veryo' ), __( 'Nee. Wij adviseren, richten in en koppelen. Jij en je team werken in de software die je al kent, en in de training leer je hoe je er goed mee omgaat. We leggen uit wie waarvoor aanspreekpunt is.', 'veryo' ) ),
-	array( __( 'Wat is de AI-geletterdheidsplicht?', 'veryo' ), __( 'Sinds 2 februari 2025 verplicht de Europese AI Act (artikel 4) organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers. Dat betekent dat mensen die met AI werken moeten snappen wat het kan, wat niet en waar de risico’s zitten. Een training is een praktische manier om daaraan te werken.', 'veryo' ) ),
+	array( __( 'Wat is de AI-geletterdheidsplicht?', 'veryo' ), __( 'Artikel 4 van de Europese AI Act geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend. Dat betekent dat mensen die met AI werken moeten snappen wat het kan, wat niet en waar de risico’s zitten. Een training is een praktische manier om daaraan te werken.', 'veryo' ) ),
 	array( __( 'Werken jullie ook buiten Noord-Nederland?', 'veryo' ), __( 'Ja. We zitten in Leeuwarden en komen in Friesland, Groningen en Drenthe op locatie. Trainingen en online diensten doen we ook in de rest van Nederland, op locatie of online.', 'veryo' ) ),
 );
 
@@ -544,7 +544,7 @@ $veryo_training = veryo_page_standard(
 				'p' => array(
 					sprintf(
 						/* translators: %s: link naar AI-geletterdheid. */
-						__( 'Sinds 2 februari 2025 verplicht de Europese AI Act (artikel 4) organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers. Elke training van Veryo besteedt aandacht aan veilig en verantwoord gebruik, en jullie krijgen een deelnameoverzicht voor het eigen dossier. Wil je daar specifiek op inzetten, kijk dan bij de <a href="%s">AI-geletterdheid training</a>.', 'veryo' ),
+						__( 'Artikel 4 van de Europese AI Act geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend. Elke training van Veryo besteedt aandacht aan veilig en verantwoord gebruik, en jullie krijgen een deelnameoverzicht voor het eigen dossier. Wil je daar specifiek op inzetten, kijk dan bij de <a href="%s">AI-geletterdheid training</a>.', 'veryo' ),
 						esc_url( veryo_link( 'ai-training/ai-geletterdheid' ) )
 					),
 				),
@@ -564,7 +564,7 @@ $veryo_training = veryo_page_standard(
 			array( __( 'Voor wie is de AI-training bedoeld?', 'veryo' ), __( 'Voor iedereen in jullie bedrijf die met AI werkt of gaat werken: van kantoor en planning tot de directie. Voorkennis is niet nodig. We stemmen de oefeningen af op de functies in de groep.', 'veryo' ) ),
 			array( __( 'Hoeveel mensen kunnen meedoen?', 'veryo' ), __( 'Tot twintig personen per sessie. Bij grotere groepen splitsen we op, zodat iedereen zelf kan oefenen.', 'veryo' ) ),
 			array( __( 'Wat is het verschil tussen een AI-training en een AI-workshop?', 'veryo' ), __( 'Een workshop is een dagdeel met de basis voor het hele team. Een training kan langer zijn en dieper ingaan op eigen werkprocessen, per afdeling of rol.', 'veryo' ) ),
-			array( __( 'Voldoen we na de training aan de AI-geletterdheidsplicht?', 'veryo' ), __( 'De training is een concrete stap om te zorgen voor voldoende AI-geletterdheid, zoals artikel 4 van de AI Act vraagt. Jullie krijgen een deelnameoverzicht voor het eigen dossier. Wat voldoende is, hangt af van hoe jullie AI inzetten; dat bespreken we vooraf. Een training is geen juridische garantie.', 'veryo' ) ),
+			array( __( 'Voldoen we na de training aan de AI-geletterdheidsplicht?', 'veryo' ), __( 'De training is een concrete maatregel die de AI-geletterdheid van jullie medewerkers ondersteunt, zoals artikel 4 van de AI Act vraagt. Jullie krijgen een deelnameoverzicht voor het eigen dossier. Wat voldoende is, hangt af van hoe jullie AI inzetten; dat bespreken we vooraf. Een training is geen juridische garantie.', 'veryo' ) ),
 			array( __( 'Kunnen we de training online volgen?', 'veryo' ), __( 'Ja. Op locatie werkt meestal beter voor de interactie, maar online kan ook, bijvoorbeeld voor teams op meerdere vestigingen.', 'veryo' ) ),
 			array( __( 'Wat gebeurt er nadat we een training aanvragen?', 'veryo' ), __( 'Binnen één werkdag nemen we contact op. We stellen een paar vragen over jullie team en tools, en sturen een voorstel met opzet, datum en vaste prijs.', 'veryo' ) ),
 		),
@@ -594,7 +594,7 @@ $veryo_literacy = veryo_page_standard(
 		'problem'    => array(
 			'h' => __( 'Wat vraagt de AI Act van je als werkgever?', 'veryo' ),
 			'p' => array(
-				__( 'Sinds 2 februari 2025 verplicht de Europese AI Act (artikel 4) organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers. Dat geldt ook voor het MKB, en ook als het “alleen” om ChatGPT of Copilot gaat.', 'veryo' ),
+				__( 'Artikel 4 van de Europese AI Act geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend. Dat geldt ook voor het MKB, en ook als het “alleen” om ChatGPT of Copilot gaat.', 'veryo' ),
 				__( 'De wet schrijft geen vast lesprogramma voor. Wat voldoende is, hangt af van hoe je AI gebruikt, wie ermee werkt en welke risico’s daarbij horen. Een medewerker die AI gebruikt om klantmails te beantwoorden, moet andere dingen weten dan iemand die er een marketingtekst mee schrijft.', 'veryo' ),
 			),
 		),
@@ -635,7 +635,7 @@ $veryo_literacy = veryo_page_standard(
 			array(
 				'h'     => __( 'Wat de training wel en niet garandeert', 'veryo' ),
 				'list'  => array(
-					'<strong>' . __( 'Wel:', 'veryo' ) . '</strong> ' . __( 'een concrete, vastgelegde stap om te zorgen voor voldoende AI-geletterdheid, afgestemd op hoe jullie AI gebruiken.', 'veryo' ),
+					'<strong>' . __( 'Wel:', 'veryo' ) . '</strong> ' . __( 'een concrete, vastgelegde maatregel die de AI-geletterdheid van jullie medewerkers ondersteunt, afgestemd op hoe jullie AI gebruiken.', 'veryo' ),
 					'<strong>' . __( 'Wel:', 'veryo' ) . '</strong> ' . __( 'medewerkers die weten wat ze wel en niet in AI zetten en hoe ze uitkomsten controleren.', 'veryo' ),
 					'<strong>' . __( 'Niet:', 'veryo' ) . '</strong> ' . __( 'een juridische garantie dat jullie aan de AI Act voldoen. Wat voldoende is, hangt af van jullie gebruik en risico’s; twijfelen jullie, vraag dan een jurist mee te kijken.', 'veryo' ),
 					'<strong>' . __( 'Niet:', 'veryo' ) . '</strong> ' . __( 'een eenmalige oplossing. Bij nieuwe tools en nieuwe collega’s is een update verstandig.', 'veryo' ),
@@ -1020,8 +1020,8 @@ $veryo_thanks .= veryo_sec_links(
 return array(
 	''                             => array(
 		'title'     => __( 'AI die echt werkt', 'veryo' ),
-		'seo_title' => __( 'Veryo | AI-partner en lokale AI-assistent voor het mkb', 'veryo' ),
-		'desc'      => __( 'Veryo is de nuchtere AI-partner voor het mkb uit Leeuwarden: Veryo Collega, de lokale AI-assistent, plus AI-trainingen en automatisering. Plan een demo.', 'veryo' ),
+		'seo_title' => __( 'AI voor het mkb in Noord-Nederland | Veryo Leeuwarden', 'veryo' ),
+		'desc'      => __( 'Nuchtere AI-partner uit Leeuwarden: AI-training, automatisering en een lokale AI-assistent voor het mkb in Noord-Nederland. Doe de gratis AI-scan.', 'veryo' ),
 		'kw'        => 'ai bureau mkb',
 		'meta'      => array( 'hide_title' => 1 ),
 		'content'   => $veryo_home,
@@ -1050,8 +1050,8 @@ return array(
 	'ai-implementatie-mkb'         => array(
 		'title'       => __( 'AI implementeren in het mkb: praktische begeleiding van plan tot uitrol', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'AI implementeren in het mkb | Praktische begeleiding | Veryo', 'veryo' ),
-		'desc'        => __( 'AI implementeren in het mkb: van inventarisatie en toolselectie via pilot en training naar uitrol, met afspraken over privacy. Plan een kennismaking.', 'veryo' ),
+		'seo_title'   => __( 'AI implementeren in het mkb: stappenplan | Veryo', 'veryo' ),
+		'desc'        => __( 'AI implementeren in 5 stappen: inventarisatie, toolkeuze, pilot, training en uitrol, met afspraken over privacy. Praktisch voor het mkb.', 'veryo' ),
 		'kw'          => 'ai implementatie mkb',
 		'schema'      => array(
 			'type' => 'service',
@@ -1063,8 +1063,8 @@ return array(
 	'ai-training'                  => array(
 		'title'       => __( 'AI-training voor bedrijven: leer AI praktisch inzetten op de werkvloer', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'AI-training voor bedrijven | Praktische AI-workshops | Veryo', 'veryo' ),
-		'desc'        => __( 'Train jullie team om AI praktisch en verantwoord te gebruiken. Veryo verzorgt zakelijke AI-trainingen en workshops, afgestemd op jullie werkprocessen.', 'veryo' ),
+		'seo_title'   => __( 'AI-training voor bedrijven: praktisch en op locatie | Veryo', 'veryo' ),
+		'desc'        => __( 'Een trainingstraject waarin je team AI leert inzetten in het eigen werk: van basis tot geavanceerd, met oefeningen uit jullie praktijk. Gratis offerte.', 'veryo' ),
 		'kw'          => 'ai training voor bedrijven',
 		'schema'      => array(
 			'course' => array( 'onsite', 'online' ),
@@ -1092,6 +1092,7 @@ return array(
 		'seo_title' => __( 'Online AI-cursus voor beginners: wachtlijst | Veryo', 'veryo' ),
 		'desc'      => __( 'Online AI-cursus voor beginners van de Veryo Academy: korte modules van 10–15 minuten met oefeningen. Binnenkort beschikbaar, zet je nu op de wachtlijst.', 'veryo' ),
 		'kw'        => 'ai cursus online',
+		'meta'      => array( 'noindex' => 1 ),
 		'schema'    => array( 'course' => array( 'online' ) ),
 		'content'   => $veryo_academy,
 	),

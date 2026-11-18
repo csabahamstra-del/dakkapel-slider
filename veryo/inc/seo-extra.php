@@ -54,7 +54,7 @@ add_action( 'wp_head', 'veryo_theme_color', 2 );
  * @return bool
  */
 function veryo_is_thin_archive() {
-	if ( is_search() || is_author() || is_tag() || is_date() || is_attachment() ) {
+	if ( is_search() || is_author() || is_tag() || is_date() || is_attachment() || veryo_kennis_archive_empty() ) {
 		return true;
 	}
 	if ( is_category() ) {
@@ -221,3 +221,29 @@ function veryo_sitemap_taxonomies( $taxonomies ) {
 	return $taxonomies;
 }
 add_filter( 'wp_sitemaps_taxonomies', 'veryo_sitemap_taxonomies' );
+
+/*
+ * Sitemap, sitenaam en Open Graph met Rank Math
+ */
+
+/**
+ * Beheert Rank Math de sitemap, dan staat de sitemap van WordPress zelf uit. Anders zijn er
+ * twee sitemaps met verschillende inhoud.
+ *
+ * @param bool $enabled Aan of uit.
+ * @return bool
+ */
+function veryo_core_sitemaps_enabled( $enabled ) {
+	return class_exists( 'RankMath' ) ? false : $enabled;
+}
+add_filter( 'wp_sitemaps_enabled', 'veryo_core_sitemaps_enabled', 20 );
+
+/**
+ * De merknaam "Veryo" als og:site_name, ook als de sitenaam in WordPress anders is.
+ *
+ * @return string
+ */
+function veryo_rank_math_site_name() {
+	return veryo_company()['name'];
+}
+add_filter( 'rank_math/opengraph/facebook/og_site_name', 'veryo_rank_math_site_name' );

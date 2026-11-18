@@ -88,7 +88,7 @@ $veryo_workshop = veryo_page_standard(
 			array( __( 'Hoeveel collega’s kunnen meedoen?', 'veryo' ), __( 'Tot twintig per sessie. Bij grotere groepen splitsen we op, zodat iedereen zelf kan oefenen.', 'veryo' ) ),
 			array( __( 'Geven jullie ook een AI-workshop in Groningen?', 'veryo' ), __( 'Ja. We komen in de stad Groningen en de rest van de provincie op locatie, net als in Friesland en Drenthe.', 'veryo' ) ),
 			array( __( 'Is voorkennis nodig?', 'veryo' ), __( 'Nee. We stemmen de oefeningen af op wat collega’s al weten. Wie al veel met AI doet, krijgt lastigere opdrachten.', 'veryo' ) ),
-			array( __( 'Telt de workshop mee voor de AI-geletterdheid uit de AI Act?', 'veryo' ), __( 'De workshop is een concrete stap om te zorgen voor voldoende AI-geletterdheid, zoals artikel 4 van de AI Act vraagt. Je krijgt een deelnamebevestiging. Voor een volledige aanpak is er de AI-geletterdheid training.', 'veryo' ) ),
+			array( __( 'Telt de workshop mee voor de AI-geletterdheid uit de AI Act?', 'veryo' ), __( 'De workshop is een concrete maatregel die de AI-geletterdheid van jullie medewerkers ondersteunt, zoals artikel 4 van de AI Act vraagt. Je krijgt een deelnamebevestiging. Voor een volledige aanpak is er de AI-geletterdheid training.', 'veryo' ) ),
 			array( __( 'Kan de workshop online?', 'veryo' ), __( 'Ja, voor teams buiten Noord-Nederland of op meerdere vestigingen. Op locatie werkt meestal beter voor de interactie.', 'veryo' ) ),
 		),
 		'cta_demo' => true,
@@ -178,8 +178,8 @@ $veryo_sales = veryo_page_standard(
 return array(
 	'ai-workshop'                            => array(
 		'title'     => __( 'AI-workshop voor bedrijven', 'veryo' ),
-		'seo_title' => __( 'AI-workshop voor bedrijven: praktisch, op locatie | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-workshop voor bedrijven: in een dagdeel aan de slag met AI, met taken uit jullie eigen werk. Op locatie of online. Plan een gratis kennismaking.', 'veryo' ),
+		'seo_title' => __( 'AI-workshop voor teams: één dagdeel, eigen taken | Veryo', 'veryo' ),
+		'desc'      => __( 'In één dagdeel aan de slag met AI, met taken uit jullie eigen werk. Op locatie in Noord-Nederland of online. Plan een gratis kennismaking.', 'veryo' ),
 		'kw'        => 'ai workshop bedrijven',
 		'schema'    => array(
 			'type'   => 'service',

@@ -54,16 +54,16 @@ return array(
 		'desc'      => __( 'AI-geletterdheid onder de AI Act: wat artikel 4 van werkgevers vraagt, voor wie het geldt en hoe je het in het mkb praktisch regelt. Met checklist.', 'veryo' ),
 		'kw'        => 'ai geletterdheid werkgever',
 		'content'   => $veryo_g_article(
-			__( 'alle met [CHECK] gemarkeerde feiten over de AI Act, het toezicht en het Digital Omnibus-voorstel bij de officiële bronnen hieronder; de status van het Omnibus-voorstel kan sindsdien veranderd zijn.', 'veryo' ),
+			__( 'alle met [CHECK] gemarkeerde feiten over de AI Act, de Digital Omnibus en het toezicht bij de officiële bronnen hieronder, vooral de letterlijke tekst van het gewijzigde artikel 4 op EUR-Lex.', 'veryo' ),
 			array(
-				__( 'Kort antwoord: sinds 2 februari 2025 moeten organisaties die AI-systemen gebruiken, zorgen dat hun medewerkers voldoende AI-geletterd zijn. Dat staat in artikel 4 van de Europese AI-verordening, de AI Act. Gebruiken jullie collega’s ChatGPT, Copilot of een andere AI-tool voor hun werk, dan geldt dit vrijwel zeker ook voor jullie. De wet schrijft geen vaste cursus of certificaat voor. Je moet kunnen laten zien dat je er serieus werk van hebt gemaakt, passend bij hoe jullie AI gebruiken. [CHECK]', 'veryo' ),
-				__( 'In dit artikel lees je wat er precies in de wet staat, wat “voldoende” betekent voor een mkb-bedrijf, hoe je het in een paar stappen regelt en wat je beter niet kunt doen. Het is geen juridisch advies: twijfel je over je eigen situatie, vraag dan een jurist mee te kijken.', 'veryo' ),
+				__( 'Kort antwoord: artikel 4 van de Europese AI-verordening, de AI Act, geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend. Gebruiken jullie collega’s ChatGPT, Copilot of een andere AI-tool voor hun werk, dan geldt dit vrijwel zeker ook voor jullie. De wet schrijft geen vaste cursus of certificaat voor. Je moet kunnen laten zien dat je er serieus werk van hebt gemaakt, passend bij hoe jullie AI gebruiken. [CHECK]', 'veryo' ),
+				__( 'In dit artikel lees je wat er precies in de wet staat, welke maatregelen passen bij een mkb-bedrijf, hoe je het in een paar stappen regelt en wat je beter niet kunt doen. Het is geen juridisch advies: twijfel je over je eigen situatie, vraag dan een jurist mee te kijken.', 'veryo' ),
 			),
 			array(
 				array(
 					__( 'Wat staat er in artikel 4 van de AI Act?', 'veryo' ),
 					array(
-						__( 'Artikel 4 is kort. Aanbieders en gebruiksverantwoordelijken van AI-systemen nemen maatregelen om, zoveel als mogelijk, te zorgen voor een toereikend niveau van AI-geletterdheid bij hun personeel en bij anderen die namens hen met AI-systemen werken. Daarbij houden ze rekening met de technische kennis, ervaring, opleiding en achtergrond van die mensen, en met de context waarin de AI wordt gebruikt. [CHECK: letterlijke tekst in de Nederlandse versie van Verordening (EU) 2024/1689]', 'veryo' ),
+						__( 'Artikel 4 is kort. In de oorspronkelijke tekst moesten aanbieders en gebruiksverantwoordelijken zoveel als mogelijk zorgen voor een toereikend niveau van AI-geletterdheid bij hun personeel. Sinds de Digital Omnibus (Verordening (EU) 2026/1744, van kracht sinds 27 juli 2026) moeten ze maatregelen nemen die de ontwikkeling van AI-geletterdheid ondersteunen, bij hun personeel en bij anderen die namens hen met AI-systemen werken. Een bepaald niveau per persoon hoeft niet gegarandeerd te worden. [CHECK: letterlijke tekst van het gewijzigde artikel 4 op EUR-Lex]', 'veryo' ),
 						__( 'Een “gebruiksverantwoordelijke” is in gewone taal: de organisatie die een AI-systeem onder eigen verantwoordelijkheid gebruikt. Dat is dus niet alleen het techbedrijf dat de AI bouwt, maar ook de installateur, het accountantskantoor of de beveiliger waarvan de medewerkers AI-tools inzetten in hun werk.', 'veryo' ),
 						__( 'AI-geletterdheid zelf omschrijft de AI Act als de vaardigheden, kennis en het begrip om AI-systemen geïnformeerd in te zetten en je bewust te zijn van de kansen, de risico’s en de mogelijke schade. [CHECK: definitie in artikel 3, punt 56]', 'veryo' ),
 					),
@@ -85,10 +85,10 @@ return array(
 					),
 				),
 				array(
-					__( 'Wat is “voldoende” AI-geletterdheid?', 'veryo' ),
+					__( 'Welke maatregelen zijn genoeg?', 'veryo' ),
 					array(
-						__( 'De wet noemt geen aantal uren, geen examen en geen verplicht certificaat. Wat voldoende is, hangt af van wie de AI gebruikt, waarvoor en met welke risico’s. Een receptionist die af en toe een mail laat herschrijven, heeft andere kennis nodig dan een HR-medewerker die AI gebruikt bij het selecteren van sollicitanten.', 'veryo' ),
-						__( 'De Europese Commissie heeft in een vraag-en-antwoorddocument laten weten dat een certificaat niet nodig is en dat een interne registratie van trainingen en maatregelen kan volstaan. [CHECK: AI Literacy Q&A van de Europese Commissie] In de praktijk komt “voldoende” neer op drie dingen:', 'veryo' ),
+						__( 'De wet noemt geen aantal uren, geen examen en geen verplicht certificaat. Welke maatregelen passen, hangt af van wie de AI gebruikt, waarvoor en met welke risico’s. Een receptionist die af en toe een mail laat herschrijven, heeft andere kennis nodig dan een HR-medewerker die AI gebruikt bij het selecteren van sollicitanten.', 'veryo' ),
+						__( 'De Europese Commissie heeft in een vraag-en-antwoorddocument laten weten dat een certificaat niet nodig is en dat een interne registratie van trainingen en maatregelen kan volstaan. [CHECK: AI Literacy Q&A van de Europese Commissie] In de praktijk komen goede maatregelen neer op drie dingen:', 'veryo' ),
 					),
 					array(
 						'<strong>' . __( 'Kennis:', 'veryo' ) . '</strong> ' . __( 'collega’s weten wat AI kan, waar het de mist in gaat en waarom een antwoord dat overtuigend klinkt toch onjuist kan zijn.', 'veryo' ),
@@ -116,8 +116,8 @@ return array(
 					array(
 						__( 'De plicht geldt sinds 2 februari 2025. Het toezicht door nationale toezichthouders komt later op gang: de regels voor toezicht en sancties gelden vanaf 2 augustus 2026. In Nederland is de Autoriteit Persoonsgegevens aangewezen als coördinerend toezichthouder op algoritmes en AI; welke toezichthouder precies op artikel 4 let, was bij het schrijven nog niet volledig uitgewerkt. [CHECK: actuele stand van de Nederlandse uitvoeringswet]', 'veryo' ),
 						__( 'De AI Act noemt in het boeteartikel geen aparte boete voor artikel 4. Dat betekent niet dat het vrijblijvend is: gaat er iets mis met AI, bijvoorbeeld een datalek of een verkeerde beslissing over een klant, dan zal een toezichthouder of rechter kijken of je medewerkers wisten wat ze deden. [CHECK]', 'veryo' ),
-						__( 'In november 2025 heeft de Europese Commissie in het zogeheten Digital Omnibus-voorstel voorgesteld om de plicht uit artikel 4 af te zwakken tot een taak voor lidstaten en de Commissie om AI-geletterdheid te stimuleren. Dat is een voorstel, geen geldende wet. Tot het Europees Parlement en de Raad anders besluiten, geldt artikel 4 zoals het er staat. [CHECK: status van het Digital Omnibus-voorstel op de publicatiedatum]', 'veryo' ),
-						__( 'Wat er ook verandert: een team dat weet hoe het veilig en slim met AI werkt, maakt minder fouten en haalt meer uit de tools. Dat is ook zonder wettelijke plicht de moeite waard.', 'veryo' ),
+						__( 'Met de Digital Omnibus is artikel 4 per 27 juli 2026 gewijzigd. De plicht is minder streng geformuleerd: organisaties moeten maatregelen nemen die AI-geletterdheid ondersteunen, in plaats van een toereikend niveau te garanderen. De plicht zelf is niet verdwenen en blijft bindend. Wie aantoonbaar traint en afspraken maakt, zit dus goed. [CHECK: Verordening (EU) 2026/1744]', 'veryo' ),
+						__( 'Los van de wet: een team dat weet hoe het veilig en slim met AI werkt, maakt minder fouten en haalt meer uit de tools. Dat is ook zonder wettelijke plicht de moeite waard.', 'veryo' ),
 					),
 				),
 				array(
@@ -157,7 +157,7 @@ return array(
 				__( 'Verordening (EU) 2024/1689 (AI-verordening), artikel 3 punt 56, artikel 4 en artikel 113, via EUR-Lex. [CHECK]', 'veryo' ),
 				__( 'Europese Commissie, AI Literacy – Questions & Answers (2025). [CHECK]', 'veryo' ),
 				__( 'Autoriteit Persoonsgegevens, “Aan de slag met AI-geletterdheid” (2025). [CHECK]', 'veryo' ),
-				__( 'Europese Commissie, Digital Omnibus-voorstel over de AI-verordening (november 2025). [CHECK]', 'veryo' ),
+				__( 'Verordening (EU) 2026/1744 (Digital Omnibus over AI), van kracht sinds 27 juli 2026, via EUR-Lex. [CHECK]', 'veryo' ),
 			),
 			veryo_sec_cta_demo( __( 'Jullie team AI-geletterd in één dagdeel', 'veryo' ), __( 'Plan een gratis kennismaking. We kijken samen welke AI jullie gebruiken en wat jullie team nodig heeft.', 'veryo' ) )
 		),

@@ -267,8 +267,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'leeuwarden'            => array(
 		'title'     => __( 'AI-training en automatisering in Leeuwarden', 'veryo' ),
-		'seo_title' => __( 'AI-partner in Leeuwarden: training en automatisering | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-training in Leeuwarden en AI-automatisering voor bedrijven in de stad en omgeving. Veryo is hier gevestigd en komt langs. Vraag een gratis offerte aan.', 'veryo' ),
+		'seo_title' => __( 'AI-training en automatisering in Leeuwarden | Veryo', 'veryo' ),
+		'desc'      => __( 'Veryo is gevestigd in Leeuwarden en komt bij je langs: AI-training, workshops en automatisering voor bedrijven in de stad en omgeving.', 'veryo' ),
 		'kw'        => 'ai en automatisering leeuwarden',
 		'schema'    => array(
 			'type' => 'service',

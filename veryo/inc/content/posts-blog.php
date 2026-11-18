@@ -152,11 +152,11 @@ return array(
 	'ai-geletterdheid-ai-act-mkb'         => array(
 		'title'     => __( 'AI-geletterdheid en de AI Act: wat moet je als MKB’er doen?', 'veryo' ),
 		'seo_title' => __( 'AI-geletterdheid en de AI Act voor het MKB | Veryo', 'veryo' ),
-		'desc'      => __( 'AI Act en AI-geletterdheid: sinds 2 februari 2025 moet je zorgen dat medewerkers voldoende AI-geletterd zijn. Wat betekent dat voor het MKB? Met checklist.', 'veryo' ),
+		'desc'      => __( 'AI Act en AI-geletterdheid: werkgevers moeten maatregelen nemen die de AI-geletterdheid van medewerkers ondersteunen. Wat betekent dat voor het MKB? Met checklist.', 'veryo' ),
 		'kw'        => 'ai act ai-geletterdheid',
 		'content'   => $veryo_draft(
 			array(
-				array( __( 'Wat staat er in artikel 4?', 'veryo' ), __( 'Feitelijk: sinds 2 februari 2025 verplicht de AI Act organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers. Geen bangmakerij.', 'veryo' ) ),
+				array( __( 'Wat staat er in artikel 4?', 'veryo' ), __( 'Feitelijk: artikel 4 geldt sinds 2 februari 2025 en vraagt sinds de Digital Omnibus (27 juli 2026) om maatregelen die de AI-geletterdheid van medewerkers ondersteunen. Geen bangmakerij.', 'veryo' ) ),
 				array( __( 'Geldt dit ook voor jou?', 'veryo' ), __( 'Als medewerkers ChatGPT, Copilot of andere AI-tools voor hun werk gebruiken: waarschijnlijk wel. Verwijs voor juridische zekerheid naar een jurist.', 'veryo' ) ),
 				array(
 					__( 'Wat is “voldoende”?', 'veryo' ),
@@ -390,7 +390,7 @@ return array(
 					),
 				),
 				array( __( 'Wat er zeker in hoort', 'veryo' ), __( 'Welke gegevens nooit in een AI-tool gaan, dat uitvoer altijd gecontroleerd wordt, en wie aanspreekpunt is.', 'veryo' ) ),
-				array( __( 'En de AI Act?', 'veryo' ), __( 'Feitelijk: sinds 2 februari 2025 vraagt artikel 4 om voldoende AI-geletterdheid. Afspraken en uitleg zijn daar een logisch onderdeel van. Verwijs naar het AI-Startpakket als manier om dit in één keer te regelen.', 'veryo' ) ),
+				array( __( 'En de AI Act?', 'veryo' ), __( 'Feitelijk: artikel 4 vraagt sinds de Digital Omnibus om maatregelen die AI-geletterdheid ondersteunen. Afspraken en uitleg zijn daar een logisch onderdeel van. Verwijs naar het AI-Startpakket als manier om dit in één keer te regelen.', 'veryo' ) ),
 			),
 			array(
 				array( __( 'Mag ik ChatGPT verbieden?', 'veryo' ), __( 'Dat kan, maar dan gebruiken mensen het vaak alsnog ongezien. Afspraken werken meestal beter.', 'veryo' ) ),

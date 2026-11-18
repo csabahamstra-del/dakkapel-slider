@@ -599,6 +599,7 @@ function veryo_menu_definitions() {
 					'#',
 					array(
 						array( __( 'Over Veryo', 'veryo' ), 'over-veryo' ),
+						array( __( 'Kennis', 'veryo' ), 'kennis' ),
 						array( __( 'Contact', 'veryo' ), 'contact' ),
 						array( __( 'Blog', 'veryo' ), 'blog' ),
 						array( __( 'Privacy', 'veryo' ), 'privacyverklaring' ),
@@ -1070,3 +1071,123 @@ function veryo_220_upgrade() {
 	}
 }
 add_action( 'admin_init', 'veryo_220_upgrade', 70 );
+
+/**
+ * Pagina's met nieuwe title en description uit de SEO-audit van 18 november 2026.
+ *
+ * @return string[]
+ */
+function veryo_audit_1118_pages() {
+	return array( '', 'ai-automatisering/offertes-en-calculaties', 'oplossingen/ai-calculatie-offerte-factuur', 'ai-automatisering/administratie', 'oplossingen/inkoopfacturen-automatiseren', 'oplossingen/werkbonnen-verwerken', 'ai-automatisering/hr-en-werving', 'branches/recruitment', 'oplossingen/ai-recruitment-assistent', 'ai-op-maat/ai-receptionist-horeca', 'branches/horeca-retail', 'ai-training', 'ai-workshop', 'ai-implementatie-mkb', 'leeuwarden' );
+}
+
+/**
+ * Oude formuleringen over AI-geletterdheid en hun vervanging (Digital Omnibus, 27 juli 2026).
+ *
+ * @return array<string,string>
+ */
+function veryo_ai_literacy_replacements() {
+	return array(
+		'Sinds 2 februari 2025 verplicht de Europese AI Act (artikel 4) organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid van hun medewerkers.' => 'Artikel 4 van de Europese AI Act geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend.',
+		'De training is een concrete stap om te zorgen voor voldoende AI-geletterdheid, zoals artikel 4 van de AI Act vraagt.' => 'De training is een concrete maatregel die de AI-geletterdheid van jullie medewerkers ondersteunt, zoals artikel 4 van de AI Act vraagt.',
+		'De workshop is een concrete stap om te zorgen voor voldoende AI-geletterdheid, zoals artikel 4 van de AI Act vraagt.' => 'De workshop is een concrete maatregel die de AI-geletterdheid van jullie medewerkers ondersteunt, zoals artikel 4 van de AI Act vraagt.',
+		'een concrete, vastgelegde stap om te zorgen voor voldoende AI-geletterdheid, afgestemd op hoe jullie AI gebruiken.' => 'een concrete, vastgelegde maatregel die de AI-geletterdheid van jullie medewerkers ondersteunt, afgestemd op hoe jullie AI gebruiken.',
+		'Wel verplicht de AI Act sinds 2 februari 2025 organisaties die AI inzetten om te zorgen voor voldoende AI-geletterdheid. Een beleid en een training helpen daarbij.' => 'Wel vraagt artikel 4 van de AI Act organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een beleid en een training zijn zulke maatregelen.',
+	);
+}
+
+/**
+ * Eenmalig bij 2.3.0 (SEO-audit 18 november 2026).
+ */
+function veryo_230_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_230_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_230_done', 1, false );
+
+	// Ongewijzigde pagina's krijgen de nieuwe inhoud (links, teksten); zelf aangepaste blijven staan.
+	veryo_refresh_content( false );
+
+	$defs = veryo_content_pages();
+
+	// 1. Titles en descriptions: ook in Rank Math overschrijven (uitdrukkelijk gevraagd), en
+	// og/twitter alleen als die apart zijn ingevuld.
+	foreach ( veryo_audit_1118_pages() as $path ) {
+		$page = '' === $path ? get_post( (int) get_option( 'page_on_front' ) ) : veryo_find_page( $path );
+		if ( ! $page instanceof WP_Post || ! isset( $defs[ $path ] ) ) {
+			continue;
+		}
+		$title = $defs[ $path ]['seo_title'];
+		$desc  = $defs[ $path ]['desc'];
+		update_post_meta( $page->ID, '_veryo_seo_title', $title );
+		update_post_meta( $page->ID, '_veryo_seo_desc', $desc );
+		update_post_meta( $page->ID, 'rank_math_title', $title );
+		update_post_meta( $page->ID, 'rank_math_description', $desc );
+		update_post_meta( $page->ID, '_veryo_rm_title', $title );
+		update_post_meta( $page->ID, '_veryo_rm_desc', $desc );
+		foreach ( array( 'facebook', 'twitter' ) as $network ) {
+			if ( '' !== (string) get_post_meta( $page->ID, 'rank_math_' . $network . '_title', true ) ) {
+				update_post_meta( $page->ID, 'rank_math_' . $network . '_title', $title );
+			}
+			if ( '' !== (string) get_post_meta( $page->ID, 'rank_math_' . $network . '_description', true ) ) {
+				update_post_meta( $page->ID, 'rank_math_' . $network . '_description', $desc );
+			}
+		}
+	}
+
+	// 2. /academy/ op noindex, follow (ook in Rank Math).
+	$academy = veryo_find_page( 'academy' );
+	if ( $academy && isset( $defs['academy'] ) ) {
+		veryo_apply_page_meta( $academy->ID, $defs['academy'] );
+	}
+
+	// 2. Sitenaam: alleen de oude, verkeerde naam vervangen.
+	if ( 'veryo - ai automatisatie' === strtolower( trim( (string) get_option( 'blogname' ) ) ) ) {
+		update_option( 'blogname', 'Veryo' );
+	}
+	$rm_titles = get_option( 'rank-math-options-titles' );
+	if ( is_array( $rm_titles ) && isset( $rm_titles['website_name'] ) && 'veryo - ai automatisatie' === strtolower( trim( (string) $rm_titles['website_name'] ) ) ) {
+		$rm_titles['website_name'] = 'Veryo';
+		update_option( 'rank-math-options-titles', $rm_titles );
+	}
+
+	// 2. Alt-tekst van de hero-afbeelding in de mediabibliotheek.
+	$hero = veryo_photo_id( 'hero' );
+	if ( $hero ) {
+		update_post_meta( $hero, '_wp_attachment_image_alt', __( 'AI-adviseur voor het mkb in Leeuwarden', 'veryo' ) );
+	}
+
+	// 4. AI-geletterdheid: de oude formulering precies vervangen, ook op zelf aangepaste pagina's.
+	$map = veryo_ai_literacy_replacements();
+	kses_remove_filters();
+	foreach ( get_posts(
+		array(
+			'post_type'      => array( 'page', 'post' ),
+			'post_status'    => array( 'publish', 'draft', 'pending', 'private' ),
+			'posts_per_page' => -1,
+		)
+	) as $post ) {
+		$new = strtr( $post->post_content, $map );
+		if ( $new !== $post->post_content ) {
+			$untouched = veryo_page_untouched( $post );
+			wp_update_post(
+				wp_slash(
+					array(
+						'ID'           => $post->ID,
+						'post_content' => $new,
+					)
+				)
+			);
+			if ( $untouched ) {
+				veryo_remember_content( $post->ID );
+			}
+		}
+	}
+	kses_init();
+
+	// 6. Kennisbank: permalinks en een link in de footer.
+	veryo_register_kennis();
+	veryo_add_kennis_menu_item();
+	flush_rewrite_rules( false );
+}
+add_action( 'admin_init', 'veryo_230_upgrade', 80 );

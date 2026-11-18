@@ -34,7 +34,7 @@ function veryo_photo_library() {
 		'landschap'    => __( 'Landschap in Noord-Nederland', 'veryo' ),
 		'werkplek'     => __( 'Werkplekken met beeldschermen op kantoor', 'veryo' ),
 		'oprichter'    => __( 'Csaba, oprichter van Veryo', 'veryo' ),
-		'hero'         => __( 'Team aan het werk op kantoor', 'veryo' ),
+		'hero'         => __( 'AI-adviseur voor het mkb in Leeuwarden', 'veryo' ),
 	);
 }
 
@@ -285,12 +285,12 @@ function veryo_render_home_hero( $html, $block ) {
 	if ( ! $photo || false === $open || false === $close ) {
 		return $html;
 	}
-	$media = '<div class="veryo-hero__bg" aria-hidden="true">' . wp_get_attachment_image(
+	$media = '<div class="veryo-hero__bg">' . wp_get_attachment_image(
 		$photo,
 		'full',
 		false,
 		array(
-			'alt'           => '',
+			'alt'           => __( 'AI-adviseur voor het mkb in Leeuwarden', 'veryo' ),
 			'loading'       => 'eager',
 			'fetchpriority' => 'high',
 			'decoding'      => 'async',

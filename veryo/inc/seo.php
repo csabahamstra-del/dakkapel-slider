@@ -65,7 +65,7 @@ add_action( 'init', 'veryo_register_seo_meta' );
  * Metabox toevoegen.
  */
 function veryo_add_seo_metabox() {
-	foreach ( array( 'page', 'post' ) as $type ) {
+	foreach ( array( 'page', 'post', 'kennis' ) as $type ) {
 		add_meta_box( 'veryo_seo', __( 'Veryo SEO', 'veryo' ), 'veryo_seo_metabox', $type, 'normal', 'high' );
 	}
 }
@@ -242,6 +242,9 @@ function veryo_seo_title() {
 		}
 		return wp_strip_all_tags( get_the_title( $id ) ) . ' | Veryo';
 	}
+	if ( is_post_type_archive( 'kennis' ) ) {
+		return __( 'Kennisbank: praktische kennis over AI voor het mkb | Veryo', 'veryo' );
+	}
 	if ( is_category() ) {
 		/* translators: %s: categorie. */
 		return sprintf( __( 'Blog: %s | Veryo', 'veryo' ), single_cat_title( '', false ) );
@@ -270,6 +273,9 @@ function veryo_seo_description() {
 			}
 		}
 	}
+	if ( is_post_type_archive( 'kennis' ) ) {
+		return __( 'Praktische kennis over AI voor het mkb: uitleg, stappenplannen en voorbeelden over automatisering, AI-training en lokale AI. Lees de artikelen.', 'veryo' );
+	}
 	if ( is_category() ) {
 		$text = trim( wp_strip_all_tags( (string) term_description() ) );
 		if ( '' !== $text ) {
@@ -292,6 +298,10 @@ function veryo_seo_canonical() {
 		return home_url( '/' );
 	}
 	$id = veryo_seo_object_id();
+	if ( ! $id && is_post_type_archive( 'kennis' ) ) {
+		$paged = (int) get_query_var( 'paged' );
+		return $paged > 1 ? trailingslashit( veryo_kennis_url() ) . user_trailingslashit( 'page/' . $paged ) : veryo_kennis_url();
+	}
 	if ( ! $id && is_category() ) {
 		$url   = (string) get_term_link( get_queried_object() );
 		$paged = (int) get_query_var( 'paged' );
@@ -404,7 +414,7 @@ function veryo_head_meta() {
 	$og = array(
 		'og:locale'       => 'nl_NL',
 		'og:site_name'    => veryo_company()['name'],
-		'og:type'         => is_singular( 'post' ) ? 'article' : 'website',
+		'og:type'         => is_singular( array( 'post', 'kennis' ) ) ? 'article' : 'website',
 		'og:title'        => $title,
 		'og:description'  => $desc,
 		'og:url'          => $canonical ? $canonical : home_url( add_query_arg( array() ) ),
@@ -464,6 +474,20 @@ function veryo_breadcrumbs() {
 		$crumbs[] = array(
 			'name' => wp_strip_all_tags( get_the_title( $id ) ),
 			'url'  => (string) get_permalink( $id ),
+		);
+	} elseif ( is_singular( 'kennis' ) ) {
+		$crumbs[] = array(
+			'name' => __( 'Kennis', 'veryo' ),
+			'url'  => veryo_kennis_url(),
+		);
+		$crumbs[] = array(
+			'name' => wp_strip_all_tags( get_the_title() ),
+			'url'  => (string) get_permalink(),
+		);
+	} elseif ( is_post_type_archive( 'kennis' ) ) {
+		$crumbs[] = array(
+			'name' => __( 'Kennis', 'veryo' ),
+			'url'  => veryo_kennis_url(),
 		);
 	} elseif ( is_singular( 'post' ) ) {
 		if ( $blog ) {
@@ -572,7 +596,7 @@ function veryo_schema_organization() {
 			'name'  => $province,
 		);
 	}
-	$org = array(
+	$org            = array(
 		'@type'       => array( 'Organization', 'ProfessionalService' ),
 		'@id'         => home_url( '/#organization' ),
 		'name'        => $c['name'],
@@ -596,30 +620,7 @@ function veryo_schema_organization() {
 			)
 		),
 	);
-	if ( $c['email'] ) {
-		$org['email'] = $c['email'];
-	}
-	if ( $c['phone'] ) {
-		$org['telephone'] = $c['phone'];
-	}
-	$address = array_filter(
-		array(
-			'streetAddress'   => $c['street'],
-			'postalCode'      => $c['postcode'],
-			'addressLocality' => $c['city'],
-		)
-	);
-	if ( $address ) {
-		$org['address'] = array_merge(
-			array( '@type' => 'PostalAddress' ),
-			$address,
-			array( 'addressCountry' => 'NL' )
-		);
-	}
-	$same = array_values( array_filter( array( $c['linkedin'], $c['instagram'] ) ) );
-	if ( $same ) {
-		$org['sameAs'] = $same;
-	}
+	$org            = array_merge( $org, veryo_schema_business_fields() );
 	$org['founder'] = array( '@id' => home_url( '/#founder' ) );
 	if ( $c['legal_name'] ) {
 		$org['legalName'] = $c['legal_name'];
@@ -632,6 +633,102 @@ function veryo_schema_organization() {
 		);
 	}
 	return $org;
+}
+
+/**
+ * Bedrijfsgegevens die Organization en LocalBusiness allebei krijgen, zodat ze altijd gelijk
+ * zijn: contact, adres, geo, openingstijden, prijsklasse, kaart en profielen. Lege velden uit
+ * Instellingen > Veryo blijven weg.
+ *
+ * @return array<string,mixed>
+ */
+function veryo_schema_business_fields() {
+	$c      = veryo_company();
+	$fields = array();
+	if ( $c['email'] ) {
+		$fields['email'] = $c['email'];
+	}
+	if ( $c['phone'] ) {
+		$fields['telephone'] = $c['phone'];
+	}
+	$fields['address'] = array_merge(
+		array( '@type' => 'PostalAddress' ),
+		array_filter(
+			array(
+				'streetAddress'   => $c['street'],
+				'postalCode'      => $c['postcode'],
+				'addressLocality' => $c['city'] ? $c['city'] : 'Leeuwarden',
+				'addressRegion'   => 'Friesland',
+			)
+		),
+		array( 'addressCountry' => 'NL' )
+	);
+	$lat               = str_replace( ',', '.', trim( $c['geo_lat'] ) );
+	$lng               = str_replace( ',', '.', trim( $c['geo_lng'] ) );
+	if ( is_numeric( $lat ) && is_numeric( $lng ) ) {
+		$fields['geo'] = array(
+			'@type'     => 'GeoCoordinates',
+			'latitude'  => (float) $lat,
+			'longitude' => (float) $lng,
+		);
+	}
+	$hours = veryo_schema_opening_hours( $c['hours'] );
+	if ( $hours ) {
+		$fields['openingHoursSpecification'] = $hours;
+	}
+	if ( '' !== trim( $c['price'] ) ) {
+		$fields['priceRange'] = trim( $c['price'] );
+	}
+	if ( $c['maps_url'] ) {
+		$fields['hasMap'] = $c['maps_url'];
+	}
+	$same = array_values( array_unique( array_filter( array( $c['linkedin'], $c['instagram'], $c['gbp_url'] ) ) ) );
+	if ( $same ) {
+		$fields['sameAs'] = $same;
+	}
+	return $fields;
+}
+
+/**
+ * Openingstijden uit de instelling ("ma-vr 09:00-17:00; za 10:00-14:00") als
+ * OpeningHoursSpecification. Regels die niet te lezen zijn, worden overgeslagen.
+ *
+ * @param string $text Openingstijden.
+ * @return array<int,array<string,mixed>>
+ */
+function veryo_schema_opening_hours( $text ) {
+	$days  = array(
+		'ma' => 'Monday',
+		'di' => 'Tuesday',
+		'wo' => 'Wednesday',
+		'do' => 'Thursday',
+		'vr' => 'Friday',
+		'za' => 'Saturday',
+		'zo' => 'Sunday',
+	);
+	$keys  = array_keys( $days );
+	$specs = array();
+	foreach ( array_filter( array_map( 'trim', explode( ';', (string) $text ) ) ) as $rule ) {
+		if ( ! preg_match( '/^(ma|di|wo|do|vr|za|zo)(?:\s*[-–]\s*(ma|di|wo|do|vr|za|zo))?\s+(\d{1,2}[:.]\d{2})\s*[-–]\s*(\d{1,2}[:.]\d{2})$/iu', $rule, $m ) ) {
+			continue;
+		}
+		$from = array_search( strtolower( $m[1] ), $keys, true );
+		$to   = '' !== $m[2] ? array_search( strtolower( $m[2] ), $keys, true ) : $from;
+		if ( false === $from || false === $to || $to < $from ) {
+			continue;
+		}
+		$list = array();
+		for ( $i = $from; $i <= $to; $i++ ) {
+			$list[] = $days[ $keys[ $i ] ];
+		}
+		$specs[] = array(
+			'@type'     => 'OpeningHoursSpecification',
+			'dayOfWeek' => $list,
+			'opens'     => str_pad( str_replace( '.', ':', $m[3] ), 5, '0', STR_PAD_LEFT ),
+			'closes'    => str_pad( str_replace( '.', ':', $m[4] ), 5, '0', STR_PAD_LEFT ),
+		);
+	}
+	return $specs;
 }
 
 /**
@@ -667,41 +764,18 @@ function veryo_schema_founder() {
  * @return array<string,mixed>
  */
 function veryo_schema_local_business() {
-	$c        = veryo_company();
+	$org      = veryo_schema_organization();
 	$business = array(
 		'@type'              => 'LocalBusiness',
 		'@id'                => home_url( '/#localbusiness' ),
-		'name'               => $c['name'],
-		'url'                => home_url( '/' ),
-		'image'              => VERYO_URI . '/assets/images/og-default.png',
 		'parentOrganization' => array( '@id' => home_url( '/#organization' ) ),
-		'areaServed'         => array_map(
-			static function ( $name ) {
-				return array(
-					'@type' => 'AdministrativeArea',
-					'name'  => $name,
-				);
-			},
-			array( 'Friesland', 'Groningen', 'Drenthe' )
-		),
 	);
-	if ( $c['phone'] ) {
-		$business['telephone'] = $c['phone'];
+	// Dezelfde gegevens als de Organization-node, zodat Google geen tegenstrijdige NAP ziet.
+	foreach ( array( 'name', 'url', 'description', 'logo', 'image', 'areaServed', 'email', 'telephone', 'address', 'geo', 'openingHoursSpecification', 'priceRange', 'hasMap', 'sameAs' ) as $key ) {
+		if ( isset( $org[ $key ] ) ) {
+			$business[ $key ] = $org[ $key ];
+		}
 	}
-	if ( $c['email'] ) {
-		$business['email'] = $c['email'];
-	}
-	$business['address'] = array_merge(
-		array( '@type' => 'PostalAddress' ),
-		array_filter(
-			array(
-				'streetAddress'   => $c['street'],
-				'postalCode'      => $c['postcode'],
-				'addressLocality' => $c['city'] ? $c['city'] : 'Leeuwarden',
-			)
-		),
-		array( 'addressCountry' => 'NL' )
-	);
 	return $business;
 }
 
@@ -829,11 +903,11 @@ function veryo_schema_graph() {
 		);
 	}
 
-	// Blogbericht.
-	if ( is_singular( 'post' ) ) {
+	// Blogbericht (BlogPosting) of kennisartikel (Article).
+	if ( is_singular( array( 'post', 'kennis' ) ) ) {
 		$author  = veryo_blog_author();
 		$article = array(
-			'@type'            => 'BlogPosting',
+			'@type'            => is_singular( 'kennis' ) ? 'Article' : 'BlogPosting',
 			'@id'              => $url . '#article',
 			'headline'         => wp_strip_all_tags( get_the_title( $id ) ),
 			'datePublished'    => get_the_date( 'c', $id ),
@@ -986,7 +1060,7 @@ function veryo_robots_txt( $output, $is_public ) {
 		'Allow: ' . $base . 'wp-admin/admin-ajax.php',
 		'Disallow: ' . $base . 'rapport/',
 		'',
-		'Sitemap: ' . home_url( '/wp-sitemap.xml' ),
+		'Sitemap: ' . home_url( veryo_seo_plugin_active() && class_exists( 'RankMath' ) ? '/sitemap_index.xml' : '/wp-sitemap.xml' ),
 	);
 	return implode( "\n", $lines ) . "\n";
 }

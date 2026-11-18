@@ -124,7 +124,7 @@ function veryo_toc_id( $text, &$used ) {
  * @return string
  */
 function veryo_post_toc( $content ) {
-	if ( ! is_singular( 'post' ) || ! in_the_loop() || ! is_main_query() ) {
+	if ( ! is_singular( array( 'post', 'kennis' ) ) || ! in_the_loop() || ! is_main_query() ) {
 		return $content;
 	}
 	$used  = array();

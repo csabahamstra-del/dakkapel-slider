@@ -139,8 +139,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-op-maat/ai-receptionist-horeca' => array(
 		'title'     => __( 'AI-receptionist voor restaurants en horeca', 'veryo' ),
-		'seo_title' => __( 'AI-telefoonassistent voor restaurants en horeca | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-receptionist voor restaurants: een AI-telefoonassistent die opneemt, reserveringen noteert en vragen beantwoordt als jij het druk hebt. Gratis offerte.', 'veryo' ),
+		'seo_title' => __( 'AI-telefoonassistent voor restaurants | Veryo', 'veryo' ),
+		'desc'      => __( 'Een AI-telefoonassistent die opneemt, reserveringen noteert en vragen beantwoordt als het druk is. Geen gemiste gasten meer. Gratis offerte.', 'veryo' ),
 		'kw'        => 'ai telefoonassistent restaurant',
 		'schema'    => array(
 			'type' => 'service',

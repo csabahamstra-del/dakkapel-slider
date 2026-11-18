@@ -237,8 +237,8 @@ function veryo_products() {
 			'stappen_kop' => __( 'Offertes automatiseren: zo werkt het', 'veryo' ),
 			'placeholder' => __( 'Bijvoorbeeld: we maken 30 offertes per maand en elke offerte kost ons twee uur.', 'veryo' ),
 			'branches'    => array( 'branches/bouw', 'branches/installatie' ),
-			'seo_title'   => __( 'Offertes automatiseren: calculatie en factuur met AI | Veryo', 'veryo' ),
-			'desc'        => __( 'AI die bestekken en tekeningen leest, helpt calculeren, de offerte maakt en na afloop de factuur. Bovenop je eigen pakket. Vraag een gratis offerte aan.', 'veryo' ),
+			'seo_title'   => __( 'AI-calculatie: bestekken en tekeningen laten lezen | Veryo', 'veryo' ),
+			'desc'        => __( 'AI leest bestekken en tekeningen, trekt hoeveelheden uit en bereidt je calculatie voor. Daarna offerte en factuur, in je eigen pakket.', 'veryo' ),
 			'kw'          => 'calculatie en offerte automatiseren',
 		),
 		'werkbonnen-verwerken'          => array(
@@ -283,8 +283,8 @@ function veryo_products() {
 			),
 			'placeholder' => __( 'Bijvoorbeeld: onze 8 monteurs leveren elke week zo’n 60 papieren werkbonnen in.', 'veryo' ),
 			'branches'    => array( 'branches/installatie', 'branches/bouw', 'branches/agri', 'branches/transport' ),
-			'seo_title'   => __( 'Werkbonnen automatisch verwerken met AI voor het mkb | Veryo', 'veryo' ),
-			'desc'        => __( 'Werkbonnen als foto, PDF of formulier automatisch uitgelezen, gecontroleerd en verwerkt in je administratie. Direct factureren. Gratis offerte.', 'veryo' ),
+			'seo_title'   => __( 'Werkbonnen automatisch verwerken tot factuur | Veryo', 'veryo' ),
+			'desc'        => __( 'Werkbon als foto, PDF of formulier? AI leest hem uit, controleert uren en materiaal en zet de factuur klaar. Doe de gratis werkbon-check.', 'veryo' ),
 			'kw'          => 'werkbonnen automatisch verwerken',
 		),
 		'inkoopfacturen-automatiseren'  => array(
@@ -330,8 +330,8 @@ function veryo_products() {
 			'stappen_kop' => __( 'Facturen uit je mail automatisch verwerken', 'veryo' ),
 			'placeholder' => __( 'Bijvoorbeeld: we krijgen 300 inkoopfacturen per maand en boeken ze allemaal met de hand in.', 'veryo' ),
 			'branches'    => array( 'branches/agri', 'branches/transport', 'branches/horeca-retail', 'branches/zakelijke-dienstverlening', 'branches/beveiliging' ),
-			'seo_title'   => __( 'Inkoopfacturen automatiseren met AI: zo werkt het | Veryo', 'veryo' ),
-			'desc'        => __( 'Inkoopfacturen uit de mail automatisch uitgelezen, gematcht met inkooporders of werkbonnen en in je boekhouding gezet. Vraag een gratis offerte aan.', 'veryo' ),
+			'seo_title'   => __( 'Inkoopfacturen automatisch verwerken met AI | Veryo', 'veryo' ),
+			'desc'        => __( 'Inkoopfacturen uit je mailbox automatisch uitgelezen, gecontroleerd en klaargezet in SnelStart, Exact of Moneybird. Vraag een gratis offerte aan.', 'veryo' ),
 			'kw'          => 'inkoopfacturen automatiseren',
 		),
 		'ai-recruitment-assistent'      => array(
@@ -376,8 +376,8 @@ function veryo_products() {
 			),
 			'placeholder' => __( 'Bijvoorbeeld: we krijgen 80 reacties per vacature en plannen alle gesprekken met de hand.', 'veryo' ),
 			'branches'    => array( 'branches/recruitment', 'branches/beveiliging' ),
-			'seo_title'   => __( 'AI recruitment-assistent: cv’s screenen en plannen | Veryo', 'veryo' ),
-			'desc'        => __( 'Een AI recruitment-assistent die cv’s screent, gesprekken inplant en kandidaten mailt. De mens beslist wie wordt aangenomen. Vraag een gratis offerte aan.', 'veryo' ),
+			'seo_title'   => __( 'Cv’s screenen met AI: recruitment-assistent | Veryo', 'veryo' ),
+			'desc'        => __( 'Een AI-assistent die cv’s screent, gesprekken inplant en kandidaten mailt. Jij beslist wie je aanneemt. Vraag een gratis offerte aan.', 'veryo' ),
 			'kw'          => 'ai recruitment assistent',
 		),
 	);

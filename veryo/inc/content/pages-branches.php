@@ -434,8 +434,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/horeca-retail'             => array(
 		'title'     => __( 'AI voor horeca en retail', 'veryo' ),
-		'seo_title' => __( 'AI voor horeca en retail: telefoon en reserveringen | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor horeca en retail: een AI-telefoonassistent voor reserveringen, een AI-training voor je team en kennis die niet verdwijnt. Plan een kennismaking.', 'veryo' ),
+		'seo_title' => __( 'AI voor horeca en retail: praktische toepassingen | Veryo', 'veryo' ),
+		'desc'      => __( 'Wat AI doet in horeca en retail: reserveringen, roosters, teamtraining en kennis die blijft. Met voorbeelden uit de praktijk. Plan een kennismaking.', 'veryo' ),
 		'kw'        => 'ai voor horeca',
 		'schema'    => array(
 			'type' => 'service',
@@ -593,8 +593,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'branches/recruitment'               => array(
 		'title'     => __( 'Werving via WhatsApp en AI', 'veryo' ),
-		'seo_title' => __( 'Werving via WhatsApp en AI voor recruitmentbureaus | Veryo', 'veryo' ),
-		'desc'      => __( 'WhatsApp-werving met AI: solliciteren via WhatsApp zonder cv, vacatureteksten voor vakmensen en automatische kandidaatopvolging. Voor werkgevers.', 'veryo' ),
+		'seo_title' => __( 'Solliciteren via WhatsApp: AI-werving voor vakmensen | Veryo', 'veryo' ),
+		'desc'      => __( 'Vakmensen solliciteren via WhatsApp, zonder cv. AI stelt de vragen, selecteert voor en plant het gesprek in. Voor werkgevers en recruiters.', 'veryo' ),
 		'kw'        => 'whatsapp werving',
 		'schema'    => array(
 			'type' => 'service',

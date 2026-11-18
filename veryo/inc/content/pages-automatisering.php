@@ -78,8 +78,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/offertes-en-calculaties' => array(
 		'title'     => __( 'Offertes en calculaties automatiseren met AI', 'veryo' ),
-		'seo_title' => __( 'Offertes en calculaties automatiseren met AI | Veryo', 'veryo' ),
-		'desc'      => __( 'Offertes automatiseren met AI: van aanvraag of foto naar conceptofferte, automatische opvolging en een eigen calculatietool. Vraag een gratis offerte aan.', 'veryo' ),
+		'seo_title' => __( 'Offertes automatiseren met AI voor vakbedrijven | Veryo', 'veryo' ),
+		'desc'      => __( 'Van aanvraag of foto naar conceptofferte, met automatische opvolging. Offertes automatiseren met AI, bovenop je eigen software. Gratis offerte.', 'veryo' ),
 		'kw'        => 'offertes automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -136,8 +136,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/administratie'           => array(
 		'title'     => __( 'Administratie en facturen automatiseren', 'veryo' ),
-		'seo_title' => __( 'Administratie en facturen automatiseren met AI | Veryo', 'veryo' ),
-		'desc'      => __( 'Administratie automatiseren: inkoopfacturen, bonnetjes, werkbon naar factuur en debiteuren, gekoppeld aan Exact, Moneybird of SnelStart. Gratis offerte.', 'veryo' ),
+		'seo_title' => __( 'Administratie automatiseren met AI voor het mkb | Veryo', 'veryo' ),
+		'desc'      => __( 'Inkoopfacturen, bonnetjes, werkbonnen en debiteuren automatisch verwerkt in Exact, Moneybird of SnelStart. Zie wat AI je administratie scheelt.', 'veryo' ),
 		'kw'        => 'administratie automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,
@@ -319,8 +319,8 @@ return array(
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/hr-en-werving'           => array(
 		'title'     => __( 'Werving en HR automatiseren met AI', 'veryo' ),
-		'seo_title' => __( 'Werving en HR automatiseren met AI voor het mkb | Veryo', 'veryo' ),
-		'desc'      => __( 'Werving automatiseren met AI: vacatures in de taal van vakmensen, solliciteren via WhatsApp, voorselectie en opvolging van kandidaten. Gratis offerte.', 'veryo' ),
+		'seo_title' => __( 'Werving automatiseren met AI voor het mkb | Veryo', 'veryo' ),
+		'desc'      => __( 'Vacatureteksten, voorselectie en kandidaatopvolging automatisch. Zo vind je sneller vakmensen zonder extra HR-uren. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'werving automatiseren',
 		'schema'    => $veryo_q + array(
 			'min' => 750,

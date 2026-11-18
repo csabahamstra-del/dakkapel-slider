@@ -554,3 +554,170 @@ function veryo_auto_tools_content( $content ) {
 	return veryo_insert_werkt_met( $content, $map[ $path ][0], $map[ $path ][1] );
 }
 add_filter( 'the_content', 'veryo_auto_tools_content', 8 );
+
+/*
+ * Contextuele interne links (SEO-audit 18 november 2026)
+ */
+
+/**
+ * Een link in lopende tekst.
+ *
+ * @param string $path  Pad (of volledige URL).
+ * @param string $label Ankertekst.
+ * @return string
+ */
+function veryo_ctx_link( $path, $label ) {
+	$url = 0 === strpos( $path, 'http' ) ? $path : veryo_link( $path );
+	return '<a href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a>';
+}
+
+/**
+ * Per pagina (pad, '' = homepage) één alinea met contextuele links naar verwante pagina's.
+ *
+ * @return array<string,string>
+ */
+function veryo_context_links() {
+	$l = 'veryo_ctx_link';
+	return apply_filters(
+		'veryo_context_links',
+		array(
+			''                                          => sprintf(
+				/* translators: %s: link naar Over Veryo. */
+				__( 'Wie zit er achter Veryo? Lees %s: wie we zijn, hoe we werken en hoe we met jullie gegevens omgaan.', 'veryo' ),
+				$l( 'over-veryo', __( 'meer over Veryo en oprichter Csaba Hamstra', 'veryo' ) )
+			),
+			'leeuwarden'                                => sprintf(
+				/* translators: %s: link naar Over Veryo. */
+				__( 'Veryo is in Leeuwarden begonnen en werkt vanuit hier voor heel Noord-Nederland. %s.', 'veryo' ),
+				$l( 'over-veryo', __( 'Lees meer over Veryo en onze werkwijze', 'veryo' ) )
+			),
+			'contact'                                   => sprintf(
+				/* translators: %s: link naar Over Veryo. */
+				__( 'Eerst weten met wie jullie te maken krijgen? Lees %s.', 'veryo' ),
+				$l( 'over-veryo', __( 'meer over Veryo en oprichter Csaba Hamstra', 'veryo' ) )
+			),
+			'ai-training'                               => sprintf(
+				/* translators: 1: link zzp-training, 2: link AI-strategie. */
+				__( 'Werken jullie als zelfstandige, kijk dan bij de %1$s. Voor directie en MT is er de %2$s, over kansen, keuzes en verantwoordelijkheid.', 'veryo' ),
+				$l( 'ai-training/zzp', __( 'AI-training voor zzp’ers', 'veryo' ) ),
+				$l( 'ai-training/ai-strategie', __( 'AI-strategie training voor directie en management', 'veryo' ) )
+			),
+			'academy'                                   => sprintf(
+				/* translators: %s: link zzp-training. */
+				__( 'Ben je zzp’er en wil je niet wachten op de online cursus? Bekijk de %s, met korte modules over offertes, mail en administratie.', 'veryo' ),
+				$l( 'ai-training/zzp', __( 'AI-training voor zzp’ers', 'veryo' ) )
+			),
+			'ai-startpakket'                            => sprintf(
+				/* translators: %s: link AI-strategie. */
+				__( 'Wil de directie eerst zelf de koers bepalen, dan past de %s goed vóór het Startpakket.', 'veryo' ),
+				$l( 'ai-training/ai-strategie', __( 'AI-strategie training voor directie en MT', 'veryo' ) )
+			),
+			'ai-implementatie-mkb'                      => sprintf(
+				/* translators: %s: link AI-strategie. */
+				__( 'Een implementatie begint bij een gedeeld beeld in de top. Daarvoor is er de %s.', 'veryo' ),
+				$l( 'ai-training/ai-strategie', __( 'AI-strategie training voor directie en management', 'veryo' ) )
+			),
+			'oplossingen/werkbonnen-verwerken'          => sprintf(
+				/* translators: 1: link werkbon-check, 2: link administratie. */
+				__( 'Benieuwd wat het bij jullie oplevert? Doe de %1$s. Werkbonnen verwerken is onderdeel van %2$s, samen met inkoopfacturen en debiteuren.', 'veryo' ),
+				$l( 'werkbon-check', __( 'gratis werkbon-check', 'veryo' ) ),
+				$l( 'ai-automatisering/administratie', __( 'administratie automatiseren met AI', 'veryo' ) )
+			),
+			'ai-automatisering/werkprocessen'           => sprintf(
+				/* translators: %s: link werkbon-check. */
+				__( 'Gaan bij jullie veel werkbonnen met de hand naar kantoor? Doe de %s en zie hoeveel tijd automatisch verwerken scheelt.', 'veryo' ),
+				$l( 'werkbon-check', __( 'gratis werkbon-check', 'veryo' ) )
+			),
+			'branches/installatie'                      => sprintf(
+				/* translators: %s: link werkbon-check. */
+				__( 'Typen jullie werkbonnen nog over voor de factuur? Met de %s zien jullie wat automatisch verwerken oplevert.', 'veryo' ),
+				$l( 'werkbon-check', __( 'gratis werkbon-check voor installateurs', 'veryo' ) )
+			),
+			'ai-automatisering/administratie'           => sprintf(
+				/* translators: 1: link inkoopfacturen, 2: link werkbonnen. */
+				__( 'Twee onderdelen hebben een eigen uitgewerkte oplossing: %1$s en %2$s.', 'veryo' ),
+				$l( 'oplossingen/inkoopfacturen-automatiseren', __( 'inkoopfacturen automatisch verwerken', 'veryo' ) ),
+				$l( 'oplossingen/werkbonnen-verwerken', __( 'werkbonnen automatisch verwerken tot factuur', 'veryo' ) )
+			),
+			'oplossingen/inkoopfacturen-automatiseren'  => sprintf(
+				/* translators: %s: link administratie. */
+				__( 'Inkoopfacturen zijn één onderdeel van %s, naast bonnetjes, werkbonnen en debiteuren.', 'veryo' ),
+				$l( 'ai-automatisering/administratie', __( 'administratie automatiseren met AI', 'veryo' ) )
+			),
+			'ai-automatisering/offertes-en-calculaties' => sprintf(
+				/* translators: %s: link AI-calculatie. */
+				__( 'Werken jullie met bestekken en tekeningen? Met %s worden hoeveelheden automatisch uitgetrokken voor de calculatie.', 'veryo' ),
+				$l( 'oplossingen/ai-calculatie-offerte-factuur', __( 'AI-calculatie', 'veryo' ) )
+			),
+			'oplossingen/ai-calculatie-offerte-factuur' => sprintf(
+				/* translators: %s: link offertes automatiseren. */
+				__( 'Wil je vooral sneller offreren vanuit een aanvraag of foto? Lees hoe je %s met automatische opvolging.', 'veryo' ),
+				$l( 'ai-automatisering/offertes-en-calculaties', __( 'offertes automatiseren', 'veryo' ) )
+			),
+			'ai-automatisering/hr-en-werving'           => sprintf(
+				/* translators: 1: link recruitment, 2: link recruitment-assistent. */
+				__( 'Zoeken jullie vooral vakmensen, kijk dan bij %1$s. Voor het screenen van cv’s en inplannen van gesprekken is er de %2$s.', 'veryo' ),
+				$l( 'branches/recruitment', __( 'solliciteren via WhatsApp', 'veryo' ) ),
+				$l( 'oplossingen/ai-recruitment-assistent', __( 'AI-recruitment-assistent', 'veryo' ) )
+			),
+			'branches/horeca-retail'                    => sprintf(
+				/* translators: %s: link AI-telefoonassistent. */
+				__( 'Gaat de telefoon altijd op het drukste moment? Lees hoe een %s reserveringen noteert en vragen beantwoordt.', 'veryo' ),
+				$l( 'ai-op-maat/ai-receptionist-horeca', __( 'AI-telefoonassistent voor restaurants', 'veryo' ) )
+			),
+		)
+	);
+}
+
+/**
+ * De contextuele links in de inhoud zetten, direct na het eerste blok (meestal het korte
+ * antwoord of de hero).
+ *
+ * @param string $content     Block markup.
+ * @param string $text        Alinea met links.
+ * @param string $after_class Optioneel: class van het blok waarna de alinea komt.
+ * @return string
+ */
+function veryo_insert_context_links( $content, $text, $after_class = '' ) {
+	if ( false !== strpos( $content, 'veryo-context-links' ) ) {
+		return $content;
+	}
+	$block = veryo_b_p( $text, array( 'className' => 'veryo-context-links' ) );
+	if ( $after_class && preg_match( '#"className":"[^"]*' . preg_quote( $after_class, '#' ) . '[^"]*"#', $content, $m, PREG_OFFSET_CAPTURE ) ) {
+		$start = strrpos( substr( $content, 0, $m[0][1] ), '<!-- wp:' );
+		$end   = false === $start ? -1 : veryo_first_block_end( substr( $content, $start ) );
+		if ( $end > 0 ) {
+			$pos = $start + $end;
+			return substr( $content, 0, $pos ) . "\n" . $block . substr( $content, $pos );
+		}
+	}
+	return veryo_insert_after_first_block( $content, $block );
+}
+
+/**
+ * Na welk blok de contextuele links op een pagina komen (class van het blok). Standaard na
+ * het eerste blok.
+ *
+ * @param string $path Pad.
+ * @return string
+ */
+function veryo_context_links_anchor( $path ) {
+	return '' === $path ? 'veryo-independent' : '';
+}
+
+/**
+ * Contextuele links ook op zelf aangepaste pagina's: bij het tonen toevoegen als ze nog niet
+ * in de opgeslagen inhoud staan.
+ *
+ * @param string $content Inhoud.
+ * @return string
+ */
+function veryo_auto_context_links( $content ) {
+	if ( is_admin() || ! is_singular( 'page' ) || ! in_the_loop() || ! is_main_query() || ! apply_filters( 'veryo_auto_tools', true ) ) {
+		return $content;
+	}
+	$map  = veryo_context_links();
+	$path = is_front_page() ? '' : get_page_uri( get_queried_object_id() );
+	return isset( $map[ $path ] ) ? veryo_insert_context_links( $content, $map[ $path ], veryo_context_links_anchor( $path ) ) : $content;
+}
+add_filter( 'the_content', 'veryo_auto_context_links', 7 );
