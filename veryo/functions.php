@@ -24,6 +24,7 @@ $veryo_includes = array(
 	'inc/content/collega.php',
 	'inc/content/registry.php',
 	'inc/tools-registry.php',
+	'inc/press.php',
 	'inc/quiz/catalog.php',
 	'inc/quiz/scoring.php',
 	'inc/quiz/leads.php',

@@ -37,6 +37,12 @@ function veryo_content_pages() {
 			$pages[ $path ]['content'] = veryo_insert_context_links( $pages[ $path ]['content'], $text, veryo_context_links_anchor( $path ) );
 		}
 	}
+	// "In de media" (zie inc/press.php).
+	foreach ( veryo_press_pages() as $path => $class ) {
+		if ( isset( $pages[ $path ] ) ) {
+			$pages[ $path ]['content'] = veryo_insert_press( $pages[ $path ]['content'], $class );
+		}
+	}
 	// "Werkt met"-blok op dienst- en branchepagina's (zie inc/tools-registry.php).
 	foreach ( veryo_page_tools() as $path => $tools ) {
 		if ( isset( $pages[ $path ] ) ) {

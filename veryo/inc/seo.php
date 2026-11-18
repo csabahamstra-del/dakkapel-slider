@@ -622,6 +622,10 @@ function veryo_schema_organization() {
 	);
 	$org            = array_merge( $org, veryo_schema_business_fields() );
 	$org['founder'] = array( '@id' => home_url( '/#founder' ) );
+	$press          = veryo_schema_press();
+	if ( $press ) {
+		$org['subjectOf'] = $press;
+	}
 	if ( $c['legal_name'] ) {
 		$org['legalName'] = $c['legal_name'];
 	}

@@ -115,3 +115,10 @@ De links staan in `veryo_context_links()` in `inc/tools-registry.php`.
 | Interne links (crawl) en FAQ-schema | 0 problemen |
 | HTML-validatie en blokken in de editor | 0 fouten |
 | Upgrade 2.2.0 → 2.3.0 met zelf aangepaste pagina, eigen Rank Math-titel en eigen footerlink | AI Act-zin vervangen met behoud van eigen tekst, Rank Math- en OG-titel overschreven, sitenaam "Veryo", hero-alt gezet, "Kennis" één keer in de footer en eigen link behouden |
+
+## 7. In de media: artikel OF.nl (6 november 2026)
+
+- Een blok **"Veryo in het nieuws"** op /over-veryo/ (na "Wie er achter Veryo zit") en op /veryo-collega/ (na "Lokale AI: waarom je bedrijfsdata binnen blijft"). Op zelf aangepaste pagina's voegt het thema het bij het tonen toe.
+- **Inhoud:** het medium en de datum, de kop met een link naar het artikel, een korte samenvatting in eigen woorden, het citaat van Csaba en "Lees het artikel op OF.nl". De volledige tekst van OF.nl is bewust niet overgenomen: die is van OF.nl, en een kopie geeft dubbele content.
+- **Schema:** de organisatie krijgt `subjectOf` met een NewsArticle (kop, url, datum en OF.nl als uitgever).
+- **Nieuwe vermelding toevoegen:** zet één regel in `veryo_press_items()` in `inc/press.php`.
