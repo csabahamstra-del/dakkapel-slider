@@ -134,10 +134,10 @@ return array(
 					__( 'Hoe Veryo hierbij helpt', 'veryo' ),
 					array(
 						sprintf(
-							/* translators: 1: link naar de AI-geletterdheid training, 2: link naar de AI-workshop. */
-							__( 'Veryo geeft een %1$s voor teams in het mkb: op locatie of online, met voorbeelden uit jullie eigen werk en een kort AI-beleid dat jullie direct kunnen gebruiken. Wil je eerst kennismaken met AI zonder het wettelijke kader, dan past een %2$s beter.', 'veryo' ),
-							$veryo_g_link( 'ai-training/ai-geletterdheid', __( 'training AI-geletterdheid', 'veryo' ) ),
-							$veryo_g_link( 'ai-workshop', __( 'praktische AI-workshop', 'veryo' ) )
+							/* translators: 1: link naar het AI-Startpakket, 2: link naar de diensten. */
+							__( 'Veryo geeft geen losse trainingen, maar bouwt en richt AI in. Bij elke oplevering leren we jullie team ermee werken: wat de toepassing doet, wat wel en niet mag en waar de grenzen liggen. Het %1$s bevat ook een kort AI-beleid dat jullie direct kunnen gebruiken. Bekijk %2$s.', 'veryo' ),
+							$veryo_g_link( 'ai-startpakket', __( 'AI-Startpakket', 'veryo' ) ),
+							$veryo_g_link( 'diensten', __( 'wat Veryo bouwt en inricht', 'veryo' ) )
 						),
 						sprintf(
 							/* translators: %s: link naar Veryo Collega. */
@@ -160,123 +160,6 @@ return array(
 				__( 'Verordening (EU) 2026/1744 (Digital Omnibus over AI), van kracht sinds 27 juli 2026, via EUR-Lex. [CHECK]', 'veryo' ),
 			),
 			veryo_sec_cta_demo( __( 'Jullie team AI-geletterd in één dagdeel', 'veryo' ), __( 'Plan een gratis kennismaking. We kijken samen welke AI jullie gebruiken en wat jullie team nodig heeft.', 'veryo' ) )
-		),
-	),
-
-	/* ------------------------------------------------------------------------- */
-	'chatgpt-voor-verkopers'      => array(
-		'title'     => __( 'ChatGPT voor verkopers: 10 praktische toepassingen', 'veryo' ),
-		'seo_title' => __( 'ChatGPT voor verkopers: 10 praktische toepassingen | Veryo', 'veryo' ),
-		'desc'      => __( 'ChatGPT voor verkopers: tien praktische toepassingen, van gespreksvoorbereiding tot opvolgmail, met voorbeeldprompts en wat je níet in AI zet. Lees verder.', 'veryo' ),
-		'kw'        => 'chatgpt voor verkopers',
-		'content'   => $veryo_g_article(
-			__( 'de beschrijving van de zakelijke abonnementen van ChatGPT en Copilot klopt met de actuele voorwaarden van die diensten.', 'veryo' ),
-			array(
-				__( 'Kort antwoord: ChatGPT is voor verkopers vooral een snelle schrijf- en denkpartner. Je gebruikt het om gesprekken voor te bereiden, opvolgmails en offerteteksten op te zetten, bezwaren te oefenen en verslagen samen te vatten. Het werkt het best als jij de klantkennis en het oordeel levert, en de AI het schrijfwerk. Klantgegevens zet je alleen in een zakelijke omgeving met goede afspraken, nooit in een gratis account.', 'veryo' ),
-				__( 'Hieronder staan tien toepassingen die we in trainingen het vaakst zien werken bij verkopers in het mkb: accountmanagers, binnendienst en ondernemers die zelf verkopen. Bij elke toepassing staat een voorbeeldprompt die je zo kunt overnemen.', 'veryo' ),
-			),
-			array(
-				array(
-					__( 'Voordat je begint: drie spelregels', 'veryo' ),
-					array(
-						__( 'AI maakt een verkoper niet overbodig. Een klant koopt van iemand die zijn situatie begrijpt. ChatGPT helpt je om sneller te schrijven en beter voorbereid te zijn, maar het kent jullie klant niet en het weet niet wat er in het vorige gesprek is gezegd, tenzij jij dat vertelt.', 'veryo' ),
-					),
-					array(
-						'<strong>' . __( 'Geen klantgegevens in een gratis account.', 'veryo' ) . '</strong> ' . __( 'Gebruik een zakelijk abonnement waarbij jullie gegevens volgens de voorwaarden niet voor training worden gebruikt, en haal namen en contactgegevens weg als het ook zonder kan. [CHECK]', 'veryo' ),
-						'<strong>' . __( 'Altijd nalezen.', 'veryo' ) . '</strong> ' . __( 'AI kan prijzen, levertijden of productdetails verzinnen. Wat de deur uitgaat, controleer je zelf.', 'veryo' ),
-						'<strong>' . __( 'Jouw toon, niet die van de AI.', 'veryo' ) . '</strong> ' . __( 'Geef voorbeelden van mails die je zelf goed vindt, dan schrijft de AI in jullie stijl in plaats van in standaard verkooptaal.', 'veryo' ),
-					),
-				),
-				array(
-					__( 'De 10 toepassingen', 'veryo' ),
-					array(
-						__( 'Elke toepassing begint met een duidelijke opdracht: wie je bent, wat je wilt bereiken, voor wie, en in welke vorm. Hoe meer context, hoe bruikbaarder het resultaat.', 'veryo' ),
-					),
-					array(),
-					array(
-						array( __( '1. Een klantgesprek voorbereiden', 'veryo' ), array( __( 'Laat ChatGPT op basis van openbare informatie over een bedrijf en je eigen aantekeningen een gespreksvoorbereiding maken: wat speelt er waarschijnlijk, welke vragen stel je, welke bezwaren kun je verwachten.', 'veryo' ), '<em>' . __( 'Voorbeeldprompt: “Ik ben accountmanager bij een installatiebedrijf. Morgen spreek ik een facilitair manager van een schoolbestuur. Geef me vijf open vragen om te ontdekken waar ze nu tegenaan lopen bij onderhoud.”', 'veryo' ) . '</em>' ) ),
-						array( __( '2. Een opvolgmail na een gesprek', 'veryo' ), array( __( 'Plak je eigen korte aantekeningen in, zonder persoonsgegevens, en vraag om een opvolgmail met de afspraken en een duidelijke volgende stap. Je bent zo minuten in plaats van een kwartier kwijt.', 'veryo' ), '<em>' . __( 'Voorbeeldprompt: “Schrijf een korte, vriendelijke opvolgmail op basis van deze aantekeningen. Eindig met een voorstel voor een vervolgafspraak. Geen verkooptaal, maximaal 120 woorden.”', 'veryo' ) . '</em>' ) ),
-						array( __( '3. Een offertetekst opzetten', 'veryo' ), array( __( 'De prijzen komen uit jullie eigen systeem, maar de begeleidende tekst kan AI opzetten: de samenvatting van de vraag van de klant, wat je voorstelt en waarom. Jij vult aan en controleert.', 'veryo' ) ) ),
-						array( __( '4. Bezwaren oefenen', 'veryo' ), array( __( 'Laat ChatGPT de rol van een kritische inkoper spelen. Je oefent je antwoord op “te duur”, “we hebben al een leverancier” of “stuur maar wat informatie”. Zo ga je beter voorbereid het echte gesprek in.', 'veryo' ) ) ),
-						array( __( '5. Een gespreksverslag samenvatten', 'veryo' ), array( __( 'Heb je een lang verslag of transcript, laat dan de kern, de afspraken en de open punten eruit halen. Let op: een opname van een gesprek bevat persoonsgegevens. Doe dit alleen in een zakelijke omgeving en met toestemming van wie je opneemt.', 'veryo' ) ) ),
-						array( __( '6. Koude e-mails en LinkedIn-berichten', 'veryo' ), array( __( 'Vraag om drie korte varianten van een eerste bericht, elk met een andere invalshoek. Kies de beste en maak hem persoonlijk. Een bericht dat duidelijk door AI is geschreven, werkt averechts.', 'veryo' ) ) ),
-						array( __( '7. Productinformatie vertalen naar klantvoordeel', 'veryo' ), array( __( 'Technische specificaties zeggen een klant weinig. Laat AI per specificatie beschrijven wat het de klant oplevert, voor een bepaald type klant. Controleer of het klopt.', 'veryo' ) ) ),
-						array( __( '8. Een belscript of gespreksstructuur', 'veryo' ), array( __( 'Voor de binnendienst kan een eenvoudige structuur helpen: opening, twee vragen, één voorstel. AI zet een eerste versie neer, het team maakt hem eigen.', 'veryo' ) ) ),
-						array( __( '9. Een lastige mail beantwoorden', 'veryo' ), array( __( 'Een boze klant of een klacht over een levering? Laat AI een rustige, feitelijke eerste versie schrijven. Dat helpt om de emotie eruit te halen voordat je reageert.', 'veryo' ) ) ),
-						array( __( '10. Je eigen week plannen', 'veryo' ), array( __( 'Zet je lijst met klanten, open offertes en taken in en vraag om een prioriteitenlijst. AI weet niet wat het belangrijkst is voor jullie bedrijf, maar het helpt om overzicht te krijgen.', 'veryo' ) ) ),
-					),
-				),
-				array(
-					__( 'Zo bouw je een goede prompt voor verkoopwerk', 'veryo' ),
-					array(
-						__( 'De meeste teleurstellingen met ChatGPT komen door een te korte opdracht. “Schrijf een opvolgmail” levert een standaardmail op die je klant meteen herkent. Een goede prompt voor verkoopwerk heeft vier onderdelen, en kost je hooguit een minuut extra.', 'veryo' ),
-					),
-					array(
-						'<strong>' . __( 'Rol en context:', 'veryo' ) . '</strong> ' . __( 'wie ben je, wat verkoop je, aan wie. Bijvoorbeeld: “Ik ben accountmanager bij een groothandel in technische onderdelen en verkoop aan installatiebedrijven.”', 'veryo' ),
-						'<strong>' . __( 'Doel:', 'veryo' ) . '</strong> ' . __( 'wat moet de tekst bereiken? Een afspraak, een reactie op een offerte, een excuus na een late levering.', 'veryo' ),
-						'<strong>' . __( 'Input:', 'veryo' ) . '</strong> ' . __( 'je eigen aantekeningen, de vraag van de klant of de punten die erin moeten, zonder persoonsgegevens als het ook zonder kan.', 'veryo' ),
-						'<strong>' . __( 'Vorm:', 'veryo' ) . '</strong> ' . __( 'lengte, toon en opbouw. “Maximaal 120 woorden, je-vorm, geen uitroeptekens, eindig met één concrete vraag.”', 'veryo' ),
-					),
-					array(
-						array(
-							__( 'Laat de AI vragen stellen', 'veryo' ),
-							array(
-								__( 'Een handige truc: eindig je prompt met “Stel me eerst drie vragen als je informatie mist.” De AI vraagt dan naar wat er ontbreekt, zoals de levertijd of de naam van het product, in plaats van het zelf in te vullen. Dat voorkomt verzonnen details in een mail die naar een klant gaat.', 'veryo' ),
-								__( 'Bewaar prompts die goed werken in een gedeeld document. Na een paar weken heeft het team een eigen bibliotheek, afgestemd op jullie producten en klanten.', 'veryo' ),
-							),
-						),
-					),
-				),
-				array(
-					__( 'Wat je níet in ChatGPT zet', 'veryo' ),
-					array(
-						__( 'De meeste risico’s ontstaan niet door de tool, maar door wat erin gaat. Spreek met elkaar af wat wel en niet mag. Een paar vuistregels:', 'veryo' ),
-					),
-					array(
-						__( 'Geen namen, telefoonnummers of e-mailadressen van klanten als het niet nodig is.', 'veryo' ),
-						__( 'Geen inkoopprijzen, marges of contracten in een tool zonder zakelijke afspraken.', 'veryo' ),
-						__( 'Geen gegevens van derden die je niet zou mogen delen met een externe partij.', 'veryo' ),
-						__( 'Geen beslissingen over klanten op basis van alleen AI-uitkomsten.', 'veryo' ),
-					),
-					array(
-						array(
-							__( 'Klantkennis zonder de cloud', 'veryo' ),
-							array(
-								sprintf(
-									/* translators: %s: link naar Veryo Collega. */
-									__( 'Wil je dat verkopers vragen kunnen stellen over jullie eigen prijslijsten, productinformatie en eerdere offertes, zonder dat die gegevens naar een externe cloud gaan? Dan is een lokale AI-assistent zoals %s een betere plek dan ChatGPT.', 'veryo' ),
-									$veryo_g_collega
-								),
-							),
-						),
-					),
-				),
-				array(
-					__( 'Zo maak je het een gewoonte in je verkoopteam', 'veryo' ),
-					array(
-						__( 'Losse tips leveren weinig op als iedereen het anders doet. Teams die echt tijd winnen, maken een paar vaste afspraken: welke tool, welke taken, en een gedeelde map met prompts die goed werken. Zo leert het hele team van wat één collega ontdekt.', 'veryo' ),
-						__( 'Begin met twee of drie toepassingen waar jullie de meeste tijd aan kwijt zijn, meestal de opvolgmail en de offertetekst. Spreek na een maand af wat werkt en wat niet. Breid daarna pas uit.', 'veryo' ),
-						sprintf(
-							/* translators: 1: link naar de ChatGPT-training voor verkopers, 2: link naar AI-geletterdheid. */
-							__( 'In de %1$s oefenen jullie dit met eigen offertes, mails en gesprekken, en maken we samen de afspraken over veilig gebruik. Dat telt meteen mee voor %2$s onder de AI Act.', 'veryo' ),
-							$veryo_g_link( 'ai-training/chatgpt-training-verkopers', __( 'ChatGPT-training voor verkopers', 'veryo' ) ),
-							$veryo_g_link( 'ai-training/ai-geletterdheid', __( 'AI-geletterdheid', 'veryo' ) )
-						),
-					),
-				),
-			),
-			array(
-				array( __( 'Mag ik klantgegevens in ChatGPT zetten?', 'veryo' ), __( 'Alleen in een zakelijke omgeving met goede afspraken, en alleen als het nodig is. In een gratis of persoonlijk account zet je geen klantgegevens. Haal namen en contactgegevens weg als het ook zonder kan.', 'veryo' ) ),
-				array( __( 'Is ChatGPT beter dan Copilot voor verkopers?', 'veryo' ), __( 'Dat hangt af van wat jullie al gebruiken. Copilot zit in Microsoft 365 en kan bij je mail en documenten, ChatGPT is een losse tool. Voor schrijfwerk doen ze veel hetzelfde; de keuze hangt vooral af van jullie IT-omgeving en afspraken.', 'veryo' ) ),
-				array( __( 'Merken klanten dat een mail met AI is geschreven?', 'veryo' ), __( 'Vaak wel, als je de tekst niet aanpast. Gebruik AI voor de eerste versie en maak hem daarna persoonlijk, met iets wat alleen jij over deze klant weet.', 'veryo' ) ),
-				array( __( 'Hoeveel tijd levert het op?', 'veryo' ), __( 'Dat verschilt per verkoper en per taak. Meet het zelf: noteer een week lang hoeveel tijd opvolgmails en offerteteksten kosten, en doe dat nog eens na een maand werken met AI.', 'veryo' ) ),
-			),
-			array(
-				__( 'OpenAI, Enterprise privacy en zakelijke voorwaarden van ChatGPT (Team, Enterprise). [CHECK]', 'veryo' ),
-				__( 'Autoriteit Persoonsgegevens, informatie over AI-chatbots en persoonsgegevens. [CHECK]', 'veryo' ),
-				__( 'Verordening (EU) 2024/1689 (AI-verordening), artikel 4 over AI-geletterdheid. [CHECK]', 'veryo' ),
-			),
-			veryo_sec_cta_demo( __( 'Jullie verkoopteam sneller met AI', 'veryo' ), __( 'Plan een gratis kennismaking voor de ChatGPT-training voor verkopers, met voorbeelden uit jullie eigen werk.', 'veryo' ) )
 		),
 	),
 
@@ -355,10 +238,10 @@ return array(
 					array(
 						__( 'Minder dan je denkt. Een lijst met de vragen die het vaakst terugkomen, de mappen waar de antwoorden staan en één of twee collega’s die willen meedenken. De technische kant, het inrichten van de AI, het koppelen aan jullie bestanden en het regelen van de rechten, kun je laten doen.', 'veryo' ),
 						sprintf(
-							/* translators: 1: link naar Veryo Collega, 2: link naar de AI-training. */
-							__( 'Wil je zien hoe dat eruitziet met jullie eigen documenten? Plan een demo van %1$s. Wil je eerst je team leren werken met AI, dan is een %2$s een goede eerste stap.', 'veryo' ),
+							/* translators: 1: link naar Veryo Collega, 2: link naar de AI-werkplek. */
+							__( 'Wil je zien hoe dat eruitziet met jullie eigen documenten? Plan een demo van %1$s. Werken jullie liever in de cloud met jullie eigen normen en templates, kijk dan naar de %2$s.', 'veryo' ),
 							$veryo_g_collega,
-							$veryo_g_link( 'ai-training', __( 'AI-training', 'veryo' ) )
+							$veryo_g_link( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ) )
 						),
 					),
 				),

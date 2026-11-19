@@ -198,7 +198,7 @@ add_action( 'admin_post_veryo_refresh_content', 'veryo_handle_refresh_content' )
  * @return string[]
  */
 function veryo_seo_plan_pages() {
-	return array( 'ai-automatisering', 'ai-training', 'ai-implementatie-mkb', 'ai-agents', 'ai-training/ai-geletterdheid', 'branches', 'branches/installatie', 'branches/bouw', 'branches/makelaardij', 'branches/transport', 'ai-adviseur-friesland', 'leeuwarden', 'prijzen', 'ai-startpakket' );
+	return array( 'diensten', 'ai-automatisering', 'ai-implementatie-mkb', 'ai-agents', 'ai-werkplek', 'ai-automatisering/administratie', 'ai-op-maat/ai-receptionist-horeca', 'branches', 'branches/installatie', 'branches/bouw', 'branches/makelaardij', 'branches/transport', 'ai-adviseur-friesland', 'leeuwarden', 'prijzen', 'ai-startpakket' );
 }
 
 /**

@@ -12,21 +12,21 @@ defined( 'ABSPATH' ) || exit;
  */
 $veryo_sp_parts = array(
 	'<strong>' . __( 'AI-scan en kansensessie', 'veryo' ) . '</strong><br>' . __( 'We beginnen met de gratis AI-scan en een halve dag kansensessie bij jullie op locatie. Samen lopen we je processen door: waar gaat de tijd heen, welke software gebruik je al, wat ergert het team. Je krijgt onafhankelijk advies welke bestaande tools het best passen, en een lijst met kansen op volgorde van opbrengst.', 'veryo' ),
-	'<strong>' . __( 'AI-training voor het hele team', 'veryo' ) . '</strong><br>' . __( 'Een halve dag praktisch aan de slag met ChatGPT, Claude of Copilot, afhankelijk van wat bij jullie past. Met oefeningen uit jullie eigen werk, zoals mail, offertes en samenvattingen. En helder wat wel en niet mag met klant- en bedrijfsgegevens.', 'veryo' ),
-	'<strong>' . __( 'AI-beleid op maat', 'veryo' ) . '</strong><br>' . __( 'Een beleid van één à twee pagina’s dat het team echt leest: welke tools jullie gebruiken, welke gegevens er nooit in gaan en wie verantwoordelijk is. We stellen het samen met je op, op basis van wat in de kansensessie en de training naar voren kwam.', 'veryo' ),
-	'<strong>' . __( 'Eén quick win ingericht', 'veryo' ) . '</strong><br>' . __( 'We richten één afgebakende toepassing daadwerkelijk in, bijvoorbeeld conceptantwoorden op veelgestelde vragen of het verwerken van inkoopfacturen. Waar het kan met software die je al hebt. Zo heeft het team direct iets dat werkt, en geen rapport dat in een la verdwijnt.', 'veryo' ),
+	'<strong>' . __( 'AI-beleid op maat', 'veryo' ) . '</strong><br>' . __( 'Een beleid van één à twee pagina’s dat het team echt leest: welke tools jullie gebruiken, welke gegevens er nooit in gaan en wie verantwoordelijk is. We stellen het samen met jullie op, op basis van wat in de kansensessie naar voren kwam.', 'veryo' ),
+	'<strong>' . __( 'Eén toepassing gebouwd of ingericht', 'veryo' ) . '</strong><br>' . __( 'We bouwen of richten één afgebakende toepassing daadwerkelijk in, bijvoorbeeld het inlezen van werkbonnen, het koppelen van inkoopfacturen aan projecten of Claude Team met jullie eigen templates. Bovenop de software die jullie al hebben. Zo heeft het team direct iets dat werkt, en geen rapport dat in een la verdwijnt.', 'veryo' ),
+	'<strong>' . __( 'Jullie team ermee leren werken', 'veryo' ) . '</strong><br>' . __( 'Na de oplevering leren we jullie team ermee werken, met de toepassing die we hebben gebouwd. Helder wat wel en niet mag met klant- en bedrijfsgegevens.', 'veryo' ),
 	'<strong>' . __( '30 dagen nazorg', 'veryo' ) . '</strong><br>' . __( 'Een maand lang een vast aanspreekpunt voor vragen uit het team. Aan het eind evalueren we samen: wat werkt, wat niet, en wat de logische volgende stappen zijn.', 'veryo' ),
 );
 
-$veryo_startpakket  = veryo_sec_answer( __( 'Het Veryo AI-Startpakket is de manier om AI in één keer goed en veilig in je bedrijf neer te zetten: een kansensessie met onafhankelijk advies, een training voor het hele team, een AI-beleid op maat, één toepassing die echt werkt en 30 dagen nazorg. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ), array( __( 'Vraag het AI-Startpakket aan', 'veryo' ), '#vraag', 'amber' ) );
+$veryo_startpakket  = veryo_sec_answer( __( 'Het Veryo AI-Startpakket is de manier om AI in één keer goed en veilig in je bedrijf neer te zetten: een kansensessie met onafhankelijk advies, een AI-beleid op maat, één toepassing die we bouwen of inrichten, jullie team ermee leren werken en 30 dagen nazorg. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ), array( __( 'Vraag het AI-Startpakket aan', 'veryo' ), '#vraag', 'amber' ) );
 $veryo_startpakket .= veryo_sec_text(
 	__( 'Iedereen moet iets met AI, maar wat gebeurt er nu al?', 'veryo' ),
 	array(
 		__( 'In de meeste bedrijven gebruiken medewerkers ChatGPT of een vergelijkbare tool al op eigen houtje. Soms slim, soms niet. De een schrijft er offertes mee, de ander plakt er een klantmail met naam en adres in. Niemand weet precies wat er wordt ingevoerd, en niemand heeft afgesproken wat wel en niet mag.', 'veryo' ),
-		__( 'Tegelijk hoor je overal dat je iets met AI moet, maar niet wat, en ook niet wat het kost. Het AI-Startpakket brengt daar in een paar weken rust in: het team snapt wat AI kan, er zijn duidelijke afspraken, en er draait één toepassing die tijd bespaart. Dat is een goede basis om daarna verder te bouwen.', 'veryo' ),
+		__( 'Tegelijk hoor je overal dat je iets met AI moet, maar niet wat, en ook niet wat het kost. Het AI-Startpakket brengt daar in een paar weken rust in: er zijn duidelijke afspraken, er draait één toepassing die tijd bespaart en het team weet hoe het ermee werkt. Dat is een goede basis om daarna verder te bouwen.', 'veryo' ),
 	)
 );
-$veryo_startpakket .= veryo_sec_photo( __( 'team van een MKB-bedrijf tijdens een AI-training aan tafel', 'veryo' ), __( 'AI-startpakket voor het MKB: training met het hele team', 'veryo' ), 'training' );
+$veryo_startpakket .= veryo_sec_photo( __( 'team van een MKB-bedrijf in overleg aan tafel', 'veryo' ), __( 'AI-startpakket voor het MKB: kansensessie met het team', 'veryo' ), 'overleg' );
 $veryo_startpakket .= veryo_b_group(
 	veryo_b_h( __( 'Wat zit er in het AI-Startpakket?', 'veryo' ) )
 	. veryo_b_p( __( 'Vijf onderdelen, in deze volgorde. Elk onderdeel bouwt voort op het vorige.', 'veryo' ) )
@@ -43,7 +43,7 @@ $veryo_startpakket .= veryo_sec_text(
 	__( 'Wat je na afloop hebt', 'veryo' ),
 	array(),
 	array(
-		__( 'Een team dat AI veilig en nuttig gebruikt, met voorbeelden uit het eigen werk.', 'veryo' ),
+		__( 'Een team dat weet hoe het met de opgeleverde toepassing werkt.', 'veryo' ),
 		__( 'Een AI-beleid van één à twee pagina’s dat iedereen kent.', 'veryo' ),
 		__( 'Eén werkende toepassing die elke week tijd bespaart.', 'veryo' ),
 		__( 'Een plan voor de volgende stappen, op volgorde van opbrengst.', 'veryo' ),
@@ -52,11 +52,11 @@ $veryo_startpakket .= veryo_sec_text(
 );
 $veryo_startpakket .= veryo_sec_tiered_price(
 	__( 'Wat kost het AI-Startpakket?', 'veryo' ),
-	__( 'De inhoud is voor iedereen gelijk; bij een groter team gaan de training, het beleid en de nazorg over meer mensen.', 'veryo' ),
+	__( 'De inhoud is voor iedereen gelijk; bij een groter team gaan het beleid, de uitleg na de oplevering en de nazorg over meer mensen.', 'veryo' ),
 	veryo_startpakket_prices(),
 	sprintf(
 		/* translators: %s: link naar de offerte. */
-		__( 'Je betaalt het pakket één keer; er zit geen software aan vast. Mogelijk is er subsidie via de SLIM-regeling voor het trainingsdeel; openstellingsperiodes en voorwaarden wisselen, check de actuele situatie. <a href="%s">Hoe de offerte werkt</a>.', 'veryo' ),
+		__( 'Je betaalt het pakket één keer; er zit geen software aan vast. <a href="%s">Hoe de offerte werkt</a>.', 'veryo' ),
 		esc_url( veryo_link( 'prijzen' ) )
 	),
 	true
@@ -66,7 +66,7 @@ $veryo_startpakket .= veryo_sec_text(
 	__( 'Het AI-Startpakket en de AI Act', 'veryo' ),
 	array(
 		__( 'Artikel 4 van de Europese AI Act geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend. Dat geldt ook voor het MKB, en ook als het “alleen” om ChatGPT of Copilot gaat.', 'veryo' ),
-		__( 'De wet schrijft geen vast programma voor. De training en het AI-beleid uit het Startpakket zijn concrete stappen om daaraan te werken: medewerkers weten wat AI kan en wat niet, en er zijn afspraken over veilig gebruik. Je krijgt een deelnameoverzicht voor je eigen dossier.', 'veryo' ),
+		__( 'De wet schrijft geen vast programma voor. Het AI-beleid uit het Startpakket en de uitleg na de oplevering zijn concrete stappen om daaraan te werken: medewerkers weten wat de toepassing kan en wat niet, en er zijn afspraken over veilig gebruik.', 'veryo' ),
 	)
 );
 $veryo_startpakket .= veryo_sec_text(
@@ -74,7 +74,7 @@ $veryo_startpakket .= veryo_sec_text(
 	array(),
 	array(
 		'<strong>' . __( 'Geen software.', 'veryo' ) . '</strong> ' . __( 'We verkopen geen eigen tool. We adviseren onafhankelijk en werken zoveel mogelijk met wat je al hebt.', 'veryo' ),
-		'<strong>' . __( 'Geen certificaat.', 'veryo' ) . '</strong> ' . __( 'Er bestaat geen officieel wettelijk certificaat voor AI-geletterdheid. Je krijgt wel een deelnameoverzicht.', 'veryo' ),
+		'<strong>' . __( 'Geen losse training of certificaat.', 'veryo' ) . '</strong> ' . __( 'Er bestaat geen officieel wettelijk certificaat voor AI-geletterdheid. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 		'<strong>' . __( 'Geen verplicht abonnement.', 'veryo' ) . '</strong> ' . __( 'Je betaalt het pakket één keer. Het abonnement Bijblijven loopt de eerste maand kosteloos mee; daarna kies je zelf of je doorgaat.', 'veryo' ),
 		'<strong>' . __( 'Geen juridisch advies.', 'veryo' ) . '</strong> ' . __( 'Het AI-beleid is praktisch. Wil je het juridisch laten toetsen, dan raden we een jurist aan.', 'veryo' ),
 	)
@@ -88,10 +88,10 @@ $veryo_startpakket .= veryo_sec_contact(
 $veryo_startpakket .= veryo_sec_faq(
 	array(
 		array( __( 'Voor welke bedrijven is het AI-Startpakket?', 'veryo' ), __( 'Voor MKB-bedrijven met een team tot ongeveer 50 mensen die AI goed willen invoeren. Het maakt niet uit of er al iemand met ChatGPT werkt of nog niemand.', 'veryo' ) ),
-		array( __( 'Hoe lang duurt het?', 'veryo' ), __( 'Meestal een paar weken, afhankelijk van jullie agenda. De kansensessie en de training zijn elk een halve dag; daarna richten we de quick win in en begint de nazorg van 30 dagen.', 'veryo' ) ),
+		array( __( 'Hoe lang duurt het?', 'veryo' ), __( 'Meestal een paar weken, afhankelijk van jullie agenda. De kansensessie is een dagdeel; daarna bouwen of richten we de toepassing in, leren we jullie team ermee werken en begint de nazorg van 30 dagen.', 'veryo' ) ),
 		array( __( 'Moeten we daarna iets afnemen?', 'veryo' ), __( 'Nee. Je krijgt een plan voor de volgende stappen, en die kun je zelf uitvoeren, met ons of met iemand anders.', 'veryo' ) ),
 		array( __( 'Welke AI-tool gaan we gebruiken?', 'veryo' ), __( 'Dat hangt af van jullie werk en de software die je al hebt. We adviseren onafhankelijk; vaak zit er in je bestaande pakketten al meer AI dan je denkt.', 'veryo' ) ),
-		array( __( 'Wat als de quick win meer werk is dan verwacht?', 'veryo' ), __( 'Dan kiezen we samen een kleinere quick win binnen het pakket, en krijg je voor de grotere toepassing een aparte vaste prijs. Je betaalt niets wat niet vooraf is afgesproken.', 'veryo' ) ),
+		array( __( 'Wat als de toepassing meer werk is dan verwacht?', 'veryo' ), __( 'Dan kiezen we samen een kleinere toepassing binnen het pakket, en krijg je voor de grotere toepassing een aparte vaste prijs. Je betaalt niets wat niet vooraf is afgesproken.', 'veryo' ) ),
 		array( __( 'Kunnen we eerst kennismaken?', 'veryo' ), __( 'Ja. Plan een kennismaking of doe eerst de gratis AI-scan; dan weten we allebei al waar de kansen zitten.', 'veryo' ) ),
 	)
 );
@@ -107,8 +107,8 @@ $veryo_startpakket .= veryo_b_group(
 );
 $veryo_startpakket .= veryo_sec_links(
 	array(
-		array( 'ai-training', __( 'AI-training voor bedrijven', 'veryo' ), __( 'Alleen de training, zonder de rest', 'veryo' ) ),
-		array( 'ai-training/ai-geletterdheid', __( 'AI-geletterdheid training', 'veryo' ), __( 'Meer over de AI Act', 'veryo' ) ),
+		array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
+		array( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ), __( 'Claude met jullie eigen normen en templates', 'veryo' ) ),
 		array( 'ai-partner', __( 'AI-partner-abonnement', 'veryo' ), __( 'Na het Startpakket', 'veryo' ) ),
 		array( 'ai-adviseur-friesland', __( 'AI-adviseur in Friesland', 'veryo' ), __( 'Op locatie in het noorden', 'veryo' ) ),
 	)
@@ -121,7 +121,7 @@ $veryo_partner  = veryo_sec_answer( __( 'Met een AI-abonnement heb je een vaste 
 $veryo_partner .= veryo_sec_text(
 	__( 'Na de eerste maand valt het vaak stil', 'veryo' ),
 	array(
-		__( 'De training was goed, het beleid staat op papier en de eerste toepassing draait. Maar dan komt het gewone werk weer. Nieuwe medewerkers weten niet wat er is afgesproken. Copilot of Gemini krijgt een nieuwe functie, maar niemand zet hem aan. En die tweede toepassing waar iedereen enthousiast over was, blijft liggen.', 'veryo' ),
+		__( 'Het beleid staat op papier en de eerste toepassing draait. Maar dan komt het gewone werk weer. Nieuwe medewerkers weten niet wat er is afgesproken. Claude krijgt een nieuwe functie, maar niemand zet hem aan. En die tweede toepassing waar iedereen enthousiast over was, blijft liggen.', 'veryo' ),
 		__( 'Een eigen AI-specialist aannemen is voor een bedrijf met tien of twintig mensen te veel. Met een AI-partner heb je wel iemand die meedenkt, bijhoudt wat er verandert en zorgt dat het niet stilvalt.', 'veryo' ),
 	)
 );
@@ -130,8 +130,8 @@ $veryo_partner .= veryo_sec_text(
 	__( 'Wat zit er in het AI-partner-abonnement?', 'veryo' ),
 	array( __( 'AI-partner bundelt de drie losse abonnementen en voegt er uren en overleg aan toe.', 'veryo' ) ),
 	array(
-		'<strong>' . __( 'Bijblijven.', 'veryo' ) . '</strong> ' . __( 'Elk kwartaal een update-sessie, nieuwe medewerkers krijgen toegang tot de Academy, je AI-beleid wordt jaarlijks bijgewerkt en je kunt vragen per mail stellen.', 'veryo' ),
-		'<strong>' . __( 'Werkplek-onderhoud.', 'veryo' ) . '</strong> ' . __( 'Nieuwe medewerkers inrichten in Microsoft 365 of Google Workspace, toegangsrechten bijhouden en nieuwe AI-functies beoordelen en aanzetten.', 'veryo' ),
+		'<strong>' . __( 'Bijblijven.', 'veryo' ) . '</strong> ' . __( 'Elk kwartaal een korte update over wat er nieuw is, nieuwe medewerkers leren werken met wat we hebben ingericht, het AI-beleid wordt jaarlijks bijgewerkt en jullie kunnen vragen per mail stellen.', 'veryo' ),
+		'<strong>' . __( 'Werkplek-onderhoud.', 'veryo' ) . '</strong> ' . __( 'Nieuwe medewerkers toevoegen aan Claude Team, rechten bijhouden, normen en templates actueel houden en nieuwe functies beoordelen.', 'veryo' ),
 		'<strong>' . __( 'Veilig blijven.', 'veryo' ) . '</strong> ' . __( 'Elke maand een controle van rechten en instellingen, twee keer per jaar een korte bewustwordingssessie, en een beleid dat actueel blijft.', 'veryo' ),
 		'<strong>' . __( 'Uren voor verbeteringen.', 'veryo' ) . '</strong> ' . __( 'Vier, zes of tien uur per maand voor kleine verbeteringen en nieuwe toepassingen, afhankelijk van je teamgrootte.', 'veryo' ),
 		'<strong>' . __( 'Overleg en voorrang.', 'veryo' ) . '</strong> ' . __( 'Vanaf 11 medewerkers een maandelijks overleg; vanaf 26 medewerkers ook voorrang bij vragen.', 'veryo' ),
@@ -180,7 +180,7 @@ $veryo_partner .= veryo_sec_cta_scan();
 $veryo_partner .= veryo_sec_links(
 	array(
 		array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'De basis vóór het abonnement', 'veryo' ) ),
-		array( 'ai-werkplek', __( 'De AI-werkplek', 'veryo' ), __( 'Copilot of Gemini goed ingericht', 'veryo' ) ),
+		array( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ), __( 'Claude met jullie eigen normen en templates', 'veryo' ) ),
 		array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, rechten en de veiligheidscheck', 'veryo' ) ),
 		array( 'prijzen', __( 'Gratis offerte', 'veryo' ), __( 'Vooraf een vaste prijs', 'veryo' ) ),
 	)
@@ -189,8 +189,8 @@ $veryo_partner .= veryo_sec_links(
 return array(
 	'ai-startpakket' => array(
 		'title'     => __( 'Het Veryo AI-Startpakket', 'veryo' ),
-		'seo_title' => __( 'AI-Startpakket: advies, training en beleid | Veryo', 'veryo' ),
-		'desc'      => __( 'Het AI-startpakket voor het MKB: kansensessie, teamtraining, AI-beleid op maat, één quick win en 30 dagen nazorg. Vraag een gratis offerte aan.', 'veryo' ),
+		'seo_title' => __( 'AI-Startpakket: advies, beleid en één toepassing | Veryo', 'veryo' ),
+		'desc'      => __( 'Het AI-startpakket voor het MKB: kansensessie, AI-beleid op maat, één toepassing gebouwd of ingericht en 30 dagen nazorg. Vraag een gratis offerte aan.', 'veryo' ),
 		'kw'        => 'ai startpakket mkb',
 		'schema'    => array(
 			'type' => 'startpakket',

@@ -208,16 +208,17 @@ function veryo_startpakket_prices() {
 }
 
 /**
- * De vijf onderdelen van het AI-Startpakket.
+ * De vijf onderdelen van het AI-Startpakket. Training is geen los onderdeel meer: na de
+ * oplevering leren we het team werken met wat we hebben gebouwd.
  *
  * @return array<int,array<int,string>> Lijst van array( titel, uitleg ).
  */
 function veryo_startpakket_parts() {
 	return array(
 		array( __( 'AI-scan en kansensessie', 'veryo' ), __( 'Een halve dag samen je processen doorlopen, inclusief advies welke bestaande tools het best bij jullie passen.', 'veryo' ) ),
-		array( __( 'AI-training voor het hele team', 'veryo' ), __( 'Een halve dag praktisch aan de slag met ChatGPT, Claude of Copilot, en helder wat wel en niet mag.', 'veryo' ) ),
 		array( __( 'AI-beleid op maat', 'veryo' ), __( 'Een beleid van één à twee pagina’s: welke tools jullie gebruiken, welke gegevens er nooit in gaan en wie verantwoordelijk is.', 'veryo' ) ),
-		array( __( 'Eén quick win ingericht', 'veryo' ), __( 'We richten één afgebakende toepassing daadwerkelijk in, zodat je team direct iets heeft dat werkt.', 'veryo' ) ),
+		array( __( 'Eén toepassing gebouwd of ingericht', 'veryo' ), __( 'We bouwen of richten één afgebakende toepassing daadwerkelijk in, zodat jullie team direct iets heeft dat werkt.', 'veryo' ) ),
+		array( __( 'Jullie team ermee leren werken', 'veryo' ), __( 'Na de oplevering leren we jullie team ermee werken, met de toepassing die we hebben gebouwd.', 'veryo' ) ),
 		array( __( '30 dagen nazorg', 'veryo' ), __( 'Een maand lang een vast aanspreekpunt voor vragen, afgesloten met een evaluatie en een plan voor de volgende stappen.', 'veryo' ) ),
 	);
 }
@@ -295,20 +296,10 @@ function veryo_price_ladder() {
 			'max'    => 0,
 			'path'   => 'waar-begin-ik-met-ai',
 		),
-		'academy'          => array(
-			'groep'  => 'instap',
-			'dienst' => __( 'Online AI-training, Veryo Academy (binnenkort)', 'veryo' ),
-			'wat'    => __( 'Korte modules van 10 tot 15 minuten met oefeningen, per medewerker, met staffelkorting vanaf 10 personen.', 'veryo' ),
-			'voor'   => __( 'Voor teams die zelfstandig willen leren, en voor losse deelnemers.', 'veryo' ),
-			'prijs'  => __( '€49–79 per persoon', 'veryo' ),
-			'min'    => 49,
-			'max'    => 79,
-			'path'   => 'academy',
-		),
 		'startpakket'      => array(
 			'groep'  => 'hoofdproduct',
 			'dienst' => __( 'Veryo AI-Startpakket', 'veryo' ),
-			'wat'    => __( 'AI-scan en kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg.', 'veryo' ),
+			'wat'    => __( 'AI-scan en kansensessie, AI-beleid op maat, één toepassing gebouwd of ingericht en 30 dagen nazorg. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 			'voor'   => __( 'Voor bedrijven die AI goed en veilig willen invoeren, met het hele team.', 'veryo' ),
 			'prijs'  => __( 'vanaf €1.995', 'veryo' ),
 			'min'    => 1995,
@@ -318,28 +309,18 @@ function veryo_price_ladder() {
 		'kansensessie'     => array(
 			'groep'  => 'los',
 			'dienst' => __( 'AI-kansensessie en roadmap', 'veryo' ),
-			'wat'    => __( 'Een workshop en een rapport met prioriteiten en de verwachte opbrengst per kans.', 'veryo' ),
+			'wat'    => __( 'Een sessie van een dagdeel en een rapport met prioriteiten en de verwachte opbrengst per kans.', 'veryo' ),
 			'voor'   => __( 'Voor wie eerst alleen een plan wil.', 'veryo' ),
 			'prijs'  => __( '€750–1.500', 'veryo' ),
 			'min'    => 750,
 			'max'    => 1500,
 			'path'   => 'ai-implementatie-mkb',
 		),
-		'training'         => array(
-			'groep'  => 'los',
-			'dienst' => __( 'In-company AI-training tot 20 personen', 'veryo' ),
-			'wat'    => __( 'Een halve of hele dag met je eigen team, met oefeningen uit jullie eigen werk.', 'veryo' ),
-			'voor'   => __( 'Voor teams die AI veilig en slim willen gebruiken, en voor de AI-geletterdheidsplicht.', 'veryo' ),
-			'prijs'  => __( '€1.200 (halve dag) – €2.800 (hele dag)', 'veryo' ),
-			'min'    => 1200,
-			'max'    => 2800,
-			'path'   => 'ai-training',
-		),
 		'werkplek'         => array(
 			'groep'  => 'los',
-			'dienst' => __( 'AI-werkplek inrichten', 'veryo' ),
-			'wat'    => __( 'Microsoft 365 met Copilot of Google Workspace met Gemini: licentieadvies, toegangsrechten, instellingen en een korte teamtraining.', 'veryo' ),
-			'voor'   => __( 'Voor teams die de AI in hun kantoorsoftware veilig en echt willen gebruiken.', 'veryo' ),
+			'dienst' => __( 'AI-werkplek met Claude Team', 'veryo' ),
+			'wat'    => __( 'Claude Team ingericht met jullie eigen normen, kengetallen en templates, met de juiste rechten. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
+			'voor'   => __( 'Voor technische kantoren die bestekken, calculaties en rapportages sneller willen voorbereiden.', 'veryo' ),
 			'prijs'  => __( '€1.495 (tot 10 gebruikers) – €2.495 (11–25)', 'veryo' ),
 			'min'    => 1495,
 			'max'    => 2495,
@@ -430,7 +411,7 @@ function veryo_subscriptions() {
 			'naam'   => __( 'Bijblijven', 'veryo' ),
 			'bij'    => __( 'AI-Startpakket', 'veryo' ),
 			'pakket' => 'ai-startpakket',
-			'inhoud' => __( 'Elk kwartaal een update-sessie (wat is er nieuw en wat heb je eraan), nieuwe medewerkers krijgen toegang tot de Academy, je AI-beleid wordt jaarlijks bijgewerkt en je kunt vragen per mail stellen.', 'veryo' ),
+			'inhoud' => __( 'Elk kwartaal een korte update over wat er nieuw is en wat jullie eraan hebben, nieuwe medewerkers leren werken met wat we hebben ingericht, het AI-beleid wordt jaarlijks bijgewerkt en jullie kunnen vragen per mail stellen.', 'veryo' ),
 			'prijs'  => __( '€195 per maand', 'veryo' ),
 			'price'  => 195,
 			'unit'   => 'maand',
@@ -439,7 +420,7 @@ function veryo_subscriptions() {
 			'naam'      => __( 'Werkplek-onderhoud', 'veryo' ),
 			'bij'       => __( 'AI-werkplek', 'veryo' ),
 			'pakket'    => 'ai-werkplek',
-			'inhoud'    => __( 'Nieuwe medewerkers inrichten, toegangsrechten bijhouden, en nieuwe functies van Copilot of Gemini beoordelen en aanzetten.', 'veryo' ),
+			'inhoud'    => __( 'Nieuwe medewerkers toevoegen, rechten bijhouden, normen, kengetallen en templates actueel houden en nieuwe functies van Claude beoordelen.', 'veryo' ),
 			'prijs'     => __( '€10 per gebruiker per maand, minimaal €99', 'veryo' ),
 			'price'     => 10,
 			'min_total' => 99,

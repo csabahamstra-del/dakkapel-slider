@@ -46,10 +46,10 @@ $veryo_tools_page .= veryo_b_group(
 $veryo_tools_page .= veryo_sec_links(
 	array(
 		array( veryo_collega()['slug'], __( 'Veryo Collega', 'veryo' ), __( 'Lokale AI-assistent en kennisbank', 'veryo' ) ),
-		array( 'ai-werkplek', __( 'ChatGPT, Copilot en Gemini voor teams', 'veryo' ), __( 'Het juiste abonnement, veilig ingesteld', 'veryo' ) ),
+		array( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ), __( 'Claude met jullie eigen normen en templates', 'veryo' ) ),
 		array( 'ai-agents', __( 'AI-agents', 'veryo' ), __( 'Taken die zelfstandig worden opgepakt', 'veryo' ) ),
 		array( 'ai-automatisering', __( 'Automatisering', 'veryo' ), __( 'Koppelingen tussen jullie software', 'veryo' ) ),
-		array( 'ai-training', __( 'AI-trainingen', 'veryo' ), __( 'Jullie team leert veilig werken met AI', 'veryo' ) ),
+		array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
 		array( 'branches', __( 'AI per branche', 'veryo' ), __( 'Voorbeelden uit jullie sector', 'veryo' ) ),
 	),
 	__( 'Waar we deze tools voor inzetten', 'veryo' )

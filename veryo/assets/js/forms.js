@@ -1,4 +1,4 @@
-/* Veryo: contactformulier en Academy-wachtlijst. */
+/* Veryo: contact- en demoformulier. */
 ( function () {
 	'use strict';
 

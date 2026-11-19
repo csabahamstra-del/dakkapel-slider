@@ -55,10 +55,10 @@ while ( have_posts() ) :
 			<?php get_template_part( 'template-parts/author-box' ); ?>
 			<aside class="post-cta" aria-labelledby="post-cta-title">
 				<p class="post-cta__title" id="post-cta-title"><?php esc_html_e( 'Zelf aan de slag met AI?', 'veryo' ); ?></p>
-				<p><?php esc_html_e( 'Bekijk Veryo Collega, de lokale AI-assistent voor jullie eigen kennis, of leer je team in één dagdeel veilig werken met AI.', 'veryo' ); ?></p>
+				<p><?php esc_html_e( 'Bekijk Veryo Collega, de lokale AI-assistent voor jullie eigen kennis, of bekijk wat Veryo verder bouwt en inricht.', 'veryo' ); ?></p>
 				<p class="post-cta__links">
 					<a class="btn btn--petrol" href="<?php echo esc_url( veryo_link( veryo_collega()['slug'] ) ); ?>"><?php esc_html_e( 'Bekijk Veryo Collega', 'veryo' ); ?></a>
-					<a class="btn btn--link" href="<?php echo esc_url( veryo_link( 'ai-training' ) ); ?>"><?php esc_html_e( 'AI-trainingen', 'veryo' ); ?></a>
+					<a class="btn btn--link" href="<?php echo esc_url( veryo_link( 'diensten' ) ); ?>"><?php esc_html_e( 'Bekijk de diensten', 'veryo' ); ?></a>
 				</p>
 			</aside>
 			<?php

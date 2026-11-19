@@ -205,7 +205,7 @@ function veryo_sec_steps( $title = '', $intro = '' ) {
 			esc_url( veryo_link( 'waar-begin-ik-met-ai' ) )
 		),
 		'<strong>' . __( 'Kansensessie', 'veryo' ) . '</strong><br>' . __( 'Samen lopen we je processen door en zetten we de kansen op volgorde: wat levert het meest op, wat is snel te doen, wat laten we liggen. We kijken ook welke software je al hebt en wat die kan. De kansensessie is onderdeel van het AI-Startpakket.', 'veryo' ),
-		'<strong>' . __( 'Invoeren en bouwen', 'veryo' ) . '</strong><br>' . __( 'Eerst richten we software in die je al hebt of kunt nemen, en leren we je team ermee werken. Alleen waar dat tekortschiet, bouwen we een eigen koppeling, in je eigen accounts. Eerst een proefperiode met echte gegevens, dan pas live.', 'veryo' ),
+		'<strong>' . __( 'Invoeren en bouwen', 'veryo' ) . '</strong><br>' . __( 'We bouwen en richten in, bovenop de software die jullie al hebben en in jullie eigen accounts. Eerst een proefperiode met echte gegevens, dan pas live. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 		'<strong>' . __( 'Onderhoud', 'veryo' ) . '</strong><br>' . __( 'We houden alles in de gaten en passen aan als er iets verandert. Elke koppeling heeft een logboek en een vaste eigenaar. Wil je doorlopend een vraagbaak, dan is er het AI-partner-abonnement.', 'veryo' ),
 	);
 	$out   = veryo_b_h( $title );
@@ -318,7 +318,7 @@ function veryo_sec_ladder() {
 	);
 	$out  .= veryo_b_h( __( 'Losse onderdelen', 'veryo' ), 3 );
 	$loose = array();
-	foreach ( array( 'kansensessie', 'training', 'werkplek', 'veiligheidscheck', 'agents', 'academy' ) as $key ) {
+	foreach ( array( 'kansensessie', 'werkplek', 'veiligheidscheck', 'agents' ) as $key ) {
 		$loose[] = $tag( $l[ $key ] ) . '<br><span class="veryo-meta">' . esc_html( $l[ $key ]['wat'] ) . '</span>';
 	}
 	$out .= veryo_b_list( $loose, array( 'className' => 'is-style-prices' ) );
@@ -421,7 +421,7 @@ function veryo_sec_approach( $title = '' ) {
 	$title = $title ? $title : __( 'Onze aanpak: eerst wat je al hebt', 'veryo' );
 	$items = array(
 		'<strong>' . __( 'Kijken wat er al is.', 'veryo' ) . '</strong> ' . __( 'Veel software die je al gebruikt, heeft inmiddels AI-functies. Vaak lost dat een groot deel op.', 'veryo' ),
-		'<strong>' . __( 'Inrichten en trainen.', 'veryo' ) . '</strong> ' . __( 'We zetten de juiste functies aan, of kiezen samen een passende tool, en leren je team ermee werken.', 'veryo' ),
+		'<strong>' . __( 'Inrichten en opleveren.', 'veryo' ) . '</strong> ' . __( 'We zetten de juiste functies aan, of kiezen samen een passende tool. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 		'<strong>' . __( 'Alleen bouwen waar nodig.', 'veryo' ) . '</strong> ' . __( 'Blijft er een gat, bijvoorbeeld tussen twee systemen die niet met elkaar praten, dan bouwen we een koppeling of automatisering.', 'veryo' ),
 	);
 	return veryo_b_group(
@@ -588,12 +588,12 @@ function veryo_sec_branches( $title = '', $intro = '', $wide = false ) {
  */
 function veryo_sec_regions( $title = '', $intro = '', $wide = false ) {
 	$title = $title ? $title : __( 'Uit Leeuwarden, voor heel Noord-Nederland', 'veryo' );
-	$intro = $intro ? $intro : __( 'Veryo zit in Leeuwarden. In Friesland, Groningen en Drenthe komen we gewoon langs: aan de keukentafel, in de werkplaats of op kantoor. Trainingen en online diensten doen we ook in de rest van Nederland.', 'veryo' );
+	$intro = $intro ? $intro : __( 'Veryo zit in Leeuwarden. In Friesland, Groningen en Drenthe komen we gewoon langs: aan de keukentafel, in de werkplaats of op kantoor. Online werken we ook voor bedrijven in de rest van Nederland.', 'veryo' );
 	$items = array(
 		'<a href="' . esc_url( veryo_link( 'ai-adviseur-friesland' ) ) . '">' . __( 'AI-adviseur in Friesland', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Leeuwarden, Heerenveen, Sneek, Drachten, Harlingen, Dokkum', 'veryo' ) . '</span>',
 		'<a href="' . esc_url( veryo_link( 'ai-adviseur-groningen' ) ) . '">' . __( 'AI-adviseur in Groningen', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Stad Groningen, Veendam, Hoogezand, Delfzijl, Winsum', 'veryo' ) . '</span>',
 		'<a href="' . esc_url( veryo_link( 'ai-adviseur-drenthe' ) ) . '">' . __( 'AI-adviseur in Drenthe', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Assen, Emmen, Hoogeveen, Meppel', 'veryo' ) . '</span>',
-		'<a href="' . esc_url( veryo_link( 'leeuwarden' ) ) . '">' . __( 'AI-training en automatisering in Leeuwarden', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Onze thuisbasis', 'veryo' ) . '</span>',
+		'<a href="' . esc_url( veryo_link( 'leeuwarden' ) ) . '">' . __( 'AI-automatisering in Leeuwarden', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Onze thuisbasis', 'veryo' ) . '</span>',
 	);
 	$inner = veryo_b_columns(
 		array(
@@ -659,9 +659,9 @@ function veryo_sec_services() {
 	);
 	$advies .= veryo_b_buttons( array( array( __( 'Over AI-implementatie', 'veryo' ), veryo_link( 'ai-implementatie-mkb' ), 'link' ) ) );
 
-	$training  = veryo_b_h( __( 'Training', 'veryo' ), 3 );
-	$training .= veryo_b_p( __( 'Een halve of hele dag met je eigen team. Praktisch, met voorbeelden uit jullie werk, en je werkt meteen aan de AI-geletterdheid die de AI Act vraagt.', 'veryo' ) );
-	$training .= veryo_b_buttons( array( array( __( 'Over de training', 'veryo' ), veryo_link( 'ai-training' ), 'link' ) ) );
+	$werkplek  = veryo_b_h( __( 'AI-werkplek met Claude Team', 'veryo' ), 3 );
+	$werkplek .= veryo_b_p( __( 'Claude ingericht met jullie eigen normen, kengetallen en templates. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) );
+	$werkplek .= veryo_b_buttons( array( array( __( 'Over de AI-werkplek', 'veryo' ), veryo_link( 'ai-werkplek' ), 'link' ) ) );
 
 	$invoering  = veryo_b_h( __( 'Invoering en koppelingen', 'veryo' ), 3 );
 	$invoering .= veryo_b_p( __( 'We richten de gekozen tools in en koppelen systemen die niet met elkaar praten. Alleen waar bestaande software tekortschiet, bouwen we iets op maat.', 'veryo' ) );
@@ -675,7 +675,7 @@ function veryo_sec_services() {
 			),
 			array(
 				'width' => '70%',
-				'inner' => veryo_b_p( __( 'Een vaste vraagbaak voor alles rond AI: maandelijks overleg, nieuwe medewerkers bijscholen en kleine verbeteringen. Zodat het niet stilvalt na de eerste maand.', 'veryo' ) )
+				'inner' => veryo_b_p( __( 'Een vaste vraagbaak voor alles rond AI: maandelijks overleg, nieuwe medewerkers leren werken met wat is ingericht, en kleine verbeteringen. Zodat het niet stilvalt na de eerste maand.', 'veryo' ) )
 					. veryo_b_buttons( array( array( __( 'Over het AI-partner-abonnement', 'veryo' ), veryo_link( 'ai-partner' ), 'link' ) ) ),
 			),
 		),
@@ -693,7 +693,7 @@ function veryo_sec_services() {
 			array(
 				'width' => '42%',
 				'class' => 'veryo-service-side',
-				'inner' => veryo_b_group( $training, array( 'className' => 'veryo-service-plain' ) ) . veryo_b_group( $invoering, array( 'className' => 'veryo-service-plain' ) ),
+				'inner' => veryo_b_group( $werkplek, array( 'className' => 'veryo-service-plain' ) ) . veryo_b_group( $invoering, array( 'className' => 'veryo-service-plain' ) ),
 			),
 		)
 	);
@@ -717,7 +717,7 @@ function veryo_sec_services() {
 function veryo_sec_steps_home() {
 	$steps = array(
 		'<strong>' . __( 'Gratis AI-scan', 'veryo' ) . '</strong><br>' . __( 'Negen vragen, drie minuten, en je weet waar de tijdwinst zit.', 'veryo' ),
-		'<strong>' . __( 'AI-Startpakket', 'veryo' ) . '</strong><br>' . __( 'Kansensessie, teamtraining, AI-beleid, één quick win ingericht en 30 dagen nazorg.', 'veryo' ),
+		'<strong>' . __( 'AI-Startpakket', 'veryo' ) . '</strong><br>' . __( 'Kansensessie, AI-beleid, één toepassing gebouwd of ingericht en 30 dagen nazorg.', 'veryo' ),
 		'<strong>' . __( 'Invoering van de beste kansen', 'veryo' ) . '</strong><br>' . __( 'Eerst met software die je al hebt, alleen waar nodig met een eigen koppeling.', 'veryo' ),
 		'<strong>' . __( 'AI-partner', 'veryo' ) . '</strong><br>' . __( 'Een vaste vraagbaak die zorgt dat het blijft werken en beter wordt.', 'veryo' ),
 	);
@@ -756,7 +756,7 @@ function veryo_page_standard( $d ) {
 			array(),
 			array(
 				'<strong><a href="' . esc_url( veryo_collega_url() ) . '">' . esc_html__( 'Veryo Collega, lokale AI-assistent', 'veryo' ) . '</a>.</strong> ' . $d['help'][1],
-				'<strong><a href="' . esc_url( veryo_link( 'ai-training' ) ) . '">' . esc_html__( 'AI-training en workshops', 'veryo' ) . '</a>.</strong> ' . $d['help'][2],
+				'<strong><a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . esc_html__( 'AI-werkplek met Claude Team', 'veryo' ) . '</a>.</strong> ' . $d['help'][2],
 				'<strong><a href="' . esc_url( veryo_link( 'ai-automatisering' ) ) . '">' . esc_html__( 'Automatisering', 'veryo' ) . '</a>.</strong> ' . $d['help'][3],
 			),
 			'checks'
@@ -1043,8 +1043,8 @@ function veryo_sec_marquee() {
 		__( 'Werkbonnen', 'veryo' ),
 		__( 'Werving', 'veryo' ),
 		__( 'Rapportages', 'veryo' ),
-		__( 'Copilot', 'veryo' ),
-		__( 'Gemini', 'veryo' ),
+		__( 'Bestekken', 'veryo' ),
+		__( 'Claude Team', 'veryo' ),
 		__( 'AI-beleid', 'veryo' ),
 		__( 'Inkoop', 'veryo' ),
 		__( 'Gespreksverslagen', 'veryo' ),
@@ -1097,16 +1097,16 @@ function veryo_sec_contrast() {
 }
 
 /**
- * De zes pijlers. Bewust twee grotere panelen en vier kleinere.
+ * De zes pijlers: wat Veryo bouwt en inricht. Bewust twee grotere panelen en vier kleinere.
  *
  * @return string
  */
 function veryo_sec_pillars() {
 	$pillars = array(
-		array( 'ai-startpakket', __( 'Advies en AI-Startpakket', 'veryo' ), __( 'Gratis AI-scan, kansensessie en het AI-Startpakket: zo zet je AI in één keer goed neer.', 'veryo' ), true, __( 'Bekijk het AI-Startpakket', 'veryo' ) ),
-		array( 'ai-werkplek', __( 'De AI-werkplek', 'veryo' ), __( 'Copilot of Gemini goed ingericht: licenties, rechten, instellingen en een team dat het gebruikt.', 'veryo' ), true, __( 'Meer over de AI-werkplek', 'veryo' ) ),
-		array( 'ai-training', __( 'Training', 'veryo' ), __( 'In-company, AI-geletterdheid en straks de online Academy.', 'veryo' ), false, __( 'Meer over AI-training', 'veryo' ) ),
-		array( 'ai-agents', __( 'Digitale collega’s', 'veryo' ), __( 'AI-agents, automatisering en koppelingen waar bestaande software tekortschiet.', 'veryo' ), false, __( 'Meer over AI-agents', 'veryo' ) ),
+		array( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ), __( 'Claude ingericht met jullie eigen normen, kengetallen en templates: bestek lezen, calculatie voorbereiden, uitgangspunten controleren. De engineer blijft eindverantwoordelijk.', 'veryo' ), true, __( 'Meer over de AI-werkplek', 'veryo' ) ),
+		array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Uren en werkbonnen inlezen, inkoopfacturen aan projecten koppelen, weekafsluiting met conceptfacturen en begroot naast werkelijk.', 'veryo' ), true, __( 'Meer over de kringloop', 'veryo' ) ),
+		array( 'ai-agents', __( 'AI-agents', 'veryo' ), __( 'Digitale collega’s die terugkerend werk voorbereiden in jullie eigen systemen.', 'veryo' ), false, __( 'Meer over AI-agents', 'veryo' ) ),
+		array( 'ai-automatisering', __( 'Automatiseringen', 'veryo' ), __( 'Koppelingen bovenop de software die jullie al gebruiken. Overstappen is nooit nodig.', 'veryo' ), false, __( 'Meer over automatisering', 'veryo' ) ),
 		array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, toegangsrechten, tweestapsverificatie en bewustwording.', 'veryo' ), false, __( 'Meer over veilig AI-gebruik', 'veryo' ) ),
 		array( 'ai-partner', __( 'AI-partner', 'veryo' ), __( 'Doorlopende begeleiding in één abonnement, met uren voor verbeteringen.', 'veryo' ), false, __( 'Meer over AI-partner', 'veryo' ) ),
 	);

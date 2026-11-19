@@ -138,62 +138,73 @@ return array(
 	),
 	/* ------------------------------------------------------------------------- */
 	'ai-op-maat/ai-receptionist-horeca' => array(
-		'title'     => __( 'AI-receptionist voor restaurants en horeca', 'veryo' ),
-		'seo_title' => __( 'AI-telefoonassistent voor restaurants | Veryo', 'veryo' ),
-		'desc'      => __( 'Een AI-telefoonassistent die opneemt, reserveringen noteert en vragen beantwoordt als het druk is. Geen gemiste gasten meer. Gratis offerte.', 'veryo' ),
-		'kw'        => 'ai telefoonassistent restaurant',
-		'schema'    => array(
+		'title'       => __( 'Veryo Receptie: AI-receptionist voor zorgpraktijken', 'veryo' ),
+		'force_title' => true,
+		'seo_title'   => __( 'Veryo Receptie: AI-receptionist voor zorgpraktijken | Veryo', 'veryo' ),
+		'desc'        => __( 'Veryo Receptie neemt de telefoon op tijdens behandelingen en na sluitingstijd, en plant afspraken in. Voor fysiotherapie, tandarts en andere praktijken.', 'veryo' ),
+		'kw'          => 'ai receptionist zorgpraktijk',
+		'schema'      => array(
 			'type' => 'service',
-			'min'  => 5000,
-			'max'  => 25000,
 		),
-		'content'   => veryo_page_standard(
+		'content'     => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo bouwt een AI-receptionist voor restaurants en horeca: een AI-telefoonassistent die de telefoon opneemt als het druk is of je gesloten bent, reserveringen noteert, vragen over openingstijden en allergenen beantwoordt en lastige vragen doorzet. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
-				'extra'    => array( __( 'Zo pakken we het aan', 'veryo' ), array( __( 'We beginnen met het vastleggen van de informatie die de assistent nodig heeft: openingstijden, menu en allergenen, bereikbaarheid, regels voor groepen en wat er moet gebeuren bij een klacht. Daarna testen we met echte gesprekken door jou en je team, voordat er een gast mee belt.', 'veryo' ), __( 'In de eerste weken luisteren we gesprekken terug en passen we aan waar de assistent twijfelt of te lang praat. Pas als het goed loopt, zetten we hem ook in als overloop tijdens drukke uren.', 'veryo' ) ) ),
-				'problem'  => array(
-					'h' => __( 'De telefoon gaat altijd op het verkeerde moment', 'veryo' ),
+				'answer_cta' => array( __( 'Vraag een demo aan', 'veryo' ), '#vraag', 'amber' ),
+				'answer'     => __( 'Veryo Receptie is een AI-receptionist voor zorgpraktijken, zoals fysiotherapie, tandarts en andere praktijken. Hij neemt de telefoon op tijdens behandelingen en na sluitingstijd, plant afspraken in en beantwoordt praktische vragen. Afwijkende vragen zet hij klaar als terugbelverzoek. Medisch advies geeft hij nooit.', 'veryo' ),
+				'problem'    => array(
+					'h' => __( 'De telefoon gaat terwijl je behandelt', 'veryo' ),
 					'p' => array(
-						__( 'Om half zeven staat de keuken vol, de bediening loopt en precies dan gaat de telefoon. Iemand wil reserveren voor zaterdag, iemand vraagt of er glutenvrije opties zijn, iemand wil weten tot hoe laat de keuken open is. Neem je op, dan staat een tafel te wachten. Neem je niet op, dan belt de gast het volgende restaurant.', 'veryo' ),
-						__( 'Buiten openingstijden is het nog lastiger. Een voicemail wordt zelden ingesproken en nog minder vaak teruggebeld.', 'veryo' ),
+						__( 'In een kleine praktijk staat niemand de hele dag bij de telefoon. Tijdens een behandeling kun je niet opnemen, en na sluitingstijd gaat de lijn naar de voicemail. Wie een afspraak wil maken of verzetten, belt later terug, of belt een andere praktijk.', 'veryo' ),
+						__( 'Tussen de behandelingen door voicemails afluisteren en terugbellen kost tijd die je liever aan patiënten besteedt.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'drukke restaurantbar met een telefoon op de toonbank', 'veryo' ), __( 'AI-receptionist voor restaurants neemt de telefoon op', 'veryo' ), 'horeca' ),
-				'sections' => array(
+				'photo'      => array( __( 'telefoon op een balie', 'veryo' ), __( 'Veryo Receptie neemt de telefoon op voor zorgpraktijken', 'veryo' ), 'telefoon' ),
+				'sections'   => array(
 					array(
-						'h'     => __( 'Wat een AI-telefoonassistent doet', 'veryo' ),
+						'h'     => __( 'Wat Veryo Receptie doet', 'veryo' ),
 						'list'  => array(
-							__( 'Neemt op met een natuurlijke stem, in het Nederlands en eventueel Engels of Duits.', 'veryo' ),
-							__( 'Noteert reserveringen of zet ze direct in je reserveringssysteem, als dat een koppeling heeft.', 'veryo' ),
-							__( 'Beantwoordt vragen over openingstijden, bereikbaarheid, menu en allergenen uit jouw informatie.', 'veryo' ),
-							__( 'Zet afwijkende vragen, zoals groepen of klachten, als terugbelverzoek klaar.', 'veryo' ),
-							__( 'Stuurt je een overzicht van alle gesprekken.', 'veryo' ),
+							__( 'Neemt op tijdens behandelingen en na sluitingstijd, met een natuurlijke stem.', 'veryo' ),
+							__( 'Plant afspraken in, verzet ze of zegt ze af in jullie agenda, als die een koppeling heeft.', 'veryo' ),
+							__( 'Beantwoordt praktische vragen, zoals openingstijden, bereikbaarheid en wat iemand moet meenemen.', 'veryo' ),
+							__( 'Zet andere vragen klaar als terugbelverzoek, met naam en reden.', 'veryo' ),
+							__( 'Stuurt jullie een overzicht van alle gesprekken.', 'veryo' ),
 						),
 						'style' => 'checks',
 					),
 					array(
-						'h' => __( 'AI-voicebot: wat je moet weten', 'veryo' ),
+						'h'     => __( 'Wat Veryo Receptie niet doet', 'veryo' ),
+						'list'  => array(
+							__( 'Geen medisch advies en geen beoordeling van klachten.', 'veryo' ),
+							__( 'Bij spoed verwijst hij direct naar 112 of de huisartsenpost.', 'veryo' ),
+							__( 'Geen inzage in het patiëntendossier.', 'veryo' ),
+						),
+						'style' => 'checks',
+					),
+					array(
+						'h' => __( 'Zorgvuldig met gegevens', 'veryo' ),
 						'p' => array(
-							__( 'Een AI-receptionist is een van de meer complexe toepassingen. Spraak herkennen in een rumoerige omgeving, dialecten en snelle beslissingen vragen veel testen. Daarom beginnen we vaak buiten openingstijden of als overloop wanneer niemand binnen een paar keer overgaan opneemt. Zo leer je het systeem kennen zonder risico in de drukste uren.', 'veryo' ),
-							__( 'Bellers horen aan het begin van het gesprek dat ze met een digitale assistent praten, en kunnen altijd vragen om teruggebeld te worden door een mens.', 'veryo' ),
+							__( 'Bellers horen aan het begin dat ze met een digitale assistent praten, en kunnen altijd vragen om teruggebeld te worden. De assistent vraagt alleen wat nodig is om een afspraak te maken. We sluiten een verwerkersovereenkomst en leggen samen vast welke gegevens worden bewaard en hoe lang.', 'veryo' ),
+						),
+					),
+					array(
+						'h' => __( 'Zo beginnen we', 'veryo' ),
+						'p' => array(
+							__( 'We leggen samen vast wat de assistent moet weten: openingstijden, soorten afspraken, regels voor nieuwe patiënten en wat er moet gebeuren bij vragen die hij niet kan beantwoorden. Daarna testen jullie hem zelf met proefgesprekken, voordat er een patiënt mee belt. Vaak beginnen we na sluitingstijd, en daarna ook tijdens behandelingen. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 						),
 					),
 				),
-				'catalog'  => array(
-					'h'   => __( 'Past goed bij', 'veryo' ),
-					'ids' => array( 'voicebot', 'reviews', 'social-captions', 'website-chatbot' ),
+				'price'      => array( 'steps' => array( 'maatwerk', 'onderhoud' ) ),
+				'faq'        => array(
+					array( __( 'Klinkt het als een robot?', 'veryo' ), __( 'De stemmen zijn goed verstaanbaar en natuurlijk. Toch merkt een beller dat het een assistent is, en dat vertellen we ook aan het begin van het gesprek.', 'veryo' ) ),
+					array( __( 'Werkt het met onze agenda?', 'veryo' ), __( 'Als jullie agenda- of praktijksysteem een koppeling heeft, kan de assistent afspraken direct inplannen. Zo niet, dan noteert hij het verzoek en krijgen jullie een overzicht.', 'veryo' ) ),
+					array( __( 'Geeft de assistent medisch advies?', 'veryo' ), __( 'Nee, nooit. Bij spoed verwijst hij naar 112 of de huisartsenpost, en inhoudelijke vragen zet hij klaar als terugbelverzoek.', 'veryo' ) ),
+					array( __( 'Wat kost Veryo Receptie?', 'veryo' ), __( 'Je krijgt vooraf een gratis offerte met een vaste prijs, plus een inschatting van de verbruikskosten per gespreksminuut. Die hangen af van het aantal gesprekken.', 'veryo' ) ),
 				),
-				'price'    => array( 'steps' => array( 'startpakket', 'maatwerk', 'onderhoud' ) ),
-				'faq'      => array(
-					array( __( 'Klinkt een AI-receptionist als een robot?', 'veryo' ), __( 'De stemmen zijn tegenwoordig goed verstaanbaar en natuurlijk. Toch merkt een beller dat het een assistent is, en dat vertellen we ook aan het begin van het gesprek.', 'veryo' ) ),
-					array( __( 'Werkt het met mijn reserveringssysteem?', 'veryo' ), __( 'Als je reserveringssysteem een koppeling heeft, kan de assistent reserveringen direct inboeken. Zo niet, dan noteert hij ze en krijg je een overzicht.', 'veryo' ) ),
-					array( __( 'Wat kost een AI-telefoonassistent?', 'veryo' ), __( 'Je krijgt vooraf een gratis offerte met een vaste prijs, plus een inschatting van de verbruikskosten per gespreksminuut. Die hangen af van het aantal gesprekken; we geven vooraf een inschatting.', 'veryo' ) ),
-					array( __( 'Kan het ook voor andere bedrijven dan horeca?', 'veryo' ), __( 'Ja. Een AI-telefoonassistent buiten kantoortijd werkt ook voor installateurs, makelaars en dienstverleners.', 'veryo' ) ),
-				),
-				'links'    => array(
-					array( 'branches/horeca-retail', __( 'AI voor horeca', 'veryo' ), __( 'Reviews, social en meer', 'veryo' ) ),
+				'cta_demo'   => true,
+				'cta'        => array( __( 'Minder gemiste telefoontjes in jullie praktijk?', 'veryo' ), __( 'Vraag een demo aan. We laten zien hoe Veryo Receptie een gesprek afhandelt en wat er nodig is om het aan jullie agenda te koppelen.', 'veryo' ) ),
+				'links'      => array(
+					array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
 					array( 'ai-automatisering/klantcontact', __( 'Klantcontact automatiseren', 'veryo' ), __( 'Mail en WhatsApp', 'veryo' ) ),
-					array( 'leeuwarden', __( 'AI in Leeuwarden', 'veryo' ), __( 'Op locatie', 'veryo' ) ),
+					array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid en afspraken over gegevens', 'veryo' ) ),
 				),
 			)
 		),

@@ -11,7 +11,7 @@ get_header();
 get_template_part( 'template-parts/page-header', null, array( 'title' => __( 'Kennisbank', 'veryo' ) ) );
 ?>
 <div class="archive-list kennis-archive">
-	<p class="veryo-lead kennis-archive__intro"><?php esc_html_e( 'Praktische kennis over AI voor het mkb: heldere uitleg, stappenplannen en voorbeelden over automatisering, AI-training en lokale AI. Geschreven door Csaba Hamstra, oprichter van Veryo.', 'veryo' ); ?></p>
+	<p class="veryo-lead kennis-archive__intro"><?php esc_html_e( 'Praktische kennis over AI voor het mkb: heldere uitleg, stappenplannen en voorbeelden over automatisering, AI-agents en lokale AI. Geschreven door Csaba Hamstra, oprichter van Veryo.', 'veryo' ); ?></p>
 	<?php if ( have_posts() ) : ?>
 		<?php
 		while ( have_posts() ) :

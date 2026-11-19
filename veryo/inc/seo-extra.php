@@ -129,6 +129,14 @@ function veryo_redirects() {
 		array(
 			'ai-op-maat/interne-assistent'           => veryo_collega()['slug'],
 			'ai-automatisering/kennis-en-documenten' => veryo_collega()['slug'],
+			// Losse trainingen en de cursus bestaan niet meer (19 november 2026).
+			'ai-training'                            => 'diensten',
+			'ai-workshop'                            => 'diensten',
+			'ai-training/ai-geletterdheid'           => 'diensten',
+			'ai-training/chatgpt-training-verkopers' => 'diensten',
+			'ai-training/ai-strategie'               => 'diensten',
+			'ai-training/zzp'                        => 'diensten',
+			'academy'                                => 'diensten',
 		)
 	);
 }

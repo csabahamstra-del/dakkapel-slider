@@ -28,7 +28,7 @@ $veryo_linkedin = veryo_company()['linkedin'];
 	<?php endif; ?>
 	<div class="author-box__text">
 		<p class="author-box__name"><?php echo esc_html( $veryo_author['name'] ); ?> <span><?php echo esc_html( $veryo_author['job'] ); ?></span></p>
-		<p><?php esc_html_e( 'Helpt mkb-bedrijven uit Noord-Nederland met AI die in het dagelijkse werk past: Veryo Collega, de lokale AI-assistent, AI-trainingen voor teams en automatisering bovenop de software die jullie al hebben.', 'veryo' ); ?></p>
+		<p><?php esc_html_e( 'Helpt mkb-bedrijven uit Noord-Nederland met AI die in het dagelijkse werk past: Veryo Collega, de lokale AI-assistent, AI-agents, de AI-werkplek met Claude Team en automatisering bovenop de software die jullie al hebben.', 'veryo' ); ?></p>
 		<p class="author-box__links">
 			<a href="<?php echo esc_url( veryo_link( 'over-veryo' ) ); ?>"><?php esc_html_e( 'Meer over Veryo', 'veryo' ); ?></a>
 			<?php if ( $veryo_linkedin ) : ?>

@@ -609,7 +609,7 @@ function veryo_send_webhook( $lead_id ) {
 }
 
 /**
- * Webhook voor niet-scan-leads (contact, academy) direct, niet-blokkerend.
+ * Webhook voor niet-scan-leads (contact, demo) direct, niet-blokkerend.
  *
  * @param int $lead_id Lead.
  */

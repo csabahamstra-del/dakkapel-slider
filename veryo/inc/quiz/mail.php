@@ -147,12 +147,12 @@ function veryo_mail_report( $lead_id ) {
 	// Zelf beginnen en volgende stap.
 	$body .= '<tr><td style="padding:24px 32px 0"><h2 style="' . $h2 . '">' . esc_html__( 'Hier kun je zelf mee beginnen', 'veryo' ) . '</h2><p style="' . $p . '">' . esc_html( $report['zelf_beginnen'] ) . '</p>';
 	$body .= '<p style="' . $p . '">' . esc_html( $report['afsluiting'] ) . '</p></td></tr>';
-	// Je volgende stap: het AI-Startpakket.
+	// Je volgende stap: een kennismaking of demo.
+	$meet  = $calendly ? $calendly : veryo_url( 'contact' );
 	$body .= '<tr><td style="padding:16px 32px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#DDE8E4;border-radius:10px"><tr><td style="padding:20px 24px">';
-	$body .= '<h2 style="' . $h2 . '">' . esc_html__( 'Je volgende stap: het AI-Startpakket', 'veryo' ) . '</h2>';
-	$body .= '<p style="margin:0 0 8px">' . esc_html__( 'Wil je AI in één keer goed neerzetten? Het Veryo AI-Startpakket bevat:', 'veryo' ) . ' ' . esc_html( veryo_startpakket_parts_sentence() ) . '.</p>';
-	$body .= '<p style="margin:0 0 8px">' . esc_html__( 'Je krijgt een gratis offerte op maat van jullie team, met vooraf een vaste prijs.', 'veryo' ) . '</p>';
-	$body .= '<p style="margin:0"><a href="' . esc_url( veryo_offerte_url() ) . '" style="color:#1D4B44;font-weight:600">' . esc_html( veryo_offerte_label() ) . '</a> · <a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '" style="color:#1D4B44;font-weight:600">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p>';
+	$body .= '<h2 style="' . $h2 . '">' . esc_html__( 'Je volgende stap: een kennismaking of demo', 'veryo' ) . '</h2>';
+	$body .= '<p style="margin:0 0 8px">' . esc_html__( 'In een gratis kennismaking kijken we samen naar jullie grootste tijdwinst en laten we zien hoe we die zouden bouwen of inrichten, met een demo als dat kan. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) . '</p>';
+	$body .= '<p style="margin:0"><a href="' . esc_url( $meet ) . '" style="color:#1D4B44;font-weight:600">' . esc_html__( 'Plan een kennismaking', 'veryo' ) . '</a> · <a href="' . esc_url( veryo_url( 'diensten' ) ) . '" style="color:#1D4B44;font-weight:600">' . esc_html__( 'Bekijk de diensten', 'veryo' ) . '</a></p>';
 	$body .= '</td></tr></table></td></tr>';
 
 	$body .= '<tr><td style="padding:24px 32px 8px"><h2 style="' . $h2 . '">' . esc_html__( 'Volgende stap', 'veryo' ) . '</h2>';
@@ -216,10 +216,10 @@ function veryo_mail_report_text( $lead, $hours, $phone, $calendly ) {
 	$lines[] = '';
 	$lines[] = $r['afsluiting'];
 	$lines[] = '';
-	$lines[] = strtoupper( __( 'Je volgende stap: het AI-Startpakket', 'veryo' ) );
-	$lines[] = __( 'Wil je AI in één keer goed neerzetten? Het Veryo AI-Startpakket bevat:', 'veryo' ) . ' ' . veryo_startpakket_parts_sentence() . '.';
-	$lines[] = __( 'Je krijgt een gratis offerte op maat van jullie team, met vooraf een vaste prijs:', 'veryo' ) . ' ' . veryo_offerte_url();
-	$lines[] = __( 'Meer over het AI-Startpakket:', 'veryo' ) . ' ' . veryo_url( 'ai-startpakket' );
+	$lines[] = strtoupper( __( 'Je volgende stap: een kennismaking of demo', 'veryo' ) );
+	$lines[] = __( 'In een gratis kennismaking kijken we samen naar jullie grootste tijdwinst en laten we zien hoe we die zouden bouwen of inrichten, met een demo als dat kan. Na de oplevering leren we jullie team ermee werken.', 'veryo' );
+	$lines[] = __( 'Plan een kennismaking:', 'veryo' ) . ' ' . ( $calendly ? $calendly : veryo_url( 'contact' ) );
+	$lines[] = __( 'Bekijk de diensten:', 'veryo' ) . ' ' . veryo_url( 'diensten' );
 	$lines[] = '';
 	if ( $calendly ) {
 		$lines[] = __( 'Plan een gesprek:', 'veryo' ) . ' ' . $calendly;
@@ -290,7 +290,7 @@ function veryo_mail_internal_scan( $lead_id ) {
 }
 
 /**
- * Interne melding bij contactformulier of wachtlijst.
+ * Interne melding bij contactformulier of demo-aanvraag.
  *
  * @param int $lead_id Lead.
  * @return bool
