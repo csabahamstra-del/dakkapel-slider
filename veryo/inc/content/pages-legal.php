@@ -34,7 +34,6 @@ $veryo_privacy .= veryo_sec_text(
 		__( 'Om contact met u op te nemen over het rapport, bijvoorbeeld telefonisch als u uw nummer heeft ingevuld.', 'veryo' ),
 		__( 'Om u per mail tips en opvolging te sturen na de AI-scan. Afmelden kan altijd, via de link in de mail of door ons te mailen.', 'veryo' ),
 		__( 'Om vragen te beantwoorden die u via het contactformulier stuurt.', 'veryo' ),
-		__( 'Om u te informeren als de Veryo Academy beschikbaar is, als u zich op de wachtlijst heeft gezet.', 'veryo' ),
 		__( 'Voor eigen, anonieme statistieken over AI-gebruik in het MKB. Daarvoor gebruiken we alleen antwoorden en cijfers, zonder contactgegevens en zonder de frustratietekst.', 'veryo' ),
 	)
 );
@@ -63,7 +62,7 @@ $veryo_privacy .= veryo_sec_text(
 );
 $veryo_privacy .= veryo_sec_text(
 	__( '7. Hoe lang bewaren we gegevens?', 'veryo' ),
-	array( __( 'Gegevens uit de AI-scan, het contactformulier en de wachtlijst bewaren we maximaal [veryo_bewaartermijn] na het invullen. Daarna worden ze automatisch verwijderd. De online versie van uw rapport is 90 dagen bereikbaar via de persoonlijke link. Wordt u klant, dan gelden de bewaartermijnen uit onze administratie en de wet.', 'veryo' ) )
+	array( __( 'Gegevens uit de AI-scan en het contactformulier bewaren we maximaal [veryo_bewaartermijn] na het invullen. Daarna worden ze automatisch verwijderd. De online versie van uw rapport is 90 dagen bereikbaar via de persoonlijke link. Wordt u klant, dan gelden de bewaartermijnen uit onze administratie en de wet.', 'veryo' ) )
 );
 $veryo_privacy .= veryo_sec_text(
 	__( '8. Cookies en lokale opslag', 'veryo' ),
@@ -107,7 +106,7 @@ $veryo_terms .= veryo_sec_text(
 	array(
 		__( '<strong>Veryo</strong>: handelsnaam van Merklenz, eenmanszaak, Lange Marktstraat 1, Leeuwarden, KvK 73435996.', 'veryo' ),
 		__( '<strong>Opdrachtgever</strong>: de organisatie die Veryo een opdracht geeft.', 'veryo' ),
-		__( '<strong>Diensten</strong>: trainingen, kansensessies, automatiseringen, AI op maat, onderhoud en abonnementen.', 'veryo' ),
+		__( '<strong>Diensten</strong>: kansensessies, het bouwen en inrichten van AI-agents, automatiseringen en de AI-werkplek, AI op maat, onderhoud en abonnementen, inclusief het leren werken met wat is opgeleverd.', 'veryo' ),
 		__( '<strong>Automatisering</strong>: een door Veryo ingerichte workflow, koppeling, assistent of agent.', 'veryo' ),
 	)
 );
@@ -129,7 +128,7 @@ $veryo_terms .= veryo_sec_text(
 );
 $veryo_terms .= veryo_sec_text(
 	__( '6. Eigendom en gegevens', 'veryo' ),
-	array( __( 'Opdrachtgever blijft eigenaar van zijn gegevens. Automatiseringen in accounts van opdrachtgever worden na volledige betaling eigendom van opdrachtgever, met uitzondering van algemene kennis, sjablonen en werkwijzen van Veryo. Trainingsmateriaal blijft eigendom van Veryo en mag intern worden gebruikt.', 'veryo' ) )
+	array( __( 'Opdrachtgever blijft eigenaar van zijn gegevens. Automatiseringen in accounts van opdrachtgever worden na volledige betaling eigendom van opdrachtgever, met uitzondering van algemene kennis, sjablonen en werkwijzen van Veryo. Uitleg- en instructiemateriaal blijft eigendom van Veryo en mag intern worden gebruikt.', 'veryo' ) )
 );
 $veryo_terms .= veryo_sec_text(
 	__( '7. Privacy', 'veryo' ),
@@ -176,7 +175,7 @@ return array(
 	'algemene-voorwaarden' => array(
 		'title'     => __( 'Algemene voorwaarden', 'veryo' ),
 		'seo_title' => __( 'Algemene voorwaarden | Veryo', 'veryo' ),
-		'desc'      => __( 'Algemene voorwaarden van Veryo voor trainingen, automatiseringen, AI op maat en abonnementen: offertes, uitvoering, AI-gebruik, betaling en eigendom.', 'veryo' ),
+		'desc'      => __( 'Algemene voorwaarden van Veryo voor AI-agents, automatiseringen, AI op maat en abonnementen: offertes, uitvoering, AI-gebruik, betaling en eigendom.', 'veryo' ),
 		'kw'        => '',
 		'meta'      => array(
 			'legal_draft' => 1,

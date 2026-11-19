@@ -6,6 +6,13 @@ Het thema voert deze redirects zelf uit (`veryo_redirects()` in `veryo/inc/seo-e
 |---|---|---|
 | `/ai-op-maat/interne-assistent/` | `/veryo-collega/` | Zelfde onderwerp als Veryo Collega (kannibalisatie op "interne AI-assistent") |
 | `/ai-automatisering/kennis-en-documenten/` | `/veryo-collega/` | Zelfde onderwerp als Veryo Collega (kennisbank op eigen documenten) |
+| `/ai-training/` | `/diensten/` | Losse trainingen en de cursus bestaan niet meer (19 november 2026) |
+| `/ai-workshop/` | `/diensten/` | Losse trainingen en de cursus bestaan niet meer (19 november 2026) |
+| `/ai-training/ai-geletterdheid/` | `/diensten/` | Losse trainingen en de cursus bestaan niet meer (19 november 2026) |
+| `/ai-training/chatgpt-training-verkopers/` | `/diensten/` | Losse trainingen en de cursus bestaan niet meer (19 november 2026) |
+| `/ai-training/ai-strategie/` | `/diensten/` | Losse trainingen en de cursus bestaan niet meer (19 november 2026) |
+| `/ai-training/zzp/` | `/diensten/` | Losse trainingen en de cursus bestaan niet meer (19 november 2026) |
+| `/academy/` | `/diensten/` | Losse trainingen en de cursus bestaan niet meer (19 november 2026) |
 
 Automatisch geregeld door het thema:
 
@@ -19,7 +26,7 @@ Niet als redirect, wel als noindex, follow (pagina blijft bereikbaar voor bezoek
 
 ## Rank Math
 
-Rank Math heeft een eigen redirectmodule. Zet deze twee redirects daar **niet** nog een keer in; dubbel kan een redirect-lus geven. Wil je ze toch liever in Rank Math beheren, haal ze dan uit het thema met:
+Rank Math heeft een eigen redirectmodule. Zet deze redirects daar **niet** nog een keer in; dubbel kan een redirect-lus geven. Wil je ze toch liever in Rank Math beheren, haal ze dan uit het thema met:
 
 ```php
 add_filter( 'veryo_redirects', '__return_empty_array' );

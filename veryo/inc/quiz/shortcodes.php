@@ -251,7 +251,7 @@ function veryo_select_field( $name, $label, $options, $prefix ) {
 }
 
 /**
- * Contactformulier of Academy-wachtlijst.
+ * Contact- of demoformulier.
  *
  * @param array<string,string>|string $atts Attributen.
  * @return string
@@ -268,11 +268,11 @@ function veryo_sc_form( $atts ) {
 		$atts,
 		'veryo_form'
 	);
-	$type         = in_array( $atts['type'], array( 'academy', 'demo' ), true ) ? $atts['type'] : 'contact';
-	$compact      = 'contact' === $type && '' !== $atts['compact'];
-	if ( 'academy' === $type && ! veryo_setting( 'academy_waitlist' ) ) {
-		return '';
+	if ( 'academy' === $atts['type'] ) {
+		return ''; // De Academy-wachtlijst bestaat niet meer.
 	}
+	$type    = 'demo' === $atts['type'] ? 'demo' : 'contact';
+	$compact = 'contact' === $type && '' !== $atts['compact'];
 	veryo_enqueue_with_config( 'veryo-forms' );
 
 	// Meerdere formulieren op één pagina: elk zijn eigen id's.
@@ -305,21 +305,6 @@ function veryo_sc_form( $atts ) {
 		'',
 		$p
 	);
-	if ( 'academy' === $type ) {
-		$out .= veryo_field(
-			'number',
-			'medewerkers',
-			__( 'Aantal medewerkers dat wil deelnemen', 'veryo' ),
-			false,
-			array(
-				'min'       => '1',
-				'max'       => '1000',
-				'inputmode' => 'numeric',
-			),
-			__( 'Staffelkorting vanaf 10 personen. Laat leeg als je alleen voor jezelf inschrijft.', 'veryo' ),
-			$p
-		);
-	}
 	$out .= veryo_field(
 		'email',
 		'email',
@@ -388,19 +373,15 @@ function veryo_sc_form( $atts ) {
 			$p
 		);
 	}
-	$consent = 'academy' === $type
-		/* translators: %s: link naar privacyverklaring. */
-		? __( 'Ik ga akkoord dat Veryo mijn gegevens bewaart om mij te laten weten wanneer de cursus beschikbaar is, zoals beschreven in de %s.', 'veryo' )
-		/* translators: %s: link naar privacyverklaring. */
-		: __( 'Ik ga akkoord dat Veryo mijn gegevens gebruikt om contact met mij op te nemen, zoals beschreven in de %s.', 'veryo' );
-	$out  .= '<div class="field field--check"><input type="checkbox" id="' . esc_attr( $p ) . '-toestemming" name="toestemming" value="1" required aria-describedby="' . esc_attr( $p ) . '-toestemming-error"><label for="' . esc_attr( $p ) . '-toestemming">' . sprintf( esc_html( $consent ), $privacy ) . '</label><p class="field-error" id="' . esc_attr( $p ) . '-toestemming-error" hidden></p></div>';
-	$out  .= '<div class="hp-field" aria-hidden="true"><label for="' . esc_attr( $p ) . '-website">' . esc_html__( 'Laat dit veld leeg', 'veryo' ) . '</label><input type="text" id="' . esc_attr( $p ) . '-website" name="website" tabindex="-1" autocomplete="off"></div>';
-	$label = 'academy' === $type ? __( 'Zet me op de wachtlijst', 'veryo' ) : __( 'Verstuur bericht', 'veryo' );
-	$label = 'demo' === $type ? veryo_collega()['cta_primair'] : $label;
-	$label = '' !== $atts['button'] ? $atts['button'] : $label;
-	$out  .= '<button type="submit" class="btn btn--petrol">' . esc_html( $label ) . '</button>';
-	$out  .= '<p class="form-status" role="status" aria-live="polite"></p>';
-	$out  .= '</form>';
+	/* translators: %s: link naar privacyverklaring. */
+	$consent = __( 'Ik ga akkoord dat Veryo mijn gegevens gebruikt om contact met mij op te nemen, zoals beschreven in de %s.', 'veryo' );
+	$out    .= '<div class="field field--check"><input type="checkbox" id="' . esc_attr( $p ) . '-toestemming" name="toestemming" value="1" required aria-describedby="' . esc_attr( $p ) . '-toestemming-error"><label for="' . esc_attr( $p ) . '-toestemming">' . sprintf( esc_html( $consent ), $privacy ) . '</label><p class="field-error" id="' . esc_attr( $p ) . '-toestemming-error" hidden></p></div>';
+	$out    .= '<div class="hp-field" aria-hidden="true"><label for="' . esc_attr( $p ) . '-website">' . esc_html__( 'Laat dit veld leeg', 'veryo' ) . '</label><input type="text" id="' . esc_attr( $p ) . '-website" name="website" tabindex="-1" autocomplete="off"></div>';
+	$label   = 'demo' === $type ? veryo_collega()['cta_primair'] : __( 'Verstuur bericht', 'veryo' );
+	$label   = '' !== $atts['button'] ? $atts['button'] : $label;
+	$out    .= '<button type="submit" class="btn btn--petrol">' . esc_html( $label ) . '</button>';
+	$out    .= '<p class="form-status" role="status" aria-live="polite"></p>';
+	$out    .= '</form>';
 	return $out;
 }
 
@@ -553,9 +534,11 @@ function veryo_sc_rapport() {
 	$out .= '<h2>' . esc_html__( 'Hier kun je zelf mee beginnen', 'veryo' ) . '</h2><p>' . esc_html( $r['zelf_beginnen'] ) . '</p>';
 	$out .= '<p>' . esc_html( $r['afsluiting'] ) . '</p>';
 	$team = isset( $lead['answers']['team'] ) ? (string) $lead['answers']['team'] : '';
-	$out .= '<div class="report__next"><h2>' . esc_html__( 'Je volgende stap: het AI-Startpakket', 'veryo' ) . '</h2>';
-	$out .= '<p>' . esc_html__( 'Kansensessie, teamtraining, AI-beleid op maat, één quick win ingericht en 30 dagen nazorg.', 'veryo' ) . '</p>';
-	$out .= '<p>' . esc_html__( 'Je krijgt een gratis offerte op maat van jullie team, met vooraf een vaste prijs.', 'veryo' ) . ' <a href="' . esc_url( veryo_offerte_url() ) . '">' . esc_html( veryo_offerte_label() ) . '</a> · <a href="' . esc_url( veryo_url( 'ai-startpakket' ) ) . '">' . esc_html__( 'Meer over het AI-Startpakket', 'veryo' ) . '</a></p></div>';
+	$meet = (string) veryo_setting( 'calendly_url', '' );
+	$meet = $meet ? $meet : veryo_url( 'contact' );
+	$out .= '<div class="report__next"><h2>' . esc_html__( 'Je volgende stap: een kennismaking of demo', 'veryo' ) . '</h2>';
+	$out .= '<p>' . esc_html__( 'In een gratis kennismaking kijken we samen naar jullie grootste tijdwinst en laten we zien hoe we die zouden bouwen of inrichten, met een demo als dat kan. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) . '</p>';
+	$out .= '<p><a class="btn btn--amber" href="' . esc_url( $meet ) . '">' . esc_html__( 'Plan een kennismaking', 'veryo' ) . '</a> <a href="' . esc_url( veryo_url( 'diensten' ) ) . '">' . esc_html__( 'Bekijk de diensten', 'veryo' ) . '</a></p></div>';
 	if ( veryo_scan_fits_collega( $r['aanbevelingen'], $team ) ) {
 		$cc   = veryo_collega();
 		$out .= '<div class="report__next report__collega"><h2>' . esc_html( sprintf( /* translators: %s: productnaam. */ __( 'Past bij jullie: %s', 'veryo' ), $cc['naam'] ) ) . '</h2>';

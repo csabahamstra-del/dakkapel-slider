@@ -126,7 +126,7 @@ return array(
 				'links'    => array(
 					array( 'branches/installatie', __( 'AI voor installateurs', 'veryo' ), __( 'Offerte-generator en calculatietool', 'veryo' ) ),
 					array( 'branches/bouw', __( 'AI in de bouw', 'veryo' ), __( 'Materiaalstaat en nacalculatie', 'veryo' ) ),
-					array( 'ai-automatisering/administratie', __( 'Administratie automatiseren', 'veryo' ), __( 'Van werkbon naar factuur', 'veryo' ) ),
+					array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Van werkbon naar factuur', 'veryo' ) ),
 					array( 'ai-adviseur-drenthe', __( 'AI-adviseur in Drenthe', 'veryo' ), __( 'Voor maakindustrie en installatie', 'veryo' ) ),
 				),
 			)
@@ -135,61 +135,72 @@ return array(
 
 	/* ------------------------------------------------------------------------- */
 	'ai-automatisering/administratie'           => array(
-		'title'     => __( 'Administratie en facturen automatiseren', 'veryo' ),
-		'seo_title' => __( 'Administratie automatiseren met AI voor het mkb | Veryo', 'veryo' ),
-		'desc'      => __( 'Inkoopfacturen, bonnetjes, werkbonnen en debiteuren automatisch verwerkt in Exact, Moneybird of SnelStart. Zie wat AI je administratie scheelt.', 'veryo' ),
-		'kw'        => 'administratie automatiseren',
-		'schema'    => $veryo_q + array(
-			'min' => 750,
-			'max' => 7500,
-		),
-		'content'   => veryo_page_standard(
+		'title'       => __( 'De administratieve kringloop automatiseren', 'veryo' ),
+		'force_title' => true,
+		'seo_title'   => __( 'Administratieve kringloop automatiseren | Veryo', 'veryo' ),
+		'desc'        => __( 'Uren en werkbonnen inlezen, inkoopfacturen aan projecten koppelen, weekafsluiting met conceptfacturen en begroot naast werkelijk. Bovenop jullie pakket.', 'veryo' ),
+		'kw'          => 'administratie automatiseren',
+		'schema'      => $veryo_q,
+		'content'     => veryo_page_standard(
 			array(
-				'approach' => true,
-				'answer'   => __( 'Veryo helpt MKB-bedrijven hun administratie automatiseren: inkoopfacturen en bonnetjes worden automatisch verwerkt, afgeronde werkbonnen worden facturen en debiteuren krijgen vanzelf een herinnering. We koppelen aan je bestaande boekhoudpakket. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
-				'problem'  => array(
-					'h' => __( 'De administratie die ’s avonds wordt gedaan', 'veryo' ),
+				'approach'   => true,
+				'answer_cta' => array( __( 'Plan een kennismaking', 'veryo' ), '#vraag', 'amber' ),
+				'answer'     => __( 'De administratieve kringloop is alles wat er gebeurt tussen het werk op de bouwplaats of in de werkplaats en de factuur: uren en werkbonnen, inkoopfacturen, de weekafsluiting, de salarisadministratie en de nacalculatie. Veryo automatiseert die kringloop voor projectbedrijven bovenop het boekhoud- en projectpakket dat jullie al hebben. Overstappen is nooit nodig. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
+				'problem'    => array(
+					'h' => __( 'Het werk is af, maar de administratie loopt achter', 'veryo' ),
 					'p' => array(
-						__( 'Overdag wordt er gewerkt, ’s avonds of op zaterdag wordt de administratie bijgewerkt. Inkoopfacturen uit de mail overtypen. Bonnetjes zoeken die nog in de bus liggen. Werkbonnen omzetten in facturen. En dan nog de klanten die al zestig dagen niet hebben betaald.', 'veryo' ),
-						__( 'Het is werk dat moet gebeuren, maar geen werk waar je bedrijf beter van wordt. Bovendien sluipen er fouten in als je moe bent: een verkeerd bedrag, een factuur die twee keer wordt geboekt, een werkbon die nooit gefactureerd wordt.', 'veryo' ),
+						__( 'Uren staan op papier, in een app of in een WhatsApp-bericht. Werkbonnen komen als foto binnen. Inkoopfacturen moeten met de hand aan het juiste project worden gekoppeld. Aan het eind van de week of de maand zit iemand op kantoor alles over te typen, en pas daarna kan er gefactureerd worden.', 'veryo' ),
+						__( 'Ondertussen weet niemand precies hoe een project ervoor staat. Begroot en werkelijk worden pas vergeleken als het project al klaar is, en dan is het te laat om bij te sturen.', 'veryo' ),
 					),
 				),
-				'photo'    => array( __( 'ondernemer aan de keukentafel met een stapel bonnetjes en een laptop', 'veryo' ), __( 'Administratie automatiseren voor het MKB', 'veryo' ), 'laptop' ),
-				'catalog'  => array(
-					'h'     => __( 'Wat er mogelijk is in de administratie', 'veryo' ),
-					'intro' => __( 'We koppelen aan het boekhoudpakket dat je al hebt, zoals Exact, Moneybird of SnelStart. We vervangen het niet.', 'veryo' ),
-					'ids'   => array( 'inkoopfacturen', 'bonnetjes', 'werkbon-factuur', 'debiteuren', 'bankmutaties', 'urenregistratie', 'archiveren', 'formulieren' ),
-				),
-				'sections' => array(
+				'photo'      => array( __( 'medewerker op kantoor met werkbonnen en een laptop', 'veryo' ), __( 'De administratieve kringloop automatiseren voor projectbedrijven', 'veryo' ), 'laptop' ),
+				'sections'   => array(
 					array(
-						'h' => __( 'Hoe je administratie automatiseren aanpakt', 'veryo' ),
+						'h'     => __( 'Wat we automatiseren in de kringloop', 'veryo' ),
+						'list'  => array(
+							'<strong>' . __( 'Uren en werkbonnen inlezen.', 'veryo' ) . '</strong> ' . __( 'Als foto, via WhatsApp of via een formulier. De gegevens komen op het juiste project en de juiste medewerker te staan.', 'veryo' ),
+							'<strong>' . __( 'Inkoopfacturen koppelen.', 'veryo' ) . '</strong> ' . __( 'Leverancier, bedrag en project worden herkend; de factuur staat als concept klaar in de boekhouding.', 'veryo' ),
+							'<strong>' . __( 'Weekafsluiting met conceptfacturen.', 'veryo' ) . '</strong> ' . __( 'Aan het eind van de week staan de conceptfacturen klaar op basis van uren, werkbonnen en materialen.', 'veryo' ),
+							'<strong>' . __( 'Uren voor de salarisadministratie.', 'veryo' ) . '</strong> ' . __( 'Gewerkte uren, toeslagen en verlof in één overzicht, klaar voor de salarisverwerking.', 'veryo' ),
+							'<strong>' . __( 'Begroot naast werkelijk.', 'veryo' ) . '</strong> ' . __( 'Per project een overzicht van begrote en werkelijke uren en kosten, terwijl het project nog loopt.', 'veryo' ),
+						),
+						'style' => 'checks',
+					),
+					array(
+						'h' => __( 'Bovenop wat jullie al hebben', 'veryo' ),
 						'p' => array(
-							__( 'We beginnen bijna altijd bij de inkoopfacturen. Dat is goed af te bakenen, het komt elke week terug en je ziet direct of het werkt. Alle inkoopfacturen gaan naar één mailadres; de AI leest leverancier, bedrag, btw en factuurnummer uit en zet de boeking als concept klaar. Jij of je boekhouder keurt goed.', 'veryo' ),
-							__( 'Daarna volgt vaak de koppeling van werkbon naar factuur. Een voorbeeld: een klein technisch bedrijf rondt een klus af in de werkbon-app. De uren en materialen gaan automatisch naar een conceptfactuur, zodat er niet meer aan het eind van de maand overgetypt hoeft te worden.', 'veryo' ),
+							__( 'Veryo bouwt geen nieuwe software. We koppelen aan het boekhoudpakket, de urenregistratie en de projectadministratie die jullie al gebruiken, zoals Exact, Moneybird, SnelStart of een ander pakket met een koppeling (API). Waar het pakket iets zelf al kan, zetten we dat aan in plaats van iets nieuws te bouwen.', 'veryo' ),
+							__( 'We beginnen met één stap uit de kringloop, meestal de stap die nu de meeste tijd kost. Eerst een proefperiode met echte gegevens, dan pas live.', 'veryo' ),
 						),
 					),
 					array(
 						'h'     => __( 'Wat er niet verandert', 'veryo' ),
 						'list'  => array(
-							__( 'Je boekhouder of accountant houdt de controle. Boekingen staan als concept klaar tot iemand ze goedkeurt.', 'veryo' ),
-							__( 'Je blijft werken in je eigen boekhoudpakket.', 'veryo' ),
-							__( 'Aanmaningen met gevolgen, zoals incasso, gaan nooit automatisch.', 'veryo' ),
+							__( 'Jullie boekhouder of accountant houdt de controle. Boekingen en facturen staan als concept klaar tot iemand ze goedkeurt.', 'veryo' ),
+							__( 'Jullie blijven werken in je eigen pakketten.', 'veryo' ),
+							__( 'Twijfelgevallen worden gemarkeerd en niet automatisch verwerkt.', 'veryo' ),
 						),
 						'style' => 'checks',
 					),
 				),
-				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'onderhoud' ) ),
-				'faq'      => array(
-					array( __( 'Welke boekhoudpakketten ondersteunen jullie?', 'veryo' ), __( 'We werken veel met Exact, Moneybird en SnelStart. Andere pakketten met een koppeling (API) kunnen ook. In de kennismaking checken we wat er bij jou mogelijk is.', 'veryo' ) ),
-					array( __( 'Vervangt dit mijn boekhouder?', 'veryo' ), __( 'Nee. Het haalt het invoerwerk weg, zodat je boekhouder zich kan richten op controle en advies.', 'veryo' ) ),
-					array( __( 'Hoe betrouwbaar is het uitlezen van facturen?', 'veryo' ), __( 'Bij nette pdf-facturen is het uitlezen betrouwbaar; bij foto’s van verfrommelde bonnetjes minder. Daarom blijft alles een concept tot iemand het goedkeurt, en markeren we twijfelgevallen.', 'veryo' ) ),
-					array( __( 'Is het veilig om facturen door AI te laten lezen?', 'veryo' ), __( 'We gebruiken zakelijke API’s waarbij je gegevens niet worden gebruikt om modellen te trainen, en sluiten een verwerkersovereenkomst als er persoonsgegevens in zitten.', 'veryo' ) ),
-					array( __( 'Wat kost administratie automatiseren?', 'veryo' ), __( 'Dat hangt af van de omvang en het aantal koppelingen. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ),
+				'catalog'    => array(
+					'h'     => __( 'Wat er nog meer kan in de administratie', 'veryo' ),
+					'intro' => __( 'Naast de kringloop zelf zijn dit losse toepassingen die we vaak meenemen.', 'veryo' ),
+					'ids'   => array( 'inkoopfacturen', 'werkbon-factuur', 'urenregistratie', 'bonnetjes', 'debiteuren', 'bankmutaties', 'archiveren', 'formulieren' ),
 				),
-				'links'    => array(
+				'price'      => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'onderhoud' ) ),
+				'faq'        => array(
+					array( __( 'Met welke pakketten werkt het?', 'veryo' ), __( 'Met het boekhoud-, uren- en projectpakket dat jullie al hebben, zolang er een koppeling (API) of export is. Denk aan Exact, Moneybird of SnelStart. In de kennismaking kijken we wat er bij jullie mogelijk is.', 'veryo' ) ),
+					array( __( 'Moeten we overstappen op een ander pakket?', 'veryo' ), __( 'Nee. Veryo bouwt bovenop wat jullie al gebruiken. Overstappen is nooit nodig.', 'veryo' ) ),
+					array( __( 'Vervangt dit onze boekhouder?', 'veryo' ), __( 'Nee. Het haalt het overtypen weg, zodat de boekhouder zich kan richten op controle en advies.', 'veryo' ) ),
+					array( __( 'Hoe betrouwbaar is het inlezen van werkbonnen en facturen?', 'veryo' ), __( 'Nette pdf’s en formulieren gaan goed; handgeschreven werkbonnen en foto’s minder. Daarom blijft alles een concept tot iemand het goedkeurt, en markeren we twijfelgevallen.', 'veryo' ) ),
+					array( __( 'Is het veilig?', 'veryo' ), __( 'We gebruiken zakelijke API’s waarbij jullie gegevens niet worden gebruikt om modellen te trainen, en sluiten een verwerkersovereenkomst als er persoonsgegevens in zitten.', 'veryo' ) ),
+				),
+				'links'      => array(
+					array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
+					array( 'oplossingen/werkbonnen-verwerken', __( 'Werkbonnen verwerken', 'veryo' ), __( 'Van foto naar project', 'veryo' ) ),
+					array( 'oplossingen/inkoopfacturen-automatiseren', __( 'Inkoopfacturen automatiseren', 'veryo' ), __( 'Direct op het juiste project', 'veryo' ) ),
 					array( 'ai-automatisering/werkprocessen', __( 'Werkprocessen automatiseren', 'veryo' ), __( 'Digitale werkbon en planning', 'veryo' ) ),
-					array( 'branches/installatie', __( 'AI voor installateurs', 'veryo' ), __( 'Van werkbon naar factuur', 'veryo' ) ),
-					array( 'ai-adviseur-groningen', __( 'AI-adviseur in Groningen', 'veryo' ), __( 'Voor zakelijke dienstverlening en techniek', 'veryo' ) ),
 				),
 			)
 		),
@@ -310,7 +321,7 @@ return array(
 				'links'    => array(
 					array( 'branches/horeca-retail', __( 'AI voor horeca en retail', 'veryo' ), __( 'Reviews en social', 'veryo' ) ),
 					array( 'branches/makelaardij', __( 'AI voor makelaars', 'veryo' ), __( 'Woningteksten en inbox', 'veryo' ) ),
-					array( 'leeuwarden', __( 'AI in Leeuwarden', 'veryo' ), __( 'Training en automatisering', 'veryo' ) ),
+					array( 'leeuwarden', __( 'AI in Leeuwarden', 'veryo' ), __( 'Bouwen en inrichten vanuit Leeuwarden', 'veryo' ) ),
 				),
 			)
 		),
@@ -429,7 +440,7 @@ return array(
 					array( __( 'Hoe vaak wordt het dashboard bijgewerkt?', 'veryo' ), __( 'Dat hangt af van de koppelingen; meestal dagelijks of per uur. Het maandagbericht komt, zoals de naam zegt, elke maandag.', 'veryo' ) ),
 				),
 				'links'    => array(
-					array( 'ai-automatisering/administratie', __( 'Administratie automatiseren', 'veryo' ), __( 'Debiteuren en facturen', 'veryo' ) ),
+					array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Van werkbon tot factuur', 'veryo' ) ),
 					array( 'branches/bouw', __( 'AI in de bouw', 'veryo' ), __( 'Nacalculatie per project', 'veryo' ) ),
 					array( 'ai-adviseur-groningen', __( 'AI-adviseur in Groningen', 'veryo' ), __( 'Voor logistiek en dienstverlening', 'veryo' ) ),
 				),

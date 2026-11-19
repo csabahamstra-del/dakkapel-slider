@@ -72,7 +72,7 @@ function veryo_collega() {
 					'notitie' => __( 'per systeem', 'veryo' ),
 				),
 				'training'    => array(
-					'label'   => __( 'Training team', 'veryo' ),
+					'label'   => __( 'Team ermee leren werken', 'veryo' ),
 					'prijs'   => 1200,
 					'vanaf'   => false,
 					'notitie' => '',

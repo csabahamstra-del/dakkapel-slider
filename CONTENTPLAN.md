@@ -1,5 +1,7 @@
 # Contentplan blog
 
+> **Let op (19 november 2026):** Veryo biedt geen losse trainingen, workshops of online cursus meer. De pagina's /ai-training/, /ai-workshop/, /ai-training/…/ en /academy/ verwijzen met een 301 naar /diensten/. Onderwerpen hieronder die naar die pagina's linken, krijgen een link naar /diensten/, /ai-werkplek/ of /ai-automatisering/administratie/. De drafts *SLIM-subsidie voor AI-training* en *ChatGPT voor verkopers* zijn uit het thema gehaald.
+
 Doel: per cluster een pijlerpagina (hub) met artikelen (spokes) die ernaar linken. Elk artikel richt zich op één zoekwoord, begint met een kort antwoord van 2–3 zinnen (voor Google én AI-zoekmachines), heeft een FAQ, bronnen waar het over regels gaat, en linkt naar minstens 3 interne pagina's: de hub, een dienst en een verwant artikel.
 
 **Ritme:** 2 artikelen per maand. Publiceer eerst wat al klaarstaat (concepten in WordPress), daarna de nieuwe onderwerpen in de volgorde van de kolom "Prio".

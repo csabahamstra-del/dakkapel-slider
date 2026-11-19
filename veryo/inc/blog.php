@@ -19,7 +19,7 @@ function veryo_blog_categories() {
 		'ai-in-de-praktijk'   => array(
 			'name'  => __( 'AI in de praktijk', 'veryo' ),
 			'desc'  => __( 'Waar begin je met AI, welke processen automatiseer je eerst en welke tools passen bij een mkb-bedrijf? Praktische artikelen van Veryo. Lees en pas het toe.', 'veryo' ),
-			'posts' => array( 'waar-begin-je-met-ai-in-je-bedrijf', 'wat-kan-ai-voor-mijn-bedrijf-doen', 'welke-processen-automatiseren', 'welke-ai-tool-past-bij-jouw-bedrijf', 'wat-zijn-ai-agents', 'ai-prompts-voor-installateurs', 'ai-voor-hr', 'chatgpt-voor-verkopers' ),
+			'posts' => array( 'waar-begin-je-met-ai-in-je-bedrijf', 'wat-kan-ai-voor-mijn-bedrijf-doen', 'welke-processen-automatiseren', 'welke-ai-tool-past-bij-jouw-bedrijf', 'wat-zijn-ai-agents', 'ai-prompts-voor-installateurs', 'ai-voor-hr' ),
 		),
 		'lokale-ai-en-kennis' => array(
 			'name'  => __( 'Lokale AI en kennis', 'veryo' ),
@@ -34,7 +34,7 @@ function veryo_blog_categories() {
 		'kosten-en-subsidie'  => array(
 			'name'  => __( 'Kosten en subsidie', 'veryo' ),
 			'desc'  => __( 'Wat kost AI voor het mkb, hoe reken je de opbrengst uit en welke regelingen zoals SLIM en WBSO zijn er? Lees de artikelen en vraag een gratis offerte aan.', 'veryo' ),
-			'posts' => array( 'wat-kost-ai-automatisering', 'wat-kost-een-ai-chatbot', 'slim-subsidie-ai-training', 'wbso-voor-ai-projecten' ),
+			'posts' => array( 'wat-kost-ai-automatisering', 'wat-kost-een-ai-chatbot', 'wbso-voor-ai-projecten' ),
 		),
 		'beveiligingsbranche' => array(
 			'name'  => __( 'Beveiligingsbranche', 'veryo' ),

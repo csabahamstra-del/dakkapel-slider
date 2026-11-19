@@ -1,6 +1,6 @@
 <?php
 /**
- * Pijlers: de AI-werkplek, AI-agents, veilig AI-gebruik, plus AI-strategie en AI-training voor zzp'ers.
+ * Pijlers: de AI-werkplek (Claude Team), AI-agents en veilig AI-gebruik.
  *
  * @package Veryo
  */
@@ -13,72 +13,74 @@ defined( 'ABSPATH' ) || exit;
 $veryo_werkplek = veryo_page_standard(
 	array(
 		'contact'     => array(
-			__( 'Copilot of Gemini: wat past bij jullie?', 'veryo' ),
-			__( 'Vertel welke kantoorsoftware jullie gebruiken en met hoeveel mensen. Je krijgt binnen één werkdag advies over licenties en inrichting.', 'veryo' ),
-			__( 'Bijvoorbeeld: we hebben Microsoft 365 Business Standard voor 12 mensen. Is Copilot het waard?', 'veryo' ),
+			__( 'Welk voorbereidend werk wil je sneller doen?', 'veryo' ),
+			__( 'Vertel welk werk jullie engineers of werkvoorbereiders steeds opnieuw doen, en met hoeveel mensen. Jullie horen binnen één werkdag hoe we Claude Team daarvoor zouden inrichten.', 'veryo' ),
+			__( 'Bijvoorbeeld: bij elke aanvraag lezen we een bestek van tachtig pagina’s door om de eisen eruit te halen.', 'veryo' ),
 		),
-		'answer'      => __( 'Veryo richt Copilot in voor het MKB, of Gemini als je met Google Workspace werkt: welke licenties je nodig hebt, wie welke gegevens mag zien vóórdat de AI erbij kan, de juiste instellingen, en een korte training zodat je team het ook echt gebruikt. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+		'answer_cta'  => array( __( 'Plan een kennismaking', 'veryo' ), '#vraag', 'amber' ),
+		'answer'      => __( 'De AI-werkplek is Claude Team, ingericht met de eigen normen, kengetallen en templates van jullie bedrijf. Daarmee lezen engineers en werkvoorbereiders sneller een bestek, zetten ze een calculatieopzet klaar, controleren ze uitgangspunten en schrijven ze rapportages in jullie eigen opmaak. De engineer blijft eindverantwoordelijk. De licenties betalen jullie rechtstreeks aan Anthropic; Veryo richt de werkplek in en na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 		'problem'     => array(
-			'h' => __( 'De AI zit al in je kantoorsoftware, maar wie zet hem goed aan?', 'veryo' ),
+			'h' => __( 'Een losse chatbot kent jullie werk niet', 'veryo' ),
 			'p' => array(
-				__( 'Microsoft 365 heeft Copilot, Google Workspace heeft Gemini. Ze kunnen je mail samenvatten, een conceptofferte schrijven in Word, een Excel-lijst uitleggen en een verslag van een Teams-overleg maken. Op papier is het een kwestie van een licentie kopen. In de praktijk gaat het vaak mis op drie plekken.', 'veryo' ),
-				__( 'Ten eerste de licenties: wie heeft welke nodig, en wat zit er al in je huidige abonnement? Ten tweede de rechten. Copilot ziet alles wat een medewerker mag zien. Staat de map met salarissen of klantcontracten voor iedereen open, dan vindt de AI die ook, en vat hem desgevraagd samen. Ten derde het gebruik: zonder uitleg probeert de helft van het team het één keer, en dan nooit meer.', 'veryo' ),
+				__( 'Een AI-chatbot die iedereen op eigen houtje gebruikt, weet niets van de normen waarmee jullie rekenen, de kengetallen uit eerdere projecten of de manier waarop jullie een rapport opbouwen. Het antwoord is dan algemeen, en wie het controleert moet alles opnieuw nalopen.', 'veryo' ),
+				__( 'Daarom richten we Claude Team in rond jullie eigen werk: de documenten, normen en templates die jullie al gebruiken, en afspraken over wat er wel en niet in mag. Zo bereidt de AI voor zoals jullie het zelf zouden doen, en ziet de engineer in één keer wat er klopt en wat niet.', 'veryo' ),
 			),
 		),
-		'photo'       => array( __( 'werkplekken met beeldschermen op kantoor', 'veryo' ), __( 'Copilot inrichten in het MKB: de AI-werkplek op kantoor', 'veryo' ), 'werkplek' ),
+		'photo'       => array( __( 'werkplekken met beeldschermen op kantoor', 'veryo' ), __( 'De AI-werkplek met Claude Team op een technisch kantoor', 'veryo' ), 'werkplek' ),
 		'sections'    => array(
 			array(
-				'h'     => __( 'Wat we doen als we Copilot inrichten voor het MKB', 'veryo' ),
-				'p'     => array( __( 'De AI-werkplek is een pakket met een vaste prijs. Het werkt voor Microsoft 365 met Copilot en voor Google Workspace met Gemini.', 'veryo' ) ),
+				'h'     => __( 'Waar technische kantoren Claude Team voor gebruiken', 'veryo' ),
 				'list'  => array(
-					'<strong>' . __( 'Licentieadvies.', 'veryo' ) . '</strong> ' . __( 'We kijken welke licenties je nu hebt, wie Copilot of Gemini echt nodig heeft, en waar je geld bespaart door niet iedereen hetzelfde te geven.', 'veryo' ),
-					'<strong>' . __( 'Toegangsrechten op orde.', 'veryo' ) . '</strong> ' . __( 'Vóórdat de AI aangaat, controleren we wie welke mappen, sites en mailboxen kan zien. Wat niet gedeeld hoort te worden, zetten we dicht.', 'veryo' ),
-					'<strong>' . __( 'Instellingen.', 'veryo' ) . '</strong> ' . __( 'We zetten de functies aan die jullie gebruiken, en de rest uit. Ook regelen we dat bedrijfsgegevens niet worden gebruikt om AI-modellen te trainen.', 'veryo' ),
-					'<strong>' . __( 'Korte teamtraining.', 'veryo' ) . '</strong> ' . __( 'Anderhalf uur met voorbeelden uit jullie eigen werk: mail, verslagen, offertes en Excel. Zo weet iedereen wat het kan en waar je op moet letten.', 'veryo' ),
-					'<strong>' . __( 'Afspraken op papier.', 'veryo' ) . '</strong> ' . __( 'Een korte notitie met wat is ingericht, wie welke licentie heeft en wat de afspraken zijn, zodat het overdraagbaar is.', 'veryo' ),
+					'<strong>' . __( 'Bestek lezen.', 'veryo' ) . '</strong> ' . __( 'De eisen, uitsluitingen en risico’s uit een bestek of aanvraag op een rij, met verwijzing naar de paragraaf.', 'veryo' ),
+					'<strong>' . __( 'Calculatieopzet.', 'veryo' ) . '</strong> ' . __( 'Een eerste opzet van de calculatie op basis van jullie eigen kengetallen, klaar om door te rekenen.', 'veryo' ),
+					'<strong>' . __( 'Uitgangspunten controleren.', 'veryo' ) . '</strong> ' . __( 'Ontbrekende gegevens en tegenstrijdigheden in tekeningen, bestek en uitgangspunten opsporen voordat het werk begint.', 'veryo' ),
+					'<strong>' . __( 'Werkvoorbereiding.', 'veryo' ) . '</strong> ' . __( 'Werkplannen, materiaallijsten en vragenlijsten voor de klant opzetten in jullie eigen format.', 'veryo' ),
+					'<strong>' . __( 'Rapportages.', 'veryo' ) . '</strong> ' . __( 'Opleverrapporten, adviezen en verslagen in jullie eigen template, op basis van aantekeningen en metingen.', 'veryo' ),
 				),
 				'style' => 'checks',
 			),
 			array(
-				'h' => __( 'Microsoft 365 Copilot implementatie of Google Workspace met Gemini?', 'veryo' ),
+				'h'     => __( 'Wat we inrichten', 'veryo' ),
+				'list'  => array(
+					'<strong>' . __( 'Jullie normen, kengetallen en templates.', 'veryo' ) . '</strong> ' . __( 'We zetten de documenten waarmee jullie werken klaar in Claude, met vaste instructies per soort werk.', 'veryo' ),
+					'<strong>' . __( 'Rechten en afspraken.', 'veryo' ) . '</strong> ' . __( 'Wie welke projecten en documenten ziet, en welke gegevens er nooit in gaan. Dat leggen we vast in een kort AI-beleid.', 'veryo' ),
+					'<strong>' . __( 'Koppelingen waar het helpt.', 'veryo' ) . '</strong> ' . __( 'Waar het kan, koppelen we Claude aan de opslag en systemen die jullie al gebruiken. Overstappen is niet nodig.', 'veryo' ),
+					'<strong>' . __( 'Na de oplevering leren we jullie team ermee werken.', 'veryo' ) . '</strong> ' . __( 'Met jullie eigen bestekken en templates, zodat iedereen weet wat het kan en waar je op let.', 'veryo' ),
+				),
+				'style' => 'checks',
+			),
+			array(
+				'h' => __( 'De engineer blijft eindverantwoordelijk', 'veryo' ),
 				'p' => array(
-					__( 'We adviseren niet welk kantoorpakket je moet nemen; we richten in wat je hebt. Werk je in Outlook, Word, Excel en Teams, dan is Copilot de logische stap. Werk je in Gmail, Docs en Sheets, dan is het Gemini. De aanpak is hetzelfde: eerst de rechten, dan de functies, dan de mensen.', 'veryo' ),
-					__( 'Gebruiken medewerkers daarnaast ChatGPT of Claude, dan nemen we dat mee in de afspraken. Het doel is één overzicht van welke AI er in je bedrijf wordt gebruikt, en waarvoor.', 'veryo' ),
+					__( 'Claude bereidt voor en controleert; het neemt geen beslissingen. Een berekening, advies of rapport gaat pas de deur uit als een engineer het heeft nagelopen en ondertekend. Dat staat ook in het AI-beleid dat we samen opstellen.', 'veryo' ),
 				),
 			),
 			array(
-				'h' => __( 'Copilot veilig gebruiken: waar het vaak misgaat', 'veryo' ),
+				'h' => __( 'Licenties en gegevens', 'veryo' ),
 				'p' => array(
-					__( 'Het grootste risico is niet de AI zelf, maar wat er al openstaat. In veel bedrijven zijn mappen in de loop der jaren met “iedereen in de organisatie” gedeeld, omdat dat makkelijk was. Zolang niemand ernaar zocht, viel dat niet op. Copilot zoekt wel. Een medewerker die vraagt “wat verdienen mijn collega’s?” kan dan een antwoord krijgen.', 'veryo' ),
-					__( 'Daarom beginnen we altijd met de rechten. Dat is geen technisch kunstje, maar een gesprek: welke informatie is voor wie? Daarna zetten we het technisch zo neer. Is er een vaste IT-beheerder, dan doen we dit samen; Veryo doet zelf geen IT-beheer.', 'veryo' ),
-				),
-			),
-			array(
-				'h' => __( 'Wat je na afloop hebt', 'veryo' ),
-				'p' => array(
-					__( 'Een kantoorpakket waarin de AI aanstaat voor wie hem nodig heeft, rechten die kloppen, een team dat weet hoe je er goed mee werkt, en een notitie met de afspraken. Een voorbeeld: een administratiekantoor met acht mensen kan na de inrichting verslagen van klantgesprekken laten samenvatten en conceptmails laten schrijven, zonder dat de AI bij de dossiers van andere klanten kan.', 'veryo' ),
+					__( 'Claude Team is een zakelijk abonnement van Anthropic. De licenties sluiten jullie zelf af en betalen jullie rechtstreeks aan Anthropic; Veryo verkoopt geen licenties en verdient er niets aan. Bij een zakelijk abonnement worden jullie gegevens standaard niet gebruikt om AI-modellen te trainen. Gebruiken medewerkers daarnaast andere AI-tools, dan nemen we die mee in de afspraken.', 'veryo' ),
 				),
 			),
 		),
 		'no_steps'    => true,
 		'after_price' => veryo_sec_tiered_price(
 			__( 'Wat kost de AI-werkplek?', 'veryo' ),
-			__( 'Inclusief licentieadvies, rechten, instellingen en de teamtraining. De licenties zelf betaal je aan Microsoft of Google.', 'veryo' ),
-			veryo_werkplek_prices(),
-			__( 'Exclusief btw. Meer dan 25 gebruikers: op aanvraag.', 'veryo' )
+			__( 'Het inrichten is een vaste prijs, inclusief het werken met jullie team na de oplevering. De licenties van Claude Team betalen jullie rechtstreeks aan Anthropic.', 'veryo' ),
+			array(),
+			''
 		) . veryo_sec_ongoing( 'werkplek-onderhoud' ),
 		'faq'         => array(
-			array( __( 'Hebben we Copilot of Gemini al?', 'veryo' ), __( 'Misschien gedeeltelijk. In veel abonnementen zit al een gratis variant; de uitgebreide versie die in je eigen bestanden en mail kan zoeken, is een aparte licentie. We zoeken het voor je uit.', 'veryo' ) ),
-			array( __( 'Moet iedereen een licentie krijgen?', 'veryo' ), __( 'Nee. Vaak hebben een paar mensen er veel aan en anderen weinig. We adviseren per rol, zodat je niet betaalt voor licenties die niet worden gebruikt.', 'veryo' ) ),
-			array( __( 'Is Copilot veilig voor bedrijfsgegevens?', 'veryo' ), __( 'Copilot ziet wat een medewerker mag zien. Als de rechten kloppen, is het risico beperkt. Daarom zetten we die eerst goed, en regelen we dat je gegevens niet worden gebruikt om modellen te trainen.', 'veryo' ) ),
+			array( __( 'Wat is Claude Team?', 'veryo' ), __( 'Het zakelijke abonnement op Claude, de AI-assistent van Anthropic, voor teams. Medewerkers werken in gedeelde projecten met de documenten en instructies van het bedrijf.', 'veryo' ) ),
+			array( __( 'Wie betaalt de licenties?', 'veryo' ), __( 'Jullie, rechtstreeks aan Anthropic. Veryo richt de werkplek in en verkoopt geen licenties.', 'veryo' ) ),
+			array( __( 'Neemt de AI beslissingen over?', 'veryo' ), __( 'Nee. Claude bereidt voor en controleert. De engineer blijft eindverantwoordelijk voor elke berekening, elk advies en elk rapport.', 'veryo' ) ),
+			array( __( 'Moeten we andere software gaan gebruiken?', 'veryo' ), __( 'Nee. Claude Team komt naast de software die jullie al hebben. Overstappen is nooit nodig.', 'veryo' ) ),
 			array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen algemeen IT-beheer, netwerken of helpdesk. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. Heb je een vaste IT-beheerder, dan werken we graag met die samen.', 'veryo' ) ),
-			array( __( 'Hoe lang duurt de inrichting?', 'veryo' ), __( 'Meestal twee tot drie weken, afhankelijk van hoe de rechten er nu bij staan. De training plannen we als alles klaarstaat.', 'veryo' ) ),
 		),
 		'links'       => array(
+			array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
+			array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Van werkbon tot factuur en salaris', 'veryo' ) ),
 			array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, rechten en de veiligheidscheck', 'veryo' ) ),
-			array( 'ai-training', __( 'AI-training voor bedrijven', 'veryo' ), __( 'Een uitgebreidere training voor je team', 'veryo' ) ),
-			array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'Als je breder wilt beginnen', 'veryo' ) ),
-			array( 'branches/zakelijke-dienstverlening', __( 'AI voor accountants en adviesbureaus', 'veryo' ), __( 'Werken met dossiers en verslagen', 'veryo' ) ),
+			array( 'ai-agents', __( 'AI-agents', 'veryo' ), __( 'Digitale collega’s voor terugkerend werk', 'veryo' ) ),
 		),
 	)
 );
@@ -294,180 +296,39 @@ $veryo_veilig = veryo_page_standard(
 		'price'       => array(
 			'steps' => array( 'veiligheidscheck', 'startpakket' ),
 			'h'     => __( 'Wat kost de AI-veiligheidscheck?', 'veryo' ),
-			'p'     => __( 'De check is een vast bedrag. Wil je meteen ook training en een beleid, dan is het AI-Startpakket de logische stap.', 'veryo' ),
+			'p'     => __( 'De check is een vast bedrag. Wil je meteen ook een beleid en één toepassing, dan is het AI-Startpakket de logische stap.', 'veryo' ),
 		),
 		'after_price' => veryo_sec_ongoing( 'veilig-blijven' ),
 		'faq'         => array(
 			array( __( 'Mogen medewerkers ChatGPT gebruiken?', 'veryo' ), __( 'Dat bepaal je zelf, maar verbieden werkt slecht. Beter: een zakelijke versie met de juiste instellingen, en duidelijke afspraken over wat er wel en niet in mag.', 'veryo' ) ),
-			array( __( 'Is een AI-beleid verplicht?', 'veryo' ), __( 'Niet als apart document. Wel vraagt artikel 4 van de AI Act organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een beleid en een training zijn zulke maatregelen.', 'veryo' ) ),
+			array( __( 'Is een AI-beleid verplicht?', 'veryo' ), __( 'Niet als apart document. Wel vraagt artikel 4 van de AI Act organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een beleid en uitleg bij elke toepassing die je invoert, zijn zulke maatregelen.', 'veryo' ) ),
 			array( __( 'Hoe lang duurt de veiligheidscheck?', 'veryo' ), __( 'Ongeveer twee weken: een week voor de vragenlijst en het bekijken van de instellingen, en daarna een gesprek over het rapport.', 'veryo' ) ),
 			array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen algemeen IT-beheer, netwerken of helpdesk. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. We werken graag samen met je vaste IT-beheerder.', 'veryo' ) ),
 			array( __( 'Kunnen jullie Europese alternatieven adviseren?', 'veryo' ), __( 'Ja, waar je dat wilt. We leggen uit wat de opties zijn en wat je ervoor inlevert, zodat je een bewuste keuze maakt.', 'veryo' ) ),
 		),
 		'links'       => array(
-			array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'Training, beleid en een quick win', 'veryo' ) ),
-			array( 'ai-werkplek', __( 'De AI-werkplek', 'veryo' ), __( 'Copilot of Gemini met de juiste rechten', 'veryo' ) ),
-			array( 'ai-training/ai-geletterdheid', __( 'AI-geletterdheid training', 'veryo' ), __( 'Wat de AI Act vraagt', 'veryo' ) ),
+			array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'Beleid en één toepassing', 'veryo' ) ),
+			array( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ), __( 'Met de juiste rechten en afspraken', 'veryo' ) ),
+			array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
 			array( 'ai-adviseur-groningen', __( 'AI-adviseur in Groningen', 'veryo' ), __( 'Op locatie in het noorden', 'veryo' ) ),
 		),
 	)
 );
 
-/*
- * AI-strategie: /ai-training/ai-strategie/
- */
-$veryo_strategie = veryo_page_standard(
-	array(
-		'contact'     => array(
-			__( 'Een sessie voor je MT plannen?', 'veryo' ),
-			__( 'Vertel kort waar jullie als directie mee zitten. Je krijgt binnen één werkdag een voorstel voor de opzet.', 'veryo' ),
-			__( 'Bijvoorbeeld: we willen een AI-koers bepalen voor de komende twee jaar.', 'veryo' ),
-		),
-		'answer'      => __( 'De AI-strategie training van Veryo is een halve dag voor eigenaar, directie of MT: wat betekent AI voor ons bedrijf, waar liggen de kansen, welke keuzes maken we en wie is verantwoordelijk. Inhoudelijk is het de kansensessie uit het AI-Startpakket, ook los af te nemen.', 'veryo' ),
-		'problem'     => array(
-			'h' => __( 'Iedereen praat over AI, maar wie in het bedrijf beslist er iets over?', 'veryo' ),
-			'p' => array(
-				__( 'In veel MKB-bedrijven gebeurt AI van onderop. Een medewerker ontdekt ChatGPT, een ander probeert Copilot, en de directie hoort er pas van als er iets misgaat of als een leverancier een AI-module wil verkopen. Er is geen richting, geen budget en niemand die het overzicht heeft.', 'veryo' ),
-				__( 'Een AI-strategie hoeft geen dik rapport te zijn. Het is een paar heldere keuzes: waar zetten we AI wel in, waar niet, wat mag het kosten en wie houdt het bij. Die keuzes horen bij de leiding van het bedrijf, en daar is deze halve dag voor.', 'veryo' ),
-			),
-		),
-		'sections'    => array(
-			array(
-				'h'     => __( 'Wat er in de AI-strategie training aan bod komt', 'veryo' ),
-				'list'  => array(
-					'<strong>' . __( 'Wat AI nu kan, en wat niet.', 'veryo' ) . '</strong> ' . __( 'Nuchter, met voorbeelden uit jullie branche, zonder hype.', 'veryo' ),
-					'<strong>' . __( 'Waar de kansen liggen.', 'veryo' ) . '</strong> ' . __( 'We lopen samen jullie processen door en zetten de kansen op volgorde van opbrengst en moeite.', 'veryo' ),
-					'<strong>' . __( 'De keuzes.', 'veryo' ) . '</strong> ' . __( 'Welke tools, welk budget, wat doen we zelf en wat besteden we uit. Ook: wat laten we bewust liggen.', 'veryo' ),
-					'<strong>' . __( 'Verantwoordelijkheid.', 'veryo' ) . '</strong> ' . __( 'Wie is eigenaar van AI in het bedrijf, wie houdt het beleid bij en wie zorgt voor de AI-geletterdheid van het team.', 'veryo' ),
-					'<strong>' . __( 'Een roadmap.', 'veryo' ) . '</strong> ' . __( 'Je krijgt een kort rapport met de prioriteiten en de verwachte opbrengst per kans.', 'veryo' ),
-				),
-				'style' => 'checks',
-			),
-			array(
-				'h' => __( 'AI-strategie voor het MKB: voor wie', 'veryo' ),
-				'p' => array(
-					__( 'Voor eigenaren, directeuren en managementteams van bedrijven met vijf tot vijftig medewerkers. Het werkt het best met twee tot zes deelnemers: genoeg om verschillende kanten te horen, klein genoeg om echt keuzes te maken. We doen de sessie bij jullie op locatie, in Leeuwarden of online.', 'veryo' ),
-					__( 'Je hoeft niets technisch te weten. Wel helpt het als iemand weet hoe de belangrijkste processen lopen: van aanvraag tot factuur, en waar de tijd in gaat.', 'veryo' ),
-				),
-			),
-			array(
-				'h' => __( 'AI masterclass voor ondernemers, of liever meteen aan de slag?', 'veryo' ),
-				'p' => array(
-					__( 'De strategiesessie is geen presentatie waarin je alleen luistert. Je werkt met je eigen bedrijf, en gaat naar huis met keuzes en een volgorde. Wil je daarna ook het team meenemen, een beleid op papier en één toepassing die werkt, dan is het AI-Startpakket de volgende stap. De kansensessie zit daar al in, dus je betaalt hem niet dubbel als je binnen drie maanden doorgaat.', 'veryo' ),
-					__( 'Een voorbeeld: een bouwbedrijf met twintig mensen kan in de sessie concluderen dat de meeste tijd in materiaalstaten en meerwerk zit, dat AI in de planning nog te vroeg is, en dat de bedrijfsleider eigenaar wordt van het AI-beleid. Dat is een voorbeeld, geen klantresultaat.', 'veryo' ),
-				),
-			),
-		),
-		'steps_intro' => __( 'De strategiesessie is stap twee. Daarna kies je zelf of je verder gaat.', 'veryo' ),
-		'price'       => array(
-			'steps' => array( 'kansensessie', 'startpakket' ),
-			'h'     => __( 'Wat kost de AI-strategie training?', 'veryo' ),
-		),
-		'faq'         => array(
-			array( __( 'Hoe lang duurt de sessie?', 'veryo' ), __( 'Een halve dag, ongeveer vier uur. Vooraf vul je een korte vragenlijst in, of je doet de gratis AI-scan.', 'veryo' ) ),
-			array( __( 'Wat is het verschil met de AI-training voor het team?', 'veryo' ), __( 'De teamtraining gaat over het dagelijks gebruik van AI. Deze sessie gaat over keuzes: waar, waarom, met welk budget en wie verantwoordelijk is.', 'veryo' ) ),
-			array( __( 'Krijgen we iets op papier?', 'veryo' ), __( 'Ja, een kort rapport met de kansen op volgorde, de gemaakte keuzes en een voorstel voor de volgende stappen.', 'veryo' ) ),
-			array( __( 'Kan het ook online?', 'veryo' ), __( 'Ja. Op locatie werkt het meestal beter, maar online kan prima als je met een kleine groep bent.', 'veryo' ) ),
-		),
-		'links'       => array(
-			array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'De volgende stap na de strategie', 'veryo' ) ),
-			array( 'ai-training', __( 'AI-training voor bedrijven', 'veryo' ), __( 'Voor het hele team', 'veryo' ) ),
-			array( 'ai-implementatie-mkb', __( 'AI-implementatie MKB', 'veryo' ), __( 'Van plan naar invoering', 'veryo' ) ),
-		),
-	)
-);
-
-/*
- * AI-training voor zzp'ers: /ai-training/zzp/
- */
-$veryo_zzp = veryo_page_standard(
-	array(
-		'answer'      => __( 'AI-training voor zzp’ers en eenmanszaken: leer in korte online modules hoe je ChatGPT, Claude of Copilot gebruikt voor je offertes, mail, administratie en marketing. De online training van de Veryo Academy komt eraan. Schrijf je in voor de wachtlijst.', 'veryo' ),
-		'problem'     => array(
-			'h' => __( 'Als zzp’er doe je alles zelf, ook het werk waar je niet voor bent begonnen', 'veryo' ),
-			'p' => array(
-				__( 'Offertes, facturen, mail, je website, een post op LinkedIn: als zzp’er gaat er elke week veel tijd in werk dat geen geld oplevert. AI kan daar veel van overnemen of versnellen. Maar waar begin je, welke tool past, en wat mag je er wel en niet in zetten?', 'veryo' ),
-				__( 'Een in-company training is voor één persoon te duur, en de meeste online cursussen zijn óf te technisch óf te vaag. Daarom maken we een korte, praktische training voor wie alleen of met een paar mensen werkt.', 'veryo' ),
-			),
-		),
-		'sections'    => array(
-			array(
-				'h'     => __( 'Wat je leert in de AI cursus voor zzp’ers', 'veryo' ),
-				'list'  => array(
-					__( 'Goede opdrachten schrijven voor mail, offertes en teksten, zodat het resultaat klinkt als jij.', 'veryo' ),
-					__( 'Een offerte of voorstel opzetten met AI, en controleren of het klopt.', 'veryo' ),
-					__( 'Je administratie versnellen: bonnetjes, facturen en samenvattingen.', 'veryo' ),
-					__( 'Content maken voor je website en social media, zonder dat het als AI klinkt.', 'veryo' ),
-					__( 'Wat wel en niet mag met gegevens van klanten, en welke instellingen je aanzet.', 'veryo' ),
-				),
-				'style' => 'checks',
-			),
-			array(
-				'h' => __( 'ChatGPT cursus voor zzp’ers: hoe de training werkt', 'veryo' ),
-				'p' => array(
-					__( 'De training bestaat uit korte modules van tien tot vijftien minuten, met een video met slides en uitleg, en een oefening met je eigen werk. Je doet ze wanneer het jou uitkomt. Na elke module heb je iets dat je meteen kunt gebruiken, zoals een set opdrachten voor je offertes of een vaste werkwijze voor je mail.', 'veryo' ),
-					__( 'De Academy is nog in ontwikkeling. Op de wachtlijst hoor je als eerste wanneer hij opengaat, en wat de introductieprijs is. Je zit nergens aan vast.', 'veryo' ),
-				),
-			),
-			array(
-				'h' => __( 'Open groepstrainingen', 'veryo' ),
-				'p' => array(
-					__( 'Liever een dagdeel met andere ondernemers? We organiseren ook open groepstrainingen in Leeuwarden. Data, locatie en prijs maken we bekend via de wachtlijst. Laat bij je inschrijving weten dat je interesse hebt in een groepstraining.', 'veryo' ),
-					__( 'Een in-company training bieden we op deze pagina bewust niet aan; die is bedoeld voor teams. Werk je met een paar mensen samen en wil je toch iets op maat, neem dan contact op.', 'veryo' ),
-				),
-			),
-			array(
-				'h' => __( 'Voor wie is de AI-training voor zzp’ers?', 'veryo' ),
-				'p' => array(
-					__( 'Voor zelfstandigen en eenmanszaken in elke branche: van installateur en schilder tot coach, fotograaf, boekhouder of tekstschrijver. Je hebt geen technische kennis nodig. Wel helpt het als je een paar taken in gedachten hebt die je elke week tegenhouden, zoals offertes uitwerken, mail beantwoorden of je administratie bijwerken. Die gebruik je in de oefeningen, zodat je na elke module iets hebt dat je de volgende dag inzet.', 'veryo' ),
-					__( 'Werk je af en toe samen met een of twee anderen, dan kun je de training samen volgen. Vanaf tien deelnemers geldt een staffelkorting, maar voor de meeste zzp’ers gaat het om één licentie.', 'veryo' ),
-				),
-			),
-			array(
-				'h' => __( 'Waarom AI voor zzp’ers het verschil maakt', 'veryo' ),
-				'p' => array(
-					__( 'Een voorbeeld: een zelfstandig installateur die ’s avonds een uur aan offertes en mail besteedt, kan met goede opdrachten en een vaste werkwijze een flink deel van dat uur terugwinnen. Dat is een voorbeeld, geen belofte. Hoeveel het jou oplevert, hangt af van je werk; de gratis AI-scan geeft daar in drie minuten een indicatie van.', 'veryo' ),
-				),
-			),
-		),
-		'no_steps'    => true,
-		'after_price' => veryo_b_group(
-			veryo_b_h( __( 'Schrijf je in voor de wachtlijst', 'veryo' ) )
-			. veryo_b_shortcode( '[veryo_form type="academy"]' ),
-			array( 'className' => 'veryo-form-wrap is-style-paper' )
-		),
-		'price'       => array(
-			'steps' => array( 'academy', 'scan' ),
-			'h'     => __( 'Wat kost de AI-training voor zzp’ers?', 'veryo' ),
-		),
-		'faq'         => array(
-			array( __( 'Wanneer start de online training?', 'veryo' ), __( 'De Academy is in ontwikkeling. Op de wachtlijst hoor je als eerste wanneer hij opengaat.', 'veryo' ) ),
-			array( __( 'Heb ik technische kennis nodig?', 'veryo' ), __( 'Nee. Als je kunt mailen en een document kunt maken, kun je de training volgen.', 'veryo' ) ),
-			array( __( 'Welke AI-tool gebruik ik in de training?', 'veryo' ), __( 'De oefeningen werken met ChatGPT, Claude of Copilot. Je kiest zelf; we leggen de verschillen uit.', 'veryo' ) ),
-			array( __( 'Is de training aftrekbaar?', 'veryo' ), __( 'Scholingskosten voor je onderneming zijn meestal zakelijke kosten. Vraag je boekhouder hoe dat voor jou zit.', 'veryo' ) ),
-		),
-		'links'       => array(
-			array( 'academy', __( 'Veryo Academy', 'veryo' ), __( 'Online AI-cursus voor beginners', 'veryo' ) ),
-			array( 'ai-training', __( 'AI-training voor bedrijven', 'veryo' ), __( 'Voor teams', 'veryo' ) ),
-			array( 'leeuwarden', __( 'AI-training in Leeuwarden', 'veryo' ), __( 'Onze thuisbasis', 'veryo' ) ),
-		),
-	)
-);
 
 return array(
-	'ai-werkplek'              => array(
-		'title'     => __( 'De AI-werkplek: Copilot en Gemini goed ingericht', 'veryo' ),
-		'seo_title' => __( 'Microsoft Copilot en Gemini inrichten voor het MKB | Veryo', 'veryo' ),
-		'desc'      => __( 'Copilot inrichten voor het MKB, of Gemini: licentieadvies, toegangsrechten, de juiste instellingen en een teamtraining. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'copilot inrichten mkb',
-		'schema'    => array(
+	'ai-werkplek'       => array(
+		'title'       => __( 'De AI-werkplek met Claude Team', 'veryo' ),
+		'force_title' => true,
+		'seo_title'   => __( 'AI-werkplek met Claude Team voor technische kantoren | Veryo', 'veryo' ),
+		'desc'        => __( 'Claude Team ingericht met jullie eigen normen, kengetallen en templates: bestek lezen, calculatie en rapportages. De engineer blijft eindverantwoordelijk.', 'veryo' ),
+		'kw'          => 'claude team inrichten',
+		'schema'      => array(
 			'type' => 'service',
-			'min'  => 1495,
-			'max'  => 2495,
 		),
-		'content'   => $veryo_werkplek,
+		'content'     => $veryo_werkplek,
 	),
-	'ai-agents'                => array(
+	'ai-agents'         => array(
 		'title'       => __( 'AI-agents voor bedrijven: digitale collega’s op maat', 'veryo' ),
 		'force_title' => true,
 		'seo_title'   => __( 'AI-agents voor bedrijven: digitale collega’s op maat | Veryo', 'veryo' ),
@@ -480,7 +341,7 @@ return array(
 		),
 		'content'     => $veryo_agents,
 	),
-	'veilig-ai-gebruik'        => array(
+	'veilig-ai-gebruik' => array(
 		'title'     => __( 'Veilig AI gebruiken in je bedrijf', 'veryo' ),
 		'seo_title' => __( 'Veilig AI gebruiken in je bedrijf: beleid en check | Veryo', 'veryo' ),
 		'desc'      => __( 'AI veilig gebruiken in je bedrijf: de AI-veiligheidscheck van Veryo bekijkt gebruik, rechten, tweestapsverificatie en beleid. Vraag een offerte aan.', 'veryo' ),
@@ -491,31 +352,5 @@ return array(
 			'max'  => 995,
 		),
 		'content'   => $veryo_veilig,
-	),
-	'ai-training/ai-strategie' => array(
-		'title'     => __( 'AI-strategie: training voor directie en MT', 'veryo' ),
-		'seo_title' => __( 'AI-strategie training voor directie en management | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-strategie training voor directie en MT: een halve dag over kansen, keuzes en verantwoordelijkheid, met een roadmap. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'ai strategie training',
-		'schema'    => array(
-			'course' => array( 'onsite' ),
-			'type'   => 'service',
-			'min'    => 750,
-			'max'    => 1500,
-		),
-		'content'   => $veryo_strategie,
-	),
-	'ai-training/zzp'          => array(
-		'title'     => __( 'AI-training voor zzp’ers', 'veryo' ),
-		'seo_title' => __( 'AI-training voor zzp’ers: praktisch en betaalbaar | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-training voor zzp’ers: korte online modules over offertes, mail, administratie en marketing met AI. Binnenkort; schrijf je in voor de wachtlijst.', 'veryo' ),
-		'kw'        => 'ai training zzp',
-		'schema'    => array(
-			'course' => array( 'online' ),
-			'type'   => 'service',
-			'min'    => 49,
-			'max'    => 79,
-		),
-		'content'   => $veryo_zzp,
 	),
 );

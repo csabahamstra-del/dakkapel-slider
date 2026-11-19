@@ -274,7 +274,7 @@ function veryo_seo_description() {
 		}
 	}
 	if ( is_post_type_archive( 'kennis' ) ) {
-		return __( 'Praktische kennis over AI voor het mkb: uitleg, stappenplannen en voorbeelden over automatisering, AI-training en lokale AI. Lees de artikelen.', 'veryo' );
+		return __( 'Praktische kennis over AI voor technische bedrijven: uitleg, stappenplannen en voorbeelden over AI-agents, automatisering, Claude Team en lokale AI.', 'veryo' );
 	}
 	if ( is_category() ) {
 		$text = trim( wp_strip_all_tags( (string) term_description() ) );
@@ -283,7 +283,7 @@ function veryo_seo_description() {
 		}
 	}
 	if ( is_front_page() || is_home() ) {
-		return veryo_brand_line() . '. ' . __( 'AI-automatiseringen, trainingen en AI op maat voor het MKB in Noord-Nederland.', 'veryo' );
+		return veryo_brand_line() . '. ' . __( 'AI-agents, automatiseringen en de AI-werkplek met Claude Team voor technische bedrijven in Noord-Nederland.', 'veryo' );
 	}
 	return '';
 }
@@ -873,40 +873,6 @@ function veryo_schema_graph() {
 		$graph[] = $service;
 	}
 
-	// Training: Course, met de vormen waarin hij gegeven wordt (op locatie en/of online).
-	$course = (string) get_post_meta( $id, '_veryo_course', true );
-	if ( is_page() && '' !== $course ) {
-		$instances = array();
-		foreach ( array_filter( explode( ',', $course ) ) as $mode ) {
-			$instances[] = array(
-				'@type'      => 'CourseInstance',
-				'courseMode' => $mode,
-				'inLanguage' => 'nl-NL',
-				'location'   => 'online' === $mode ? array(
-					'@type' => 'VirtualLocation',
-					'url'   => $url,
-				) : array(
-					'@type'   => 'Place',
-					'name'    => __( 'Bij de klant op locatie in Nederland', 'veryo' ),
-					'address' => array(
-						'@type'          => 'PostalAddress',
-						'addressCountry' => 'NL',
-					),
-				),
-			);
-		}
-		$graph[] = array(
-			'@type'             => 'Course',
-			'@id'               => $url . '#course',
-			'name'              => wp_strip_all_tags( get_the_title( $id ) ),
-			'description'       => $desc,
-			'url'               => $url,
-			'inLanguage'        => 'nl-NL',
-			'provider'          => array( '@id' => home_url( '/#organization' ) ),
-			'hasCourseInstance' => $instances,
-		);
-	}
-
 	// Blogbericht (BlogPosting) of kennisartikel (Article).
 	if ( is_singular( array( 'post', 'kennis' ) ) ) {
 		$author  = veryo_blog_author();
@@ -1105,7 +1071,7 @@ function veryo_llms_txt() {
 	$out[] = $clean(
 		sprintf(
 			/* translators: %s: plaats. */
-			__( 'Veryo is de onafhankelijke AI-partner voor het mkb (teams tot ongeveer 50 mensen), gevestigd in %s. Veryo is geen softwarebedrijf en bouwt geen nieuwe software. Hoofdproduct is Veryo Collega: een lokale AI-assistent en kennisbank die op een eigen machine bij de klant op kantoor draait, gevuld met de kennis van het bedrijf, waarbij bedrijfsgegevens het pand niet verlaten voor AI-verwerking. Veryo installeert, richt in en beheert daarvoor bewezen open-source AI. Daarnaast geeft Veryo AI-trainingen en workshops voor teams (waaronder AI-geletterdheid onder de AI Act, een AI-workshop en ChatGPT-training voor verkopers), advies en een AI-abonnement als vaste AI-partner, en automatisering bovenop de software die een bedrijf al gebruikt. Veryo doet geen algemeen IT-beheer of helpdesk; alleen de machine waarop Veryo Collega draait, beheert Veryo zelf. Prijzen staan niet op de website: elke klant krijgt een gratis offerte op maat, met vooraf een vaste prijs. Werkgebied: heel Nederland, vanuit Leeuwarden, met veel klanten in Friesland, Groningen en Drenthe. Oprichter: Csaba Hamstra.', 'veryo' ),
+			__( 'Veryo is een AI-automatiseringsbedrijf uit %s voor technische kantoren en projectbedrijven met 15 tot 50 medewerkers in Noord-Nederland, zoals ingenieurs- en adviesbureaus, installateurs met eigen engineering, koeltechniek, dak, gevel en kozijnen, staal- en metaalbouw, interieurbouw, landbouwmechanisatie en loonbedrijven. Veryo bouwt en richt in: AI-agents voor terugkerend werk, automatiseringen bovenop de systemen die een bedrijf al gebruikt, de AI-werkplek met Claude Team (Claude ingericht met de eigen normen, kengetallen en templates van een bedrijf; de engineer blijft eindverantwoordelijk, de licenties betaalt de klant rechtstreeks aan Anthropic) en automatisering van de administratieve kringloop (uren en werkbonnen, inkoopfacturen, weekafsluiting met conceptfacturen, uren voor de salarisadministratie, begroot versus werkelijk). Daarnaast Veryo Collega, een lokale AI-assistent op een eigen machine bij de klant op kantoor, en Veryo Receptie, een AI-receptionist voor zorgpraktijken. Veryo bouwt geen nieuwe software en geeft geen losse trainingen; na de oplevering leert Veryo het team werken met wat er is gebouwd. Prijzen staan niet op de website: elke klant krijgt een gratis offerte op maat. Werkgebied: heel Nederland, vanuit Leeuwarden. Oprichter: Csaba Hamstra.', 'veryo' ),
 			$c['city'] ? $c['city'] : 'Leeuwarden'
 		)
 	);
@@ -1127,9 +1093,9 @@ function veryo_llms_txt() {
 	/* translators: %s: link naar de offertepagina. */
 	$out[] = $clean( sprintf( __( 'Prijzen: op aanvraag. Vraag een gratis offerte aan via %s.', 'veryo' ), veryo_offerte_url() ) );
 	$out[] = '';
-	$out[] = '## ' . __( 'AI-trainingen en workshops', 'veryo' );
+	$out[] = '## ' . __( 'Diensten', 'veryo' );
 	$out[] = '';
-	foreach ( array( 'ai-training', 'ai-workshop', 'ai-training/ai-geletterdheid', 'ai-training/chatgpt-training-verkopers', 'ai-training/ai-strategie', 'ai-training/zzp' ) as $path ) {
+	foreach ( array( 'diensten', 'ai-werkplek', 'ai-automatisering/administratie', 'ai-agents', 'ai-automatisering', 'ai-op-maat/ai-receptionist-horeca' ) as $path ) {
 		$page = veryo_find_page( $path );
 		if ( $page && 'publish' === $page->post_status ) {
 			$desc  = (string) get_post_meta( $page->ID, '_veryo_seo_desc', true );

@@ -509,16 +509,15 @@ function veryo_menu_definitions() {
 			'items' => array(
 				array( veryo_collega()['naam'], veryo_collega()['slug'], array(), 'is-highlight' ),
 				array(
-					__( 'AI-trainingen', 'veryo' ),
-					'ai-training',
+					__( 'Diensten', 'veryo' ),
+					'diensten',
 					array(
-						array( __( 'AI-training voor bedrijven', 'veryo' ), 'ai-training' ),
-						array( __( 'AI-workshop voor bedrijven', 'veryo' ), 'ai-workshop' ),
-						array( __( 'AI-geletterdheid (AI Act)', 'veryo' ), 'ai-training/ai-geletterdheid' ),
-						array( __( 'ChatGPT-training voor verkopers', 'veryo' ), 'ai-training/chatgpt-training-verkopers' ),
-						array( __( 'AI-strategie voor directie en MT', 'veryo' ), 'ai-training/ai-strategie' ),
-						array( __( 'AI-training voor zzp’ers', 'veryo' ), 'ai-training/zzp' ),
-						array( __( 'Veryo Academy (online)', 'veryo' ), 'academy' ),
+						array( __( 'Alle diensten', 'veryo' ), 'diensten' ),
+						array( __( 'AI-werkplek met Claude Team', 'veryo' ), 'ai-werkplek' ),
+						array( __( 'Administratieve kringloop', 'veryo' ), 'ai-automatisering/administratie' ),
+						array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
+						array( __( 'Automatiseringen', 'veryo' ), 'ai-automatisering' ),
+						array( __( 'Veryo Receptie (zorgpraktijken)', 'veryo' ), 'ai-op-maat/ai-receptionist-horeca' ),
 					),
 				),
 				array(
@@ -546,7 +545,6 @@ function veryo_menu_definitions() {
 						array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
 						array( __( 'AI implementeren: stappenplan', 'veryo' ), 'ai-implementatie-mkb' ),
 						array( __( 'AI-abonnement (vaste partner)', 'veryo' ), 'ai-partner' ),
-						array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
 						array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
 						array( __( 'Tools & koppelingen', 'veryo' ), 'tools-koppelingen' ),
 					),
@@ -563,20 +561,18 @@ function veryo_menu_definitions() {
 					__( 'Diensten', 'veryo' ),
 					'#',
 					array(
+						array( __( 'Alle diensten', 'veryo' ), 'diensten' ),
 						array( veryo_collega()['naam'], veryo_collega()['slug'] ),
+						array( __( 'AI-werkplek met Claude Team', 'veryo' ), 'ai-werkplek' ),
+						array( __( 'Administratieve kringloop', 'veryo' ), 'ai-automatisering/administratie' ),
+						array( __( 'Veryo Receptie', 'veryo' ), 'ai-op-maat/ai-receptionist-horeca' ),
 						array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
-						array( __( 'De AI-werkplek', 'veryo' ), 'ai-werkplek' ),
 						array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
 						array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
 						array( __( 'AI-automatisering', 'veryo' ), 'ai-automatisering' ),
 						array( __( 'AI implementeren', 'veryo' ), 'ai-implementatie-mkb' ),
-						array( __( 'AI-training', 'veryo' ), 'ai-training' ),
-						array( __( 'AI-workshop', 'veryo' ), 'ai-workshop' ),
-						array( __( 'ChatGPT-training verkopers', 'veryo' ), 'ai-training/chatgpt-training-verkopers' ),
-						array( __( 'AI-geletterdheid', 'veryo' ), 'ai-training/ai-geletterdheid' ),
 						array( __( 'AI op maat', 'veryo' ), 'ai-op-maat' ),
 						array( __( 'AI-abonnement', 'veryo' ), 'ai-partner' ),
-						array( __( 'Veryo Academy', 'veryo' ), 'academy' ),
 						array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
 						array( __( 'Tools & koppelingen', 'veryo' ), 'tools-koppelingen' ),
 						array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
@@ -1078,7 +1074,7 @@ add_action( 'admin_init', 'veryo_220_upgrade', 70 );
  * @return string[]
  */
 function veryo_audit_1118_pages() {
-	return array( '', 'ai-automatisering/offertes-en-calculaties', 'oplossingen/ai-calculatie-offerte-factuur', 'ai-automatisering/administratie', 'oplossingen/inkoopfacturen-automatiseren', 'oplossingen/werkbonnen-verwerken', 'ai-automatisering/hr-en-werving', 'branches/recruitment', 'oplossingen/ai-recruitment-assistent', 'ai-op-maat/ai-receptionist-horeca', 'branches/horeca-retail', 'ai-training', 'ai-workshop', 'ai-implementatie-mkb', 'leeuwarden' );
+	return array( '', 'ai-automatisering/offertes-en-calculaties', 'oplossingen/ai-calculatie-offerte-factuur', 'ai-automatisering/administratie', 'oplossingen/inkoopfacturen-automatiseren', 'oplossingen/werkbonnen-verwerken', 'ai-automatisering/hr-en-werving', 'branches/recruitment', 'oplossingen/ai-recruitment-assistent', 'ai-op-maat/ai-receptionist-horeca', 'branches/horeca-retail', 'ai-implementatie-mkb', 'leeuwarden' );
 }
 
 /**
@@ -1191,3 +1187,279 @@ function veryo_230_upgrade() {
 	flush_rewrite_rules( false );
 }
 add_action( 'admin_init', 'veryo_230_upgrade', 80 );
+
+/**
+ * Paden van de pagina's die in 2.4.0 zijn vervallen (losse trainingen en de cursus).
+ *
+ * @return string[]
+ */
+function veryo_240_removed_pages() {
+	return array( 'ai-training/ai-geletterdheid', 'ai-training/chatgpt-training-verkopers', 'ai-training/ai-strategie', 'ai-training/zzp', 'ai-training', 'ai-workshop', 'academy' );
+}
+
+/**
+ * Pagina's waarvan de title en description in 2.4.0 ook in Rank Math worden overschreven.
+ *
+ * @return string[]
+ */
+function veryo_240_seo_pages() {
+	return array( '', 'diensten', 'ai-werkplek', 'ai-automatisering/administratie', 'ai-op-maat/ai-receptionist-horeca', 'ai-startpakket', 'leeuwarden', 'ai-adviseur-friesland', 'ai-adviseur-groningen', 'ai-adviseur-drenthe', 'contact', 'algemene-voorwaarden' );
+}
+
+/**
+ * Menu's bijwerken zonder ze opnieuw op te bouwen: menu-items naar vervallen pagina's gaan
+ * eruit, "AI-trainingen" wordt "Diensten" met de nieuwe onderdelen, en de footer krijgt de
+ * nieuwe diensten. Zelf toegevoegde menu-items blijven staan.
+ *
+ * @param array<int,int> $removed_ids ID's van vervallen pagina's.
+ */
+function veryo_240_update_menus( $removed_ids ) {
+	$ids = array();
+	foreach ( array_keys( veryo_content_pages() ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page ) {
+			$ids[ $path ] = $page->ID;
+		}
+	}
+	if ( empty( $ids['diensten'] ) ) {
+		return;
+	}
+	$removed_urls = array();
+	foreach ( veryo_240_removed_pages() as $path ) {
+		$removed_urls[] = untrailingslashit( home_url( '/' . $path . '/' ) );
+	}
+	$defs = veryo_menu_definitions();
+
+	foreach ( $defs as $location => $menu ) {
+		$object = wp_get_nav_menu_object( $menu['name'] );
+		if ( ! $object ) {
+			continue;
+		}
+		$menu_id = (int) $object->term_id;
+		$items   = (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) );
+
+		// Het oude trainingsmenu-item in het hoofdmenu wordt het Diensten-item.
+		$diensten_item = 0;
+		$children      = array();
+		foreach ( $items as $item ) {
+			$children[ (int) $item->menu_item_parent ][] = $item;
+		}
+		$is_removed  = static function ( $item ) use ( $removed_ids, $removed_urls ) {
+			if ( 'post_type' === $item->type && in_array( (int) $item->object_id, $removed_ids, true ) ) {
+				return true;
+			}
+			return 'custom' === $item->type && in_array( untrailingslashit( (string) $item->url ), $removed_urls, true );
+		};
+		$delete_tree = static function ( $item_id ) use ( &$delete_tree, $children ) {
+			foreach ( isset( $children[ $item_id ] ) ? $children[ $item_id ] : array() as $child ) {
+				$delete_tree( (int) $child->ID );
+			}
+			wp_delete_post( $item_id, true );
+		};
+
+		if ( 'primary' === $location ) {
+			foreach ( $items as $item ) {
+				if ( 'post_type' === $item->type && (int) $item->object_id === $ids['diensten'] && ! $item->menu_item_parent ) {
+					$diensten_item = (int) $item->ID;
+				}
+			}
+			if ( ! $diensten_item ) {
+				foreach ( $items as $item ) {
+					if ( ! $item->menu_item_parent && $is_removed( $item ) ) {
+						foreach ( isset( $children[ (int) $item->ID ] ) ? $children[ (int) $item->ID ] : array() as $child ) {
+							$delete_tree( (int) $child->ID );
+						}
+						wp_update_nav_menu_item(
+							$menu_id,
+							(int) $item->ID,
+							array(
+								'menu-item-title'     => __( 'Diensten', 'veryo' ),
+								'menu-item-type'      => 'post_type',
+								'menu-item-object'    => 'page',
+								'menu-item-object-id' => $ids['diensten'],
+								'menu-item-status'    => 'publish',
+								'menu-item-position'  => (int) $item->menu_order,
+							)
+						);
+						$diensten_item = (int) $item->ID;
+						break;
+					}
+				}
+			}
+			if ( ! $diensten_item ) {
+				$diensten_item = (int) wp_update_nav_menu_item(
+					$menu_id,
+					0,
+					array(
+						'menu-item-title'     => __( 'Diensten', 'veryo' ),
+						'menu-item-type'      => 'post_type',
+						'menu-item-object'    => 'page',
+						'menu-item-object-id' => $ids['diensten'],
+						'menu-item-status'    => 'publish',
+						'menu-item-position'  => 2,
+					)
+				);
+			}
+			$has_children = false;
+			foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
+				if ( (int) $item->menu_item_parent === $diensten_item ) {
+					$has_children = true;
+				}
+			}
+			if ( $diensten_item && ! $has_children ) {
+				foreach ( $menu['items'] as $entry ) {
+					if ( 'diensten' === $entry[1] ) {
+						veryo_add_menu_items( $menu_id, $entry[2], $ids, $diensten_item );
+					}
+				}
+			}
+		}
+
+		// Overgebleven menu-items naar vervallen pagina's verwijderen (met eventuele subitems).
+		foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
+			if ( (int) $item->ID !== $diensten_item && $is_removed( $item ) && get_post( (int) $item->ID ) ) {
+				$delete_tree( (int) $item->ID );
+			}
+		}
+
+		// Footer: de nieuwe diensten toevoegen onder de kolom Diensten, als ze er nog niet staan.
+		if ( 'footer' === $location ) {
+			$present = array();
+			$column  = 0;
+			foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
+				if ( 'post_type' === $item->type ) {
+					$present[ (int) $item->object_id ] = true;
+				}
+				if ( ! $item->menu_item_parent && __( 'Diensten', 'veryo' ) === $item->title ) {
+					$column = (int) $item->ID;
+				}
+			}
+			if ( $column ) {
+				$new = array();
+				foreach ( $menu['items'] as $entry ) {
+					if ( __( 'Diensten', 'veryo' ) !== $entry[0] ) {
+						continue;
+					}
+					foreach ( $entry[2] as $child ) {
+						if ( in_array( $child[1], array( 'diensten', 'ai-werkplek', 'ai-automatisering/administratie', 'ai-op-maat/ai-receptionist-horeca' ), true ) && isset( $ids[ $child[1] ] ) && empty( $present[ $ids[ $child[1] ] ] ) ) {
+							$new[] = $child;
+						}
+					}
+				}
+				if ( $new ) {
+					veryo_add_menu_items( $menu_id, $new, $ids, $column );
+				}
+			}
+		}
+
+		// Oude menunamen van hernoemde pagina's bijwerken.
+		$renames = array(
+			'De AI-werkplek'              => __( 'AI-werkplek met Claude Team', 'veryo' ),
+			'AI-receptionist'             => __( 'Veryo Receptie', 'veryo' ),
+			'AI-receptionist voor horeca' => __( 'Veryo Receptie', 'veryo' ),
+			'Administratie automatiseren' => __( 'Administratieve kringloop', 'veryo' ),
+		);
+		foreach ( (array) wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) ) as $item ) {
+			if ( isset( $renames[ $item->title ] ) ) {
+				wp_update_post(
+					array(
+						'ID'         => (int) $item->ID,
+						'post_title' => $renames[ $item->title ],
+					)
+				);
+			}
+		}
+	}
+}
+
+/**
+ * Eenmalig bij de update naar 2.4.0: geen losse trainingen meer. Vervallen pagina's gaan naar
+ * concept (de 301-redirects naar /diensten/ staan in veryo_redirects()), /diensten/ komt erbij,
+ * de menu's worden bijgewerkt en titles en descriptions van de herschreven pagina's gaan ook
+ * in Rank Math.
+ */
+function veryo_240_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_240_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_240_done', 1, false );
+
+	// 1. Vervallen pagina's naar concept.
+	$removed = array();
+	foreach ( veryo_240_removed_pages() as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page ) {
+			$removed[] = (int) $page->ID;
+			if ( 'publish' === $page->post_status ) {
+				wp_update_post(
+					array(
+						'ID'          => $page->ID,
+						'post_status' => 'draft',
+					)
+				);
+			}
+		}
+	}
+
+	// 2. /diensten/ aanmaken, zodat het menu ernaar kan verwijzen.
+	$defs = veryo_content_pages();
+	if ( ! veryo_find_page( 'diensten' ) && isset( $defs['diensten'] ) ) {
+		kses_remove_filters();
+		$post_id = wp_insert_post(
+			wp_slash(
+				array(
+					'post_type'      => 'page',
+					'post_status'    => 'publish',
+					'post_title'     => $defs['diensten']['title'],
+					'post_name'      => 'diensten',
+					'post_content'   => $defs['diensten']['content'],
+					'comment_status' => 'closed',
+					'ping_status'    => 'closed',
+				)
+			),
+			true
+		);
+		kses_init();
+		if ( ! is_wp_error( $post_id ) ) {
+			veryo_apply_page_meta( $post_id, $defs['diensten'] );
+			veryo_remember_content( $post_id );
+		}
+	}
+
+	// 3. Menu's bijwerken, zonder eigen aanpassingen te verliezen.
+	veryo_240_update_menus( $removed );
+
+	// 4. Ongewijzigde pagina's krijgen de nieuwe inhoud; zelf aangepaste blijven staan.
+	veryo_refresh_content( false );
+
+	// 5. Titles en descriptions van de herschreven pagina's, ook in Rank Math.
+	foreach ( veryo_240_seo_pages() as $path ) {
+		$page = '' === $path ? get_post( (int) get_option( 'page_on_front' ) ) : veryo_find_page( $path );
+		if ( ! $page instanceof WP_Post || ! isset( $defs[ $path ] ) ) {
+			continue;
+		}
+		$title = $defs[ $path ]['seo_title'];
+		$desc  = $defs[ $path ]['desc'];
+		foreach ( array(
+			'_veryo_seo_title'      => $title,
+			'_veryo_seo_desc'       => $desc,
+			'rank_math_title'       => $title,
+			'rank_math_description' => $desc,
+			'_veryo_rm_title'       => $title,
+			'_veryo_rm_desc'        => $desc,
+		) as $key => $value ) {
+			update_post_meta( $page->ID, $key, $value );
+		}
+		if ( ! empty( $defs[ $path ]['force_title'] ) && $page->post_title !== $defs[ $path ]['title'] ) {
+			wp_update_post(
+				array(
+					'ID'         => $page->ID,
+					'post_title' => $defs[ $path ]['title'],
+				)
+			);
+		}
+	}
+
+	flush_rewrite_rules( false );
+}
+add_action( 'admin_init', 'veryo_240_upgrade', 90 );

@@ -289,33 +289,6 @@ return array(
 		),
 	),
 
-	'slim-subsidie-ai-training'           => array(
-		'title'     => __( 'SLIM-subsidie voor AI-training: zo werkt het', 'veryo' ),
-		'seo_title' => __( 'SLIM-subsidie voor AI-training: zo werkt het | Veryo', 'veryo' ),
-		'desc'      => __( 'SLIM-subsidie voor AI-training: wat de regeling is, voor wie ze mogelijk geschikt is en waar je op let. Periodes en voorwaarden wisselen, dus check altijd.', 'veryo' ),
-		'kw'        => 'slim subsidie ai training',
-		'content'   => $veryo_draft(
-			array(
-				array( __( 'Wat is de SLIM-regeling?', 'veryo' ), __( 'Korte, feitelijke uitleg met link naar de officiële bron. Benadrukken dat openstellingsperiodes en voorwaarden wisselen en gecheckt moeten worden.', 'veryo' ) ),
-				array( __( 'Kan AI-training eronder vallen?', 'veryo' ), __( 'Mogelijk, afhankelijk van de voorwaarden van de openstelling. Geen belofte.', 'veryo' ) ),
-				array(
-					__( 'Waar je op let', 'veryo' ),
-					__( 'Praktische aandachtspunten.', 'veryo' ),
-					array(
-						array( __( 'Timing', 'veryo' ), __( 'Aanvraagperiodes en volgorde van aanvragen.', 'veryo' ) ),
-						array( __( 'Administratie', 'veryo' ), __( 'Wat je moet bijhouden.', 'veryo' ) ),
-					),
-				),
-				array( __( 'Wat Veryo wel en niet doet', 'veryo' ), __( 'Veryo geeft de training en levert de gegevens die je nodig hebt; het aanvragen doe je zelf of met een subsidieadviseur.', 'veryo' ) ),
-			),
-			array(
-				array( __( 'Wanneer is de SLIM-regeling open?', 'veryo' ), __( 'De SLIM-regeling heeft vaste aanvraagperiodes die per jaar kunnen verschillen. Kijk op de website van RVO voor de actuele openstelling.', 'veryo' ) ),
-				array( __( 'Vraagt Veryo de subsidie aan?', 'veryo' ), __( 'Nee. We leveren wel de informatie over de training.', 'veryo' ) ),
-				array( __( 'Hoeveel subsidie krijg je?', 'veryo' ), __( 'Dat hangt af van de regeling en de grootte van je bedrijf. De actuele percentages en maxima staan op de website van RVO.', 'veryo' ) ),
-			)
-		),
-	),
-
 	'welke-processen-automatiseren'       => array(
 		'title'     => __( 'Welke processen kun je het beste automatiseren?', 'veryo' ),
 		'seo_title' => __( 'Welke processen kun je het beste automatiseren? | Veryo', 'veryo' ),
@@ -498,7 +471,7 @@ return array(
 				array( __( 'Werving: sneller, maar met een mens die beslist', 'veryo' ), __( 'Voorselectie op harde eisen mag helpen; de beslissing blijft bij een mens. Noem de grens uit de catalogus.', 'veryo' ) ),
 				array( __( 'Onboarding van nieuwe medewerkers', 'veryo' ), __( 'Documenten, accounts en een introductie op het AI-beleid klaarzetten.', 'veryo' ) ),
 				array( __( 'HR en de AI Act', 'veryo' ), __( 'Feitelijk: AI-geletterdheid sinds 2 februari 2025. Benoem dat HR vaak de training en het beleid organiseert.', 'veryo' ) ),
-				array( __( 'Een training voor HR', 'veryo' ), __( 'Verwijs naar de AI-training voor bedrijven en het AI-Startpakket.', 'veryo' ) ),
+				array( __( 'Hoe Veryo helpt', 'veryo' ), __( 'Verwijs naar het AI-Startpakket en de diensten; na de oplevering leren we het team ermee werken.', 'veryo' ) ),
 			),
 			array(
 				array( __( 'Mag AI sollicitanten afwijzen?', 'veryo' ), __( 'Nee, laat die beslissing altijd bij een mens.', 'veryo' ) ),

@@ -30,7 +30,7 @@ function veryo_lead_statuses() {
 function veryo_lead_sources() {
 	return array(
 		'ai-scan'             => __( 'AI-scan', 'veryo' ),
-		'academy'             => __( 'Academy-wachtlijst', 'veryo' ),
+		'academy'             => __( 'Academy-wachtlijst (vervallen)', 'veryo' ),
 		'contact'             => __( 'Contactformulier', 'veryo' ),
 		'demo'                => __( 'Demo-aanvraag', 'veryo' ),
 		'founding-partner'    => __( 'Founding Partner', 'veryo' ),
@@ -95,7 +95,7 @@ add_action( 'init', 'veryo_register_lead_cpt' );
 /**
  * Lead aanmaken.
  *
- * @param string              $source  ai-scan|academy|contact.
+ * @param string              $source  ai-scan|contact|demo.
  * @param array<string,mixed> $contact Contactgegevens.
  * @param array<string,mixed> $answers Antwoorden (alleen AI-scan).
  * @param array<string,mixed> $calc    Berekening (alleen AI-scan).

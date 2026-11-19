@@ -379,23 +379,17 @@ add_shortcode( 'veryo_tools_overzicht', 'veryo_tools_overview_shortcode' );
  * @return array<string,array{0:string,1:string}>
  */
 function veryo_page_tools() {
-	$training = array( __( 'Praktische trainingen waarin jullie team leert veilig en slim met AI te werken.', 'veryo' ), 'claude,chatgpt,gemini,copilot' );
 	return apply_filters(
 		'veryo_page_tools',
 		array(
 			// Diensten.
 			'veryo-collega'                             => array( __( 'Een AI-collega die volledig binnen jullie bedrijf draait: kennisbank, assistent en adviseur in één. Er gaat geen data naar buiten.', 'veryo' ), 'llama,qwen,mixtral,gemma,hermes,ollama' ),
-			'ai-werkplek'                               => array( __( 'We helpen jullie het juiste AI-abonnement kiezen, stellen het veilig in en leren het team ermee werken.', 'veryo' ), 'chatgpt,copilot,gemini,claude' ),
+			'diensten'                                  => array( __( 'We bouwen en richten in bovenop de software die jullie al gebruiken. Overstappen is nooit nodig.', 'veryo' ), 'claude,claude-code,mcp,make,n8n,exact-online,microsoft-365' ),
+			'ai-werkplek'                               => array( __( 'Claude Team ingericht met jullie eigen normen, kengetallen en templates, gekoppeld aan de opslag die jullie al gebruiken. Na de oplevering leren we jullie team ermee werken.', 'veryo' ), 'claude,mcp,microsoft-365,google-workspace,notion' ),
 			'ai-agents'                                 => array( __( 'Agents die zelfstandig taken oppakken, zoals mail sorteren, opvolgen en rapporteren, via de kanalen die jullie al gebruiken.', 'veryo' ), 'hermes-agent,openclaw,claude-code,codex,whatsapp-business,slack,teams' ),
 			'ai-automatisering'                         => array( __( 'Koppelingen tussen jullie bestaande software, zodat er niets meer handmatig overgetikt hoeft te worden.', 'veryo' ), 'make,n8n,zapier,power-automate,snelstart,exact-online,outlook' ),
-			'ai-op-maat/ai-receptionist-horeca'         => array( __( 'Een AI-receptie die de telefoon opneemt, afspraken inplant en klanten automatisch bevestigingen en herinneringen stuurt. Voor restaurants, en net zo goed voor praktijken zoals fysio en tandarts.', 'veryo' ), 'elevenlabs,whisper,whatsapp-business,google-agenda,outlook' ),
-			'ai-training'                               => $training,
-			'ai-workshop'                               => $training,
-			'ai-training/ai-geletterdheid'              => $training,
-			'ai-training/chatgpt-training-verkopers'    => array( __( 'Jullie verkopers leren offertes, opvolgmails en gespreksverslagen sneller maken met AI, veilig en in jullie eigen toon.', 'veryo' ), 'chatgpt,claude,copilot,hubspot,pipedrive' ),
-			'ai-training/ai-strategie'                  => $training,
-			'ai-training/zzp'                           => $training,
-			'ai-startpakket'                            => array( __( 'In het AI-Startpakket kiezen we samen de tools die bij jullie passen en richten we ze veilig in.', 'veryo' ), 'claude,chatgpt,copilot,gemini,make' ),
+			'ai-op-maat/ai-receptionist-horeca'         => array( __( 'Veryo Receptie neemt de telefoon op tijdens behandelingen en na sluitingstijd, plant afspraken in en stuurt bevestigingen. Voor zorgpraktijken zoals fysio en tandarts.', 'veryo' ), 'elevenlabs,whisper,whatsapp-business,google-agenda,outlook' ),
+			'ai-startpakket'                            => array( __( 'In het AI-Startpakket kiezen we samen de tools die bij jullie passen en bouwen of richten we één toepassing in.', 'veryo' ), 'claude,chatgpt,copilot,gemini,make' ),
 			'ai-partner'                                => array( __( 'Als vaste AI-partner houden we de tools en modellen voor jullie bij, en kiezen we per klus wat het beste past.', 'veryo' ), 'claude,chatgpt,gemini,make,n8n,ollama' ),
 			'veilig-ai-gebruik'                         => array( __( 'We stellen de AI-tools die jullie gebruiken veilig in, en waar het moet draait AI volledig lokaal.', 'veryo' ), 'copilot,chatgpt,claude,gemini,ollama' ),
 			'ai-implementatie-mkb'                      => array( __( 'Bij het invoeren van AI kiezen we per stap de tool die past bij jullie software en jullie gegevens.', 'veryo' ), 'claude,copilot,make,n8n,ollama,microsoft-365' ),
@@ -596,32 +590,22 @@ function veryo_context_links() {
 				__( 'Eerst weten met wie jullie te maken krijgen? Lees %s.', 'veryo' ),
 				$l( 'over-veryo', __( 'meer over Veryo en oprichter Csaba Hamstra', 'veryo' ) )
 			),
-			'ai-training'                               => sprintf(
-				/* translators: 1: link zzp-training, 2: link AI-strategie. */
-				__( 'Werken jullie als zelfstandige, kijk dan bij de %1$s. Voor directie en MT is er de %2$s, over kansen, keuzes en verantwoordelijkheid.', 'veryo' ),
-				$l( 'ai-training/zzp', __( 'AI-training voor zzp’ers', 'veryo' ) ),
-				$l( 'ai-training/ai-strategie', __( 'AI-strategie training voor directie en management', 'veryo' ) )
-			),
-			'academy'                                   => sprintf(
-				/* translators: %s: link zzp-training. */
-				__( 'Ben je zzp’er en wil je niet wachten op de online cursus? Bekijk de %s, met korte modules over offertes, mail en administratie.', 'veryo' ),
-				$l( 'ai-training/zzp', __( 'AI-training voor zzp’ers', 'veryo' ) )
-			),
 			'ai-startpakket'                            => sprintf(
-				/* translators: %s: link AI-strategie. */
-				__( 'Wil de directie eerst zelf de koers bepalen, dan past de %s goed vóór het Startpakket.', 'veryo' ),
-				$l( 'ai-training/ai-strategie', __( 'AI-strategie training voor directie en MT', 'veryo' ) )
+				/* translators: %s: link diensten. */
+				__( 'Wil je eerst zien wat Veryo verder bouwt en inricht? Bekijk %s.', 'veryo' ),
+				$l( 'diensten', __( 'alle diensten', 'veryo' ) )
 			),
 			'ai-implementatie-mkb'                      => sprintf(
-				/* translators: %s: link AI-strategie. */
-				__( 'Een implementatie begint bij een gedeeld beeld in de top. Daarvoor is er de %s.', 'veryo' ),
-				$l( 'ai-training/ai-strategie', __( 'AI-strategie training voor directie en management', 'veryo' ) )
+				/* translators: 1: link AI-werkplek, 2: link kringloop. */
+				__( 'Voor technische bedrijven zijn er twee logische beginpunten: de %1$s voor het voorbereidende werk, en %2$s voor de administratie.', 'veryo' ),
+				$l( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ) ),
+				$l( 'ai-automatisering/administratie', __( 'de administratieve kringloop', 'veryo' ) )
 			),
 			'oplossingen/werkbonnen-verwerken'          => sprintf(
 				/* translators: 1: link werkbon-check, 2: link administratie. */
 				__( 'Benieuwd wat het bij jullie oplevert? Doe de %1$s. Werkbonnen verwerken is onderdeel van %2$s, samen met inkoopfacturen en debiteuren.', 'veryo' ),
 				$l( 'werkbon-check', __( 'gratis werkbon-check', 'veryo' ) ),
-				$l( 'ai-automatisering/administratie', __( 'administratie automatiseren met AI', 'veryo' ) )
+				$l( 'ai-automatisering/administratie', __( 'de administratieve kringloop', 'veryo' ) )
 			),
 			'ai-automatisering/werkprocessen'           => sprintf(
 				/* translators: %s: link werkbon-check. */
@@ -642,7 +626,7 @@ function veryo_context_links() {
 			'oplossingen/inkoopfacturen-automatiseren'  => sprintf(
 				/* translators: %s: link administratie. */
 				__( 'Inkoopfacturen zijn één onderdeel van %s, naast bonnetjes, werkbonnen en debiteuren.', 'veryo' ),
-				$l( 'ai-automatisering/administratie', __( 'administratie automatiseren met AI', 'veryo' ) )
+				$l( 'ai-automatisering/administratie', __( 'de administratieve kringloop', 'veryo' ) )
 			),
 			'ai-automatisering/offertes-en-calculaties' => sprintf(
 				/* translators: %s: link AI-calculatie. */
@@ -659,11 +643,6 @@ function veryo_context_links() {
 				__( 'Zoeken jullie vooral vakmensen, kijk dan bij %1$s. Voor het screenen van cv’s en inplannen van gesprekken is er de %2$s.', 'veryo' ),
 				$l( 'branches/recruitment', __( 'solliciteren via WhatsApp', 'veryo' ) ),
 				$l( 'oplossingen/ai-recruitment-assistent', __( 'AI-recruitment-assistent', 'veryo' ) )
-			),
-			'branches/horeca-retail'                    => sprintf(
-				/* translators: %s: link AI-telefoonassistent. */
-				__( 'Gaat de telefoon altijd op het drukste moment? Lees hoe een %s reserveringen noteert en vragen beantwoordt.', 'veryo' ),
-				$l( 'ai-op-maat/ai-receptionist-horeca', __( 'AI-telefoonassistent voor restaurants', 'veryo' ) )
 			),
 		)
 	);

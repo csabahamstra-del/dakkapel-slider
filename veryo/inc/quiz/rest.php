@@ -1,6 +1,6 @@
 <?php
 /**
- * REST-endpoints: AI-scan, formulieren (contact, academy) en een verse nonce.
+ * REST-endpoints: AI-scan, formulieren (contact, demo) en een verse nonce.
  * Alle invoer wordt gevalideerd en gesaniteerd; nonce, honeypot en rate limiting.
  *
  * @package Veryo
@@ -272,7 +272,7 @@ function veryo_rest_scan( $request ) {
 }
 
 /**
- * Contactformulier en wachtlijst verwerken.
+ * Contactformulier en demo-aanvraag verwerken.
  *
  * @param WP_REST_Request $request Verzoek.
  * @return WP_REST_Response|WP_Error
@@ -286,7 +286,7 @@ function veryo_rest_form( $request ) {
 	}
 
 	$type = isset( $p['type'] ) ? veryo_key( $p['type'] ) : '';
-	if ( ! in_array( $type, array( 'contact', 'academy', 'demo' ), true ) ) {
+	if ( ! in_array( $type, array( 'contact', 'demo' ), true ) ) {
 		return new WP_Error( 'veryo_invalid_type', __( 'Onbekend formulier.', 'veryo' ), array( 'status' => 400 ) );
 	}
 
@@ -302,13 +302,6 @@ function veryo_rest_form( $request ) {
 		$errors['email'] = __( 'Vul een geldig e-mailadres in.', 'veryo' );
 	}
 	$contact['bedrijf'] = veryo_clean_text( isset( $p['bedrijf'] ) ? $p['bedrijf'] : '', 120 );
-	if ( 'academy' === $type ) {
-		$raw_count = isset( $p['medewerkers'] ) && is_scalar( $p['medewerkers'] ) ? trim( (string) $p['medewerkers'] ) : '';
-		if ( '' !== $raw_count && ( ! ctype_digit( $raw_count ) || (int) $raw_count < 1 || (int) $raw_count > 1000 ) ) {
-			$errors['medewerkers'] = __( 'Vul een aantal tussen 1 en 1000 in.', 'veryo' );
-		}
-		$contact['medewerkers'] = '' === $raw_count ? '' : (string) (int) $raw_count;
-	}
 	if ( 'demo' === $type ) {
 		$options             = veryo_demo_options();
 		$contact['telefoon'] = veryo_clean_text( isset( $p['telefoon'] ) ? $p['telefoon'] : '', 20 );
@@ -369,9 +362,7 @@ function veryo_rest_form( $request ) {
 	return new WP_REST_Response(
 		array(
 			'ok'      => true,
-			'message' => 'demo' === $type ? __( 'Dank je! We nemen binnen één werkdag contact op om de demo te plannen.', 'veryo' ) : ( 'academy' === $type
-				? __( 'Je staat op de wachtlijst. We sturen je één bericht zodra de cursus beschikbaar is.', 'veryo' )
-				: __( 'Dank je, je bericht is verstuurd. We reageren binnen één werkdag.', 'veryo' ) ),
+			'message' => 'demo' === $type ? __( 'Dank je! We nemen binnen één werkdag contact op om de demo te plannen.', 'veryo' ) : __( 'Dank je, je bericht is verstuurd. We reageren binnen één werkdag.', 'veryo' ),
 		),
 		200
 	);

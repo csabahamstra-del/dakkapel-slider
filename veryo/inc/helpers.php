@@ -56,7 +56,6 @@ function veryo_settings_defaults() {
 		'mail_from_name'     => 'Veryo',
 		// Weergave.
 		'show_cases'         => 0,
-		'academy_waitlist'   => 1,
 		'animations'         => 1,
 		'smooth_scroll'      => 1,
 		'whatsapp'           => 0,
@@ -167,7 +166,7 @@ function veryo_brand_line() {
 /**
  * URL van een door het thema aangemaakte pagina op basis van het pad.
  *
- * @param string $path Pad zonder slashes, bv. "ai-training/ai-geletterdheid".
+ * @param string $path Pad zonder slashes, bv. "ai-automatisering/administratie".
  * @return string
  */
 function veryo_url( $path ) {
