@@ -216,6 +216,33 @@ function veryo_run_setup() {
 	}
 	veryo_assign_blog_categories();
 
+	// 4b. Kennisbankartikelen als concept (alleen als ze nog niet bestaan).
+	foreach ( veryo_content_kennis() as $slug => $def ) {
+		$existing = get_page_by_path( $slug, OBJECT, 'kennis' );
+		if ( $existing instanceof WP_Post ) {
+			continue;
+		}
+		$post_id = wp_insert_post(
+			wp_slash(
+				array(
+					'post_type'    => 'kennis',
+					'post_status'  => 'draft',
+					'post_title'   => $def['title'],
+					'post_name'    => $slug,
+					'post_excerpt' => $def['excerpt'],
+					'post_content' => $def['content'],
+				)
+			),
+			true
+		);
+		if ( ! is_wp_error( $post_id ) ) {
+			veryo_apply_page_meta( $post_id, $def );
+			update_post_meta( $post_id, '_veryo_kennis_services', $def['services'] );
+			veryo_remember_content( $post_id );
+			$report['posts'][] = $def['title'];
+		}
+	}
+
 	kses_init();
 
 	// 5b. Standaardinhoud van WordPress opruimen, alleen als die nog onaangepast is.
@@ -1614,6 +1641,18 @@ function veryo_250_upgrade() {
 	}
 	/* translators: 1: aantal, 2: totaal. */
 	$report[] = sprintf( __( '%1$d van de %2$d nieuwsartikelen op noindex, follow gezet.', 'veryo' ), $done, count( veryo_250_noindex_posts() ) );
+
+	// 3b. Kennisbankartikelen (aangemaakt als concept door veryo_refresh_content()).
+	$kennis = get_posts(
+		array(
+			'post_type'      => 'kennis',
+			'post_status'    => 'draft',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	/* translators: %d: aantal. */
+	$report[] = sprintf( __( '%d kennisbankartikelen staan als concept klaar. Publiceer ze één voor één.', 'veryo' ), count( $kennis ) );
 
 	// 4. Links in het blogartikel over factuurverwerking.
 	$report[] = veryo_250_factuur_post_links();

@@ -53,6 +53,15 @@ function veryo_content_pages() {
 }
 
 /**
+ * Kennisbankartikelen (berichttype kennis, als concept).
+ *
+ * @return array<string,array<string,mixed>>
+ */
+function veryo_content_kennis() {
+	return require VERYO_DIR . '/inc/content/kennis-artikelen.php';
+}
+
+/**
  * Blogconcepten.
  *
  * @return array<string,array<string,mixed>>

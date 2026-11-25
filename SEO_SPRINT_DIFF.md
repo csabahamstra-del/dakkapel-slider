@@ -651,3 +651,20 @@ Regels met − verdwijnen, regels met + komen erbij. Tekst tussen [ ] is een lin
 +[AI automatisering voor het mkb]Koppelingen tussen jullie software
  [Alle diensten]Wat Veryo bouwt en inricht
 ```
+
+---
+
+# Kennisbank: vier artikelen (concept)
+
+De update maakt vier kennisartikelen aan als **concept**. Ze staan in wp-admin onder Kennisbank. Publiceer ze één voor één, bijvoorbeeld één per week, niet allemaal op dezelfde dag. Zolang er niets gepubliceerd is, blijft `/kennis/` op noindex.
+
+De artikelen bevatten geen klantcases, cijfers of prijzen: alleen uitleg en werkwijze, met links naar de diensten. Elk artikel heeft een FAQ (met FAQ-schema), een inhoudsopgave, een auteursblok en het blok "Hier helpen we bij".
+
+| Artikel | URL | Title | Linkt naar |
+|---|---|---|---|
+| Bestek lezen met AI: wat kan wel en wat niet | /kennis/bestek-lezen-met-ai/ | Bestek lezen met AI: wat kan wel en wat niet \| Veryo | Claude Team inrichten |
+| Normen, kengetallen en sjablonen klaarzetten voor AI: een checklist | /kennis/normen-kengetallen-sjablonen-klaarzetten/ | Kengetallen en sjablonen klaarzetten voor AI \| Veryo | Claude Team inrichten, veilig AI-gebruik |
+| Begroot naast werkelijk per project | /kennis/begroot-versus-werkelijk-per-project/ | Begroot versus werkelijk per project bijhouden \| Veryo | administratieve kringloop, facturen automatiseren |
+| Werkbonnen digitaliseren: foto, WhatsApp of formulier? | /kennis/werkbonnen-digitaliseren/ | Werkbonnen digitaliseren: foto, WhatsApp, formulier \| Veryo | werkbonnen verwerken, administratieve kringloop |
+
+**Graag even nalezen:** in "Normen, kengetallen en sjablonen" staat dat je bij normteksten eerst de licentievoorwaarden controleert voordat je de tekst zelf in een AI-tool zet. Dat is bewust voorzichtig geformuleerd. Pas het aan als je daar andere afspraken over hebt (bijvoorbeeld met NEN).
