@@ -162,6 +162,19 @@ $veryo_home .= veryo_sec_wide(
 	),
 	'veryo-questions'
 );
+$veryo_home .= veryo_sec_wide(
+	veryo_b_h( __( 'Veelgevraagd', 'veryo' ) )
+	. veryo_b_list(
+		array(
+			'<a href="' . esc_url( veryo_link( 'oplossingen/inkoopfacturen-automatiseren' ) ) . '">' . esc_html__( 'Facturen automatiseren', 'veryo' ) . '</a>',
+			'<a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . esc_html__( 'Claude Team inrichten', 'veryo' ) . '</a>',
+			'<a href="' . esc_url( veryo_link( 'branches/installatie' ) ) . '">' . esc_html__( 'AI voor installateurs', 'veryo' ) . '</a>',
+			'<a href="' . esc_url( veryo_link( 'branches/transport' ) ) . '">' . esc_html__( 'AI orderinvoer voor transport', 'veryo' ) . '</a>',
+		),
+		array( 'className' => 'is-style-checks' )
+	),
+	'veryo-popular'
+);
 $veryo_home .= veryo_sec_cta_scan( __( 'Begin met de gratis AI-scan', 'veryo' ) );
 
 /*
@@ -216,7 +229,7 @@ $veryo_scan .= veryo_sec_text(
 $veryo_scan .= veryo_sec_faq( $veryo_scan_faq );
 $veryo_scan .= veryo_sec_links(
 	array(
-		array( 'ai-automatisering', __( 'AI-automatisering voor het MKB', 'veryo' ), __( 'Alles wat we automatiseren, per afdeling', 'veryo' ) ),
+		array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), __( 'Alles wat we automatiseren, per afdeling', 'veryo' ) ),
 		array( 'prijzen', __( 'Gratis offerte', 'veryo' ), __( 'Een vaste prijs voor jouw situatie', 'veryo' ) ),
 		array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
 	)
@@ -247,12 +260,17 @@ $veryo_auto = veryo_page_standard(
 			__( 'Beschrijf kort welk werk steeds terugkomt. Jullie horen binnen één werkdag of het te automatiseren is, hoe we het zouden aanpakken en wat de volgende stap is.', 'veryo' ),
 			__( 'Bijvoorbeeld: we typen werkbonnen over in de boekhouding. Kan dat automatisch?', 'veryo' ),
 		),
-		'answer'     => __( 'AI-automatisering voor bedrijven betekent dat terugkerend werk, zoals mail sorteren, offertes voorbereiden, facturen verwerken en planning bijwerken, automatisch gebeurt in de software die jullie al gebruiken. Veryo helpt het mkb met advies, slimme koppelingen en praktische AI-oplossingen. Een mens blijft controleren wat ertoe doet, en jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+		'answer'     => __( 'AI automatisering voor het mkb betekent dat terugkerend werk, zoals mail sorteren, offertes voorbereiden, facturen verwerken en planning bijwerken, automatisch gebeurt in de software die jullie al gebruiken. Veryo helpt het mkb met advies, slimme koppelingen en praktische AI-oplossingen. Een mens blijft controleren wat ertoe doet, en jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 		'problem'    => array(
 			'h' => __( 'Herkennen jullie dit?', 'veryo' ),
 			'p' => array(
 				__( 'Jullie team is druk, maar een flink deel van die drukte is hetzelfde werk, elke week opnieuw. Mail doorzetten naar de juiste collega. Een offerte in elkaar zetten uit een aanvraag die half compleet is. Inkoopfacturen overtypen in het boekhoudpakket. Klanten terugbellen die willen weten wanneer de monteur komt.', 'veryo' ),
 				__( 'Dat werk is niet moeilijk, maar het kost uren en het blijft liggen op drukke dagen. Juist daar is AI-automatisering voor het mkb sterk in: het leest, sorteert, vult in en zet klaar. Een mens controleert en beslist.', 'veryo' ),
+				sprintf(
+					/* translators: %s: link naar AI-implementatie. */
+					__( 'Willen jullie AI breder invoeren in het hele bedrijf? Lees dan over %s.', 'veryo' ),
+					'<a href="' . esc_url( veryo_link( 'ai-implementatie-mkb' ) ) . '">' . esc_html__( 'AI implementatie in het mkb', 'veryo' ) . '</a>'
+				),
 			),
 		),
 		'sections'   => array(
@@ -272,10 +290,10 @@ $veryo_auto = veryo_page_standard(
 			),
 			array(
 				'html' => veryo_b_group(
-					veryo_b_h( __( 'Voorbeelden van AI-automatisering in het mkb', 'veryo' ) )
-					. veryo_b_p( __( 'Drie voorbeelden van hoe dat er in de praktijk uitziet. Het zijn voorbeelden van werkwijzen, geen klantcases: per bedrijf kijken we eerst hoe het werk nu loopt.', 'veryo' ) )
+					veryo_b_h( __( 'AI automatisering: voorbeelden voor het mkb', 'veryo' ) )
+					. veryo_b_p( __( 'Vijf voorbeelden van hoe dat er in de praktijk uitziet. Het zijn voorbeelden van werkwijzen, geen klantcases: per bedrijf kijken we eerst hoe het werk nu loopt.', 'veryo' ) )
 					. veryo_sec_usecase(
-						__( 'Voorbeeld 1: inkoopfacturen automatisch verwerken', 'veryo' ),
+						'<a href="' . esc_url( veryo_link( 'oplossingen/inkoopfacturen-automatiseren' ) ) . '">' . esc_html__( 'Voorbeeld 1: inkoopfacturen automatisch verwerken', 'veryo' ) . '</a>',
 						__( 'facturen komen binnen in de mailbox en worden met de hand overgetypt in de boekhouding.', 'veryo' ),
 						__( 'de factuur wordt uitgelezen, gekoppeld aan leverancier en project, gecontroleerd op bedrag en btw en als concept klaargezet.', 'veryo' ),
 						__( 'Outlook of Gmail, en SnelStart, Exact Online, Moneybird of een vergelijkbaar pakket.', 'veryo' ),
@@ -284,7 +302,7 @@ $veryo_auto = veryo_page_standard(
 						__( 'het boekhoudpakket heeft een koppeling (API) en er zijn vaste afspraken over kostenplaatsen.', 'veryo' )
 					)
 					. veryo_sec_usecase(
-						__( 'Voorbeeld 2: aanvragen sneller beantwoorden', 'veryo' ),
+						'<a href="' . esc_url( veryo_link( 'ai-automatisering/klantcontact' ) ) . '">' . esc_html__( 'Voorbeeld 2: klantcontact, aanvragen sneller beantwoorden', 'veryo' ) . '</a>',
 						__( 'aanvragen komen binnen via mail, formulier en WhatsApp en liggen soms dagen op een antwoord te wachten.', 'veryo' ),
 						__( 'de aanvraag wordt gelezen, ontbrekende gegevens worden opgevraagd en er staat een conceptantwoord of afspraakvoorstel klaar.', 'veryo' ),
 						__( 'jullie mailbox, website, WhatsApp Business en agenda of CRM.', 'veryo' ),
@@ -293,13 +311,31 @@ $veryo_auto = veryo_page_standard(
 						__( 'duidelijke informatie over aanbod, werkgebied en planning, zodat de AI goede antwoorden kan geven.', 'veryo' )
 					)
 					. veryo_sec_usecase(
-						__( 'Voorbeeld 3: van werkbon naar factuur', 'veryo' ),
+						'<a href="' . esc_url( veryo_link( 'oplossingen/werkbonnen-verwerken' ) ) . '">' . esc_html__( 'Voorbeeld 3: werkbonnen verwerken tot factuur', 'veryo' ) . '</a>',
 						__( 'monteurs leveren werkbonnen op papier of als foto aan, kantoor typt ze over voor de factuur.', 'veryo' ),
 						__( 'de werkbon wordt uitgelezen en wordt een conceptfactuur in jullie eigen boekhouding.', 'veryo' ),
 						__( 'WhatsApp of mail, en jullie boekhoud- of planningspakket.', 'veryo' ),
 						__( 'twijfel over uren of materiaal gaat naar kantoor voordat de factuur de deur uitgaat.', 'veryo' ),
 						__( 'minder overtypen en sneller factureren; de omvang rekenen we vooraf uit.', 'veryo' ),
 						__( 'werkbonnen bevatten steeds dezelfde basisgegevens, zoals klant, uren en materiaal.', 'veryo' )
+					)
+					. veryo_sec_usecase(
+						'<a href="' . esc_url( veryo_link( 'ai-automatisering/offertes-en-calculaties' ) ) . '">' . esc_html__( 'Voorbeeld 4: offertes en calculaties voorbereiden', 'veryo' ) . '</a>',
+						__( 'elke offerte wordt opnieuw in elkaar gezet uit een aanvraag, een prijslijst en eerdere offertes.', 'veryo' ),
+						__( 'de aanvraag wordt gelezen en er staat een conceptofferte klaar op basis van jullie prijslijst, rekenregels en eerdere offertes.', 'veryo' ),
+						__( 'mail of websiteformulier, en jullie offerte- of calculatiepakket.', 'veryo' ),
+						__( 'prijzen, marges en materiaal worden door de calculator gecontroleerd voordat de offerte de deur uitgaat.', 'veryo' ),
+						__( 'minder uitzoekwerk per offerte en sneller reageren; hoeveel, rekenen we vooraf uit met jullie aantallen.', 'veryo' ),
+						__( 'een actuele prijslijst en vaste rekenregels.', 'veryo' )
+					)
+					. veryo_sec_usecase(
+						'<a href="' . esc_url( veryo_link( 'oplossingen/ai-lead-opvolging' ) ) . '">' . esc_html__( 'Voorbeeld 5: lead-opvolging', 'veryo' ) . '</a>',
+						__( 'aanvragen uit advertenties en de website worden pas uren of een dag later teruggebeld.', 'veryo' ),
+						__( 'een nieuwe lead krijgt snel een WhatsApp-bericht of telefoontje, de vaste kwalificatievragen worden gesteld en er wordt een afspraak voorgesteld in jullie agenda.', 'veryo' ),
+						__( 'websiteformulier, Google Ads of Meta, WhatsApp Business en jullie agenda of CRM.', 'veryo' ),
+						__( 'jullie bepalen de vragen en wie de afspraak krijgt; prijsafspraken maakt altijd een mens.', 'veryo' ),
+						__( 'vooral snelheid: de klant hoort snel iets, ook als jullie op een klus staan.', 'veryo' ),
+						__( 'duidelijke afspraken over werkgebied, soorten klussen en beschikbaarheid in de agenda.', 'veryo' )
 					),
 					array( 'className' => 'veryo-section veryo-usecases' )
 				),
@@ -349,7 +385,7 @@ $veryo_auto = veryo_page_standard(
 		'cta'        => array( __( 'Bespreek welk proces in jullie bedrijf slimmer kan', 'veryo' ), __( 'Plan een gratis kennismaking van een half uur. We kijken samen naar één proces en vertellen eerlijk of automatiseren loont.', 'veryo' ) ),
 		'links'      => array(
 			array( 'ai-agents', __( 'AI-agents voor bedrijven', 'veryo' ), __( 'Digitale collega’s die zelf stappen uitvoeren', 'veryo' ) ),
-			array( 'ai-implementatie-mkb', __( 'AI implementeren in het mkb', 'veryo' ), __( 'Van inventarisatie tot uitrol', 'veryo' ) ),
+			array( 'ai-implementatie-mkb', __( 'AI implementatie in het mkb', 'veryo' ), __( 'Van inventarisatie tot uitrol', 'veryo' ) ),
 			array( 'branches', __( 'AI per branche', 'veryo' ), __( 'Voorbeelden uit jullie sector', 'veryo' ) ),
 			array( 'prijzen', __( 'Prijzen en offerte', 'veryo' ), __( 'Waar de kosten van afhangen', 'veryo' ) ),
 			array( 'contact', __( 'Contact', 'veryo' ), __( 'Stel jullie vraag direct', 'veryo' ) ),
@@ -368,11 +404,16 @@ $veryo_impl = veryo_page_standard(
 			__( 'Bijvoorbeeld: we zijn met 15 mensen en weten niet waar we moeten beginnen.', 'veryo' ),
 		),
 		'answer_cta' => array( __( 'Plan een kennismaking', 'veryo' ), '#vraag', 'amber' ),
-		'answer'     => __( 'AI implementeren in het mkb is meer dan een tool aanzetten: het is een traject van inventarisatie, prioritering en toolselectie via een pilot naar uitrol en evaluatie. Na de oplevering leren we jullie team ermee werken. Veryo begeleidt dat traject praktisch, bovenop de software die jullie al gebruiken, met aandacht voor privacy, rollen en draagvlak bij collega’s. Jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+		'answer'     => __( 'AI-implementatie in het mkb is meer dan een tool aanzetten: het is een traject van inventarisatie, prioritering en toolselectie via een pilot naar uitrol en evaluatie. Na de oplevering leren we jullie team ermee werken. Veryo begeleidt dat traject praktisch, bovenop de software die jullie al gebruiken, met aandacht voor privacy, rollen en draagvlak bij collega’s. Jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 		'problem'    => array(
 			'h' => __( 'Waarom AI-implementatie in het MKB vaak blijft hangen', 'veryo' ),
 			'p' => array(
 				__( 'Veel ondernemers hebben ChatGPT een keer geprobeerd en zien de mogelijkheden. Maar tussen “dit is handig” en “dit draait elke dag in ons bedrijf” zit een gat. Wie gaat het bouwen? Welke software moet waarop aansluiten? Wat mag wel en niet met klantgegevens? En wat doe je als de collega die ermee begon op vakantie is?', 'veryo' ),
+				sprintf(
+					/* translators: %s: link naar AI-automatisering. */
+					__( 'Zoeken jullie één concrete automatisering in plaats van een invoeringstraject? Kijk dan bij %s.', 'veryo' ),
+					'<a href="' . esc_url( veryo_link( 'ai-automatisering' ) ) . '">' . esc_html__( 'AI automatisering voor het mkb', 'veryo' ) . '</a>'
+				),
 				__( 'Daardoor blijft het vaak bij losse experimenten. Iedereen gebruikt het een beetje, niemand weet precies wat het oplevert, en de echte tijdvreters blijven liggen. Een AI-consultant die alleen een rapport schrijft, lost dat niet op. Je hebt een stappenplan nodig, en iemand die het ook inricht en bijhoudt.', 'veryo' ),
 			),
 		),
@@ -445,6 +486,8 @@ $veryo_impl = veryo_page_standard(
 		'cta_demo'   => true,
 		'cta'        => array( __( 'Klaar om AI in te voeren?', 'veryo' ), __( 'Plan een gratis kennismaking. We kijken samen waar jullie staan en wat een logische eerste stap is.', 'veryo' ) ),
 		'faq'        => array(
+			array( __( 'Welk bedrijf helpt met AI implementatie voor het mkb?', 'veryo' ), __( 'Veryo uit Leeuwarden begeleidt mkb-bedrijven van inventarisatie tot uitrol, in Noord-Nederland op locatie en daarbuiten online. We bouwen bovenop de software die jullie al gebruiken, bouwen geen nieuwe software en verkopen geen licenties.', 'veryo' ) ),
+			array( __( 'Wat kost AI implementatie in het mkb?', 'veryo' ), __( 'Dat hangt af van het aantal toepassingen, de systemen die gekoppeld moeten worden en hoeveel begeleiding jullie willen. Vaak is het AI-Startpakket de eerste stap. Jullie krijgen vooraf een gratis offerte met een vaste prijs; meer staat hierboven bij “Wat kost een AI-implementatie?”.', 'veryo' ) ),
 			array( __( 'Wat is het verschil tussen een AI-consultant en Veryo?', 'veryo' ), __( 'Een AI-consultant adviseert meestal alleen. Veryo adviseert, richt in en onderhoudt, bovenop de software die je al hebt. Dat houdt het advies realistisch, want we moeten het zelf ook werkend krijgen.', 'veryo' ) ),
 			array( __( 'Met welke stap beginnen we?', 'veryo' ), __( 'Met de inventarisatie: weten waar de tijd heen gaat. Doe de gratis AI-scan of plan een kennismaking. Daarna kiezen we samen één taak om mee te beginnen.', 'veryo' ) ),
 			array( __( 'Is AI-implementatie hetzelfde als AI-automatisering?', 'veryo' ), __( 'Nee. Automatisering is één toepassing: een proces dat automatisch gaat. Implementatie is het hele traject eromheen: kiezen wat zinvol is, afspraken maken, het team ermee leren werken en zorgen dat het blijft werken.', 'veryo' ) ),
@@ -455,7 +498,7 @@ $veryo_impl = veryo_page_standard(
 		),
 		'links'      => array(
 			array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'Kansensessie, AI-beleid en één toepassing', 'veryo' ) ),
-			array( 'ai-automatisering', __( 'AI-automatisering voor het MKB', 'veryo' ), __( 'Wat er per onderdeel mogelijk is', 'veryo' ) ),
+			array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), __( 'Wat er per onderdeel mogelijk is', 'veryo' ) ),
 			array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
 			array( 'ai-adviseur-friesland', __( 'AI-adviseur in Friesland', 'veryo' ), __( 'Op locatie in heel Friesland', 'veryo' ) ),
 			array( 'leeuwarden', __( 'AI in Leeuwarden', 'veryo' ), __( 'Bouwen en inrichten vanuit Leeuwarden', 'veryo' ) ),
@@ -473,7 +516,7 @@ $veryo_opmaat = veryo_page_standard(
 			__( 'Beschrijf kort wat je zoekt. Je hoort binnen één werkdag of maatwerk nodig is of dat het met bestaande software kan.', 'veryo' ),
 			__( 'Bijvoorbeeld: we willen dat offerteaanvragen uit de mail automatisch in ons CRM komen.', 'veryo' ),
 		),
-		'answer'   => __( 'Veryo bouwt AI op maat voor het MKB als bestaande software tekortschiet: een maatwerk AI-oplossing zoals een chatbot op je eigen kennis, een WhatsApp-assistent, een AI-agent of een interne AI-assistent voor je bedrijf. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+		'answer'   => __( 'AI-automatisering op maat: Veryo bouwt AI op maat voor het mkb als geen pakket past of bestaande software tekortschiet: een maatwerk AI-oplossing zoals een chatbot op je eigen kennis, een WhatsApp-assistent, een AI-agent of een interne AI-assistent voor je bedrijf. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 		'problem'  => array(
 			'h' => __( 'Wanneer kies je voor een maatwerk AI-oplossing?', 'veryo' ),
 			'p' => array(
@@ -488,9 +531,9 @@ $veryo_opmaat = veryo_page_standard(
 				'list'  => array(
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/chatbot' ) ) . '">' . __( 'AI-chatbot voor je website', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Beantwoordt vragen op basis van jullie eigen informatie', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_link( 'ai-op-maat/whatsapp-assistent' ) ) . '">' . __( 'WhatsApp-assistent', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Vragen, gegevens en foto’s verzamelen, afspraken plannen', 'veryo' ) . '</span>',
-					'<a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'AI-agents', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Voeren meerdere stappen van een proces zelfstandig uit', 'veryo' ) . '</span>',
+					'<a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'AI-agents voor bedrijven', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Voeren meerdere stappen van een proces zelfstandig uit', 'veryo' ) . '</span>',
 					'<a href="' . esc_url( veryo_collega_url() ) . '">' . __( 'Interne AI-assistent: Veryo Collega', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Lokale AI-assistent op jullie eigen documenten en procedures', 'veryo' ) . '</span>',
-					'<a href="' . esc_url( veryo_link( 'ai-op-maat/ai-receptionist-horeca' ) ) . '">' . __( 'AI-receptionist voor horeca', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Neemt de telefoon aan en noteert reserveringen', 'veryo' ) . '</span>',
+					'<a href="' . esc_url( veryo_link( 'ai-op-maat/ai-receptionist-horeca' ) ) . '">' . __( 'Veryo Receptie voor zorgpraktijken', 'veryo' ) . '</a><br><span class="veryo-meta">' . __( 'Neemt de telefoon op en plant afspraken in', 'veryo' ) . '</span>',
 				),
 				'style' => 'grid',
 			),
@@ -512,11 +555,13 @@ $veryo_opmaat = veryo_page_standard(
 			array( __( 'Kan de assistent met onze eigen documenten werken?', 'veryo' ), __( 'Ja. We koppelen de assistent aan de bronnen die jij kiest, zoals handleidingen, procedures, prijslijsten of je website. Hij gebruikt alleen die bronnen en verwijst ernaar.', 'veryo' ) ),
 			array( __( 'Wat gebeurt er als de AI een fout antwoord geeft?', 'veryo' ), __( 'We testen vooraf met echte vragen, stellen grenzen in en loggen de gesprekken. Bij twijfel verwijst de assistent naar een mens. Fouten die we in de logs zien, gebruiken we om de bronnen te verbeteren.', 'veryo' ) ),
 			array( __( 'Wie betaalt de kosten van het AI-gebruik?', 'veryo' ), __( 'De verbruikskosten van de AI-dienst lopen via je eigen account of via ons onderhoudsabonnement. Voor een MKB-bedrijf zijn die kosten meestal beperkt; we geven vooraf een inschatting.', 'veryo' ) ),
+			array( __( 'Wat kost AI-automatisering op maat?', 'veryo' ), __( 'Dat hangt af van wat er gebouwd wordt, hoeveel systemen erbij komen en hoeveel onderhoud jullie willen. Jullie krijgen vooraf een gratis offerte met een vaste prijs, plus een inschatting van de verbruikskosten van de AI-dienst. Meer staat hierboven bij de prijzen.', 'veryo' ) ),
 			array( __( 'Hoe lang duurt het bouwen?', 'veryo' ), __( 'Een eerste werkende versie staat meestal binnen vier tot acht weken, afhankelijk van de koppelingen. Je krijgt vooraf een planning.', 'veryo' ) ),
 		),
 		'links'    => array(
 			array( 'ai-op-maat/chatbot', __( 'AI-chatbot laten maken', 'veryo' ), __( 'Wat het kost en wat je krijgt', 'veryo' ) ),
-			array( 'ai-automatisering', __( 'AI-automatisering', 'veryo' ), __( 'Als een standaardflow volstaat', 'veryo' ) ),
+			array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), __( 'Als een standaardflow volstaat', 'veryo' ) ),
+			array( 'ai-agents', __( 'AI-agents voor bedrijven', 'veryo' ), __( 'Als er zelfstandig stappen gezet moeten worden', 'veryo' ) ),
 			array( 'branches/makelaardij', __( 'AI voor makelaars', 'veryo' ), __( 'Inbox, bezichtigingen en teksten', 'veryo' ) ),
 		),
 	)
@@ -584,7 +629,7 @@ $veryo_prices .= veryo_sec_links(
 	array(
 		array( 'ai-startpakket', __( 'Het AI-Startpakket', 'veryo' ), __( 'Vijf onderdelen, vaste prijs vooraf', 'veryo' ) ),
 		array( 'ai-partner', __( 'AI-partner-abonnement', 'veryo' ), __( 'Een vaste vraagbaak per maand', 'veryo' ) ),
-		array( 'ai-automatisering', __( 'AI-automatisering en koppelingen', 'veryo' ), __( 'Wat er per onderdeel mogelijk is', 'veryo' ) ),
+		array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), __( 'Wat er per onderdeel mogelijk is', 'veryo' ) ),
 		array( 'ai-op-maat/chatbot', __( 'AI-chatbot laten maken', 'veryo' ), __( 'Aanpak en wat je krijgt', 'veryo' ) ),
 	)
 );
@@ -753,7 +798,7 @@ $veryo_thanks .= veryo_b_p( __( 'Heb je een bericht gestuurd? Dan reageren we bi
 $veryo_thanks .= veryo_b_shortcode( '[veryo_calendly_button]' );
 $veryo_thanks .= veryo_sec_links(
 	array(
-		array( 'ai-automatisering', __( 'Wat we automatiseren', 'veryo' ), '' ),
+		array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), '' ),
 		array( 'prijzen', __( 'Gratis offerte', 'veryo' ), '' ),
 		array( 'over-veryo', __( 'Over Veryo', 'veryo' ), '' ),
 	),
@@ -779,11 +824,11 @@ return array(
 		'content'   => $veryo_scan,
 	),
 	'ai-automatisering'    => array(
-		'title'       => __( 'AI-automatisering voor bedrijven: maak tijd vrij voor belangrijk werk', 'veryo' ),
+		'title'       => __( 'AI automatisering voor het mkb: maak tijd vrij voor belangrijk werk', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'AI-automatisering voor bedrijven en het mkb | Veryo', 'veryo' ),
-		'desc'        => __( 'Welke processen kun je met AI automatiseren? Veryo helpt het mkb met advies, slimme koppelingen en praktische AI-oplossingen. Bespreek jullie proces.', 'veryo' ),
-		'kw'          => 'ai automatisering',
+		'seo_title'   => __( 'AI automatisering voor het mkb, met voorbeelden | Veryo', 'veryo' ),
+		'desc'        => __( 'AI automatisering voor het mkb: mail, offertes, facturen en planning automatiseren met de software die jullie al hebben. Met voorbeelden en aanpak.', 'veryo' ),
+		'kw'          => 'ai automatisering mkb',
 		'schema'      => array(
 			'type' => 'service',
 			'min'  => 750,
@@ -792,10 +837,10 @@ return array(
 		'content'     => $veryo_auto,
 	),
 	'ai-implementatie-mkb' => array(
-		'title'       => __( 'AI implementeren in het mkb: praktische begeleiding van plan tot uitrol', 'veryo' ),
+		'title'       => __( 'AI implementatie in het mkb: begeleiding van plan tot uitrol', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'AI implementeren in het mkb: stappenplan | Veryo', 'veryo' ),
-		'desc'        => __( 'AI implementeren in 5 stappen: inventarisatie, toolkeuze, pilot, oplevering en uitrol, met afspraken over privacy. Praktisch voor het mkb.', 'veryo' ),
+		'seo_title'   => __( 'AI implementatie in het mkb: van plan tot uitrol | Veryo', 'veryo' ),
+		'desc'        => __( 'AI implementatie voor het mkb in zeven stappen: inventarisatie, pilot met echte data, het team ermee leren werken en uitrol. Met vaste prijs vooraf.', 'veryo' ),
 		'kw'          => 'ai implementatie mkb',
 		'schema'      => array(
 			'type' => 'service',
@@ -805,16 +850,17 @@ return array(
 		'content'     => $veryo_impl,
 	),
 	'ai-op-maat'           => array(
-		'title'     => __( 'AI op maat', 'veryo' ),
-		'seo_title' => __( 'AI op maat: chatbots, agents en assistenten | Veryo', 'veryo' ),
-		'desc'      => __( 'Een maatwerk AI-oplossing voor je bedrijf: chatbot, WhatsApp-assistent, AI-agent of interne assistent op je eigen kennis. Vraag een gratis offerte aan.', 'veryo' ),
-		'kw'        => 'maatwerk ai oplossing',
-		'schema'    => array(
+		'title'       => __( 'AI-automatisering op maat', 'veryo' ),
+		'force_title' => true,
+		'seo_title'   => __( 'AI-automatisering op maat voor jullie bedrijf | Veryo', 'veryo' ),
+		'desc'        => __( 'AI-automatisering op maat wanneer geen pakket past: chatbot op eigen kennis, WhatsApp-assistent of interne assistent. Gratis AI-scan, vaste prijs.', 'veryo' ),
+		'kw'          => 'ai automatisering op maat',
+		'schema'      => array(
 			'type' => 'service',
 			'min'  => 5000,
 			'max'  => 25000,
 		),
-		'content'   => $veryo_opmaat,
+		'content'     => $veryo_opmaat,
 	),
 	'prijzen'              => array(
 		'title'       => __( 'Prijzen en offerte', 'veryo' ),

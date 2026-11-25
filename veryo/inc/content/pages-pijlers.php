@@ -18,7 +18,7 @@ $veryo_werkplek = veryo_page_standard(
 			__( 'Bijvoorbeeld: bij elke aanvraag lezen we een bestek van tachtig pagina’s door om de eisen eruit te halen.', 'veryo' ),
 		),
 		'answer_cta'  => array( __( 'Plan een kennismaking', 'veryo' ), '#vraag', 'amber' ),
-		'answer'      => __( 'De AI-werkplek is Claude Team, ingericht met de eigen normen, kengetallen en templates van jullie bedrijf. Daarmee lezen engineers en werkvoorbereiders sneller een bestek, zetten ze een calculatieopzet klaar, controleren ze uitgangspunten en schrijven ze rapportages in jullie eigen opmaak. De engineer blijft eindverantwoordelijk. De licenties betalen jullie rechtstreeks aan Anthropic; Veryo richt de werkplek in en na de oplevering leren we jullie team ermee werken.', 'veryo' ),
+		'answer'      => __( 'Claude Team inrichten voor technische bedrijven: wij richten Claude Team in met de eigen normen, kengetallen, sjablonen en documenten van jullie bedrijf. Zo krijgt jullie team een AI-werkplek die jullie werk kent. Daarmee lezen engineers en werkvoorbereiders sneller een bestek, zetten ze een calculatieopzet klaar, controleren ze uitgangspunten en schrijven ze rapportages in jullie eigen opmaak. De engineer blijft eindverantwoordelijk. De licenties betalen jullie rechtstreeks aan Anthropic; Veryo richt de werkplek in en na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 		'problem'     => array(
 			'h' => __( 'Een losse chatbot kent jullie werk niet', 'veryo' ),
 			'p' => array(
@@ -40,12 +40,14 @@ $veryo_werkplek = veryo_page_standard(
 				'style' => 'checks',
 			),
 			array(
-				'h'     => __( 'Wat we inrichten', 'veryo' ),
+				'h'     => __( 'Wat “inrichten” precies inhoudt', 'veryo' ),
+				'p'     => array( __( 'Claude Team zelf is een abonnement dat jullie in een paar minuten afsluiten. Het verschil zit in de inrichting: zonder die stap is het een algemene chatbot, met die stap een werkplek die jullie normen, sjablonen en projectkennis kent.', 'veryo' ) ),
 				'list'  => array(
-					'<strong>' . __( 'Jullie normen, kengetallen en templates.', 'veryo' ) . '</strong> ' . __( 'We zetten de documenten waarmee jullie werken klaar in Claude, met vaste instructies per soort werk.', 'veryo' ),
-					'<strong>' . __( 'Rechten en afspraken.', 'veryo' ) . '</strong> ' . __( 'Wie welke projecten en documenten ziet, en welke gegevens er nooit in gaan. Dat leggen we vast in een kort AI-beleid.', 'veryo' ),
+					'<strong>' . __( 'Projecten en kennisbanken.', 'veryo' ) . '</strong> ' . __( 'Per soort werk, zoals calculatie, werkvoorbereiding of rapportage, een eigen project met de juiste documenten en vaste instructies.', 'veryo' ),
+					'<strong>' . __( 'Jullie normen, kengetallen en sjablonen.', 'veryo' ) . '</strong> ' . __( 'We zetten de documenten waarmee jullie werken klaar in Claude, zodat de uitkomst in jullie eigen opmaak en met jullie eigen uitgangspunten komt.', 'veryo' ),
+					'<strong>' . __( 'Rollen, rechten en afspraken over veilig gebruik.', 'veryo' ) . '</strong> ' . __( 'Wie welke projecten en documenten ziet, wie beheert, en welke gegevens er nooit in gaan. Dat leggen we vast in een kort AI-beleid.', 'veryo' ),
 					'<strong>' . __( 'Koppelingen waar het helpt.', 'veryo' ) . '</strong> ' . __( 'Waar het kan, koppelen we Claude aan de opslag en systemen die jullie al gebruiken. Overstappen is niet nodig.', 'veryo' ),
-					'<strong>' . __( 'Na de oplevering leren we jullie team ermee werken.', 'veryo' ) . '</strong> ' . __( 'Met jullie eigen bestekken en templates, zodat iedereen weet wat het kan en waar je op let.', 'veryo' ),
+					'<strong>' . __( 'Na de oplevering leren we jullie team ermee werken.', 'veryo' ) . '</strong> ' . __( 'Op de ingerichte werkplek, met jullie eigen bestekken en sjablonen, zodat iedereen weet wat het kan en waar je op let.', 'veryo' ),
 				),
 				'style' => 'checks',
 			),
@@ -56,9 +58,21 @@ $veryo_werkplek = veryo_page_standard(
 				),
 			),
 			array(
+				'h'     => __( 'Claude Team, ChatGPT Team of Microsoft Copilot?', 'veryo' ),
+				'p'     => array(
+					__( 'Alle drie zijn zakelijke AI-werkplekken, en alle drie kunnen een team helpen. Welke het beste past, hangt vooral af van jullie werk en de software die jullie al gebruiken. Een eerlijke vergelijking op hoofdlijnen:', 'veryo' ),
+				),
+				'list'  => array(
+					'<strong>' . __( 'Werken jullie vooral met lange documenten,', 'veryo' ) . '</strong> ' . __( 'zoals bestekken, normen en rapporten, en wil je dat de AI met jullie eigen projectkennis werkt? Daarvoor werken wij met Claude Team: het werkt met projecten waarin jullie eigen documenten en instructies klaarstaan.', 'veryo' ),
+					'<strong>' . __( 'Werkt iedereen de hele dag in Word, Outlook en Teams?', 'veryo' ) . '</strong> ' . __( 'Dan is het goed om ook naar Microsoft Copilot te kijken. Claude Team heeft daarnaast een eigen koppeling met Microsoft 365.', 'veryo' ),
+					'<strong>' . __( 'Gebruikt het team ChatGPT al veel?', 'veryo' ) . '</strong> ' . __( 'Dan nemen we dat mee in het advies. We kiezen niet voor een merk, maar voor wat bij jullie werk past, en zeggen het eerlijk als iets anders beter aansluit.', 'veryo' ),
+				),
+				'style' => 'checks',
+			),
+			array(
 				'h' => __( 'Licenties en gegevens', 'veryo' ),
 				'p' => array(
-					__( 'Claude Team is een zakelijk abonnement van Anthropic. De licenties sluiten jullie zelf af en betalen jullie rechtstreeks aan Anthropic; Veryo verkoopt geen licenties en verdient er niets aan. Bij een zakelijk abonnement worden jullie gegevens standaard niet gebruikt om AI-modellen te trainen. Gebruiken medewerkers daarnaast andere AI-tools, dan nemen we die mee in de afspraken.', 'veryo' ),
+					__( 'Claude Team is een zakelijk abonnement van Anthropic. De licenties sluiten jullie zelf af en betalen jullie rechtstreeks aan Anthropic; Veryo verkoopt geen licenties en verdient er niets aan. Volgens Anthropic worden de gegevens van Team-klanten standaard niet gebruikt om AI-modellen te trainen. Gebruiken medewerkers daarnaast andere AI-tools, dan nemen we die mee in de afspraken.', 'veryo' ),
 				),
 			),
 		),
@@ -71,16 +85,18 @@ $veryo_werkplek = veryo_page_standard(
 		) . veryo_sec_ongoing( 'werkplek-onderhoud' ),
 		'faq'         => array(
 			array( __( 'Wat is Claude Team?', 'veryo' ), __( 'Het zakelijke abonnement op Claude, de AI-assistent van Anthropic, voor teams. Medewerkers werken in gedeelde projecten met de documenten en instructies van het bedrijf.', 'veryo' ) ),
-			array( __( 'Wie betaalt de licenties?', 'veryo' ), __( 'Jullie, rechtstreeks aan Anthropic. Veryo richt de werkplek in en verkoopt geen licenties.', 'veryo' ) ),
+			array( __( 'Wat kost Claude Team?', 'veryo' ), __( 'De licenties nemen jullie rechtstreeks af bij Anthropic, tegen hun actuele prijs per gebruiker. Veryo rekent een vaste prijs voor het inrichten en biedt daarna optioneel doorlopend onderhoud.', 'veryo' ) ),
+			array( __( 'Is Claude Team veilig voor bedrijfsgegevens?', 'veryo' ), __( 'Volgens Anthropic worden de gesprekken en documenten van Team-klanten standaard niet gebruikt om modellen te trainen, en vallen ze onder de zakelijke voorwaarden met een verwerkersovereenkomst (DPA). Daarnaast spreken we samen af welke gegevens er nooit in gaan, zoals persoonsgegevens van klanten die er niet nodig zijn.', 'veryo' ) ),
 			array( __( 'Neemt de AI beslissingen over?', 'veryo' ), __( 'Nee. Claude bereidt voor en controleert. De engineer blijft eindverantwoordelijk voor elke berekening, elk advies en elk rapport.', 'veryo' ) ),
 			array( __( 'Moeten we andere software gaan gebruiken?', 'veryo' ), __( 'Nee. Claude Team komt naast de software die jullie al hebben. Overstappen is nooit nodig.', 'veryo' ) ),
 			array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo doet geen algemeen IT-beheer, netwerken of helpdesk. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. Heb je een vaste IT-beheerder, dan werken we graag met die samen.', 'veryo' ) ),
 		),
 		'links'       => array(
 			array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
+			array( 'branches/installatie', __( 'AI voor installateurs', 'veryo' ), __( 'Calculatie en werkvoorbereiding', 'veryo' ) ),
 			array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Van werkbon tot factuur en salaris', 'veryo' ) ),
 			array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, rechten en de veiligheidscheck', 'veryo' ) ),
-			array( 'ai-agents', __( 'AI-agents', 'veryo' ), __( 'Digitale collega’s voor terugkerend werk', 'veryo' ) ),
+			array( 'ai-agents', __( 'AI-agents voor bedrijven', 'veryo' ), __( 'Digitale collega’s voor terugkerend werk', 'veryo' ) ),
 		),
 	)
 );
@@ -96,7 +112,7 @@ $veryo_agents = veryo_page_standard(
 			__( 'Bijvoorbeeld: alle inkomende storingsmeldingen sorteren en inplannen.', 'veryo' ),
 		),
 		'answer_cta'  => array( __( 'Bespreek een taak voor een agent', 'veryo' ), '#vraag', 'amber' ),
-		'answer'      => __( 'Een AI-agent is een digitale collega die een terugkerende taak zelfstandig voorbereidt: hij leest, zoekt informatie op en voert een paar stappen uit in jullie eigen systemen, zoals een conceptmail klaarzetten of een aanvraag compleet maken. Veryo richt AI-agents voor bedrijven in bovenop de software die jullie al gebruiken, met een mens die goedkeurt wat ertoe doet. Jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+		'answer'      => __( 'Veryo bouwt AI-agents voor bedrijven in heel Nederland, vanuit Leeuwarden. Een AI-agent is een digitale collega die een terugkerende taak zelfstandig voorbereidt: hij leest, zoekt informatie op en voert een paar stappen uit in jullie eigen systemen, zoals een conceptmail klaarzetten of een aanvraag compleet maken. Veryo richt AI-agents voor bedrijven in bovenop de software die jullie al gebruiken, met een mens die goedkeurt wat ertoe doet. Jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 		'problem'     => array(
 			'h' => __( 'Werk dat elke dag hetzelfde gaat, maar net te veel denkwerk is voor een simpele regel', 'veryo' ),
 			'p' => array(
@@ -118,7 +134,7 @@ $veryo_agents = veryo_page_standard(
 				'style' => 'checks',
 			),
 			array(
-				'h' => __( 'AI-agent, chatbot of workflow: wat is het verschil?', 'veryo' ),
+				'h' => __( 'Wat is een AI-agent voor bedrijven, en wat is het verschil met een chatbot?', 'veryo' ),
 				'p' => array(
 					sprintf(
 						/* translators: 1: link naar chatbot, 2: link naar AI-automatisering. */
@@ -127,6 +143,12 @@ $veryo_agents = veryo_page_standard(
 						esc_url( veryo_link( 'ai-automatisering' ) )
 					),
 					__( 'Zijn de stappen altijd hetzelfde, dan is een workflow goedkoper en eenvoudiger. Een agent loont waar er gelezen, beoordeeld en gezocht moet worden.', 'veryo' ),
+					__( 'Je hoort daarvoor ook de term agentic AI: AI die niet alleen antwoord geeft, maar zelf stappen zet binnen grenzen die vooraf zijn afgesproken. Bij Veryo zijn die grenzen concreet: wat de agent zelf mag, wat een mens eerst goedkeurt, met welke rechten hij in jullie systemen werkt en een logboek van alles wat hij doet. Hoe dat werkt, staat verderop bij “Goedkeuring, rechten en foutafhandeling”.', 'veryo' ),
+					sprintf(
+						/* translators: %s: link naar AI op maat. */
+						__( 'Zoeken jullie een chatbot of WhatsApp-assistent? Kijk dan bij %s.', 'veryo' ),
+						'<a href="' . esc_url( veryo_link( 'ai-op-maat' ) ) . '">' . esc_html__( 'AI-automatisering op maat', 'veryo' ) . '</a>'
+					),
 				),
 			),
 			array(
@@ -217,6 +239,8 @@ $veryo_agents = veryo_page_standard(
 		),
 		'after_price' => veryo_sec_ongoing( 'onderhoud' ),
 		'faq'         => array(
+			array( __( 'Wie bouwt AI-agents voor bedrijven in Nederland?', 'veryo' ), __( 'Veryo uit Leeuwarden bouwt AI-agents voor mkb-bedrijven, met een proefperiode op echte data en een vaste prijs vooraf. De agent draait bovenop de software die jullie al gebruiken.', 'veryo' ) ),
+			array( __( 'Wat is agentic AI?', 'veryo' ), __( 'AI die niet alleen antwoord geeft, maar zelf stappen uitvoert: mail lezen, gegevens opzoeken, een concept klaarzetten. Bij Veryo gebeurt dat altijd binnen vaste grenzen, en een mens keurt goed wat belangrijk is.', 'veryo' ) ),
 			array( __( 'Wat is het verschil tussen een agent en een chatbot?', 'veryo' ), __( 'Een chatbot beantwoordt vragen. Een agent voert ook stappen uit: iets opzoeken, een concept klaarzetten, een gegeven invullen in een ander systeem.', 'veryo' ) ),
 			array( __( 'Werkt een agent met onze software?', 'veryo' ), __( 'Meestal wel, via de koppelingen die pakketten als Outlook, Exact, Moneybird of een CRM bieden. We bouwen in je eigen accounts, zodat jij eigenaar blijft.', 'veryo' ) ),
 			array( __( 'Wat als de agent een fout maakt?', 'veryo' ), __( 'Daarom begint elke agent met een proefperiode waarin een mens alles controleert, en houdt hij een logboek bij. Beslissingen met grote gevolgen blijven bij een mens.', 'veryo' ) ),
@@ -226,7 +250,7 @@ $veryo_agents = veryo_page_standard(
 		'cta_demo'    => true,
 		'cta'         => array( __( 'Welke taak zou jullie digitale collega oppakken?', 'veryo' ), __( 'Plan een gratis adviesgesprek. We bekijken één taak en vertellen eerlijk of een agent, een workflow of een chatbot het beste past.', 'veryo' ) ),
 		'links'       => array(
-			array( 'ai-automatisering', __( 'AI-automatisering voor het MKB', 'veryo' ), __( 'Alles wat er mogelijk is, per afdeling', 'veryo' ) ),
+			array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), __( 'Alles wat er mogelijk is, per afdeling', 'veryo' ) ),
 			array( 'ai-op-maat/chatbot', __( 'AI-chatbot laten maken', 'veryo' ), __( 'Vragen beantwoorden op jullie website', 'veryo' ) ),
 			array( veryo_collega()['slug'], __( 'Veryo Collega', 'veryo' ), __( 'Interne kennisassistent, volledig lokaal', 'veryo' ) ),
 			array( 'branches', __( 'AI per branche', 'veryo' ), __( 'Toepassingen per sector', 'veryo' ) ),
@@ -318,10 +342,10 @@ $veryo_veilig = veryo_page_standard(
 
 return array(
 	'ai-werkplek'       => array(
-		'title'       => __( 'De AI-werkplek met Claude Team', 'veryo' ),
+		'title'       => __( 'Claude Team inrichten: de AI-werkplek voor jullie team', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'AI-werkplek met Claude Team voor technische kantoren | Veryo', 'veryo' ),
-		'desc'        => __( 'Claude Team ingericht met jullie eigen normen, kengetallen en templates: bestek lezen, calculatie en rapportages. De engineer blijft eindverantwoordelijk.', 'veryo' ),
+		'seo_title'   => __( 'Claude Team inrichten voor technische bedrijven | Veryo', 'veryo' ),
+		'desc'        => __( 'Wij richten Claude Team in op jullie eigen normen, sjablonen en documenten. Voor calculatie, engineering en werkvoorbereiding. De engineer beslist.', 'veryo' ),
 		'kw'          => 'claude team inrichten',
 		'schema'      => array(
 			'type' => 'service',
@@ -329,11 +353,11 @@ return array(
 		'content'     => $veryo_werkplek,
 	),
 	'ai-agents'         => array(
-		'title'       => __( 'AI-agents voor bedrijven: digitale collega’s op maat', 'veryo' ),
+		'title'       => __( 'AI-agents voor bedrijven: digitale collega’s die jullie werk voorbereiden', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'AI-agents voor bedrijven: digitale collega’s op maat | Veryo', 'veryo' ),
-		'desc'        => __( 'Wat doet een AI-agent voor jullie bedrijf? Voorbeelden, het verschil met een chatbot en hoe goedkeuring en rechten geregeld zijn. Bespreek een taak.', 'veryo' ),
-		'kw'          => 'ai agents voor bedrijven',
+		'seo_title'   => __( 'AI-agents voor bedrijven in Nederland laten bouwen | Veryo', 'veryo' ),
+		'desc'        => __( 'AI-agent laten bouwen voor jullie bedrijf? Veryo bouwt AI-agents die terugkerend werk voorbereiden, bovenop jullie software. Een mens keurt goed.', 'veryo' ),
+		'kw'          => 'ai agent nederland',
 		'schema'      => array(
 			'type' => 'service',
 			'min'  => 2500,

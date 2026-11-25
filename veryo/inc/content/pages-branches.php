@@ -23,7 +23,7 @@ return array(
 		'content'   => veryo_page_standard(
 			array(
 				'answer'   => __( 'Veryo zet AI in voor installateurs en installatiebedrijven: een offerte-generator met eigen calculatietool, een digitale werkbon die automatisch een factuur wordt en een WhatsApp-assistent die storingsmeldingen opvangt. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
-				'help'     => array( __( 'Zo helpt Veryo installatiebedrijven', 'veryo' ), __( 'Monteurs en binnendienst vragen hun eigen kennisbank naar storingscodes, handleidingen en eerdere klussen, op jullie eigen server.', 'veryo' ), __( 'Claude ingericht met jullie eigen normen en templates, voor offertes en werkvoorbereiding door binnendienst en planners.', 'veryo' ), __( 'Offertes, werkbonnen en storingsmeldingen automatiseren bovenop jullie bestaande pakket.', 'veryo' ) ),
+				'help'     => array( __( 'Zo helpt Veryo installateurs', 'veryo' ), __( 'Monteurs en binnendienst vragen hun eigen kennisbank naar storingscodes, handleidingen en eerdere klussen, op jullie eigen server.', 'veryo' ), __( 'Claude ingericht met jullie eigen normen en templates, voor offertes en werkvoorbereiding door binnendienst en planners.', 'veryo' ), __( 'Offertes, werkbonnen en storingsmeldingen automatiseren bovenop jullie bestaande pakket.', 'veryo' ) ),
 				'problem'  => array(
 					'h' => __( 'Herkenbaar voor elk installatiebedrijf', 'veryo' ),
 					'p' => array(
@@ -76,6 +76,17 @@ return array(
 						),
 					),
 					array(
+						'h' => __( 'AI voor installatie-adviesbureaus en engineering', 'veryo' ),
+						'p' => array(
+							__( 'Niet elk installatiebedrijf werkt alleen met monteurs. Installatie-adviesbureaus en installateurs met een eigen engineeringafdeling besteden veel tijd aan voorbereidend werk: bestekken lezen, posten uitzoeken, een calculatie opzetten en de werkvoorbereiding op papier zetten.', 'veryo' ),
+							sprintf(
+								/* translators: %s: link naar de AI-werkplek. */
+								__( 'Daarvoor richten we Claude Team in met jullie eigen normen, kengetallen en sjablonen. Claude leest het bestek, haalt de relevante posten eruit en zet een eerste opzet klaar in jullie eigen calculatiesjabloon. De engineer of calculator controleert, past aan en blijft eindverantwoordelijk. Lees meer over hoe we %s.', 'veryo' ),
+								'<a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . esc_html__( 'Claude Team inrichten', 'veryo' ) . '</a>'
+							),
+						),
+					),
+					array(
 						'h' => __( 'Zo ziet AI voor installateurs eruit in de praktijk', 'veryo' ),
 						'p' => array(
 							__( 'Een voorbeeld: een klant vraagt via de website een offerte aan voor een nieuwe cv-ketel en stuurt foto’s van de ketel en de meterkast mee. De offerte-generator leest de aanvraag, haalt uit de calculatietool de juiste onderdelen, uren en marges, en zet een conceptofferte klaar. De calculator controleert en verstuurt dezelfde dag.', 'veryo' ),
@@ -86,6 +97,7 @@ return array(
 				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'project', 'maatwerk' ) ),
 				'faq'      => array(
 					array( __( 'Werkt dit met ons installatiesoftwarepakket?', 'veryo' ), __( 'Veel pakketten voor installateurs hebben een koppeling. Zo niet, dan werken we met exports of een eenvoudige tussenlaag. Dat checken we in de kansensessie.', 'veryo' ) ),
+					array( __( 'Kan AI een installatiebestek lezen en een calculatie voorbereiden?', 'veryo' ), __( 'Ja. AI kan een bestek doorlezen, de relevante posten eruit halen en een eerste opzet maken in jullie eigen sjabloon. Jullie calculator controleert en beslist.', 'veryo' ) ),
 					array( __( 'Maakt de AI zelf de prijs?', 'veryo' ), __( 'Nee. Prijzen, uurtarieven en marges staan in de calculatietool met vaste rekenregels. AI leest de aanvraag en vult in; de calculator controleert.', 'veryo' ) ),
 					array( __( 'Hoeveel tijd scheelt een offerte-generator?', 'veryo' ), __( 'In de catalogus rekenen we met 3 tot 8 uur per week voor een team van 5 tot 20 mensen. Wat het bij jou oplevert, hangt af van het aantal offertes en hoe je nu werkt. De AI-scan maakt een schatting.', 'veryo' ) ),
 					array( __( 'Kunnen monteurs de werkbon echt inspreken?', 'veryo' ), __( 'Ja. Ze spreken in de telefoon in wat er is gedaan en maken foto’s. De AI maakt er een gestructureerde werkbon van, die de monteur nog even controleert.', 'veryo' ) ),
@@ -93,6 +105,7 @@ return array(
 				),
 				'cta'      => array( __( 'Installateur? Zie waar jouw uren zitten', 'veryo' ), '' ),
 				'links'    => array(
+					array( 'ai-werkplek', __( 'Claude Team inrichten', 'veryo' ), __( 'Voor calculatie en werkvoorbereiding', 'veryo' ) ),
 					array( 'ai-automatisering/offertes-en-calculaties', __( 'Offertes en calculaties automatiseren', 'veryo' ), __( 'Alles over de offerte-generator', 'veryo' ) ),
 					array( 'ai-automatisering/werkprocessen', __( 'Werkprocessen automatiseren', 'veryo' ), __( 'Werkbon, planning en inkoop', 'veryo' ) ),
 					array( 'ai-op-maat/whatsapp-assistent', __( 'WhatsApp-assistent', 'veryo' ), __( 'Voor storingen', 'veryo' ) ),
@@ -496,18 +509,19 @@ return array(
 
 	/* ------------------------------------------------------------------------- */
 	'branches/transport'                 => array(
-		'title'     => __( 'AI voor transport en logistiek', 'veryo' ),
-		'seo_title' => __( 'AI voor transport: orderinvoer, documenten en status | Veryo', 'veryo' ),
-		'desc'      => __( 'AI voor transport en logistiek: automatische orderinvoer, transportdocumenten verwerken, statusupdates en planning. Bespreek jullie proces met Veryo.', 'veryo' ),
-		'kw'        => 'ai transport orderinvoer',
-		'schema'    => array(
+		'title'       => __( 'AI orderinvoer en e-mailverwerking voor transportbedrijven', 'veryo' ),
+		'force_title' => true,
+		'seo_title'   => __( 'AI orderinvoer en e-mailverwerking voor transport | Veryo', 'veryo' ),
+		'desc'        => __( 'Orders uit e-mail en pdf automatisch klaargezet in jullie TMS. AI-e-mailverwerking, statusberichten en documenten. De planner beslist altijd.', 'veryo' ),
+		'kw'          => 'automatische orderinvoer ai transport',
+		'schema'      => array(
 			'type' => 'service',
 			'min'  => 750,
 			'max'  => 25000,
 		),
-		'content'   => veryo_page_standard(
+		'content'     => veryo_page_standard(
 			array(
-				'answer'   => __( 'Veryo zet AI in de logistiek in voor transportbedrijven: een planningsassistent die ritten voorstelt, automatische statusberichten zodat klanten niet hoeven te bellen, en vrachtdocumenten die vanzelf worden benoemd en gearchiveerd. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'answer'   => __( 'AI orderverwerking voor logistiek en transport: Veryo zorgt dat orders uit e-mail en pdf automatisch worden uitgelezen en als concept klaarstaan in jullie TMS, dat inkomende mail wordt gesorteerd en dat klanten automatisch statusberichten krijgen. Vrachtdocumenten worden vanzelf benoemd en gearchiveerd. De planner controleert en beslist. Jullie krijgen vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'help'     => array( __( 'Zo helpt Veryo transportbedrijven', 'veryo' ), __( 'Afspraken met klanten, routes en procedures doorzoekbaar voor planners, zodat niet alles via één persoon loopt.', 'veryo' ), __( 'Claude ingericht met jullie eigen afspraken en templates, voor planning en binnendienst.', 'veryo' ), __( 'Statusberichten, planning en vrachtdocumenten automatiseren bovenop jullie TMS of planningspakket.', 'veryo' ) ),
 				'extra'    => array( __( 'Waar je begint in transport', 'veryo' ), array( __( 'Statusberichten zijn meestal de beste eerste stap: ze zijn goed af te bakenen, klanten merken het direct en het scheelt de planning telefoontjes. Daarna volgt het archiveren van documenten, omdat dat elke dag terugkomt en foutgevoelig is.', 'veryo' ), __( 'De planningsassistent is een grotere stap. Die zetten we pas op als de basisgegevens op orde zijn en de planner weet welke regels hij in zijn hoofd gebruikt. Vaak helpt het al om die regels eerst samen op papier te zetten.', 'veryo' ) ) ),
 				'problem'  => array(
@@ -562,6 +576,28 @@ return array(
 						),
 					),
 					array(
+						'h' => __( 'Automatische orderinvoer: van e-mail naar TMS', 'veryo' ),
+						'p' => array(
+							__( 'Een order komt binnen per mail of als pdf in de bijlage. De AI leest laad- en losadres, datum, tijdvenster, lading en referenties uit en zet de order als concept klaar in jullie TMS of planning. De planner controleert en bevestigt. Mist er iets, zoals een referentie of een tijdvenster, dan staat dat er duidelijk bij.', 'veryo' ),
+							__( 'Zo is AI orderverwerking voor logistiek geen zwarte doos: er gaat niets door zonder dat de planner het heeft gezien. Het overtypen verdwijnt, de controle blijft.', 'veryo' ),
+						),
+					),
+					array(
+						'h' => __( 'AI e-mailverwerking voor transportbedrijven', 'veryo' ),
+						'p' => array(
+							__( 'De gedeelde mailbox van de planning krijgt van alles: orders, statusvragen, klachten, vrachtbrieven en afleverbonnen. De AI sorteert elke mail op soort en zet hem bij de juiste persoon of in de juiste map. Op statusvragen staat een conceptantwoord klaar met de actuele status uit jullie systeem.', 'veryo' ),
+							__( 'Klachten en vragen over schade of vertraging gaan altijd direct naar een planner; daar komt geen automatisch antwoord op.', 'veryo' ),
+						),
+					),
+					array(
+						'h' => __( 'Wat kost handmatige orderinvoer?', 'veryo' ),
+						'p' => array(
+							__( 'Dat kunnen jullie zelf uitrekenen met een eenvoudige formule:', 'veryo' ),
+							'<strong>' . __( 'orders per dag × minuten per order × uurkosten × werkdagen per jaar', 'veryo' ) . '</strong>',
+							__( 'Een rekenvoorbeeld, geen klantcase: stel dat er 40 orders per dag binnenkomen en het invoeren 4 minuten per order kost. Dan is dat 160 minuten per dag, ruim 2,5 uur. Bij 220 werkdagen is dat ongeveer 590 uur per jaar. Vermenigvuldig dat met jullie eigen uurkosten en je weet wat overtypen nu kost. Vul jullie eigen aantallen in; die verschillen per bedrijf.', 'veryo' ),
+						),
+					),
+					array(
 						'h' => __( 'Een voorbeeld', 'veryo' ),
 						'p' => array(
 							__( 'Een transportbedrijf met twintig wagens kan de planningsassistent een eerste voorstel laten maken op basis van orders, beschikbare chauffeurs en rijtijden. De planner past aan en zet door. Zodra een zending is geladen of afgeleverd, krijgt de klant automatisch bericht. Afleverbonnen die chauffeurs fotograferen, worden uitgelezen, benoemd en bij de juiste order gearchiveerd.', 'veryo' ),
@@ -575,7 +611,8 @@ return array(
 				),
 				'price'    => array( 'steps' => array( 'startpakket', 'quickwin', 'maatwerk' ) ),
 				'faq'      => array(
-					array( __( 'Werkt dit met ons TMS?', 'veryo' ), __( 'Als je transportmanagementsysteem een koppeling heeft, meestal wel. Dat checken we eerst.', 'veryo' ) ),
+					array( __( 'Werkt automatische orderinvoer met ons TMS?', 'veryo' ), __( 'De automatisering draait bovenop jullie bestaande TMS. Welke koppeling mogelijk is, bekijken we in de kansensessie.', 'veryo' ) ),
+					array( __( 'Wat gebeurt er met een order die de AI niet goed kan lezen?', 'veryo' ), __( 'Die komt bij de planner terecht als uitzondering. Er gaat niets automatisch door zonder controle.', 'veryo' ) ),
 					array( __( 'Kan AI rekening houden met rij- en rusttijden?', 'veryo' ), __( 'De regels kunnen worden meegenomen in de voorstellen, maar de planner blijft verantwoordelijk en controleert.', 'veryo' ) ),
 					array( __( 'Hoe krijgen klanten statusberichten?', 'veryo' ), __( 'Per mail, sms of WhatsApp, afhankelijk van wat jouw klanten willen. De berichten gaan uit op basis van de status in je systeem.', 'veryo' ) ),
 					array( __( 'Kunnen jullie ook helpen chauffeurs te werven?', 'veryo' ), __( 'Ja, solliciteren via WhatsApp werkt goed voor chauffeurs. Zie de pagina over werving.', 'veryo' ) ),

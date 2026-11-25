@@ -289,27 +289,67 @@ function veryo_products() {
 		),
 		'inkoopfacturen-automatiseren'  => array(
 			'naam'        => __( 'Inkoopfacturen automatiseren', 'veryo' ),
+			'h1'          => __( 'Facturen automatiseren: inkoopfacturen automatisch verwerken', 'veryo' ),
+			'force_title' => true,
 			'voor'        => __( 'Voor elk bedrijf met veel inkoop', 'veryo' ),
 			'kort'        => __( 'Inkoopfacturen uit de mail worden automatisch uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je boekhouding gezet.', 'veryo' ),
-			'pitch'       => __( 'Inkoopfacturen automatiseren betekent: facturen automatisch verwerken in plaats van overtypen. Inkoopfacturen die per mail binnenkomen, worden uitgelezen, gecontroleerd, gematcht met inkooporders of werkbonnen en in je boekhouding gezet, zoals SnelStart, Exact of Moneybird, of in je ERP. Je administratie hoeft alleen nog de afwijkingen te bekijken.', 'veryo' ),
+			'pitch'       => __( 'Facturen automatiseren zonder nieuwe software: inkoopfacturen die per mail binnenkomen, worden automatisch uitgelezen, gecontroleerd, gematcht met inkooporders, werkbonnen of projecten en klaargezet in jullie boekhouding, zoals SnelStart, Exact Online of Moneybird, of in jullie ERP. Niemand hoeft nog iets over te typen. Jullie administratie kijkt alleen nog naar de afwijkingen en keurt goed.', 'veryo' ),
 			'probleem'    => array(
 				__( 'Tientallen of honderden inkoopfacturen per maand, elk in een andere opmaak. Iemand opent ze, controleert bedragen en aantallen, zoekt de bijbehorende inkooporder of werkbon en boekt ze in.', 'veryo' ),
 				__( 'Het is precies, saai en foutgevoelig werk. Een factuur die dubbel wordt betaald of een prijs die niet klopt met de afspraak, valt pas op als het te laat is.', 'veryo' ),
 			),
 			'secties'     => array(
 				array(
+					__( 'Hoe touchless is jullie factuurproces?', 'veryo' ),
+					array(
+						__( 'Een touchless factuurproces betekent: de factuur komt binnen, wordt gecontroleerd en staat klaar in de boekhouding, en een mens kijkt alleen nog naar de afwijkingen. Hoe dicht zitten jullie daarbij? Loop deze vragen eens langs:', 'veryo' ),
+					),
+					array(
+						__( 'Hoeveel facturen tikt iemand bij jullie nog met de hand over?', 'veryo' ),
+						__( 'Wie controleert prijs en aantal tegen de inkooporder of de werkbon, en hoeveel tijd kost dat?', 'veryo' ),
+						__( 'Hoe vaak wordt een factuur twee keer betaald, of juist gemist?', 'veryo' ),
+						__( 'Hoe lang ligt een factuur gemiddeld voordat hij is ingeboekt?', 'veryo' ),
+						__( 'Weten jullie aan het eind van de week wat een project aan inkoop heeft gekost?', 'veryo' ),
+					),
+				),
+				array(
+					__( 'Factuurverwerking in de bouw en techniek', 'veryo' ),
+					array(
+						__( 'In de bouw, de installatietechniek en de metaal hoort bijna elke inkoopfactuur bij een project. Daarom koppelt de automatisering de factuur niet alleen aan de leverancier, maar ook aan de inkooporder, de werkbon of het projectnummer. Staat er meer op de factuur dan er is besteld, of wijkt de prijs af van de afspraak, dan wordt de factuur gemarkeerd.', 'veryo' ),
+						__( 'Meerwerk en afwijkingen vallen zo op voordat er betaald wordt, en de inkoopkosten per project zijn sneller inzichtelijk. Dat helpt bij de nacalculatie: jullie zien terwijl het project nog loopt hoe de inkoop zich verhoudt tot de begroting.', 'veryo' ),
+					),
+				),
+				array(
+					__( 'Facturen automatiseren in SnelStart, Exact Online of Moneybird', 'veryo' ),
+					array(
+						__( 'De automatisering draait bovenop het boekhoudpakket dat jullie al gebruiken, zoals SnelStart, Exact Online of Moneybird. Jullie hoeven dus niet over te stappen. De factuur staat als concept klaar in jullie eigen pakket, met leverancier, bedragen, btw en het project ingevuld. Welke andere pakketten een koppeling hebben, staat hieronder bij de veelgestelde vragen.', 'veryo' ),
+						__( 'Kan jullie pakket zelf al facturen uitlezen? Dan kijken we eerst wat dat al oplevert. Vaak ontbreekt vooral de controle tegen inkooporders en werkbonnen, en daar zit de meeste tijdwinst.', 'veryo' ),
+					),
+				),
+				array(
 					__( 'Wat je nodig hebt om te starten', 'veryo' ),
 					array(
-						__( 'Om inkoopfacturen te automatiseren hebben we het mailadres nodig waar ze binnenkomen, toegang tot je boekhoudpakket (zoals SnelStart, Exact of Moneybird) en, als je dat gebruikt, de inkooporders of werkbonnen waartegen gematcht moet worden.', 'veryo' ),
-						__( 'In de proefperiode boekt de administratie nog mee. Zo zie je per leverancier hoe goed de herkenning is, voordat de automatisering het overneemt. Afwijkingen in prijs of aantal blijven altijd zichtbaar voor een mens.', 'veryo' ),
+						__( 'Om inkoopfacturen te automatiseren hebben we het mailadres nodig waar ze binnenkomen, toegang tot jullie boekhoudpakket (zoals SnelStart, Exact Online of Moneybird) en, als jullie dat gebruiken, de inkooporders of werkbonnen waartegen gematcht moet worden.', 'veryo' ),
+						__( 'In de proefperiode boekt de administratie nog mee. Zo zien jullie per leverancier hoe goed de herkenning is, voordat de automatisering het overneemt. Afwijkingen in prijs of aantal blijven altijd zichtbaar voor een mens.', 'veryo' ),
+					),
+				),
+				array(
+					__( 'Wat we bewust niet automatiseren', 'veryo' ),
+					array(
+						__( 'De betaling en het akkoord op een factuur blijven een menselijke beslissing. De automatisering leest, controleert en zet klaar; jullie administratie keurt goed en betaalt. Twijfelt de AI over een factuur, bijvoorbeeld omdat hij slecht leesbaar is of nergens bij past, dan zet hij hem niet stilletjes door, maar markeert hem.', 'veryo' ),
+						sprintf(
+							/* translators: %s: link naar de oplossing voor offertes en verkoopfacturen. */
+							__( 'Zoeken jullie ook een oplossing voor de andere kant, de offertes en verkoopfacturen? Kijk dan bij %s.', 'veryo' ),
+							'<a href="' . esc_url( veryo_link( 'oplossingen/ai-calculatie-offerte-factuur' ) ) . '">' . esc_html__( 'offertes en facturen automatiseren', 'veryo' ) . '</a>'
+						),
 					),
 				),
 			),
 			'stappen'     => array(
-				array( __( 'Factuur komt binnen per mail', 'veryo' ), __( 'Leveranciers mailen naar je vaste facturenadres, zoals nu. Er hoeft niets te veranderen.', 'veryo' ) ),
+				array( __( 'Factuur komt binnen per mail', 'veryo' ), __( 'Leveranciers mailen naar jullie vaste facturenadres, zoals nu. Er hoeft niets te veranderen.', 'veryo' ) ),
 				array( __( 'Uitgelezen en gecontroleerd', 'veryo' ), __( 'De AI leest leverancier, bedragen, regels en btw uit en controleert op dubbele facturen en rekenfouten.', 'veryo' ) ),
 				array( __( 'Gematcht', 'veryo' ), __( 'De factuur wordt gekoppeld aan de juiste inkooporder, werkbon of project. Wijken prijzen of aantallen af, dan wordt de factuur gemarkeerd.', 'veryo' ) ),
-				array( __( 'Ingeboekt', 'veryo' ), __( 'Klopt alles, dan staat de factuur klaar in je ERP of boekhoudpakket. Jouw administratie keurt goed en bekijkt alleen de uitzonderingen.', 'veryo' ) ),
+				array( __( 'Klaargezet', 'veryo' ), __( 'Klopt alles, dan staat de factuur klaar in jullie ERP of boekhoudpakket. Jullie administratie keurt goed en bekijkt alleen de uitzonderingen.', 'veryo' ) ),
 			),
 			'voorwie'     => array(
 				__( 'Bedrijven met veel inkoopfacturen: bouw, installatie, agri, transport, horeca en retail', 'veryo' ),
@@ -323,16 +363,22 @@ function veryo_products() {
 				__( 'Inkoopkosten sneller per project in beeld', 'veryo' ),
 			),
 			'faq'         => array(
-				array( __( 'Welke boekhoudpakketten ondersteunen jullie?', 'veryo' ), __( 'Gangbare pakketten zoals Exact, Twinfield, AFAS, Moneybird en e-Boekhouden hebben koppelingen. Gebruik je een ERP, dan bekijken we de koppeling vooraf.', 'veryo' ) ),
-				array( __( 'Heeft mijn boekhoudpakket dit niet al?', 'veryo' ), __( 'Veel pakketten lezen facturen uit, maar matchen niet met inkooporders of werkbonnen en controleren niet op afwijkende prijzen. Doet jouw pakket al genoeg, dan zeggen we dat eerlijk.', 'veryo' ) ),
-				array( __( 'Wordt er automatisch betaald?', 'veryo' ), __( 'Nee. De AI bereidt voor en controleert; je administratie keurt goed en betaalt.', 'veryo' ) ),
+				array( __( 'Wat betekent een touchless factuurproces?', 'veryo' ), __( 'Een factuur komt binnen, wordt automatisch uitgelezen, gecontroleerd tegen de order of het project en klaargezet in jullie boekhouding, zonder dat iemand iets overtypt. Jullie administratie kijkt alleen nog naar de facturen die afwijken.', 'veryo' ) ),
+				array( __( 'Moeten we overstappen op nieuwe software?', 'veryo' ), __( 'Nee. Veryo bouwt de automatisering bovenop het boekhoudpakket of ERP dat jullie al gebruiken.', 'veryo' ) ),
+				array( __( 'Welke boekhoudpakketten ondersteunen jullie?', 'veryo' ), __( 'Gangbare pakketten zoals Exact, Twinfield, AFAS, Moneybird en e-Boekhouden hebben koppelingen. Gebruiken jullie een ERP, dan bekijken we de koppeling vooraf.', 'veryo' ) ),
+				array( __( 'Heeft ons boekhoudpakket dit niet al?', 'veryo' ), __( 'Veel pakketten lezen facturen uit, maar matchen niet met inkooporders of werkbonnen en controleren niet op afwijkende prijzen. Doet jullie pakket al genoeg, dan zeggen we dat eerlijk.', 'veryo' ) ),
+				array( __( 'Wie keurt de betaling goed?', 'veryo' ), __( 'Altijd een mens. De automatisering zet facturen klaar en markeert afwijkingen. Betalen blijft jullie beslissing.', 'veryo' ) ),
+				array( __( 'Werkt dit ook voor facturen in de bouw, met projecten en werkbonnen?', 'veryo' ), __( 'Ja. Facturen kunnen gekoppeld worden aan inkooporders, werkbonnen of projectnummers, zodat afwijkingen in prijs of aantal direct zichtbaar zijn.', 'veryo' ) ),
 			),
-			'stappen_kop' => __( 'Facturen uit je mail automatisch verwerken', 'veryo' ),
+			'stappen_kop' => __( 'Facturen uit jullie mail automatisch verwerken', 'veryo' ),
 			'placeholder' => __( 'Bijvoorbeeld: we krijgen 300 inkoopfacturen per maand en boeken ze allemaal met de hand in.', 'veryo' ),
-			'branches'    => array( 'branches/agri', 'branches/transport', 'branches/horeca-retail', 'branches/zakelijke-dienstverlening', 'branches/beveiliging' ),
-			'seo_title'   => __( 'Inkoopfacturen automatisch verwerken met AI | Veryo', 'veryo' ),
-			'desc'        => __( 'Inkoopfacturen uit je mailbox automatisch uitgelezen, gecontroleerd en klaargezet in SnelStart, Exact of Moneybird. Vraag een gratis offerte aan.', 'veryo' ),
-			'kw'          => 'inkoopfacturen automatiseren',
+			'branches'    => array( 'branches/bouw', 'branches/installatie', 'branches/agri', 'branches/transport', 'branches/horeca-retail', 'branches/zakelijke-dienstverlening', 'branches/beveiliging' ),
+			'extra_links' => array(
+				array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Van werkbon tot factuur en salaris', 'veryo' ) ),
+			),
+			'seo_title'   => __( 'Facturen automatiseren met AI: inkoopfacturen | Veryo', 'veryo' ),
+			'desc'        => __( 'Facturen automatiseren zonder nieuwe software. Inkoopfacturen uit de mail automatisch uitgelezen, gecontroleerd en klaargezet in jullie boekhouding.', 'veryo' ),
+			'kw'          => 'facturen automatiseren',
 		),
 		'ai-recruitment-assistent'      => array(
 			'naam'        => __( 'AI recruitment-assistent', 'veryo' ),
