@@ -216,6 +216,33 @@ function veryo_run_setup() {
 	}
 	veryo_assign_blog_categories();
 
+	// 4b. Kennisbankartikelen als concept (alleen als ze nog niet bestaan).
+	foreach ( veryo_content_kennis() as $slug => $def ) {
+		$existing = get_page_by_path( $slug, OBJECT, 'kennis' );
+		if ( $existing instanceof WP_Post ) {
+			continue;
+		}
+		$post_id = wp_insert_post(
+			wp_slash(
+				array(
+					'post_type'    => 'kennis',
+					'post_status'  => 'draft',
+					'post_title'   => $def['title'],
+					'post_name'    => $slug,
+					'post_excerpt' => $def['excerpt'],
+					'post_content' => $def['content'],
+				)
+			),
+			true
+		);
+		if ( ! is_wp_error( $post_id ) ) {
+			veryo_apply_page_meta( $post_id, $def );
+			update_post_meta( $post_id, '_veryo_kennis_services', $def['services'] );
+			veryo_remember_content( $post_id );
+			$report['posts'][] = $def['title'];
+		}
+	}
+
 	kses_init();
 
 	// 5b. Standaardinhoud van WordPress opruimen, alleen als die nog onaangepast is.
@@ -1463,3 +1490,190 @@ function veryo_240_upgrade() {
 	flush_rewrite_rules( false );
 }
 add_action( 'admin_init', 'veryo_240_upgrade', 90 );
+
+/**
+ * Pagina's uit de SEO-sprint van 25 november 2026: title en description ook in Rank Math.
+ *
+ * @return string[]
+ */
+function veryo_250_seo_pages() {
+	return array( '', 'oplossingen/inkoopfacturen-automatiseren', 'ai-werkplek', 'ai-adviseur-drenthe', 'branches/transport', 'ai-implementatie-mkb', 'ai-agents', 'ai-automatisering', 'ai-op-maat' );
+}
+
+/**
+ * Nieuwsachtige blogartikelen die op noindex, follow gaan (niet verwijderd).
+ *
+ * @return string[] Slugs.
+ */
+function veryo_250_noindex_posts() {
+	return array(
+		'robotica-en-sensoren-verlichten-het-tekort-aan-vakmensen-en-versnellen-projecten',
+		'nieuwe-toolbox-versnelt-prefabbouw-inspectie-en-voorspellend-onderhoud-op-bouwplaatsen',
+		'vergunningen-sensoren-en-lokale-modellen-wat-gemeenten-nu-inzetten-om-het-woningaanbod-te-versnellen',
+		'hoe-autonome-werktuigen-sensoren-en-robots-het-veldwerk-transformeren',
+	);
+}
+
+/**
+ * Het blogartikel over factuurverwerking laten doorverwijzen naar de dienstpagina: een opvallende
+ * link na de intro en één link in de sectie over factuurinvoer.
+ *
+ * @return string Verslag.
+ */
+function veryo_250_factuur_post_links() {
+	global $wpdb;
+	$like = $wpdb->esc_like( 'concreet-stappenplan-om-factuurverwerking' ) . '%';
+	$id   = (int) $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type = 'post' AND post_status IN ('publish','future','draft','private') AND post_name LIKE %s ORDER BY ID DESC LIMIT 1", $like ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery -- eenmalige upgrade.
+	if ( ! $id ) {
+		return __( 'Blogartikel over factuurverwerking niet gevonden; links niet toegevoegd.', 'veryo' );
+	}
+	$post    = get_post( $id );
+	$content = (string) $post->post_content;
+	$target  = 'oplossingen/inkoopfacturen-automatiseren';
+	if ( false !== strpos( $content, $target ) ) {
+		return __( 'Blogartikel over factuurverwerking linkt al naar de dienstpagina; niets gewijzigd.', 'veryo' );
+	}
+	$url    = veryo_url( $target );
+	$report = array();
+
+	// 1. Opvallende link na de intro (de eerste alinea).
+	$callout = veryo_b_group(
+		veryo_b_p( '<strong>' . esc_html__( 'Wil je dit niet zelf bouwen?', 'veryo' ) . '</strong> <a href="' . esc_url( $url ) . '">' . esc_html__( 'Bekijk hoe Veryo facturen automatiseren inricht bovenop jullie boekhouding.', 'veryo' ) . '</a>' ),
+		array( 'className' => 'is-style-soft veryo-post-callout' )
+	);
+	$first   = strpos( $content, '</p>' );
+	if ( false !== $first ) {
+		$after = $first + strlen( '</p>' );
+		if ( preg_match( '#\G\s*<!-- /wp:paragraph -->#', $content, $m, 0, $after ) ) {
+			$after += strlen( $m[0] );
+		}
+		$content  = substr( $content, 0, $after ) . "\n\n" . $callout . "\n" . substr( $content, $after );
+		$report[] = __( 'opvallende link na de intro', 'veryo' );
+	}
+
+	// 2. Eén contextuele link in de sectie "Automatiseer factuurinvoer ...".
+	$heading = stripos( $content, 'Automatiseer factuurinvoer' );
+	if ( false !== $heading ) {
+		$close = strpos( $content, '</p>', $heading );
+		if ( false !== $close ) {
+			$link = ' ' . sprintf(
+				/* translators: %s: link naar de dienstpagina. */
+				__( 'Liever niet zelf inrichten? Lees hoe Veryo %s aanpakt.', 'veryo' ),
+				'<a href="' . esc_url( $url ) . '">' . esc_html__( 'facturen automatiseren', 'veryo' ) . '</a>'
+			);
+			$content  = substr( $content, 0, $close ) . $link . substr( $content, $close );
+			$report[] = __( 'link in de sectie over factuurinvoer', 'veryo' );
+		}
+	}
+
+	if ( ! $report ) {
+		return __( 'Blogartikel over factuurverwerking gevonden, maar geen plek voor de links; niets gewijzigd.', 'veryo' );
+	}
+	kses_remove_filters();
+	wp_update_post(
+		wp_slash(
+			array(
+				'ID'           => $id,
+				'post_content' => $content,
+			)
+		)
+	);
+	kses_init();
+	/* translators: %s: wat er is toegevoegd. */
+	return sprintf( __( 'Blogartikel over factuurverwerking: %s toegevoegd.', 'veryo' ), implode( ' en ', $report ) );
+}
+
+/**
+ * Eenmalig bij de update naar 2.5.0 (SEO-sprint 25 november 2026).
+ */
+function veryo_250_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_250_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_250_done', 1, false );
+	$report = array();
+
+	// 1. Ongewijzigde pagina's krijgen de nieuwe inhoud; zelf aangepaste blijven staan.
+	veryo_refresh_content( false );
+
+	// 2. Titles, descriptions en H1 van de sprintpagina's, ook in Rank Math.
+	$defs = veryo_content_pages();
+	foreach ( veryo_250_seo_pages() as $path ) {
+		$page = '' === $path ? get_post( (int) get_option( 'page_on_front' ) ) : veryo_find_page( $path );
+		if ( ! $page instanceof WP_Post || ! isset( $defs[ $path ] ) ) {
+			continue;
+		}
+		$title = $defs[ $path ]['seo_title'];
+		$desc  = $defs[ $path ]['desc'];
+		foreach ( array(
+			'_veryo_seo_title'      => $title,
+			'_veryo_seo_desc'       => $desc,
+			'rank_math_title'       => $title,
+			'rank_math_description' => $desc,
+			'_veryo_rm_title'       => $title,
+			'_veryo_rm_desc'        => $desc,
+		) as $key => $value ) {
+			update_post_meta( $page->ID, $key, $value );
+		}
+		if ( ! empty( $defs[ $path ]['kw'] ) ) {
+			update_post_meta( $page->ID, '_veryo_focus_kw', $defs[ $path ]['kw'] );
+			update_post_meta( $page->ID, 'rank_math_focus_keyword', $defs[ $path ]['kw'] );
+		}
+		if ( ! empty( $defs[ $path ]['force_title'] ) && $page->post_title !== $defs[ $path ]['title'] ) {
+			wp_update_post(
+				array(
+					'ID'         => $page->ID,
+					'post_title' => $defs[ $path ]['title'],
+				)
+			);
+		}
+	}
+
+	// 3. Nieuwsachtige artikelen op noindex, follow (ook in Rank Math, dus ook uit de sitemap).
+	$done = 0;
+	foreach ( veryo_250_noindex_posts() as $slug ) {
+		$post = get_page_by_path( $slug, OBJECT, 'post' );
+		if ( $post instanceof WP_Post ) {
+			update_post_meta( $post->ID, '_veryo_noindex', 1 );
+			veryo_sync_plugin_robots( $post->ID );
+			++$done;
+		}
+	}
+	/* translators: 1: aantal, 2: totaal. */
+	$report[] = sprintf( __( '%1$d van de %2$d nieuwsartikelen op noindex, follow gezet.', 'veryo' ), $done, count( veryo_250_noindex_posts() ) );
+
+	// 3b. Kennisbankartikelen (aangemaakt als concept door veryo_refresh_content()).
+	$kennis = get_posts(
+		array(
+			'post_type'      => 'kennis',
+			'post_status'    => 'draft',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	/* translators: %d: aantal. */
+	$report[] = sprintf( __( '%d kennisbankartikelen staan als concept klaar. Publiceer ze één voor één.', 'veryo' ), count( $kennis ) );
+
+	// 4. Links in het blogartikel over factuurverwerking.
+	$report[] = veryo_250_factuur_post_links();
+
+	update_option( 'veryo_250_report', $report, false );
+}
+add_action( 'admin_init', 'veryo_250_upgrade', 100 );
+
+/**
+ * Eenmalige melding met het verslag van de update naar 2.5.0.
+ */
+function veryo_250_notice() {
+	$report = get_option( 'veryo_250_report' );
+	if ( ! $report || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	delete_option( 'veryo_250_report' );
+	echo '<div class="notice notice-info is-dismissible"><p><strong>' . esc_html__( 'Veryo 2.5.0 (SEO-sprint):', 'veryo' ) . '</strong></p><ul style="list-style:disc;margin-left:20px">';
+	foreach ( (array) $report as $line ) {
+		echo '<li>' . esc_html( $line ) . '</li>';
+	}
+	echo '</ul></div>';
+}
+add_action( 'admin_notices', 'veryo_250_notice' );

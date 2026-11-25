@@ -59,16 +59,17 @@ $veryo_solution_pages = array(
 );
 foreach ( veryo_products() as $veryo_key => $veryo_product ) {
 	$veryo_solution_pages[ 'oplossingen/' . $veryo_key ] = array(
-		'title'     => isset( $veryo_product['h1'] ) ? $veryo_product['h1'] : $veryo_product['naam'],
-		'seo_title' => $veryo_product['seo_title'],
-		'desc'      => $veryo_product['desc'],
-		'kw'        => $veryo_product['kw'],
-		'schema'    => array(
+		'title'       => isset( $veryo_product['h1'] ) ? $veryo_product['h1'] : $veryo_product['naam'],
+		'force_title' => ! empty( $veryo_product['force_title'] ),
+		'seo_title'   => $veryo_product['seo_title'],
+		'desc'        => $veryo_product['desc'],
+		'kw'          => $veryo_product['kw'],
+		'schema'      => array(
 			'type' => 'oplossing',
 			'min'  => 750,
 			'area' => 'Nederland',
 		),
-		'content'   => veryo_page_product( $veryo_key ),
+		'content'     => veryo_page_product( $veryo_key ),
 	);
 }
 unset( $veryo_key, $veryo_product );

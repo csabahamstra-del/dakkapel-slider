@@ -20,6 +20,13 @@ $veryo_company = veryo_company();
 			<p class="footer-tagline"><?php esc_html_e( 'AI die echt werkt.', 'veryo' ); ?><br><?php echo esc_html( veryo_brand_line() ); ?>.</p>
 			<p class="footer-collega"><a href="<?php echo esc_url( veryo_collega_url() ); ?>"><?php echo esc_html( veryo_collega()['naam'] ); ?></a>: <?php esc_html_e( 'lokale AI die op je eigen kantoor draait en alles weet van je bedrijf.', 'veryo' ); ?></p>
 			<?php get_template_part( 'template-parts/company-details', null, array( 'context' => 'footer' ) ); ?>
+			<p class="footer-collega footer-area">
+				<?php esc_html_e( 'Werkgebied:', 'veryo' ); ?>
+				<a href="<?php echo esc_url( veryo_url( 'leeuwarden' ) ); ?>">Leeuwarden</a> <span aria-hidden="true">·</span>
+				<a href="<?php echo esc_url( veryo_url( 'ai-adviseur-friesland' ) ); ?>">Friesland</a> <span aria-hidden="true">·</span>
+				<a href="<?php echo esc_url( veryo_url( 'ai-adviseur-groningen' ) ); ?>">Groningen</a> <span aria-hidden="true">·</span>
+				<a href="<?php echo esc_url( veryo_url( 'ai-adviseur-drenthe' ) ); ?>">Drenthe</a>
+			</p>
 		</div>
 		<?php
 		if ( has_nav_menu( 'footer' ) ) {

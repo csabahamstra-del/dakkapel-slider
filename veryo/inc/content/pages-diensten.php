@@ -11,10 +11,10 @@ defined( 'ABSPATH' ) || exit;
 
 $veryo_dienst = static function ( $path, $title, $intro, $items ) {
 	$more = array(
-		'ai-werkplek'                     => __( 'Meer over de AI-werkplek', 'veryo' ),
+		'ai-werkplek'                     => __( 'Claude Team inrichten', 'veryo' ),
 		'ai-automatisering/administratie' => __( 'Meer over de administratieve kringloop', 'veryo' ),
-		'ai-agents'                       => __( 'Meer over AI-agents', 'veryo' ),
-		'ai-automatisering'               => __( 'Meer over automatiseringen', 'veryo' ),
+		'ai-agents'                       => __( 'AI-agents voor bedrijven', 'veryo' ),
+		'ai-automatisering'               => __( 'AI automatisering voor het mkb', 'veryo' ),
 	);
 	return veryo_b_group(
 		veryo_b_h( '<a href="' . esc_url( veryo_link( $path ) ) . '">' . esc_html( $title ) . '</a>', 3 )
@@ -132,8 +132,8 @@ $veryo_diensten = veryo_page_standard(
 		'links'      => array(
 			array( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ), __( 'Claude met jullie eigen normen en templates', 'veryo' ) ),
 			array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Van werkbon tot factuur en salaris', 'veryo' ) ),
-			array( 'ai-agents', __( 'AI-agents', 'veryo' ), __( 'Digitale collega’s voor terugkerend werk', 'veryo' ) ),
-			array( 'ai-automatisering', __( 'Automatiseringen', 'veryo' ), __( 'Koppelingen tussen jullie software', 'veryo' ) ),
+			array( 'ai-agents', __( 'AI-agents voor bedrijven', 'veryo' ), __( 'Digitale collega’s voor terugkerend werk', 'veryo' ) ),
+			array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), __( 'Koppelingen tussen jullie software', 'veryo' ) ),
 		),
 	)
 );

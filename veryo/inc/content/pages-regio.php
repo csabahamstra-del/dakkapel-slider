@@ -41,7 +41,7 @@ return array(
 			array(
 				'collega_regio' => 'friesland',
 				'answer_cta'    => array( __( 'Plan een kennismaking', 'veryo' ), '#vraag', 'amber' ),
-				'answer'        => __( 'Veryo is een AI-adviseur in Friesland, gevestigd in Leeuwarden. We bouwen en richten AI in voor Friese technische bedrijven: AI-agents, automatiseringen, de AI-werkplek met Claude Team en de administratieve kringloop. Daarvoor komen we gewoon langs. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'answer'        => __( 'Veryo is een AI-adviseur in Friesland, gevestigd in Leeuwarden. We brengen AI voor het mkb in Friesland naar de praktijk: AI-agents, automatiseringen bovenop jullie eigen software, het inrichten van Claude Team en Veryo Collega, de lokale AI-assistent. Training hoort bij de oplevering: na de oplevering leren we jullie team ermee werken. Daarvoor komen we gewoon langs. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'problem'       => array(
 					'h' => __( 'AI voor het Friese MKB, zonder poespas', 'veryo' ),
 					'p' => array(
@@ -106,7 +106,7 @@ return array(
 					array( 'branches/agri', __( 'AI in de landbouw', 'veryo' ), __( 'Voor agrarische bedrijven en mechanisatie', 'veryo' ) ),
 					array( 'branches/installatie', __( 'AI voor installateurs', 'veryo' ), __( 'Offertes, werkbonnen, storingen', 'veryo' ) ),
 					array( 'diensten', __( 'Alle diensten', 'veryo' ), __( 'Wat Veryo bouwt en inricht', 'veryo' ) ),
-					array( 'ai-automatisering', __( 'AI-automatisering voor bedrijven', 'veryo' ), __( 'Welke processen je kunt automatiseren', 'veryo' ) ),
+					array( 'ai-automatisering', __( 'AI automatisering voor het mkb', 'veryo' ), __( 'Welke processen je kunt automatiseren', 'veryo' ) ),
 					array( 'contact', __( 'Contact', 'veryo' ), __( 'Bel, mail of plan een afspraak', 'veryo' ) ),
 				),
 			)
@@ -175,7 +175,7 @@ return array(
 				'links'         => array(
 					array( 'branches/transport', __( 'AI in de logistiek', 'veryo' ), __( 'Planning en statusberichten', 'veryo' ) ),
 					array( 'branches/zakelijke-dienstverlening', __( 'AI voor accountants en adviesbureaus', 'veryo' ), __( 'Verslagen en kennis', 'veryo' ) ),
-					array( 'ai-implementatie-mkb', __( 'AI-implementatie voor het MKB', 'veryo' ), __( 'Van plan tot live', 'veryo' ) ),
+					array( 'ai-implementatie-mkb', __( 'AI implementatie in het mkb', 'veryo' ), __( 'Van plan tot live', 'veryo' ) ),
 					array( 'ai-adviseur-drenthe', __( 'AI-adviseur in Drenthe', 'veryo' ), __( 'Assen, Emmen, Hoogeveen, Meppel', 'veryo' ) ),
 				),
 			)
@@ -184,20 +184,21 @@ return array(
 
 	/* ------------------------------------------------------------------------- */
 	'ai-adviseur-drenthe'   => array(
-		'title'     => __( 'AI-adviseur in Drenthe voor het MKB', 'veryo' ),
-		'seo_title' => __( 'AI-adviseur Drenthe: automatisering voor je bedrijf | Veryo', 'veryo' ),
-		'desc'      => __( 'AI-adviseur in Drenthe: AI-agents en automatisering voor technische bedrijven in Assen, Emmen, Meppel en Hoogeveen. Plan een gratis kennismaking.', 'veryo' ),
-		'kw'        => 'ai adviseur drenthe',
-		'schema'    => array(
+		'title'       => __( 'AI en automatisering voor bedrijven in Drenthe', 'veryo' ),
+		'force_title' => true,
+		'seo_title'   => __( 'AI-automatisering voor bedrijven in Drenthe | Veryo', 'veryo' ),
+		'desc'        => __( 'AI-adviseur in Drenthe: AI-agents en automatisering voor technische bedrijven in Assen, Emmen, Meppel en Hoogeveen. Plan een gratis kennismaking.', 'veryo' ),
+		'kw'          => 'ai adviseur drenthe',
+		'schema'      => array(
 			'type' => 'service',
 			'min'  => 750,
 			'max'  => 25000,
 			'area' => 'Drenthe',
 		),
-		'content'   => veryo_page_standard(
+		'content'     => veryo_page_standard(
 			array(
 				'collega_regio' => 'drenthe',
-				'answer'        => __( 'Veryo is een AI-adviseur voor het MKB in Drenthe. We helpen bedrijven in Assen, Emmen, Hoogeveen, Meppel en omgeving met AI-agents, automatiseringen, de AI-werkplek met Claude Team en de administratieve kringloop. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
+				'answer'        => __( 'Veryo is een AI-adviseur voor het MKB in Drenthe. We helpen bedrijven in Assen, Emmen, Hoogeveen, Meppel en omgeving met AI en automatisering: AI-agents, automatiseringen bovenop jullie eigen software, de AI-werkplek met Claude Team en de administratieve kringloop. Je krijgt vooraf een gratis offerte met een vaste prijs.', 'veryo' ),
 				'extra'         => array( __( 'Waar je begint in Drenthe', 'veryo' ), array( __( 'We komen langs voor een kennismaking en een korte ronde door de werkplaats en het kantoor. Aan het eind ligt er een lijst met de automatiseringen die het meeste opleveren, en de eerste die we bouwen. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) ) ),
 				'problem'       => array(
 					'h' => __( 'Drentse maakbedrijven, boeren en installateurs', 'veryo' ),
@@ -282,10 +283,10 @@ return array(
 					array(
 						'h'    => __( 'Wat we bouwen en inrichten in Leeuwarden', 'veryo' ),
 						'list' => array(
-							'<strong><a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . __( 'AI-werkplek met Claude Team', 'veryo' ) . '</a>.</strong> ' . __( 'Bestek lezen, calculatieopzet, uitgangspunten controleren en rapportages, met jullie eigen normen en templates.', 'veryo' ),
+							'<strong><a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . __( 'Claude Team inrichten', 'veryo' ) . '</a>.</strong> ' . __( 'Bestek lezen, calculatieopzet, uitgangspunten controleren en rapportages, met jullie eigen normen en templates.', 'veryo' ),
 							'<strong><a href="' . esc_url( veryo_link( 'ai-automatisering/administratie' ) ) . '">' . __( 'De administratieve kringloop', 'veryo' ) . '</a>.</strong> ' . __( 'Uren en werkbonnen inlezen, inkoopfacturen aan projecten koppelen en de weekafsluiting met conceptfacturen.', 'veryo' ),
-							'<strong><a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'AI-agents', 'veryo' ) . '</a>.</strong> ' . __( 'Digitale collega’s die aanvragen, meldingen en mail voorbereiden in jullie eigen systemen.', 'veryo' ),
-							'<strong><a href="' . esc_url( veryo_link( 'ai-automatisering' ) ) . '">' . __( 'Automatiseringen', 'veryo' ) . '</a>.</strong> ' . __( 'Koppelingen tussen de software die jullie al gebruiken. Overstappen is nooit nodig.', 'veryo' ),
+							'<strong><a href="' . esc_url( veryo_link( 'ai-agents' ) ) . '">' . __( 'AI-agents voor bedrijven', 'veryo' ) . '</a>.</strong> ' . __( 'Digitale collega’s die aanvragen, meldingen en mail voorbereiden in jullie eigen systemen.', 'veryo' ),
+							'<strong><a href="' . esc_url( veryo_link( 'ai-automatisering' ) ) . '">' . __( 'AI automatisering voor het mkb', 'veryo' ) . '</a>.</strong> ' . __( 'Koppelingen tussen de software die jullie al gebruiken. Overstappen is nooit nodig.', 'veryo' ),
 						),
 					),
 					array(

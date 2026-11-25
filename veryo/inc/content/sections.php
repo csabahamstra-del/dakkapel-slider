@@ -757,7 +757,7 @@ function veryo_page_standard( $d ) {
 			array(
 				'<strong><a href="' . esc_url( veryo_collega_url() ) . '">' . esc_html__( 'Veryo Collega, lokale AI-assistent', 'veryo' ) . '</a>.</strong> ' . $d['help'][1],
 				'<strong><a href="' . esc_url( veryo_link( 'ai-werkplek' ) ) . '">' . esc_html__( 'AI-werkplek met Claude Team', 'veryo' ) . '</a>.</strong> ' . $d['help'][2],
-				'<strong><a href="' . esc_url( veryo_link( 'ai-automatisering' ) ) . '">' . esc_html__( 'Automatisering', 'veryo' ) . '</a>.</strong> ' . $d['help'][3],
+				'<strong><a href="' . esc_url( veryo_link( 'ai-automatisering' ) ) . '">' . esc_html__( 'AI automatisering voor het mkb', 'veryo' ) . '</a>.</strong> ' . $d['help'][3],
 			),
 			'checks'
 		);

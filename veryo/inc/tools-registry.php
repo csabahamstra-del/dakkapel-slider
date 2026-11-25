@@ -620,7 +620,7 @@ function veryo_context_links() {
 			'ai-automatisering/administratie'           => sprintf(
 				/* translators: 1: link inkoopfacturen, 2: link werkbonnen. */
 				__( 'Twee onderdelen hebben een eigen uitgewerkte oplossing: %1$s en %2$s.', 'veryo' ),
-				$l( 'oplossingen/inkoopfacturen-automatiseren', __( 'inkoopfacturen automatisch verwerken', 'veryo' ) ),
+				$l( 'oplossingen/inkoopfacturen-automatiseren', __( 'inkoopfacturen automatiseren', 'veryo' ) ),
 				$l( 'oplossingen/werkbonnen-verwerken', __( 'werkbonnen automatisch verwerken tot factuur', 'veryo' ) )
 			),
 			'oplossingen/inkoopfacturen-automatiseren'  => sprintf(
