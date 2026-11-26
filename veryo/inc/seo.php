@@ -245,6 +245,10 @@ function veryo_seo_title() {
 	if ( is_post_type_archive( 'kennis' ) ) {
 		return __( 'Kennisbank: praktische kennis over AI voor het mkb | Veryo', 'veryo' );
 	}
+	if ( is_tax( 'kennis_categorie' ) ) {
+		/* translators: %s: categorie. */
+		return sprintf( __( 'Kennisbank: %s | Veryo', 'veryo' ), single_term_title( '', false ) );
+	}
 	if ( is_category() ) {
 		/* translators: %s: categorie. */
 		return sprintf( __( 'Blog: %s | Veryo', 'veryo' ), single_cat_title( '', false ) );
@@ -274,7 +278,12 @@ function veryo_seo_description() {
 		}
 	}
 	if ( is_post_type_archive( 'kennis' ) ) {
-		return __( 'Praktische kennis over AI voor technische bedrijven: uitleg, stappenplannen en voorbeelden over AI-agents, automatisering, Claude Team en lokale AI.', 'veryo' );
+		return __( 'Praktische kennis over AI voor het mkb: uitleg, stappenplannen en voorbeelden over automatisering, AI-veiligheid, AI-tools en AI in jullie branche.', 'veryo' );
+	}
+	if ( is_tax( 'kennis_categorie' ) ) {
+		$text = trim( wp_strip_all_tags( (string) term_description() ) );
+		/* translators: %s: categorie. */
+		return '' !== $text ? $text : sprintf( __( 'Artikelen over %s in de kennisbank van Veryo: praktische uitleg en voorbeelden voor het mkb, zonder jargon.', 'veryo' ), single_term_title( '', false ) );
 	}
 	if ( is_category() ) {
 		$text = trim( wp_strip_all_tags( (string) term_description() ) );
@@ -283,7 +292,7 @@ function veryo_seo_description() {
 		}
 	}
 	if ( is_front_page() || is_home() ) {
-		return veryo_brand_line() . '. ' . __( 'AI-agents, automatiseringen en de AI-werkplek met Claude Team voor technische bedrijven in Noord-Nederland.', 'veryo' );
+		return veryo_brand_line() . '. ' . __( 'Praktische AI-implementatie voor het mkb in Friesland en Noord-Nederland: van eerste inzicht tot werkende automatiseringen.', 'veryo' );
 	}
 	return '';
 }
@@ -302,7 +311,7 @@ function veryo_seo_canonical() {
 		$paged = (int) get_query_var( 'paged' );
 		return $paged > 1 ? trailingslashit( veryo_kennis_url() ) . user_trailingslashit( 'page/' . $paged ) : veryo_kennis_url();
 	}
-	if ( ! $id && is_category() ) {
+	if ( ! $id && ( is_category() || is_tax( 'kennis_categorie' ) ) ) {
 		$url   = (string) get_term_link( get_queried_object() );
 		$paged = (int) get_query_var( 'paged' );
 		return $paged > 1 ? trailingslashit( $url ) . user_trailingslashit( 'page/' . $paged ) : $url;
@@ -488,6 +497,15 @@ function veryo_breadcrumbs() {
 		$crumbs[] = array(
 			'name' => __( 'Kennis', 'veryo' ),
 			'url'  => veryo_kennis_url(),
+		);
+	} elseif ( is_tax( 'kennis_categorie' ) ) {
+		$crumbs[] = array(
+			'name' => __( 'Kennis', 'veryo' ),
+			'url'  => veryo_kennis_url(),
+		);
+		$crumbs[] = array(
+			'name' => single_term_title( '', false ),
+			'url'  => (string) get_term_link( get_queried_object() ),
 		);
 	} elseif ( is_singular( 'post' ) ) {
 		if ( $blog ) {
@@ -1071,7 +1089,7 @@ function veryo_llms_txt() {
 	$out[] = $clean(
 		sprintf(
 			/* translators: %s: plaats. */
-			__( 'Veryo is een AI-automatiseringsbedrijf uit %s voor technische kantoren en projectbedrijven met 15 tot 50 medewerkers in Noord-Nederland, zoals ingenieurs- en adviesbureaus, installateurs met eigen engineering, koeltechniek, dak, gevel en kozijnen, staal- en metaalbouw, interieurbouw, landbouwmechanisatie en loonbedrijven. Veryo bouwt en richt in: AI-agents voor terugkerend werk, automatiseringen bovenop de systemen die een bedrijf al gebruikt, de AI-werkplek met Claude Team (Claude ingericht met de eigen normen, kengetallen en templates van een bedrijf; de engineer blijft eindverantwoordelijk, de licenties betaalt de klant rechtstreeks aan Anthropic) en automatisering van de administratieve kringloop (uren en werkbonnen, inkoopfacturen, weekafsluiting met conceptfacturen, uren voor de salarisadministratie, begroot versus werkelijk). Daarnaast Veryo Collega, een lokale AI-assistent op een eigen machine bij de klant op kantoor, en Veryo Receptie, een AI-receptionist voor zorgpraktijken. Veryo bouwt geen nieuwe software en geeft geen losse trainingen; na de oplevering leert Veryo het team werken met wat er is gebouwd. Prijzen staan niet op de website: elke klant krijgt een gratis offerte op maat. Werkgebied: heel Nederland, vanuit Leeuwarden. Oprichter: Csaba Hamstra.', 'veryo' ),
+			__( 'Veryo is een praktische AI-implementatiepartner uit %s voor mkb-bedrijven met ongeveer 2 tot 100 medewerkers in Friesland en Noord-Nederland, zoals bouw-, installatie- en technische bedrijven, beveiliging, transport en logistiek, agrarische bedrijven, groothandel, horeca, zakelijke dienstverlening, accountants en vastgoed. Veryo ontdekt waar AI tijd bespaart, implementeert de oplossing en zorgt dat het blijft werken. Veryo bouwt en richt in: AI-agents voor terugkerend werk, automatiseringen bovenop de systemen die een bedrijf al gebruikt, de AI-werkplek met Claude Team (Claude ingericht met de eigen normen, kengetallen en templates van een bedrijf; de engineer blijft eindverantwoordelijk, de licenties betaalt de klant rechtstreeks aan Anthropic) en automatisering van de administratieve kringloop (uren en werkbonnen, inkoopfacturen, weekafsluiting met conceptfacturen, uren voor de salarisadministratie, begroot versus werkelijk). Daarnaast Veryo Collega, een lokale AI-assistent op een eigen machine bij de klant op kantoor, en Veryo Receptie, een AI-receptionist voor zorgpraktijken. Veryo bouwt geen nieuwe software en geeft geen losse trainingen; na de oplevering leert Veryo het team werken met wat er is gebouwd. Prijzen staan niet op de website: elke klant krijgt een gratis offerte op maat. Werkgebied: heel Nederland, vanuit Leeuwarden. Oprichter: Csaba Hamstra.', 'veryo' ),
 			$c['city'] ? $c['city'] : 'Leeuwarden'
 		)
 	);

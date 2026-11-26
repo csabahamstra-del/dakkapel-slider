@@ -45,7 +45,11 @@ defined( 'ABSPATH' ) || exit;
 				);
 			}
 			?>
-			<a class="header-cta" href="<?php echo esc_url( veryo_collega_url( 'demo' ) ); ?>"><?php echo esc_html( veryo_collega()['cta_primair'] ); ?></a>
+			<?php if ( is_page( veryo_collega()['slug'] ) ) : ?>
+				<a class="header-cta" href="<?php echo esc_url( veryo_collega_url( 'demo' ) ); ?>"><?php echo esc_html( veryo_collega()['cta_primair'] ); ?></a>
+			<?php else : ?>
+				<a class="header-cta" href="<?php echo esc_url( veryo_url( 'waar-begin-ik-met-ai' ) ); ?>"><?php esc_html_e( 'Gratis AI-scan', 'veryo' ); ?></a>
+			<?php endif; ?>
 		</nav>
 	</div>
 </header>

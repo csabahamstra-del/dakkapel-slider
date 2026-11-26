@@ -249,27 +249,23 @@ function veryo_lazy_all_content_images() {
 add_filter( 'wp_omit_loading_attr_threshold', 'veryo_lazy_all_content_images' );
 
 /**
- * Taken van Veryo Collega die rechts in de homepage-banner voorbij draaien.
+ * Stappen van de workflow in de homepage-banner: van aanvraag tot antwoord.
  *
- * @return array<int,array<int,string>> Lijst van array( icoon, label, pad ).
+ * @return array<int,array<int,string>> Lijst van array( icoon, titel, uitleg, wie ).
  */
-function veryo_hero_services() {
-	$slug = veryo_collega()['slug'];
+function veryo_hero_flow_steps() {
 	return array(
-		array( 'scan', __( 'Kennisbank met bronvermelding', 'veryo' ), $slug ),
-		array( 'users', __( 'Inwerken en vervanging bij uitval', 'veryo' ), $slug ),
-		array( 'box', __( 'Conceptoffertes en calculatie', 'veryo' ), $slug ),
-		array( 'mail', __( 'Mail samenvatten en beantwoorden', 'veryo' ), $slug ),
-		array( 'flow', __( 'Facturen en openstaande posten', 'veryo' ), $slug ),
-		array( 'monitor', __( 'Planning en projectstatus', 'veryo' ), $slug ),
-		array( 'partner', __( 'Sparringpartner voor de eigenaar', 'veryo' ), $slug ),
-		array( 'shield', __( 'Werkt ook zonder internet', 'veryo' ), $slug ),
+		array( 'mail', __( 'Aanvraag ontvangen', 'veryo' ), __( 'Mail met foto’s van een klant', 'veryo' ), __( 'automatisch', 'veryo' ) ),
+		array( 'scan', __( 'Informatie verwerkt', 'veryo' ), __( 'Klant, adres en klus herkend', 'veryo' ), __( 'automatisch', 'veryo' ) ),
+		array( 'flow', __( 'AI zet een concept klaar', 'veryo' ), __( 'Op basis van jullie prijslijst', 'veryo' ), __( 'automatisch', 'veryo' ) ),
+		array( 'users', __( 'Medewerker controleert', 'veryo' ), __( 'Past aan waar nodig en keurt goed', 'veryo' ), __( 'mens', 'veryo' ) ),
+		array( 'check', __( 'Klant ontvangt antwoord', 'veryo' ), __( 'Dezelfde dag, in jullie eigen toon', 'veryo' ), __( 'verstuurd', 'veryo' ) ),
 	);
 }
 
 /**
- * Homepage-banner: grote foto op de achtergrond en rechts de diensten die voorbij draaien.
- * Gebeurt bij het tonen, zodat het ook werkt op pagina's die al bestaan.
+ * Homepage-banner: rechts (op mobiel eronder) een workflow die laat zien hoe een aanvraag met AI
+ * wordt afgehandeld. Geen foto. Gebeurt bij het tonen, zodat het ook werkt op bestaande pagina's.
  *
  * @param string              $html  HTML van het blok.
  * @param array<string,mixed> $block Blok.
@@ -279,32 +275,22 @@ function veryo_render_home_hero( $html, $block ) {
 	if ( 'core/group' !== $block['blockName'] || empty( $block['attrs']['className'] ) || false === strpos( $block['attrs']['className'], 'veryo-hero--home' ) ) {
 		return $html;
 	}
-	$photo = veryo_photo_id( 'hero' );
-	$open  = strpos( $html, '>' );
 	$close = strrpos( $html, '</section>' );
-	if ( ! $photo || false === $open || false === $close ) {
+	if ( false === $close || false !== strpos( $html, 'veryo-hero__flow' ) ) {
 		return $html;
 	}
-	$media = '<div class="veryo-hero__bg">' . wp_get_attachment_image(
-		$photo,
-		'full',
-		false,
-		array(
-			'alt'           => __( 'AI-adviseur voor het mkb in Leeuwarden', 'veryo' ),
-			'loading'       => 'eager',
-			'fetchpriority' => 'high',
-			'decoding'      => 'async',
-			'sizes'         => '(max-width: 767px) 60vw, 100vw',
-		)
-	) . '</div>';
-	$items = '';
-	foreach ( veryo_hero_services() as $service ) {
-		$items .= '<li><a href="' . esc_url( veryo_url( $service[2] ) ) . '">' . veryo_icon( $service[0] ) . '<span>' . esc_html( $service[1] ) . '</span></a></li>';
+	$steps = '';
+	foreach ( veryo_hero_flow_steps() as $step ) {
+		$steps .= '<li class="veryo-flow__step"><span class="veryo-flow__icon" aria-hidden="true">' . veryo_icon( $step[0] ) . '</span>'
+			. '<span class="veryo-flow__text"><strong>' . esc_html( $step[1] ) . '</strong><span>' . esc_html( $step[2] ) . '</span></span>'
+			. '<span class="veryo-flow__tag">' . esc_html( $step[3] ) . '</span></li>';
 	}
-	$services = '<nav class="veryo-hero__services" aria-label="' . esc_attr( sprintf( /* translators: %s: productnaam. */ __( 'Wat %s doet', 'veryo' ), veryo_collega()['naam'] ) ) . '"><ul>' . $items . '</ul>'
-		. '<span class="veryo-hero__tick" aria-hidden="true">' . veryo_icon( 'check' ) . '</span></nav>';
-	$html     = substr( $html, 0, $close ) . $services . substr( $html, $close );
-	$html     = substr( $html, 0, $open + 1 ) . $media . substr( $html, $open + 1 );
-	return preg_replace( '/class="([^"]*veryo-hero--home)/', 'class="$1 veryo-hero--photo', $html, 1 );
+	$flow = '<figure class="veryo-hero__flow" data-flow>'
+		. '<figcaption class="veryo-flow__label">' . esc_html__( 'Voorbeeld: een offerteaanvraag', 'veryo' ) . '</figcaption>'
+		. '<ol class="veryo-flow__steps">' . $steps . '</ol>'
+		. '<p class="veryo-flow__note">' . esc_html__( 'Illustratie van een werkwijze, geen klantcase.', 'veryo' ) . '</p>'
+		. '</figure>';
+	$html = substr( $html, 0, $close ) . $flow . substr( $html, $close );
+	return preg_replace( '/class="([^"]*veryo-hero--home)/', 'class="$1 veryo-hero--photo veryo-hero--flow', $html, 1 );
 }
 add_filter( 'render_block', 'veryo_render_home_hero', 10, 2 );

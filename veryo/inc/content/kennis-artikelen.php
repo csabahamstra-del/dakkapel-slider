@@ -44,6 +44,7 @@ return array(
 		'desc'      => __( 'Kan AI een bestek lezen? Wat het goed doet, waar het misgaat en hoe jullie het veilig inzetten bij calculatie en werkvoorbereiding. De engineer beslist.', 'veryo' ),
 		'kw'        => 'bestek lezen met ai',
 		'excerpt'   => __( 'Wat AI goed doet met een bestek, waar het misgaat en hoe jullie het inzetten zonder dat de controle verdwijnt.', 'veryo' ),
+		'categorie' => 'ai-in-branches',
 		'services'  => array( 'ai-werkplek', 'ai-automatisering/offertes-en-calculaties', 'diensten' ),
 		'content'   => $veryo_k_article(
 			array(
@@ -108,6 +109,7 @@ return array(
 		'desc'      => __( 'Wat verzamelen jullie voordat AI met jullie eigen werk aan de slag kan? Een checklist voor sjablonen, kengetallen, werkinstructies en afspraken.', 'veryo' ),
 		'kw'        => 'ai sjablonen kengetallen',
 		'excerpt'   => __( 'Een checklist van wat jullie klaarzetten voordat AI met jullie eigen werk aan de slag kan, en wat er beter niet in kan.', 'veryo' ),
+		'categorie' => 'ai-tools',
 		'services'  => array( 'ai-werkplek', 'diensten', 'veilig-ai-gebruik' ),
 		'content'   => $veryo_k_article(
 			array(
@@ -166,6 +168,7 @@ return array(
 		'desc'      => __( 'Begroot naast werkelijk per project bijhouden terwijl het werk nog loopt: wat jullie nodig hebben, waar het misgaat en hoe automatisering helpt.', 'veryo' ),
 		'kw'        => 'begroot versus werkelijk project',
 		'excerpt'   => __( 'Hoe jullie begroot naast werkelijk per project bijhouden terwijl het werk nog loopt, en niet pas bij de nacalculatie.', 'veryo' ),
+		'categorie' => 'ai-automatisering',
 		'services'  => array( 'ai-automatisering/administratie', 'oplossingen/inkoopfacturen-automatiseren', 'oplossingen/werkbonnen-verwerken' ),
 		'content'   => $veryo_k_article(
 			array(
@@ -227,6 +230,7 @@ return array(
 		'desc'      => __( 'Werkbonnen digitaliseren zonder dat monteurs anders gaan werken? Voor- en nadelen van een foto, WhatsApp of formulier, en wat er op een werkbon hoort.', 'veryo' ),
 		'kw'        => 'werkbonnen digitaliseren',
 		'excerpt'   => __( 'Drie manieren om werkbonnen te digitaliseren, met eerlijke voor- en nadelen, en wat er altijd op een werkbon hoort.', 'veryo' ),
+		'categorie' => 'ai-automatisering',
 		'services'  => array( 'oplossingen/werkbonnen-verwerken', 'ai-automatisering/administratie' ),
 		'content'   => $veryo_k_article(
 			array(
