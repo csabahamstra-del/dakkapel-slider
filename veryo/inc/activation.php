@@ -217,6 +217,8 @@ function veryo_run_setup() {
 	veryo_assign_blog_categories();
 
 	// 4b. Kennisbankartikelen als concept (alleen als ze nog niet bestaan).
+	veryo_register_kennis_categories();
+	veryo_ensure_kennis_categories();
 	foreach ( veryo_content_kennis() as $slug => $def ) {
 		$existing = get_page_by_path( $slug, OBJECT, 'kennis' );
 		if ( $existing instanceof WP_Post ) {
@@ -238,6 +240,9 @@ function veryo_run_setup() {
 		if ( ! is_wp_error( $post_id ) ) {
 			veryo_apply_page_meta( $post_id, $def );
 			update_post_meta( $post_id, '_veryo_kennis_services', $def['services'] );
+			if ( ! empty( $def['categorie'] ) ) {
+				wp_set_object_terms( $post_id, $def['categorie'], 'kennis_categorie' );
+			}
 			veryo_remember_content( $post_id );
 			$report['posts'][] = $def['title'];
 		}
@@ -534,49 +539,40 @@ function veryo_menu_definitions() {
 		'primary' => array(
 			'name'  => 'Veryo hoofdmenu',
 			'items' => array(
-				array( veryo_collega()['naam'], veryo_collega()['slug'], array(), 'is-highlight' ),
 				array(
-					__( 'Diensten', 'veryo' ),
+					__( 'AI-oplossingen', 'veryo' ),
 					'diensten',
 					array(
 						array( __( 'Alle diensten', 'veryo' ), 'diensten' ),
+						array( __( 'Kant-en-klare oplossingen', 'veryo' ), 'oplossingen' ),
+						array( __( 'AI automatisering voor het mkb', 'veryo' ), 'ai-automatisering' ),
+						array( __( 'AI-agents voor bedrijven', 'veryo' ), 'ai-agents' ),
 						array( __( 'AI-werkplek met Claude Team', 'veryo' ), 'ai-werkplek' ),
 						array( __( 'Administratieve kringloop', 'veryo' ), 'ai-automatisering/administratie' ),
-						array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
-						array( __( 'Automatiseringen', 'veryo' ), 'ai-automatisering' ),
+						array( __( 'AI-automatisering op maat', 'veryo' ), 'ai-op-maat' ),
+						array( veryo_collega()['naam'] . ' ' . __( '(lokale AI)', 'veryo' ), veryo_collega()['slug'] ),
 						array( __( 'Veryo Receptie (zorgpraktijken)', 'veryo' ), 'ai-op-maat/ai-receptionist-horeca' ),
+						array( __( 'Veryo Start: AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
+						array( __( 'Veryo Partner: AI-abonnement', 'veryo' ), 'ai-partner' ),
+						array( __( 'AI implementatie in het mkb', 'veryo' ), 'ai-implementatie-mkb' ),
+						array( __( 'Prijzen en offerte', 'veryo' ), 'prijzen' ),
 					),
 				),
 				array(
-					__( 'Automatisering', 'veryo' ),
-					'ai-automatisering',
+					__( 'AI voor branches', 'veryo' ),
+					'branches',
 					array(
-						array( __( 'Oplossingen', 'veryo' ), 'oplossingen', $solutions ),
-						array(
-							__( 'Automatisering', 'veryo' ),
-							'ai-automatisering',
-							array(
-								array( __( 'AI-automatisering voor het mkb', 'veryo' ), 'ai-automatisering' ),
-								array( __( 'AI-agents', 'veryo' ), 'ai-agents' ),
-								array( __( 'AI op maat', 'veryo' ), 'ai-op-maat' ),
-							),
-						),
-						array( __( 'Branches', 'veryo' ), 'branches', $branches ),
+						array( __( 'Bouw', 'veryo' ), 'branches/bouw' ),
+						array( __( 'Installatie en techniek', 'veryo' ), 'branches/installatie' ),
+						array( __( 'Beveiliging', 'veryo' ), 'branches/beveiliging' ),
+						array( __( 'Transport en logistiek', 'veryo' ), 'branches/transport' ),
+						array( __( 'Agri en mechanisatie', 'veryo' ), 'branches/agri' ),
+						array( __( 'Zakelijke dienstverlening', 'veryo' ), 'branches/zakelijke-dienstverlening' ),
+						array( __( 'Alle branches', 'veryo' ), 'branches' ),
 					),
 				),
-				array(
-					__( 'Advies en partner', 'veryo' ),
-					'#',
-					array(
-						array( __( 'Gratis AI-scan', 'veryo' ), 'waar-begin-ik-met-ai' ),
-						array( __( 'AI-Startpakket', 'veryo' ), 'ai-startpakket' ),
-						array( __( 'AI implementeren: stappenplan', 'veryo' ), 'ai-implementatie-mkb' ),
-						array( __( 'AI-abonnement (vaste partner)', 'veryo' ), 'ai-partner' ),
-						array( __( 'Veilig AI-gebruik', 'veryo' ), 'veilig-ai-gebruik' ),
-						array( __( 'Tools & koppelingen', 'veryo' ), 'tools-koppelingen' ),
-					),
-				),
-				array( __( 'Prijzen', 'veryo' ), 'prijzen' ),
+				array( __( 'AI-veiligheid', 'veryo' ), 'veilig-ai-gebruik' ),
+				array( __( 'Kennisbank', 'veryo' ), 'kennis' ),
 				array( __( 'Over Veryo', 'veryo' ), 'over-veryo' ),
 				array( __( 'Contact', 'veryo' ), 'contact' ),
 			),
@@ -1677,3 +1673,137 @@ function veryo_250_notice() {
 	echo '</ul></div>';
 }
 add_action( 'admin_notices', 'veryo_250_notice' );
+
+/**
+ * Hoofdmenu opnieuw opbouwen volgens de nieuwe indeling (2.6.0). Zelf toegevoegde links die
+ * niet naar een Veryo-pagina wijzen, komen er achteraan weer in.
+ */
+function veryo_260_rebuild_primary_menu() {
+	$menu = wp_get_nav_menu_object( 'Veryo hoofdmenu' );
+	if ( ! $menu ) {
+		return;
+	}
+	$ids = array();
+	foreach ( array_keys( veryo_content_pages() ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( $page ) {
+			$ids[ $path ] = $page->ID;
+		}
+	}
+	$own_ids = array_values( $ids );
+	$keep    = array();
+	$items   = (array) wp_get_nav_menu_items( $menu->term_id, array( 'post_status' => 'any' ) );
+	foreach ( $items as $item ) {
+		$is_custom_link = 'custom' === $item->type && '#' !== $item->url && false === strpos( (string) $item->url, home_url() );
+		$is_other_page  = 'post_type' === $item->type && ! in_array( (int) $item->object_id, $own_ids, true );
+		if ( ! $item->menu_item_parent && ( $is_custom_link || $is_other_page ) ) {
+			$keep[] = $item;
+		}
+	}
+	foreach ( $items as $item ) {
+		wp_delete_post( $item->ID, true );
+	}
+	veryo_add_menu_items( $menu->term_id, veryo_menu_definitions()['primary']['items'], $ids );
+	foreach ( $keep as $position => $item ) {
+		$args = array(
+			'menu-item-title'    => $item->title,
+			'menu-item-status'   => 'publish',
+			'menu-item-position' => 50 + $position,
+		);
+		if ( 'custom' === $item->type ) {
+			$args['menu-item-type'] = 'custom';
+			$args['menu-item-url']  = $item->url;
+		} else {
+			$args['menu-item-type']      = 'post_type';
+			$args['menu-item-object']    = $item->object;
+			$args['menu-item-object-id'] = (int) $item->object_id;
+		}
+		wp_update_nav_menu_item( $menu->term_id, 0, $args );
+	}
+}
+
+/**
+ * Eenmalig bij de update naar 2.6.0: nieuwe homepage, diensten in categorieën, nieuw hoofdmenu,
+ * kenniscategorieën en de positionering voor het brede mkb.
+ */
+function veryo_260_upgrade() {
+	if ( ! current_user_can( 'manage_options' ) || get_option( 'veryo_260_done' ) || ! get_option( 'veryo_setup_version' ) ) {
+		return;
+	}
+	update_option( 'veryo_260_done', 1, false );
+
+	// 1. Kenniscategorieën en de bestaande kennisartikelen indelen.
+	veryo_register_kennis_categories();
+	veryo_ensure_kennis_categories();
+	foreach ( veryo_content_kennis() as $slug => $def ) {
+		$post = get_page_by_path( $slug, OBJECT, 'kennis' );
+		if ( $post instanceof WP_Post && ! empty( $def['categorie'] ) && ! has_term( '', 'kennis_categorie', $post ) ) {
+			wp_set_object_terms( $post->ID, $def['categorie'], 'kennis_categorie' );
+		}
+	}
+
+	// 2. Nieuw hoofdmenu, vóór het verversen van de inhoud (anders bouwt de setup het menu
+	// zelf opnieuw op en gaan eigen menu-items verloren).
+	veryo_260_rebuild_primary_menu();
+
+	// 3. Ongewijzigde pagina's krijgen de nieuwe inhoud; zelf aangepaste blijven staan.
+	veryo_refresh_content( false );
+
+	// 3b. Homepage, diensten en Over Veryo krijgen de nieuwe inhoud ook als ze zelf zijn aangepast.
+	// De vorige versie blijft bewaard als revisie (Pagina bewerken → Revisies).
+	$defs = veryo_content_pages();
+	kses_remove_filters();
+	foreach ( array( '', 'diensten', 'over-veryo' ) as $path ) {
+		$page = veryo_find_page( $path );
+		if ( ! $page || ! isset( $defs[ $path ] ) || veryo_page_untouched( $page ) ) {
+			continue;
+		}
+		if ( wp_revisions_enabled( $page ) ) {
+			_wp_put_post_revision( $page );
+		}
+		$updated = wp_update_post(
+			wp_slash(
+				array(
+					'ID'           => $page->ID,
+					'post_content' => $defs[ $path ]['content'],
+				)
+			),
+			true
+		);
+		if ( ! is_wp_error( $updated ) ) {
+			veryo_remember_content( $page->ID );
+		}
+	}
+	kses_init();
+
+	// 4. Title, description en H1 van de herschreven pagina's, ook in Rank Math.
+	foreach ( array( '', 'diensten', 'over-veryo', 'leeuwarden' ) as $path ) {
+		$page = '' === $path ? get_post( (int) get_option( 'page_on_front' ) ) : veryo_find_page( $path );
+		if ( ! $page instanceof WP_Post || ! isset( $defs[ $path ] ) ) {
+			continue;
+		}
+		$title = $defs[ $path ]['seo_title'];
+		$desc  = $defs[ $path ]['desc'];
+		foreach ( array(
+			'_veryo_seo_title'      => $title,
+			'_veryo_seo_desc'       => $desc,
+			'rank_math_title'       => $title,
+			'rank_math_description' => $desc,
+			'_veryo_rm_title'       => $title,
+			'_veryo_rm_desc'        => $desc,
+		) as $key => $value ) {
+			update_post_meta( $page->ID, $key, $value );
+		}
+		if ( ! empty( $defs[ $path ]['force_title'] ) && $page->post_title !== $defs[ $path ]['title'] ) {
+			wp_update_post(
+				array(
+					'ID'         => $page->ID,
+					'post_title' => $defs[ $path ]['title'],
+				)
+			);
+		}
+	}
+
+	flush_rewrite_rules( false );
+}
+add_action( 'admin_init', 'veryo_260_upgrade', 110 );

@@ -137,6 +137,7 @@ function veryo_redirects() {
 			'ai-training/ai-strategie'               => 'diensten',
 			'ai-training/zzp'                        => 'diensten',
 			'academy'                                => 'diensten',
+			'kennisbank'                             => 'kennis',
 		)
 	);
 }

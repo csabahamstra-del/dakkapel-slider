@@ -681,7 +681,7 @@ function veryo_insert_context_links( $content, $text, $after_class = '' ) {
  * @return string
  */
 function veryo_context_links_anchor( $path ) {
-	return '' === $path ? 'veryo-independent' : '';
+	return '' === $path ? 'veryo-why' : '';
 }
 
 /**

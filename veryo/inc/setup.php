@@ -78,6 +78,10 @@ function veryo_enqueue_assets() {
 		wp_enqueue_script( 'veryo-motion', VERYO_URI . '/assets/js/motion.js', $deps, VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/js/motion.js' ), $defer );
 	}
 
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'veryo-home', VERYO_URI . '/assets/js/home.js', array(), VERYO_VERSION . '-' . (string) filemtime( VERYO_DIR . '/assets/js/home.js' ), $defer );
+	}
+
 	wp_enqueue_script(
 		'veryo-nav',
 		VERYO_URI . '/assets/js/nav.js',

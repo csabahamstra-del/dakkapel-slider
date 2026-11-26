@@ -45,6 +45,89 @@ function veryo_register_kennis() {
 add_action( 'init', 'veryo_register_kennis' );
 
 /**
+ * Categorieën van de kennisbank (naam => slug).
+ *
+ * @return array<string,string>
+ */
+function veryo_kennis_categories() {
+	return array(
+		'ai-voor-ondernemers' => __( 'AI voor ondernemers', 'veryo' ),
+		'ai-automatisering'   => __( 'AI-automatisering', 'veryo' ),
+		'ai-veiligheid'       => __( 'AI-veiligheid', 'veryo' ),
+		'ai-in-branches'      => __( 'AI in branches', 'veryo' ),
+		'ai-tools'            => __( 'AI-tools', 'veryo' ),
+	);
+}
+
+/**
+ * Taxonomie voor de kennisbank: /kennis/categorie/naam/.
+ */
+function veryo_register_kennis_categories() {
+	register_taxonomy(
+		'kennis_categorie',
+		'kennis',
+		array(
+			'labels'            => array(
+				'name'          => __( 'Kenniscategorieën', 'veryo' ),
+				'singular_name' => __( 'Kenniscategorie', 'veryo' ),
+				'menu_name'     => __( 'Categorieën', 'veryo' ),
+			),
+			'public'            => true,
+			'hierarchical'      => true,
+			'show_admin_column' => true,
+			'show_in_rest'      => true,
+			'rewrite'           => array(
+				'slug'       => 'kennis/categorie',
+				'with_front' => false,
+			),
+		)
+	);
+}
+add_action( 'init', 'veryo_register_kennis_categories', 5 ); // Vóór het berichttype, zodat /kennis/categorie/ voorgaat.
+
+/**
+ * De vaste categorieën aanmaken als ze nog niet bestaan.
+ */
+function veryo_ensure_kennis_categories() {
+	foreach ( veryo_kennis_categories() as $slug => $name ) {
+		if ( ! term_exists( $slug, 'kennis_categorie' ) ) {
+			wp_insert_term( $name, 'kennis_categorie', array( 'slug' => $slug ) );
+		}
+	}
+}
+
+/**
+ * Zoeken binnen de kennisbank: ?s=...&post_type=kennis blijft op het kennisarchief.
+ *
+ * @param WP_Query $query Query.
+ */
+function veryo_kennis_search( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && $query->is_search() && 'kennis' === $query->get( 'post_type' ) ) {
+		$query->set( 'post_type', 'kennis' );
+	}
+}
+add_action( 'pre_get_posts', 'veryo_kennis_search' );
+
+/**
+ * Zoekresultaten binnen de kennisbank tonen met het kennisarchief.
+ *
+ * @param string $template Sjabloon.
+ * @return string
+ */
+function veryo_kennis_search_template( $template ) {
+	if ( is_search() && 'kennis' === get_query_var( 'post_type' ) ) {
+		$file = locate_template( 'archive-kennis.php' );
+		return $file ? $file : $template;
+	}
+	if ( is_tax( 'kennis_categorie' ) ) {
+		$file = locate_template( 'archive-kennis.php' );
+		return $file ? $file : $template;
+	}
+	return $template;
+}
+add_filter( 'template_include', 'veryo_kennis_search_template' );
+
+/**
  * Is dit (een onderdeel van) de kennisbank?
  *
  * @return bool

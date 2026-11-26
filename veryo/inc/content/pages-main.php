@@ -8,24 +8,30 @@
 defined( 'ABSPATH' ) || exit;
 
 $veryo_home_faq = array(
-	array( __( 'Is AI iets voor mijn bedrijf?', 'veryo' ), __( 'Als er in je bedrijf werk is dat elke week terugkomt, zoals mail beantwoorden, offertes maken of facturen verwerken, dan is de kans groot dat AI daar tijd bespaart. Of het de moeite waard is, hangt af van hoeveel uur het nu kost. De gratis AI-scan geeft daar in drie minuten een eerste antwoord op.', 'veryo' ) ),
-	array( __( 'Wat kost het?', 'veryo' ), __( 'De AI-scan is gratis. Voor alles daarna krijg je een gratis offerte op maat, met vooraf een vaste prijs.', 'veryo' ) ),
-	array( __( 'Verkopen jullie software?', 'veryo' ), __( 'Nee. We verkopen geen eigen software en adviseren onafhankelijk welke tools bij jullie passen. Vaak is dat software die je al hebt. Worden we ooit partner van een leverancier waar we een vergoeding voor krijgen, dan zeggen we dat erbij.', 'veryo' ) ),
-	array( __( 'Doen jullie ook IT-beheer?', 'veryo' ), __( 'Nee. Veryo is geen IT-bedrijf: we doen geen algemeen IT-beheer, netwerken, helpdesk of storingsdienst. Alleen de machine waarop [veryo_collega_naam] draait, beheren we zelf. We werken wel prettig samen met je vaste IT-beheerder, bijvoorbeeld bij het inrichten van Claude Team of het op orde brengen van toegangsrechten.', 'veryo' ) ),
-	array( __( 'Is het veilig met onze gegevens?', 'veryo' ), __( 'We werken met zakelijke versies en API’s waarbij je gegevens niet worden gebruikt om AI-modellen te trainen. Bij persoonsgegevens sluiten we een verwerkersovereenkomst. Jij blijft eigenaar van je data, en in het AI-beleid leggen we vast welke gegevens nooit in een AI-tool mogen.', 'veryo' ) ),
-	array( __( 'Moeten wij zelf technisch zijn?', 'veryo' ), __( 'Nee. Wij adviseren, richten in en koppelen. Jullie werken in de software die jullie al kennen. Na de oplevering leren we jullie team ermee werken, en we leggen uit wie waarvoor aanspreekpunt is.', 'veryo' ) ),
-	array( __( 'Wat is de AI-geletterdheidsplicht?', 'veryo' ), __( 'Artikel 4 van de Europese AI Act geldt sinds 2 februari 2025. Sinds de wijziging door de Digital Omnibus op 27 juli 2026 vraagt het organisaties die AI inzetten om maatregelen te nemen die de AI-geletterdheid van hun medewerkers ondersteunen. Een vast kennisniveau per persoon hoeft niet gegarandeerd te worden, maar de plicht zelf blijft bindend. Dat betekent dat mensen die met AI werken moeten snappen wat het kan, wat niet en waar de risico’s zitten. Bij elke oplevering leggen we uit wat de toepassing doet en waar de grenzen liggen; dat helpt daarbij.', 'veryo' ) ),
-	array( __( 'Werken jullie ook buiten Noord-Nederland?', 'veryo' ), __( 'Ja. We zitten in Leeuwarden en komen in Friesland, Groningen en Drenthe op locatie. Online werken we ook voor bedrijven in de rest van Nederland.', 'veryo' ) ),
+	array( __( 'Wat kan AI voor mijn bedrijf betekenen?', 'veryo' ), __( 'AI neemt vooral werk over dat elke week terugkomt en uit tekst, documenten of vragen bestaat: mail beantwoorden, offertes voorbereiden, facturen en werkbonnen verwerken, klantvragen afhandelen en rapportages maken. Hoeveel het oplevert, hangt af van hoeveel tijd dat werk nu kost. De gratis AI-scan geeft daar een eerste antwoord op.', 'veryo' ) ),
+	array( __( 'Wat kost AI implementatie?', 'veryo' ), __( 'Dat hangt af van wat er gebouwd wordt, welke software erbij komt en hoeveel begeleiding je wilt. Je krijgt altijd eerst een gratis offerte met een vaste prijs. Veel bedrijven beginnen met één afgebakende toepassing, zodat je eerst ziet dat het werkt voordat je verder investeert.', 'veryo' ) ),
+	array( __( 'Moet mijn bedrijf veel technische kennis hebben?', 'veryo' ), __( 'Nee. Wij zoeken uit wat past, bouwen en richten in. Jij en je team werken in de software die jullie al kennen. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) ),
+	array( __( 'Is AI veilig voor mijn bedrijfsgegevens?', 'veryo' ), __( 'We werken met zakelijke versies en API’s waarbij je gegevens niet worden gebruikt om AI-modellen te trainen, en sluiten een verwerkersovereenkomst als er persoonsgegevens in het spel zijn. In een kort AI-beleid leggen we vast wat er nooit in een AI-tool mag. Moeten gegevens echt binnen blijven, dan is er Veryo Collega, die op een eigen machine bij jou op kantoor draait.', 'veryo' ) ),
+	array( __( 'Kan AI gekoppeld worden aan mijn bestaande software?', 'veryo' ), __( 'Vaak wel. Veel boekhoud-, planning- en CRM-pakketten hebben een koppeling (API) of een exportmogelijkheid. Dat controleren we vooraf. Overstappen op andere software is niet nodig: we bouwen bovenop wat je al hebt.', 'veryo' ) ),
+	array( __( 'Hoe lang duurt een AI-implementatie?', 'veryo' ), __( 'Een eerste afgebakende toepassing staat meestal binnen twee tot vier weken, inclusief een proefperiode met echte gegevens. Een groter traject verdelen we in stappen, zodat je na elke stap kunt beslissen of je doorgaat.', 'veryo' ) ),
+	array( __( 'Is AI geschikt voor kleine bedrijven?', 'veryo' ), __( 'Ja, als er werk is dat elke week terugkomt. Ook in een klein bedrijf gaat veel tijd naar mail, offertes en administratie. We beginnen met één taak en kijken eerlijk of het de moeite waard is. Komt er weinig uit de scan, dan zeggen we dat.', 'veryo' ) ),
+	array( __( 'Moeten mijn medewerkers AI leren gebruiken?', 'veryo' ), __( 'Ze leren werken met wat we voor jullie bouwen of inrichten. Na de oplevering leren we jullie team ermee werken: wat de toepassing doet, wat wel en niet mag en waar de grenzen liggen. Een losse cursus is daarvoor niet nodig.', 'veryo' ) ),
+	array( __( 'Wat is het verschil tussen AI en automatisering?', 'veryo' ), __( 'Gewone automatisering volgt vaste regels: als dit, dan dat. AI kan ook omgaan met ongestructureerde informatie, zoals een mail in gewone taal, een foto of een pdf. Samen kunnen ze werk overnemen dat eerder altijd met de hand moest. Een mens blijft controleren wat ertoe doet.', 'veryo' ) ),
+	array( __( 'Wat gebeurt er na de implementatie?', 'veryo' ), __( 'Elke toepassing krijgt een logboek en een vaste eigenaar binnen je bedrijf. Na een paar weken evalueren we samen wat het oplevert. Daarna kun je kiezen voor onderhoud of voor Veryo Partner, waarbij we doorlopend bewaken, verbeteren en nieuwe toepassingen bouwen. Je zit nergens aan vast.', 'veryo' ) ),
 );
 
-$veryo_home       = veryo_b_group(
-	veryo_b_p( __( 'AI-bureau uit Leeuwarden', 'veryo' ), array( 'className' => 'veryo-kicker' ) )
-	. veryo_b_h( __( 'AI bouwen en inrichten voor technische bedrijven.', 'veryo' ), 1, array( 'fontSize' => 'display-xl' ) )
-	. veryo_b_p( __( 'AI-agents, automatiseringen bovenop de systemen die jullie al hebben, de AI-werkplek met Claude Team en de administratieve kringloop van werkbon tot factuur. Voor technische kantoren en projectbedrijven in Noord-Nederland met 15 tot 50 medewerkers. Overstappen is nooit nodig.', 'veryo' ), array( 'className' => 'veryo-lead' ) )
+/*
+ * 1. Hero: kernboodschap, twee CTA's en rechts de workflow (veryo_render_home_hero).
+ */
+$veryo_home  = veryo_b_group(
+	veryo_b_p( __( 'AI-implementatiepartner voor het mkb', 'veryo' ), array( 'className' => 'veryo-kicker' ) )
+	. veryo_b_h( __( 'Minder handwerk. Meer tijd voor je bedrijf.', 'veryo' ), 1, array( 'fontSize' => 'display-xl' ) )
+	. veryo_b_p( __( 'Veryo helpt MKB-bedrijven AI praktisch inzetten. Van eerste inzicht tot werkende automatiseringen die dagelijks tijd besparen.', 'veryo' ), array( 'className' => 'veryo-lead' ) )
+	. veryo_b_p( __( 'Geen ingewikkelde AI-verhalen. We ontdekken wat jouw bedrijf nodig heeft, implementeren de oplossing en zorgen dat je medewerkers ermee kunnen werken.', 'veryo' ), array( 'className' => 'veryo-hero__sub' ) )
 	. veryo_b_buttons(
 		array(
-			array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ),
-			array( __( 'Bekijk de diensten', 'veryo' ), veryo_link( 'diensten' ), 'link' ),
+			array( __( 'Ontdek waar AI tijd bespaart', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ),
+			array( __( 'Bekijk wat we automatiseren', 'veryo' ), veryo_link( 'oplossingen' ), 'link' ),
 		)
 	)
 	. veryo_sec_founder_row(),
@@ -35,106 +41,179 @@ $veryo_home       = veryo_b_group(
 		'className' => 'is-style-petrol veryo-hero has-check veryo-hero--home',
 	)
 );
-$veryo_home      .= veryo_sec_tools_band();
-$veryo_home      .= veryo_sec_wide(
-	veryo_b_columns(
-		array(
-			array(
-				'width' => '50%',
-				'inner' => veryo_b_p( '[veryo_collega_naam]', array( 'className' => 'veryo-kicker' ) )
-					. veryo_b_h( __( 'Een AI-collega die alles weet van jouw bedrijf.', 'veryo' ), 2, array( 'fontSize' => 'display-l' ) ),
-			),
-			array(
-				'width' => '50%',
-				'inner' => veryo_b_p( __( 'Draait op je eigen kantoor. [veryo_collega_naam] kent jullie documenten, mail en systemen, en je gegevens verlaten het pand niet voor AI-verwerking.', 'veryo' ), array( 'className' => 'veryo-lead' ) )
-					. veryo_b_shortcode( '[veryo_collega_cta]' ),
-			),
-		)
-	),
-	'veryo-home-partner'
-);
-$veryo_home      .= veryo_sec_wide(
-	veryo_b_columns(
-		array(
-			array(
-				'width' => '50%',
-				'inner' => veryo_b_h( __( 'Iedereen roept dat je iets met AI moet. Maar wat dan?', 'veryo' ) ),
-			),
-			array(
-				'width' => '50%',
-				'inner' => veryo_b_p( __( 'Veryo bouwt en richt AI in voor technische kantoren en projectbedrijven: ingenieurs- en adviesbureaus, installateurs met eigen engineering, staal- en metaalbouw, interieurbouw, loonbedrijven en vergelijkbare bedrijven met 15 tot 50 medewerkers. We bouwen geen nieuwe software, maar zetten AI in bovenop wat jullie al gebruiken: bij het lezen van bestekken, de calculatie, de werkvoorbereiding en de administratie. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) )
-					. veryo_b_p( __( 'Weet je nog niet waar je moet beginnen? Doe dan de gratis AI-scan. Je beantwoordt negen korte vragen over je bedrijf en krijgt een persoonlijk rapport met je drie grootste tijdwinsten, wat ze ongeveer opleveren en hoe je begint.', 'veryo' ) )
-					. veryo_b_buttons( array( array( __( 'Zo werkt de AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ) ) ) ),
-			),
-		),
-		array( 'className' => 'veryo-head' )
-	),
-	'veryo-intro veryo-intro-split'
-);
-$veryo_home_photo = veryo_photo_id( 'team' );
-if ( $veryo_home_photo ) {
-	$veryo_home .= veryo_b_image( $veryo_home_photo, __( 'AI-bureau voor het MKB: team aan tafel aan het werk met laptops', 'veryo' ), 'veryo-img veryo-img--wide', 'wide' );
-}
-$veryo_home .= veryo_sec_contrast();
-$veryo_home .= veryo_sec_startpakket( __( 'Het Veryo AI-Startpakket', 'veryo' ), __( 'Eerst één ding goed neerzetten? Met het AI-Startpakket bouwen of richten we één afgebakende toepassing in, met een AI-beleid en 30 dagen nazorg: vijf onderdelen, met vooraf een vaste prijs in een gratis offerte.', 'veryo' ) );
-$veryo_home .= veryo_sec_pillars();
-$veryo_home .= veryo_sec_products(
-	array(),
-	__( 'Kant-en-klare AI-oplossingen', 'veryo' ),
-	__( 'Voor werk dat in veel bedrijven hetzelfde gaat, hebben we vaste oplossingen. We richten ze in op jouw systemen en houden ze draaiende. Vraag een gratis offerte aan.', 'veryo' )
-);
-$veryo_home .= veryo_sec_collega_offline();
-$veryo_home .= veryo_sec_steps_home();
-$veryo_home .= veryo_sec_independent( '', true );
+$veryo_home .= veryo_sec_tools_band();
+
+/*
+ * 2. Probleemherkenning.
+ */
 $veryo_home .= veryo_sec_wide(
-	veryo_sec_head(
-		__( 'Wat er mogelijk is', 'veryo' ),
-		veryo_b_p( __( 'Een greep uit wat AI in het MKB kan doen. Vaak kan de software die je al hebt het meeste; waar niet, bouwen we een koppeling. Tijdwinst is een indicatie voor teams van 5 tot 20 mensen.', 'veryo' ) )
-	)
-	. veryo_b_columns(
-		array(
-			veryo_b_h( __( 'Klantcontact', 'veryo' ), 3, array( 'fontSize' => 'heading' ) ) . veryo_b_list( array( __( 'Conceptantwoorden op mail in jullie toon', 'veryo' ), __( 'WhatsApp-assistent die 24/7 vragen beantwoordt', 'veryo' ), __( 'Klanten automatisch op de hoogte houden', 'veryo' ) ) ),
-			veryo_b_h( __( 'Offertes en administratie', 'veryo' ), 3, array( 'fontSize' => 'heading' ) ) . veryo_b_list( array( __( 'Van aanvraag of foto naar conceptofferte', 'veryo' ), __( 'Inkoopfacturen direct in je boekhoudpakket', 'veryo' ), __( 'Afgeronde werkbon wordt factuur', 'veryo' ) ) ),
-			veryo_b_h( __( 'Werk en overzicht', 'veryo' ), 3, array( 'fontSize' => 'heading' ) ) . veryo_b_list( array( __( 'Weekplanning als voorstel klaar', 'veryo' ), __( 'Onderhoud en keuringen vanzelf ingepland', 'veryo' ), __( 'Elke maandag je cijfers in gewone taal', 'veryo' ) ) ),
-		)
-	)
-	. veryo_b_buttons( array( array( __( 'Alles over AI-automatisering en koppelingen', 'veryo' ), veryo_link( 'ai-automatisering' ), 'link' ) ) ),
-	'veryo-catalog-teaser veryo-possible'
-);
-$veryo_home .= veryo_sec_wide(
-	veryo_sec_head(
-		__( 'Vooraf duidelijk wat het kost', 'veryo' ),
-		veryo_b_p( __( 'Je begint met de gratis scan, zet de basis neer met het Startpakket en bouwt uit als het werkt. Voor elke stap krijg je een gratis offerte met vooraf een vaste prijs.', 'veryo' ) )
-	)
-	. veryo_sec_price_table( array( 'scan', 'startpakket', 'werkplek', 'partner' ) )
-	. veryo_b_buttons( array( array( veryo_offerte_label(), veryo_offerte_url() ) ) ),
-	'veryo-price-home'
-);
-$veryo_home .= veryo_sec_contact(
-	__( 'Weet je niet welke stap bij jou past?', 'veryo' ),
-	__( 'Vertel in een paar zinnen hoe jullie werken. Je krijgt binnen één werkdag een persoonlijk advies over waar je het best kunt beginnen. Gratis en zonder verplichtingen.', 'veryo' ),
-	__( 'Bijvoorbeeld: onze werkbonnen komen op papier binnen en worden met de hand overgetypt. Kan dat anders?', 'veryo' )
-);
-$veryo_home .= veryo_sec_branches( __( 'AI voor jouw branche', 'veryo' ), __( 'We kennen de praktijk van bouw, installatie, agri en techniek het best, maar werken voor het hele MKB.', 'veryo' ), true );
-$veryo_home .= veryo_sec_regions( '', '', true );
-$veryo_home .= veryo_sec_wide(
-	veryo_sec_head( __( 'Waarom Veryo', 'veryo' ), veryo_b_p( __( 'Zes dingen waar je ons aan kunt houden.', 'veryo' ) ) )
+	veryo_sec_head( __( 'Je bedrijf hoeft niet alles zelf te blijven doen.', 'veryo' ), veryo_b_p( __( 'Herken je een of meer van deze punten? Dan zit er waarschijnlijk tijd te winnen.', 'veryo' ) ) )
 	. veryo_b_list(
 		array(
-			'<strong>' . __( 'Nuchter.', 'veryo' ) . '</strong> ' . __( 'We beginnen bij je werk, niet bij de techniek. Als iets niet de moeite waard is, zeggen we dat.', 'veryo' ),
-			'<strong>' . __( 'Onafhankelijk.', 'veryo' ) . '</strong> ' . __( 'We verkopen geen eigen software en adviseren wat bij jou past, ook als dat iets is wat je al hebt.', 'veryo' ),
-			'<strong>' . __( 'Vaste prijzen.', 'veryo' ) . '</strong> ' . __( 'Je weet vooraf wat het kost. Geen uurtje-factuurtje zonder einde.', 'veryo' ),
-			'<strong>' . __( 'Eerlijk over wat niet kan.', 'veryo' ) . '</strong> ' . __( 'Beslissingen met grote gevolgen laten we niet aan AI over, en wat een paar keer per jaar voorkomt automatiseren we niet.', 'veryo' ),
-			'<strong>' . __( 'Van advies tot partner.', 'veryo' ) . '</strong> ' . __( 'Advies, bouwen, inrichten en een vaste vraagbaak bij één partij.', 'veryo' ),
-			'<strong>' . __( 'AVG-bewust.', 'veryo' ) . '</strong> ' . __( 'Zakelijke versies, een verwerkersovereenkomst waar nodig en jouw data blijft van jou.', 'veryo' ),
+			__( 'Administratie kost te veel tijd.', 'veryo' ),
+			__( 'Leads worden niet altijd opgevolgd.', 'veryo' ),
+			__( 'Offertes blijven liggen.', 'veryo' ),
+			__( 'Medewerkers beantwoorden steeds dezelfde vragen.', 'veryo' ),
+			__( 'Informatie is verspreid over verschillende systemen.', 'veryo' ),
+			__( 'Je bent te afhankelijk van handmatige processen.', 'veryo' ),
 		),
-		array( 'className' => 'is-style-checks' )
+		array( 'className' => 'is-style-checks veryo-pains' )
+	),
+	'veryo-problem'
+);
+
+/*
+ * 3. Wat AI daadwerkelijk kan doen: tien toepassingen met een link naar de pagina erover.
+ */
+$veryo_home_apps  = array(
+	array( 'ai-automatisering/offertes-en-calculaties', __( 'AI-offerteassistent', 'veryo' ), __( 'Van aanvraag naar conceptofferte, op basis van jullie prijslijst.', 'veryo' ) ),
+	array( 'ai-automatisering/administratie', __( 'AI-administratie', 'veryo' ), __( 'Uren, werkbonnen en inkoopfacturen verwerkt tot factuur.', 'veryo' ) ),
+	array( 'oplossingen/ai-lead-opvolging', __( 'AI-leadopvolging', 'veryo' ), __( 'Nieuwe aanvragen snel opgevolgd, met een afspraakvoorstel.', 'veryo' ) ),
+	array( 'ai-op-maat', __( 'AI-telefonist', 'veryo' ), __( 'Neemt op als niemand kan, noteert de vraag en zet een terugbelverzoek klaar.', 'veryo' ) ),
+	array( 'ai-automatisering/klantcontact', __( 'AI-klantenservice', 'veryo' ), __( 'Mail en WhatsApp gesorteerd, met conceptantwoorden in jullie toon.', 'veryo' ) ),
+	array( veryo_collega()['slug'], __( 'AI-bedrijfskennisbank', 'veryo' ), __( 'Vragen beantwoord uit jullie eigen documenten, met bronvermelding.', 'veryo' ) ),
+	array( 'oplossingen/inkoopfacturen-automatiseren', __( 'AI-documentverwerking', 'veryo' ), __( 'Facturen, pakbonnen en pdf’s uitgelezen en klaargezet.', 'veryo' ) ),
+	array( 'ai-automatisering/rapportages', __( 'AI-rapportage', 'veryo' ), __( 'Overzichten en weekcijfers uit de gegevens die er al zijn.', 'veryo' ) ),
+	array( 'ai-automatisering/werkprocessen', __( 'AI-planningsassistent', 'veryo' ), __( 'Planning, werkbonnen en onderhoud als voorstel klaargezet.', 'veryo' ) ),
+	array( 'ai-werkplek', __( 'AI-werkplek', 'veryo' ), __( 'Claude Team ingericht met jullie eigen sjablonen en kennis.', 'veryo' ) ),
+);
+$veryo_home_items = array();
+foreach ( $veryo_home_apps as $veryo_app ) {
+	$veryo_home_items[] = '<a href="' . esc_url( veryo_link( $veryo_app[0] ) ) . '">' . esc_html( $veryo_app[1] ) . '</a><br><span class="veryo-meta">' . esc_html( $veryo_app[2] ) . '</span>';
+}
+$veryo_home .= veryo_sec_wide(
+	veryo_sec_head(
+		__( 'AI is pas interessant wanneer het iets voor je oplost.', 'veryo' ),
+		veryo_b_p( __( 'Tien toepassingen die we bouwen en inrichten, bovenop de software die je al gebruikt. Een mens blijft controleren wat ertoe doet.', 'veryo' ) )
+	)
+	. veryo_b_list( $veryo_home_items, array( 'className' => 'is-style-grid veryo-apps' ) )
+	. veryo_b_buttons( array( array( __( 'Bekijk alle oplossingen', 'veryo' ), veryo_link( 'oplossingen' ), 'link' ) ) ),
+	'veryo-apps-section'
+);
+
+/*
+ * 4. Branches.
+ */
+$veryo_home_branches = array(
+	'bouw'                      => array( __( 'Bouw', 'veryo' ), __( 'Calculatie, werkvoorbereiding en projectadministratie', 'veryo' ) ),
+	'installatie'               => array( __( 'Installatie en techniek', 'veryo' ), __( 'Werkbonnen, offertes en storingsmeldingen', 'veryo' ) ),
+	'beveiliging'               => array( __( 'Beveiliging', 'veryo' ), __( 'Rapportages, urencontrole en planning', 'veryo' ) ),
+	'transport'                 => array( __( 'Transport en logistiek', 'veryo' ), __( 'Orderinvoer, e-mailverwerking en documenten', 'veryo' ) ),
+	'agri'                      => array( __( 'Agri', 'veryo' ), __( 'Onderhoud, administratie en onderdelen', 'veryo' ) ),
+	'zakelijke-dienstverlening' => array( __( 'Zakelijke dienstverlening', 'veryo' ), __( 'Verslagen, dossiers en klantvragen', 'veryo' ) ),
+);
+$veryo_home_items    = array();
+foreach ( $veryo_home_branches as $veryo_slug => $veryo_branch ) {
+	$veryo_home_items[] = '<a href="' . esc_url( veryo_link( 'branches/' . $veryo_slug ) ) . '">' . esc_html( $veryo_branch[0] ) . '</a><br><span class="veryo-meta">' . esc_html( $veryo_branch[1] ) . '</span>';
+}
+$veryo_home .= veryo_sec_wide(
+	veryo_sec_head( __( 'AI werkt anders in ieder bedrijf.', 'veryo' ), veryo_b_p( __( 'Kies je branche en zie wat AI daar concreet doet, met voorbeelden van werkwijzen.', 'veryo' ) ) )
+	. veryo_b_list( $veryo_home_items, array( 'className' => 'is-style-grid veryo-branch-cards' ) )
+	. veryo_b_buttons( array( array( __( 'Alle branches', 'veryo' ), veryo_link( 'branches' ), 'link' ) ) ),
+	'veryo-branches-home'
+);
+
+/*
+ * 5. Hoe Veryo werkt.
+ */
+$veryo_home .= veryo_b_group(
+	veryo_sec_head( __( 'Van eerste idee naar AI die daadwerkelijk werkt.', 'veryo' ), veryo_b_p( __( 'Vier stappen. Na elke stap beslis je zelf of we doorgaan.', 'veryo' ) ) )
+	. veryo_b_list(
+		array(
+			'<strong>' . __( 'Ontdek', 'veryo' ) . '</strong><br>' . __( 'We onderzoeken je bedrijfsprocessen, knelpunten en kansen.', 'veryo' ),
+			'<strong>' . __( 'Adviseer', 'veryo' ) . '</strong><br>' . __( 'We bepalen welke AI-oplossingen daadwerkelijk waarde opleveren.', 'veryo' ),
+			'<strong>' . __( 'Implementeer', 'veryo' ) . '</strong><br>' . __( 'We bouwen, configureren en integreren de oplossingen in je bestaande werkwijze.', 'veryo' ),
+			'<strong>' . __( 'Verbeter', 'veryo' ) . '</strong><br>' . __( 'Na de oplevering leren we jullie team ermee werken. Daarna bewaken en verbeteren we.', 'veryo' ),
+		),
+		array(
+			'ordered'   => true,
+			'className' => 'is-style-steps',
+		)
+	),
+	array(
+		'align'     => 'wide',
+		'className' => 'veryo-steps veryo-steps--home veryo-section',
+		'layout'    => false,
+	)
+);
+
+/*
+ * 6. Demo's (voorbeelddata, duidelijk gelabeld).
+ */
+$veryo_home .= veryo_sec_wide(
+	veryo_sec_head( __( 'Bekijk wat AI in de praktijk kan doen.', 'veryo' ), veryo_b_p( __( 'Kies een toepassing en speel de demo af. Je ziet wat er binnenkomt, wat AI ermee doet en waar een mens beslist.', 'veryo' ) ) )
+	. veryo_b_shortcode( '[veryo_demos]' ),
+	'veryo-demos-section'
+);
+
+/*
+ * 7. Drie routes.
+ */
+$veryo_home_route = static function ( $name, $page, $audience, $what, $cta ) {
+	return veryo_b_group(
+		veryo_b_p( esc_html( $name ), array( 'className' => 'veryo-kicker' ) )
+		. veryo_b_h( esc_html( $audience ), 3 )
+		. veryo_b_p( esc_html( $what ) )
+		. veryo_b_buttons( array( array( $cta, veryo_link( $page ), 'link' ) ) ),
+		array( 'className' => 'veryo-route' )
+	);
+};
+$veryo_home      .= veryo_sec_wide(
+	veryo_sec_head( __( 'Drie manieren om te beginnen', 'veryo' ), veryo_b_p( __( 'Kies de route die past bij waar je nu staat. Voor elke route krijg je vooraf een gratis offerte met een vaste prijs.', 'veryo' ) ) )
+	. veryo_b_columns(
+		array(
+			$veryo_home_route( __( 'Veryo Start', 'veryo' ), 'ai-startpakket', __( 'Je wilt AI goed introduceren', 'veryo' ), __( 'Het AI-Startpakket: kansensessie, AI-beleid, één toepassing gebouwd of ingericht en 30 dagen nazorg. Voor bedrijven die willen beginnen, maar niet weten waar.', 'veryo' ), __( 'Bekijk Veryo Start', 'veryo' ) ),
+			$veryo_home_route( __( 'Veryo Automation', 'veryo' ), 'ai-automatisering', __( 'Je wilt een concreet proces automatiseren', 'veryo' ), __( 'Van één afgebakende automatisering tot een project met meerdere koppelingen. Voor bedrijven die weten welk werk te veel tijd kost.', 'veryo' ), __( 'Bekijk Veryo Automation', 'veryo' ) ),
+			$veryo_home_route( __( 'Veryo Partner', 'veryo' ), 'ai-partner', __( 'Je wilt AI structureel inzetten', 'veryo' ), __( 'Doorlopende begeleiding, onderhoud en elke maand tijd voor verbeteringen en nieuwe toepassingen. Voor bedrijven waar al iets draait.', 'veryo' ), __( 'Bekijk Veryo Partner', 'veryo' ) ),
+		),
+		array( 'className' => 'veryo-routes' )
+	),
+	'veryo-routes-section'
+);
+
+/*
+ * 8. Cases: alleen echte, goedgekeurde cases (anders niets).
+ */
+$veryo_home .= veryo_b_shortcode( '[veryo_cases]' );
+
+/*
+ * 9. Waarom Veryo.
+ */
+$veryo_home .= veryo_sec_wide(
+	veryo_sec_head( __( 'Geen AI-hype. Gewoon oplossingen die werken.', 'veryo' ), '' )
+	. veryo_b_list(
+		array(
+			'<strong>' . __( 'Praktisch en begrijpelijk.', 'veryo' ) . '</strong> ' . __( 'We beginnen bij je werk, niet bij de techniek, en leggen alles uit zonder jargon.', 'veryo' ),
+			'<strong>' . __( 'Persoonlijke begeleiding.', 'veryo' ) . '</strong> ' . __( 'Eén vast aanspreekpunt, van het eerste gesprek tot na de oplevering.', 'veryo' ),
+			'<strong>' . __( 'Vooraf een vaste prijs.', 'veryo' ) . '</strong> ' . __( 'Je weet vooraf wat het kost, in een gratis offerte. Geen uurtje-factuurtje zonder einde.', 'veryo' ),
+			'<strong>' . __( 'Implementatie, niet alleen advies.', 'veryo' ) . '</strong> ' . __( 'We bouwen en richten zelf in, en zorgen dat het werkt.', 'veryo' ),
+			'<strong>' . __( 'Je team leert ermee werken.', 'veryo' ) . '</strong> ' . __( 'Na de oplevering leren we jullie team ermee werken, met de toepassing die we hebben gebouwd.', 'veryo' ),
+			'<strong>' . __( 'Past bij je bestaande systemen.', 'veryo' ) . '</strong> ' . __( 'We bouwen bovenop de software die je al gebruikt. Overstappen is niet nodig.', 'veryo' ),
+			'<strong>' . __( 'Uit de regio.', 'veryo' ) . '</strong> ' . __( 'Vanuit Leeuwarden, op locatie in Friesland en de rest van Noord-Nederland.', 'veryo' ),
+			'<strong>' . __( 'Doorlopende ondersteuning.', 'veryo' ) . '</strong> ' . __( 'Na de oplevering houden we het in de gaten en verbeteren we waar nodig.', 'veryo' ),
+		),
+		array( 'className' => 'is-style-checks veryo-why-list' )
 	),
 	'veryo-why'
 );
-$veryo_home .= veryo_sec_conviction();
-$veryo_home .= veryo_sec_cases();
-$veryo_home .= veryo_b_shortcode( '[veryo_klantlogos]' );
+
+/*
+ * 10. Gratis AI-scan.
+ */
+$veryo_home .= veryo_sec_cta_scan(
+	__( 'Ontdek hoeveel tijd AI jouw bedrijf kan besparen.', 'veryo' ),
+	__( 'We bekijken vrijblijvend waar AI en automatisering binnen jouw bedrijf kansen bieden. Je beantwoordt negen korte vragen en krijgt een persoonlijk rapport met je drie grootste tijdwinsten. Een indicatie, geen belofte.', 'veryo' ),
+	__( 'Vraag je gratis AI-scan aan', 'veryo' )
+);
+
+/*
+ * Regio's (lokale vindbaarheid).
+ */
+$veryo_home .= veryo_sec_regions( '', '', true );
+
+/*
+ * 11. FAQ.
+ */
 $veryo_phone = veryo_setting( 'phone' );
 $veryo_email = veryo_setting( 'email' );
 $veryo_home .= veryo_sec_wide(
@@ -175,7 +254,24 @@ $veryo_home .= veryo_sec_wide(
 	),
 	'veryo-popular'
 );
-$veryo_home .= veryo_sec_cta_scan( __( 'Begin met de gratis AI-scan', 'veryo' ) );
+
+/*
+ * 12. Afsluitende CTA.
+ */
+$veryo_home .= veryo_b_group(
+	veryo_b_h( __( 'Je hoeft niet alles over AI te weten. Je moet alleen weten waar je kunt beginnen.', 'veryo' ), 2, array( 'fontSize' => 'display-l' ) )
+	. veryo_b_buttons(
+		array(
+			array( __( 'Plan een vrijblijvende kennismaking', 'veryo' ), veryo_afspraak_url(), 'amber' ),
+			array( __( 'Of doe eerst de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'link' ),
+		)
+	),
+	array(
+		'tagName'   => 'section',
+		'align'     => 'full',
+		'className' => 'is-style-petrol veryo-cta has-check',
+	)
+);
 
 /*
  * AI-scan: /waar-begin-ik-met-ai/
@@ -637,12 +733,13 @@ $veryo_prices .= veryo_sec_links(
 /*
  * Over Veryo
  */
-$veryo_about  = veryo_sec_answer( __( 'Veryo is de onafhankelijke AI-partner uit Leeuwarden voor het MKB in Noord-Nederland. We bouwen en richten AI in voor technische kantoren en projectbedrijven met 15 tot 50 medewerkers: AI-agents, automatiseringen bovenop de systemen die jullie al hebben, de AI-werkplek met Claude Team en de administratieve kringloop. Veryo bouwt geen nieuwe software; overstappen is nooit nodig. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) );
+$veryo_about  = veryo_sec_answer( __( 'Veryo is een praktische AI-implementatiepartner uit Leeuwarden voor het mkb in Friesland en Noord-Nederland. We helpen bedrijven ontdekken waar AI echt tijd bespaart, bouwen en richten de oplossing in bovenop de software die ze al gebruiken, en zorgen dat het blijft werken. Geen ingewikkelde consultancy en geen AI-hype: concrete oplossingen, persoonlijke begeleiding en vooraf een vaste prijs. Na de oplevering leren we jullie team ermee werken.', 'veryo' ) );
 $veryo_about .= veryo_sec_text(
 	__( 'Waarom Veryo bestaat', 'veryo' ),
 	array(
 		__( 'De naam Veryo komt van het Latijnse vero: waar, echt, werkelijk. Dat is ook wat we willen zijn in een markt vol grote beloftes. AI kan veel, maar niet alles, en lang niet elke toepassing is de moeite waard voor een bedrijf met tien of twintig mensen.', 'veryo' ),
-		__( 'We zien bij ondernemers in Friesland, Groningen en Drenthe hetzelfde patroon: ze horen overal dat ze iets met AI moeten, maar niemand vertelt ze wat, wat het kost en wat het oplevert. Veryo is de nuchtere partner die dat wel doet. Eerst snappen, dan slim inzetten.', 'veryo' ),
+		__( 'Ondernemers horen overal dat ze iets met AI moeten, maar zelden wat precies, wat het kost en wat het oplevert. Veryo wil de nuchtere partner zijn die dat wel vertelt. Je hoeft zelf niets van AI te weten: wij vertalen het naar je eigen werk.', 'veryo' ),
+		__( 'AI moet praktisch zijn. Een indrukwekkende demo helpt een bedrijf niet; een toepassing die elke week tijd scheelt wel. Daarom is implementatie voor ons belangrijker dan hype: we bouwen het, testen het met echte gegevens en blijven erbij tot het werkt.', 'veryo' ),
 	)
 );
 $veryo_about .= veryo_sec_wide(
@@ -681,6 +778,17 @@ $veryo_about .= veryo_sec_text(
 	),
 	'checks'
 );
+$veryo_about .= veryo_sec_text(
+	__( 'Hoe we met ondernemers samenwerken', 'veryo' ),
+	array( __( 'Elke samenwerking volgt dezelfde vier stappen. Na elke stap beslis je zelf of we doorgaan.', 'veryo' ) ),
+	array(
+		'<strong>' . __( 'Ontdek.', 'veryo' ) . '</strong> ' . __( 'We kijken naar je bedrijfsprocessen, knelpunten en kansen, bijvoorbeeld met de gratis AI-scan of een kansensessie.', 'veryo' ),
+		'<strong>' . __( 'Adviseer.', 'veryo' ) . '</strong> ' . __( 'We bepalen samen welke oplossing echt waarde oplevert, en zeggen het eerlijk als iets niet de moeite waard is.', 'veryo' ),
+		'<strong>' . __( 'Implementeer.', 'veryo' ) . '</strong> ' . __( 'We bouwen en richten in, in je eigen accounts en bovenop je bestaande software. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
+		'<strong>' . __( 'Verbeter.', 'veryo' ) . '</strong> ' . __( 'We houden het in de gaten en verbeteren waar het kan, los of met Veryo Partner.', 'veryo' ),
+	),
+	'checks'
+);
 $veryo_about .= veryo_sec_independent();
 $veryo_about .= veryo_sec_text(
 	__( 'Wat we doen, in zes pijlers', 'veryo' ),
@@ -715,7 +823,7 @@ $veryo_about .= veryo_sec_text(
 	'checks'
 );
 $veryo_about .= veryo_sec_regions( __( 'Een AI-bureau in Leeuwarden, voor het hele noorden', 'veryo' ) );
-$veryo_about .= veryo_sec_cases();
+$veryo_about .= veryo_b_shortcode( '[veryo_cases]' );
 $veryo_about .= veryo_sec_contact(
 	__( 'Kennismaken?', 'veryo' ),
 	__( 'Stel je vraag of vertel kort wat je zoekt. Ik reageer zelf, binnen één werkdag, en we kijken samen of Veryo iets voor je kan betekenen.', 'veryo' ),
@@ -807,10 +915,10 @@ $veryo_thanks .= veryo_sec_links(
 
 return array(
 	''                     => array(
-		'title'       => __( 'AI bouwen en inrichten voor technische bedrijven', 'veryo' ),
+		'title'       => __( 'Minder handwerk. Meer tijd voor je bedrijf.', 'veryo' ),
 		'force_title' => true,
-		'seo_title'   => __( 'AI bouwen en inrichten voor technische bedrijven | Veryo', 'veryo' ),
-		'desc'        => __( 'Veryo bouwt AI-agents, automatiseringen en de AI-werkplek met Claude Team voor technische bedrijven in Noord-Nederland. Plan een kennismaking.', 'veryo' ),
+		'seo_title'   => __( 'AI voor het mkb in Friesland: minder handwerk | Veryo', 'veryo' ),
+		'desc'        => __( 'Veryo helpt mkb-bedrijven in Friesland en Noord-Nederland AI praktisch inzetten: van eerste inzicht tot werkende automatiseringen. Doe de gratis AI-scan.', 'veryo' ),
 		'kw'          => 'ai bureau mkb',
 		'meta'        => array( 'hide_title' => 1 ),
 		'content'     => $veryo_home,
@@ -872,7 +980,7 @@ return array(
 	),
 	'over-veryo'           => array(
 		'title'     => __( 'Over Veryo', 'veryo' ),
-		'seo_title' => __( 'Over Veryo: nuchtere AI-partner uit Leeuwarden | Veryo', 'veryo' ),
+		'seo_title' => __( 'Over Veryo: praktische AI-partner uit Leeuwarden | Veryo', 'veryo' ),
 		'desc'      => __( 'Over Veryo: wie er achter zit, hoe we werken en hoe we met jullie data omgaan. De nuchtere AI-partner uit Leeuwarden. Maak kennis met Csaba.', 'veryo' ),
 		'kw'        => 'over veryo',
 		'content'   => $veryo_about,

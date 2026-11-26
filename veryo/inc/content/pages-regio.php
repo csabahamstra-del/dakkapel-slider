@@ -270,7 +270,7 @@ return array(
 			array(
 				'collega_regio' => 'leeuwarden',
 				'answer_cta'    => array( __( 'Plan een afspraak in Leeuwarden', 'veryo' ), '#vraag', 'amber' ),
-				'answer'        => __( 'Veryo zit in Leeuwarden en bouwt en richt AI in voor technische kantoren en projectbedrijven in de stad en omgeving: AI-agents, automatiseringen bovenop de systemen die jullie al hebben, de AI-werkplek met Claude Team en de administratieve kringloop. Leeuwarden is onze thuisbasis, dus langskomen is zo geregeld. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
+				'answer'        => __( 'Veryo zit in Leeuwarden en helpt mkb-bedrijven in de stad en omgeving AI praktisch inzetten: AI-agents, automatiseringen bovenop de systemen die jullie al hebben, de AI-werkplek met Claude Team en de administratieve kringloop. Leeuwarden is onze thuisbasis, dus langskomen is zo geregeld. Na de oplevering leren we jullie team ermee werken.', 'veryo' ),
 				'problem'       => array(
 					'h' => __( 'Een AI-specialist in Leeuwarden, om de hoek', 'veryo' ),
 					'p' => array(

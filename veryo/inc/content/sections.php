@@ -253,30 +253,6 @@ function veryo_sec_price( $steps, $title = '', $intro = '' ) {
 }
 
 /**
- * Overzicht als rustige tabel (homepage): dienst, wat het is en een link naar de offerte.
- * Alleen het AI-Startpakket krijgt het amber accent.
- *
- * @param string[] $keys Sleutels uit veryo_price_ladder().
- * @return string
- */
-function veryo_sec_price_table( $keys ) {
-	$ladder = veryo_price_ladder();
-	$items  = array();
-	foreach ( $keys as $key ) {
-		if ( ! isset( $ladder[ $key ] ) ) {
-			continue;
-		}
-		$row     = $ladder[ $key ];
-		$text    = '<span class="t">' . esc_html( $row['dienst'] ) . '</span> <span class="d">' . esc_html( $row['wat'] ) . '</span> <span class="p">' . veryo_price_cell( $key ) . '</span>';
-		$items[] = 'startpakket' === $key ? array(
-			'class' => 'is-featured',
-			'text'  => $text,
-		) : $text;
-	}
-	return veryo_b_list( $items, array( 'className' => 'veryo-price-table' ) );
-}
-
-/**
  * Laatste kolom van een overzichtstabel: "Gratis" voor de AI-scan, anders een link naar de offerte.
  *
  * @param string $key Sleutel uit veryo_price_ladder().
@@ -459,15 +435,16 @@ function veryo_sec_faq( $faqs, $title = '' ) {
  * CTA-blok voor de AI-scan, op petrol met groot vinkje.
  *
  * @param string $title Kop.
- * @param string $text  Tekst.
+ * @param string $text   Tekst.
+ * @param string $button Knoptekst.
  * @return string
  */
-function veryo_sec_cta_scan( $title = '', $text = '' ) {
+function veryo_sec_cta_scan( $title = '', $text = '', $button = '' ) {
 	$title = $title ? $title : __( 'Benieuwd wat AI jouw bedrijf oplevert?', 'veryo' );
 	$text  = $text ? $text : __( 'Doe de gratis AI-scan. Negen vragen, ongeveer drie minuten, en je krijgt een persoonlijk rapport met je drie grootste tijdwinsten. Je zit nergens aan vast.', 'veryo' );
 	$inner = veryo_b_h( $title, 2, array( 'fontSize' => 'display-l' ) )
 		. veryo_b_p( $text, array( 'className' => 'veryo-lead' ) )
-		. veryo_b_buttons( array( array( __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ) ) );
+		. veryo_b_buttons( array( array( $button ? $button : __( 'Doe de gratis AI-scan', 'veryo' ), veryo_link( 'waar-begin-ik-met-ai' ), 'amber' ) ) );
 	return veryo_b_group(
 		$inner,
 		array(
@@ -630,18 +607,6 @@ function veryo_sec_links( $links, $title = '' ) {
 }
 
 /**
- * Cases en reviews. Verborgen zolang "Toon cases" uit staat (zie veryo_hide_cases_block).
- *
- * @return string
- */
-function veryo_sec_cases() {
-	$inner  = veryo_b_h( __( 'Wat klanten zeggen', 'veryo' ) );
-	$inner .= veryo_b_p( __( '[VUL IN: echte klantcase, met toestemming van de klant: branche, uitgangssituatie, wat we hebben gebouwd en het gemeten resultaat]', 'veryo' ) );
-	$inner .= veryo_b_p( __( '[VUL IN: echte review met naam, functie en bedrijf, alleen met toestemming]', 'veryo' ) );
-	return veryo_b_group( $inner, array( 'className' => 'veryo-cases is-style-paper' ) );
-}
-
-/**
  * Wat we doen, in vier delen, bewust in verschillende vormen (geen identieke kaarten).
  *
  * @return string
@@ -704,35 +669,6 @@ function veryo_sec_services() {
 			'align'     => 'wide',
 			'className' => 'veryo-services veryo-section',
 			'anchor'    => 'wat-we-doen',
-			'layout'    => false,
-		)
-	);
-}
-
-/**
- * Stappen op de homepage: AI-scan, AI-Startpakket, invoering, AI-partner.
- *
- * @return string
- */
-function veryo_sec_steps_home() {
-	$steps = array(
-		'<strong>' . __( 'Gratis AI-scan', 'veryo' ) . '</strong><br>' . __( 'Negen vragen, drie minuten, en je weet waar de tijdwinst zit.', 'veryo' ),
-		'<strong>' . __( 'AI-Startpakket', 'veryo' ) . '</strong><br>' . __( 'Kansensessie, AI-beleid, één toepassing gebouwd of ingericht en 30 dagen nazorg.', 'veryo' ),
-		'<strong>' . __( 'Invoering van de beste kansen', 'veryo' ) . '</strong><br>' . __( 'Eerst met software die je al hebt, alleen waar nodig met een eigen koppeling.', 'veryo' ),
-		'<strong>' . __( 'AI-partner', 'veryo' ) . '</strong><br>' . __( 'Een vaste vraagbaak die zorgt dat het blijft werken en beter wordt.', 'veryo' ),
-	);
-	return veryo_b_group(
-		veryo_sec_head( __( 'Zo werken we', 'veryo' ), veryo_b_p( __( 'Vier stappen, van eerste vraag tot een team dat er elke dag mee werkt. Je kunt na elke stap stoppen.', 'veryo' ) ) )
-		. veryo_b_list(
-			$steps,
-			array(
-				'ordered'   => true,
-				'className' => 'is-style-steps',
-			)
-		),
-		array(
-			'align'     => 'wide',
-			'className' => 'veryo-steps veryo-steps--home veryo-section',
 			'layout'    => false,
 		)
 	);
@@ -1058,109 +994,6 @@ function veryo_sec_marquee() {
 			'className' => 'veryo-marquee',
 			'layout'    => false,
 		)
-	);
-}
-
-/**
- * Signatuursectie: zonder aanpak tegenover met Veryo.
- *
- * @return string
- */
-function veryo_sec_contrast() {
-	$pains  = array(
-		__( 'Werk dat elke week opnieuw met de hand gaat.', 'veryo' ),
-		__( 'Medewerkers die op eigen houtje ChatGPT gebruiken.', 'veryo' ),
-		__( 'Software die je betaalt, maar half gebruikt.', 'veryo' ),
-		__( 'Geen overzicht van wat AI oplevert.', 'veryo' ),
-	);
-	$gains  = array(
-		__( 'Terugkerend werk loopt vanzelf, een mens controleert.', 'veryo' ),
-		__( 'Duidelijke afspraken en zakelijke tools die iedereen kent.', 'veryo' ),
-		__( 'Software die goed is ingericht en echt wordt gebruikt.', 'veryo' ),
-		__( 'Een plan op volgorde van opbrengst, in uren en euro’s.', 'veryo' ),
-	);
-	$inner  = veryo_sec_head( __( 'Van losse pogingen naar een aanpak die werkt', 'veryo' ), veryo_b_p( __( 'Zo ziet AI er in veel bedrijven nu uit, en zo kan het eruitzien.', 'veryo' ) ) );
-	$inner .= veryo_b_columns(
-		array(
-			array(
-				'class' => 'veryo-contrast__without',
-				'inner' => veryo_b_h( __( 'Zonder aanpak', 'veryo' ), 3 ) . veryo_b_list( $pains, array( 'className' => 'veryo-pains' ) ),
-			),
-			array(
-				'class' => 'veryo-contrast__with',
-				'inner' => veryo_b_h( __( 'Met Veryo', 'veryo' ), 3 ) . veryo_b_list( $gains, array( 'className' => 'veryo-gains' ) ),
-			),
-		),
-		array( 'className' => 'veryo-contrast__cols' )
-	);
-	return veryo_sec_wide( $inner, 'veryo-contrast' );
-}
-
-/**
- * De zes pijlers: wat Veryo bouwt en inricht. Bewust twee grotere panelen en vier kleinere.
- *
- * @return string
- */
-function veryo_sec_pillars() {
-	$pillars = array(
-		array( 'ai-werkplek', __( 'AI-werkplek met Claude Team', 'veryo' ), __( 'Claude ingericht met jullie eigen normen, kengetallen en templates: bestek lezen, calculatie voorbereiden, uitgangspunten controleren. De engineer blijft eindverantwoordelijk.', 'veryo' ), true, __( 'Meer over de AI-werkplek', 'veryo' ) ),
-		array( 'ai-automatisering/administratie', __( 'De administratieve kringloop', 'veryo' ), __( 'Uren en werkbonnen inlezen, inkoopfacturen aan projecten koppelen, weekafsluiting met conceptfacturen en begroot naast werkelijk.', 'veryo' ), true, __( 'Meer over de kringloop', 'veryo' ) ),
-		array( 'ai-agents', __( 'AI-agents', 'veryo' ), __( 'Digitale collega’s die terugkerend werk voorbereiden in jullie eigen systemen.', 'veryo' ), false, __( 'Meer over AI-agents', 'veryo' ) ),
-		array( 'ai-automatisering', __( 'Automatiseringen', 'veryo' ), __( 'Koppelingen bovenop de software die jullie al gebruiken. Overstappen is nooit nodig.', 'veryo' ), false, __( 'Meer over automatisering', 'veryo' ) ),
-		array( 'veilig-ai-gebruik', __( 'Veilig AI-gebruik', 'veryo' ), __( 'Beleid, toegangsrechten, tweestapsverificatie en bewustwording.', 'veryo' ), false, __( 'Meer over veilig AI-gebruik', 'veryo' ) ),
-		array( 'ai-partner', __( 'AI-partner', 'veryo' ), __( 'Doorlopende begeleiding in één abonnement, met uren voor verbeteringen.', 'veryo' ), false, __( 'Meer over AI-partner', 'veryo' ) ),
-	);
-	$panels  = '';
-	foreach ( $pillars as $p ) {
-		$panels .= veryo_b_group(
-			veryo_b_h( esc_html( $p[1] ), 3 )
-			. veryo_b_p( esc_html( $p[2] ) )
-			. veryo_b_buttons(
-				array(
-					array( esc_html( $p[4] ), veryo_link( $p[0] ), 'link' ),
-				)
-			),
-			array(
-				'className' => 'veryo-pillar' . ( $p[3] ? ' is-large' : '' ),
-				'layout'    => false,
-			)
-		);
-	}
-	$inner  = veryo_sec_head( __( 'Wat we doen, in zes pijlers', 'veryo' ), veryo_b_p( __( 'Van het eerste advies tot doorlopende begeleiding. Je kunt bij elke pijler instappen. Veryo is geen IT-bedrijf: algemeen beheer en helpdesk laten we aan je IT-beheerder.', 'veryo' ) ) );
-	$inner .= veryo_b_group(
-		$panels,
-		array(
-			'className' => 'veryo-pillars__track',
-			'layout'    => false,
-		)
-	);
-	return veryo_sec_wide( $inner, 'veryo-pillars', 'wat-we-doen' );
-}
-
-/**
- * Overtuiging van de oprichter, met portret.
- *
- * @return string
- */
-function veryo_sec_conviction() {
-	$name = trim( veryo_setting( 'founder_first' ) . ' ' . veryo_setting( 'founder_last' ) );
-	$name = '' === $name ? __( 'De oprichter', 'veryo' ) : $name;
-	return veryo_sec_wide(
-		veryo_b_columns(
-			array(
-				array(
-					'width' => '62%',
-					'inner' => veryo_b_p( esc_html__( 'Ik ben Veryo begonnen omdat ik geloof dat AI bedrijven echt verder helpt. Niet met grote beloftes, maar door processen makkelijker te maken en tijd terug te geven die je liever aan je vak besteedt.', 'veryo' ), array( 'className' => 'veryo-quote' ) )
-						/* translators: %s: naam oprichter. */
-						. veryo_b_p( esc_html( sprintf( __( '%s, oprichter van Veryo', 'veryo' ), $name ) ), array( 'className' => 'veryo-quote__cite' ) ),
-				),
-				array(
-					'width' => '38%',
-					'inner' => veryo_b_shortcode( '[veryo_portret size="large"]' ),
-				),
-			)
-		),
-		'veryo-conviction'
 	);
 }
 
